@@ -1,13 +1,31 @@
+'use client'
 import { useState } from 'react'
 import Form from '../components/Form'
 import MemoryCard from '../components/MemoryCard'
+import axios from 'axios'
 
 export default function Home() {
   const [isGameOn, setIsGameOn] = useState(false)
 
-  function startGame(e: React.FormEvent<HTMLFormElement>) {
+  // Start GAME
+  async function startGame(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setIsGameOn(true)
+    try {
+      const response = await axios.get(
+        'https://emojihub.yurace.pro/api/all/category/animals-and-nature'
+      )
+      if (response.status !== 200) {
+        throw new Error('Failed to fetch data from the emoji API')
+      } else {
+        const data = response.data
+        console.log('Fetched data:', data)
+        setIsGameOn(true)
+      }
+    } catch (error: any) {
+      if (error.response) {
+        console.error('Error fetching data:', error.response.data);
+      } else console.error('Error:', error.message)
+    }
   }
 
   function turnCard() {

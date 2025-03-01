@@ -1,8 +1,10 @@
+import RegularButton from './RegularButton'
 
-
-const Form = () => {
+const Form = ({ handleSubmit }: any) => {
   return (
-    <div>Form</div>
+    <form className="wrapper">
+      <RegularButton handleClick={handleSubmit}>Start Game</RegularButton>
+    </form>
   )
 }
 
