@@ -1,3 +1,0 @@
-// sqlite schema for todo
-
-
