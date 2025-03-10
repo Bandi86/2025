@@ -27,8 +27,9 @@ const getTodoById = (req, res) => {
 // Új todo létrehozása
 const createTodo = (req, res) => {
   const { title, description } = req.body
+ 
   db.run(
-    'INSERT INTO todos (title, description) VALUES (?, ?)',
+    'INSERT INTO todos (id, title, description) VALUES ( ?, ?)',
     [title, description],
     function (err) {
       if (err) {
