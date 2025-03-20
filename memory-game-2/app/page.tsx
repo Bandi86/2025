@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
 
-  const [users, setUsers] = useState<User[]>([])
+ /*  const [users, setUsers] = useState<User[]>([])
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -29,6 +29,13 @@ export default function Home() {
           <p>{user.email}</p>
         </div>
       ))}
+    </main>
+  );
+} */
+  
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      test api call
     </main>
   );
 }

@@ -1,193 +1,44 @@
-import { NextResponse, NextRequest } from 'next/server'
-import bcrypt from 'bcryptjs'
-import jwt from 'jsonwebtoken'
-import db from '@/db/config'
-import { User } from '@/types/user'
+import { NextRequest, NextResponse } from 'next/server'
+import { authHelpers } from '@/db/config'
 
-// Ensure you have a strong secret key - in production, use environment variables
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-here'
-const JWT_EXPIRES_IN = '24h'
-
-// get users data (protected route)
-export async function GET(req: NextRequest) {
+export async function POST(req: NextRequest) {
   try {
-    // Get token from authorization header
-    const token = req.headers
-      .get('authorization')
-      ?.replace('Bearer ', '')
+    const body = await req.json()
+    const { username, email, password } = body
 
-    if (!token) {
+    // Basic validation
+    if (!username || !email || !password) {
+      return NextResponse.json({ message: 'Missing required fields' }, { status: 400 })
+    }
+
+    if (password.length < 8) {
       return NextResponse.json(
-        { error: 'Unauthorized - No token provided' },
-        { status: 401 }
+        { message: 'Password must be at least 8 characters long' },
+        { status: 400 }
       )
+    }
+
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email)) {
+      return NextResponse.json({ message: 'Invalid email format' }, { status: 400 })
     }
 
     try {
-      // Verify token
-      jwt.verify(token, JWT_SECRET)
-    } catch (error) {
-      return NextResponse.json(
-        { error: 'Unauthorized - Invalid token' },
-        { status: 401 }
-      )
-    }
+      // Create user in database
+      const userId = await authHelpers.createUser(username, email, password)
 
-    const stmt = db.prepare('SELECT id, username, email FROM users') // Don't select passwords
-    const users = stmt.all()
-    return NextResponse.json(users)
+      return NextResponse.json({ message: 'User registered successfully', userId }, { status: 201 })
+    } catch (error: any) {
+      // Handle duplicate email
+      if (error.message?.includes('UNIQUE constraint failed: users.email')) {
+        return NextResponse.json({ message: 'Email already in use' }, { status: 409 })
+      }
+
+      throw error
+    }
   } catch (error) {
-    return NextResponse.json(
-      { error: 'Failed to fetch users' },
-      { status: 500 }
-    )
+    console.error('Registration error:', error)
+    return NextResponse.json({ message: 'Internal server error' }, { status: 500 })
   }
 }
-
-// Register User
-export async function POST(req: NextRequest) {
-  try {
-    const { username, email, password } = await req.json()
-    console.log(username, email, password)
-
-    if (!username || !email || !password) {
-      return NextResponse.json(
-        { error: 'Missing required fields' },
-        { status: 400 }
-      )
-    }
-
-    // Check if user already exists
-    const existingUser = db
-      .prepare('SELECT email FROM users WHERE email = ?')
-      .get(email)
-    if (existingUser) {
-      return NextResponse.json(
-        { error: 'User already exists' },
-        { status: 409 }
-      )
-    }
-
-    const hashedPassword = await bcrypt.hash(password, 10)
-
-    const stmt = db.prepare(
-      'INSERT INTO users (username, email, password) VALUES (?, ?, ?)'
-    )
-    stmt.run(username, email, hashedPassword)
-
-    return NextResponse.json(
-      { message: 'User registered successfully' },
-      { status: 201 }
-    )
-  } catch (error) {
-    return NextResponse.json(
-      { error: 'Failed to register user' },
-      { status: 500 }
-    )
-  }
-}
-
-// login user
-export async function POSTLOG(req: NextRequest) {
-  try {
-    const { email, password } = await req.json()
-
-    if (!email || !password) {
-      return NextResponse.json(
-        { error: 'Missing required fields' },
-        { status: 400 }
-      )
-    }
-
-    const stmt = db.prepare('SELECT * FROM users WHERE email = ?')
-    const user = stmt.get(email) as unknown as User | undefined
-
-    if (!user) {
-      return NextResponse.json(
-        { error: 'User not found' },
-        { status: 404 }
-      )
-    }
-
-    const isPasswordValid = await bcrypt.compare(
-      password,
-      user.password
-    )
-
-    if (!isPasswordValid) {
-      return NextResponse.json(
-        { error: 'Invalid password' },
-        { status: 401 }
-      )
-    }
-
-    // Generate JWT token
-    const token = jwt.sign(
-      {
-        userId: user.id,
-        email: user.email,
-        username: user.username,
-      },
-      JWT_SECRET,
-      { expiresIn: JWT_EXPIRES_IN }
-    )
-
-    // Don't send password in response
-    const { password: _, ...userWithoutPassword } = user
-
-    return NextResponse.json(
-      {
-        user: userWithoutPassword,
-        token,
-        message: 'Login successful',
-      },
-      { status: 200 }
-    )
-  } catch (error) {
-    return NextResponse.json(
-      { error: 'Failed to login user' },
-      { status: 500 }
-    )
-  }
-}
-
-// Verify token middleware (can be moved to a separate middleware file)
-export async function verifyToken(req: NextRequest) {
-  try {
-    const token = req.headers
-      .get('authorization')
-      ?.replace('Bearer ', '')
-
-    if (!token) {
-      return NextResponse.json(
-        { error: 'Unauthorized - No token provided' },
-        { status: 401 }
-      )
-    }
-
-    const decoded = jwt.verify(token, JWT_SECRET)
-    return decoded
-  } catch (error) {
-    return NextResponse.json(
-      { error: 'Unauthorized - Invalid token' },
-      { status: 401 }
-    )
-  }
-}
-
-// get all user data
-
-export async function GETALL(req: NextRequest) {
-  try {
-    const stmt = db.prepare('SELECT * FROM users') // Don't select passwords
-    const users = stmt.all()
-    return NextResponse.json(users)
-  } catch (error) {
-    return NextResponse.json(
-      { error: 'Failed to fetch users' },
-      { status: 500 }
-    )
-  }
-}
-
-
