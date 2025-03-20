@@ -1,8 +1,11 @@
 // configuration file for nextjs sqlite 3 database
 import sqlite3 from 'sqlite3'
+import { join } from 'path'
 
+
+const dbPath = join(process.cwd(), 'memory-game.db')
 const db = new sqlite3.Database(
-  '/db/memory-game.db',
+  dbPath,
   sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE,
   err => {
     if (err) {
@@ -14,12 +17,11 @@ const db = new sqlite3.Database(
 )
 
 // Create the tables if it doesn't exist
-
 db.run(
   `
   CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
+    username TEXT NOT NULL,
     email TEXT NOT NULL,
     password TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -39,7 +41,7 @@ db.run(
 // create admin user after user table is ready
 db.serialize(() => {
   const stmt = db.prepare(
-    'INSERT INTO users (name, email, password) VALUES (?, ?, ?)'
+    'INSERT INTO users (username, email, password) VALUES (?, ?, ?)'
   )
   stmt.run('admin', 'admin@admin.com', 'admin123')
 })

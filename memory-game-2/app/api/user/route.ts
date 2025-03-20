@@ -33,7 +33,7 @@ export async function GET(req: NextRequest) {
       )
     }
 
-    const stmt = db.prepare('SELECT id, name, email FROM users') // Don't select passwords
+    const stmt = db.prepare('SELECT id, username, email FROM users') // Don't select passwords
     const users = stmt.all()
     return NextResponse.json(users)
   } catch (error) {
@@ -48,6 +48,7 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   try {
     const { username, email, password } = await req.json()
+    console.log(username, email, password)
 
     if (!username || !email || !password) {
       return NextResponse.json(
@@ -70,7 +71,7 @@ export async function POST(req: NextRequest) {
     const hashedPassword = await bcrypt.hash(password, 10)
 
     const stmt = db.prepare(
-      'INSERT INTO users (name, email, password) VALUES (?, ?, ?)'
+      'INSERT INTO users (username, email, password) VALUES (?, ?, ?)'
     )
     stmt.run(username, email, hashedPassword)
 
@@ -125,7 +126,7 @@ export async function POSTLOG(req: NextRequest) {
       {
         userId: user.id,
         email: user.email,
-        name: user.name,
+        username: user.username,
       },
       JWT_SECRET,
       { expiresIn: JWT_EXPIRES_IN }
@@ -188,4 +189,5 @@ export async function GETALL(req: NextRequest) {
     )
   }
 }
+
 
