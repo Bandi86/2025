@@ -3,9 +3,14 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
+interface UserData {
+  username: string
+  email: string
+}
+
 const Header = () => {
   const router = useRouter()
-  const [user, setUser] = useState<{ username: string; email: string } | null>(null)
+  const [user, setUser] = useState<UserData | null>(null)
   const [loading, setLoading] = useState(true)
 
   // Function to get user data from localStorage
@@ -67,20 +72,20 @@ const Header = () => {
           {!user ? 'Guest' : user.username} {user && `- ${user.email}`}
           {user ? (
             <span
-              className="mx-3 font-semibold cursor-pointer hover:text-gray-200"
+              className="ml-3 font-semibold cursor-pointer hover:text-gray-200"
               onClick={handleLogout}
             >
               Logout
             </span>
           ) : (
-            <div className="inline-block">
-              <Link href="/login" className="mx-3 font-semibold hover:text-gray-200">
+            <span className="inline-flex gap-3">
+              <Link href="/login" className="font-semibold hover:text-gray-200">
                 Login
               </Link>
-              <Link href="/register" className="mx-3 font-semibold hover:text-gray-200">
+              <Link href="/register" className="font-semibold hover:text-gray-200">
                 Register
               </Link>
-            </div>
+            </span>
           )}
         </p>
       </section>
@@ -91,19 +96,17 @@ const Header = () => {
         </Link>
 
         <nav className="flex items-center gap-4">
-          <Link href="/" className="hover:text-red-700 text-white font-medium">
+          <Link href="/" className="hover:text-red-300 text-white font-medium">
             Home
           </Link>
-          {user && (
-            <Link href="/game" className="hover:text-red-700 text-white font-medium">
+          {user && (<>
+            <Link href="/game" className="hover:text-red-300 text-white font-medium">
               Play Game
             </Link>
-          )}
-          {user && (
-            <Link href="/profile" className="hover:text-red-700 text-white font-medium">
+            <Link href="/profile" className="hover:text-red-300 text-white font-medium">
               Profile
             </Link>
-          )}
+          </>)}
         </nav>
       </div>
     </header>
