@@ -100,7 +100,7 @@ const Header = () => {
             Home
           </Link>
           {user && (<>
-            <Link href="/game" className="hover:text-red-300 text-white font-medium">
+            <Link href="/dashboard" className="hover:text-red-300 text-white font-medium">
               Play Game
             </Link>
             <Link href="/profile" className="hover:text-red-300 text-white font-medium">

@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "ES2022" /* Specify ECMAScript target version */,
+    "module": "CommonJS" /* Specify module code generation */,
+    "lib": ["ES2022"] /* Specify library files to be included */,
+    "outDir": "./dist" /* Redirect output structure to the directory */,
+    "rootDir": "./src" /* Specify the root directory of input files */,
+    "strict": true /* Enable all strict type-checking options */,
+    "esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules */,
+    "skipLibCheck": true /* Skip type checking of declaration files */,
+    "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file */,
+    "resolveJsonModule": true /* Include modules imported with .json extension */,
+
+    /* Module Resolution Options */
+    "moduleResolution": "node" /* Specify module resolution strategy: 'node' (CommonJS) or 'classic' */,
+    "baseUrl": "./src" /* Base directory to resolve non-absolute module names - THIS ALLOWS TOP-LEVEL IMPORTS */,
+    "paths": {
+      /* Example for alias setup if needed later */
+      "@/*": ["*"] /* Allows imports like import x from '@/utils/helper' */
+    },
+
+    /* Advanced Options */
+    "sourceMap": true /* Generates corresponding '.map' file */,
+    "declaration": true /* Generates corresponding '.d.ts' file */
+  },
+  "include": ["src/**/*.ts"] /* Compile files in the src directory */,
+  "exclude": ["node_modules", "dist"] /* Exclude node_modules and dist */
+}
