@@ -2,6 +2,7 @@ import { initializeDatabase, getDb, closeDatabase } from './database' // Notice 
 import express, { Request, Response, NextFunction } from 'express'
 import 'dotenv/config' // Make sure .env variables are loaded
 import usersRouter from './routes/users'
+import gameStatsRouter from './routes/gameStat'
 
 
 
@@ -23,8 +24,11 @@ app.get('/', (req: Request, res: Response) => {
   res.send('Hello from the Backend!')
 })
 
+
+
 // User route
-app.get('/api/users',usersRouter)
+app.get('/api/users', usersRouter)
+app.get('/api/gameStats', gameStatsRouter)
 
 // --- Global Error Handler ---
 // (Add more robust error handling as needed)
@@ -58,3 +62,4 @@ signals.forEach((signal) => {
 })
 
 startServer()
+

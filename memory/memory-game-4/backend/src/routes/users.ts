@@ -8,9 +8,9 @@ import deleteUser from '../controller/users/deleteUser'
 const router = express.Router()
 
 router.get('/', getAllUsers as RequestHandler)
-router.post('/', createUser as RequestHandler)
-router.post('/login', loginUser as RequestHandler)
-router.put('/:id', updateUser as RequestHandler)
-router.delete('/:id', deleteUser as RequestHandler)
+router.post('/', createUser as unknown as RequestHandler)
+router.post('/login', loginUser as unknown as RequestHandler)
+router.put('/:id', updateUser as unknown as RequestHandler)
+router.delete('/:id', deleteUser as unknown as RequestHandler)
 
 export default router

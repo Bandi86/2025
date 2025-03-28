@@ -15,9 +15,9 @@ async function createAdminUser(): Promise<void> {
       throw new Error('Database not initialized')
     }
 
-    const adminName = process.env.ADMIN_NAME
-    const adminEmail = process.env.ADMIN_EMAIL
-    const adminPassword = process.env.ADMIN_PASSWORD
+    const adminName = process.env.ADMIN_NAME || 'admin'
+    const adminEmail = process.env.ADMIN_EMAIL || 'admin@localhost'
+    const adminPassword = process.env.ADMIN_PASSWORD || 'admin'
     const adminRole = 'admin'
 
     if (!adminName || !adminEmail || !adminPassword) {
