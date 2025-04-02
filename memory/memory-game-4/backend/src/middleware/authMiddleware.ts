@@ -2,6 +2,11 @@ import { Request, Response, NextFunction } from 'express'
 import jwt from 'jsonwebtoken'
 import { getDb } from '../database'
 
+// Extend Request type if using custom properties like req.user
+interface AuthenticatedRequest extends Request {
+  user?: { id: number /* add other user properties if needed */ }
+}
+
 interface JwtPayload {
   id: string
   role: string
@@ -22,7 +27,22 @@ export function verifyToken(token?: string): JwtPayload | null {
   }
 }
 
-export async function authMiddleware(req: Request, res: Response, next: NextFunction) {
+// Placeholder Authentication Middleware
+
+export const authMiddleware = async (
+  req: AuthenticatedRequest,
+  res: Response,
+  next: NextFunction
+) => {
+  console.log('Auth Middleware Triggered (Placeholder)')
+
+  // In a real implementation, you would:
+  // 1. Extract token (from header, cookie, etc.)
+  // 2. Verify the token (e.g., using jwt.verify)
+  // 3. If valid, find the user in the database
+  // 4. Attach user info to the request object (e.g., req.user = { id: userId, ... })
+  // 5. If invalid or no token, send a 401 Unauthorized response or call next(error)
+
   const token = req.headers.authorization?.split(' ')[1]
   const decoded = verifyToken(token)
 
@@ -41,6 +61,8 @@ export async function authMiddleware(req: Request, res: Response, next: NextFunc
     return res.status(401).json({ error: 'User no longer exists' })
   }
 
-  req.user = decoded
-  next()
+  req.user = decoded.Number()
+
+  console.log('Simulated user attached:', req.user)
+  next() // Proceed to the next middleware or route handler
 }

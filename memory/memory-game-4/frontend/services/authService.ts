@@ -1,5 +1,4 @@
 import axios, { AxiosError } from 'axios'
-import { User } from '@/types/user'
 
 type LoginData = {
   email: string
@@ -14,8 +13,8 @@ type RegisterData = {
 
 export const login = async (data: LoginData) => {
   try {
-    const response = await axios.post('/api/user/login', data, { 
-      withCredentials: true 
+    const response = await axios.post('/api/user/login', data, {
+      withCredentials: true
     })
     return response.data
   } catch (error) {
@@ -51,7 +50,7 @@ export const validatePassword = (password: string): string | null => {
 }
 
 export const validateConfirmPassword = (
-  password: string, 
+  password: string,
   confirmPassword: string
 ): string | null => {
   if (password !== confirmPassword) return 'Passwords do not match'

@@ -3,6 +3,8 @@ import { open, Database } from 'sqlite'
 import path from 'path'
 import 'dotenv/config' // Load .env variables
 import createAdminUser from './lib/createAdmin'
+import { nanoid } from 'nanoid'
+
 
 // Ensure the data directory exists if DATABASE_PATH includes it
 import fs from 'fs'
@@ -43,10 +45,29 @@ export async function initializeDatabase(): Promise<Database> {
         role TEXT NOT NULL DEFAULT 'user',
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    )
-`)
+    );
+    `); // End of CREATE TABLE users
 
-    console.log('Checked/Created "users" table.')
+    console.log('Checked/Created "users" table.');
+
+    // Create gameStats table separately
+    await openedDb.exec(`
+    CREATE TABLE IF NOT EXISTS gameStats (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
+        difficulty TEXT NOT NULL,         -- e.g., '4x4', '6x6'
+        moves INTEGER DEFAULT 0,          -- Number of moves made
+        elapsedTime INTEGER DEFAULT 0,    -- Time played in seconds
+        boardState TEXT NOT NULL,         -- JSON representation of the board
+        status TEXT NOT NULL,             -- 'in-progress', 'completed', 'abandoned'
+        startTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- When the game started
+        endTime TIMESTAMP NULL,           -- When the game ended (NULL if not finished)
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Last time the record was updated
+        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE -- Added ON DELETE CASCADE
+    );
+    `);
+
+    console.log('Checked/Created "gameStats" table.');
 
     db = openedDb
     createAdminUser()
