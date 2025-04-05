@@ -1,0 +1,36 @@
+/* simple-mpa/@globals/0-settings.css */
+@layer settings, structure, contexts, components, effects, adjustments, screens, overrides;
+
+@layer settings {
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  :root {
+    accent-color: var(--main-500);
+  }
+
+  ::placeholder {
+    color: var(--base-400);
+  }
+
+  :focus-visible {
+    outline: .5px solid var(--base-500);
+    transition: outline-width .1s;
+    outline-offset: 1.5px;
+  }
+
+  body {
+    font-family: system-ui;
+    font-size: 15px;
+    margin: 0;
+  }
+}

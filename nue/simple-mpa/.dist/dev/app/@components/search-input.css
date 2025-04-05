@@ -1,0 +1,42 @@
+/* simple-mpa/app/@components/search-input.css */
+@layer components {
+  .search {
+    background-color: #fff;
+    border: var(--border);
+    border-radius: .25em;
+    align-items:  center;
+    padding: 0 .75em;
+    display: flex;
+    margin-bottom: 1.75em;
+  }
+
+  .search input {
+    padding: .75em .5em;
+    width: 5em;
+    outline: 0;
+    border: 0;
+    flex: 1;
+  }
+
+  .search ::-webkit-search-cancel-button {
+    opacity: .4;
+    cursor: pointer;
+  }
+
+  .search ::-webkit-search-cancel-button:hover {
+    opacity: 1;
+  }
+
+  .search input + kbd {
+    margin-left: auto;
+  }
+
+  .search:has(:focus) {
+    outline: .5px solid var(--base-500);
+    outline-offset: 1px;
+  }
+
+  .search:has(:focus) kbd {
+    display: none;
+  }
+}

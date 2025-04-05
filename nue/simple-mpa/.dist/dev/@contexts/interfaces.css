@@ -1,0 +1,75 @@
+/* simple-mpa/@contexts/interfaces.css */
+@layer contexts {
+  :root {
+    --ui-font: 14px;
+    --smaller: 95%;
+    --small: 90%;
+  }
+
+  .ui {
+    font-size: var(--ui-font);
+    line-height: 1.25;
+    color: var(--base-700);
+  }
+
+  .ui p {
+    margin: .25em 0;
+  }
+
+  .ui h1, .ui h2, .ui h3, .ui h4, .ui h5 {
+    margin: 0;
+  }
+
+  .ui h1 {
+    font-size: 1.5em;
+    font-weight: 600;
+    letter-spacing: -.025em;
+  }
+
+  .ui h2 {
+    font-size: 1em;
+    font-weight: 550;
+  }
+
+  .ui h3 {
+    font-size: 1em;
+    font-weight: 510;
+  }
+
+  .ui h4 {
+    font-size: 1em;
+    font-weight: 400;
+  }
+
+  .ui a {
+    text-decoration: none;
+    font-weight: 470;
+  }
+
+  .ui ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .ui .action {
+    color: var(--base-400);
+    cursor: pointer;
+  }
+
+  .ui .action:hover {
+    border-bottom: 1px solid var(--base-300);
+  }
+
+  .ui strong {
+    font-weight: 550;
+  }
+
+  .ui small, .ui time {
+    font-size: .875em;
+    color: var(--base-00);
+  }
+
+  .ui header button, .ui header [role="button"] {
+    padding: .5em 1em;
+  }
+}

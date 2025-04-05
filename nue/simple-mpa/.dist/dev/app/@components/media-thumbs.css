@@ -1,0 +1,29 @@
+/* simple-mpa/app/@components/media-thumbs.css */
+@layer components {
+  .media-thumbs {
+    display: flex;
+    gap: .75em;
+    flex-wrap: wrap;
+    margin-block: 1em;
+  }
+
+  .media-thumbs li {
+    width: calc(50% - .375em);
+  }
+
+  .media-overlay aside {
+    text-align: center;
+  }
+
+  .media-overlay ul {
+    display: inline-flex;
+  }
+
+  .media-overlay li {
+    max-width: 10em;
+  }
+
+  .media-overlay img {
+    border-radius: .25em;
+  }
+}

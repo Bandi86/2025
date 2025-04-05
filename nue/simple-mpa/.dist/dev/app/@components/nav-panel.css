@@ -1,0 +1,67 @@
+/* simple-mpa/app/@components/nav-panel.css */
+@layer components {
+  .nav-panel header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .nav-panel header button {
+    margin-right: -.5em;
+  }
+
+  .nav-panel nav, .nav-panel details {
+    margin: 1em 0 1.5em;
+  }
+
+  .nav-panel nav a {
+    color: var(--base-500);
+    border: 1px solid #0000;
+    border-radius: .25em;
+    align-items:  center;
+    padding: .5em .75em;
+    margin-bottom: 1px;
+    display: flex;
+    gap: .5em;
+  }
+
+  .nav-panel nav a:hover {
+    background-color: var(--alpha-50);
+  }
+
+  .nav-panel nav a[aria-current] {
+    background-color: var(--base-200);
+    pointer-events: none;
+    color: var(--base-900);
+  }
+
+  .nav-panel nav a[aria-current] .icon {
+    color: var(--main-500);
+    stroke-width: 2.1;
+  }
+
+  .nav-panel summary {
+    text-transform: uppercase;
+    border-radius: .25em;
+    color: var(--base-500);
+    font-size: .75em;
+    letter-spacing: .75;
+    font-weight: 500;
+    padding: .5em .75em;
+    margin-bottom: -.75em;
+    cursor: pointer;
+  }
+
+  .nav-panel details nav {
+    border-left: 1px solid var(--base-300);
+    margin-left: .75em;
+  }
+
+  .nav-panel details nav a {
+    font-weight: 400;
+    padding: .25em .5em;
+  }
+
+  .nav-panel .media {
+    margin-left: .5em;
+  }
+}

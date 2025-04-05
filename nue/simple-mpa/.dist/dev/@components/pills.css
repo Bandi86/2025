@@ -1,0 +1,27 @@
+/* simple-mpa/@components/pills.css */
+@layer components {
+  .pill {
+    border: var(--border);
+    color: var(--base-500);
+    text-transform: capitalize;
+    display: inline-flex;
+    font-size: .875em;
+    padding: .25em;
+    padding-right: .75em;
+    border-radius: 1em;
+    align-items:  center;
+    gap: .25em;
+  }
+
+  .pill .icon {
+    color: var(--main-500);
+  }
+
+  .pill.plain {
+    border: unset;
+  }
+
+  .pill.plain .icon {
+    color: var(--base-400);
+  }
+}

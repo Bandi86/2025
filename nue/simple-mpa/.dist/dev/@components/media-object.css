@@ -1,0 +1,16 @@
+/* simple-mpa/@components/media-object.css */
+@layer components {
+  .media {
+    align-items: var(--align, center);
+    gap: var(--gap, .75em);
+    display: flex;
+  }
+
+  .media img {
+    border-radius: 9em;
+  }
+
+  .media p {
+    color: var(--base-400);
+  }
+}

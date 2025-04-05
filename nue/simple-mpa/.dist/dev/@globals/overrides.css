@@ -1,0 +1,10 @@
+/* simple-mpa/@globals/overrides.css */
+@layer overrides {
+  [hidden] {
+    display: none;
+  }
+
+  .mr {
+    margin-right: .25em;
+  }
+}

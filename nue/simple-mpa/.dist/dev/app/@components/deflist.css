@@ -1,0 +1,25 @@
+/* simple-mpa/app/@components/deflist.css */
+@layer components {
+  dl {
+    display: grid;
+    grid-template-columns: 10em 1fr;
+    margin-block: 1em;
+  }
+
+  dl > * {
+    margin: .25em 0;
+    line-height: 1.4;
+  }
+
+  dl dt {
+    font-weight: 500;
+  }
+
+  dl dd {
+    color: var(--base-600);
+  }
+
+  dl.full-size dd {
+    text-align: right;
+  }
+}

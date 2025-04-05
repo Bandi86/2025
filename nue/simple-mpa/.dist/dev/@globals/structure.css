@@ -1,0 +1,14 @@
+/* simple-mpa/@globals/structure.css */
+@layer structure {
+  body {
+    max-width: 1100px;
+    padding: var(--l);
+    margin: 0 auto;
+  }
+
+  body > header {
+    display: flex;
+    align-items:  center;
+    justify-content: space-between;
+  }
+}

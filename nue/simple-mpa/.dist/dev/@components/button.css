@@ -1,0 +1,61 @@
+/* simple-mpa/@components/button.css */
+@layer components {
+  button, [role="button"] {
+    justify-content: space-around;
+    display: inline-flex;
+    align-items:  center;
+    font-family: inherit;
+    font-size: inherit;
+    padding: .75em 1em;
+    box-shadow: 1px 1px 1px var(--alpha-200);
+    border: 1px solid var(--base-300);
+    border-radius: .25em;
+    background-color: #fff;
+    text-decoration: none;
+    transition: all .2s;
+    color: var(--base-600);
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  :is(button, [role="button"]) .icon {
+    width: 1.2em;
+  }
+
+  :is(button, [role="button"]):hover {
+    border-color: var(--base-400);
+    color: var(--base-900);
+  }
+
+  :is(button, [role="button"]):active {
+    box-shadow: 0 0 2px var(--alpha-200) inset;
+    border-color: var(--base-300);
+  }
+
+  :is(button, [role="button"]).primary {
+    border-color: var(--main-500);
+    background-color: var(--main-500);
+    color: #fff;
+  }
+
+  :is(button, [role="button"]).primary:hover {
+    background-color: var(--main-600);
+    color: #fff;
+  }
+
+  :is(button, [role="button"]).cta {
+    background-color: var(--base-800);
+    color: #fff;
+  }
+
+  :is(button, [role="button"]).cta:hover {
+    background-color: var(--base-950);
+    border-color: var(--base-700);
+    color: #fff;
+  }
+
+  :is(button, [role="button"]):disabled {
+    pointer-events: none;
+    opacity: .5;
+  }
+}

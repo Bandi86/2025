@@ -1,0 +1,24 @@
+/* simple-mpa/app/@app/structure.css */
+@layer structure {
+  body {
+    overflow: hidden;
+    padding: var(--body-padding);
+  }
+
+  .app {
+    gap: 1em;
+    display: flex;
+  }
+
+  .app .nav-panel {
+    min-width: 16em;
+  }
+
+  .app .content-panel {
+    flex-grow: 1;
+  }
+
+  .app .details-panel {
+    width: 28em;
+  }
+}

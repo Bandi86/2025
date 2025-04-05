@@ -1,0 +1,11 @@
+/* simple-mpa/app/@app/settings.css */
+@layer settings {
+  :root {
+    --border: 1px solid var(--base-200);
+    --body-padding: 1em;
+    --blue-100: oklch(95% .1 250);
+    --blue-500: oklch(70% .25 250);
+    --green-100: oklch(95% .1 150);
+    --green-500: oklch(70% .25 150);
+  }
+}

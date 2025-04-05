@@ -1,0 +1,1119 @@
+<!doctype html>
+
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+<title>Nue CRM / A single-page app demo</title>
+<meta name="generator" content="Nue v1.0.0-RC.3 (nuejs.org)">
+<meta name="date.updated" content="2025-04-05T11:53:44.366Z">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta property="og:title" content="Nue CRM / A single-page app demo">
+<meta name="nue:components" content="/view/media.js /app/view/details-panel.js /app/view/media-thumbs.js /app/view/user-details.js /app/view/nav-panel.js /app/view/chat.js /app/view/login-screen.js /app/view/content-panel.js /app/view/utils.js /app/view/user-item.js /app/view/sort-buttons.js /app/view/app-screen.js /app/view/collection.js /app/view/search-input.js">
+<meta name="nue:include" content="button interfaces @contexts/interfaces.css @components controllers view">
+<meta name="nue:exclude" content="@globals/structure">
+<meta name="nue:globals" content="@globals @app controllers view">
+<meta name="nue:libs" content="@components @contexts app/@components">
+<link rel="icon" type="image/svg+xml" href="/img/logo.svg">
+<style href="/@globals/0-settings.css">/* simple-mpa/@globals/0-settings.css */
+@layer settings, structure, contexts, components, effects, adjustments, screens, overrides;
+
+@layer settings {
+  *, *:before, *:after {
+box-sizing: border-box;
+  }
+
+  img {
+max-width: 100%;
+  }
+
+  figure {
+margin: 0;
+  }
+
+  :root {
+accent-color: var(--main-500);
+  }
+
+  ::placeholder {
+color: var(--base-400);
+  }
+
+  :focus-visible {
+outline: .5px solid var(--base-500);
+transition: outline-width .1s;
+outline-offset: 1.5px;
+  }
+
+  body {
+font-family: system-ui;
+font-size: 15px;
+margin: 0;
+  }
+}
+</style>
+<style href="/@globals/colors.css">/* simple-mpa/@globals/colors.css */
+@layer settings {
+  :root {
+--base-50: oklch(.984 .003 247.858);
+--base-100: oklch(.968 .007 247.896);
+--base-200: oklch(.929 .013 255.508);
+--base-300: oklch(.869 .022 252.894);
+--base-400: oklch(.704 .04 256.788);
+--base-500: oklch(.554 .046 257.417);
+--base-600: oklch(.446 .043 257.281);
+--base-700: oklch(.372 .044 257.287);
+--base-800: oklch(.279 .041 260.031);
+--base-900: oklch(.208 .042 265.755);
+--base-950: oklch(.129 .042 264.695);
+--main-500: #3b82f6;
+--main-600: #2563eb;
+--alpha-50: #00000006;
+--alpha-100: #0000000d;
+--alpha-200: #0000001a;
+--alpha-300: #0003;
+  }
+}
+</style>
+<style href="/@globals/effects.css">/* simple-mpa/@globals/effects.css */
+@layer effects {
+  @keyframes pulse {
+0%, 100% {
+  opacity: .5;
+}
+
+50% {
+  opacity: 1;
+}
+  }
+
+  .pulsating {
+opacity: .1;
+animation: pulse 2s cubic-bezier(.4, 0, .6, 1) infinite;
+pointer-events: none;
+  }
+
+  .pulsating:nth-child(2) {
+animation-delay: .25s;
+  }
+
+  .pulsating:nth-child(3) {
+animation-delay: .5s;
+  }
+
+  main:not(.hmr) .appears {
+opacity: 1;
+transition: opacity .75s;
+transition-delay: calc(15ms * var(--delay));
+  }
+
+  @starting-style {
+main:not(.hmr) .appears {
+  opacity: 0;
+}
+  }
+}
+</style>
+<style href="/@globals/overrides.css">/* simple-mpa/@globals/overrides.css */
+@layer overrides {
+  [hidden] {
+display: none;
+  }
+
+  .mr {
+margin-right: .25em;
+  }
+}
+</style>
+<style href="/@components/button.css">/* simple-mpa/@components/button.css */
+@layer components {
+  button, [role="button"] {
+justify-content: space-around;
+display: inline-flex;
+align-items:  center;
+font-family: inherit;
+font-size: inherit;
+padding: .75em 1em;
+box-shadow: 1px 1px 1px var(--alpha-200);
+border: 1px solid var(--base-300);
+border-radius: .25em;
+background-color: #fff;
+text-decoration: none;
+transition: all .2s;
+color: var(--base-600);
+font-weight: 500;
+cursor: pointer;
+  }
+
+  :is(button, [role="button"]) .icon {
+width: 1.2em;
+  }
+
+  :is(button, [role="button"]):hover {
+border-color: var(--base-400);
+color: var(--base-900);
+  }
+
+  :is(button, [role="button"]):active {
+box-shadow: 0 0 2px var(--alpha-200) inset;
+border-color: var(--base-300);
+  }
+
+  :is(button, [role="button"]).primary {
+border-color: var(--main-500);
+background-color: var(--main-500);
+color: #fff;
+  }
+
+  :is(button, [role="button"]).primary:hover {
+background-color: var(--main-600);
+color: #fff;
+  }
+
+  :is(button, [role="button"]).cta {
+background-color: var(--base-800);
+color: #fff;
+  }
+
+  :is(button, [role="button"]).cta:hover {
+background-color: var(--base-950);
+border-color: var(--base-700);
+color: #fff;
+  }
+
+  :is(button, [role="button"]):disabled {
+pointer-events: none;
+opacity: .5;
+  }
+}
+</style>
+<style href="/@components/card.css">/* simple-mpa/@components/card.css */
+@layer components {
+  .card {
+border-color: var(--alpha-100);
+background-color: #fff;
+border-radius: .5em;
+padding: 1em 1.5em;
+  }
+}
+</style>
+<style href="/@components/dialog.css">/* simple-mpa/@components/dialog.css */
+@layer components {
+  dialog {
+padding: 1em 1.5em;
+border-radius: .5em;
+box-shadow: 0 0 2em var(--alpha-300);
+border: 0;
+  }
+
+  dialog header {
+justify-content: space-between;
+border-bottom: var(--border);
+padding-block: .5em;
+align-items:  center;
+min-width: 20em;
+display: flex;
+  }
+
+  dialog::backdrop {
+background: #bebebe80;
+  }
+}
+</style>
+<style href="/@components/form.css">/* simple-mpa/@components/form.css */
+@layer components {
+  input, textarea {
+border: 1px solid var(--base-300);
+font-family: inherit;
+border-radius: .25em;
+padding: .75em 1em;
+color: inherit;
+font-size: 1em;
+width: 100%;
+  }
+
+  form label {
+margin-block: 1em;
+display: block;
+  }
+
+  form label > :first-child {
+font-size: 1em;
+font-weight: 550;
+margin-block: .5em;
+  }
+}
+</style>
+<style href="/@components/icon.css">/* simple-mpa/@components/icon.css */
+@layer components {
+  .icon {
+width: var(--size, 1.25em);
+height: var(--size, 1.25em);
+display: inline-block;
+vertical-align: middle;
+stroke-width: 1.5;
+stroke: currentColor;
+stroke-linecap: round;
+stroke-linejoin: round;
+fill: none;
+  }
+}
+</style>
+<style href="/@components/media-object.css">/* simple-mpa/@components/media-object.css */
+@layer components {
+  .media {
+align-items: var(--align, center);
+gap: var(--gap, .75em);
+display: flex;
+  }
+
+  .media img {
+border-radius: 9em;
+  }
+
+  .media p {
+color: var(--base-400);
+  }
+}
+</style>
+<style href="/@components/pills.css">/* simple-mpa/@components/pills.css */
+@layer components {
+  .pill {
+border: var(--border);
+color: var(--base-500);
+text-transform: capitalize;
+display: inline-flex;
+font-size: .875em;
+padding: .25em;
+padding-right: .75em;
+border-radius: 1em;
+align-items:  center;
+gap: .25em;
+  }
+
+  .pill .icon {
+color: var(--main-500);
+  }
+
+  .pill.plain {
+border: unset;
+  }
+
+  .pill.plain .icon {
+color: var(--base-400);
+  }
+}
+</style>
+<style href="/@contexts/interfaces.css">/* simple-mpa/@contexts/interfaces.css */
+@layer contexts {
+  :root {
+--ui-font: 14px;
+--smaller: 95%;
+--small: 90%;
+  }
+
+  .ui {
+font-size: var(--ui-font);
+line-height: 1.25;
+color: var(--base-700);
+  }
+
+  .ui p {
+margin: .25em 0;
+  }
+
+  .ui h1, .ui h2, .ui h3, .ui h4, .ui h5 {
+margin: 0;
+  }
+
+  .ui h1 {
+font-size: 1.5em;
+font-weight: 600;
+letter-spacing: -.025em;
+  }
+
+  .ui h2 {
+font-size: 1em;
+font-weight: 550;
+  }
+
+  .ui h3 {
+font-size: 1em;
+font-weight: 510;
+  }
+
+  .ui h4 {
+font-size: 1em;
+font-weight: 400;
+  }
+
+  .ui a {
+text-decoration: none;
+font-weight: 470;
+  }
+
+  .ui ul {
+list-style: none;
+padding: 0;
+  }
+
+  .ui .action {
+color: var(--base-400);
+cursor: pointer;
+  }
+
+  .ui .action:hover {
+border-bottom: 1px solid var(--base-300);
+  }
+
+  .ui strong {
+font-weight: 550;
+  }
+
+  .ui small, .ui time {
+font-size: .875em;
+color: var(--base-00);
+  }
+
+  .ui header button, .ui header [role="button"] {
+padding: .5em 1em;
+  }
+}
+</style>
+<style href="/app/@app/app.css">/* simple-mpa/app/@app/app.css */
+@layer adjustments {
+  body {
+background-color: var(--base-100);
+  }
+
+  :is(h1, h2, h3):has(img, svg) {
+align-items:  center;
+display: flex;
+gap: .25em;
+  }
+}
+</style>
+<style href="/app/@app/screens.css">/* simple-mpa/app/@app/screens.css */
+@layer screens {
+  @media (max-width: 1200px) {
+.details-panel {
+  box-shadow: 0 0 0 99em #0006;
+  position: absolute;
+  right: 1em;
+}
+  }
+
+  .mobile {
+display: none;
+  }
+
+  @media (max-width: 900px) {
+.mobile {
+  display: unset;
+}
+
+:root {
+  --body-padding: 0px;
+}
+
+.panel {
+  border-radius: 0;
+}
+
+.nav-panel {
+  border-right: var(--border);
+  background-color: var(--base-100);
+  width: min(20em, 100vw);
+  position: absolute;
+  padding: 0 1em 1em .5em;
+  transition: left .25s;
+  left: -30em;
+  z-index: 1;
+}
+
+.nav-panel[aria-visible] {
+  box-shadow: 0 0 0 99em #0006;
+  left: 0;
+}
+
+.details-panel {
+  right: 0;
+}
+  }
+}
+</style>
+<style href="/app/@app/settings.css">/* simple-mpa/app/@app/settings.css */
+@layer settings {
+  :root {
+--border: 1px solid var(--base-200);
+--body-padding: 1em;
+--blue-100: oklch(95% .1 250);
+--blue-500: oklch(70% .25 250);
+--green-100: oklch(95% .1 150);
+--green-500: oklch(70% .25 150);
+  }
+}
+</style>
+<style href="/app/@app/structure.css">/* simple-mpa/app/@app/structure.css */
+@layer structure {
+  body {
+overflow: hidden;
+padding: var(--body-padding);
+  }
+
+  .app {
+gap: 1em;
+display: flex;
+  }
+
+  .app .nav-panel {
+min-width: 16em;
+  }
+
+  .app .content-panel {
+flex-grow: 1;
+  }
+
+  .app .details-panel {
+width: 28em;
+  }
+}
+</style>
+<style href="/app/@components/button.css">/* simple-mpa/app/@components/button.css */
+@layer adjustments {
+  button.plain {
+background-color: var(--alpha-50);
+color: var(--base-500);
+padding: .25em .75em;
+font-size: .875em;
+gap: .5em;
+border: 0;
+  }
+
+  button.plain .icon {
+width: 1em;
+  }
+
+  button.plain:hover {
+background-color: var(--base-100);
+  }
+
+  button.plain:active {
+box-shadow: unset;
+  }
+
+  button.plain[aria-pressed] {
+box-shadow: 0 0 0 1px var(--base-300);
+background-color: var(--base-100);
+  }
+
+  button.ghost {
+background-color: unset;
+box-shadow: unset;
+padding: .25em;
+border: 0;
+  }
+
+  button.ghost:hover {
+background-color: var(--alpha-50);
+  }
+
+  button.ghost[aria-pressed] {
+background-color: var(--base-200);
+pointer-events: none;
+cursor: default;
+  }
+}
+</style>
+<style href="/app/@components/chat.css">/* simple-mpa/app/@components/chat.css */
+@layer components {
+  .emoji {
+font-size: 3em;
+line-height: .75;
+  }
+
+  .post {
+background-color: var(--base-200);
+text-wrap: balance;
+padding: .5em 1em;
+border-radius: 1em;
+max-width: 66%;
+  }
+
+  .post p {
+color: var(--base-800);
+line-height: 1.33;
+  }
+
+  .reply {
+text-align: right;
+  }
+
+  .reply .post {
+background-color: var(--main-500);
+margin-left: auto;
+text-align: left;
+  }
+
+  .reply .post p {
+color: #fff;
+  }
+
+  .thread time {
+display: inline-block;
+margin: .25em .5em;
+font-size: 1em;
+  }
+
+  .chat-form {
+display: flex;
+position: relative;
+margin-bottom: .75em;
+  }
+
+  .chat-form textarea {
+resize: none;
+field-sizing: content;
+min-height: 3.85em;
+  }
+
+  .chat-form button {
+border-color: #0000;
+background-color: var(--main-500);
+pointer-events: unset;
+position: absolute;
+padding: .25em;
+color: #fff;
+right: 1em;
+bottom: 1em;
+  }
+
+  .chat-form button:hover {
+color: #fff;
+box-shadow: 0 0 0 1px var(--main-500);
+  }
+
+  :placeholder-shown + :is(.chat-form button) {
+background-color: var(--base-200);
+color: var(--base-400);
+pointer-events: none;
+  }
+}
+</style>
+<style href="/app/@components/deflist.css">/* simple-mpa/app/@components/deflist.css */
+@layer components {
+  dl {
+display: grid;
+grid-template-columns: 10em 1fr;
+margin-block: 1em;
+  }
+
+  dl > * {
+margin: .25em 0;
+line-height: 1.4;
+  }
+
+  dl dt {
+font-weight: 500;
+  }
+
+  dl dd {
+color: var(--base-600);
+  }
+
+  dl.full-size dd {
+text-align: right;
+  }
+}
+</style>
+<style href="/app/@components/grid-view.css">/* simple-mpa/app/@components/grid-view.css */
+@layer components {
+  .grid-view {
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+display: grid;
+gap: 1em;
+  }
+
+  .grid-view .list-item {
+box-shadow: 0 0 2em var(--alpha-100);
+flex-direction: column;
+border: var(--border);
+border-radius: .5em;
+height: 100%;
+padding: 1.5em;
+display: flex;
+gap: .75em;
+  }
+
+  .grid-view .list-item blockquote {
+border-left: 1px solid var(--base-300);
+padding-left: 1em;
+--line-clamp: 1;
+  }
+
+  .grid-view .list-item aside, .grid-view .list-item aside :first-child {
+align-items:  center;
+display: flex;
+gap: .5em;
+  }
+
+  .grid-view .list-item aside :last-child {
+margin-left: auto;
+  }
+}
+</style>
+<style href="/app/@components/icons.css">/* simple-mpa/app/@components/icons.css */
+@layer adjustments {
+  .plan-free svg {
+color: var(--base-300);
+  }
+
+  .plan-pro svg {
+color: var(--blue-500);
+  }
+
+  .plan-enterprise svg {
+color: var(--green-500);
+  }
+
+  .size-s svg {
+color: var(--base-300);
+  }
+
+  .size-m svg {
+color: var(--base-400);
+  }
+
+  .size-l svg {
+color: var(--base-700);
+  }
+
+  .size-xl svg {
+color: var(--base-950);
+  }
+}
+</style>
+<style href="/app/@components/list-item.css">/* simple-mpa/app/@components/list-item.css */
+@layer components {
+  .list-item {
+font-size: var(--smaller);
+border-radius: .25em;
+margin-inline: 1px;
+color: unset;
+  }
+
+  .list-item small {
+text-transform: capitalize;
+  }
+
+  .list-item blockquote {
+display: -webkit-box;
+-webkit-box-orient: vertical;
+overflow: hidden;
+-webkit-line-clamp: var(--line-clamp, 2);
+color: var(--base-500);
+line-height: 1.5;
+font-weight: 400;
+max-width: 40em;
+margin: 0;
+  }
+
+  .list-item:hover {
+box-shadow: 0 0 0 1px var(--base-300);
+  }
+
+  .list-item[aria-selected] {
+box-shadow: 0 0 0 2px var(--main-500);
+  }
+}
+</style>
+<style href="/app/@components/login.css">/* simple-mpa/app/@components/login.css */
+@layer adjustments {
+  .login {
+max-width: 25em;
+margin: 10% auto;
+padding: 1.5em 2em;
+  }
+
+  .login header, .login footer {
+margin-block: 1.5em;
+  }
+
+  .login button {
+width: 100%;
+  }
+}
+</style>
+<style href="/app/@components/media-thumbs.css">/* simple-mpa/app/@components/media-thumbs.css */
+@layer components {
+  .media-thumbs {
+display: flex;
+gap: .75em;
+flex-wrap: wrap;
+margin-block: 1em;
+  }
+
+  .media-thumbs li {
+width: calc(50% - .375em);
+  }
+
+  .media-overlay aside {
+text-align: center;
+  }
+
+  .media-overlay ul {
+display: inline-flex;
+  }
+
+  .media-overlay li {
+max-width: 10em;
+  }
+
+  .media-overlay img {
+border-radius: .25em;
+  }
+}
+</style>
+<style href="/app/@components/nav-panel.css">/* simple-mpa/app/@components/nav-panel.css */
+@layer components {
+  .nav-panel header {
+display: flex;
+justify-content: space-between;
+  }
+
+  .nav-panel header button {
+margin-right: -.5em;
+  }
+
+  .nav-panel nav, .nav-panel details {
+margin: 1em 0 1.5em;
+  }
+
+  .nav-panel nav a {
+color: var(--base-500);
+border: 1px solid #0000;
+border-radius: .25em;
+align-items:  center;
+padding: .5em .75em;
+margin-bottom: 1px;
+display: flex;
+gap: .5em;
+  }
+
+  .nav-panel nav a:hover {
+background-color: var(--alpha-50);
+  }
+
+  .nav-panel nav a[aria-current] {
+background-color: var(--base-200);
+pointer-events: none;
+color: var(--base-900);
+  }
+
+  .nav-panel nav a[aria-current] .icon {
+color: var(--main-500);
+stroke-width: 2.1;
+  }
+
+  .nav-panel summary {
+text-transform: uppercase;
+border-radius: .25em;
+color: var(--base-500);
+font-size: .75em;
+letter-spacing: .75;
+font-weight: 500;
+padding: .5em .75em;
+margin-bottom: -.75em;
+cursor: pointer;
+  }
+
+  .nav-panel details nav {
+border-left: 1px solid var(--base-300);
+margin-left: .75em;
+  }
+
+  .nav-panel details nav a {
+font-weight: 400;
+padding: .25em .5em;
+  }
+
+  .nav-panel .media {
+margin-left: .5em;
+  }
+}
+</style>
+<style href="/app/@components/panel.css">/* simple-mpa/app/@components/panel.css */
+@layer components {
+  .panel {
+height: calc(100vh - calc(var(--body-padding) * 2));
+border: 1px solid #0000;
+flex-direction: column;
+display: flex;
+  }
+
+  .panel.card {
+padding: 0 1em;
+  }
+
+  .panel > header {
+align-items:  center;
+padding: .75em .5em;
+display: flex;
+  }
+
+  .panel > header:has(nav) {
+border-bottom: 1px solid var(--alpha-100);
+margin-bottom: .5em;
+  }
+
+  .panel > header small {
+font-weight: 450;
+margin-right: 1em;
+  }
+
+  .panel > header nav {
+margin-left: auto;
+align-items:  center;
+display: inline-flex;
+gap: .5em;
+  }
+
+  .panel > header hr {
+height: 1em;
+border-color: var(--base-200);
+border-width: 0 1px 0 0;
+margin: 0 .5em;
+width: 1px;
+  }
+
+  .panel .subheader {
+margin-bottom: 1.5em;
+  }
+
+  .panel .subheader button {
+margin-right: .5em;
+  }
+
+  .panel.details-panel header {
+margin-bottom: 1em;
+  }
+
+  .panel > section {
+padding: 2px;
+overflow: auto;
+flex-grow: 1;
+  }
+}
+</style>
+<style href="/app/@components/search-input.css">/* simple-mpa/app/@components/search-input.css */
+@layer components {
+  .search {
+background-color: #fff;
+border: var(--border);
+border-radius: .25em;
+align-items:  center;
+padding: 0 .75em;
+display: flex;
+margin-bottom: 1.75em;
+  }
+
+  .search input {
+padding: .75em .5em;
+width: 5em;
+outline: 0;
+border: 0;
+flex: 1;
+  }
+
+  .search ::-webkit-search-cancel-button {
+opacity: .4;
+cursor: pointer;
+  }
+
+  .search ::-webkit-search-cancel-button:hover {
+opacity: 1;
+  }
+
+  .search input + kbd {
+margin-left: auto;
+  }
+
+  .search:has(:focus) {
+outline: .5px solid var(--base-500);
+outline-offset: 1px;
+  }
+
+  .search:has(:focus) kbd {
+display: none;
+  }
+}
+</style>
+<style href="/app/@components/table-view.css">/* simple-mpa/app/@components/table-view.css */
+@layer components {
+  .table-view {
+container-type: size;
+  }
+
+  .table-view .list-item {
+display: grid;
+grid-template-columns: minmax(16em, auto) minmax(10em, 1fr) auto auto auto;
+grid-template-areas: "header message type meta time";
+align-items:  center;
+padding: .5em 1em;
+gap: 1em;
+  }
+
+  .table-view .list-item aside {
+display: contents;
+  }
+
+  .table-view .list-item aside small {
+grid-area: type;
+display: none;
+  }
+
+  .table-view .list-item aside time {
+grid-area: time;
+text-align: right;
+  }
+
+  .table-view .list-item blockquote {
+grid-area: message;
+--line-clamp: 3;
+  }
+
+  @container (width < 900px) {
+.table-view .list-item .meta {
+  display: none;
+}
+  }
+
+  @container (width < 650px) {
+.table-view .list-item {
+  align-items:  flex-start;
+  grid-template-columns: minmax(150px, auto) 1fr;
+  grid-template-areas: "header time" "message message";
+  gap: .5em;
+}
+
+.table-view .list-item blockquote {
+  border-left: 2px solid var(--base-300);
+  padding-left: 1.75em;
+  margin-left: 1.125em;
+  padding-right: 0;
+}
+  }
+}
+</style>
+<style href="/app/@components/tooltip.css">/* simple-mpa/app/@components/tooltip.css */
+@layer components {
+  span[role="tooltip"] {
+position-anchor: --tip;
+position: absolute;
+position-area: right;
+margin-left: 10px;
+right: -999em;
+opacity: 0;
+transition: opacity .1s .5s, transform .2s .5s;
+transform: scale(.9);
+display: inline-flex;
+align-items:  center;
+gap: .5em;
+box-shadow: 0 1px 3px var(--alpha-300);
+background-color: #fff;
+border-radius: .25em;
+padding: .25em .5em;
+font-size: .75em;
+  }
+
+  span[role="tooltip"].is-shown {
+opacity: 1;
+transform: scale(1);
+  }
+
+  span[role="tooltip"].on-bottom {
+position-area: bottom;
+position-try: bottom left;
+right: -2em;
+margin: 10px 0 0;
+  }
+
+  kbd {
+--size: 1.25em;
+width: var(--size);
+height: var(--size);
+line-height: var(--size);
+text-align: center;
+background-color: var(--alpha-100);
+text-transform: uppercase;
+color: var(--base-400);
+font-weight: 550;
+border-radius: .25em;
+  }
+
+  kbd strong {
+transform: scale(1.2);
+display: inline-block;
+  }
+}
+</style>
+<script src="/app/controllers/tooltips.js" type="module"></script>
+<script src="/app/controllers/keyboard.js" type="module"></script>
+<script src="/app/controllers/bootstrap.js" type="module"></script>
+<script src="/app/view/util.js" type="module"></script>
+<script src="/@nue/hotreload.js" type="module"></script>
+<script src="/@nue/mount.js" type="module"></script>
+  </head>
+
+  <body>
+    
+<div id="login"></div>
+
+<app-wrap id="app" custom="app-wrap">
+  <script type="application/json">{"config":{"views":[{"title":"All contacts","icon":"users"},{"title":"Demo requests","type":"demo_request"},{"title":"Questions","type":"question"},{"title":"Problems","type":"problem"},{"title":"Feedback","type":"feedback"}],"plans":{"enterprise":"Enterprise","pro":"Pro","free":"Free"},"company_sizes":{"xl":"Very large","l":"Large","m":"Medium","s":"Small"}}}</script>
+</app-wrap>
+
+<svg><symbol id="send-horizontal-symbol" viewBox="0 0 24 24"><path d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904zM6 12h16"/></symbol>
+<symbol id="problem-symbol" viewBox="0 0 24 24"><path d="m8 2 1.88 1.88M14.12 3.88 16 2M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"/><path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6M12 20v-9"/><path d="M6.53 9C4.6 8.8 3 7.1 3 5M6 13H2M3 21c0-2.1 1.7-3.9 3.8-4M20.97 5c0 2.1-1.6 3.8-3.5 4M22 13h-4M17.2 17c2.1.1 3.8 1.9 3.8 4"/></symbol>
+<symbol id="square-symbol" viewBox="0 0 24 24"><rect width="8" height="8" x="8" y="8" rx="1" fill="currentColor"/></symbol>
+<symbol id="feedback-symbol" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+<symbol id="search-symbol" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+<symbol id="grid-symbol" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></symbol>
+<symbol id="chevron-left-symbol" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+<symbol id="list-symbol" viewBox="0 0 24 24"><path d="M3 12h.01M3 18h.01M3 6h.01M8 12h13M8 18h13M8 6h13"/></symbol>
+<symbol id="chevron-right-symbol" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+<symbol id="image-symbol" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></symbol>
+<symbol id="question-symbol" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></symbol>
+<symbol id="demo_request-symbol" viewBox="0 0 24 24"><path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3ZM6.2 5.3l3.1 3.9M12.4 3.4l3.1 4M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></symbol>
+<symbol id="chevrons-up-down-symbol" viewBox="0 0 24 24"><path d="m7 15 5 5 5-5M7 9l5-5 5 5"/></symbol>
+<symbol id="chevron-down-symbol" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+<symbol id="x-symbol" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+<symbol id="chevron-up-symbol" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></symbol>
+<symbol id="users-symbol" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+<symbol id="panel-left-symbol" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></symbol>
+<symbol id="dot-symbol" viewBox="0 0 24 24"><circle cx="12.1" cy="12.1" r="4" fill="currentColor"/></symbol></svg>
+
+
+
+<dialog class="ui" id="help" popover>
+  <header class="flex">
+<h2>Keyboard shortcuts</h2>
+<button class="ghost" popovertarget="help">
+  <svg class="icon icon-x-symbol"><use href="#x-symbol"/></svg>
+</button>
+  </header>
+
+  <dl class="full-size">
+<dt>Previous page</dt>      <dd><kbd>h</kbd></dd>
+<dt>Next page</dt>          <dd><kbd>l</kbd></dd>
+<dt>Previous entry</dt>     <dd><kbd>j</kbd></dd>
+<dt>Next entry</dt>         <dd><kbd>k</kbd></dd>
+<dt>Toggle grid view</dt>   <dd><kbd>g</kbd></dd>
+<dt>Focus search</dt>       <dd><kbd>/</kbd></dd>
+  </dl>
+</dialog>
+
+
+
+
+  </body>
+</html>

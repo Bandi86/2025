@@ -1,0 +1,33 @@
+/* simple-mpa/app/@components/list-item.css */
+@layer components {
+  .list-item {
+    font-size: var(--smaller);
+    border-radius: .25em;
+    margin-inline: 1px;
+    color: unset;
+  }
+
+  .list-item small {
+    text-transform: capitalize;
+  }
+
+  .list-item blockquote {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: var(--line-clamp, 2);
+    color: var(--base-500);
+    line-height: 1.5;
+    font-weight: 400;
+    max-width: 40em;
+    margin: 0;
+  }
+
+  .list-item:hover {
+    box-shadow: 0 0 0 1px var(--base-300);
+  }
+
+  .list-item[aria-selected] {
+    box-shadow: 0 0 0 2px var(--main-500);
+  }
+}

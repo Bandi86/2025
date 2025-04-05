@@ -1,0 +1,38 @@
+/* simple-mpa/@globals/effects.css */
+@layer effects {
+  @keyframes pulse {
+    0%, 100% {
+      opacity: .5;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .pulsating {
+    opacity: .1;
+    animation: pulse 2s cubic-bezier(.4, 0, .6, 1) infinite;
+    pointer-events: none;
+  }
+
+  .pulsating:nth-child(2) {
+    animation-delay: .25s;
+  }
+
+  .pulsating:nth-child(3) {
+    animation-delay: .5s;
+  }
+
+  main:not(.hmr) .appears {
+    opacity: 1;
+    transition: opacity .75s;
+    transition-delay: calc(15ms * var(--delay));
+  }
+
+  @starting-style {
+    main:not(.hmr) .appears {
+      opacity: 0;
+    }
+  }
+}

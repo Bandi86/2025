@@ -1,0 +1,35 @@
+/* simple-mpa/app/@components/grid-view.css */
+@layer components {
+  .grid-view {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: grid;
+    gap: 1em;
+  }
+
+  .grid-view .list-item {
+    box-shadow: 0 0 2em var(--alpha-100);
+    flex-direction: column;
+    border: var(--border);
+    border-radius: .5em;
+    height: 100%;
+    padding: 1.5em;
+    display: flex;
+    gap: .75em;
+  }
+
+  .grid-view .list-item blockquote {
+    border-left: 1px solid var(--base-300);
+    padding-left: 1em;
+    --line-clamp: 1;
+  }
+
+  .grid-view .list-item aside, .grid-view .list-item aside :first-child {
+    align-items:  center;
+    display: flex;
+    gap: .5em;
+  }
+
+  .grid-view .list-item aside :last-child {
+    margin-left: auto;
+  }
+}

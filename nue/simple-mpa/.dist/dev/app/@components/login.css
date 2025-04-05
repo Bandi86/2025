@@ -1,0 +1,16 @@
+/* simple-mpa/app/@components/login.css */
+@layer adjustments {
+  .login {
+    max-width: 25em;
+    margin: 10% auto;
+    padding: 1.5em 2em;
+  }
+
+  .login header, .login footer {
+    margin-block: 1.5em;
+  }
+
+  .login button {
+    width: 100%;
+  }
+}
