@@ -1,0 +1,21 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Articles {
+  id          Int      @id @default(autoincrement())
+  title       String
+  content     String
+  date        DateTime
+  tags        String
+  description String
+  image       String
+  published   Boolean
+}
