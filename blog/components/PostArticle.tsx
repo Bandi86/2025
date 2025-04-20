@@ -5,7 +5,7 @@ const PostArticle = () => {
   return (
     <div>
       <h1>PostArticle</h1>
-      <Form action={'/articles'}>
+      <Form action={'/post'}>
         <div className="mb-4">
           <label htmlFor="title" className="block text-gray-700 text-sm font-bold mb-2">
             Title
