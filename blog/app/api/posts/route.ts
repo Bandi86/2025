@@ -79,7 +79,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     });
     return NextResponse.json({ data: post }, { status: 201 });
   } catch (error) {
-    console.error('Error creating post:', error); // Changed articles to post
+    console.error('Error creating post:', error);
     // Add more specific error handling for unique constraint violations (e.g., slug)
     if (error instanceof Error && 'code' in error && (error as any).code === 'P2002') {
        return NextResponse.json({ error: 'A post with this slug already exists.' }, { status: 409 });

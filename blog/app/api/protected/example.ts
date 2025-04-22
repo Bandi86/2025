@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { getCurrentUser } from '../../utils/auth'
+import { getCurrentUser } from '../../../utils/auth'
 
 export default async function handler(
   req: NextApiRequest,
