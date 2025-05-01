@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./db.sqlite?_pragma=foreign_keys(on)"
+}
+
+model User {
+  id           Int           @id @default(autoincrement())
+  email        String        @unique
+  password     String
+  isAdmin      Boolean       @default(false)
+  isPaid       Boolean       @default(false)
+  comments     Comment[]
+  subscription Subscription?
+}
+
+model AdminTips {
+  id        Int       @id @default(autoincrement())
+  title     String
+  content   String
+  isPremium Boolean   @default(false)
+  win       Boolean   @default(false)
+  imageurl  String
+  comments  Comment[]
+  createdAt DateTime  @default(now())
+  deadline  DateTime
+}
+
+model Comment {
+  id        Int       @id @default(autoincrement())
+  content   String
+  user      User      @relation(fields: [userId], references: [id])
+  userId    Int
+  tip       AdminTips @relation(fields: [tipId], references: [id])
+  tipId     Int
+  createdAt DateTime  @default(now())
+}
+
+model Subscription {
+  id         Int      @id @default(autoincrement())
+  user       User     @relation(fields: [userId], references: [id])
+  userId     Int      @unique
+  validUntil DateTime
+}
