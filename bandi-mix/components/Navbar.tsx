@@ -4,42 +4,53 @@ import { cookies } from 'next/headers'
 
 export default async function Navbar() {
   // check user cookie
-  const cookieStore = await cookies();
-  const user = cookieStore.get('user');
+  const cookieStore = await cookies()
+  const user = cookieStore.get('user')
 
   return (
-    <nav className="bg-white/80 backdrop-blur border-b sticky top-0 z-50 w-full">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <Link href="/" className="text-2xl font-bold text-gray-900">
+    /* A 'rebeccapurple' lecserélve a sötétebb HSL értékre */
+    <nav className="bg-[linear-gradient(to_bottom_right,lightskyblue,hsl(270_60%_15%),sandybrown)] border-b sticky top-0 z-50 w-full">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4 text-white">
+        <Link href="/" className="text-2xl font-bold">
           bandi<span className="text-blue-600">mix</span>
         </Link>
-        <ul className="hidden md:flex gap-8 text-gray-700 font-medium">
+
+        <ul className="hidden md:flex gap-8 black font-bold text-xl">
           <li>
-            <Link href="/" className="hover:text-blue-600 transition-colors">
-              Home
+            <Link href="/" className="hover:text-gray-300 transition-colors">
+              Kezdőlap
             </Link>
           </li>
           <li>
-            <Link href="/about" className="hover:text-blue-600 transition-colors">
-              About
+            <Link href="/free" className="hover:text-gray-300 transition-colors">
+              Ingyenes Tippek
             </Link>
           </li>
           <li>
-            <Link href="/blog" className="hover:text-blue-600 transition-colors">
-              Blog
+            <Link href="/premium" className="hover:text-gray-300 transition-colors">
+              Premium tippek
             </Link>
           </li>
           <li>
-            <Link href="/contact" className="hover:text-blue-600 transition-colors">
-              Contact
+            <Link href="/subscribe" className="hover:text-gray-300 transition-colors">
+              Előfizetés
+            </Link>
+          </li>
+          <li>
+            <Link href="/stats" className="hover:text-gray-300 transition-colors">
+              Statisztika
             </Link>
           </li>
         </ul>
         {/* Menu for logged in users */}
         {!user ? (
-          <div className='flex gap-4'>
-            <span className="text-black font-medium cursor-pointer hover:text-blue-600 transition-colors">Register</span>
-            <span className="text-black font-medium cursor-pointer hover:text-blue-600 transition-colors">Login</span>
+          <div className="flex gap-4">
+            <span className="text-white font-medium cursor-pointer hover:text-gray-300 transition-colors">
+             Regisztráció
+            </span>
+            <span className="text-white font-medium cursor-pointer hover:text-gray-300 transition-colors">
+              Belépés
+            </span>
           </div>
         ) : (
           <UserNav />
@@ -47,8 +58,9 @@ export default async function Navbar() {
 
         <div className="md:hidden">
           {/* Mobile menu button placeholder */}
-          <button className="p-2 rounded hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+          <button className="p-2 rounded hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/50">
+            <svg className="w-6 h-6" fill="none" stroke="white" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -60,5 +72,5 @@ export default async function Navbar() {
         </div>
       </div>
     </nav>
-  );
+  )
 }

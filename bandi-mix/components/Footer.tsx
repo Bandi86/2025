@@ -1,6 +1,8 @@
+import Link from "next/link";
+
 const Footer = () => {
   return (
-    <footer className="w-full border-t bg-white text-gray-500 py-6 mt-12">
+    <footer className="w-full border-t bg-white text-gray-500 py-6">
       <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between px-4 gap-4">
         <div className="flex items-center gap-2">
           <svg
@@ -17,15 +19,15 @@ const Footer = () => {
           <span className="font-semibold text-gray-700">ACME Ltd.</span>
         </div>
         <nav className="flex gap-4 text-sm">
-          <a className="hover:underline" href="#">
+          <Link className="hover:underline" href="#">
             Impresszum
-          </a>
-          <a className="hover:underline" href="#">
+          </Link>
+          <Link className="hover:underline" href="#">
             Adatvédelem
-          </a>
-          <a className="hover:underline" href="#">
+          </Link>
+          <Link className="hover:underline" href="#">
             Kapcsolat
-          </a>
+          </Link>
         </nav>
         <div className="text-xs text-gray-400">
           © {new Date().getFullYear()} ACME Ltd. Minden jog fenntartva.
