@@ -119,20 +119,23 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 
 exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
+  username: 'username',
   email: 'email',
   password: 'password',
+  avatar: 'avatar',
   isAdmin: 'isAdmin',
   isPaid: 'isPaid'
 };
 
-exports.Prisma.AdminTipsScalarFieldEnum = {
+exports.Prisma.AdminPostsScalarFieldEnum = {
   id: 'id',
   title: 'title',
   content: 'content',
   isPremium: 'isPremium',
-  win: 'win',
   imageurl: 'imageurl',
+  tippmixPicture: 'tippmixPicture',
   createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
   deadline: 'deadline'
 };
 
@@ -140,8 +143,9 @@ exports.Prisma.CommentScalarFieldEnum = {
   id: 'id',
   content: 'content',
   userId: 'userId',
-  tipId: 'tipId',
-  createdAt: 'createdAt'
+  postId: 'postId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SubscriptionScalarFieldEnum = {
@@ -150,17 +154,35 @@ exports.Prisma.SubscriptionScalarFieldEnum = {
   validUntil: 'validUntil'
 };
 
+exports.Prisma.FreeTipsStatisticScalarFieldEnum = {
+  id: 'id',
+  numberOfTipps: 'numberOfTipps',
+  goodTippNumber: 'goodTippNumber',
+  badTippNumber: 'badTippNumber',
+  AllBet: 'AllBet',
+  WinMoney: 'WinMoney',
+  LostMoney: 'LostMoney',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
 };
 
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
 
 exports.Prisma.ModelName = {
   User: 'User',
-  AdminTips: 'AdminTips',
+  AdminPosts: 'AdminPosts',
   Comment: 'Comment',
-  Subscription: 'Subscription'
+  Subscription: 'Subscription',
+  freeTipsStatistic: 'freeTipsStatistic'
 };
 
 /**

@@ -16,34 +16,38 @@ datasource db {
 
 model User {
   id           Int           @id @default(autoincrement())
+  username     String        @unique
   email        String        @unique
-  password     String
+  password     String        // ne legyen unique, több usernek lehet ugyanaz a jelszava
+  avatar       String?       // opcionális profilkép
   isAdmin      Boolean       @default(false)
   isPaid       Boolean       @default(false)
   comments     Comment[]
   subscription Subscription?
 }
 
-model AdminTips {
-  id        Int       @id @default(autoincrement())
-  title     String
-  content   String
-  isPremium Boolean   @default(false)
-  win       Boolean   @default(false)
-  imageurl  String
-  comments  Comment[]
-  createdAt DateTime  @default(now())
-  deadline  DateTime
+model AdminPosts {
+  id             Int       @id @default(autoincrement())
+  title          String
+  content        String
+  isPremium      Boolean   @default(false)
+  imageurl       String
+  tippmixPicture String
+  comments       Comment[]
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  deadline       DateTime
 }
 
 model Comment {
-  id        Int       @id @default(autoincrement())
+  id        Int        @id @default(autoincrement())
   content   String
-  user      User      @relation(fields: [userId], references: [id])
+  user      User       @relation(fields: [userId], references: [id])
   userId    Int
-  tip       AdminTips @relation(fields: [tipId], references: [id])
-  tipId     Int
-  createdAt DateTime  @default(now())
+  post      AdminPosts @relation(fields: [postId], references: [id])
+  postId    Int
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
 }
 
 model Subscription {
@@ -51,4 +55,17 @@ model Subscription {
   user       User     @relation(fields: [userId], references: [id])
   userId     Int      @unique
   validUntil DateTime
+}
+
+// statistic of betting tipps free
+model freeTipsStatistic {
+  id             Int      @id @default(autoincrement())
+  numberOfTipps  Int      @default(0)
+  goodTippNumber Int      @default(0)
+  badTippNumber  Int      @default(0)
+  AllBet         Int      @default(0)
+  WinMoney       Int      @default(0)
+  LostMoney      Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }

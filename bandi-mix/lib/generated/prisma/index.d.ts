@@ -19,10 +19,10 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
 /**
- * Model AdminTips
+ * Model AdminPosts
  * 
  */
-export type AdminTips = $Result.DefaultSelection<Prisma.$AdminTipsPayload>
+export type AdminPosts = $Result.DefaultSelection<Prisma.$AdminPostsPayload>
 /**
  * Model Comment
  * 
@@ -33,6 +33,11 @@ export type Comment = $Result.DefaultSelection<Prisma.$CommentPayload>
  * 
  */
 export type Subscription = $Result.DefaultSelection<Prisma.$SubscriptionPayload>
+/**
+ * Model freeTipsStatistic
+ * 
+ */
+export type freeTipsStatistic = $Result.DefaultSelection<Prisma.$freeTipsStatisticPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -170,14 +175,14 @@ export class PrismaClient<
   get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.adminTips`: Exposes CRUD operations for the **AdminTips** model.
+   * `prisma.adminPosts`: Exposes CRUD operations for the **AdminPosts** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more AdminTips
-    * const adminTips = await prisma.adminTips.findMany()
+    * // Fetch zero or more AdminPosts
+    * const adminPosts = await prisma.adminPosts.findMany()
     * ```
     */
-  get adminTips(): Prisma.AdminTipsDelegate<ExtArgs, ClientOptions>;
+  get adminPosts(): Prisma.AdminPostsDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.comment`: Exposes CRUD operations for the **Comment** model.
@@ -198,6 +203,16 @@ export class PrismaClient<
     * ```
     */
   get subscription(): Prisma.SubscriptionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.freeTipsStatistic`: Exposes CRUD operations for the **freeTipsStatistic** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more FreeTipsStatistics
+    * const freeTipsStatistics = await prisma.freeTipsStatistic.findMany()
+    * ```
+    */
+  get freeTipsStatistic(): Prisma.freeTipsStatisticDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -639,9 +654,10 @@ export namespace Prisma {
 
   export const ModelName: {
     User: 'User',
-    AdminTips: 'AdminTips',
+    AdminPosts: 'AdminPosts',
     Comment: 'Comment',
-    Subscription: 'Subscription'
+    Subscription: 'Subscription',
+    freeTipsStatistic: 'freeTipsStatistic'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -660,7 +676,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "adminTips" | "comment" | "subscription"
+      modelProps: "user" | "adminPosts" | "comment" | "subscription" | "freeTipsStatistic"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -738,77 +754,77 @@ export namespace Prisma {
           }
         }
       }
-      AdminTips: {
-        payload: Prisma.$AdminTipsPayload<ExtArgs>
-        fields: Prisma.AdminTipsFieldRefs
+      AdminPosts: {
+        payload: Prisma.$AdminPostsPayload<ExtArgs>
+        fields: Prisma.AdminPostsFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.AdminTipsFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AdminTipsPayload> | null
+            args: Prisma.AdminPostsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdminPostsPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.AdminTipsFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AdminTipsPayload>
+            args: Prisma.AdminPostsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdminPostsPayload>
           }
           findFirst: {
-            args: Prisma.AdminTipsFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AdminTipsPayload> | null
+            args: Prisma.AdminPostsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdminPostsPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.AdminTipsFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AdminTipsPayload>
+            args: Prisma.AdminPostsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdminPostsPayload>
           }
           findMany: {
-            args: Prisma.AdminTipsFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AdminTipsPayload>[]
+            args: Prisma.AdminPostsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdminPostsPayload>[]
           }
           create: {
-            args: Prisma.AdminTipsCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AdminTipsPayload>
+            args: Prisma.AdminPostsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdminPostsPayload>
           }
           createMany: {
-            args: Prisma.AdminTipsCreateManyArgs<ExtArgs>
+            args: Prisma.AdminPostsCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.AdminTipsCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AdminTipsPayload>[]
+            args: Prisma.AdminPostsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdminPostsPayload>[]
           }
           delete: {
-            args: Prisma.AdminTipsDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AdminTipsPayload>
+            args: Prisma.AdminPostsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdminPostsPayload>
           }
           update: {
-            args: Prisma.AdminTipsUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AdminTipsPayload>
+            args: Prisma.AdminPostsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdminPostsPayload>
           }
           deleteMany: {
-            args: Prisma.AdminTipsDeleteManyArgs<ExtArgs>
+            args: Prisma.AdminPostsDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.AdminTipsUpdateManyArgs<ExtArgs>
+            args: Prisma.AdminPostsUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.AdminTipsUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AdminTipsPayload>[]
+            args: Prisma.AdminPostsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdminPostsPayload>[]
           }
           upsert: {
-            args: Prisma.AdminTipsUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AdminTipsPayload>
+            args: Prisma.AdminPostsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdminPostsPayload>
           }
           aggregate: {
-            args: Prisma.AdminTipsAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateAdminTips>
+            args: Prisma.AdminPostsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAdminPosts>
           }
           groupBy: {
-            args: Prisma.AdminTipsGroupByArgs<ExtArgs>
-            result: $Utils.Optional<AdminTipsGroupByOutputType>[]
+            args: Prisma.AdminPostsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AdminPostsGroupByOutputType>[]
           }
           count: {
-            args: Prisma.AdminTipsCountArgs<ExtArgs>
-            result: $Utils.Optional<AdminTipsCountAggregateOutputType> | number
+            args: Prisma.AdminPostsCountArgs<ExtArgs>
+            result: $Utils.Optional<AdminPostsCountAggregateOutputType> | number
           }
         }
       }
@@ -960,6 +976,80 @@ export namespace Prisma {
           }
         }
       }
+      freeTipsStatistic: {
+        payload: Prisma.$freeTipsStatisticPayload<ExtArgs>
+        fields: Prisma.freeTipsStatisticFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.freeTipsStatisticFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$freeTipsStatisticPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.freeTipsStatisticFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$freeTipsStatisticPayload>
+          }
+          findFirst: {
+            args: Prisma.freeTipsStatisticFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$freeTipsStatisticPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.freeTipsStatisticFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$freeTipsStatisticPayload>
+          }
+          findMany: {
+            args: Prisma.freeTipsStatisticFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$freeTipsStatisticPayload>[]
+          }
+          create: {
+            args: Prisma.freeTipsStatisticCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$freeTipsStatisticPayload>
+          }
+          createMany: {
+            args: Prisma.freeTipsStatisticCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.freeTipsStatisticCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$freeTipsStatisticPayload>[]
+          }
+          delete: {
+            args: Prisma.freeTipsStatisticDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$freeTipsStatisticPayload>
+          }
+          update: {
+            args: Prisma.freeTipsStatisticUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$freeTipsStatisticPayload>
+          }
+          deleteMany: {
+            args: Prisma.freeTipsStatisticDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.freeTipsStatisticUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.freeTipsStatisticUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$freeTipsStatisticPayload>[]
+          }
+          upsert: {
+            args: Prisma.freeTipsStatisticUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$freeTipsStatisticPayload>
+          }
+          aggregate: {
+            args: Prisma.FreeTipsStatisticAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFreeTipsStatistic>
+          }
+          groupBy: {
+            args: Prisma.freeTipsStatisticGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FreeTipsStatisticGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.freeTipsStatisticCountArgs<ExtArgs>
+            result: $Utils.Optional<FreeTipsStatisticCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1045,9 +1135,10 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     user?: UserOmit
-    adminTips?: AdminTipsOmit
+    adminPosts?: AdminPostsOmit
     comment?: CommentOmit
     subscription?: SubscriptionOmit
+    freeTipsStatistic?: freeTipsStatisticOmit
   }
 
   /* Types for Logging */
@@ -1169,32 +1260,32 @@ export namespace Prisma {
 
 
   /**
-   * Count Type AdminTipsCountOutputType
+   * Count Type AdminPostsCountOutputType
    */
 
-  export type AdminTipsCountOutputType = {
+  export type AdminPostsCountOutputType = {
     comments: number
   }
 
-  export type AdminTipsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    comments?: boolean | AdminTipsCountOutputTypeCountCommentsArgs
+  export type AdminPostsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    comments?: boolean | AdminPostsCountOutputTypeCountCommentsArgs
   }
 
   // Custom InputTypes
   /**
-   * AdminTipsCountOutputType without action
+   * AdminPostsCountOutputType without action
    */
-  export type AdminTipsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AdminPostsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdminTipsCountOutputType
+     * Select specific fields to fetch from the AdminPostsCountOutputType
      */
-    select?: AdminTipsCountOutputTypeSelect<ExtArgs> | null
+    select?: AdminPostsCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * AdminTipsCountOutputType without action
+   * AdminPostsCountOutputType without action
    */
-  export type AdminTipsCountOutputTypeCountCommentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AdminPostsCountOutputTypeCountCommentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: CommentWhereInput
   }
 
@@ -1225,24 +1316,30 @@ export namespace Prisma {
 
   export type UserMinAggregateOutputType = {
     id: number | null
+    username: string | null
     email: string | null
     password: string | null
+    avatar: string | null
     isAdmin: boolean | null
     isPaid: boolean | null
   }
 
   export type UserMaxAggregateOutputType = {
     id: number | null
+    username: string | null
     email: string | null
     password: string | null
+    avatar: string | null
     isAdmin: boolean | null
     isPaid: boolean | null
   }
 
   export type UserCountAggregateOutputType = {
     id: number
+    username: number
     email: number
     password: number
+    avatar: number
     isAdmin: number
     isPaid: number
     _all: number
@@ -1259,24 +1356,30 @@ export namespace Prisma {
 
   export type UserMinAggregateInputType = {
     id?: true
+    username?: true
     email?: true
     password?: true
+    avatar?: true
     isAdmin?: true
     isPaid?: true
   }
 
   export type UserMaxAggregateInputType = {
     id?: true
+    username?: true
     email?: true
     password?: true
+    avatar?: true
     isAdmin?: true
     isPaid?: true
   }
 
   export type UserCountAggregateInputType = {
     id?: true
+    username?: true
     email?: true
     password?: true
+    avatar?: true
     isAdmin?: true
     isPaid?: true
     _all?: true
@@ -1370,8 +1473,10 @@ export namespace Prisma {
 
   export type UserGroupByOutputType = {
     id: number
+    username: string
     email: string
     password: string
+    avatar: string | null
     isAdmin: boolean
     isPaid: boolean
     _count: UserCountAggregateOutputType | null
@@ -1397,8 +1502,10 @@ export namespace Prisma {
 
   export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    username?: boolean
     email?: boolean
     password?: boolean
+    avatar?: boolean
     isAdmin?: boolean
     isPaid?: boolean
     comments?: boolean | User$commentsArgs<ExtArgs>
@@ -1408,29 +1515,35 @@ export namespace Prisma {
 
   export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    username?: boolean
     email?: boolean
     password?: boolean
+    avatar?: boolean
     isAdmin?: boolean
     isPaid?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    username?: boolean
     email?: boolean
     password?: boolean
+    avatar?: boolean
     isAdmin?: boolean
     isPaid?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
     id?: boolean
+    username?: boolean
     email?: boolean
     password?: boolean
+    avatar?: boolean
     isAdmin?: boolean
     isPaid?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "isAdmin" | "isPaid", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "username" | "email" | "password" | "avatar" | "isAdmin" | "isPaid", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     comments?: boolean | User$commentsArgs<ExtArgs>
     subscription?: boolean | User$subscriptionArgs<ExtArgs>
@@ -1447,8 +1560,10 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      username: string
       email: string
       password: string
+      avatar: string | null
       isAdmin: boolean
       isPaid: boolean
     }, ExtArgs["result"]["user"]>
@@ -1877,8 +1992,10 @@ export namespace Prisma {
    */
   interface UserFieldRefs {
     readonly id: FieldRef<"User", 'Int'>
+    readonly username: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
+    readonly avatar: FieldRef<"User", 'String'>
     readonly isAdmin: FieldRef<"User", 'Boolean'>
     readonly isPaid: FieldRef<"User", 'Boolean'>
   }
@@ -2329,274 +2446,285 @@ export namespace Prisma {
 
 
   /**
-   * Model AdminTips
+   * Model AdminPosts
    */
 
-  export type AggregateAdminTips = {
-    _count: AdminTipsCountAggregateOutputType | null
-    _avg: AdminTipsAvgAggregateOutputType | null
-    _sum: AdminTipsSumAggregateOutputType | null
-    _min: AdminTipsMinAggregateOutputType | null
-    _max: AdminTipsMaxAggregateOutputType | null
+  export type AggregateAdminPosts = {
+    _count: AdminPostsCountAggregateOutputType | null
+    _avg: AdminPostsAvgAggregateOutputType | null
+    _sum: AdminPostsSumAggregateOutputType | null
+    _min: AdminPostsMinAggregateOutputType | null
+    _max: AdminPostsMaxAggregateOutputType | null
   }
 
-  export type AdminTipsAvgAggregateOutputType = {
+  export type AdminPostsAvgAggregateOutputType = {
     id: number | null
   }
 
-  export type AdminTipsSumAggregateOutputType = {
+  export type AdminPostsSumAggregateOutputType = {
     id: number | null
   }
 
-  export type AdminTipsMinAggregateOutputType = {
-    id: number | null
-    title: string | null
-    content: string | null
-    isPremium: boolean | null
-    win: boolean | null
-    imageurl: string | null
-    createdAt: Date | null
-    deadline: Date | null
-  }
-
-  export type AdminTipsMaxAggregateOutputType = {
+  export type AdminPostsMinAggregateOutputType = {
     id: number | null
     title: string | null
     content: string | null
     isPremium: boolean | null
-    win: boolean | null
     imageurl: string | null
+    tippmixPicture: string | null
     createdAt: Date | null
+    updatedAt: Date | null
     deadline: Date | null
   }
 
-  export type AdminTipsCountAggregateOutputType = {
+  export type AdminPostsMaxAggregateOutputType = {
+    id: number | null
+    title: string | null
+    content: string | null
+    isPremium: boolean | null
+    imageurl: string | null
+    tippmixPicture: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    deadline: Date | null
+  }
+
+  export type AdminPostsCountAggregateOutputType = {
     id: number
     title: number
     content: number
     isPremium: number
-    win: number
     imageurl: number
+    tippmixPicture: number
     createdAt: number
+    updatedAt: number
     deadline: number
     _all: number
   }
 
 
-  export type AdminTipsAvgAggregateInputType = {
+  export type AdminPostsAvgAggregateInputType = {
     id?: true
   }
 
-  export type AdminTipsSumAggregateInputType = {
+  export type AdminPostsSumAggregateInputType = {
     id?: true
   }
 
-  export type AdminTipsMinAggregateInputType = {
+  export type AdminPostsMinAggregateInputType = {
     id?: true
     title?: true
     content?: true
     isPremium?: true
-    win?: true
     imageurl?: true
+    tippmixPicture?: true
     createdAt?: true
+    updatedAt?: true
     deadline?: true
   }
 
-  export type AdminTipsMaxAggregateInputType = {
+  export type AdminPostsMaxAggregateInputType = {
     id?: true
     title?: true
     content?: true
     isPremium?: true
-    win?: true
     imageurl?: true
+    tippmixPicture?: true
     createdAt?: true
+    updatedAt?: true
     deadline?: true
   }
 
-  export type AdminTipsCountAggregateInputType = {
+  export type AdminPostsCountAggregateInputType = {
     id?: true
     title?: true
     content?: true
     isPremium?: true
-    win?: true
     imageurl?: true
+    tippmixPicture?: true
     createdAt?: true
+    updatedAt?: true
     deadline?: true
     _all?: true
   }
 
-  export type AdminTipsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AdminPostsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which AdminTips to aggregate.
+     * Filter which AdminPosts to aggregate.
      */
-    where?: AdminTipsWhereInput
+    where?: AdminPostsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of AdminTips to fetch.
+     * Determine the order of AdminPosts to fetch.
      */
-    orderBy?: AdminTipsOrderByWithRelationInput | AdminTipsOrderByWithRelationInput[]
+    orderBy?: AdminPostsOrderByWithRelationInput | AdminPostsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: AdminTipsWhereUniqueInput
+    cursor?: AdminPostsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` AdminTips from the position of the cursor.
+     * Take `±n` AdminPosts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` AdminTips.
+     * Skip the first `n` AdminPosts.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned AdminTips
+     * Count returned AdminPosts
     **/
-    _count?: true | AdminTipsCountAggregateInputType
+    _count?: true | AdminPostsCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: AdminTipsAvgAggregateInputType
+    _avg?: AdminPostsAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: AdminTipsSumAggregateInputType
+    _sum?: AdminPostsSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: AdminTipsMinAggregateInputType
+    _min?: AdminPostsMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: AdminTipsMaxAggregateInputType
+    _max?: AdminPostsMaxAggregateInputType
   }
 
-  export type GetAdminTipsAggregateType<T extends AdminTipsAggregateArgs> = {
-        [P in keyof T & keyof AggregateAdminTips]: P extends '_count' | 'count'
+  export type GetAdminPostsAggregateType<T extends AdminPostsAggregateArgs> = {
+        [P in keyof T & keyof AggregateAdminPosts]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateAdminTips[P]>
-      : GetScalarType<T[P], AggregateAdminTips[P]>
+        : GetScalarType<T[P], AggregateAdminPosts[P]>
+      : GetScalarType<T[P], AggregateAdminPosts[P]>
   }
 
 
 
 
-  export type AdminTipsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: AdminTipsWhereInput
-    orderBy?: AdminTipsOrderByWithAggregationInput | AdminTipsOrderByWithAggregationInput[]
-    by: AdminTipsScalarFieldEnum[] | AdminTipsScalarFieldEnum
-    having?: AdminTipsScalarWhereWithAggregatesInput
+  export type AdminPostsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AdminPostsWhereInput
+    orderBy?: AdminPostsOrderByWithAggregationInput | AdminPostsOrderByWithAggregationInput[]
+    by: AdminPostsScalarFieldEnum[] | AdminPostsScalarFieldEnum
+    having?: AdminPostsScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: AdminTipsCountAggregateInputType | true
-    _avg?: AdminTipsAvgAggregateInputType
-    _sum?: AdminTipsSumAggregateInputType
-    _min?: AdminTipsMinAggregateInputType
-    _max?: AdminTipsMaxAggregateInputType
+    _count?: AdminPostsCountAggregateInputType | true
+    _avg?: AdminPostsAvgAggregateInputType
+    _sum?: AdminPostsSumAggregateInputType
+    _min?: AdminPostsMinAggregateInputType
+    _max?: AdminPostsMaxAggregateInputType
   }
 
-  export type AdminTipsGroupByOutputType = {
+  export type AdminPostsGroupByOutputType = {
     id: number
     title: string
     content: string
     isPremium: boolean
-    win: boolean
     imageurl: string
+    tippmixPicture: string
     createdAt: Date
+    updatedAt: Date
     deadline: Date
-    _count: AdminTipsCountAggregateOutputType | null
-    _avg: AdminTipsAvgAggregateOutputType | null
-    _sum: AdminTipsSumAggregateOutputType | null
-    _min: AdminTipsMinAggregateOutputType | null
-    _max: AdminTipsMaxAggregateOutputType | null
+    _count: AdminPostsCountAggregateOutputType | null
+    _avg: AdminPostsAvgAggregateOutputType | null
+    _sum: AdminPostsSumAggregateOutputType | null
+    _min: AdminPostsMinAggregateOutputType | null
+    _max: AdminPostsMaxAggregateOutputType | null
   }
 
-  type GetAdminTipsGroupByPayload<T extends AdminTipsGroupByArgs> = Prisma.PrismaPromise<
+  type GetAdminPostsGroupByPayload<T extends AdminPostsGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<AdminTipsGroupByOutputType, T['by']> &
+      PickEnumerable<AdminPostsGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof AdminTipsGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof AdminPostsGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], AdminTipsGroupByOutputType[P]>
-            : GetScalarType<T[P], AdminTipsGroupByOutputType[P]>
+              : GetScalarType<T[P], AdminPostsGroupByOutputType[P]>
+            : GetScalarType<T[P], AdminPostsGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type AdminTipsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type AdminPostsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
     content?: boolean
     isPremium?: boolean
-    win?: boolean
     imageurl?: boolean
+    tippmixPicture?: boolean
     createdAt?: boolean
+    updatedAt?: boolean
     deadline?: boolean
-    comments?: boolean | AdminTips$commentsArgs<ExtArgs>
-    _count?: boolean | AdminTipsCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["adminTips"]>
+    comments?: boolean | AdminPosts$commentsArgs<ExtArgs>
+    _count?: boolean | AdminPostsCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["adminPosts"]>
 
-  export type AdminTipsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type AdminPostsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
     content?: boolean
     isPremium?: boolean
-    win?: boolean
     imageurl?: boolean
+    tippmixPicture?: boolean
     createdAt?: boolean
+    updatedAt?: boolean
     deadline?: boolean
-  }, ExtArgs["result"]["adminTips"]>
+  }, ExtArgs["result"]["adminPosts"]>
 
-  export type AdminTipsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type AdminPostsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
     content?: boolean
     isPremium?: boolean
-    win?: boolean
     imageurl?: boolean
+    tippmixPicture?: boolean
     createdAt?: boolean
+    updatedAt?: boolean
     deadline?: boolean
-  }, ExtArgs["result"]["adminTips"]>
+  }, ExtArgs["result"]["adminPosts"]>
 
-  export type AdminTipsSelectScalar = {
+  export type AdminPostsSelectScalar = {
     id?: boolean
     title?: boolean
     content?: boolean
     isPremium?: boolean
-    win?: boolean
     imageurl?: boolean
+    tippmixPicture?: boolean
     createdAt?: boolean
+    updatedAt?: boolean
     deadline?: boolean
   }
 
-  export type AdminTipsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "content" | "isPremium" | "win" | "imageurl" | "createdAt" | "deadline", ExtArgs["result"]["adminTips"]>
-  export type AdminTipsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    comments?: boolean | AdminTips$commentsArgs<ExtArgs>
-    _count?: boolean | AdminTipsCountOutputTypeDefaultArgs<ExtArgs>
+  export type AdminPostsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "content" | "isPremium" | "imageurl" | "tippmixPicture" | "createdAt" | "updatedAt" | "deadline", ExtArgs["result"]["adminPosts"]>
+  export type AdminPostsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    comments?: boolean | AdminPosts$commentsArgs<ExtArgs>
+    _count?: boolean | AdminPostsCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type AdminTipsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type AdminTipsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type AdminPostsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type AdminPostsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
-  export type $AdminTipsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "AdminTips"
+  export type $AdminPostsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AdminPosts"
     objects: {
       comments: Prisma.$CommentPayload<ExtArgs>[]
     }
@@ -2605,140 +2733,141 @@ export namespace Prisma {
       title: string
       content: string
       isPremium: boolean
-      win: boolean
       imageurl: string
+      tippmixPicture: string
       createdAt: Date
+      updatedAt: Date
       deadline: Date
-    }, ExtArgs["result"]["adminTips"]>
+    }, ExtArgs["result"]["adminPosts"]>
     composites: {}
   }
 
-  type AdminTipsGetPayload<S extends boolean | null | undefined | AdminTipsDefaultArgs> = $Result.GetResult<Prisma.$AdminTipsPayload, S>
+  type AdminPostsGetPayload<S extends boolean | null | undefined | AdminPostsDefaultArgs> = $Result.GetResult<Prisma.$AdminPostsPayload, S>
 
-  type AdminTipsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<AdminTipsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: AdminTipsCountAggregateInputType | true
+  type AdminPostsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AdminPostsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AdminPostsCountAggregateInputType | true
     }
 
-  export interface AdminTipsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AdminTips'], meta: { name: 'AdminTips' } }
+  export interface AdminPostsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AdminPosts'], meta: { name: 'AdminPosts' } }
     /**
-     * Find zero or one AdminTips that matches the filter.
-     * @param {AdminTipsFindUniqueArgs} args - Arguments to find a AdminTips
+     * Find zero or one AdminPosts that matches the filter.
+     * @param {AdminPostsFindUniqueArgs} args - Arguments to find a AdminPosts
      * @example
-     * // Get one AdminTips
-     * const adminTips = await prisma.adminTips.findUnique({
+     * // Get one AdminPosts
+     * const adminPosts = await prisma.adminPosts.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends AdminTipsFindUniqueArgs>(args: SelectSubset<T, AdminTipsFindUniqueArgs<ExtArgs>>): Prisma__AdminTipsClient<$Result.GetResult<Prisma.$AdminTipsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends AdminPostsFindUniqueArgs>(args: SelectSubset<T, AdminPostsFindUniqueArgs<ExtArgs>>): Prisma__AdminPostsClient<$Result.GetResult<Prisma.$AdminPostsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one AdminTips that matches the filter or throw an error with `error.code='P2025'`
+     * Find one AdminPosts that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {AdminTipsFindUniqueOrThrowArgs} args - Arguments to find a AdminTips
+     * @param {AdminPostsFindUniqueOrThrowArgs} args - Arguments to find a AdminPosts
      * @example
-     * // Get one AdminTips
-     * const adminTips = await prisma.adminTips.findUniqueOrThrow({
+     * // Get one AdminPosts
+     * const adminPosts = await prisma.adminPosts.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends AdminTipsFindUniqueOrThrowArgs>(args: SelectSubset<T, AdminTipsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AdminTipsClient<$Result.GetResult<Prisma.$AdminTipsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends AdminPostsFindUniqueOrThrowArgs>(args: SelectSubset<T, AdminPostsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AdminPostsClient<$Result.GetResult<Prisma.$AdminPostsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first AdminTips that matches the filter.
+     * Find the first AdminPosts that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {AdminTipsFindFirstArgs} args - Arguments to find a AdminTips
+     * @param {AdminPostsFindFirstArgs} args - Arguments to find a AdminPosts
      * @example
-     * // Get one AdminTips
-     * const adminTips = await prisma.adminTips.findFirst({
+     * // Get one AdminPosts
+     * const adminPosts = await prisma.adminPosts.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends AdminTipsFindFirstArgs>(args?: SelectSubset<T, AdminTipsFindFirstArgs<ExtArgs>>): Prisma__AdminTipsClient<$Result.GetResult<Prisma.$AdminTipsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends AdminPostsFindFirstArgs>(args?: SelectSubset<T, AdminPostsFindFirstArgs<ExtArgs>>): Prisma__AdminPostsClient<$Result.GetResult<Prisma.$AdminPostsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first AdminTips that matches the filter or
+     * Find the first AdminPosts that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {AdminTipsFindFirstOrThrowArgs} args - Arguments to find a AdminTips
+     * @param {AdminPostsFindFirstOrThrowArgs} args - Arguments to find a AdminPosts
      * @example
-     * // Get one AdminTips
-     * const adminTips = await prisma.adminTips.findFirstOrThrow({
+     * // Get one AdminPosts
+     * const adminPosts = await prisma.adminPosts.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends AdminTipsFindFirstOrThrowArgs>(args?: SelectSubset<T, AdminTipsFindFirstOrThrowArgs<ExtArgs>>): Prisma__AdminTipsClient<$Result.GetResult<Prisma.$AdminTipsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends AdminPostsFindFirstOrThrowArgs>(args?: SelectSubset<T, AdminPostsFindFirstOrThrowArgs<ExtArgs>>): Prisma__AdminPostsClient<$Result.GetResult<Prisma.$AdminPostsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more AdminTips that matches the filter.
+     * Find zero or more AdminPosts that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {AdminTipsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {AdminPostsFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all AdminTips
-     * const adminTips = await prisma.adminTips.findMany()
+     * // Get all AdminPosts
+     * const adminPosts = await prisma.adminPosts.findMany()
      * 
-     * // Get first 10 AdminTips
-     * const adminTips = await prisma.adminTips.findMany({ take: 10 })
+     * // Get first 10 AdminPosts
+     * const adminPosts = await prisma.adminPosts.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const adminTipsWithIdOnly = await prisma.adminTips.findMany({ select: { id: true } })
+     * const adminPostsWithIdOnly = await prisma.adminPosts.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends AdminTipsFindManyArgs>(args?: SelectSubset<T, AdminTipsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdminTipsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends AdminPostsFindManyArgs>(args?: SelectSubset<T, AdminPostsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdminPostsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a AdminTips.
-     * @param {AdminTipsCreateArgs} args - Arguments to create a AdminTips.
+     * Create a AdminPosts.
+     * @param {AdminPostsCreateArgs} args - Arguments to create a AdminPosts.
      * @example
-     * // Create one AdminTips
-     * const AdminTips = await prisma.adminTips.create({
+     * // Create one AdminPosts
+     * const AdminPosts = await prisma.adminPosts.create({
      *   data: {
-     *     // ... data to create a AdminTips
+     *     // ... data to create a AdminPosts
      *   }
      * })
      * 
      */
-    create<T extends AdminTipsCreateArgs>(args: SelectSubset<T, AdminTipsCreateArgs<ExtArgs>>): Prisma__AdminTipsClient<$Result.GetResult<Prisma.$AdminTipsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends AdminPostsCreateArgs>(args: SelectSubset<T, AdminPostsCreateArgs<ExtArgs>>): Prisma__AdminPostsClient<$Result.GetResult<Prisma.$AdminPostsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many AdminTips.
-     * @param {AdminTipsCreateManyArgs} args - Arguments to create many AdminTips.
+     * Create many AdminPosts.
+     * @param {AdminPostsCreateManyArgs} args - Arguments to create many AdminPosts.
      * @example
-     * // Create many AdminTips
-     * const adminTips = await prisma.adminTips.createMany({
+     * // Create many AdminPosts
+     * const adminPosts = await prisma.adminPosts.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends AdminTipsCreateManyArgs>(args?: SelectSubset<T, AdminTipsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends AdminPostsCreateManyArgs>(args?: SelectSubset<T, AdminPostsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many AdminTips and returns the data saved in the database.
-     * @param {AdminTipsCreateManyAndReturnArgs} args - Arguments to create many AdminTips.
+     * Create many AdminPosts and returns the data saved in the database.
+     * @param {AdminPostsCreateManyAndReturnArgs} args - Arguments to create many AdminPosts.
      * @example
-     * // Create many AdminTips
-     * const adminTips = await prisma.adminTips.createManyAndReturn({
+     * // Create many AdminPosts
+     * const adminPosts = await prisma.adminPosts.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many AdminTips and only return the `id`
-     * const adminTipsWithIdOnly = await prisma.adminTips.createManyAndReturn({
+     * // Create many AdminPosts and only return the `id`
+     * const adminPostsWithIdOnly = await prisma.adminPosts.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -2748,28 +2877,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends AdminTipsCreateManyAndReturnArgs>(args?: SelectSubset<T, AdminTipsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdminTipsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends AdminPostsCreateManyAndReturnArgs>(args?: SelectSubset<T, AdminPostsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdminPostsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a AdminTips.
-     * @param {AdminTipsDeleteArgs} args - Arguments to delete one AdminTips.
+     * Delete a AdminPosts.
+     * @param {AdminPostsDeleteArgs} args - Arguments to delete one AdminPosts.
      * @example
-     * // Delete one AdminTips
-     * const AdminTips = await prisma.adminTips.delete({
+     * // Delete one AdminPosts
+     * const AdminPosts = await prisma.adminPosts.delete({
      *   where: {
-     *     // ... filter to delete one AdminTips
+     *     // ... filter to delete one AdminPosts
      *   }
      * })
      * 
      */
-    delete<T extends AdminTipsDeleteArgs>(args: SelectSubset<T, AdminTipsDeleteArgs<ExtArgs>>): Prisma__AdminTipsClient<$Result.GetResult<Prisma.$AdminTipsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends AdminPostsDeleteArgs>(args: SelectSubset<T, AdminPostsDeleteArgs<ExtArgs>>): Prisma__AdminPostsClient<$Result.GetResult<Prisma.$AdminPostsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one AdminTips.
-     * @param {AdminTipsUpdateArgs} args - Arguments to update one AdminTips.
+     * Update one AdminPosts.
+     * @param {AdminPostsUpdateArgs} args - Arguments to update one AdminPosts.
      * @example
-     * // Update one AdminTips
-     * const adminTips = await prisma.adminTips.update({
+     * // Update one AdminPosts
+     * const adminPosts = await prisma.adminPosts.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2779,30 +2908,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends AdminTipsUpdateArgs>(args: SelectSubset<T, AdminTipsUpdateArgs<ExtArgs>>): Prisma__AdminTipsClient<$Result.GetResult<Prisma.$AdminTipsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends AdminPostsUpdateArgs>(args: SelectSubset<T, AdminPostsUpdateArgs<ExtArgs>>): Prisma__AdminPostsClient<$Result.GetResult<Prisma.$AdminPostsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more AdminTips.
-     * @param {AdminTipsDeleteManyArgs} args - Arguments to filter AdminTips to delete.
+     * Delete zero or more AdminPosts.
+     * @param {AdminPostsDeleteManyArgs} args - Arguments to filter AdminPosts to delete.
      * @example
-     * // Delete a few AdminTips
-     * const { count } = await prisma.adminTips.deleteMany({
+     * // Delete a few AdminPosts
+     * const { count } = await prisma.adminPosts.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends AdminTipsDeleteManyArgs>(args?: SelectSubset<T, AdminTipsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends AdminPostsDeleteManyArgs>(args?: SelectSubset<T, AdminPostsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more AdminTips.
+     * Update zero or more AdminPosts.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {AdminTipsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {AdminPostsUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many AdminTips
-     * const adminTips = await prisma.adminTips.updateMany({
+     * // Update many AdminPosts
+     * const adminPosts = await prisma.adminPosts.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2812,14 +2941,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends AdminTipsUpdateManyArgs>(args: SelectSubset<T, AdminTipsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends AdminPostsUpdateManyArgs>(args: SelectSubset<T, AdminPostsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more AdminTips and returns the data updated in the database.
-     * @param {AdminTipsUpdateManyAndReturnArgs} args - Arguments to update many AdminTips.
+     * Update zero or more AdminPosts and returns the data updated in the database.
+     * @param {AdminPostsUpdateManyAndReturnArgs} args - Arguments to update many AdminPosts.
      * @example
-     * // Update many AdminTips
-     * const adminTips = await prisma.adminTips.updateManyAndReturn({
+     * // Update many AdminPosts
+     * const adminPosts = await prisma.adminPosts.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2828,8 +2957,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more AdminTips and only return the `id`
-     * const adminTipsWithIdOnly = await prisma.adminTips.updateManyAndReturn({
+     * // Update zero or more AdminPosts and only return the `id`
+     * const adminPostsWithIdOnly = await prisma.adminPosts.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -2842,56 +2971,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends AdminTipsUpdateManyAndReturnArgs>(args: SelectSubset<T, AdminTipsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdminTipsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends AdminPostsUpdateManyAndReturnArgs>(args: SelectSubset<T, AdminPostsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdminPostsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one AdminTips.
-     * @param {AdminTipsUpsertArgs} args - Arguments to update or create a AdminTips.
+     * Create or update one AdminPosts.
+     * @param {AdminPostsUpsertArgs} args - Arguments to update or create a AdminPosts.
      * @example
-     * // Update or create a AdminTips
-     * const adminTips = await prisma.adminTips.upsert({
+     * // Update or create a AdminPosts
+     * const adminPosts = await prisma.adminPosts.upsert({
      *   create: {
-     *     // ... data to create a AdminTips
+     *     // ... data to create a AdminPosts
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the AdminTips we want to update
+     *     // ... the filter for the AdminPosts we want to update
      *   }
      * })
      */
-    upsert<T extends AdminTipsUpsertArgs>(args: SelectSubset<T, AdminTipsUpsertArgs<ExtArgs>>): Prisma__AdminTipsClient<$Result.GetResult<Prisma.$AdminTipsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends AdminPostsUpsertArgs>(args: SelectSubset<T, AdminPostsUpsertArgs<ExtArgs>>): Prisma__AdminPostsClient<$Result.GetResult<Prisma.$AdminPostsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of AdminTips.
+     * Count the number of AdminPosts.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {AdminTipsCountArgs} args - Arguments to filter AdminTips to count.
+     * @param {AdminPostsCountArgs} args - Arguments to filter AdminPosts to count.
      * @example
-     * // Count the number of AdminTips
-     * const count = await prisma.adminTips.count({
+     * // Count the number of AdminPosts
+     * const count = await prisma.adminPosts.count({
      *   where: {
-     *     // ... the filter for the AdminTips we want to count
+     *     // ... the filter for the AdminPosts we want to count
      *   }
      * })
     **/
-    count<T extends AdminTipsCountArgs>(
-      args?: Subset<T, AdminTipsCountArgs>,
+    count<T extends AdminPostsCountArgs>(
+      args?: Subset<T, AdminPostsCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], AdminTipsCountAggregateOutputType>
+          : GetScalarType<T['select'], AdminPostsCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a AdminTips.
+     * Allows you to perform aggregations operations on a AdminPosts.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {AdminTipsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {AdminPostsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -2911,13 +3040,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends AdminTipsAggregateArgs>(args: Subset<T, AdminTipsAggregateArgs>): Prisma.PrismaPromise<GetAdminTipsAggregateType<T>>
+    aggregate<T extends AdminPostsAggregateArgs>(args: Subset<T, AdminPostsAggregateArgs>): Prisma.PrismaPromise<GetAdminPostsAggregateType<T>>
 
     /**
-     * Group by AdminTips.
+     * Group by AdminPosts.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {AdminTipsGroupByArgs} args - Group by arguments.
+     * @param {AdminPostsGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -2932,14 +3061,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends AdminTipsGroupByArgs,
+      T extends AdminPostsGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: AdminTipsGroupByArgs['orderBy'] }
-        : { orderBy?: AdminTipsGroupByArgs['orderBy'] },
+        ? { orderBy: AdminPostsGroupByArgs['orderBy'] }
+        : { orderBy?: AdminPostsGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -2988,22 +3117,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, AdminTipsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAdminTipsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, AdminPostsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAdminPostsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the AdminTips model
+   * Fields of the AdminPosts model
    */
-  readonly fields: AdminTipsFieldRefs;
+  readonly fields: AdminPostsFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for AdminTips.
+   * The delegate class that acts as a "Promise-like" for AdminPosts.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__AdminTipsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__AdminPostsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    comments<T extends AdminTips$commentsArgs<ExtArgs> = {}>(args?: Subset<T, AdminTips$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    comments<T extends AdminPosts$commentsArgs<ExtArgs> = {}>(args?: Subset<T, AdminPosts$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3030,406 +3159,407 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the AdminTips model
+   * Fields of the AdminPosts model
    */
-  interface AdminTipsFieldRefs {
-    readonly id: FieldRef<"AdminTips", 'Int'>
-    readonly title: FieldRef<"AdminTips", 'String'>
-    readonly content: FieldRef<"AdminTips", 'String'>
-    readonly isPremium: FieldRef<"AdminTips", 'Boolean'>
-    readonly win: FieldRef<"AdminTips", 'Boolean'>
-    readonly imageurl: FieldRef<"AdminTips", 'String'>
-    readonly createdAt: FieldRef<"AdminTips", 'DateTime'>
-    readonly deadline: FieldRef<"AdminTips", 'DateTime'>
+  interface AdminPostsFieldRefs {
+    readonly id: FieldRef<"AdminPosts", 'Int'>
+    readonly title: FieldRef<"AdminPosts", 'String'>
+    readonly content: FieldRef<"AdminPosts", 'String'>
+    readonly isPremium: FieldRef<"AdminPosts", 'Boolean'>
+    readonly imageurl: FieldRef<"AdminPosts", 'String'>
+    readonly tippmixPicture: FieldRef<"AdminPosts", 'String'>
+    readonly createdAt: FieldRef<"AdminPosts", 'DateTime'>
+    readonly updatedAt: FieldRef<"AdminPosts", 'DateTime'>
+    readonly deadline: FieldRef<"AdminPosts", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * AdminTips findUnique
+   * AdminPosts findUnique
    */
-  export type AdminTipsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AdminPostsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdminTips
+     * Select specific fields to fetch from the AdminPosts
      */
-    select?: AdminTipsSelect<ExtArgs> | null
+    select?: AdminPostsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the AdminTips
+     * Omit specific fields from the AdminPosts
      */
-    omit?: AdminTipsOmit<ExtArgs> | null
+    omit?: AdminPostsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AdminTipsInclude<ExtArgs> | null
+    include?: AdminPostsInclude<ExtArgs> | null
     /**
-     * Filter, which AdminTips to fetch.
+     * Filter, which AdminPosts to fetch.
      */
-    where: AdminTipsWhereUniqueInput
+    where: AdminPostsWhereUniqueInput
   }
 
   /**
-   * AdminTips findUniqueOrThrow
+   * AdminPosts findUniqueOrThrow
    */
-  export type AdminTipsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AdminPostsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdminTips
+     * Select specific fields to fetch from the AdminPosts
      */
-    select?: AdminTipsSelect<ExtArgs> | null
+    select?: AdminPostsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the AdminTips
+     * Omit specific fields from the AdminPosts
      */
-    omit?: AdminTipsOmit<ExtArgs> | null
+    omit?: AdminPostsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AdminTipsInclude<ExtArgs> | null
+    include?: AdminPostsInclude<ExtArgs> | null
     /**
-     * Filter, which AdminTips to fetch.
+     * Filter, which AdminPosts to fetch.
      */
-    where: AdminTipsWhereUniqueInput
+    where: AdminPostsWhereUniqueInput
   }
 
   /**
-   * AdminTips findFirst
+   * AdminPosts findFirst
    */
-  export type AdminTipsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AdminPostsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdminTips
+     * Select specific fields to fetch from the AdminPosts
      */
-    select?: AdminTipsSelect<ExtArgs> | null
+    select?: AdminPostsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the AdminTips
+     * Omit specific fields from the AdminPosts
      */
-    omit?: AdminTipsOmit<ExtArgs> | null
+    omit?: AdminPostsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AdminTipsInclude<ExtArgs> | null
+    include?: AdminPostsInclude<ExtArgs> | null
     /**
-     * Filter, which AdminTips to fetch.
+     * Filter, which AdminPosts to fetch.
      */
-    where?: AdminTipsWhereInput
+    where?: AdminPostsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of AdminTips to fetch.
+     * Determine the order of AdminPosts to fetch.
      */
-    orderBy?: AdminTipsOrderByWithRelationInput | AdminTipsOrderByWithRelationInput[]
+    orderBy?: AdminPostsOrderByWithRelationInput | AdminPostsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for AdminTips.
+     * Sets the position for searching for AdminPosts.
      */
-    cursor?: AdminTipsWhereUniqueInput
+    cursor?: AdminPostsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` AdminTips from the position of the cursor.
+     * Take `±n` AdminPosts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` AdminTips.
+     * Skip the first `n` AdminPosts.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of AdminTips.
+     * Filter by unique combinations of AdminPosts.
      */
-    distinct?: AdminTipsScalarFieldEnum | AdminTipsScalarFieldEnum[]
+    distinct?: AdminPostsScalarFieldEnum | AdminPostsScalarFieldEnum[]
   }
 
   /**
-   * AdminTips findFirstOrThrow
+   * AdminPosts findFirstOrThrow
    */
-  export type AdminTipsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AdminPostsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdminTips
+     * Select specific fields to fetch from the AdminPosts
      */
-    select?: AdminTipsSelect<ExtArgs> | null
+    select?: AdminPostsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the AdminTips
+     * Omit specific fields from the AdminPosts
      */
-    omit?: AdminTipsOmit<ExtArgs> | null
+    omit?: AdminPostsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AdminTipsInclude<ExtArgs> | null
+    include?: AdminPostsInclude<ExtArgs> | null
     /**
-     * Filter, which AdminTips to fetch.
+     * Filter, which AdminPosts to fetch.
      */
-    where?: AdminTipsWhereInput
+    where?: AdminPostsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of AdminTips to fetch.
+     * Determine the order of AdminPosts to fetch.
      */
-    orderBy?: AdminTipsOrderByWithRelationInput | AdminTipsOrderByWithRelationInput[]
+    orderBy?: AdminPostsOrderByWithRelationInput | AdminPostsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for AdminTips.
+     * Sets the position for searching for AdminPosts.
      */
-    cursor?: AdminTipsWhereUniqueInput
+    cursor?: AdminPostsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` AdminTips from the position of the cursor.
+     * Take `±n` AdminPosts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` AdminTips.
+     * Skip the first `n` AdminPosts.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of AdminTips.
+     * Filter by unique combinations of AdminPosts.
      */
-    distinct?: AdminTipsScalarFieldEnum | AdminTipsScalarFieldEnum[]
+    distinct?: AdminPostsScalarFieldEnum | AdminPostsScalarFieldEnum[]
   }
 
   /**
-   * AdminTips findMany
+   * AdminPosts findMany
    */
-  export type AdminTipsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AdminPostsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdminTips
+     * Select specific fields to fetch from the AdminPosts
      */
-    select?: AdminTipsSelect<ExtArgs> | null
+    select?: AdminPostsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the AdminTips
+     * Omit specific fields from the AdminPosts
      */
-    omit?: AdminTipsOmit<ExtArgs> | null
+    omit?: AdminPostsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AdminTipsInclude<ExtArgs> | null
+    include?: AdminPostsInclude<ExtArgs> | null
     /**
-     * Filter, which AdminTips to fetch.
+     * Filter, which AdminPosts to fetch.
      */
-    where?: AdminTipsWhereInput
+    where?: AdminPostsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of AdminTips to fetch.
+     * Determine the order of AdminPosts to fetch.
      */
-    orderBy?: AdminTipsOrderByWithRelationInput | AdminTipsOrderByWithRelationInput[]
+    orderBy?: AdminPostsOrderByWithRelationInput | AdminPostsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing AdminTips.
+     * Sets the position for listing AdminPosts.
      */
-    cursor?: AdminTipsWhereUniqueInput
+    cursor?: AdminPostsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` AdminTips from the position of the cursor.
+     * Take `±n` AdminPosts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` AdminTips.
+     * Skip the first `n` AdminPosts.
      */
     skip?: number
-    distinct?: AdminTipsScalarFieldEnum | AdminTipsScalarFieldEnum[]
+    distinct?: AdminPostsScalarFieldEnum | AdminPostsScalarFieldEnum[]
   }
 
   /**
-   * AdminTips create
+   * AdminPosts create
    */
-  export type AdminTipsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AdminPostsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdminTips
+     * Select specific fields to fetch from the AdminPosts
      */
-    select?: AdminTipsSelect<ExtArgs> | null
+    select?: AdminPostsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the AdminTips
+     * Omit specific fields from the AdminPosts
      */
-    omit?: AdminTipsOmit<ExtArgs> | null
+    omit?: AdminPostsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AdminTipsInclude<ExtArgs> | null
+    include?: AdminPostsInclude<ExtArgs> | null
     /**
-     * The data needed to create a AdminTips.
+     * The data needed to create a AdminPosts.
      */
-    data: XOR<AdminTipsCreateInput, AdminTipsUncheckedCreateInput>
+    data: XOR<AdminPostsCreateInput, AdminPostsUncheckedCreateInput>
   }
 
   /**
-   * AdminTips createMany
+   * AdminPosts createMany
    */
-  export type AdminTipsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AdminPostsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many AdminTips.
+     * The data used to create many AdminPosts.
      */
-    data: AdminTipsCreateManyInput | AdminTipsCreateManyInput[]
+    data: AdminPostsCreateManyInput | AdminPostsCreateManyInput[]
   }
 
   /**
-   * AdminTips createManyAndReturn
+   * AdminPosts createManyAndReturn
    */
-  export type AdminTipsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AdminPostsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdminTips
+     * Select specific fields to fetch from the AdminPosts
      */
-    select?: AdminTipsSelectCreateManyAndReturn<ExtArgs> | null
+    select?: AdminPostsSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the AdminTips
+     * Omit specific fields from the AdminPosts
      */
-    omit?: AdminTipsOmit<ExtArgs> | null
+    omit?: AdminPostsOmit<ExtArgs> | null
     /**
-     * The data used to create many AdminTips.
+     * The data used to create many AdminPosts.
      */
-    data: AdminTipsCreateManyInput | AdminTipsCreateManyInput[]
+    data: AdminPostsCreateManyInput | AdminPostsCreateManyInput[]
   }
 
   /**
-   * AdminTips update
+   * AdminPosts update
    */
-  export type AdminTipsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AdminPostsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdminTips
+     * Select specific fields to fetch from the AdminPosts
      */
-    select?: AdminTipsSelect<ExtArgs> | null
+    select?: AdminPostsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the AdminTips
+     * Omit specific fields from the AdminPosts
      */
-    omit?: AdminTipsOmit<ExtArgs> | null
+    omit?: AdminPostsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AdminTipsInclude<ExtArgs> | null
+    include?: AdminPostsInclude<ExtArgs> | null
     /**
-     * The data needed to update a AdminTips.
+     * The data needed to update a AdminPosts.
      */
-    data: XOR<AdminTipsUpdateInput, AdminTipsUncheckedUpdateInput>
+    data: XOR<AdminPostsUpdateInput, AdminPostsUncheckedUpdateInput>
     /**
-     * Choose, which AdminTips to update.
+     * Choose, which AdminPosts to update.
      */
-    where: AdminTipsWhereUniqueInput
+    where: AdminPostsWhereUniqueInput
   }
 
   /**
-   * AdminTips updateMany
+   * AdminPosts updateMany
    */
-  export type AdminTipsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AdminPostsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update AdminTips.
+     * The data used to update AdminPosts.
      */
-    data: XOR<AdminTipsUpdateManyMutationInput, AdminTipsUncheckedUpdateManyInput>
+    data: XOR<AdminPostsUpdateManyMutationInput, AdminPostsUncheckedUpdateManyInput>
     /**
-     * Filter which AdminTips to update
+     * Filter which AdminPosts to update
      */
-    where?: AdminTipsWhereInput
+    where?: AdminPostsWhereInput
     /**
-     * Limit how many AdminTips to update.
+     * Limit how many AdminPosts to update.
      */
     limit?: number
   }
 
   /**
-   * AdminTips updateManyAndReturn
+   * AdminPosts updateManyAndReturn
    */
-  export type AdminTipsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AdminPostsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdminTips
+     * Select specific fields to fetch from the AdminPosts
      */
-    select?: AdminTipsSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: AdminPostsSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the AdminTips
+     * Omit specific fields from the AdminPosts
      */
-    omit?: AdminTipsOmit<ExtArgs> | null
+    omit?: AdminPostsOmit<ExtArgs> | null
     /**
-     * The data used to update AdminTips.
+     * The data used to update AdminPosts.
      */
-    data: XOR<AdminTipsUpdateManyMutationInput, AdminTipsUncheckedUpdateManyInput>
+    data: XOR<AdminPostsUpdateManyMutationInput, AdminPostsUncheckedUpdateManyInput>
     /**
-     * Filter which AdminTips to update
+     * Filter which AdminPosts to update
      */
-    where?: AdminTipsWhereInput
+    where?: AdminPostsWhereInput
     /**
-     * Limit how many AdminTips to update.
+     * Limit how many AdminPosts to update.
      */
     limit?: number
   }
 
   /**
-   * AdminTips upsert
+   * AdminPosts upsert
    */
-  export type AdminTipsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AdminPostsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdminTips
+     * Select specific fields to fetch from the AdminPosts
      */
-    select?: AdminTipsSelect<ExtArgs> | null
+    select?: AdminPostsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the AdminTips
+     * Omit specific fields from the AdminPosts
      */
-    omit?: AdminTipsOmit<ExtArgs> | null
+    omit?: AdminPostsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AdminTipsInclude<ExtArgs> | null
+    include?: AdminPostsInclude<ExtArgs> | null
     /**
-     * The filter to search for the AdminTips to update in case it exists.
+     * The filter to search for the AdminPosts to update in case it exists.
      */
-    where: AdminTipsWhereUniqueInput
+    where: AdminPostsWhereUniqueInput
     /**
-     * In case the AdminTips found by the `where` argument doesn't exist, create a new AdminTips with this data.
+     * In case the AdminPosts found by the `where` argument doesn't exist, create a new AdminPosts with this data.
      */
-    create: XOR<AdminTipsCreateInput, AdminTipsUncheckedCreateInput>
+    create: XOR<AdminPostsCreateInput, AdminPostsUncheckedCreateInput>
     /**
-     * In case the AdminTips was found with the provided `where` argument, update it with this data.
+     * In case the AdminPosts was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<AdminTipsUpdateInput, AdminTipsUncheckedUpdateInput>
+    update: XOR<AdminPostsUpdateInput, AdminPostsUncheckedUpdateInput>
   }
 
   /**
-   * AdminTips delete
+   * AdminPosts delete
    */
-  export type AdminTipsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AdminPostsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdminTips
+     * Select specific fields to fetch from the AdminPosts
      */
-    select?: AdminTipsSelect<ExtArgs> | null
+    select?: AdminPostsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the AdminTips
+     * Omit specific fields from the AdminPosts
      */
-    omit?: AdminTipsOmit<ExtArgs> | null
+    omit?: AdminPostsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AdminTipsInclude<ExtArgs> | null
+    include?: AdminPostsInclude<ExtArgs> | null
     /**
-     * Filter which AdminTips to delete.
+     * Filter which AdminPosts to delete.
      */
-    where: AdminTipsWhereUniqueInput
+    where: AdminPostsWhereUniqueInput
   }
 
   /**
-   * AdminTips deleteMany
+   * AdminPosts deleteMany
    */
-  export type AdminTipsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AdminPostsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which AdminTips to delete
+     * Filter which AdminPosts to delete
      */
-    where?: AdminTipsWhereInput
+    where?: AdminPostsWhereInput
     /**
-     * Limit how many AdminTips to delete.
+     * Limit how many AdminPosts to delete.
      */
     limit?: number
   }
 
   /**
-   * AdminTips.comments
+   * AdminPosts.comments
    */
-  export type AdminTips$commentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AdminPosts$commentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Comment
      */
@@ -3451,21 +3581,21 @@ export namespace Prisma {
   }
 
   /**
-   * AdminTips without action
+   * AdminPosts without action
    */
-  export type AdminTipsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AdminPostsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdminTips
+     * Select specific fields to fetch from the AdminPosts
      */
-    select?: AdminTipsSelect<ExtArgs> | null
+    select?: AdminPostsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the AdminTips
+     * Omit specific fields from the AdminPosts
      */
-    omit?: AdminTipsOmit<ExtArgs> | null
+    omit?: AdminPostsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AdminTipsInclude<ExtArgs> | null
+    include?: AdminPostsInclude<ExtArgs> | null
   }
 
 
@@ -3484,37 +3614,40 @@ export namespace Prisma {
   export type CommentAvgAggregateOutputType = {
     id: number | null
     userId: number | null
-    tipId: number | null
+    postId: number | null
   }
 
   export type CommentSumAggregateOutputType = {
     id: number | null
     userId: number | null
-    tipId: number | null
+    postId: number | null
   }
 
   export type CommentMinAggregateOutputType = {
     id: number | null
     content: string | null
     userId: number | null
-    tipId: number | null
+    postId: number | null
     createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type CommentMaxAggregateOutputType = {
     id: number | null
     content: string | null
     userId: number | null
-    tipId: number | null
+    postId: number | null
     createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type CommentCountAggregateOutputType = {
     id: number
     content: number
     userId: number
-    tipId: number
+    postId: number
     createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -3522,37 +3655,40 @@ export namespace Prisma {
   export type CommentAvgAggregateInputType = {
     id?: true
     userId?: true
-    tipId?: true
+    postId?: true
   }
 
   export type CommentSumAggregateInputType = {
     id?: true
     userId?: true
-    tipId?: true
+    postId?: true
   }
 
   export type CommentMinAggregateInputType = {
     id?: true
     content?: true
     userId?: true
-    tipId?: true
+    postId?: true
     createdAt?: true
+    updatedAt?: true
   }
 
   export type CommentMaxAggregateInputType = {
     id?: true
     content?: true
     userId?: true
-    tipId?: true
+    postId?: true
     createdAt?: true
+    updatedAt?: true
   }
 
   export type CommentCountAggregateInputType = {
     id?: true
     content?: true
     userId?: true
-    tipId?: true
+    postId?: true
     createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -3646,8 +3782,9 @@ export namespace Prisma {
     id: number
     content: string
     userId: number
-    tipId: number
+    postId: number
     createdAt: Date
+    updatedAt: Date
     _count: CommentCountAggregateOutputType | null
     _avg: CommentAvgAggregateOutputType | null
     _sum: CommentSumAggregateOutputType | null
@@ -3673,66 +3810,71 @@ export namespace Prisma {
     id?: boolean
     content?: boolean
     userId?: boolean
-    tipId?: boolean
+    postId?: boolean
     createdAt?: boolean
+    updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-    tip?: boolean | AdminTipsDefaultArgs<ExtArgs>
+    post?: boolean | AdminPostsDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["comment"]>
 
   export type CommentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     content?: boolean
     userId?: boolean
-    tipId?: boolean
+    postId?: boolean
     createdAt?: boolean
+    updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-    tip?: boolean | AdminTipsDefaultArgs<ExtArgs>
+    post?: boolean | AdminPostsDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["comment"]>
 
   export type CommentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     content?: boolean
     userId?: boolean
-    tipId?: boolean
+    postId?: boolean
     createdAt?: boolean
+    updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-    tip?: boolean | AdminTipsDefaultArgs<ExtArgs>
+    post?: boolean | AdminPostsDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["comment"]>
 
   export type CommentSelectScalar = {
     id?: boolean
     content?: boolean
     userId?: boolean
-    tipId?: boolean
+    postId?: boolean
     createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type CommentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "content" | "userId" | "tipId" | "createdAt", ExtArgs["result"]["comment"]>
+  export type CommentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "content" | "userId" | "postId" | "createdAt" | "updatedAt", ExtArgs["result"]["comment"]>
   export type CommentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
-    tip?: boolean | AdminTipsDefaultArgs<ExtArgs>
+    post?: boolean | AdminPostsDefaultArgs<ExtArgs>
   }
   export type CommentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
-    tip?: boolean | AdminTipsDefaultArgs<ExtArgs>
+    post?: boolean | AdminPostsDefaultArgs<ExtArgs>
   }
   export type CommentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
-    tip?: boolean | AdminTipsDefaultArgs<ExtArgs>
+    post?: boolean | AdminPostsDefaultArgs<ExtArgs>
   }
 
   export type $CommentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Comment"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
-      tip: Prisma.$AdminTipsPayload<ExtArgs>
+      post: Prisma.$AdminPostsPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       content: string
       userId: number
-      tipId: number
+      postId: number
       createdAt: Date
+      updatedAt: Date
     }, ExtArgs["result"]["comment"]>
     composites: {}
   }
@@ -4128,7 +4270,7 @@ export namespace Prisma {
   export interface Prisma__CommentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    tip<T extends AdminTipsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AdminTipsDefaultArgs<ExtArgs>>): Prisma__AdminTipsClient<$Result.GetResult<Prisma.$AdminTipsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    post<T extends AdminPostsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AdminPostsDefaultArgs<ExtArgs>>): Prisma__AdminPostsClient<$Result.GetResult<Prisma.$AdminPostsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4161,8 +4303,9 @@ export namespace Prisma {
     readonly id: FieldRef<"Comment", 'Int'>
     readonly content: FieldRef<"Comment", 'String'>
     readonly userId: FieldRef<"Comment", 'Int'>
-    readonly tipId: FieldRef<"Comment", 'Int'>
+    readonly postId: FieldRef<"Comment", 'Int'>
     readonly createdAt: FieldRef<"Comment", 'DateTime'>
+    readonly updatedAt: FieldRef<"Comment", 'DateTime'>
   }
     
 
@@ -5644,6 +5787,1109 @@ export namespace Prisma {
 
 
   /**
+   * Model freeTipsStatistic
+   */
+
+  export type AggregateFreeTipsStatistic = {
+    _count: FreeTipsStatisticCountAggregateOutputType | null
+    _avg: FreeTipsStatisticAvgAggregateOutputType | null
+    _sum: FreeTipsStatisticSumAggregateOutputType | null
+    _min: FreeTipsStatisticMinAggregateOutputType | null
+    _max: FreeTipsStatisticMaxAggregateOutputType | null
+  }
+
+  export type FreeTipsStatisticAvgAggregateOutputType = {
+    id: number | null
+    numberOfTipps: number | null
+    goodTippNumber: number | null
+    badTippNumber: number | null
+    AllBet: number | null
+    WinMoney: number | null
+    LostMoney: number | null
+  }
+
+  export type FreeTipsStatisticSumAggregateOutputType = {
+    id: number | null
+    numberOfTipps: number | null
+    goodTippNumber: number | null
+    badTippNumber: number | null
+    AllBet: number | null
+    WinMoney: number | null
+    LostMoney: number | null
+  }
+
+  export type FreeTipsStatisticMinAggregateOutputType = {
+    id: number | null
+    numberOfTipps: number | null
+    goodTippNumber: number | null
+    badTippNumber: number | null
+    AllBet: number | null
+    WinMoney: number | null
+    LostMoney: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type FreeTipsStatisticMaxAggregateOutputType = {
+    id: number | null
+    numberOfTipps: number | null
+    goodTippNumber: number | null
+    badTippNumber: number | null
+    AllBet: number | null
+    WinMoney: number | null
+    LostMoney: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type FreeTipsStatisticCountAggregateOutputType = {
+    id: number
+    numberOfTipps: number
+    goodTippNumber: number
+    badTippNumber: number
+    AllBet: number
+    WinMoney: number
+    LostMoney: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type FreeTipsStatisticAvgAggregateInputType = {
+    id?: true
+    numberOfTipps?: true
+    goodTippNumber?: true
+    badTippNumber?: true
+    AllBet?: true
+    WinMoney?: true
+    LostMoney?: true
+  }
+
+  export type FreeTipsStatisticSumAggregateInputType = {
+    id?: true
+    numberOfTipps?: true
+    goodTippNumber?: true
+    badTippNumber?: true
+    AllBet?: true
+    WinMoney?: true
+    LostMoney?: true
+  }
+
+  export type FreeTipsStatisticMinAggregateInputType = {
+    id?: true
+    numberOfTipps?: true
+    goodTippNumber?: true
+    badTippNumber?: true
+    AllBet?: true
+    WinMoney?: true
+    LostMoney?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type FreeTipsStatisticMaxAggregateInputType = {
+    id?: true
+    numberOfTipps?: true
+    goodTippNumber?: true
+    badTippNumber?: true
+    AllBet?: true
+    WinMoney?: true
+    LostMoney?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type FreeTipsStatisticCountAggregateInputType = {
+    id?: true
+    numberOfTipps?: true
+    goodTippNumber?: true
+    badTippNumber?: true
+    AllBet?: true
+    WinMoney?: true
+    LostMoney?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type FreeTipsStatisticAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which freeTipsStatistic to aggregate.
+     */
+    where?: freeTipsStatisticWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of freeTipsStatistics to fetch.
+     */
+    orderBy?: freeTipsStatisticOrderByWithRelationInput | freeTipsStatisticOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: freeTipsStatisticWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` freeTipsStatistics from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` freeTipsStatistics.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned freeTipsStatistics
+    **/
+    _count?: true | FreeTipsStatisticCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: FreeTipsStatisticAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: FreeTipsStatisticSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FreeTipsStatisticMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FreeTipsStatisticMaxAggregateInputType
+  }
+
+  export type GetFreeTipsStatisticAggregateType<T extends FreeTipsStatisticAggregateArgs> = {
+        [P in keyof T & keyof AggregateFreeTipsStatistic]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFreeTipsStatistic[P]>
+      : GetScalarType<T[P], AggregateFreeTipsStatistic[P]>
+  }
+
+
+
+
+  export type freeTipsStatisticGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: freeTipsStatisticWhereInput
+    orderBy?: freeTipsStatisticOrderByWithAggregationInput | freeTipsStatisticOrderByWithAggregationInput[]
+    by: FreeTipsStatisticScalarFieldEnum[] | FreeTipsStatisticScalarFieldEnum
+    having?: freeTipsStatisticScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FreeTipsStatisticCountAggregateInputType | true
+    _avg?: FreeTipsStatisticAvgAggregateInputType
+    _sum?: FreeTipsStatisticSumAggregateInputType
+    _min?: FreeTipsStatisticMinAggregateInputType
+    _max?: FreeTipsStatisticMaxAggregateInputType
+  }
+
+  export type FreeTipsStatisticGroupByOutputType = {
+    id: number
+    numberOfTipps: number
+    goodTippNumber: number
+    badTippNumber: number
+    AllBet: number
+    WinMoney: number
+    LostMoney: number
+    createdAt: Date
+    updatedAt: Date
+    _count: FreeTipsStatisticCountAggregateOutputType | null
+    _avg: FreeTipsStatisticAvgAggregateOutputType | null
+    _sum: FreeTipsStatisticSumAggregateOutputType | null
+    _min: FreeTipsStatisticMinAggregateOutputType | null
+    _max: FreeTipsStatisticMaxAggregateOutputType | null
+  }
+
+  type GetFreeTipsStatisticGroupByPayload<T extends freeTipsStatisticGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FreeTipsStatisticGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FreeTipsStatisticGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FreeTipsStatisticGroupByOutputType[P]>
+            : GetScalarType<T[P], FreeTipsStatisticGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type freeTipsStatisticSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    numberOfTipps?: boolean
+    goodTippNumber?: boolean
+    badTippNumber?: boolean
+    AllBet?: boolean
+    WinMoney?: boolean
+    LostMoney?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["freeTipsStatistic"]>
+
+  export type freeTipsStatisticSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    numberOfTipps?: boolean
+    goodTippNumber?: boolean
+    badTippNumber?: boolean
+    AllBet?: boolean
+    WinMoney?: boolean
+    LostMoney?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["freeTipsStatistic"]>
+
+  export type freeTipsStatisticSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    numberOfTipps?: boolean
+    goodTippNumber?: boolean
+    badTippNumber?: boolean
+    AllBet?: boolean
+    WinMoney?: boolean
+    LostMoney?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["freeTipsStatistic"]>
+
+  export type freeTipsStatisticSelectScalar = {
+    id?: boolean
+    numberOfTipps?: boolean
+    goodTippNumber?: boolean
+    badTippNumber?: boolean
+    AllBet?: boolean
+    WinMoney?: boolean
+    LostMoney?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type freeTipsStatisticOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "numberOfTipps" | "goodTippNumber" | "badTippNumber" | "AllBet" | "WinMoney" | "LostMoney" | "createdAt" | "updatedAt", ExtArgs["result"]["freeTipsStatistic"]>
+
+  export type $freeTipsStatisticPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "freeTipsStatistic"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      numberOfTipps: number
+      goodTippNumber: number
+      badTippNumber: number
+      AllBet: number
+      WinMoney: number
+      LostMoney: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["freeTipsStatistic"]>
+    composites: {}
+  }
+
+  type freeTipsStatisticGetPayload<S extends boolean | null | undefined | freeTipsStatisticDefaultArgs> = $Result.GetResult<Prisma.$freeTipsStatisticPayload, S>
+
+  type freeTipsStatisticCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<freeTipsStatisticFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FreeTipsStatisticCountAggregateInputType | true
+    }
+
+  export interface freeTipsStatisticDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['freeTipsStatistic'], meta: { name: 'freeTipsStatistic' } }
+    /**
+     * Find zero or one FreeTipsStatistic that matches the filter.
+     * @param {freeTipsStatisticFindUniqueArgs} args - Arguments to find a FreeTipsStatistic
+     * @example
+     * // Get one FreeTipsStatistic
+     * const freeTipsStatistic = await prisma.freeTipsStatistic.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends freeTipsStatisticFindUniqueArgs>(args: SelectSubset<T, freeTipsStatisticFindUniqueArgs<ExtArgs>>): Prisma__freeTipsStatisticClient<$Result.GetResult<Prisma.$freeTipsStatisticPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one FreeTipsStatistic that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {freeTipsStatisticFindUniqueOrThrowArgs} args - Arguments to find a FreeTipsStatistic
+     * @example
+     * // Get one FreeTipsStatistic
+     * const freeTipsStatistic = await prisma.freeTipsStatistic.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends freeTipsStatisticFindUniqueOrThrowArgs>(args: SelectSubset<T, freeTipsStatisticFindUniqueOrThrowArgs<ExtArgs>>): Prisma__freeTipsStatisticClient<$Result.GetResult<Prisma.$freeTipsStatisticPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FreeTipsStatistic that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {freeTipsStatisticFindFirstArgs} args - Arguments to find a FreeTipsStatistic
+     * @example
+     * // Get one FreeTipsStatistic
+     * const freeTipsStatistic = await prisma.freeTipsStatistic.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends freeTipsStatisticFindFirstArgs>(args?: SelectSubset<T, freeTipsStatisticFindFirstArgs<ExtArgs>>): Prisma__freeTipsStatisticClient<$Result.GetResult<Prisma.$freeTipsStatisticPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FreeTipsStatistic that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {freeTipsStatisticFindFirstOrThrowArgs} args - Arguments to find a FreeTipsStatistic
+     * @example
+     * // Get one FreeTipsStatistic
+     * const freeTipsStatistic = await prisma.freeTipsStatistic.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends freeTipsStatisticFindFirstOrThrowArgs>(args?: SelectSubset<T, freeTipsStatisticFindFirstOrThrowArgs<ExtArgs>>): Prisma__freeTipsStatisticClient<$Result.GetResult<Prisma.$freeTipsStatisticPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more FreeTipsStatistics that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {freeTipsStatisticFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all FreeTipsStatistics
+     * const freeTipsStatistics = await prisma.freeTipsStatistic.findMany()
+     * 
+     * // Get first 10 FreeTipsStatistics
+     * const freeTipsStatistics = await prisma.freeTipsStatistic.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const freeTipsStatisticWithIdOnly = await prisma.freeTipsStatistic.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends freeTipsStatisticFindManyArgs>(args?: SelectSubset<T, freeTipsStatisticFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$freeTipsStatisticPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a FreeTipsStatistic.
+     * @param {freeTipsStatisticCreateArgs} args - Arguments to create a FreeTipsStatistic.
+     * @example
+     * // Create one FreeTipsStatistic
+     * const FreeTipsStatistic = await prisma.freeTipsStatistic.create({
+     *   data: {
+     *     // ... data to create a FreeTipsStatistic
+     *   }
+     * })
+     * 
+     */
+    create<T extends freeTipsStatisticCreateArgs>(args: SelectSubset<T, freeTipsStatisticCreateArgs<ExtArgs>>): Prisma__freeTipsStatisticClient<$Result.GetResult<Prisma.$freeTipsStatisticPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many FreeTipsStatistics.
+     * @param {freeTipsStatisticCreateManyArgs} args - Arguments to create many FreeTipsStatistics.
+     * @example
+     * // Create many FreeTipsStatistics
+     * const freeTipsStatistic = await prisma.freeTipsStatistic.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends freeTipsStatisticCreateManyArgs>(args?: SelectSubset<T, freeTipsStatisticCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many FreeTipsStatistics and returns the data saved in the database.
+     * @param {freeTipsStatisticCreateManyAndReturnArgs} args - Arguments to create many FreeTipsStatistics.
+     * @example
+     * // Create many FreeTipsStatistics
+     * const freeTipsStatistic = await prisma.freeTipsStatistic.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many FreeTipsStatistics and only return the `id`
+     * const freeTipsStatisticWithIdOnly = await prisma.freeTipsStatistic.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends freeTipsStatisticCreateManyAndReturnArgs>(args?: SelectSubset<T, freeTipsStatisticCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$freeTipsStatisticPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a FreeTipsStatistic.
+     * @param {freeTipsStatisticDeleteArgs} args - Arguments to delete one FreeTipsStatistic.
+     * @example
+     * // Delete one FreeTipsStatistic
+     * const FreeTipsStatistic = await prisma.freeTipsStatistic.delete({
+     *   where: {
+     *     // ... filter to delete one FreeTipsStatistic
+     *   }
+     * })
+     * 
+     */
+    delete<T extends freeTipsStatisticDeleteArgs>(args: SelectSubset<T, freeTipsStatisticDeleteArgs<ExtArgs>>): Prisma__freeTipsStatisticClient<$Result.GetResult<Prisma.$freeTipsStatisticPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one FreeTipsStatistic.
+     * @param {freeTipsStatisticUpdateArgs} args - Arguments to update one FreeTipsStatistic.
+     * @example
+     * // Update one FreeTipsStatistic
+     * const freeTipsStatistic = await prisma.freeTipsStatistic.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends freeTipsStatisticUpdateArgs>(args: SelectSubset<T, freeTipsStatisticUpdateArgs<ExtArgs>>): Prisma__freeTipsStatisticClient<$Result.GetResult<Prisma.$freeTipsStatisticPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more FreeTipsStatistics.
+     * @param {freeTipsStatisticDeleteManyArgs} args - Arguments to filter FreeTipsStatistics to delete.
+     * @example
+     * // Delete a few FreeTipsStatistics
+     * const { count } = await prisma.freeTipsStatistic.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends freeTipsStatisticDeleteManyArgs>(args?: SelectSubset<T, freeTipsStatisticDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FreeTipsStatistics.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {freeTipsStatisticUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many FreeTipsStatistics
+     * const freeTipsStatistic = await prisma.freeTipsStatistic.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends freeTipsStatisticUpdateManyArgs>(args: SelectSubset<T, freeTipsStatisticUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FreeTipsStatistics and returns the data updated in the database.
+     * @param {freeTipsStatisticUpdateManyAndReturnArgs} args - Arguments to update many FreeTipsStatistics.
+     * @example
+     * // Update many FreeTipsStatistics
+     * const freeTipsStatistic = await prisma.freeTipsStatistic.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more FreeTipsStatistics and only return the `id`
+     * const freeTipsStatisticWithIdOnly = await prisma.freeTipsStatistic.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends freeTipsStatisticUpdateManyAndReturnArgs>(args: SelectSubset<T, freeTipsStatisticUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$freeTipsStatisticPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one FreeTipsStatistic.
+     * @param {freeTipsStatisticUpsertArgs} args - Arguments to update or create a FreeTipsStatistic.
+     * @example
+     * // Update or create a FreeTipsStatistic
+     * const freeTipsStatistic = await prisma.freeTipsStatistic.upsert({
+     *   create: {
+     *     // ... data to create a FreeTipsStatistic
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the FreeTipsStatistic we want to update
+     *   }
+     * })
+     */
+    upsert<T extends freeTipsStatisticUpsertArgs>(args: SelectSubset<T, freeTipsStatisticUpsertArgs<ExtArgs>>): Prisma__freeTipsStatisticClient<$Result.GetResult<Prisma.$freeTipsStatisticPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of FreeTipsStatistics.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {freeTipsStatisticCountArgs} args - Arguments to filter FreeTipsStatistics to count.
+     * @example
+     * // Count the number of FreeTipsStatistics
+     * const count = await prisma.freeTipsStatistic.count({
+     *   where: {
+     *     // ... the filter for the FreeTipsStatistics we want to count
+     *   }
+     * })
+    **/
+    count<T extends freeTipsStatisticCountArgs>(
+      args?: Subset<T, freeTipsStatisticCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FreeTipsStatisticCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a FreeTipsStatistic.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FreeTipsStatisticAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FreeTipsStatisticAggregateArgs>(args: Subset<T, FreeTipsStatisticAggregateArgs>): Prisma.PrismaPromise<GetFreeTipsStatisticAggregateType<T>>
+
+    /**
+     * Group by FreeTipsStatistic.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {freeTipsStatisticGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends freeTipsStatisticGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: freeTipsStatisticGroupByArgs['orderBy'] }
+        : { orderBy?: freeTipsStatisticGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, freeTipsStatisticGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFreeTipsStatisticGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the freeTipsStatistic model
+   */
+  readonly fields: freeTipsStatisticFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for freeTipsStatistic.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__freeTipsStatisticClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the freeTipsStatistic model
+   */
+  interface freeTipsStatisticFieldRefs {
+    readonly id: FieldRef<"freeTipsStatistic", 'Int'>
+    readonly numberOfTipps: FieldRef<"freeTipsStatistic", 'Int'>
+    readonly goodTippNumber: FieldRef<"freeTipsStatistic", 'Int'>
+    readonly badTippNumber: FieldRef<"freeTipsStatistic", 'Int'>
+    readonly AllBet: FieldRef<"freeTipsStatistic", 'Int'>
+    readonly WinMoney: FieldRef<"freeTipsStatistic", 'Int'>
+    readonly LostMoney: FieldRef<"freeTipsStatistic", 'Int'>
+    readonly createdAt: FieldRef<"freeTipsStatistic", 'DateTime'>
+    readonly updatedAt: FieldRef<"freeTipsStatistic", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * freeTipsStatistic findUnique
+   */
+  export type freeTipsStatisticFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the freeTipsStatistic
+     */
+    select?: freeTipsStatisticSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the freeTipsStatistic
+     */
+    omit?: freeTipsStatisticOmit<ExtArgs> | null
+    /**
+     * Filter, which freeTipsStatistic to fetch.
+     */
+    where: freeTipsStatisticWhereUniqueInput
+  }
+
+  /**
+   * freeTipsStatistic findUniqueOrThrow
+   */
+  export type freeTipsStatisticFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the freeTipsStatistic
+     */
+    select?: freeTipsStatisticSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the freeTipsStatistic
+     */
+    omit?: freeTipsStatisticOmit<ExtArgs> | null
+    /**
+     * Filter, which freeTipsStatistic to fetch.
+     */
+    where: freeTipsStatisticWhereUniqueInput
+  }
+
+  /**
+   * freeTipsStatistic findFirst
+   */
+  export type freeTipsStatisticFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the freeTipsStatistic
+     */
+    select?: freeTipsStatisticSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the freeTipsStatistic
+     */
+    omit?: freeTipsStatisticOmit<ExtArgs> | null
+    /**
+     * Filter, which freeTipsStatistic to fetch.
+     */
+    where?: freeTipsStatisticWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of freeTipsStatistics to fetch.
+     */
+    orderBy?: freeTipsStatisticOrderByWithRelationInput | freeTipsStatisticOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for freeTipsStatistics.
+     */
+    cursor?: freeTipsStatisticWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` freeTipsStatistics from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` freeTipsStatistics.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of freeTipsStatistics.
+     */
+    distinct?: FreeTipsStatisticScalarFieldEnum | FreeTipsStatisticScalarFieldEnum[]
+  }
+
+  /**
+   * freeTipsStatistic findFirstOrThrow
+   */
+  export type freeTipsStatisticFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the freeTipsStatistic
+     */
+    select?: freeTipsStatisticSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the freeTipsStatistic
+     */
+    omit?: freeTipsStatisticOmit<ExtArgs> | null
+    /**
+     * Filter, which freeTipsStatistic to fetch.
+     */
+    where?: freeTipsStatisticWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of freeTipsStatistics to fetch.
+     */
+    orderBy?: freeTipsStatisticOrderByWithRelationInput | freeTipsStatisticOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for freeTipsStatistics.
+     */
+    cursor?: freeTipsStatisticWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` freeTipsStatistics from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` freeTipsStatistics.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of freeTipsStatistics.
+     */
+    distinct?: FreeTipsStatisticScalarFieldEnum | FreeTipsStatisticScalarFieldEnum[]
+  }
+
+  /**
+   * freeTipsStatistic findMany
+   */
+  export type freeTipsStatisticFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the freeTipsStatistic
+     */
+    select?: freeTipsStatisticSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the freeTipsStatistic
+     */
+    omit?: freeTipsStatisticOmit<ExtArgs> | null
+    /**
+     * Filter, which freeTipsStatistics to fetch.
+     */
+    where?: freeTipsStatisticWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of freeTipsStatistics to fetch.
+     */
+    orderBy?: freeTipsStatisticOrderByWithRelationInput | freeTipsStatisticOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing freeTipsStatistics.
+     */
+    cursor?: freeTipsStatisticWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` freeTipsStatistics from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` freeTipsStatistics.
+     */
+    skip?: number
+    distinct?: FreeTipsStatisticScalarFieldEnum | FreeTipsStatisticScalarFieldEnum[]
+  }
+
+  /**
+   * freeTipsStatistic create
+   */
+  export type freeTipsStatisticCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the freeTipsStatistic
+     */
+    select?: freeTipsStatisticSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the freeTipsStatistic
+     */
+    omit?: freeTipsStatisticOmit<ExtArgs> | null
+    /**
+     * The data needed to create a freeTipsStatistic.
+     */
+    data: XOR<freeTipsStatisticCreateInput, freeTipsStatisticUncheckedCreateInput>
+  }
+
+  /**
+   * freeTipsStatistic createMany
+   */
+  export type freeTipsStatisticCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many freeTipsStatistics.
+     */
+    data: freeTipsStatisticCreateManyInput | freeTipsStatisticCreateManyInput[]
+  }
+
+  /**
+   * freeTipsStatistic createManyAndReturn
+   */
+  export type freeTipsStatisticCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the freeTipsStatistic
+     */
+    select?: freeTipsStatisticSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the freeTipsStatistic
+     */
+    omit?: freeTipsStatisticOmit<ExtArgs> | null
+    /**
+     * The data used to create many freeTipsStatistics.
+     */
+    data: freeTipsStatisticCreateManyInput | freeTipsStatisticCreateManyInput[]
+  }
+
+  /**
+   * freeTipsStatistic update
+   */
+  export type freeTipsStatisticUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the freeTipsStatistic
+     */
+    select?: freeTipsStatisticSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the freeTipsStatistic
+     */
+    omit?: freeTipsStatisticOmit<ExtArgs> | null
+    /**
+     * The data needed to update a freeTipsStatistic.
+     */
+    data: XOR<freeTipsStatisticUpdateInput, freeTipsStatisticUncheckedUpdateInput>
+    /**
+     * Choose, which freeTipsStatistic to update.
+     */
+    where: freeTipsStatisticWhereUniqueInput
+  }
+
+  /**
+   * freeTipsStatistic updateMany
+   */
+  export type freeTipsStatisticUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update freeTipsStatistics.
+     */
+    data: XOR<freeTipsStatisticUpdateManyMutationInput, freeTipsStatisticUncheckedUpdateManyInput>
+    /**
+     * Filter which freeTipsStatistics to update
+     */
+    where?: freeTipsStatisticWhereInput
+    /**
+     * Limit how many freeTipsStatistics to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * freeTipsStatistic updateManyAndReturn
+   */
+  export type freeTipsStatisticUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the freeTipsStatistic
+     */
+    select?: freeTipsStatisticSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the freeTipsStatistic
+     */
+    omit?: freeTipsStatisticOmit<ExtArgs> | null
+    /**
+     * The data used to update freeTipsStatistics.
+     */
+    data: XOR<freeTipsStatisticUpdateManyMutationInput, freeTipsStatisticUncheckedUpdateManyInput>
+    /**
+     * Filter which freeTipsStatistics to update
+     */
+    where?: freeTipsStatisticWhereInput
+    /**
+     * Limit how many freeTipsStatistics to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * freeTipsStatistic upsert
+   */
+  export type freeTipsStatisticUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the freeTipsStatistic
+     */
+    select?: freeTipsStatisticSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the freeTipsStatistic
+     */
+    omit?: freeTipsStatisticOmit<ExtArgs> | null
+    /**
+     * The filter to search for the freeTipsStatistic to update in case it exists.
+     */
+    where: freeTipsStatisticWhereUniqueInput
+    /**
+     * In case the freeTipsStatistic found by the `where` argument doesn't exist, create a new freeTipsStatistic with this data.
+     */
+    create: XOR<freeTipsStatisticCreateInput, freeTipsStatisticUncheckedCreateInput>
+    /**
+     * In case the freeTipsStatistic was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<freeTipsStatisticUpdateInput, freeTipsStatisticUncheckedUpdateInput>
+  }
+
+  /**
+   * freeTipsStatistic delete
+   */
+  export type freeTipsStatisticDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the freeTipsStatistic
+     */
+    select?: freeTipsStatisticSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the freeTipsStatistic
+     */
+    omit?: freeTipsStatisticOmit<ExtArgs> | null
+    /**
+     * Filter which freeTipsStatistic to delete.
+     */
+    where: freeTipsStatisticWhereUniqueInput
+  }
+
+  /**
+   * freeTipsStatistic deleteMany
+   */
+  export type freeTipsStatisticDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which freeTipsStatistics to delete
+     */
+    where?: freeTipsStatisticWhereInput
+    /**
+     * Limit how many freeTipsStatistics to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * freeTipsStatistic without action
+   */
+  export type freeTipsStatisticDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the freeTipsStatistic
+     */
+    select?: freeTipsStatisticSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the freeTipsStatistic
+     */
+    omit?: freeTipsStatisticOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -5656,8 +6902,10 @@ export namespace Prisma {
 
   export const UserScalarFieldEnum: {
     id: 'id',
+    username: 'username',
     email: 'email',
     password: 'password',
+    avatar: 'avatar',
     isAdmin: 'isAdmin',
     isPaid: 'isPaid'
   };
@@ -5665,26 +6913,28 @@ export namespace Prisma {
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-  export const AdminTipsScalarFieldEnum: {
+  export const AdminPostsScalarFieldEnum: {
     id: 'id',
     title: 'title',
     content: 'content',
     isPremium: 'isPremium',
-    win: 'win',
     imageurl: 'imageurl',
+    tippmixPicture: 'tippmixPicture',
     createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
     deadline: 'deadline'
   };
 
-  export type AdminTipsScalarFieldEnum = (typeof AdminTipsScalarFieldEnum)[keyof typeof AdminTipsScalarFieldEnum]
+  export type AdminPostsScalarFieldEnum = (typeof AdminPostsScalarFieldEnum)[keyof typeof AdminPostsScalarFieldEnum]
 
 
   export const CommentScalarFieldEnum: {
     id: 'id',
     content: 'content',
     userId: 'userId',
-    tipId: 'tipId',
-    createdAt: 'createdAt'
+    postId: 'postId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type CommentScalarFieldEnum = (typeof CommentScalarFieldEnum)[keyof typeof CommentScalarFieldEnum]
@@ -5699,12 +6949,35 @@ export namespace Prisma {
   export type SubscriptionScalarFieldEnum = (typeof SubscriptionScalarFieldEnum)[keyof typeof SubscriptionScalarFieldEnum]
 
 
+  export const FreeTipsStatisticScalarFieldEnum: {
+    id: 'id',
+    numberOfTipps: 'numberOfTipps',
+    goodTippNumber: 'goodTippNumber',
+    badTippNumber: 'badTippNumber',
+    AllBet: 'AllBet',
+    WinMoney: 'WinMoney',
+    LostMoney: 'LostMoney',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type FreeTipsStatisticScalarFieldEnum = (typeof FreeTipsStatisticScalarFieldEnum)[keyof typeof FreeTipsStatisticScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -5755,8 +7028,10 @@ export namespace Prisma {
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     id?: IntFilter<"User"> | number
+    username?: StringFilter<"User"> | string
     email?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
+    avatar?: StringNullableFilter<"User"> | string | null
     isAdmin?: BoolFilter<"User"> | boolean
     isPaid?: BoolFilter<"User"> | boolean
     comments?: CommentListRelationFilter
@@ -5765,8 +7040,10 @@ export namespace Prisma {
 
   export type UserOrderByWithRelationInput = {
     id?: SortOrder
+    username?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    avatar?: SortOrderInput | SortOrder
     isAdmin?: SortOrder
     isPaid?: SortOrder
     comments?: CommentOrderByRelationAggregateInput
@@ -5775,21 +7052,25 @@ export namespace Prisma {
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    username?: string
     email?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     password?: StringFilter<"User"> | string
+    avatar?: StringNullableFilter<"User"> | string | null
     isAdmin?: BoolFilter<"User"> | boolean
     isPaid?: BoolFilter<"User"> | boolean
     comments?: CommentListRelationFilter
     subscription?: XOR<SubscriptionNullableScalarRelationFilter, SubscriptionWhereInput> | null
-  }, "id" | "email">
+  }, "id" | "username" | "email">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
+    username?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    avatar?: SortOrderInput | SortOrder
     isAdmin?: SortOrder
     isPaid?: SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -5804,82 +7085,89 @@ export namespace Prisma {
     OR?: UserScalarWhereWithAggregatesInput[]
     NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"User"> | number
+    username?: StringWithAggregatesFilter<"User"> | string
     email?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
+    avatar?: StringNullableWithAggregatesFilter<"User"> | string | null
     isAdmin?: BoolWithAggregatesFilter<"User"> | boolean
     isPaid?: BoolWithAggregatesFilter<"User"> | boolean
   }
 
-  export type AdminTipsWhereInput = {
-    AND?: AdminTipsWhereInput | AdminTipsWhereInput[]
-    OR?: AdminTipsWhereInput[]
-    NOT?: AdminTipsWhereInput | AdminTipsWhereInput[]
-    id?: IntFilter<"AdminTips"> | number
-    title?: StringFilter<"AdminTips"> | string
-    content?: StringFilter<"AdminTips"> | string
-    isPremium?: BoolFilter<"AdminTips"> | boolean
-    win?: BoolFilter<"AdminTips"> | boolean
-    imageurl?: StringFilter<"AdminTips"> | string
-    createdAt?: DateTimeFilter<"AdminTips"> | Date | string
-    deadline?: DateTimeFilter<"AdminTips"> | Date | string
+  export type AdminPostsWhereInput = {
+    AND?: AdminPostsWhereInput | AdminPostsWhereInput[]
+    OR?: AdminPostsWhereInput[]
+    NOT?: AdminPostsWhereInput | AdminPostsWhereInput[]
+    id?: IntFilter<"AdminPosts"> | number
+    title?: StringFilter<"AdminPosts"> | string
+    content?: StringFilter<"AdminPosts"> | string
+    isPremium?: BoolFilter<"AdminPosts"> | boolean
+    imageurl?: StringFilter<"AdminPosts"> | string
+    tippmixPicture?: StringFilter<"AdminPosts"> | string
+    createdAt?: DateTimeFilter<"AdminPosts"> | Date | string
+    updatedAt?: DateTimeFilter<"AdminPosts"> | Date | string
+    deadline?: DateTimeFilter<"AdminPosts"> | Date | string
     comments?: CommentListRelationFilter
   }
 
-  export type AdminTipsOrderByWithRelationInput = {
+  export type AdminPostsOrderByWithRelationInput = {
     id?: SortOrder
     title?: SortOrder
     content?: SortOrder
     isPremium?: SortOrder
-    win?: SortOrder
     imageurl?: SortOrder
+    tippmixPicture?: SortOrder
     createdAt?: SortOrder
+    updatedAt?: SortOrder
     deadline?: SortOrder
     comments?: CommentOrderByRelationAggregateInput
   }
 
-  export type AdminTipsWhereUniqueInput = Prisma.AtLeast<{
+  export type AdminPostsWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: AdminTipsWhereInput | AdminTipsWhereInput[]
-    OR?: AdminTipsWhereInput[]
-    NOT?: AdminTipsWhereInput | AdminTipsWhereInput[]
-    title?: StringFilter<"AdminTips"> | string
-    content?: StringFilter<"AdminTips"> | string
-    isPremium?: BoolFilter<"AdminTips"> | boolean
-    win?: BoolFilter<"AdminTips"> | boolean
-    imageurl?: StringFilter<"AdminTips"> | string
-    createdAt?: DateTimeFilter<"AdminTips"> | Date | string
-    deadline?: DateTimeFilter<"AdminTips"> | Date | string
+    AND?: AdminPostsWhereInput | AdminPostsWhereInput[]
+    OR?: AdminPostsWhereInput[]
+    NOT?: AdminPostsWhereInput | AdminPostsWhereInput[]
+    title?: StringFilter<"AdminPosts"> | string
+    content?: StringFilter<"AdminPosts"> | string
+    isPremium?: BoolFilter<"AdminPosts"> | boolean
+    imageurl?: StringFilter<"AdminPosts"> | string
+    tippmixPicture?: StringFilter<"AdminPosts"> | string
+    createdAt?: DateTimeFilter<"AdminPosts"> | Date | string
+    updatedAt?: DateTimeFilter<"AdminPosts"> | Date | string
+    deadline?: DateTimeFilter<"AdminPosts"> | Date | string
     comments?: CommentListRelationFilter
   }, "id">
 
-  export type AdminTipsOrderByWithAggregationInput = {
+  export type AdminPostsOrderByWithAggregationInput = {
     id?: SortOrder
     title?: SortOrder
     content?: SortOrder
     isPremium?: SortOrder
-    win?: SortOrder
     imageurl?: SortOrder
+    tippmixPicture?: SortOrder
     createdAt?: SortOrder
+    updatedAt?: SortOrder
     deadline?: SortOrder
-    _count?: AdminTipsCountOrderByAggregateInput
-    _avg?: AdminTipsAvgOrderByAggregateInput
-    _max?: AdminTipsMaxOrderByAggregateInput
-    _min?: AdminTipsMinOrderByAggregateInput
-    _sum?: AdminTipsSumOrderByAggregateInput
+    _count?: AdminPostsCountOrderByAggregateInput
+    _avg?: AdminPostsAvgOrderByAggregateInput
+    _max?: AdminPostsMaxOrderByAggregateInput
+    _min?: AdminPostsMinOrderByAggregateInput
+    _sum?: AdminPostsSumOrderByAggregateInput
   }
 
-  export type AdminTipsScalarWhereWithAggregatesInput = {
-    AND?: AdminTipsScalarWhereWithAggregatesInput | AdminTipsScalarWhereWithAggregatesInput[]
-    OR?: AdminTipsScalarWhereWithAggregatesInput[]
-    NOT?: AdminTipsScalarWhereWithAggregatesInput | AdminTipsScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"AdminTips"> | number
-    title?: StringWithAggregatesFilter<"AdminTips"> | string
-    content?: StringWithAggregatesFilter<"AdminTips"> | string
-    isPremium?: BoolWithAggregatesFilter<"AdminTips"> | boolean
-    win?: BoolWithAggregatesFilter<"AdminTips"> | boolean
-    imageurl?: StringWithAggregatesFilter<"AdminTips"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"AdminTips"> | Date | string
-    deadline?: DateTimeWithAggregatesFilter<"AdminTips"> | Date | string
+  export type AdminPostsScalarWhereWithAggregatesInput = {
+    AND?: AdminPostsScalarWhereWithAggregatesInput | AdminPostsScalarWhereWithAggregatesInput[]
+    OR?: AdminPostsScalarWhereWithAggregatesInput[]
+    NOT?: AdminPostsScalarWhereWithAggregatesInput | AdminPostsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"AdminPosts"> | number
+    title?: StringWithAggregatesFilter<"AdminPosts"> | string
+    content?: StringWithAggregatesFilter<"AdminPosts"> | string
+    isPremium?: BoolWithAggregatesFilter<"AdminPosts"> | boolean
+    imageurl?: StringWithAggregatesFilter<"AdminPosts"> | string
+    tippmixPicture?: StringWithAggregatesFilter<"AdminPosts"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"AdminPosts"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"AdminPosts"> | Date | string
+    deadline?: DateTimeWithAggregatesFilter<"AdminPosts"> | Date | string
   }
 
   export type CommentWhereInput = {
@@ -5889,20 +7177,22 @@ export namespace Prisma {
     id?: IntFilter<"Comment"> | number
     content?: StringFilter<"Comment"> | string
     userId?: IntFilter<"Comment"> | number
-    tipId?: IntFilter<"Comment"> | number
+    postId?: IntFilter<"Comment"> | number
     createdAt?: DateTimeFilter<"Comment"> | Date | string
+    updatedAt?: DateTimeFilter<"Comment"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    tip?: XOR<AdminTipsScalarRelationFilter, AdminTipsWhereInput>
+    post?: XOR<AdminPostsScalarRelationFilter, AdminPostsWhereInput>
   }
 
   export type CommentOrderByWithRelationInput = {
     id?: SortOrder
     content?: SortOrder
     userId?: SortOrder
-    tipId?: SortOrder
+    postId?: SortOrder
     createdAt?: SortOrder
+    updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
-    tip?: AdminTipsOrderByWithRelationInput
+    post?: AdminPostsOrderByWithRelationInput
   }
 
   export type CommentWhereUniqueInput = Prisma.AtLeast<{
@@ -5912,18 +7202,20 @@ export namespace Prisma {
     NOT?: CommentWhereInput | CommentWhereInput[]
     content?: StringFilter<"Comment"> | string
     userId?: IntFilter<"Comment"> | number
-    tipId?: IntFilter<"Comment"> | number
+    postId?: IntFilter<"Comment"> | number
     createdAt?: DateTimeFilter<"Comment"> | Date | string
+    updatedAt?: DateTimeFilter<"Comment"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    tip?: XOR<AdminTipsScalarRelationFilter, AdminTipsWhereInput>
+    post?: XOR<AdminPostsScalarRelationFilter, AdminPostsWhereInput>
   }, "id">
 
   export type CommentOrderByWithAggregationInput = {
     id?: SortOrder
     content?: SortOrder
     userId?: SortOrder
-    tipId?: SortOrder
+    postId?: SortOrder
     createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: CommentCountOrderByAggregateInput
     _avg?: CommentAvgOrderByAggregateInput
     _max?: CommentMaxOrderByAggregateInput
@@ -5938,8 +7230,9 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Comment"> | number
     content?: StringWithAggregatesFilter<"Comment"> | string
     userId?: IntWithAggregatesFilter<"Comment"> | number
-    tipId?: IntWithAggregatesFilter<"Comment"> | number
+    postId?: IntWithAggregatesFilter<"Comment"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Comment"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Comment"> | Date | string
   }
 
   export type SubscriptionWhereInput = {
@@ -5989,9 +7282,85 @@ export namespace Prisma {
     validUntil?: DateTimeWithAggregatesFilter<"Subscription"> | Date | string
   }
 
+  export type freeTipsStatisticWhereInput = {
+    AND?: freeTipsStatisticWhereInput | freeTipsStatisticWhereInput[]
+    OR?: freeTipsStatisticWhereInput[]
+    NOT?: freeTipsStatisticWhereInput | freeTipsStatisticWhereInput[]
+    id?: IntFilter<"freeTipsStatistic"> | number
+    numberOfTipps?: IntFilter<"freeTipsStatistic"> | number
+    goodTippNumber?: IntFilter<"freeTipsStatistic"> | number
+    badTippNumber?: IntFilter<"freeTipsStatistic"> | number
+    AllBet?: IntFilter<"freeTipsStatistic"> | number
+    WinMoney?: IntFilter<"freeTipsStatistic"> | number
+    LostMoney?: IntFilter<"freeTipsStatistic"> | number
+    createdAt?: DateTimeFilter<"freeTipsStatistic"> | Date | string
+    updatedAt?: DateTimeFilter<"freeTipsStatistic"> | Date | string
+  }
+
+  export type freeTipsStatisticOrderByWithRelationInput = {
+    id?: SortOrder
+    numberOfTipps?: SortOrder
+    goodTippNumber?: SortOrder
+    badTippNumber?: SortOrder
+    AllBet?: SortOrder
+    WinMoney?: SortOrder
+    LostMoney?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type freeTipsStatisticWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: freeTipsStatisticWhereInput | freeTipsStatisticWhereInput[]
+    OR?: freeTipsStatisticWhereInput[]
+    NOT?: freeTipsStatisticWhereInput | freeTipsStatisticWhereInput[]
+    numberOfTipps?: IntFilter<"freeTipsStatistic"> | number
+    goodTippNumber?: IntFilter<"freeTipsStatistic"> | number
+    badTippNumber?: IntFilter<"freeTipsStatistic"> | number
+    AllBet?: IntFilter<"freeTipsStatistic"> | number
+    WinMoney?: IntFilter<"freeTipsStatistic"> | number
+    LostMoney?: IntFilter<"freeTipsStatistic"> | number
+    createdAt?: DateTimeFilter<"freeTipsStatistic"> | Date | string
+    updatedAt?: DateTimeFilter<"freeTipsStatistic"> | Date | string
+  }, "id">
+
+  export type freeTipsStatisticOrderByWithAggregationInput = {
+    id?: SortOrder
+    numberOfTipps?: SortOrder
+    goodTippNumber?: SortOrder
+    badTippNumber?: SortOrder
+    AllBet?: SortOrder
+    WinMoney?: SortOrder
+    LostMoney?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: freeTipsStatisticCountOrderByAggregateInput
+    _avg?: freeTipsStatisticAvgOrderByAggregateInput
+    _max?: freeTipsStatisticMaxOrderByAggregateInput
+    _min?: freeTipsStatisticMinOrderByAggregateInput
+    _sum?: freeTipsStatisticSumOrderByAggregateInput
+  }
+
+  export type freeTipsStatisticScalarWhereWithAggregatesInput = {
+    AND?: freeTipsStatisticScalarWhereWithAggregatesInput | freeTipsStatisticScalarWhereWithAggregatesInput[]
+    OR?: freeTipsStatisticScalarWhereWithAggregatesInput[]
+    NOT?: freeTipsStatisticScalarWhereWithAggregatesInput | freeTipsStatisticScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"freeTipsStatistic"> | number
+    numberOfTipps?: IntWithAggregatesFilter<"freeTipsStatistic"> | number
+    goodTippNumber?: IntWithAggregatesFilter<"freeTipsStatistic"> | number
+    badTippNumber?: IntWithAggregatesFilter<"freeTipsStatistic"> | number
+    AllBet?: IntWithAggregatesFilter<"freeTipsStatistic"> | number
+    WinMoney?: IntWithAggregatesFilter<"freeTipsStatistic"> | number
+    LostMoney?: IntWithAggregatesFilter<"freeTipsStatistic"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"freeTipsStatistic"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"freeTipsStatistic"> | Date | string
+  }
+
   export type UserCreateInput = {
+    username: string
     email: string
     password: string
+    avatar?: string | null
     isAdmin?: boolean
     isPaid?: boolean
     comments?: CommentCreateNestedManyWithoutUserInput
@@ -6000,8 +7369,10 @@ export namespace Prisma {
 
   export type UserUncheckedCreateInput = {
     id?: number
+    username: string
     email: string
     password: string
+    avatar?: string | null
     isAdmin?: boolean
     isPaid?: boolean
     comments?: CommentUncheckedCreateNestedManyWithoutUserInput
@@ -6009,8 +7380,10 @@ export namespace Prisma {
   }
 
   export type UserUpdateInput = {
+    username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     isPaid?: BoolFieldUpdateOperationsInput | boolean
     comments?: CommentUpdateManyWithoutUserNestedInput
@@ -6019,8 +7392,10 @@ export namespace Prisma {
 
   export type UserUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     isPaid?: BoolFieldUpdateOperationsInput | boolean
     comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
@@ -6029,154 +7404,174 @@ export namespace Prisma {
 
   export type UserCreateManyInput = {
     id?: number
+    username: string
     email: string
     password: string
+    avatar?: string | null
     isAdmin?: boolean
     isPaid?: boolean
   }
 
   export type UserUpdateManyMutationInput = {
+    username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     isPaid?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type UserUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     isPaid?: BoolFieldUpdateOperationsInput | boolean
   }
 
-  export type AdminTipsCreateInput = {
+  export type AdminPostsCreateInput = {
     title: string
     content: string
     isPremium?: boolean
-    win?: boolean
     imageurl: string
+    tippmixPicture: string
     createdAt?: Date | string
+    updatedAt?: Date | string
     deadline: Date | string
-    comments?: CommentCreateNestedManyWithoutTipInput
+    comments?: CommentCreateNestedManyWithoutPostInput
   }
 
-  export type AdminTipsUncheckedCreateInput = {
+  export type AdminPostsUncheckedCreateInput = {
     id?: number
     title: string
     content: string
     isPremium?: boolean
-    win?: boolean
     imageurl: string
+    tippmixPicture: string
     createdAt?: Date | string
+    updatedAt?: Date | string
     deadline: Date | string
-    comments?: CommentUncheckedCreateNestedManyWithoutTipInput
+    comments?: CommentUncheckedCreateNestedManyWithoutPostInput
   }
 
-  export type AdminTipsUpdateInput = {
+  export type AdminPostsUpdateInput = {
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     isPremium?: BoolFieldUpdateOperationsInput | boolean
-    win?: BoolFieldUpdateOperationsInput | boolean
     imageurl?: StringFieldUpdateOperationsInput | string
+    tippmixPicture?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deadline?: DateTimeFieldUpdateOperationsInput | Date | string
-    comments?: CommentUpdateManyWithoutTipNestedInput
+    comments?: CommentUpdateManyWithoutPostNestedInput
   }
 
-  export type AdminTipsUncheckedUpdateInput = {
+  export type AdminPostsUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     isPremium?: BoolFieldUpdateOperationsInput | boolean
-    win?: BoolFieldUpdateOperationsInput | boolean
     imageurl?: StringFieldUpdateOperationsInput | string
+    tippmixPicture?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deadline?: DateTimeFieldUpdateOperationsInput | Date | string
-    comments?: CommentUncheckedUpdateManyWithoutTipNestedInput
+    comments?: CommentUncheckedUpdateManyWithoutPostNestedInput
   }
 
-  export type AdminTipsCreateManyInput = {
+  export type AdminPostsCreateManyInput = {
     id?: number
     title: string
     content: string
     isPremium?: boolean
-    win?: boolean
     imageurl: string
+    tippmixPicture: string
     createdAt?: Date | string
+    updatedAt?: Date | string
     deadline: Date | string
   }
 
-  export type AdminTipsUpdateManyMutationInput = {
+  export type AdminPostsUpdateManyMutationInput = {
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     isPremium?: BoolFieldUpdateOperationsInput | boolean
-    win?: BoolFieldUpdateOperationsInput | boolean
     imageurl?: StringFieldUpdateOperationsInput | string
+    tippmixPicture?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deadline?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type AdminTipsUncheckedUpdateManyInput = {
+  export type AdminPostsUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     isPremium?: BoolFieldUpdateOperationsInput | boolean
-    win?: BoolFieldUpdateOperationsInput | boolean
     imageurl?: StringFieldUpdateOperationsInput | string
+    tippmixPicture?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deadline?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CommentCreateInput = {
     content: string
     createdAt?: Date | string
+    updatedAt?: Date | string
     user: UserCreateNestedOneWithoutCommentsInput
-    tip: AdminTipsCreateNestedOneWithoutCommentsInput
+    post: AdminPostsCreateNestedOneWithoutCommentsInput
   }
 
   export type CommentUncheckedCreateInput = {
     id?: number
     content: string
     userId: number
-    tipId: number
+    postId: number
     createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CommentUpdateInput = {
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutCommentsNestedInput
-    tip?: AdminTipsUpdateOneRequiredWithoutCommentsNestedInput
+    post?: AdminPostsUpdateOneRequiredWithoutCommentsNestedInput
   }
 
   export type CommentUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     content?: StringFieldUpdateOperationsInput | string
     userId?: IntFieldUpdateOperationsInput | number
-    tipId?: IntFieldUpdateOperationsInput | number
+    postId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CommentCreateManyInput = {
     id?: number
     content: string
     userId: number
-    tipId: number
+    postId: number
     createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CommentUpdateManyMutationInput = {
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CommentUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     content?: StringFieldUpdateOperationsInput | string
     userId?: IntFieldUpdateOperationsInput | number
-    tipId?: IntFieldUpdateOperationsInput | number
+    postId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type SubscriptionCreateInput = {
@@ -6217,6 +7612,87 @@ export namespace Prisma {
     validUntil?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type freeTipsStatisticCreateInput = {
+    numberOfTipps?: number
+    goodTippNumber?: number
+    badTippNumber?: number
+    AllBet?: number
+    WinMoney?: number
+    LostMoney?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type freeTipsStatisticUncheckedCreateInput = {
+    id?: number
+    numberOfTipps?: number
+    goodTippNumber?: number
+    badTippNumber?: number
+    AllBet?: number
+    WinMoney?: number
+    LostMoney?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type freeTipsStatisticUpdateInput = {
+    numberOfTipps?: IntFieldUpdateOperationsInput | number
+    goodTippNumber?: IntFieldUpdateOperationsInput | number
+    badTippNumber?: IntFieldUpdateOperationsInput | number
+    AllBet?: IntFieldUpdateOperationsInput | number
+    WinMoney?: IntFieldUpdateOperationsInput | number
+    LostMoney?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type freeTipsStatisticUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    numberOfTipps?: IntFieldUpdateOperationsInput | number
+    goodTippNumber?: IntFieldUpdateOperationsInput | number
+    badTippNumber?: IntFieldUpdateOperationsInput | number
+    AllBet?: IntFieldUpdateOperationsInput | number
+    WinMoney?: IntFieldUpdateOperationsInput | number
+    LostMoney?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type freeTipsStatisticCreateManyInput = {
+    id?: number
+    numberOfTipps?: number
+    goodTippNumber?: number
+    badTippNumber?: number
+    AllBet?: number
+    WinMoney?: number
+    LostMoney?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type freeTipsStatisticUpdateManyMutationInput = {
+    numberOfTipps?: IntFieldUpdateOperationsInput | number
+    goodTippNumber?: IntFieldUpdateOperationsInput | number
+    badTippNumber?: IntFieldUpdateOperationsInput | number
+    AllBet?: IntFieldUpdateOperationsInput | number
+    WinMoney?: IntFieldUpdateOperationsInput | number
+    LostMoney?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type freeTipsStatisticUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    numberOfTipps?: IntFieldUpdateOperationsInput | number
+    goodTippNumber?: IntFieldUpdateOperationsInput | number
+    badTippNumber?: IntFieldUpdateOperationsInput | number
+    AllBet?: IntFieldUpdateOperationsInput | number
+    WinMoney?: IntFieldUpdateOperationsInput | number
+    LostMoney?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -6242,6 +7718,20 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type BoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
@@ -6258,14 +7748,21 @@ export namespace Prisma {
     isNot?: SubscriptionWhereInput | null
   }
 
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
   export type CommentOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
+    username?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    avatar?: SortOrder
     isAdmin?: SortOrder
     isPaid?: SortOrder
   }
@@ -6276,16 +7773,20 @@ export namespace Prisma {
 
   export type UserMaxOrderByAggregateInput = {
     id?: SortOrder
+    username?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    avatar?: SortOrder
     isAdmin?: SortOrder
     isPaid?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
     id?: SortOrder
+    username?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    avatar?: SortOrder
     isAdmin?: SortOrder
     isPaid?: SortOrder
   }
@@ -6327,6 +7828,23 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
   export type BoolWithAggregatesFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
@@ -6346,44 +7864,47 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type AdminTipsCountOrderByAggregateInput = {
+  export type AdminPostsCountOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
     content?: SortOrder
     isPremium?: SortOrder
-    win?: SortOrder
     imageurl?: SortOrder
+    tippmixPicture?: SortOrder
     createdAt?: SortOrder
+    updatedAt?: SortOrder
     deadline?: SortOrder
   }
 
-  export type AdminTipsAvgOrderByAggregateInput = {
+  export type AdminPostsAvgOrderByAggregateInput = {
     id?: SortOrder
   }
 
-  export type AdminTipsMaxOrderByAggregateInput = {
-    id?: SortOrder
-    title?: SortOrder
-    content?: SortOrder
-    isPremium?: SortOrder
-    win?: SortOrder
-    imageurl?: SortOrder
-    createdAt?: SortOrder
-    deadline?: SortOrder
-  }
-
-  export type AdminTipsMinOrderByAggregateInput = {
+  export type AdminPostsMaxOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
     content?: SortOrder
     isPremium?: SortOrder
-    win?: SortOrder
     imageurl?: SortOrder
+    tippmixPicture?: SortOrder
     createdAt?: SortOrder
+    updatedAt?: SortOrder
     deadline?: SortOrder
   }
 
-  export type AdminTipsSumOrderByAggregateInput = {
+  export type AdminPostsMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    isPremium?: SortOrder
+    imageurl?: SortOrder
+    tippmixPicture?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deadline?: SortOrder
+  }
+
+  export type AdminPostsSumOrderByAggregateInput = {
     id?: SortOrder
   }
 
@@ -6406,45 +7927,48 @@ export namespace Prisma {
     isNot?: UserWhereInput
   }
 
-  export type AdminTipsScalarRelationFilter = {
-    is?: AdminTipsWhereInput
-    isNot?: AdminTipsWhereInput
+  export type AdminPostsScalarRelationFilter = {
+    is?: AdminPostsWhereInput
+    isNot?: AdminPostsWhereInput
   }
 
   export type CommentCountOrderByAggregateInput = {
     id?: SortOrder
     content?: SortOrder
     userId?: SortOrder
-    tipId?: SortOrder
+    postId?: SortOrder
     createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type CommentAvgOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    tipId?: SortOrder
+    postId?: SortOrder
   }
 
   export type CommentMaxOrderByAggregateInput = {
     id?: SortOrder
     content?: SortOrder
     userId?: SortOrder
-    tipId?: SortOrder
+    postId?: SortOrder
     createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type CommentMinOrderByAggregateInput = {
     id?: SortOrder
     content?: SortOrder
     userId?: SortOrder
-    tipId?: SortOrder
+    postId?: SortOrder
     createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type CommentSumOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    tipId?: SortOrder
+    postId?: SortOrder
   }
 
   export type SubscriptionCountOrderByAggregateInput = {
@@ -6475,6 +7999,62 @@ export namespace Prisma {
     userId?: SortOrder
   }
 
+  export type freeTipsStatisticCountOrderByAggregateInput = {
+    id?: SortOrder
+    numberOfTipps?: SortOrder
+    goodTippNumber?: SortOrder
+    badTippNumber?: SortOrder
+    AllBet?: SortOrder
+    WinMoney?: SortOrder
+    LostMoney?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type freeTipsStatisticAvgOrderByAggregateInput = {
+    id?: SortOrder
+    numberOfTipps?: SortOrder
+    goodTippNumber?: SortOrder
+    badTippNumber?: SortOrder
+    AllBet?: SortOrder
+    WinMoney?: SortOrder
+    LostMoney?: SortOrder
+  }
+
+  export type freeTipsStatisticMaxOrderByAggregateInput = {
+    id?: SortOrder
+    numberOfTipps?: SortOrder
+    goodTippNumber?: SortOrder
+    badTippNumber?: SortOrder
+    AllBet?: SortOrder
+    WinMoney?: SortOrder
+    LostMoney?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type freeTipsStatisticMinOrderByAggregateInput = {
+    id?: SortOrder
+    numberOfTipps?: SortOrder
+    goodTippNumber?: SortOrder
+    badTippNumber?: SortOrder
+    AllBet?: SortOrder
+    WinMoney?: SortOrder
+    LostMoney?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type freeTipsStatisticSumOrderByAggregateInput = {
+    id?: SortOrder
+    numberOfTipps?: SortOrder
+    goodTippNumber?: SortOrder
+    badTippNumber?: SortOrder
+    AllBet?: SortOrder
+    WinMoney?: SortOrder
+    LostMoney?: SortOrder
+  }
+
   export type CommentCreateNestedManyWithoutUserInput = {
     create?: XOR<CommentCreateWithoutUserInput, CommentUncheckedCreateWithoutUserInput> | CommentCreateWithoutUserInput[] | CommentUncheckedCreateWithoutUserInput[]
     connectOrCreate?: CommentCreateOrConnectWithoutUserInput | CommentCreateOrConnectWithoutUserInput[]
@@ -6503,6 +8083,10 @@ export namespace Prisma {
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type BoolFieldUpdateOperationsInput = {
@@ -6565,17 +8149,17 @@ export namespace Prisma {
     update?: XOR<XOR<SubscriptionUpdateToOneWithWhereWithoutUserInput, SubscriptionUpdateWithoutUserInput>, SubscriptionUncheckedUpdateWithoutUserInput>
   }
 
-  export type CommentCreateNestedManyWithoutTipInput = {
-    create?: XOR<CommentCreateWithoutTipInput, CommentUncheckedCreateWithoutTipInput> | CommentCreateWithoutTipInput[] | CommentUncheckedCreateWithoutTipInput[]
-    connectOrCreate?: CommentCreateOrConnectWithoutTipInput | CommentCreateOrConnectWithoutTipInput[]
-    createMany?: CommentCreateManyTipInputEnvelope
+  export type CommentCreateNestedManyWithoutPostInput = {
+    create?: XOR<CommentCreateWithoutPostInput, CommentUncheckedCreateWithoutPostInput> | CommentCreateWithoutPostInput[] | CommentUncheckedCreateWithoutPostInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutPostInput | CommentCreateOrConnectWithoutPostInput[]
+    createMany?: CommentCreateManyPostInputEnvelope
     connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
   }
 
-  export type CommentUncheckedCreateNestedManyWithoutTipInput = {
-    create?: XOR<CommentCreateWithoutTipInput, CommentUncheckedCreateWithoutTipInput> | CommentCreateWithoutTipInput[] | CommentUncheckedCreateWithoutTipInput[]
-    connectOrCreate?: CommentCreateOrConnectWithoutTipInput | CommentCreateOrConnectWithoutTipInput[]
-    createMany?: CommentCreateManyTipInputEnvelope
+  export type CommentUncheckedCreateNestedManyWithoutPostInput = {
+    create?: XOR<CommentCreateWithoutPostInput, CommentUncheckedCreateWithoutPostInput> | CommentCreateWithoutPostInput[] | CommentUncheckedCreateWithoutPostInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutPostInput | CommentCreateOrConnectWithoutPostInput[]
+    createMany?: CommentCreateManyPostInputEnvelope
     connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
   }
 
@@ -6583,31 +8167,31 @@ export namespace Prisma {
     set?: Date | string
   }
 
-  export type CommentUpdateManyWithoutTipNestedInput = {
-    create?: XOR<CommentCreateWithoutTipInput, CommentUncheckedCreateWithoutTipInput> | CommentCreateWithoutTipInput[] | CommentUncheckedCreateWithoutTipInput[]
-    connectOrCreate?: CommentCreateOrConnectWithoutTipInput | CommentCreateOrConnectWithoutTipInput[]
-    upsert?: CommentUpsertWithWhereUniqueWithoutTipInput | CommentUpsertWithWhereUniqueWithoutTipInput[]
-    createMany?: CommentCreateManyTipInputEnvelope
+  export type CommentUpdateManyWithoutPostNestedInput = {
+    create?: XOR<CommentCreateWithoutPostInput, CommentUncheckedCreateWithoutPostInput> | CommentCreateWithoutPostInput[] | CommentUncheckedCreateWithoutPostInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutPostInput | CommentCreateOrConnectWithoutPostInput[]
+    upsert?: CommentUpsertWithWhereUniqueWithoutPostInput | CommentUpsertWithWhereUniqueWithoutPostInput[]
+    createMany?: CommentCreateManyPostInputEnvelope
     set?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
     disconnect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
     delete?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
     connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    update?: CommentUpdateWithWhereUniqueWithoutTipInput | CommentUpdateWithWhereUniqueWithoutTipInput[]
-    updateMany?: CommentUpdateManyWithWhereWithoutTipInput | CommentUpdateManyWithWhereWithoutTipInput[]
+    update?: CommentUpdateWithWhereUniqueWithoutPostInput | CommentUpdateWithWhereUniqueWithoutPostInput[]
+    updateMany?: CommentUpdateManyWithWhereWithoutPostInput | CommentUpdateManyWithWhereWithoutPostInput[]
     deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
   }
 
-  export type CommentUncheckedUpdateManyWithoutTipNestedInput = {
-    create?: XOR<CommentCreateWithoutTipInput, CommentUncheckedCreateWithoutTipInput> | CommentCreateWithoutTipInput[] | CommentUncheckedCreateWithoutTipInput[]
-    connectOrCreate?: CommentCreateOrConnectWithoutTipInput | CommentCreateOrConnectWithoutTipInput[]
-    upsert?: CommentUpsertWithWhereUniqueWithoutTipInput | CommentUpsertWithWhereUniqueWithoutTipInput[]
-    createMany?: CommentCreateManyTipInputEnvelope
+  export type CommentUncheckedUpdateManyWithoutPostNestedInput = {
+    create?: XOR<CommentCreateWithoutPostInput, CommentUncheckedCreateWithoutPostInput> | CommentCreateWithoutPostInput[] | CommentUncheckedCreateWithoutPostInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutPostInput | CommentCreateOrConnectWithoutPostInput[]
+    upsert?: CommentUpsertWithWhereUniqueWithoutPostInput | CommentUpsertWithWhereUniqueWithoutPostInput[]
+    createMany?: CommentCreateManyPostInputEnvelope
     set?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
     disconnect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
     delete?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
     connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    update?: CommentUpdateWithWhereUniqueWithoutTipInput | CommentUpdateWithWhereUniqueWithoutTipInput[]
-    updateMany?: CommentUpdateManyWithWhereWithoutTipInput | CommentUpdateManyWithWhereWithoutTipInput[]
+    update?: CommentUpdateWithWhereUniqueWithoutPostInput | CommentUpdateWithWhereUniqueWithoutPostInput[]
+    updateMany?: CommentUpdateManyWithWhereWithoutPostInput | CommentUpdateManyWithWhereWithoutPostInput[]
     deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
   }
 
@@ -6617,10 +8201,10 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type AdminTipsCreateNestedOneWithoutCommentsInput = {
-    create?: XOR<AdminTipsCreateWithoutCommentsInput, AdminTipsUncheckedCreateWithoutCommentsInput>
-    connectOrCreate?: AdminTipsCreateOrConnectWithoutCommentsInput
-    connect?: AdminTipsWhereUniqueInput
+  export type AdminPostsCreateNestedOneWithoutCommentsInput = {
+    create?: XOR<AdminPostsCreateWithoutCommentsInput, AdminPostsUncheckedCreateWithoutCommentsInput>
+    connectOrCreate?: AdminPostsCreateOrConnectWithoutCommentsInput
+    connect?: AdminPostsWhereUniqueInput
   }
 
   export type UserUpdateOneRequiredWithoutCommentsNestedInput = {
@@ -6631,12 +8215,12 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCommentsInput, UserUpdateWithoutCommentsInput>, UserUncheckedUpdateWithoutCommentsInput>
   }
 
-  export type AdminTipsUpdateOneRequiredWithoutCommentsNestedInput = {
-    create?: XOR<AdminTipsCreateWithoutCommentsInput, AdminTipsUncheckedCreateWithoutCommentsInput>
-    connectOrCreate?: AdminTipsCreateOrConnectWithoutCommentsInput
-    upsert?: AdminTipsUpsertWithoutCommentsInput
-    connect?: AdminTipsWhereUniqueInput
-    update?: XOR<XOR<AdminTipsUpdateToOneWithWhereWithoutCommentsInput, AdminTipsUpdateWithoutCommentsInput>, AdminTipsUncheckedUpdateWithoutCommentsInput>
+  export type AdminPostsUpdateOneRequiredWithoutCommentsNestedInput = {
+    create?: XOR<AdminPostsCreateWithoutCommentsInput, AdminPostsUncheckedCreateWithoutCommentsInput>
+    connectOrCreate?: AdminPostsCreateOrConnectWithoutCommentsInput
+    upsert?: AdminPostsUpsertWithoutCommentsInput
+    connect?: AdminPostsWhereUniqueInput
+    update?: XOR<XOR<AdminPostsUpdateToOneWithWhereWithoutCommentsInput, AdminPostsUpdateWithoutCommentsInput>, AdminPostsUncheckedUpdateWithoutCommentsInput>
   }
 
   export type UserCreateNestedOneWithoutSubscriptionInput = {
@@ -6676,6 +8260,20 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type NestedBoolFilter<$PrismaModel = never> = {
@@ -6727,6 +8325,34 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
@@ -6763,14 +8389,16 @@ export namespace Prisma {
   export type CommentCreateWithoutUserInput = {
     content: string
     createdAt?: Date | string
-    tip: AdminTipsCreateNestedOneWithoutCommentsInput
+    updatedAt?: Date | string
+    post: AdminPostsCreateNestedOneWithoutCommentsInput
   }
 
   export type CommentUncheckedCreateWithoutUserInput = {
     id?: number
     content: string
-    tipId: number
+    postId: number
     createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CommentCreateOrConnectWithoutUserInput = {
@@ -6819,8 +8447,9 @@ export namespace Prisma {
     id?: IntFilter<"Comment"> | number
     content?: StringFilter<"Comment"> | string
     userId?: IntFilter<"Comment"> | number
-    tipId?: IntFilter<"Comment"> | number
+    postId?: IntFilter<"Comment"> | number
     createdAt?: DateTimeFilter<"Comment"> | Date | string
+    updatedAt?: DateTimeFilter<"Comment"> | Date | string
   }
 
   export type SubscriptionUpsertWithoutUserInput = {
@@ -6843,47 +8472,51 @@ export namespace Prisma {
     validUntil?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CommentCreateWithoutTipInput = {
+  export type CommentCreateWithoutPostInput = {
     content: string
     createdAt?: Date | string
+    updatedAt?: Date | string
     user: UserCreateNestedOneWithoutCommentsInput
   }
 
-  export type CommentUncheckedCreateWithoutTipInput = {
+  export type CommentUncheckedCreateWithoutPostInput = {
     id?: number
     content: string
     userId: number
     createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type CommentCreateOrConnectWithoutTipInput = {
+  export type CommentCreateOrConnectWithoutPostInput = {
     where: CommentWhereUniqueInput
-    create: XOR<CommentCreateWithoutTipInput, CommentUncheckedCreateWithoutTipInput>
+    create: XOR<CommentCreateWithoutPostInput, CommentUncheckedCreateWithoutPostInput>
   }
 
-  export type CommentCreateManyTipInputEnvelope = {
-    data: CommentCreateManyTipInput | CommentCreateManyTipInput[]
+  export type CommentCreateManyPostInputEnvelope = {
+    data: CommentCreateManyPostInput | CommentCreateManyPostInput[]
   }
 
-  export type CommentUpsertWithWhereUniqueWithoutTipInput = {
+  export type CommentUpsertWithWhereUniqueWithoutPostInput = {
     where: CommentWhereUniqueInput
-    update: XOR<CommentUpdateWithoutTipInput, CommentUncheckedUpdateWithoutTipInput>
-    create: XOR<CommentCreateWithoutTipInput, CommentUncheckedCreateWithoutTipInput>
+    update: XOR<CommentUpdateWithoutPostInput, CommentUncheckedUpdateWithoutPostInput>
+    create: XOR<CommentCreateWithoutPostInput, CommentUncheckedCreateWithoutPostInput>
   }
 
-  export type CommentUpdateWithWhereUniqueWithoutTipInput = {
+  export type CommentUpdateWithWhereUniqueWithoutPostInput = {
     where: CommentWhereUniqueInput
-    data: XOR<CommentUpdateWithoutTipInput, CommentUncheckedUpdateWithoutTipInput>
+    data: XOR<CommentUpdateWithoutPostInput, CommentUncheckedUpdateWithoutPostInput>
   }
 
-  export type CommentUpdateManyWithWhereWithoutTipInput = {
+  export type CommentUpdateManyWithWhereWithoutPostInput = {
     where: CommentScalarWhereInput
-    data: XOR<CommentUpdateManyMutationInput, CommentUncheckedUpdateManyWithoutTipInput>
+    data: XOR<CommentUpdateManyMutationInput, CommentUncheckedUpdateManyWithoutPostInput>
   }
 
   export type UserCreateWithoutCommentsInput = {
+    username: string
     email: string
     password: string
+    avatar?: string | null
     isAdmin?: boolean
     isPaid?: boolean
     subscription?: SubscriptionCreateNestedOneWithoutUserInput
@@ -6891,8 +8524,10 @@ export namespace Prisma {
 
   export type UserUncheckedCreateWithoutCommentsInput = {
     id?: number
+    username: string
     email: string
     password: string
+    avatar?: string | null
     isAdmin?: boolean
     isPaid?: boolean
     subscription?: SubscriptionUncheckedCreateNestedOneWithoutUserInput
@@ -6903,30 +8538,32 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutCommentsInput, UserUncheckedCreateWithoutCommentsInput>
   }
 
-  export type AdminTipsCreateWithoutCommentsInput = {
+  export type AdminPostsCreateWithoutCommentsInput = {
     title: string
     content: string
     isPremium?: boolean
-    win?: boolean
     imageurl: string
+    tippmixPicture: string
     createdAt?: Date | string
+    updatedAt?: Date | string
     deadline: Date | string
   }
 
-  export type AdminTipsUncheckedCreateWithoutCommentsInput = {
+  export type AdminPostsUncheckedCreateWithoutCommentsInput = {
     id?: number
     title: string
     content: string
     isPremium?: boolean
-    win?: boolean
     imageurl: string
+    tippmixPicture: string
     createdAt?: Date | string
+    updatedAt?: Date | string
     deadline: Date | string
   }
 
-  export type AdminTipsCreateOrConnectWithoutCommentsInput = {
-    where: AdminTipsWhereUniqueInput
-    create: XOR<AdminTipsCreateWithoutCommentsInput, AdminTipsUncheckedCreateWithoutCommentsInput>
+  export type AdminPostsCreateOrConnectWithoutCommentsInput = {
+    where: AdminPostsWhereUniqueInput
+    create: XOR<AdminPostsCreateWithoutCommentsInput, AdminPostsUncheckedCreateWithoutCommentsInput>
   }
 
   export type UserUpsertWithoutCommentsInput = {
@@ -6941,8 +8578,10 @@ export namespace Prisma {
   }
 
   export type UserUpdateWithoutCommentsInput = {
+    username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     isPaid?: BoolFieldUpdateOperationsInput | boolean
     subscription?: SubscriptionUpdateOneWithoutUserNestedInput
@@ -6950,48 +8589,54 @@ export namespace Prisma {
 
   export type UserUncheckedUpdateWithoutCommentsInput = {
     id?: IntFieldUpdateOperationsInput | number
+    username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     isPaid?: BoolFieldUpdateOperationsInput | boolean
     subscription?: SubscriptionUncheckedUpdateOneWithoutUserNestedInput
   }
 
-  export type AdminTipsUpsertWithoutCommentsInput = {
-    update: XOR<AdminTipsUpdateWithoutCommentsInput, AdminTipsUncheckedUpdateWithoutCommentsInput>
-    create: XOR<AdminTipsCreateWithoutCommentsInput, AdminTipsUncheckedCreateWithoutCommentsInput>
-    where?: AdminTipsWhereInput
+  export type AdminPostsUpsertWithoutCommentsInput = {
+    update: XOR<AdminPostsUpdateWithoutCommentsInput, AdminPostsUncheckedUpdateWithoutCommentsInput>
+    create: XOR<AdminPostsCreateWithoutCommentsInput, AdminPostsUncheckedCreateWithoutCommentsInput>
+    where?: AdminPostsWhereInput
   }
 
-  export type AdminTipsUpdateToOneWithWhereWithoutCommentsInput = {
-    where?: AdminTipsWhereInput
-    data: XOR<AdminTipsUpdateWithoutCommentsInput, AdminTipsUncheckedUpdateWithoutCommentsInput>
+  export type AdminPostsUpdateToOneWithWhereWithoutCommentsInput = {
+    where?: AdminPostsWhereInput
+    data: XOR<AdminPostsUpdateWithoutCommentsInput, AdminPostsUncheckedUpdateWithoutCommentsInput>
   }
 
-  export type AdminTipsUpdateWithoutCommentsInput = {
+  export type AdminPostsUpdateWithoutCommentsInput = {
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     isPremium?: BoolFieldUpdateOperationsInput | boolean
-    win?: BoolFieldUpdateOperationsInput | boolean
     imageurl?: StringFieldUpdateOperationsInput | string
+    tippmixPicture?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deadline?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type AdminTipsUncheckedUpdateWithoutCommentsInput = {
+  export type AdminPostsUncheckedUpdateWithoutCommentsInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     isPremium?: BoolFieldUpdateOperationsInput | boolean
-    win?: BoolFieldUpdateOperationsInput | boolean
     imageurl?: StringFieldUpdateOperationsInput | string
+    tippmixPicture?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deadline?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserCreateWithoutSubscriptionInput = {
+    username: string
     email: string
     password: string
+    avatar?: string | null
     isAdmin?: boolean
     isPaid?: boolean
     comments?: CommentCreateNestedManyWithoutUserInput
@@ -6999,8 +8644,10 @@ export namespace Prisma {
 
   export type UserUncheckedCreateWithoutSubscriptionInput = {
     id?: number
+    username: string
     email: string
     password: string
+    avatar?: string | null
     isAdmin?: boolean
     isPaid?: boolean
     comments?: CommentUncheckedCreateNestedManyWithoutUserInput
@@ -7023,8 +8670,10 @@ export namespace Prisma {
   }
 
   export type UserUpdateWithoutSubscriptionInput = {
+    username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     isPaid?: BoolFieldUpdateOperationsInput | boolean
     comments?: CommentUpdateManyWithoutUserNestedInput
@@ -7032,8 +8681,10 @@ export namespace Prisma {
 
   export type UserUncheckedUpdateWithoutSubscriptionInput = {
     id?: IntFieldUpdateOperationsInput | number
+    username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     isPaid?: BoolFieldUpdateOperationsInput | boolean
     comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
@@ -7042,55 +8693,63 @@ export namespace Prisma {
   export type CommentCreateManyUserInput = {
     id?: number
     content: string
-    tipId: number
+    postId: number
     createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CommentUpdateWithoutUserInput = {
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    tip?: AdminTipsUpdateOneRequiredWithoutCommentsNestedInput
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    post?: AdminPostsUpdateOneRequiredWithoutCommentsNestedInput
   }
 
   export type CommentUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     content?: StringFieldUpdateOperationsInput | string
-    tipId?: IntFieldUpdateOperationsInput | number
+    postId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CommentUncheckedUpdateManyWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     content?: StringFieldUpdateOperationsInput | string
-    tipId?: IntFieldUpdateOperationsInput | number
+    postId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CommentCreateManyTipInput = {
+  export type CommentCreateManyPostInput = {
     id?: number
     content: string
     userId: number
     createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type CommentUpdateWithoutTipInput = {
+  export type CommentUpdateWithoutPostInput = {
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutCommentsNestedInput
   }
 
-  export type CommentUncheckedUpdateWithoutTipInput = {
+  export type CommentUncheckedUpdateWithoutPostInput = {
     id?: IntFieldUpdateOperationsInput | number
     content?: StringFieldUpdateOperationsInput | string
     userId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CommentUncheckedUpdateManyWithoutTipInput = {
+  export type CommentUncheckedUpdateManyWithoutPostInput = {
     id?: IntFieldUpdateOperationsInput | number
     content?: StringFieldUpdateOperationsInput | string
     userId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 
