@@ -124,11 +124,13 @@ exports.Prisma.UserScalarFieldEnum = {
   password: 'password',
   avatar: 'avatar',
   isAdmin: 'isAdmin',
-  isPaid: 'isPaid'
+  isPaid: 'isPaid',
+  isBanned: 'isBanned'
 };
 
 exports.Prisma.AdminPostsScalarFieldEnum = {
   id: 'id',
+  slug: 'slug',
   title: 'title',
   content: 'content',
   isPremium: 'isPremium',
@@ -142,6 +144,7 @@ exports.Prisma.AdminPostsScalarFieldEnum = {
 exports.Prisma.CommentScalarFieldEnum = {
   id: 'id',
   content: 'content',
+  hidden: 'hidden',
   userId: 'userId',
   postId: 'postId',
   createdAt: 'createdAt',

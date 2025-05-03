@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import Footer from '@/components/Footer';
 import { AuthProvider } from '@/components/AuthContext';
 
+
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
@@ -25,6 +26,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
+  const isAdmin = pathname.startsWith('/admin');
   return (
     <html lang="en">
       <body
@@ -33,7 +36,7 @@ export default function RootLayout({
         <AuthProvider>
           <Navbar />
           <main className="flex-1 w-full mx-auto lg:px-8">{children}</main>
-          <Footer />
+          {!isAdmin && <Footer />}
         </AuthProvider>
       </body>
     </html>

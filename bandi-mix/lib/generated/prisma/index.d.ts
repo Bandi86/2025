@@ -1322,6 +1322,7 @@ export namespace Prisma {
     avatar: string | null
     isAdmin: boolean | null
     isPaid: boolean | null
+    isBanned: boolean | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -1332,6 +1333,7 @@ export namespace Prisma {
     avatar: string | null
     isAdmin: boolean | null
     isPaid: boolean | null
+    isBanned: boolean | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -1342,6 +1344,7 @@ export namespace Prisma {
     avatar: number
     isAdmin: number
     isPaid: number
+    isBanned: number
     _all: number
   }
 
@@ -1362,6 +1365,7 @@ export namespace Prisma {
     avatar?: true
     isAdmin?: true
     isPaid?: true
+    isBanned?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -1372,6 +1376,7 @@ export namespace Prisma {
     avatar?: true
     isAdmin?: true
     isPaid?: true
+    isBanned?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -1382,6 +1387,7 @@ export namespace Prisma {
     avatar?: true
     isAdmin?: true
     isPaid?: true
+    isBanned?: true
     _all?: true
   }
 
@@ -1479,6 +1485,7 @@ export namespace Prisma {
     avatar: string | null
     isAdmin: boolean
     isPaid: boolean
+    isBanned: boolean
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -1508,6 +1515,7 @@ export namespace Prisma {
     avatar?: boolean
     isAdmin?: boolean
     isPaid?: boolean
+    isBanned?: boolean
     comments?: boolean | User$commentsArgs<ExtArgs>
     subscription?: boolean | User$subscriptionArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -1521,6 +1529,7 @@ export namespace Prisma {
     avatar?: boolean
     isAdmin?: boolean
     isPaid?: boolean
+    isBanned?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1531,6 +1540,7 @@ export namespace Prisma {
     avatar?: boolean
     isAdmin?: boolean
     isPaid?: boolean
+    isBanned?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
@@ -1541,9 +1551,10 @@ export namespace Prisma {
     avatar?: boolean
     isAdmin?: boolean
     isPaid?: boolean
+    isBanned?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "username" | "email" | "password" | "avatar" | "isAdmin" | "isPaid", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "username" | "email" | "password" | "avatar" | "isAdmin" | "isPaid" | "isBanned", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     comments?: boolean | User$commentsArgs<ExtArgs>
     subscription?: boolean | User$subscriptionArgs<ExtArgs>
@@ -1566,6 +1577,7 @@ export namespace Prisma {
       avatar: string | null
       isAdmin: boolean
       isPaid: boolean
+      isBanned: boolean
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -1998,6 +2010,7 @@ export namespace Prisma {
     readonly avatar: FieldRef<"User", 'String'>
     readonly isAdmin: FieldRef<"User", 'Boolean'>
     readonly isPaid: FieldRef<"User", 'Boolean'>
+    readonly isBanned: FieldRef<"User", 'Boolean'>
   }
     
 
@@ -2467,6 +2480,7 @@ export namespace Prisma {
 
   export type AdminPostsMinAggregateOutputType = {
     id: number | null
+    slug: string | null
     title: string | null
     content: string | null
     isPremium: boolean | null
@@ -2479,6 +2493,7 @@ export namespace Prisma {
 
   export type AdminPostsMaxAggregateOutputType = {
     id: number | null
+    slug: string | null
     title: string | null
     content: string | null
     isPremium: boolean | null
@@ -2491,6 +2506,7 @@ export namespace Prisma {
 
   export type AdminPostsCountAggregateOutputType = {
     id: number
+    slug: number
     title: number
     content: number
     isPremium: number
@@ -2513,6 +2529,7 @@ export namespace Prisma {
 
   export type AdminPostsMinAggregateInputType = {
     id?: true
+    slug?: true
     title?: true
     content?: true
     isPremium?: true
@@ -2525,6 +2542,7 @@ export namespace Prisma {
 
   export type AdminPostsMaxAggregateInputType = {
     id?: true
+    slug?: true
     title?: true
     content?: true
     isPremium?: true
@@ -2537,6 +2555,7 @@ export namespace Prisma {
 
   export type AdminPostsCountAggregateInputType = {
     id?: true
+    slug?: true
     title?: true
     content?: true
     isPremium?: true
@@ -2636,6 +2655,7 @@ export namespace Prisma {
 
   export type AdminPostsGroupByOutputType = {
     id: number
+    slug: string
     title: string
     content: string
     isPremium: boolean
@@ -2667,6 +2687,7 @@ export namespace Prisma {
 
   export type AdminPostsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    slug?: boolean
     title?: boolean
     content?: boolean
     isPremium?: boolean
@@ -2681,6 +2702,7 @@ export namespace Prisma {
 
   export type AdminPostsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    slug?: boolean
     title?: boolean
     content?: boolean
     isPremium?: boolean
@@ -2693,6 +2715,7 @@ export namespace Prisma {
 
   export type AdminPostsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    slug?: boolean
     title?: boolean
     content?: boolean
     isPremium?: boolean
@@ -2705,6 +2728,7 @@ export namespace Prisma {
 
   export type AdminPostsSelectScalar = {
     id?: boolean
+    slug?: boolean
     title?: boolean
     content?: boolean
     isPremium?: boolean
@@ -2715,7 +2739,7 @@ export namespace Prisma {
     deadline?: boolean
   }
 
-  export type AdminPostsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "content" | "isPremium" | "imageurl" | "tippmixPicture" | "createdAt" | "updatedAt" | "deadline", ExtArgs["result"]["adminPosts"]>
+  export type AdminPostsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "slug" | "title" | "content" | "isPremium" | "imageurl" | "tippmixPicture" | "createdAt" | "updatedAt" | "deadline", ExtArgs["result"]["adminPosts"]>
   export type AdminPostsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     comments?: boolean | AdminPosts$commentsArgs<ExtArgs>
     _count?: boolean | AdminPostsCountOutputTypeDefaultArgs<ExtArgs>
@@ -2730,6 +2754,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      slug: string
       title: string
       content: string
       isPremium: boolean
@@ -3163,6 +3188,7 @@ export namespace Prisma {
    */
   interface AdminPostsFieldRefs {
     readonly id: FieldRef<"AdminPosts", 'Int'>
+    readonly slug: FieldRef<"AdminPosts", 'String'>
     readonly title: FieldRef<"AdminPosts", 'String'>
     readonly content: FieldRef<"AdminPosts", 'String'>
     readonly isPremium: FieldRef<"AdminPosts", 'Boolean'>
@@ -3626,6 +3652,7 @@ export namespace Prisma {
   export type CommentMinAggregateOutputType = {
     id: number | null
     content: string | null
+    hidden: boolean | null
     userId: number | null
     postId: number | null
     createdAt: Date | null
@@ -3635,6 +3662,7 @@ export namespace Prisma {
   export type CommentMaxAggregateOutputType = {
     id: number | null
     content: string | null
+    hidden: boolean | null
     userId: number | null
     postId: number | null
     createdAt: Date | null
@@ -3644,6 +3672,7 @@ export namespace Prisma {
   export type CommentCountAggregateOutputType = {
     id: number
     content: number
+    hidden: number
     userId: number
     postId: number
     createdAt: number
@@ -3667,6 +3696,7 @@ export namespace Prisma {
   export type CommentMinAggregateInputType = {
     id?: true
     content?: true
+    hidden?: true
     userId?: true
     postId?: true
     createdAt?: true
@@ -3676,6 +3706,7 @@ export namespace Prisma {
   export type CommentMaxAggregateInputType = {
     id?: true
     content?: true
+    hidden?: true
     userId?: true
     postId?: true
     createdAt?: true
@@ -3685,6 +3716,7 @@ export namespace Prisma {
   export type CommentCountAggregateInputType = {
     id?: true
     content?: true
+    hidden?: true
     userId?: true
     postId?: true
     createdAt?: true
@@ -3781,6 +3813,7 @@ export namespace Prisma {
   export type CommentGroupByOutputType = {
     id: number
     content: string
+    hidden: boolean
     userId: number
     postId: number
     createdAt: Date
@@ -3809,6 +3842,7 @@ export namespace Prisma {
   export type CommentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     content?: boolean
+    hidden?: boolean
     userId?: boolean
     postId?: boolean
     createdAt?: boolean
@@ -3820,6 +3854,7 @@ export namespace Prisma {
   export type CommentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     content?: boolean
+    hidden?: boolean
     userId?: boolean
     postId?: boolean
     createdAt?: boolean
@@ -3831,6 +3866,7 @@ export namespace Prisma {
   export type CommentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     content?: boolean
+    hidden?: boolean
     userId?: boolean
     postId?: boolean
     createdAt?: boolean
@@ -3842,13 +3878,14 @@ export namespace Prisma {
   export type CommentSelectScalar = {
     id?: boolean
     content?: boolean
+    hidden?: boolean
     userId?: boolean
     postId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type CommentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "content" | "userId" | "postId" | "createdAt" | "updatedAt", ExtArgs["result"]["comment"]>
+  export type CommentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "content" | "hidden" | "userId" | "postId" | "createdAt" | "updatedAt", ExtArgs["result"]["comment"]>
   export type CommentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     post?: boolean | AdminPostsDefaultArgs<ExtArgs>
@@ -3871,6 +3908,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       content: string
+      hidden: boolean
       userId: number
       postId: number
       createdAt: Date
@@ -4302,6 +4340,7 @@ export namespace Prisma {
   interface CommentFieldRefs {
     readonly id: FieldRef<"Comment", 'Int'>
     readonly content: FieldRef<"Comment", 'String'>
+    readonly hidden: FieldRef<"Comment", 'Boolean'>
     readonly userId: FieldRef<"Comment", 'Int'>
     readonly postId: FieldRef<"Comment", 'Int'>
     readonly createdAt: FieldRef<"Comment", 'DateTime'>
@@ -6907,7 +6946,8 @@ export namespace Prisma {
     password: 'password',
     avatar: 'avatar',
     isAdmin: 'isAdmin',
-    isPaid: 'isPaid'
+    isPaid: 'isPaid',
+    isBanned: 'isBanned'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -6915,6 +6955,7 @@ export namespace Prisma {
 
   export const AdminPostsScalarFieldEnum: {
     id: 'id',
+    slug: 'slug',
     title: 'title',
     content: 'content',
     isPremium: 'isPremium',
@@ -6931,6 +6972,7 @@ export namespace Prisma {
   export const CommentScalarFieldEnum: {
     id: 'id',
     content: 'content',
+    hidden: 'hidden',
     userId: 'userId',
     postId: 'postId',
     createdAt: 'createdAt',
@@ -7034,6 +7076,7 @@ export namespace Prisma {
     avatar?: StringNullableFilter<"User"> | string | null
     isAdmin?: BoolFilter<"User"> | boolean
     isPaid?: BoolFilter<"User"> | boolean
+    isBanned?: BoolFilter<"User"> | boolean
     comments?: CommentListRelationFilter
     subscription?: XOR<SubscriptionNullableScalarRelationFilter, SubscriptionWhereInput> | null
   }
@@ -7046,6 +7089,7 @@ export namespace Prisma {
     avatar?: SortOrderInput | SortOrder
     isAdmin?: SortOrder
     isPaid?: SortOrder
+    isBanned?: SortOrder
     comments?: CommentOrderByRelationAggregateInput
     subscription?: SubscriptionOrderByWithRelationInput
   }
@@ -7061,6 +7105,7 @@ export namespace Prisma {
     avatar?: StringNullableFilter<"User"> | string | null
     isAdmin?: BoolFilter<"User"> | boolean
     isPaid?: BoolFilter<"User"> | boolean
+    isBanned?: BoolFilter<"User"> | boolean
     comments?: CommentListRelationFilter
     subscription?: XOR<SubscriptionNullableScalarRelationFilter, SubscriptionWhereInput> | null
   }, "id" | "username" | "email">
@@ -7073,6 +7118,7 @@ export namespace Prisma {
     avatar?: SortOrderInput | SortOrder
     isAdmin?: SortOrder
     isPaid?: SortOrder
+    isBanned?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -7091,6 +7137,7 @@ export namespace Prisma {
     avatar?: StringNullableWithAggregatesFilter<"User"> | string | null
     isAdmin?: BoolWithAggregatesFilter<"User"> | boolean
     isPaid?: BoolWithAggregatesFilter<"User"> | boolean
+    isBanned?: BoolWithAggregatesFilter<"User"> | boolean
   }
 
   export type AdminPostsWhereInput = {
@@ -7098,6 +7145,7 @@ export namespace Prisma {
     OR?: AdminPostsWhereInput[]
     NOT?: AdminPostsWhereInput | AdminPostsWhereInput[]
     id?: IntFilter<"AdminPosts"> | number
+    slug?: StringFilter<"AdminPosts"> | string
     title?: StringFilter<"AdminPosts"> | string
     content?: StringFilter<"AdminPosts"> | string
     isPremium?: BoolFilter<"AdminPosts"> | boolean
@@ -7111,6 +7159,7 @@ export namespace Prisma {
 
   export type AdminPostsOrderByWithRelationInput = {
     id?: SortOrder
+    slug?: SortOrder
     title?: SortOrder
     content?: SortOrder
     isPremium?: SortOrder
@@ -7124,6 +7173,7 @@ export namespace Prisma {
 
   export type AdminPostsWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    slug?: string
     AND?: AdminPostsWhereInput | AdminPostsWhereInput[]
     OR?: AdminPostsWhereInput[]
     NOT?: AdminPostsWhereInput | AdminPostsWhereInput[]
@@ -7136,10 +7186,11 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"AdminPosts"> | Date | string
     deadline?: DateTimeFilter<"AdminPosts"> | Date | string
     comments?: CommentListRelationFilter
-  }, "id">
+  }, "id" | "slug">
 
   export type AdminPostsOrderByWithAggregationInput = {
     id?: SortOrder
+    slug?: SortOrder
     title?: SortOrder
     content?: SortOrder
     isPremium?: SortOrder
@@ -7160,6 +7211,7 @@ export namespace Prisma {
     OR?: AdminPostsScalarWhereWithAggregatesInput[]
     NOT?: AdminPostsScalarWhereWithAggregatesInput | AdminPostsScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"AdminPosts"> | number
+    slug?: StringWithAggregatesFilter<"AdminPosts"> | string
     title?: StringWithAggregatesFilter<"AdminPosts"> | string
     content?: StringWithAggregatesFilter<"AdminPosts"> | string
     isPremium?: BoolWithAggregatesFilter<"AdminPosts"> | boolean
@@ -7176,6 +7228,7 @@ export namespace Prisma {
     NOT?: CommentWhereInput | CommentWhereInput[]
     id?: IntFilter<"Comment"> | number
     content?: StringFilter<"Comment"> | string
+    hidden?: BoolFilter<"Comment"> | boolean
     userId?: IntFilter<"Comment"> | number
     postId?: IntFilter<"Comment"> | number
     createdAt?: DateTimeFilter<"Comment"> | Date | string
@@ -7187,6 +7240,7 @@ export namespace Prisma {
   export type CommentOrderByWithRelationInput = {
     id?: SortOrder
     content?: SortOrder
+    hidden?: SortOrder
     userId?: SortOrder
     postId?: SortOrder
     createdAt?: SortOrder
@@ -7201,6 +7255,7 @@ export namespace Prisma {
     OR?: CommentWhereInput[]
     NOT?: CommentWhereInput | CommentWhereInput[]
     content?: StringFilter<"Comment"> | string
+    hidden?: BoolFilter<"Comment"> | boolean
     userId?: IntFilter<"Comment"> | number
     postId?: IntFilter<"Comment"> | number
     createdAt?: DateTimeFilter<"Comment"> | Date | string
@@ -7212,6 +7267,7 @@ export namespace Prisma {
   export type CommentOrderByWithAggregationInput = {
     id?: SortOrder
     content?: SortOrder
+    hidden?: SortOrder
     userId?: SortOrder
     postId?: SortOrder
     createdAt?: SortOrder
@@ -7229,6 +7285,7 @@ export namespace Prisma {
     NOT?: CommentScalarWhereWithAggregatesInput | CommentScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Comment"> | number
     content?: StringWithAggregatesFilter<"Comment"> | string
+    hidden?: BoolWithAggregatesFilter<"Comment"> | boolean
     userId?: IntWithAggregatesFilter<"Comment"> | number
     postId?: IntWithAggregatesFilter<"Comment"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Comment"> | Date | string
@@ -7363,6 +7420,7 @@ export namespace Prisma {
     avatar?: string | null
     isAdmin?: boolean
     isPaid?: boolean
+    isBanned?: boolean
     comments?: CommentCreateNestedManyWithoutUserInput
     subscription?: SubscriptionCreateNestedOneWithoutUserInput
   }
@@ -7375,6 +7433,7 @@ export namespace Prisma {
     avatar?: string | null
     isAdmin?: boolean
     isPaid?: boolean
+    isBanned?: boolean
     comments?: CommentUncheckedCreateNestedManyWithoutUserInput
     subscription?: SubscriptionUncheckedCreateNestedOneWithoutUserInput
   }
@@ -7386,6 +7445,7 @@ export namespace Prisma {
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     isPaid?: BoolFieldUpdateOperationsInput | boolean
+    isBanned?: BoolFieldUpdateOperationsInput | boolean
     comments?: CommentUpdateManyWithoutUserNestedInput
     subscription?: SubscriptionUpdateOneWithoutUserNestedInput
   }
@@ -7398,6 +7458,7 @@ export namespace Prisma {
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     isPaid?: BoolFieldUpdateOperationsInput | boolean
+    isBanned?: BoolFieldUpdateOperationsInput | boolean
     comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
     subscription?: SubscriptionUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -7410,6 +7471,7 @@ export namespace Prisma {
     avatar?: string | null
     isAdmin?: boolean
     isPaid?: boolean
+    isBanned?: boolean
   }
 
   export type UserUpdateManyMutationInput = {
@@ -7419,6 +7481,7 @@ export namespace Prisma {
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     isPaid?: BoolFieldUpdateOperationsInput | boolean
+    isBanned?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -7429,9 +7492,11 @@ export namespace Prisma {
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     isPaid?: BoolFieldUpdateOperationsInput | boolean
+    isBanned?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type AdminPostsCreateInput = {
+    slug: string
     title: string
     content: string
     isPremium?: boolean
@@ -7445,6 +7510,7 @@ export namespace Prisma {
 
   export type AdminPostsUncheckedCreateInput = {
     id?: number
+    slug: string
     title: string
     content: string
     isPremium?: boolean
@@ -7457,6 +7523,7 @@ export namespace Prisma {
   }
 
   export type AdminPostsUpdateInput = {
+    slug?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     isPremium?: BoolFieldUpdateOperationsInput | boolean
@@ -7470,6 +7537,7 @@ export namespace Prisma {
 
   export type AdminPostsUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    slug?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     isPremium?: BoolFieldUpdateOperationsInput | boolean
@@ -7483,6 +7551,7 @@ export namespace Prisma {
 
   export type AdminPostsCreateManyInput = {
     id?: number
+    slug: string
     title: string
     content: string
     isPremium?: boolean
@@ -7494,6 +7563,7 @@ export namespace Prisma {
   }
 
   export type AdminPostsUpdateManyMutationInput = {
+    slug?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     isPremium?: BoolFieldUpdateOperationsInput | boolean
@@ -7506,6 +7576,7 @@ export namespace Prisma {
 
   export type AdminPostsUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    slug?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     isPremium?: BoolFieldUpdateOperationsInput | boolean
@@ -7518,6 +7589,7 @@ export namespace Prisma {
 
   export type CommentCreateInput = {
     content: string
+    hidden?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutCommentsInput
@@ -7527,6 +7599,7 @@ export namespace Prisma {
   export type CommentUncheckedCreateInput = {
     id?: number
     content: string
+    hidden?: boolean
     userId: number
     postId: number
     createdAt?: Date | string
@@ -7535,6 +7608,7 @@ export namespace Prisma {
 
   export type CommentUpdateInput = {
     content?: StringFieldUpdateOperationsInput | string
+    hidden?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutCommentsNestedInput
@@ -7544,6 +7618,7 @@ export namespace Prisma {
   export type CommentUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     content?: StringFieldUpdateOperationsInput | string
+    hidden?: BoolFieldUpdateOperationsInput | boolean
     userId?: IntFieldUpdateOperationsInput | number
     postId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7553,6 +7628,7 @@ export namespace Prisma {
   export type CommentCreateManyInput = {
     id?: number
     content: string
+    hidden?: boolean
     userId: number
     postId: number
     createdAt?: Date | string
@@ -7561,6 +7637,7 @@ export namespace Prisma {
 
   export type CommentUpdateManyMutationInput = {
     content?: StringFieldUpdateOperationsInput | string
+    hidden?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -7568,6 +7645,7 @@ export namespace Prisma {
   export type CommentUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     content?: StringFieldUpdateOperationsInput | string
+    hidden?: BoolFieldUpdateOperationsInput | boolean
     userId?: IntFieldUpdateOperationsInput | number
     postId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7765,6 +7843,7 @@ export namespace Prisma {
     avatar?: SortOrder
     isAdmin?: SortOrder
     isPaid?: SortOrder
+    isBanned?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -7779,6 +7858,7 @@ export namespace Prisma {
     avatar?: SortOrder
     isAdmin?: SortOrder
     isPaid?: SortOrder
+    isBanned?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -7789,6 +7869,7 @@ export namespace Prisma {
     avatar?: SortOrder
     isAdmin?: SortOrder
     isPaid?: SortOrder
+    isBanned?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -7866,6 +7947,7 @@ export namespace Prisma {
 
   export type AdminPostsCountOrderByAggregateInput = {
     id?: SortOrder
+    slug?: SortOrder
     title?: SortOrder
     content?: SortOrder
     isPremium?: SortOrder
@@ -7882,6 +7964,7 @@ export namespace Prisma {
 
   export type AdminPostsMaxOrderByAggregateInput = {
     id?: SortOrder
+    slug?: SortOrder
     title?: SortOrder
     content?: SortOrder
     isPremium?: SortOrder
@@ -7894,6 +7977,7 @@ export namespace Prisma {
 
   export type AdminPostsMinOrderByAggregateInput = {
     id?: SortOrder
+    slug?: SortOrder
     title?: SortOrder
     content?: SortOrder
     isPremium?: SortOrder
@@ -7935,6 +8019,7 @@ export namespace Prisma {
   export type CommentCountOrderByAggregateInput = {
     id?: SortOrder
     content?: SortOrder
+    hidden?: SortOrder
     userId?: SortOrder
     postId?: SortOrder
     createdAt?: SortOrder
@@ -7950,6 +8035,7 @@ export namespace Prisma {
   export type CommentMaxOrderByAggregateInput = {
     id?: SortOrder
     content?: SortOrder
+    hidden?: SortOrder
     userId?: SortOrder
     postId?: SortOrder
     createdAt?: SortOrder
@@ -7959,6 +8045,7 @@ export namespace Prisma {
   export type CommentMinOrderByAggregateInput = {
     id?: SortOrder
     content?: SortOrder
+    hidden?: SortOrder
     userId?: SortOrder
     postId?: SortOrder
     createdAt?: SortOrder
@@ -8388,6 +8475,7 @@ export namespace Prisma {
 
   export type CommentCreateWithoutUserInput = {
     content: string
+    hidden?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     post: AdminPostsCreateNestedOneWithoutCommentsInput
@@ -8396,6 +8484,7 @@ export namespace Prisma {
   export type CommentUncheckedCreateWithoutUserInput = {
     id?: number
     content: string
+    hidden?: boolean
     postId: number
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -8446,6 +8535,7 @@ export namespace Prisma {
     NOT?: CommentScalarWhereInput | CommentScalarWhereInput[]
     id?: IntFilter<"Comment"> | number
     content?: StringFilter<"Comment"> | string
+    hidden?: BoolFilter<"Comment"> | boolean
     userId?: IntFilter<"Comment"> | number
     postId?: IntFilter<"Comment"> | number
     createdAt?: DateTimeFilter<"Comment"> | Date | string
@@ -8474,6 +8564,7 @@ export namespace Prisma {
 
   export type CommentCreateWithoutPostInput = {
     content: string
+    hidden?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutCommentsInput
@@ -8482,6 +8573,7 @@ export namespace Prisma {
   export type CommentUncheckedCreateWithoutPostInput = {
     id?: number
     content: string
+    hidden?: boolean
     userId: number
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -8519,6 +8611,7 @@ export namespace Prisma {
     avatar?: string | null
     isAdmin?: boolean
     isPaid?: boolean
+    isBanned?: boolean
     subscription?: SubscriptionCreateNestedOneWithoutUserInput
   }
 
@@ -8530,6 +8623,7 @@ export namespace Prisma {
     avatar?: string | null
     isAdmin?: boolean
     isPaid?: boolean
+    isBanned?: boolean
     subscription?: SubscriptionUncheckedCreateNestedOneWithoutUserInput
   }
 
@@ -8539,6 +8633,7 @@ export namespace Prisma {
   }
 
   export type AdminPostsCreateWithoutCommentsInput = {
+    slug: string
     title: string
     content: string
     isPremium?: boolean
@@ -8551,6 +8646,7 @@ export namespace Prisma {
 
   export type AdminPostsUncheckedCreateWithoutCommentsInput = {
     id?: number
+    slug: string
     title: string
     content: string
     isPremium?: boolean
@@ -8584,6 +8680,7 @@ export namespace Prisma {
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     isPaid?: BoolFieldUpdateOperationsInput | boolean
+    isBanned?: BoolFieldUpdateOperationsInput | boolean
     subscription?: SubscriptionUpdateOneWithoutUserNestedInput
   }
 
@@ -8595,6 +8692,7 @@ export namespace Prisma {
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     isPaid?: BoolFieldUpdateOperationsInput | boolean
+    isBanned?: BoolFieldUpdateOperationsInput | boolean
     subscription?: SubscriptionUncheckedUpdateOneWithoutUserNestedInput
   }
 
@@ -8610,6 +8708,7 @@ export namespace Prisma {
   }
 
   export type AdminPostsUpdateWithoutCommentsInput = {
+    slug?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     isPremium?: BoolFieldUpdateOperationsInput | boolean
@@ -8622,6 +8721,7 @@ export namespace Prisma {
 
   export type AdminPostsUncheckedUpdateWithoutCommentsInput = {
     id?: IntFieldUpdateOperationsInput | number
+    slug?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     isPremium?: BoolFieldUpdateOperationsInput | boolean
@@ -8639,6 +8739,7 @@ export namespace Prisma {
     avatar?: string | null
     isAdmin?: boolean
     isPaid?: boolean
+    isBanned?: boolean
     comments?: CommentCreateNestedManyWithoutUserInput
   }
 
@@ -8650,6 +8751,7 @@ export namespace Prisma {
     avatar?: string | null
     isAdmin?: boolean
     isPaid?: boolean
+    isBanned?: boolean
     comments?: CommentUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -8676,6 +8778,7 @@ export namespace Prisma {
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     isPaid?: BoolFieldUpdateOperationsInput | boolean
+    isBanned?: BoolFieldUpdateOperationsInput | boolean
     comments?: CommentUpdateManyWithoutUserNestedInput
   }
 
@@ -8687,12 +8790,14 @@ export namespace Prisma {
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     isPaid?: BoolFieldUpdateOperationsInput | boolean
+    isBanned?: BoolFieldUpdateOperationsInput | boolean
     comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type CommentCreateManyUserInput = {
     id?: number
     content: string
+    hidden?: boolean
     postId: number
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -8700,6 +8805,7 @@ export namespace Prisma {
 
   export type CommentUpdateWithoutUserInput = {
     content?: StringFieldUpdateOperationsInput | string
+    hidden?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     post?: AdminPostsUpdateOneRequiredWithoutCommentsNestedInput
@@ -8708,6 +8814,7 @@ export namespace Prisma {
   export type CommentUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     content?: StringFieldUpdateOperationsInput | string
+    hidden?: BoolFieldUpdateOperationsInput | boolean
     postId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8716,6 +8823,7 @@ export namespace Prisma {
   export type CommentUncheckedUpdateManyWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     content?: StringFieldUpdateOperationsInput | string
+    hidden?: BoolFieldUpdateOperationsInput | boolean
     postId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8724,6 +8832,7 @@ export namespace Prisma {
   export type CommentCreateManyPostInput = {
     id?: number
     content: string
+    hidden?: boolean
     userId: number
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -8731,6 +8840,7 @@ export namespace Prisma {
 
   export type CommentUpdateWithoutPostInput = {
     content?: StringFieldUpdateOperationsInput | string
+    hidden?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutCommentsNestedInput
@@ -8739,6 +8849,7 @@ export namespace Prisma {
   export type CommentUncheckedUpdateWithoutPostInput = {
     id?: IntFieldUpdateOperationsInput | number
     content?: StringFieldUpdateOperationsInput | string
+    hidden?: BoolFieldUpdateOperationsInput | boolean
     userId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8747,6 +8858,7 @@ export namespace Prisma {
   export type CommentUncheckedUpdateManyWithoutPostInput = {
     id?: IntFieldUpdateOperationsInput | number
     content?: StringFieldUpdateOperationsInput | string
+    hidden?: BoolFieldUpdateOperationsInput | boolean
     userId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
