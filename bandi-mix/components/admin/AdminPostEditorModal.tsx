@@ -3,14 +3,14 @@ import axios from 'axios';
 import { useAuth } from '@/components/AuthContext';
 import { marked } from 'marked';
 
-import { AdminPostMeta } from '@/lib/admin/readPostsMeta'
+import type { PostMeta } from '../../types/t';
 
 const AdminPostEditorModal = ({
   post,
   onClose,
   onSaved,
 }: {
-  post: AdminPostMeta;
+  post: PostMeta;
   onClose: () => void;
   onSaved: () => void;
 }) => {
@@ -21,7 +21,6 @@ const AdminPostEditorModal = ({
     isPremium: post.isPremium,
     deadline: post.deadline,
     imageurl: post.imageurl,
-    tippmixPicture: post.tippmixPicture,
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -97,8 +96,8 @@ const AdminPostEditorModal = ({
           />
           <input
             className="input input-bordered w-full"
-            value={editMeta.tippmixPicture || ''}
-            onChange={(e) => setEditMeta({ ...editMeta, tippmixPicture: e.target.value })}
+            value={editMeta.imageurl || ''}
+            onChange={(e) => setEditMeta({ ...editMeta, imageurl: e.target.value })}
             placeholder="Tippmix kép URL"
           />
           <label className="flex items-center gap-2 col-span-1 md:col-span-2">

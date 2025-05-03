@@ -4,16 +4,16 @@ import axios from 'axios';
 import { useAuth } from '@/components/AuthContext';
 import CommentsModal from './CommentsModal';
 import AdminPostEditorModal from './AdminPostEditorModal';
-import { AdminPostMeta } from '@/lib/admin/readPostsMeta';
+import type { PostMeta } from '../../types/t';
 
 const AdminPostList: React.FC = () => {
-  const [posts, setPosts] = useState<AdminPostMeta[]>([]);
+  const [posts, setPosts] = useState<PostMeta[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedPost, setSelectedPost] = useState<string | null>(null);
   const [commentsCount, setCommentsCount] = useState<{ [key: string]: number }>({});
   const { token } = useAuth();
-  const [editPost, setEditPost] = useState<AdminPostMeta | null>(null);
+  const [editPost, setEditPost] = useState<PostMeta | null>(null);
   const [editModalKey, setEditModalKey] = useState(0);
 
   const handleEditClick = async (slug: string) => {
@@ -21,7 +21,7 @@ const AdminPostList: React.FC = () => {
       const res = await axios.get(`/api/admin/posts/${slug}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      const postWithContent: AdminPostMeta = {
+      const postWithContent: PostMeta = {
         ...res.data,
         content: res.data.content || '', // Ensure content is included
       };
@@ -46,7 +46,7 @@ const AdminPostList: React.FC = () => {
       // Kommentek számának lekérése minden poszthoz
       const counts: { [key: string]: number } = {};
       await Promise.all(
-        response.data.map(async (p: AdminPostMeta) => {
+        response.data.map(async (p: PostMeta) => {
           try {
             const res = await axios.get(`/api/admin/posts/${p.slug}/comments/count`, {
               headers: { Authorization: `Bearer ${token}` },

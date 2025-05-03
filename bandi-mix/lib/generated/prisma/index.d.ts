@@ -24,10 +24,15 @@ export type User = $Result.DefaultSelection<Prisma.$UserPayload>
  */
 export type AdminPosts = $Result.DefaultSelection<Prisma.$AdminPostsPayload>
 /**
- * Model Category
+ * Model FreeTipps
  * 
  */
-export type Category = $Result.DefaultSelection<Prisma.$CategoryPayload>
+export type FreeTipps = $Result.DefaultSelection<Prisma.$FreeTippsPayload>
+/**
+ * Model PremiumTipps
+ * 
+ */
+export type PremiumTipps = $Result.DefaultSelection<Prisma.$PremiumTippsPayload>
 /**
  * Model Comment
  * 
@@ -190,14 +195,24 @@ export class PrismaClient<
   get adminPosts(): Prisma.AdminPostsDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.category`: Exposes CRUD operations for the **Category** model.
+   * `prisma.freeTipps`: Exposes CRUD operations for the **FreeTipps** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Categories
-    * const categories = await prisma.category.findMany()
+    * // Fetch zero or more FreeTipps
+    * const freeTipps = await prisma.freeTipps.findMany()
     * ```
     */
-  get category(): Prisma.CategoryDelegate<ExtArgs, ClientOptions>;
+  get freeTipps(): Prisma.FreeTippsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.premiumTipps`: Exposes CRUD operations for the **PremiumTipps** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PremiumTipps
+    * const premiumTipps = await prisma.premiumTipps.findMany()
+    * ```
+    */
+  get premiumTipps(): Prisma.PremiumTippsDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.comment`: Exposes CRUD operations for the **Comment** model.
@@ -670,7 +685,8 @@ export namespace Prisma {
   export const ModelName: {
     User: 'User',
     AdminPosts: 'AdminPosts',
-    Category: 'Category',
+    FreeTipps: 'FreeTipps',
+    PremiumTipps: 'PremiumTipps',
     Comment: 'Comment',
     Subscription: 'Subscription',
     freeTipsStatistic: 'freeTipsStatistic'
@@ -692,7 +708,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "adminPosts" | "category" | "comment" | "subscription" | "freeTipsStatistic"
+      modelProps: "user" | "adminPosts" | "freeTipps" | "premiumTipps" | "comment" | "subscription" | "freeTipsStatistic"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -844,77 +860,151 @@ export namespace Prisma {
           }
         }
       }
-      Category: {
-        payload: Prisma.$CategoryPayload<ExtArgs>
-        fields: Prisma.CategoryFieldRefs
+      FreeTipps: {
+        payload: Prisma.$FreeTippsPayload<ExtArgs>
+        fields: Prisma.FreeTippsFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.CategoryFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CategoryPayload> | null
+            args: Prisma.FreeTippsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FreeTippsPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.CategoryFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CategoryPayload>
+            args: Prisma.FreeTippsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FreeTippsPayload>
           }
           findFirst: {
-            args: Prisma.CategoryFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CategoryPayload> | null
+            args: Prisma.FreeTippsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FreeTippsPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.CategoryFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CategoryPayload>
+            args: Prisma.FreeTippsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FreeTippsPayload>
           }
           findMany: {
-            args: Prisma.CategoryFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CategoryPayload>[]
+            args: Prisma.FreeTippsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FreeTippsPayload>[]
           }
           create: {
-            args: Prisma.CategoryCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CategoryPayload>
+            args: Prisma.FreeTippsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FreeTippsPayload>
           }
           createMany: {
-            args: Prisma.CategoryCreateManyArgs<ExtArgs>
+            args: Prisma.FreeTippsCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.CategoryCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CategoryPayload>[]
+            args: Prisma.FreeTippsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FreeTippsPayload>[]
           }
           delete: {
-            args: Prisma.CategoryDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CategoryPayload>
+            args: Prisma.FreeTippsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FreeTippsPayload>
           }
           update: {
-            args: Prisma.CategoryUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CategoryPayload>
+            args: Prisma.FreeTippsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FreeTippsPayload>
           }
           deleteMany: {
-            args: Prisma.CategoryDeleteManyArgs<ExtArgs>
+            args: Prisma.FreeTippsDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.CategoryUpdateManyArgs<ExtArgs>
+            args: Prisma.FreeTippsUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.CategoryUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CategoryPayload>[]
+            args: Prisma.FreeTippsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FreeTippsPayload>[]
           }
           upsert: {
-            args: Prisma.CategoryUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CategoryPayload>
+            args: Prisma.FreeTippsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FreeTippsPayload>
           }
           aggregate: {
-            args: Prisma.CategoryAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateCategory>
+            args: Prisma.FreeTippsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFreeTipps>
           }
           groupBy: {
-            args: Prisma.CategoryGroupByArgs<ExtArgs>
-            result: $Utils.Optional<CategoryGroupByOutputType>[]
+            args: Prisma.FreeTippsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FreeTippsGroupByOutputType>[]
           }
           count: {
-            args: Prisma.CategoryCountArgs<ExtArgs>
-            result: $Utils.Optional<CategoryCountAggregateOutputType> | number
+            args: Prisma.FreeTippsCountArgs<ExtArgs>
+            result: $Utils.Optional<FreeTippsCountAggregateOutputType> | number
+          }
+        }
+      }
+      PremiumTipps: {
+        payload: Prisma.$PremiumTippsPayload<ExtArgs>
+        fields: Prisma.PremiumTippsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PremiumTippsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PremiumTippsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PremiumTippsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PremiumTippsPayload>
+          }
+          findFirst: {
+            args: Prisma.PremiumTippsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PremiumTippsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PremiumTippsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PremiumTippsPayload>
+          }
+          findMany: {
+            args: Prisma.PremiumTippsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PremiumTippsPayload>[]
+          }
+          create: {
+            args: Prisma.PremiumTippsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PremiumTippsPayload>
+          }
+          createMany: {
+            args: Prisma.PremiumTippsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PremiumTippsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PremiumTippsPayload>[]
+          }
+          delete: {
+            args: Prisma.PremiumTippsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PremiumTippsPayload>
+          }
+          update: {
+            args: Prisma.PremiumTippsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PremiumTippsPayload>
+          }
+          deleteMany: {
+            args: Prisma.PremiumTippsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PremiumTippsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PremiumTippsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PremiumTippsPayload>[]
+          }
+          upsert: {
+            args: Prisma.PremiumTippsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PremiumTippsPayload>
+          }
+          aggregate: {
+            args: Prisma.PremiumTippsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePremiumTipps>
+          }
+          groupBy: {
+            args: Prisma.PremiumTippsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PremiumTippsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PremiumTippsCountArgs<ExtArgs>
+            result: $Utils.Optional<PremiumTippsCountAggregateOutputType> | number
           }
         }
       }
@@ -1226,7 +1316,8 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     user?: UserOmit
     adminPosts?: AdminPostsOmit
-    category?: CategoryOmit
+    freeTipps?: FreeTippsOmit
+    premiumTipps?: PremiumTippsOmit
     comment?: CommentOmit
     subscription?: SubscriptionOmit
     freeTipsStatistic?: freeTipsStatisticOmit
@@ -1382,33 +1473,64 @@ export namespace Prisma {
 
 
   /**
-   * Count Type CategoryCountOutputType
+   * Count Type FreeTippsCountOutputType
    */
 
-  export type CategoryCountOutputType = {
-    posts: number
+  export type FreeTippsCountOutputType = {
+    comments: number
   }
 
-  export type CategoryCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    posts?: boolean | CategoryCountOutputTypeCountPostsArgs
+  export type FreeTippsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    comments?: boolean | FreeTippsCountOutputTypeCountCommentsArgs
   }
 
   // Custom InputTypes
   /**
-   * CategoryCountOutputType without action
+   * FreeTippsCountOutputType without action
    */
-  export type CategoryCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FreeTippsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CategoryCountOutputType
+     * Select specific fields to fetch from the FreeTippsCountOutputType
      */
-    select?: CategoryCountOutputTypeSelect<ExtArgs> | null
+    select?: FreeTippsCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * CategoryCountOutputType without action
+   * FreeTippsCountOutputType without action
    */
-  export type CategoryCountOutputTypeCountPostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: AdminPostsWhereInput
+  export type FreeTippsCountOutputTypeCountCommentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CommentWhereInput
+  }
+
+
+  /**
+   * Count Type PremiumTippsCountOutputType
+   */
+
+  export type PremiumTippsCountOutputType = {
+    comments: number
+  }
+
+  export type PremiumTippsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    comments?: boolean | PremiumTippsCountOutputTypeCountCommentsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * PremiumTippsCountOutputType without action
+   */
+  export type PremiumTippsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PremiumTippsCountOutputType
+     */
+    select?: PremiumTippsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * PremiumTippsCountOutputType without action
+   */
+  export type PremiumTippsCountOutputTypeCountCommentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CommentWhereInput
   }
 
 
@@ -1422,22 +1544,12 @@ export namespace Prisma {
 
   export type AggregateUser = {
     _count: UserCountAggregateOutputType | null
-    _avg: UserAvgAggregateOutputType | null
-    _sum: UserSumAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
   }
 
-  export type UserAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type UserSumAggregateOutputType = {
-    id: number | null
-  }
-
   export type UserMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     username: string | null
     email: string | null
     password: string | null
@@ -1448,7 +1560,7 @@ export namespace Prisma {
   }
 
   export type UserMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     username: string | null
     email: string | null
     password: string | null
@@ -1470,14 +1582,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type UserAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type UserSumAggregateInputType = {
-    id?: true
-  }
 
   export type UserMinAggregateInputType = {
     id?: true
@@ -1551,18 +1655,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: UserAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: UserSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: UserMinAggregateInputType
@@ -1593,14 +1685,12 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: UserCountAggregateInputType | true
-    _avg?: UserAvgAggregateInputType
-    _sum?: UserSumAggregateInputType
     _min?: UserMinAggregateInputType
     _max?: UserMaxAggregateInputType
   }
 
   export type UserGroupByOutputType = {
-    id: number
+    id: string
     username: string
     email: string
     password: string
@@ -1609,8 +1699,6 @@ export namespace Prisma {
     isPaid: boolean
     isBanned: boolean
     _count: UserCountAggregateOutputType | null
-    _avg: UserAvgAggregateOutputType | null
-    _sum: UserSumAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
   }
@@ -1692,7 +1780,7 @@ export namespace Prisma {
       subscription: Prisma.$SubscriptionPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       username: string
       email: string
       password: string
@@ -2125,7 +2213,7 @@ export namespace Prisma {
    * Fields of the User model
    */
   interface UserFieldRefs {
-    readonly id: FieldRef<"User", 'Int'>
+    readonly id: FieldRef<"User", 'String'>
     readonly username: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
@@ -2595,13 +2683,9 @@ export namespace Prisma {
     slug: string | null
     title: string | null
     content: string | null
-    isPremium: boolean | null
     imageurl: string | null
-    tippmixPicture: string | null
-    categoryId: string | null
     createdAt: Date | null
     updatedAt: Date | null
-    deadline: Date | null
   }
 
   export type AdminPostsMaxAggregateOutputType = {
@@ -2609,13 +2693,9 @@ export namespace Prisma {
     slug: string | null
     title: string | null
     content: string | null
-    isPremium: boolean | null
     imageurl: string | null
-    tippmixPicture: string | null
-    categoryId: string | null
     createdAt: Date | null
     updatedAt: Date | null
-    deadline: Date | null
   }
 
   export type AdminPostsCountAggregateOutputType = {
@@ -2623,13 +2703,9 @@ export namespace Prisma {
     slug: number
     title: number
     content: number
-    isPremium: number
     imageurl: number
-    tippmixPicture: number
-    categoryId: number
     createdAt: number
     updatedAt: number
-    deadline: number
     _all: number
   }
 
@@ -2639,13 +2715,9 @@ export namespace Prisma {
     slug?: true
     title?: true
     content?: true
-    isPremium?: true
     imageurl?: true
-    tippmixPicture?: true
-    categoryId?: true
     createdAt?: true
     updatedAt?: true
-    deadline?: true
   }
 
   export type AdminPostsMaxAggregateInputType = {
@@ -2653,13 +2725,9 @@ export namespace Prisma {
     slug?: true
     title?: true
     content?: true
-    isPremium?: true
     imageurl?: true
-    tippmixPicture?: true
-    categoryId?: true
     createdAt?: true
     updatedAt?: true
-    deadline?: true
   }
 
   export type AdminPostsCountAggregateInputType = {
@@ -2667,13 +2735,9 @@ export namespace Prisma {
     slug?: true
     title?: true
     content?: true
-    isPremium?: true
     imageurl?: true
-    tippmixPicture?: true
-    categoryId?: true
     createdAt?: true
     updatedAt?: true
-    deadline?: true
     _all?: true
   }
 
@@ -2754,13 +2818,9 @@ export namespace Prisma {
     slug: string
     title: string
     content: string
-    isPremium: boolean
     imageurl: string
-    tippmixPicture: string
-    categoryId: string
     createdAt: Date
     updatedAt: Date
-    deadline: Date
     _count: AdminPostsCountAggregateOutputType | null
     _min: AdminPostsMinAggregateOutputType | null
     _max: AdminPostsMaxAggregateOutputType | null
@@ -2785,15 +2845,10 @@ export namespace Prisma {
     slug?: boolean
     title?: boolean
     content?: boolean
-    isPremium?: boolean
     imageurl?: boolean
-    tippmixPicture?: boolean
-    categoryId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    deadline?: boolean
     comments?: boolean | AdminPosts$commentsArgs<ExtArgs>
-    category?: boolean | CategoryDefaultArgs<ExtArgs>
     _count?: boolean | AdminPostsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["adminPosts"]>
 
@@ -2802,14 +2857,9 @@ export namespace Prisma {
     slug?: boolean
     title?: boolean
     content?: boolean
-    isPremium?: boolean
     imageurl?: boolean
-    tippmixPicture?: boolean
-    categoryId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    deadline?: boolean
-    category?: boolean | CategoryDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["adminPosts"]>
 
   export type AdminPostsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2817,14 +2867,9 @@ export namespace Prisma {
     slug?: boolean
     title?: boolean
     content?: boolean
-    isPremium?: boolean
     imageurl?: boolean
-    tippmixPicture?: boolean
-    categoryId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    deadline?: boolean
-    category?: boolean | CategoryDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["adminPosts"]>
 
   export type AdminPostsSelectScalar = {
@@ -2832,46 +2877,32 @@ export namespace Prisma {
     slug?: boolean
     title?: boolean
     content?: boolean
-    isPremium?: boolean
     imageurl?: boolean
-    tippmixPicture?: boolean
-    categoryId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    deadline?: boolean
   }
 
-  export type AdminPostsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "slug" | "title" | "content" | "isPremium" | "imageurl" | "tippmixPicture" | "categoryId" | "createdAt" | "updatedAt" | "deadline", ExtArgs["result"]["adminPosts"]>
+  export type AdminPostsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "slug" | "title" | "content" | "imageurl" | "createdAt" | "updatedAt", ExtArgs["result"]["adminPosts"]>
   export type AdminPostsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     comments?: boolean | AdminPosts$commentsArgs<ExtArgs>
-    category?: boolean | CategoryDefaultArgs<ExtArgs>
     _count?: boolean | AdminPostsCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type AdminPostsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    category?: boolean | CategoryDefaultArgs<ExtArgs>
-  }
-  export type AdminPostsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    category?: boolean | CategoryDefaultArgs<ExtArgs>
-  }
+  export type AdminPostsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type AdminPostsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $AdminPostsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "AdminPosts"
     objects: {
       comments: Prisma.$CommentPayload<ExtArgs>[]
-      category: Prisma.$CategoryPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       slug: string
       title: string
       content: string
-      isPremium: boolean
       imageurl: string
-      tippmixPicture: string
-      categoryId: string
       createdAt: Date
       updatedAt: Date
-      deadline: Date
     }, ExtArgs["result"]["adminPosts"]>
     composites: {}
   }
@@ -3267,7 +3298,6 @@ export namespace Prisma {
   export interface Prisma__AdminPostsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     comments<T extends AdminPosts$commentsArgs<ExtArgs> = {}>(args?: Subset<T, AdminPosts$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    category<T extends CategoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CategoryDefaultArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3301,13 +3331,9 @@ export namespace Prisma {
     readonly slug: FieldRef<"AdminPosts", 'String'>
     readonly title: FieldRef<"AdminPosts", 'String'>
     readonly content: FieldRef<"AdminPosts", 'String'>
-    readonly isPremium: FieldRef<"AdminPosts", 'Boolean'>
     readonly imageurl: FieldRef<"AdminPosts", 'String'>
-    readonly tippmixPicture: FieldRef<"AdminPosts", 'String'>
-    readonly categoryId: FieldRef<"AdminPosts", 'String'>
     readonly createdAt: FieldRef<"AdminPosts", 'DateTime'>
     readonly updatedAt: FieldRef<"AdminPosts", 'DateTime'>
-    readonly deadline: FieldRef<"AdminPosts", 'DateTime'>
   }
     
 
@@ -3555,10 +3581,6 @@ export namespace Prisma {
      * The data used to create many AdminPosts.
      */
     data: AdminPostsCreateManyInput | AdminPostsCreateManyInput[]
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AdminPostsIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -3629,10 +3651,6 @@ export namespace Prisma {
      * Limit how many AdminPosts to update.
      */
     limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AdminPostsIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -3745,310 +3763,460 @@ export namespace Prisma {
 
 
   /**
-   * Model Category
+   * Model FreeTipps
    */
 
-  export type AggregateCategory = {
-    _count: CategoryCountAggregateOutputType | null
-    _min: CategoryMinAggregateOutputType | null
-    _max: CategoryMaxAggregateOutputType | null
+  export type AggregateFreeTipps = {
+    _count: FreeTippsCountAggregateOutputType | null
+    _avg: FreeTippsAvgAggregateOutputType | null
+    _sum: FreeTippsSumAggregateOutputType | null
+    _min: FreeTippsMinAggregateOutputType | null
+    _max: FreeTippsMaxAggregateOutputType | null
   }
 
-  export type CategoryMinAggregateOutputType = {
+  export type FreeTippsAvgAggregateOutputType = {
+    price: number | null
+    prize: number | null
+    odds: number | null
+  }
+
+  export type FreeTippsSumAggregateOutputType = {
+    price: number | null
+    prize: number | null
+    odds: number | null
+  }
+
+  export type FreeTippsMinAggregateOutputType = {
     id: string | null
-    name: string | null
+    slug: string | null
+    title: string | null
+    content: string | null
+    imageurl: string | null
+    deadline: Date | null
+    price: number | null
+    prize: number | null
+    odds: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
-  export type CategoryMaxAggregateOutputType = {
+  export type FreeTippsMaxAggregateOutputType = {
     id: string | null
-    name: string | null
+    slug: string | null
+    title: string | null
+    content: string | null
+    imageurl: string | null
+    deadline: Date | null
+    price: number | null
+    prize: number | null
+    odds: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
-  export type CategoryCountAggregateOutputType = {
+  export type FreeTippsCountAggregateOutputType = {
     id: number
-    name: number
+    slug: number
+    title: number
+    content: number
+    imageurl: number
+    deadline: number
+    price: number
+    prize: number
+    odds: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
 
-  export type CategoryMinAggregateInputType = {
-    id?: true
-    name?: true
+  export type FreeTippsAvgAggregateInputType = {
+    price?: true
+    prize?: true
+    odds?: true
   }
 
-  export type CategoryMaxAggregateInputType = {
-    id?: true
-    name?: true
+  export type FreeTippsSumAggregateInputType = {
+    price?: true
+    prize?: true
+    odds?: true
   }
 
-  export type CategoryCountAggregateInputType = {
+  export type FreeTippsMinAggregateInputType = {
     id?: true
-    name?: true
+    slug?: true
+    title?: true
+    content?: true
+    imageurl?: true
+    deadline?: true
+    price?: true
+    prize?: true
+    odds?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type FreeTippsMaxAggregateInputType = {
+    id?: true
+    slug?: true
+    title?: true
+    content?: true
+    imageurl?: true
+    deadline?: true
+    price?: true
+    prize?: true
+    odds?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type FreeTippsCountAggregateInputType = {
+    id?: true
+    slug?: true
+    title?: true
+    content?: true
+    imageurl?: true
+    deadline?: true
+    price?: true
+    prize?: true
+    odds?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
-  export type CategoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FreeTippsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Category to aggregate.
+     * Filter which FreeTipps to aggregate.
      */
-    where?: CategoryWhereInput
+    where?: FreeTippsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Categories to fetch.
+     * Determine the order of FreeTipps to fetch.
      */
-    orderBy?: CategoryOrderByWithRelationInput | CategoryOrderByWithRelationInput[]
+    orderBy?: FreeTippsOrderByWithRelationInput | FreeTippsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: CategoryWhereUniqueInput
+    cursor?: FreeTippsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Categories from the position of the cursor.
+     * Take `±n` FreeTipps from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Categories.
+     * Skip the first `n` FreeTipps.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Categories
+     * Count returned FreeTipps
     **/
-    _count?: true | CategoryCountAggregateInputType
+    _count?: true | FreeTippsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: FreeTippsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: FreeTippsSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: CategoryMinAggregateInputType
+    _min?: FreeTippsMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: CategoryMaxAggregateInputType
+    _max?: FreeTippsMaxAggregateInputType
   }
 
-  export type GetCategoryAggregateType<T extends CategoryAggregateArgs> = {
-        [P in keyof T & keyof AggregateCategory]: P extends '_count' | 'count'
+  export type GetFreeTippsAggregateType<T extends FreeTippsAggregateArgs> = {
+        [P in keyof T & keyof AggregateFreeTipps]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateCategory[P]>
-      : GetScalarType<T[P], AggregateCategory[P]>
+        : GetScalarType<T[P], AggregateFreeTipps[P]>
+      : GetScalarType<T[P], AggregateFreeTipps[P]>
   }
 
 
 
 
-  export type CategoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CategoryWhereInput
-    orderBy?: CategoryOrderByWithAggregationInput | CategoryOrderByWithAggregationInput[]
-    by: CategoryScalarFieldEnum[] | CategoryScalarFieldEnum
-    having?: CategoryScalarWhereWithAggregatesInput
+  export type FreeTippsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FreeTippsWhereInput
+    orderBy?: FreeTippsOrderByWithAggregationInput | FreeTippsOrderByWithAggregationInput[]
+    by: FreeTippsScalarFieldEnum[] | FreeTippsScalarFieldEnum
+    having?: FreeTippsScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: CategoryCountAggregateInputType | true
-    _min?: CategoryMinAggregateInputType
-    _max?: CategoryMaxAggregateInputType
+    _count?: FreeTippsCountAggregateInputType | true
+    _avg?: FreeTippsAvgAggregateInputType
+    _sum?: FreeTippsSumAggregateInputType
+    _min?: FreeTippsMinAggregateInputType
+    _max?: FreeTippsMaxAggregateInputType
   }
 
-  export type CategoryGroupByOutputType = {
+  export type FreeTippsGroupByOutputType = {
     id: string
-    name: string
-    _count: CategoryCountAggregateOutputType | null
-    _min: CategoryMinAggregateOutputType | null
-    _max: CategoryMaxAggregateOutputType | null
+    slug: string
+    title: string
+    content: string
+    imageurl: string | null
+    deadline: Date
+    price: number
+    prize: number
+    odds: number
+    createdAt: Date
+    updatedAt: Date
+    _count: FreeTippsCountAggregateOutputType | null
+    _avg: FreeTippsAvgAggregateOutputType | null
+    _sum: FreeTippsSumAggregateOutputType | null
+    _min: FreeTippsMinAggregateOutputType | null
+    _max: FreeTippsMaxAggregateOutputType | null
   }
 
-  type GetCategoryGroupByPayload<T extends CategoryGroupByArgs> = Prisma.PrismaPromise<
+  type GetFreeTippsGroupByPayload<T extends FreeTippsGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<CategoryGroupByOutputType, T['by']> &
+      PickEnumerable<FreeTippsGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof CategoryGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof FreeTippsGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], CategoryGroupByOutputType[P]>
-            : GetScalarType<T[P], CategoryGroupByOutputType[P]>
+              : GetScalarType<T[P], FreeTippsGroupByOutputType[P]>
+            : GetScalarType<T[P], FreeTippsGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type CategorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type FreeTippsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
-    posts?: boolean | Category$postsArgs<ExtArgs>
-    _count?: boolean | CategoryCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["category"]>
+    slug?: boolean
+    title?: boolean
+    content?: boolean
+    imageurl?: boolean
+    deadline?: boolean
+    price?: boolean
+    prize?: boolean
+    odds?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    comments?: boolean | FreeTipps$commentsArgs<ExtArgs>
+    _count?: boolean | FreeTippsCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["freeTipps"]>
 
-  export type CategorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type FreeTippsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
-  }, ExtArgs["result"]["category"]>
+    slug?: boolean
+    title?: boolean
+    content?: boolean
+    imageurl?: boolean
+    deadline?: boolean
+    price?: boolean
+    prize?: boolean
+    odds?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["freeTipps"]>
 
-  export type CategorySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type FreeTippsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
-  }, ExtArgs["result"]["category"]>
+    slug?: boolean
+    title?: boolean
+    content?: boolean
+    imageurl?: boolean
+    deadline?: boolean
+    price?: boolean
+    prize?: boolean
+    odds?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["freeTipps"]>
 
-  export type CategorySelectScalar = {
+  export type FreeTippsSelectScalar = {
     id?: boolean
-    name?: boolean
+    slug?: boolean
+    title?: boolean
+    content?: boolean
+    imageurl?: boolean
+    deadline?: boolean
+    price?: boolean
+    prize?: boolean
+    odds?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type CategoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name", ExtArgs["result"]["category"]>
-  export type CategoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    posts?: boolean | Category$postsArgs<ExtArgs>
-    _count?: boolean | CategoryCountOutputTypeDefaultArgs<ExtArgs>
+  export type FreeTippsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "slug" | "title" | "content" | "imageurl" | "deadline" | "price" | "prize" | "odds" | "createdAt" | "updatedAt", ExtArgs["result"]["freeTipps"]>
+  export type FreeTippsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    comments?: boolean | FreeTipps$commentsArgs<ExtArgs>
+    _count?: boolean | FreeTippsCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type CategoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type CategoryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type FreeTippsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type FreeTippsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
-  export type $CategoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Category"
+  export type $FreeTippsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "FreeTipps"
     objects: {
-      posts: Prisma.$AdminPostsPayload<ExtArgs>[]
+      comments: Prisma.$CommentPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      name: string
-    }, ExtArgs["result"]["category"]>
+      slug: string
+      title: string
+      content: string
+      imageurl: string | null
+      deadline: Date
+      price: number
+      prize: number
+      odds: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["freeTipps"]>
     composites: {}
   }
 
-  type CategoryGetPayload<S extends boolean | null | undefined | CategoryDefaultArgs> = $Result.GetResult<Prisma.$CategoryPayload, S>
+  type FreeTippsGetPayload<S extends boolean | null | undefined | FreeTippsDefaultArgs> = $Result.GetResult<Prisma.$FreeTippsPayload, S>
 
-  type CategoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<CategoryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: CategoryCountAggregateInputType | true
+  type FreeTippsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FreeTippsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FreeTippsCountAggregateInputType | true
     }
 
-  export interface CategoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Category'], meta: { name: 'Category' } }
+  export interface FreeTippsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FreeTipps'], meta: { name: 'FreeTipps' } }
     /**
-     * Find zero or one Category that matches the filter.
-     * @param {CategoryFindUniqueArgs} args - Arguments to find a Category
+     * Find zero or one FreeTipps that matches the filter.
+     * @param {FreeTippsFindUniqueArgs} args - Arguments to find a FreeTipps
      * @example
-     * // Get one Category
-     * const category = await prisma.category.findUnique({
+     * // Get one FreeTipps
+     * const freeTipps = await prisma.freeTipps.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends CategoryFindUniqueArgs>(args: SelectSubset<T, CategoryFindUniqueArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends FreeTippsFindUniqueArgs>(args: SelectSubset<T, FreeTippsFindUniqueArgs<ExtArgs>>): Prisma__FreeTippsClient<$Result.GetResult<Prisma.$FreeTippsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Category that matches the filter or throw an error with `error.code='P2025'`
+     * Find one FreeTipps that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {CategoryFindUniqueOrThrowArgs} args - Arguments to find a Category
+     * @param {FreeTippsFindUniqueOrThrowArgs} args - Arguments to find a FreeTipps
      * @example
-     * // Get one Category
-     * const category = await prisma.category.findUniqueOrThrow({
+     * // Get one FreeTipps
+     * const freeTipps = await prisma.freeTipps.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends CategoryFindUniqueOrThrowArgs>(args: SelectSubset<T, CategoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends FreeTippsFindUniqueOrThrowArgs>(args: SelectSubset<T, FreeTippsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FreeTippsClient<$Result.GetResult<Prisma.$FreeTippsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Category that matches the filter.
+     * Find the first FreeTipps that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CategoryFindFirstArgs} args - Arguments to find a Category
+     * @param {FreeTippsFindFirstArgs} args - Arguments to find a FreeTipps
      * @example
-     * // Get one Category
-     * const category = await prisma.category.findFirst({
+     * // Get one FreeTipps
+     * const freeTipps = await prisma.freeTipps.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends CategoryFindFirstArgs>(args?: SelectSubset<T, CategoryFindFirstArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends FreeTippsFindFirstArgs>(args?: SelectSubset<T, FreeTippsFindFirstArgs<ExtArgs>>): Prisma__FreeTippsClient<$Result.GetResult<Prisma.$FreeTippsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Category that matches the filter or
+     * Find the first FreeTipps that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CategoryFindFirstOrThrowArgs} args - Arguments to find a Category
+     * @param {FreeTippsFindFirstOrThrowArgs} args - Arguments to find a FreeTipps
      * @example
-     * // Get one Category
-     * const category = await prisma.category.findFirstOrThrow({
+     * // Get one FreeTipps
+     * const freeTipps = await prisma.freeTipps.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends CategoryFindFirstOrThrowArgs>(args?: SelectSubset<T, CategoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends FreeTippsFindFirstOrThrowArgs>(args?: SelectSubset<T, FreeTippsFindFirstOrThrowArgs<ExtArgs>>): Prisma__FreeTippsClient<$Result.GetResult<Prisma.$FreeTippsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Categories that matches the filter.
+     * Find zero or more FreeTipps that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CategoryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {FreeTippsFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Categories
-     * const categories = await prisma.category.findMany()
+     * // Get all FreeTipps
+     * const freeTipps = await prisma.freeTipps.findMany()
      * 
-     * // Get first 10 Categories
-     * const categories = await prisma.category.findMany({ take: 10 })
+     * // Get first 10 FreeTipps
+     * const freeTipps = await prisma.freeTipps.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const categoryWithIdOnly = await prisma.category.findMany({ select: { id: true } })
+     * const freeTippsWithIdOnly = await prisma.freeTipps.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends CategoryFindManyArgs>(args?: SelectSubset<T, CategoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends FreeTippsFindManyArgs>(args?: SelectSubset<T, FreeTippsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FreeTippsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Category.
-     * @param {CategoryCreateArgs} args - Arguments to create a Category.
+     * Create a FreeTipps.
+     * @param {FreeTippsCreateArgs} args - Arguments to create a FreeTipps.
      * @example
-     * // Create one Category
-     * const Category = await prisma.category.create({
+     * // Create one FreeTipps
+     * const FreeTipps = await prisma.freeTipps.create({
      *   data: {
-     *     // ... data to create a Category
+     *     // ... data to create a FreeTipps
      *   }
      * })
      * 
      */
-    create<T extends CategoryCreateArgs>(args: SelectSubset<T, CategoryCreateArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends FreeTippsCreateArgs>(args: SelectSubset<T, FreeTippsCreateArgs<ExtArgs>>): Prisma__FreeTippsClient<$Result.GetResult<Prisma.$FreeTippsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Categories.
-     * @param {CategoryCreateManyArgs} args - Arguments to create many Categories.
+     * Create many FreeTipps.
+     * @param {FreeTippsCreateManyArgs} args - Arguments to create many FreeTipps.
      * @example
-     * // Create many Categories
-     * const category = await prisma.category.createMany({
+     * // Create many FreeTipps
+     * const freeTipps = await prisma.freeTipps.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends CategoryCreateManyArgs>(args?: SelectSubset<T, CategoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends FreeTippsCreateManyArgs>(args?: SelectSubset<T, FreeTippsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Categories and returns the data saved in the database.
-     * @param {CategoryCreateManyAndReturnArgs} args - Arguments to create many Categories.
+     * Create many FreeTipps and returns the data saved in the database.
+     * @param {FreeTippsCreateManyAndReturnArgs} args - Arguments to create many FreeTipps.
      * @example
-     * // Create many Categories
-     * const category = await prisma.category.createManyAndReturn({
+     * // Create many FreeTipps
+     * const freeTipps = await prisma.freeTipps.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Categories and only return the `id`
-     * const categoryWithIdOnly = await prisma.category.createManyAndReturn({
+     * // Create many FreeTipps and only return the `id`
+     * const freeTippsWithIdOnly = await prisma.freeTipps.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -4058,28 +4226,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends CategoryCreateManyAndReturnArgs>(args?: SelectSubset<T, CategoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends FreeTippsCreateManyAndReturnArgs>(args?: SelectSubset<T, FreeTippsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FreeTippsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Category.
-     * @param {CategoryDeleteArgs} args - Arguments to delete one Category.
+     * Delete a FreeTipps.
+     * @param {FreeTippsDeleteArgs} args - Arguments to delete one FreeTipps.
      * @example
-     * // Delete one Category
-     * const Category = await prisma.category.delete({
+     * // Delete one FreeTipps
+     * const FreeTipps = await prisma.freeTipps.delete({
      *   where: {
-     *     // ... filter to delete one Category
+     *     // ... filter to delete one FreeTipps
      *   }
      * })
      * 
      */
-    delete<T extends CategoryDeleteArgs>(args: SelectSubset<T, CategoryDeleteArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends FreeTippsDeleteArgs>(args: SelectSubset<T, FreeTippsDeleteArgs<ExtArgs>>): Prisma__FreeTippsClient<$Result.GetResult<Prisma.$FreeTippsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Category.
-     * @param {CategoryUpdateArgs} args - Arguments to update one Category.
+     * Update one FreeTipps.
+     * @param {FreeTippsUpdateArgs} args - Arguments to update one FreeTipps.
      * @example
-     * // Update one Category
-     * const category = await prisma.category.update({
+     * // Update one FreeTipps
+     * const freeTipps = await prisma.freeTipps.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4089,30 +4257,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends CategoryUpdateArgs>(args: SelectSubset<T, CategoryUpdateArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends FreeTippsUpdateArgs>(args: SelectSubset<T, FreeTippsUpdateArgs<ExtArgs>>): Prisma__FreeTippsClient<$Result.GetResult<Prisma.$FreeTippsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Categories.
-     * @param {CategoryDeleteManyArgs} args - Arguments to filter Categories to delete.
+     * Delete zero or more FreeTipps.
+     * @param {FreeTippsDeleteManyArgs} args - Arguments to filter FreeTipps to delete.
      * @example
-     * // Delete a few Categories
-     * const { count } = await prisma.category.deleteMany({
+     * // Delete a few FreeTipps
+     * const { count } = await prisma.freeTipps.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends CategoryDeleteManyArgs>(args?: SelectSubset<T, CategoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends FreeTippsDeleteManyArgs>(args?: SelectSubset<T, FreeTippsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Categories.
+     * Update zero or more FreeTipps.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CategoryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {FreeTippsUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Categories
-     * const category = await prisma.category.updateMany({
+     * // Update many FreeTipps
+     * const freeTipps = await prisma.freeTipps.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4122,14 +4290,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends CategoryUpdateManyArgs>(args: SelectSubset<T, CategoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends FreeTippsUpdateManyArgs>(args: SelectSubset<T, FreeTippsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Categories and returns the data updated in the database.
-     * @param {CategoryUpdateManyAndReturnArgs} args - Arguments to update many Categories.
+     * Update zero or more FreeTipps and returns the data updated in the database.
+     * @param {FreeTippsUpdateManyAndReturnArgs} args - Arguments to update many FreeTipps.
      * @example
-     * // Update many Categories
-     * const category = await prisma.category.updateManyAndReturn({
+     * // Update many FreeTipps
+     * const freeTipps = await prisma.freeTipps.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4138,8 +4306,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Categories and only return the `id`
-     * const categoryWithIdOnly = await prisma.category.updateManyAndReturn({
+     * // Update zero or more FreeTipps and only return the `id`
+     * const freeTippsWithIdOnly = await prisma.freeTipps.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -4152,56 +4320,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends CategoryUpdateManyAndReturnArgs>(args: SelectSubset<T, CategoryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends FreeTippsUpdateManyAndReturnArgs>(args: SelectSubset<T, FreeTippsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FreeTippsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Category.
-     * @param {CategoryUpsertArgs} args - Arguments to update or create a Category.
+     * Create or update one FreeTipps.
+     * @param {FreeTippsUpsertArgs} args - Arguments to update or create a FreeTipps.
      * @example
-     * // Update or create a Category
-     * const category = await prisma.category.upsert({
+     * // Update or create a FreeTipps
+     * const freeTipps = await prisma.freeTipps.upsert({
      *   create: {
-     *     // ... data to create a Category
+     *     // ... data to create a FreeTipps
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Category we want to update
+     *     // ... the filter for the FreeTipps we want to update
      *   }
      * })
      */
-    upsert<T extends CategoryUpsertArgs>(args: SelectSubset<T, CategoryUpsertArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends FreeTippsUpsertArgs>(args: SelectSubset<T, FreeTippsUpsertArgs<ExtArgs>>): Prisma__FreeTippsClient<$Result.GetResult<Prisma.$FreeTippsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Categories.
+     * Count the number of FreeTipps.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CategoryCountArgs} args - Arguments to filter Categories to count.
+     * @param {FreeTippsCountArgs} args - Arguments to filter FreeTipps to count.
      * @example
-     * // Count the number of Categories
-     * const count = await prisma.category.count({
+     * // Count the number of FreeTipps
+     * const count = await prisma.freeTipps.count({
      *   where: {
-     *     // ... the filter for the Categories we want to count
+     *     // ... the filter for the FreeTipps we want to count
      *   }
      * })
     **/
-    count<T extends CategoryCountArgs>(
-      args?: Subset<T, CategoryCountArgs>,
+    count<T extends FreeTippsCountArgs>(
+      args?: Subset<T, FreeTippsCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], CategoryCountAggregateOutputType>
+          : GetScalarType<T['select'], FreeTippsCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Category.
+     * Allows you to perform aggregations operations on a FreeTipps.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CategoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {FreeTippsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -4221,13 +4389,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends CategoryAggregateArgs>(args: Subset<T, CategoryAggregateArgs>): Prisma.PrismaPromise<GetCategoryAggregateType<T>>
+    aggregate<T extends FreeTippsAggregateArgs>(args: Subset<T, FreeTippsAggregateArgs>): Prisma.PrismaPromise<GetFreeTippsAggregateType<T>>
 
     /**
-     * Group by Category.
+     * Group by FreeTipps.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CategoryGroupByArgs} args - Group by arguments.
+     * @param {FreeTippsGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -4242,14 +4410,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends CategoryGroupByArgs,
+      T extends FreeTippsGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: CategoryGroupByArgs['orderBy'] }
-        : { orderBy?: CategoryGroupByArgs['orderBy'] },
+        ? { orderBy: FreeTippsGroupByArgs['orderBy'] }
+        : { orderBy?: FreeTippsGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -4298,22 +4466,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, CategoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCategoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, FreeTippsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFreeTippsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Category model
+   * Fields of the FreeTipps model
    */
-  readonly fields: CategoryFieldRefs;
+  readonly fields: FreeTippsFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Category.
+   * The delegate class that acts as a "Promise-like" for FreeTipps.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__CategoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__FreeTippsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    posts<T extends Category$postsArgs<ExtArgs> = {}>(args?: Subset<T, Category$postsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdminPostsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    comments<T extends FreeTipps$commentsArgs<ExtArgs> = {}>(args?: Subset<T, FreeTipps$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4340,436 +4508,1633 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Category model
+   * Fields of the FreeTipps model
    */
-  interface CategoryFieldRefs {
-    readonly id: FieldRef<"Category", 'String'>
-    readonly name: FieldRef<"Category", 'String'>
+  interface FreeTippsFieldRefs {
+    readonly id: FieldRef<"FreeTipps", 'String'>
+    readonly slug: FieldRef<"FreeTipps", 'String'>
+    readonly title: FieldRef<"FreeTipps", 'String'>
+    readonly content: FieldRef<"FreeTipps", 'String'>
+    readonly imageurl: FieldRef<"FreeTipps", 'String'>
+    readonly deadline: FieldRef<"FreeTipps", 'DateTime'>
+    readonly price: FieldRef<"FreeTipps", 'Int'>
+    readonly prize: FieldRef<"FreeTipps", 'Int'>
+    readonly odds: FieldRef<"FreeTipps", 'Int'>
+    readonly createdAt: FieldRef<"FreeTipps", 'DateTime'>
+    readonly updatedAt: FieldRef<"FreeTipps", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * Category findUnique
+   * FreeTipps findUnique
    */
-  export type CategoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FreeTippsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Category
+     * Select specific fields to fetch from the FreeTipps
      */
-    select?: CategorySelect<ExtArgs> | null
+    select?: FreeTippsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Category
+     * Omit specific fields from the FreeTipps
      */
-    omit?: CategoryOmit<ExtArgs> | null
+    omit?: FreeTippsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CategoryInclude<ExtArgs> | null
+    include?: FreeTippsInclude<ExtArgs> | null
     /**
-     * Filter, which Category to fetch.
+     * Filter, which FreeTipps to fetch.
      */
-    where: CategoryWhereUniqueInput
+    where: FreeTippsWhereUniqueInput
   }
 
   /**
-   * Category findUniqueOrThrow
+   * FreeTipps findUniqueOrThrow
    */
-  export type CategoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FreeTippsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Category
+     * Select specific fields to fetch from the FreeTipps
      */
-    select?: CategorySelect<ExtArgs> | null
+    select?: FreeTippsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Category
+     * Omit specific fields from the FreeTipps
      */
-    omit?: CategoryOmit<ExtArgs> | null
+    omit?: FreeTippsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CategoryInclude<ExtArgs> | null
+    include?: FreeTippsInclude<ExtArgs> | null
     /**
-     * Filter, which Category to fetch.
+     * Filter, which FreeTipps to fetch.
      */
-    where: CategoryWhereUniqueInput
+    where: FreeTippsWhereUniqueInput
   }
 
   /**
-   * Category findFirst
+   * FreeTipps findFirst
    */
-  export type CategoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FreeTippsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Category
+     * Select specific fields to fetch from the FreeTipps
      */
-    select?: CategorySelect<ExtArgs> | null
+    select?: FreeTippsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Category
+     * Omit specific fields from the FreeTipps
      */
-    omit?: CategoryOmit<ExtArgs> | null
+    omit?: FreeTippsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CategoryInclude<ExtArgs> | null
+    include?: FreeTippsInclude<ExtArgs> | null
     /**
-     * Filter, which Category to fetch.
+     * Filter, which FreeTipps to fetch.
      */
-    where?: CategoryWhereInput
+    where?: FreeTippsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Categories to fetch.
+     * Determine the order of FreeTipps to fetch.
      */
-    orderBy?: CategoryOrderByWithRelationInput | CategoryOrderByWithRelationInput[]
+    orderBy?: FreeTippsOrderByWithRelationInput | FreeTippsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Categories.
+     * Sets the position for searching for FreeTipps.
      */
-    cursor?: CategoryWhereUniqueInput
+    cursor?: FreeTippsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Categories from the position of the cursor.
+     * Take `±n` FreeTipps from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Categories.
+     * Skip the first `n` FreeTipps.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Categories.
+     * Filter by unique combinations of FreeTipps.
      */
-    distinct?: CategoryScalarFieldEnum | CategoryScalarFieldEnum[]
+    distinct?: FreeTippsScalarFieldEnum | FreeTippsScalarFieldEnum[]
   }
 
   /**
-   * Category findFirstOrThrow
+   * FreeTipps findFirstOrThrow
    */
-  export type CategoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FreeTippsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Category
+     * Select specific fields to fetch from the FreeTipps
      */
-    select?: CategorySelect<ExtArgs> | null
+    select?: FreeTippsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Category
+     * Omit specific fields from the FreeTipps
      */
-    omit?: CategoryOmit<ExtArgs> | null
+    omit?: FreeTippsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CategoryInclude<ExtArgs> | null
+    include?: FreeTippsInclude<ExtArgs> | null
     /**
-     * Filter, which Category to fetch.
+     * Filter, which FreeTipps to fetch.
      */
-    where?: CategoryWhereInput
+    where?: FreeTippsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Categories to fetch.
+     * Determine the order of FreeTipps to fetch.
      */
-    orderBy?: CategoryOrderByWithRelationInput | CategoryOrderByWithRelationInput[]
+    orderBy?: FreeTippsOrderByWithRelationInput | FreeTippsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Categories.
+     * Sets the position for searching for FreeTipps.
      */
-    cursor?: CategoryWhereUniqueInput
+    cursor?: FreeTippsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Categories from the position of the cursor.
+     * Take `±n` FreeTipps from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Categories.
+     * Skip the first `n` FreeTipps.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Categories.
+     * Filter by unique combinations of FreeTipps.
      */
-    distinct?: CategoryScalarFieldEnum | CategoryScalarFieldEnum[]
+    distinct?: FreeTippsScalarFieldEnum | FreeTippsScalarFieldEnum[]
   }
 
   /**
-   * Category findMany
+   * FreeTipps findMany
    */
-  export type CategoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FreeTippsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Category
+     * Select specific fields to fetch from the FreeTipps
      */
-    select?: CategorySelect<ExtArgs> | null
+    select?: FreeTippsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Category
+     * Omit specific fields from the FreeTipps
      */
-    omit?: CategoryOmit<ExtArgs> | null
+    omit?: FreeTippsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CategoryInclude<ExtArgs> | null
+    include?: FreeTippsInclude<ExtArgs> | null
     /**
-     * Filter, which Categories to fetch.
+     * Filter, which FreeTipps to fetch.
      */
-    where?: CategoryWhereInput
+    where?: FreeTippsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Categories to fetch.
+     * Determine the order of FreeTipps to fetch.
      */
-    orderBy?: CategoryOrderByWithRelationInput | CategoryOrderByWithRelationInput[]
+    orderBy?: FreeTippsOrderByWithRelationInput | FreeTippsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Categories.
+     * Sets the position for listing FreeTipps.
      */
-    cursor?: CategoryWhereUniqueInput
+    cursor?: FreeTippsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Categories from the position of the cursor.
+     * Take `±n` FreeTipps from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Categories.
+     * Skip the first `n` FreeTipps.
      */
     skip?: number
-    distinct?: CategoryScalarFieldEnum | CategoryScalarFieldEnum[]
+    distinct?: FreeTippsScalarFieldEnum | FreeTippsScalarFieldEnum[]
   }
 
   /**
-   * Category create
+   * FreeTipps create
    */
-  export type CategoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FreeTippsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Category
+     * Select specific fields to fetch from the FreeTipps
      */
-    select?: CategorySelect<ExtArgs> | null
+    select?: FreeTippsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Category
+     * Omit specific fields from the FreeTipps
      */
-    omit?: CategoryOmit<ExtArgs> | null
+    omit?: FreeTippsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CategoryInclude<ExtArgs> | null
+    include?: FreeTippsInclude<ExtArgs> | null
     /**
-     * The data needed to create a Category.
+     * The data needed to create a FreeTipps.
      */
-    data: XOR<CategoryCreateInput, CategoryUncheckedCreateInput>
+    data: XOR<FreeTippsCreateInput, FreeTippsUncheckedCreateInput>
   }
 
   /**
-   * Category createMany
+   * FreeTipps createMany
    */
-  export type CategoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FreeTippsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Categories.
+     * The data used to create many FreeTipps.
      */
-    data: CategoryCreateManyInput | CategoryCreateManyInput[]
+    data: FreeTippsCreateManyInput | FreeTippsCreateManyInput[]
   }
 
   /**
-   * Category createManyAndReturn
+   * FreeTipps createManyAndReturn
    */
-  export type CategoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FreeTippsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Category
+     * Select specific fields to fetch from the FreeTipps
      */
-    select?: CategorySelectCreateManyAndReturn<ExtArgs> | null
+    select?: FreeTippsSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Category
+     * Omit specific fields from the FreeTipps
      */
-    omit?: CategoryOmit<ExtArgs> | null
+    omit?: FreeTippsOmit<ExtArgs> | null
     /**
-     * The data used to create many Categories.
+     * The data used to create many FreeTipps.
      */
-    data: CategoryCreateManyInput | CategoryCreateManyInput[]
+    data: FreeTippsCreateManyInput | FreeTippsCreateManyInput[]
   }
 
   /**
-   * Category update
+   * FreeTipps update
    */
-  export type CategoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FreeTippsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Category
+     * Select specific fields to fetch from the FreeTipps
      */
-    select?: CategorySelect<ExtArgs> | null
+    select?: FreeTippsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Category
+     * Omit specific fields from the FreeTipps
      */
-    omit?: CategoryOmit<ExtArgs> | null
+    omit?: FreeTippsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CategoryInclude<ExtArgs> | null
+    include?: FreeTippsInclude<ExtArgs> | null
     /**
-     * The data needed to update a Category.
+     * The data needed to update a FreeTipps.
      */
-    data: XOR<CategoryUpdateInput, CategoryUncheckedUpdateInput>
+    data: XOR<FreeTippsUpdateInput, FreeTippsUncheckedUpdateInput>
     /**
-     * Choose, which Category to update.
+     * Choose, which FreeTipps to update.
      */
-    where: CategoryWhereUniqueInput
+    where: FreeTippsWhereUniqueInput
   }
 
   /**
-   * Category updateMany
+   * FreeTipps updateMany
    */
-  export type CategoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FreeTippsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Categories.
+     * The data used to update FreeTipps.
      */
-    data: XOR<CategoryUpdateManyMutationInput, CategoryUncheckedUpdateManyInput>
+    data: XOR<FreeTippsUpdateManyMutationInput, FreeTippsUncheckedUpdateManyInput>
     /**
-     * Filter which Categories to update
+     * Filter which FreeTipps to update
      */
-    where?: CategoryWhereInput
+    where?: FreeTippsWhereInput
     /**
-     * Limit how many Categories to update.
+     * Limit how many FreeTipps to update.
      */
     limit?: number
   }
 
   /**
-   * Category updateManyAndReturn
+   * FreeTipps updateManyAndReturn
    */
-  export type CategoryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FreeTippsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Category
+     * Select specific fields to fetch from the FreeTipps
      */
-    select?: CategorySelectUpdateManyAndReturn<ExtArgs> | null
+    select?: FreeTippsSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Category
+     * Omit specific fields from the FreeTipps
      */
-    omit?: CategoryOmit<ExtArgs> | null
+    omit?: FreeTippsOmit<ExtArgs> | null
     /**
-     * The data used to update Categories.
+     * The data used to update FreeTipps.
      */
-    data: XOR<CategoryUpdateManyMutationInput, CategoryUncheckedUpdateManyInput>
+    data: XOR<FreeTippsUpdateManyMutationInput, FreeTippsUncheckedUpdateManyInput>
     /**
-     * Filter which Categories to update
+     * Filter which FreeTipps to update
      */
-    where?: CategoryWhereInput
+    where?: FreeTippsWhereInput
     /**
-     * Limit how many Categories to update.
+     * Limit how many FreeTipps to update.
      */
     limit?: number
   }
 
   /**
-   * Category upsert
+   * FreeTipps upsert
    */
-  export type CategoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FreeTippsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Category
+     * Select specific fields to fetch from the FreeTipps
      */
-    select?: CategorySelect<ExtArgs> | null
+    select?: FreeTippsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Category
+     * Omit specific fields from the FreeTipps
      */
-    omit?: CategoryOmit<ExtArgs> | null
+    omit?: FreeTippsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CategoryInclude<ExtArgs> | null
+    include?: FreeTippsInclude<ExtArgs> | null
     /**
-     * The filter to search for the Category to update in case it exists.
+     * The filter to search for the FreeTipps to update in case it exists.
      */
-    where: CategoryWhereUniqueInput
+    where: FreeTippsWhereUniqueInput
     /**
-     * In case the Category found by the `where` argument doesn't exist, create a new Category with this data.
+     * In case the FreeTipps found by the `where` argument doesn't exist, create a new FreeTipps with this data.
      */
-    create: XOR<CategoryCreateInput, CategoryUncheckedCreateInput>
+    create: XOR<FreeTippsCreateInput, FreeTippsUncheckedCreateInput>
     /**
-     * In case the Category was found with the provided `where` argument, update it with this data.
+     * In case the FreeTipps was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<CategoryUpdateInput, CategoryUncheckedUpdateInput>
+    update: XOR<FreeTippsUpdateInput, FreeTippsUncheckedUpdateInput>
   }
 
   /**
-   * Category delete
+   * FreeTipps delete
    */
-  export type CategoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FreeTippsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Category
+     * Select specific fields to fetch from the FreeTipps
      */
-    select?: CategorySelect<ExtArgs> | null
+    select?: FreeTippsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Category
+     * Omit specific fields from the FreeTipps
      */
-    omit?: CategoryOmit<ExtArgs> | null
+    omit?: FreeTippsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CategoryInclude<ExtArgs> | null
+    include?: FreeTippsInclude<ExtArgs> | null
     /**
-     * Filter which Category to delete.
+     * Filter which FreeTipps to delete.
      */
-    where: CategoryWhereUniqueInput
+    where: FreeTippsWhereUniqueInput
   }
 
   /**
-   * Category deleteMany
+   * FreeTipps deleteMany
    */
-  export type CategoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FreeTippsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Categories to delete
+     * Filter which FreeTipps to delete
      */
-    where?: CategoryWhereInput
+    where?: FreeTippsWhereInput
     /**
-     * Limit how many Categories to delete.
+     * Limit how many FreeTipps to delete.
      */
     limit?: number
   }
 
   /**
-   * Category.posts
+   * FreeTipps.comments
    */
-  export type Category$postsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FreeTipps$commentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdminPosts
+     * Select specific fields to fetch from the Comment
      */
-    select?: AdminPostsSelect<ExtArgs> | null
+    select?: CommentSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the AdminPosts
+     * Omit specific fields from the Comment
      */
-    omit?: AdminPostsOmit<ExtArgs> | null
+    omit?: CommentOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AdminPostsInclude<ExtArgs> | null
-    where?: AdminPostsWhereInput
-    orderBy?: AdminPostsOrderByWithRelationInput | AdminPostsOrderByWithRelationInput[]
-    cursor?: AdminPostsWhereUniqueInput
+    include?: CommentInclude<ExtArgs> | null
+    where?: CommentWhereInput
+    orderBy?: CommentOrderByWithRelationInput | CommentOrderByWithRelationInput[]
+    cursor?: CommentWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: AdminPostsScalarFieldEnum | AdminPostsScalarFieldEnum[]
+    distinct?: CommentScalarFieldEnum | CommentScalarFieldEnum[]
   }
 
   /**
-   * Category without action
+   * FreeTipps without action
    */
-  export type CategoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FreeTippsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Category
+     * Select specific fields to fetch from the FreeTipps
      */
-    select?: CategorySelect<ExtArgs> | null
+    select?: FreeTippsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Category
+     * Omit specific fields from the FreeTipps
      */
-    omit?: CategoryOmit<ExtArgs> | null
+    omit?: FreeTippsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CategoryInclude<ExtArgs> | null
+    include?: FreeTippsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model PremiumTipps
+   */
+
+  export type AggregatePremiumTipps = {
+    _count: PremiumTippsCountAggregateOutputType | null
+    _avg: PremiumTippsAvgAggregateOutputType | null
+    _sum: PremiumTippsSumAggregateOutputType | null
+    _min: PremiumTippsMinAggregateOutputType | null
+    _max: PremiumTippsMaxAggregateOutputType | null
+  }
+
+  export type PremiumTippsAvgAggregateOutputType = {
+    price: number | null
+    prize: number | null
+    odds: number | null
+  }
+
+  export type PremiumTippsSumAggregateOutputType = {
+    price: number | null
+    prize: number | null
+    odds: number | null
+  }
+
+  export type PremiumTippsMinAggregateOutputType = {
+    id: string | null
+    slug: string | null
+    title: string | null
+    content: string | null
+    deadline: Date | null
+    imageurl: string | null
+    price: number | null
+    prize: number | null
+    odds: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PremiumTippsMaxAggregateOutputType = {
+    id: string | null
+    slug: string | null
+    title: string | null
+    content: string | null
+    deadline: Date | null
+    imageurl: string | null
+    price: number | null
+    prize: number | null
+    odds: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PremiumTippsCountAggregateOutputType = {
+    id: number
+    slug: number
+    title: number
+    content: number
+    deadline: number
+    imageurl: number
+    price: number
+    prize: number
+    odds: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type PremiumTippsAvgAggregateInputType = {
+    price?: true
+    prize?: true
+    odds?: true
+  }
+
+  export type PremiumTippsSumAggregateInputType = {
+    price?: true
+    prize?: true
+    odds?: true
+  }
+
+  export type PremiumTippsMinAggregateInputType = {
+    id?: true
+    slug?: true
+    title?: true
+    content?: true
+    deadline?: true
+    imageurl?: true
+    price?: true
+    prize?: true
+    odds?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PremiumTippsMaxAggregateInputType = {
+    id?: true
+    slug?: true
+    title?: true
+    content?: true
+    deadline?: true
+    imageurl?: true
+    price?: true
+    prize?: true
+    odds?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PremiumTippsCountAggregateInputType = {
+    id?: true
+    slug?: true
+    title?: true
+    content?: true
+    deadline?: true
+    imageurl?: true
+    price?: true
+    prize?: true
+    odds?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type PremiumTippsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PremiumTipps to aggregate.
+     */
+    where?: PremiumTippsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PremiumTipps to fetch.
+     */
+    orderBy?: PremiumTippsOrderByWithRelationInput | PremiumTippsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PremiumTippsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PremiumTipps from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PremiumTipps.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PremiumTipps
+    **/
+    _count?: true | PremiumTippsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PremiumTippsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PremiumTippsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PremiumTippsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PremiumTippsMaxAggregateInputType
+  }
+
+  export type GetPremiumTippsAggregateType<T extends PremiumTippsAggregateArgs> = {
+        [P in keyof T & keyof AggregatePremiumTipps]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePremiumTipps[P]>
+      : GetScalarType<T[P], AggregatePremiumTipps[P]>
+  }
+
+
+
+
+  export type PremiumTippsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PremiumTippsWhereInput
+    orderBy?: PremiumTippsOrderByWithAggregationInput | PremiumTippsOrderByWithAggregationInput[]
+    by: PremiumTippsScalarFieldEnum[] | PremiumTippsScalarFieldEnum
+    having?: PremiumTippsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PremiumTippsCountAggregateInputType | true
+    _avg?: PremiumTippsAvgAggregateInputType
+    _sum?: PremiumTippsSumAggregateInputType
+    _min?: PremiumTippsMinAggregateInputType
+    _max?: PremiumTippsMaxAggregateInputType
+  }
+
+  export type PremiumTippsGroupByOutputType = {
+    id: string
+    slug: string
+    title: string
+    content: string
+    deadline: Date
+    imageurl: string | null
+    price: number
+    prize: number
+    odds: number
+    createdAt: Date
+    updatedAt: Date
+    _count: PremiumTippsCountAggregateOutputType | null
+    _avg: PremiumTippsAvgAggregateOutputType | null
+    _sum: PremiumTippsSumAggregateOutputType | null
+    _min: PremiumTippsMinAggregateOutputType | null
+    _max: PremiumTippsMaxAggregateOutputType | null
+  }
+
+  type GetPremiumTippsGroupByPayload<T extends PremiumTippsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PremiumTippsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PremiumTippsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PremiumTippsGroupByOutputType[P]>
+            : GetScalarType<T[P], PremiumTippsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PremiumTippsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    slug?: boolean
+    title?: boolean
+    content?: boolean
+    deadline?: boolean
+    imageurl?: boolean
+    price?: boolean
+    prize?: boolean
+    odds?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    comments?: boolean | PremiumTipps$commentsArgs<ExtArgs>
+    _count?: boolean | PremiumTippsCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["premiumTipps"]>
+
+  export type PremiumTippsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    slug?: boolean
+    title?: boolean
+    content?: boolean
+    deadline?: boolean
+    imageurl?: boolean
+    price?: boolean
+    prize?: boolean
+    odds?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["premiumTipps"]>
+
+  export type PremiumTippsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    slug?: boolean
+    title?: boolean
+    content?: boolean
+    deadline?: boolean
+    imageurl?: boolean
+    price?: boolean
+    prize?: boolean
+    odds?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["premiumTipps"]>
+
+  export type PremiumTippsSelectScalar = {
+    id?: boolean
+    slug?: boolean
+    title?: boolean
+    content?: boolean
+    deadline?: boolean
+    imageurl?: boolean
+    price?: boolean
+    prize?: boolean
+    odds?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type PremiumTippsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "slug" | "title" | "content" | "deadline" | "imageurl" | "price" | "prize" | "odds" | "createdAt" | "updatedAt", ExtArgs["result"]["premiumTipps"]>
+  export type PremiumTippsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    comments?: boolean | PremiumTipps$commentsArgs<ExtArgs>
+    _count?: boolean | PremiumTippsCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type PremiumTippsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type PremiumTippsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $PremiumTippsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PremiumTipps"
+    objects: {
+      comments: Prisma.$CommentPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      slug: string
+      title: string
+      content: string
+      deadline: Date
+      imageurl: string | null
+      price: number
+      prize: number
+      odds: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["premiumTipps"]>
+    composites: {}
+  }
+
+  type PremiumTippsGetPayload<S extends boolean | null | undefined | PremiumTippsDefaultArgs> = $Result.GetResult<Prisma.$PremiumTippsPayload, S>
+
+  type PremiumTippsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PremiumTippsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PremiumTippsCountAggregateInputType | true
+    }
+
+  export interface PremiumTippsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PremiumTipps'], meta: { name: 'PremiumTipps' } }
+    /**
+     * Find zero or one PremiumTipps that matches the filter.
+     * @param {PremiumTippsFindUniqueArgs} args - Arguments to find a PremiumTipps
+     * @example
+     * // Get one PremiumTipps
+     * const premiumTipps = await prisma.premiumTipps.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PremiumTippsFindUniqueArgs>(args: SelectSubset<T, PremiumTippsFindUniqueArgs<ExtArgs>>): Prisma__PremiumTippsClient<$Result.GetResult<Prisma.$PremiumTippsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one PremiumTipps that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PremiumTippsFindUniqueOrThrowArgs} args - Arguments to find a PremiumTipps
+     * @example
+     * // Get one PremiumTipps
+     * const premiumTipps = await prisma.premiumTipps.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PremiumTippsFindUniqueOrThrowArgs>(args: SelectSubset<T, PremiumTippsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PremiumTippsClient<$Result.GetResult<Prisma.$PremiumTippsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PremiumTipps that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PremiumTippsFindFirstArgs} args - Arguments to find a PremiumTipps
+     * @example
+     * // Get one PremiumTipps
+     * const premiumTipps = await prisma.premiumTipps.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PremiumTippsFindFirstArgs>(args?: SelectSubset<T, PremiumTippsFindFirstArgs<ExtArgs>>): Prisma__PremiumTippsClient<$Result.GetResult<Prisma.$PremiumTippsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PremiumTipps that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PremiumTippsFindFirstOrThrowArgs} args - Arguments to find a PremiumTipps
+     * @example
+     * // Get one PremiumTipps
+     * const premiumTipps = await prisma.premiumTipps.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PremiumTippsFindFirstOrThrowArgs>(args?: SelectSubset<T, PremiumTippsFindFirstOrThrowArgs<ExtArgs>>): Prisma__PremiumTippsClient<$Result.GetResult<Prisma.$PremiumTippsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more PremiumTipps that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PremiumTippsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PremiumTipps
+     * const premiumTipps = await prisma.premiumTipps.findMany()
+     * 
+     * // Get first 10 PremiumTipps
+     * const premiumTipps = await prisma.premiumTipps.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const premiumTippsWithIdOnly = await prisma.premiumTipps.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PremiumTippsFindManyArgs>(args?: SelectSubset<T, PremiumTippsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PremiumTippsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a PremiumTipps.
+     * @param {PremiumTippsCreateArgs} args - Arguments to create a PremiumTipps.
+     * @example
+     * // Create one PremiumTipps
+     * const PremiumTipps = await prisma.premiumTipps.create({
+     *   data: {
+     *     // ... data to create a PremiumTipps
+     *   }
+     * })
+     * 
+     */
+    create<T extends PremiumTippsCreateArgs>(args: SelectSubset<T, PremiumTippsCreateArgs<ExtArgs>>): Prisma__PremiumTippsClient<$Result.GetResult<Prisma.$PremiumTippsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many PremiumTipps.
+     * @param {PremiumTippsCreateManyArgs} args - Arguments to create many PremiumTipps.
+     * @example
+     * // Create many PremiumTipps
+     * const premiumTipps = await prisma.premiumTipps.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PremiumTippsCreateManyArgs>(args?: SelectSubset<T, PremiumTippsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many PremiumTipps and returns the data saved in the database.
+     * @param {PremiumTippsCreateManyAndReturnArgs} args - Arguments to create many PremiumTipps.
+     * @example
+     * // Create many PremiumTipps
+     * const premiumTipps = await prisma.premiumTipps.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PremiumTipps and only return the `id`
+     * const premiumTippsWithIdOnly = await prisma.premiumTipps.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PremiumTippsCreateManyAndReturnArgs>(args?: SelectSubset<T, PremiumTippsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PremiumTippsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a PremiumTipps.
+     * @param {PremiumTippsDeleteArgs} args - Arguments to delete one PremiumTipps.
+     * @example
+     * // Delete one PremiumTipps
+     * const PremiumTipps = await prisma.premiumTipps.delete({
+     *   where: {
+     *     // ... filter to delete one PremiumTipps
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PremiumTippsDeleteArgs>(args: SelectSubset<T, PremiumTippsDeleteArgs<ExtArgs>>): Prisma__PremiumTippsClient<$Result.GetResult<Prisma.$PremiumTippsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one PremiumTipps.
+     * @param {PremiumTippsUpdateArgs} args - Arguments to update one PremiumTipps.
+     * @example
+     * // Update one PremiumTipps
+     * const premiumTipps = await prisma.premiumTipps.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PremiumTippsUpdateArgs>(args: SelectSubset<T, PremiumTippsUpdateArgs<ExtArgs>>): Prisma__PremiumTippsClient<$Result.GetResult<Prisma.$PremiumTippsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more PremiumTipps.
+     * @param {PremiumTippsDeleteManyArgs} args - Arguments to filter PremiumTipps to delete.
+     * @example
+     * // Delete a few PremiumTipps
+     * const { count } = await prisma.premiumTipps.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PremiumTippsDeleteManyArgs>(args?: SelectSubset<T, PremiumTippsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PremiumTipps.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PremiumTippsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PremiumTipps
+     * const premiumTipps = await prisma.premiumTipps.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PremiumTippsUpdateManyArgs>(args: SelectSubset<T, PremiumTippsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PremiumTipps and returns the data updated in the database.
+     * @param {PremiumTippsUpdateManyAndReturnArgs} args - Arguments to update many PremiumTipps.
+     * @example
+     * // Update many PremiumTipps
+     * const premiumTipps = await prisma.premiumTipps.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more PremiumTipps and only return the `id`
+     * const premiumTippsWithIdOnly = await prisma.premiumTipps.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PremiumTippsUpdateManyAndReturnArgs>(args: SelectSubset<T, PremiumTippsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PremiumTippsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one PremiumTipps.
+     * @param {PremiumTippsUpsertArgs} args - Arguments to update or create a PremiumTipps.
+     * @example
+     * // Update or create a PremiumTipps
+     * const premiumTipps = await prisma.premiumTipps.upsert({
+     *   create: {
+     *     // ... data to create a PremiumTipps
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PremiumTipps we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PremiumTippsUpsertArgs>(args: SelectSubset<T, PremiumTippsUpsertArgs<ExtArgs>>): Prisma__PremiumTippsClient<$Result.GetResult<Prisma.$PremiumTippsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of PremiumTipps.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PremiumTippsCountArgs} args - Arguments to filter PremiumTipps to count.
+     * @example
+     * // Count the number of PremiumTipps
+     * const count = await prisma.premiumTipps.count({
+     *   where: {
+     *     // ... the filter for the PremiumTipps we want to count
+     *   }
+     * })
+    **/
+    count<T extends PremiumTippsCountArgs>(
+      args?: Subset<T, PremiumTippsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PremiumTippsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PremiumTipps.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PremiumTippsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PremiumTippsAggregateArgs>(args: Subset<T, PremiumTippsAggregateArgs>): Prisma.PrismaPromise<GetPremiumTippsAggregateType<T>>
+
+    /**
+     * Group by PremiumTipps.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PremiumTippsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PremiumTippsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PremiumTippsGroupByArgs['orderBy'] }
+        : { orderBy?: PremiumTippsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PremiumTippsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPremiumTippsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PremiumTipps model
+   */
+  readonly fields: PremiumTippsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PremiumTipps.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PremiumTippsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    comments<T extends PremiumTipps$commentsArgs<ExtArgs> = {}>(args?: Subset<T, PremiumTipps$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PremiumTipps model
+   */
+  interface PremiumTippsFieldRefs {
+    readonly id: FieldRef<"PremiumTipps", 'String'>
+    readonly slug: FieldRef<"PremiumTipps", 'String'>
+    readonly title: FieldRef<"PremiumTipps", 'String'>
+    readonly content: FieldRef<"PremiumTipps", 'String'>
+    readonly deadline: FieldRef<"PremiumTipps", 'DateTime'>
+    readonly imageurl: FieldRef<"PremiumTipps", 'String'>
+    readonly price: FieldRef<"PremiumTipps", 'Int'>
+    readonly prize: FieldRef<"PremiumTipps", 'Int'>
+    readonly odds: FieldRef<"PremiumTipps", 'Int'>
+    readonly createdAt: FieldRef<"PremiumTipps", 'DateTime'>
+    readonly updatedAt: FieldRef<"PremiumTipps", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PremiumTipps findUnique
+   */
+  export type PremiumTippsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PremiumTipps
+     */
+    select?: PremiumTippsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PremiumTipps
+     */
+    omit?: PremiumTippsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PremiumTippsInclude<ExtArgs> | null
+    /**
+     * Filter, which PremiumTipps to fetch.
+     */
+    where: PremiumTippsWhereUniqueInput
+  }
+
+  /**
+   * PremiumTipps findUniqueOrThrow
+   */
+  export type PremiumTippsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PremiumTipps
+     */
+    select?: PremiumTippsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PremiumTipps
+     */
+    omit?: PremiumTippsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PremiumTippsInclude<ExtArgs> | null
+    /**
+     * Filter, which PremiumTipps to fetch.
+     */
+    where: PremiumTippsWhereUniqueInput
+  }
+
+  /**
+   * PremiumTipps findFirst
+   */
+  export type PremiumTippsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PremiumTipps
+     */
+    select?: PremiumTippsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PremiumTipps
+     */
+    omit?: PremiumTippsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PremiumTippsInclude<ExtArgs> | null
+    /**
+     * Filter, which PremiumTipps to fetch.
+     */
+    where?: PremiumTippsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PremiumTipps to fetch.
+     */
+    orderBy?: PremiumTippsOrderByWithRelationInput | PremiumTippsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PremiumTipps.
+     */
+    cursor?: PremiumTippsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PremiumTipps from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PremiumTipps.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PremiumTipps.
+     */
+    distinct?: PremiumTippsScalarFieldEnum | PremiumTippsScalarFieldEnum[]
+  }
+
+  /**
+   * PremiumTipps findFirstOrThrow
+   */
+  export type PremiumTippsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PremiumTipps
+     */
+    select?: PremiumTippsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PremiumTipps
+     */
+    omit?: PremiumTippsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PremiumTippsInclude<ExtArgs> | null
+    /**
+     * Filter, which PremiumTipps to fetch.
+     */
+    where?: PremiumTippsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PremiumTipps to fetch.
+     */
+    orderBy?: PremiumTippsOrderByWithRelationInput | PremiumTippsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PremiumTipps.
+     */
+    cursor?: PremiumTippsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PremiumTipps from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PremiumTipps.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PremiumTipps.
+     */
+    distinct?: PremiumTippsScalarFieldEnum | PremiumTippsScalarFieldEnum[]
+  }
+
+  /**
+   * PremiumTipps findMany
+   */
+  export type PremiumTippsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PremiumTipps
+     */
+    select?: PremiumTippsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PremiumTipps
+     */
+    omit?: PremiumTippsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PremiumTippsInclude<ExtArgs> | null
+    /**
+     * Filter, which PremiumTipps to fetch.
+     */
+    where?: PremiumTippsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PremiumTipps to fetch.
+     */
+    orderBy?: PremiumTippsOrderByWithRelationInput | PremiumTippsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PremiumTipps.
+     */
+    cursor?: PremiumTippsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PremiumTipps from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PremiumTipps.
+     */
+    skip?: number
+    distinct?: PremiumTippsScalarFieldEnum | PremiumTippsScalarFieldEnum[]
+  }
+
+  /**
+   * PremiumTipps create
+   */
+  export type PremiumTippsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PremiumTipps
+     */
+    select?: PremiumTippsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PremiumTipps
+     */
+    omit?: PremiumTippsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PremiumTippsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PremiumTipps.
+     */
+    data: XOR<PremiumTippsCreateInput, PremiumTippsUncheckedCreateInput>
+  }
+
+  /**
+   * PremiumTipps createMany
+   */
+  export type PremiumTippsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PremiumTipps.
+     */
+    data: PremiumTippsCreateManyInput | PremiumTippsCreateManyInput[]
+  }
+
+  /**
+   * PremiumTipps createManyAndReturn
+   */
+  export type PremiumTippsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PremiumTipps
+     */
+    select?: PremiumTippsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PremiumTipps
+     */
+    omit?: PremiumTippsOmit<ExtArgs> | null
+    /**
+     * The data used to create many PremiumTipps.
+     */
+    data: PremiumTippsCreateManyInput | PremiumTippsCreateManyInput[]
+  }
+
+  /**
+   * PremiumTipps update
+   */
+  export type PremiumTippsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PremiumTipps
+     */
+    select?: PremiumTippsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PremiumTipps
+     */
+    omit?: PremiumTippsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PremiumTippsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PremiumTipps.
+     */
+    data: XOR<PremiumTippsUpdateInput, PremiumTippsUncheckedUpdateInput>
+    /**
+     * Choose, which PremiumTipps to update.
+     */
+    where: PremiumTippsWhereUniqueInput
+  }
+
+  /**
+   * PremiumTipps updateMany
+   */
+  export type PremiumTippsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PremiumTipps.
+     */
+    data: XOR<PremiumTippsUpdateManyMutationInput, PremiumTippsUncheckedUpdateManyInput>
+    /**
+     * Filter which PremiumTipps to update
+     */
+    where?: PremiumTippsWhereInput
+    /**
+     * Limit how many PremiumTipps to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PremiumTipps updateManyAndReturn
+   */
+  export type PremiumTippsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PremiumTipps
+     */
+    select?: PremiumTippsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PremiumTipps
+     */
+    omit?: PremiumTippsOmit<ExtArgs> | null
+    /**
+     * The data used to update PremiumTipps.
+     */
+    data: XOR<PremiumTippsUpdateManyMutationInput, PremiumTippsUncheckedUpdateManyInput>
+    /**
+     * Filter which PremiumTipps to update
+     */
+    where?: PremiumTippsWhereInput
+    /**
+     * Limit how many PremiumTipps to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PremiumTipps upsert
+   */
+  export type PremiumTippsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PremiumTipps
+     */
+    select?: PremiumTippsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PremiumTipps
+     */
+    omit?: PremiumTippsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PremiumTippsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PremiumTipps to update in case it exists.
+     */
+    where: PremiumTippsWhereUniqueInput
+    /**
+     * In case the PremiumTipps found by the `where` argument doesn't exist, create a new PremiumTipps with this data.
+     */
+    create: XOR<PremiumTippsCreateInput, PremiumTippsUncheckedCreateInput>
+    /**
+     * In case the PremiumTipps was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PremiumTippsUpdateInput, PremiumTippsUncheckedUpdateInput>
+  }
+
+  /**
+   * PremiumTipps delete
+   */
+  export type PremiumTippsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PremiumTipps
+     */
+    select?: PremiumTippsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PremiumTipps
+     */
+    omit?: PremiumTippsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PremiumTippsInclude<ExtArgs> | null
+    /**
+     * Filter which PremiumTipps to delete.
+     */
+    where: PremiumTippsWhereUniqueInput
+  }
+
+  /**
+   * PremiumTipps deleteMany
+   */
+  export type PremiumTippsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PremiumTipps to delete
+     */
+    where?: PremiumTippsWhereInput
+    /**
+     * Limit how many PremiumTipps to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * PremiumTipps.comments
+   */
+  export type PremiumTipps$commentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+    where?: CommentWhereInput
+    orderBy?: CommentOrderByWithRelationInput | CommentOrderByWithRelationInput[]
+    cursor?: CommentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CommentScalarFieldEnum | CommentScalarFieldEnum[]
+  }
+
+  /**
+   * PremiumTipps without action
+   */
+  export type PremiumTippsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PremiumTipps
+     */
+    select?: PremiumTippsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PremiumTipps
+     */
+    omit?: PremiumTippsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PremiumTippsInclude<ExtArgs> | null
   }
 
 
@@ -4779,26 +6144,18 @@ export namespace Prisma {
 
   export type AggregateComment = {
     _count: CommentCountAggregateOutputType | null
-    _avg: CommentAvgAggregateOutputType | null
-    _sum: CommentSumAggregateOutputType | null
     _min: CommentMinAggregateOutputType | null
     _max: CommentMaxAggregateOutputType | null
-  }
-
-  export type CommentAvgAggregateOutputType = {
-    userId: number | null
-  }
-
-  export type CommentSumAggregateOutputType = {
-    userId: number | null
   }
 
   export type CommentMinAggregateOutputType = {
     id: string | null
     content: string | null
     hidden: boolean | null
-    userId: number | null
+    userId: string | null
     postId: string | null
+    freeTippId: string | null
+    premiumTippId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -4807,8 +6164,10 @@ export namespace Prisma {
     id: string | null
     content: string | null
     hidden: boolean | null
-    userId: number | null
+    userId: string | null
     postId: string | null
+    freeTippId: string | null
+    premiumTippId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -4819,19 +6178,13 @@ export namespace Prisma {
     hidden: number
     userId: number
     postId: number
+    freeTippId: number
+    premiumTippId: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
-
-  export type CommentAvgAggregateInputType = {
-    userId?: true
-  }
-
-  export type CommentSumAggregateInputType = {
-    userId?: true
-  }
 
   export type CommentMinAggregateInputType = {
     id?: true
@@ -4839,6 +6192,8 @@ export namespace Prisma {
     hidden?: true
     userId?: true
     postId?: true
+    freeTippId?: true
+    premiumTippId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -4849,6 +6204,8 @@ export namespace Prisma {
     hidden?: true
     userId?: true
     postId?: true
+    freeTippId?: true
+    premiumTippId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -4859,6 +6216,8 @@ export namespace Prisma {
     hidden?: true
     userId?: true
     postId?: true
+    freeTippId?: true
+    premiumTippId?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -4902,18 +6261,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: CommentAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: CommentSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: CommentMinAggregateInputType
@@ -4944,8 +6291,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: CommentCountAggregateInputType | true
-    _avg?: CommentAvgAggregateInputType
-    _sum?: CommentSumAggregateInputType
     _min?: CommentMinAggregateInputType
     _max?: CommentMaxAggregateInputType
   }
@@ -4954,13 +6299,13 @@ export namespace Prisma {
     id: string
     content: string
     hidden: boolean
-    userId: number
+    userId: string
     postId: string
+    freeTippId: string | null
+    premiumTippId: string | null
     createdAt: Date
     updatedAt: Date
     _count: CommentCountAggregateOutputType | null
-    _avg: CommentAvgAggregateOutputType | null
-    _sum: CommentSumAggregateOutputType | null
     _min: CommentMinAggregateOutputType | null
     _max: CommentMaxAggregateOutputType | null
   }
@@ -4985,10 +6330,14 @@ export namespace Prisma {
     hidden?: boolean
     userId?: boolean
     postId?: boolean
+    freeTippId?: boolean
+    premiumTippId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     post?: boolean | AdminPostsDefaultArgs<ExtArgs>
+    freeTipp?: boolean | Comment$freeTippArgs<ExtArgs>
+    premiumTipp?: boolean | Comment$premiumTippArgs<ExtArgs>
   }, ExtArgs["result"]["comment"]>
 
   export type CommentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -4997,10 +6346,14 @@ export namespace Prisma {
     hidden?: boolean
     userId?: boolean
     postId?: boolean
+    freeTippId?: boolean
+    premiumTippId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     post?: boolean | AdminPostsDefaultArgs<ExtArgs>
+    freeTipp?: boolean | Comment$freeTippArgs<ExtArgs>
+    premiumTipp?: boolean | Comment$premiumTippArgs<ExtArgs>
   }, ExtArgs["result"]["comment"]>
 
   export type CommentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -5009,10 +6362,14 @@ export namespace Prisma {
     hidden?: boolean
     userId?: boolean
     postId?: boolean
+    freeTippId?: boolean
+    premiumTippId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     post?: boolean | AdminPostsDefaultArgs<ExtArgs>
+    freeTipp?: boolean | Comment$freeTippArgs<ExtArgs>
+    premiumTipp?: boolean | Comment$premiumTippArgs<ExtArgs>
   }, ExtArgs["result"]["comment"]>
 
   export type CommentSelectScalar = {
@@ -5021,22 +6378,30 @@ export namespace Prisma {
     hidden?: boolean
     userId?: boolean
     postId?: boolean
+    freeTippId?: boolean
+    premiumTippId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type CommentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "content" | "hidden" | "userId" | "postId" | "createdAt" | "updatedAt", ExtArgs["result"]["comment"]>
+  export type CommentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "content" | "hidden" | "userId" | "postId" | "freeTippId" | "premiumTippId" | "createdAt" | "updatedAt", ExtArgs["result"]["comment"]>
   export type CommentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     post?: boolean | AdminPostsDefaultArgs<ExtArgs>
+    freeTipp?: boolean | Comment$freeTippArgs<ExtArgs>
+    premiumTipp?: boolean | Comment$premiumTippArgs<ExtArgs>
   }
   export type CommentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     post?: boolean | AdminPostsDefaultArgs<ExtArgs>
+    freeTipp?: boolean | Comment$freeTippArgs<ExtArgs>
+    premiumTipp?: boolean | Comment$premiumTippArgs<ExtArgs>
   }
   export type CommentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     post?: boolean | AdminPostsDefaultArgs<ExtArgs>
+    freeTipp?: boolean | Comment$freeTippArgs<ExtArgs>
+    premiumTipp?: boolean | Comment$premiumTippArgs<ExtArgs>
   }
 
   export type $CommentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5044,13 +6409,17 @@ export namespace Prisma {
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
       post: Prisma.$AdminPostsPayload<ExtArgs>
+      freeTipp: Prisma.$FreeTippsPayload<ExtArgs> | null
+      premiumTipp: Prisma.$PremiumTippsPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       content: string
       hidden: boolean
-      userId: number
+      userId: string
       postId: string
+      freeTippId: string | null
+      premiumTippId: string | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["comment"]>
@@ -5449,6 +6818,8 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     post<T extends AdminPostsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AdminPostsDefaultArgs<ExtArgs>>): Prisma__AdminPostsClient<$Result.GetResult<Prisma.$AdminPostsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    freeTipp<T extends Comment$freeTippArgs<ExtArgs> = {}>(args?: Subset<T, Comment$freeTippArgs<ExtArgs>>): Prisma__FreeTippsClient<$Result.GetResult<Prisma.$FreeTippsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    premiumTipp<T extends Comment$premiumTippArgs<ExtArgs> = {}>(args?: Subset<T, Comment$premiumTippArgs<ExtArgs>>): Prisma__PremiumTippsClient<$Result.GetResult<Prisma.$PremiumTippsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5481,8 +6852,10 @@ export namespace Prisma {
     readonly id: FieldRef<"Comment", 'String'>
     readonly content: FieldRef<"Comment", 'String'>
     readonly hidden: FieldRef<"Comment", 'Boolean'>
-    readonly userId: FieldRef<"Comment", 'Int'>
+    readonly userId: FieldRef<"Comment", 'String'>
     readonly postId: FieldRef<"Comment", 'String'>
+    readonly freeTippId: FieldRef<"Comment", 'String'>
+    readonly premiumTippId: FieldRef<"Comment", 'String'>
     readonly createdAt: FieldRef<"Comment", 'DateTime'>
     readonly updatedAt: FieldRef<"Comment", 'DateTime'>
   }
@@ -5879,6 +7252,44 @@ export namespace Prisma {
   }
 
   /**
+   * Comment.freeTipp
+   */
+  export type Comment$freeTippArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FreeTipps
+     */
+    select?: FreeTippsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FreeTipps
+     */
+    omit?: FreeTippsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FreeTippsInclude<ExtArgs> | null
+    where?: FreeTippsWhereInput
+  }
+
+  /**
+   * Comment.premiumTipp
+   */
+  export type Comment$premiumTippArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PremiumTipps
+     */
+    select?: PremiumTippsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PremiumTipps
+     */
+    omit?: PremiumTippsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PremiumTippsInclude<ExtArgs> | null
+    where?: PremiumTippsWhereInput
+  }
+
+  /**
    * Comment without action
    */
   export type CommentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5903,29 +7314,19 @@ export namespace Prisma {
 
   export type AggregateSubscription = {
     _count: SubscriptionCountAggregateOutputType | null
-    _avg: SubscriptionAvgAggregateOutputType | null
-    _sum: SubscriptionSumAggregateOutputType | null
     _min: SubscriptionMinAggregateOutputType | null
     _max: SubscriptionMaxAggregateOutputType | null
   }
 
-  export type SubscriptionAvgAggregateOutputType = {
-    userId: number | null
-  }
-
-  export type SubscriptionSumAggregateOutputType = {
-    userId: number | null
-  }
-
   export type SubscriptionMinAggregateOutputType = {
     id: string | null
-    userId: number | null
+    userId: string | null
     validUntil: Date | null
   }
 
   export type SubscriptionMaxAggregateOutputType = {
     id: string | null
-    userId: number | null
+    userId: string | null
     validUntil: Date | null
   }
 
@@ -5936,14 +7337,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type SubscriptionAvgAggregateInputType = {
-    userId?: true
-  }
-
-  export type SubscriptionSumAggregateInputType = {
-    userId?: true
-  }
 
   export type SubscriptionMinAggregateInputType = {
     id?: true
@@ -6002,18 +7395,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: SubscriptionAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: SubscriptionSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: SubscriptionMinAggregateInputType
@@ -6044,19 +7425,15 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: SubscriptionCountAggregateInputType | true
-    _avg?: SubscriptionAvgAggregateInputType
-    _sum?: SubscriptionSumAggregateInputType
     _min?: SubscriptionMinAggregateInputType
     _max?: SubscriptionMaxAggregateInputType
   }
 
   export type SubscriptionGroupByOutputType = {
     id: string
-    userId: number
+    userId: string
     validUntil: Date
     _count: SubscriptionCountAggregateOutputType | null
-    _avg: SubscriptionAvgAggregateOutputType | null
-    _sum: SubscriptionSumAggregateOutputType | null
     _min: SubscriptionMinAggregateOutputType | null
     _max: SubscriptionMaxAggregateOutputType | null
   }
@@ -6120,7 +7497,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      userId: number
+      userId: string
       validUntil: Date
     }, ExtArgs["result"]["subscription"]>
     composites: {}
@@ -6547,7 +7924,7 @@ export namespace Prisma {
    */
   interface SubscriptionFieldRefs {
     readonly id: FieldRef<"Subscription", 'String'>
-    readonly userId: FieldRef<"Subscription", 'Int'>
+    readonly userId: FieldRef<"Subscription", 'String'>
     readonly validUntil: FieldRef<"Subscription", 'DateTime'>
   }
     
@@ -8090,24 +9467,46 @@ export namespace Prisma {
     slug: 'slug',
     title: 'title',
     content: 'content',
-    isPremium: 'isPremium',
     imageurl: 'imageurl',
-    tippmixPicture: 'tippmixPicture',
-    categoryId: 'categoryId',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt',
-    deadline: 'deadline'
+    updatedAt: 'updatedAt'
   };
 
   export type AdminPostsScalarFieldEnum = (typeof AdminPostsScalarFieldEnum)[keyof typeof AdminPostsScalarFieldEnum]
 
 
-  export const CategoryScalarFieldEnum: {
+  export const FreeTippsScalarFieldEnum: {
     id: 'id',
-    name: 'name'
+    slug: 'slug',
+    title: 'title',
+    content: 'content',
+    imageurl: 'imageurl',
+    deadline: 'deadline',
+    price: 'price',
+    prize: 'prize',
+    odds: 'odds',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
-  export type CategoryScalarFieldEnum = (typeof CategoryScalarFieldEnum)[keyof typeof CategoryScalarFieldEnum]
+  export type FreeTippsScalarFieldEnum = (typeof FreeTippsScalarFieldEnum)[keyof typeof FreeTippsScalarFieldEnum]
+
+
+  export const PremiumTippsScalarFieldEnum: {
+    id: 'id',
+    slug: 'slug',
+    title: 'title',
+    content: 'content',
+    deadline: 'deadline',
+    imageurl: 'imageurl',
+    price: 'price',
+    prize: 'prize',
+    odds: 'odds',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type PremiumTippsScalarFieldEnum = (typeof PremiumTippsScalarFieldEnum)[keyof typeof PremiumTippsScalarFieldEnum]
 
 
   export const CommentScalarFieldEnum: {
@@ -8116,6 +9515,8 @@ export namespace Prisma {
     hidden: 'hidden',
     userId: 'userId',
     postId: 'postId',
+    freeTippId: 'freeTippId',
+    premiumTippId: 'premiumTippId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -8169,13 +9570,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Int'
-   */
-  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
-    
-
-
-  /**
    * Reference to a field of type 'String'
    */
   export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
@@ -8197,6 +9591,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Int'
+   */
+  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -8210,7 +9611,7 @@ export namespace Prisma {
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
-    id?: IntFilter<"User"> | number
+    id?: StringFilter<"User"> | string
     username?: StringFilter<"User"> | string
     email?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
@@ -8236,7 +9637,7 @@ export namespace Prisma {
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     username?: string
     email?: string
     AND?: UserWhereInput | UserWhereInput[]
@@ -8261,17 +9662,15 @@ export namespace Prisma {
     isPaid?: SortOrder
     isBanned?: SortOrder
     _count?: UserCountOrderByAggregateInput
-    _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
-    _sum?: UserSumOrderByAggregateInput
   }
 
   export type UserScalarWhereWithAggregatesInput = {
     AND?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
     OR?: UserScalarWhereWithAggregatesInput[]
     NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"User"> | number
+    id?: StringWithAggregatesFilter<"User"> | string
     username?: StringWithAggregatesFilter<"User"> | string
     email?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
@@ -8289,15 +9688,10 @@ export namespace Prisma {
     slug?: StringFilter<"AdminPosts"> | string
     title?: StringFilter<"AdminPosts"> | string
     content?: StringFilter<"AdminPosts"> | string
-    isPremium?: BoolFilter<"AdminPosts"> | boolean
     imageurl?: StringFilter<"AdminPosts"> | string
-    tippmixPicture?: StringFilter<"AdminPosts"> | string
-    categoryId?: StringFilter<"AdminPosts"> | string
     createdAt?: DateTimeFilter<"AdminPosts"> | Date | string
     updatedAt?: DateTimeFilter<"AdminPosts"> | Date | string
-    deadline?: DateTimeFilter<"AdminPosts"> | Date | string
     comments?: CommentListRelationFilter
-    category?: XOR<CategoryScalarRelationFilter, CategoryWhereInput>
   }
 
   export type AdminPostsOrderByWithRelationInput = {
@@ -8305,15 +9699,10 @@ export namespace Prisma {
     slug?: SortOrder
     title?: SortOrder
     content?: SortOrder
-    isPremium?: SortOrder
     imageurl?: SortOrder
-    tippmixPicture?: SortOrder
-    categoryId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    deadline?: SortOrder
     comments?: CommentOrderByRelationAggregateInput
-    category?: CategoryOrderByWithRelationInput
   }
 
   export type AdminPostsWhereUniqueInput = Prisma.AtLeast<{
@@ -8324,15 +9713,10 @@ export namespace Prisma {
     NOT?: AdminPostsWhereInput | AdminPostsWhereInput[]
     title?: StringFilter<"AdminPosts"> | string
     content?: StringFilter<"AdminPosts"> | string
-    isPremium?: BoolFilter<"AdminPosts"> | boolean
     imageurl?: StringFilter<"AdminPosts"> | string
-    tippmixPicture?: StringFilter<"AdminPosts"> | string
-    categoryId?: StringFilter<"AdminPosts"> | string
     createdAt?: DateTimeFilter<"AdminPosts"> | Date | string
     updatedAt?: DateTimeFilter<"AdminPosts"> | Date | string
-    deadline?: DateTimeFilter<"AdminPosts"> | Date | string
     comments?: CommentListRelationFilter
-    category?: XOR<CategoryScalarRelationFilter, CategoryWhereInput>
   }, "id" | "slug">
 
   export type AdminPostsOrderByWithAggregationInput = {
@@ -8340,13 +9724,9 @@ export namespace Prisma {
     slug?: SortOrder
     title?: SortOrder
     content?: SortOrder
-    isPremium?: SortOrder
     imageurl?: SortOrder
-    tippmixPicture?: SortOrder
-    categoryId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    deadline?: SortOrder
     _count?: AdminPostsCountOrderByAggregateInput
     _max?: AdminPostsMaxOrderByAggregateInput
     _min?: AdminPostsMinOrderByAggregateInput
@@ -8360,53 +9740,183 @@ export namespace Prisma {
     slug?: StringWithAggregatesFilter<"AdminPosts"> | string
     title?: StringWithAggregatesFilter<"AdminPosts"> | string
     content?: StringWithAggregatesFilter<"AdminPosts"> | string
-    isPremium?: BoolWithAggregatesFilter<"AdminPosts"> | boolean
     imageurl?: StringWithAggregatesFilter<"AdminPosts"> | string
-    tippmixPicture?: StringWithAggregatesFilter<"AdminPosts"> | string
-    categoryId?: StringWithAggregatesFilter<"AdminPosts"> | string
     createdAt?: DateTimeWithAggregatesFilter<"AdminPosts"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"AdminPosts"> | Date | string
-    deadline?: DateTimeWithAggregatesFilter<"AdminPosts"> | Date | string
   }
 
-  export type CategoryWhereInput = {
-    AND?: CategoryWhereInput | CategoryWhereInput[]
-    OR?: CategoryWhereInput[]
-    NOT?: CategoryWhereInput | CategoryWhereInput[]
-    id?: StringFilter<"Category"> | string
-    name?: StringFilter<"Category"> | string
-    posts?: AdminPostsListRelationFilter
+  export type FreeTippsWhereInput = {
+    AND?: FreeTippsWhereInput | FreeTippsWhereInput[]
+    OR?: FreeTippsWhereInput[]
+    NOT?: FreeTippsWhereInput | FreeTippsWhereInput[]
+    id?: StringFilter<"FreeTipps"> | string
+    slug?: StringFilter<"FreeTipps"> | string
+    title?: StringFilter<"FreeTipps"> | string
+    content?: StringFilter<"FreeTipps"> | string
+    imageurl?: StringNullableFilter<"FreeTipps"> | string | null
+    deadline?: DateTimeFilter<"FreeTipps"> | Date | string
+    price?: IntFilter<"FreeTipps"> | number
+    prize?: IntFilter<"FreeTipps"> | number
+    odds?: IntFilter<"FreeTipps"> | number
+    createdAt?: DateTimeFilter<"FreeTipps"> | Date | string
+    updatedAt?: DateTimeFilter<"FreeTipps"> | Date | string
+    comments?: CommentListRelationFilter
   }
 
-  export type CategoryOrderByWithRelationInput = {
+  export type FreeTippsOrderByWithRelationInput = {
     id?: SortOrder
-    name?: SortOrder
-    posts?: AdminPostsOrderByRelationAggregateInput
+    slug?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    imageurl?: SortOrderInput | SortOrder
+    deadline?: SortOrder
+    price?: SortOrder
+    prize?: SortOrder
+    odds?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    comments?: CommentOrderByRelationAggregateInput
   }
 
-  export type CategoryWhereUniqueInput = Prisma.AtLeast<{
+  export type FreeTippsWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    name?: string
-    AND?: CategoryWhereInput | CategoryWhereInput[]
-    OR?: CategoryWhereInput[]
-    NOT?: CategoryWhereInput | CategoryWhereInput[]
-    posts?: AdminPostsListRelationFilter
-  }, "id" | "name">
+    slug?: string
+    AND?: FreeTippsWhereInput | FreeTippsWhereInput[]
+    OR?: FreeTippsWhereInput[]
+    NOT?: FreeTippsWhereInput | FreeTippsWhereInput[]
+    title?: StringFilter<"FreeTipps"> | string
+    content?: StringFilter<"FreeTipps"> | string
+    imageurl?: StringNullableFilter<"FreeTipps"> | string | null
+    deadline?: DateTimeFilter<"FreeTipps"> | Date | string
+    price?: IntFilter<"FreeTipps"> | number
+    prize?: IntFilter<"FreeTipps"> | number
+    odds?: IntFilter<"FreeTipps"> | number
+    createdAt?: DateTimeFilter<"FreeTipps"> | Date | string
+    updatedAt?: DateTimeFilter<"FreeTipps"> | Date | string
+    comments?: CommentListRelationFilter
+  }, "id" | "slug">
 
-  export type CategoryOrderByWithAggregationInput = {
+  export type FreeTippsOrderByWithAggregationInput = {
     id?: SortOrder
-    name?: SortOrder
-    _count?: CategoryCountOrderByAggregateInput
-    _max?: CategoryMaxOrderByAggregateInput
-    _min?: CategoryMinOrderByAggregateInput
+    slug?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    imageurl?: SortOrderInput | SortOrder
+    deadline?: SortOrder
+    price?: SortOrder
+    prize?: SortOrder
+    odds?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: FreeTippsCountOrderByAggregateInput
+    _avg?: FreeTippsAvgOrderByAggregateInput
+    _max?: FreeTippsMaxOrderByAggregateInput
+    _min?: FreeTippsMinOrderByAggregateInput
+    _sum?: FreeTippsSumOrderByAggregateInput
   }
 
-  export type CategoryScalarWhereWithAggregatesInput = {
-    AND?: CategoryScalarWhereWithAggregatesInput | CategoryScalarWhereWithAggregatesInput[]
-    OR?: CategoryScalarWhereWithAggregatesInput[]
-    NOT?: CategoryScalarWhereWithAggregatesInput | CategoryScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Category"> | string
-    name?: StringWithAggregatesFilter<"Category"> | string
+  export type FreeTippsScalarWhereWithAggregatesInput = {
+    AND?: FreeTippsScalarWhereWithAggregatesInput | FreeTippsScalarWhereWithAggregatesInput[]
+    OR?: FreeTippsScalarWhereWithAggregatesInput[]
+    NOT?: FreeTippsScalarWhereWithAggregatesInput | FreeTippsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"FreeTipps"> | string
+    slug?: StringWithAggregatesFilter<"FreeTipps"> | string
+    title?: StringWithAggregatesFilter<"FreeTipps"> | string
+    content?: StringWithAggregatesFilter<"FreeTipps"> | string
+    imageurl?: StringNullableWithAggregatesFilter<"FreeTipps"> | string | null
+    deadline?: DateTimeWithAggregatesFilter<"FreeTipps"> | Date | string
+    price?: IntWithAggregatesFilter<"FreeTipps"> | number
+    prize?: IntWithAggregatesFilter<"FreeTipps"> | number
+    odds?: IntWithAggregatesFilter<"FreeTipps"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"FreeTipps"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"FreeTipps"> | Date | string
+  }
+
+  export type PremiumTippsWhereInput = {
+    AND?: PremiumTippsWhereInput | PremiumTippsWhereInput[]
+    OR?: PremiumTippsWhereInput[]
+    NOT?: PremiumTippsWhereInput | PremiumTippsWhereInput[]
+    id?: StringFilter<"PremiumTipps"> | string
+    slug?: StringFilter<"PremiumTipps"> | string
+    title?: StringFilter<"PremiumTipps"> | string
+    content?: StringFilter<"PremiumTipps"> | string
+    deadline?: DateTimeFilter<"PremiumTipps"> | Date | string
+    imageurl?: StringNullableFilter<"PremiumTipps"> | string | null
+    price?: IntFilter<"PremiumTipps"> | number
+    prize?: IntFilter<"PremiumTipps"> | number
+    odds?: IntFilter<"PremiumTipps"> | number
+    createdAt?: DateTimeFilter<"PremiumTipps"> | Date | string
+    updatedAt?: DateTimeFilter<"PremiumTipps"> | Date | string
+    comments?: CommentListRelationFilter
+  }
+
+  export type PremiumTippsOrderByWithRelationInput = {
+    id?: SortOrder
+    slug?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    deadline?: SortOrder
+    imageurl?: SortOrderInput | SortOrder
+    price?: SortOrder
+    prize?: SortOrder
+    odds?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    comments?: CommentOrderByRelationAggregateInput
+  }
+
+  export type PremiumTippsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    slug?: string
+    AND?: PremiumTippsWhereInput | PremiumTippsWhereInput[]
+    OR?: PremiumTippsWhereInput[]
+    NOT?: PremiumTippsWhereInput | PremiumTippsWhereInput[]
+    title?: StringFilter<"PremiumTipps"> | string
+    content?: StringFilter<"PremiumTipps"> | string
+    deadline?: DateTimeFilter<"PremiumTipps"> | Date | string
+    imageurl?: StringNullableFilter<"PremiumTipps"> | string | null
+    price?: IntFilter<"PremiumTipps"> | number
+    prize?: IntFilter<"PremiumTipps"> | number
+    odds?: IntFilter<"PremiumTipps"> | number
+    createdAt?: DateTimeFilter<"PremiumTipps"> | Date | string
+    updatedAt?: DateTimeFilter<"PremiumTipps"> | Date | string
+    comments?: CommentListRelationFilter
+  }, "id" | "slug">
+
+  export type PremiumTippsOrderByWithAggregationInput = {
+    id?: SortOrder
+    slug?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    deadline?: SortOrder
+    imageurl?: SortOrderInput | SortOrder
+    price?: SortOrder
+    prize?: SortOrder
+    odds?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: PremiumTippsCountOrderByAggregateInput
+    _avg?: PremiumTippsAvgOrderByAggregateInput
+    _max?: PremiumTippsMaxOrderByAggregateInput
+    _min?: PremiumTippsMinOrderByAggregateInput
+    _sum?: PremiumTippsSumOrderByAggregateInput
+  }
+
+  export type PremiumTippsScalarWhereWithAggregatesInput = {
+    AND?: PremiumTippsScalarWhereWithAggregatesInput | PremiumTippsScalarWhereWithAggregatesInput[]
+    OR?: PremiumTippsScalarWhereWithAggregatesInput[]
+    NOT?: PremiumTippsScalarWhereWithAggregatesInput | PremiumTippsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PremiumTipps"> | string
+    slug?: StringWithAggregatesFilter<"PremiumTipps"> | string
+    title?: StringWithAggregatesFilter<"PremiumTipps"> | string
+    content?: StringWithAggregatesFilter<"PremiumTipps"> | string
+    deadline?: DateTimeWithAggregatesFilter<"PremiumTipps"> | Date | string
+    imageurl?: StringNullableWithAggregatesFilter<"PremiumTipps"> | string | null
+    price?: IntWithAggregatesFilter<"PremiumTipps"> | number
+    prize?: IntWithAggregatesFilter<"PremiumTipps"> | number
+    odds?: IntWithAggregatesFilter<"PremiumTipps"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"PremiumTipps"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"PremiumTipps"> | Date | string
   }
 
   export type CommentWhereInput = {
@@ -8416,12 +9926,16 @@ export namespace Prisma {
     id?: StringFilter<"Comment"> | string
     content?: StringFilter<"Comment"> | string
     hidden?: BoolFilter<"Comment"> | boolean
-    userId?: IntFilter<"Comment"> | number
+    userId?: StringFilter<"Comment"> | string
     postId?: StringFilter<"Comment"> | string
+    freeTippId?: StringNullableFilter<"Comment"> | string | null
+    premiumTippId?: StringNullableFilter<"Comment"> | string | null
     createdAt?: DateTimeFilter<"Comment"> | Date | string
     updatedAt?: DateTimeFilter<"Comment"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     post?: XOR<AdminPostsScalarRelationFilter, AdminPostsWhereInput>
+    freeTipp?: XOR<FreeTippsNullableScalarRelationFilter, FreeTippsWhereInput> | null
+    premiumTipp?: XOR<PremiumTippsNullableScalarRelationFilter, PremiumTippsWhereInput> | null
   }
 
   export type CommentOrderByWithRelationInput = {
@@ -8430,10 +9944,14 @@ export namespace Prisma {
     hidden?: SortOrder
     userId?: SortOrder
     postId?: SortOrder
+    freeTippId?: SortOrderInput | SortOrder
+    premiumTippId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
     post?: AdminPostsOrderByWithRelationInput
+    freeTipp?: FreeTippsOrderByWithRelationInput
+    premiumTipp?: PremiumTippsOrderByWithRelationInput
   }
 
   export type CommentWhereUniqueInput = Prisma.AtLeast<{
@@ -8443,12 +9961,16 @@ export namespace Prisma {
     NOT?: CommentWhereInput | CommentWhereInput[]
     content?: StringFilter<"Comment"> | string
     hidden?: BoolFilter<"Comment"> | boolean
-    userId?: IntFilter<"Comment"> | number
+    userId?: StringFilter<"Comment"> | string
     postId?: StringFilter<"Comment"> | string
+    freeTippId?: StringNullableFilter<"Comment"> | string | null
+    premiumTippId?: StringNullableFilter<"Comment"> | string | null
     createdAt?: DateTimeFilter<"Comment"> | Date | string
     updatedAt?: DateTimeFilter<"Comment"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     post?: XOR<AdminPostsScalarRelationFilter, AdminPostsWhereInput>
+    freeTipp?: XOR<FreeTippsNullableScalarRelationFilter, FreeTippsWhereInput> | null
+    premiumTipp?: XOR<PremiumTippsNullableScalarRelationFilter, PremiumTippsWhereInput> | null
   }, "id">
 
   export type CommentOrderByWithAggregationInput = {
@@ -8457,13 +9979,13 @@ export namespace Prisma {
     hidden?: SortOrder
     userId?: SortOrder
     postId?: SortOrder
+    freeTippId?: SortOrderInput | SortOrder
+    premiumTippId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: CommentCountOrderByAggregateInput
-    _avg?: CommentAvgOrderByAggregateInput
     _max?: CommentMaxOrderByAggregateInput
     _min?: CommentMinOrderByAggregateInput
-    _sum?: CommentSumOrderByAggregateInput
   }
 
   export type CommentScalarWhereWithAggregatesInput = {
@@ -8473,8 +9995,10 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Comment"> | string
     content?: StringWithAggregatesFilter<"Comment"> | string
     hidden?: BoolWithAggregatesFilter<"Comment"> | boolean
-    userId?: IntWithAggregatesFilter<"Comment"> | number
+    userId?: StringWithAggregatesFilter<"Comment"> | string
     postId?: StringWithAggregatesFilter<"Comment"> | string
+    freeTippId?: StringNullableWithAggregatesFilter<"Comment"> | string | null
+    premiumTippId?: StringNullableWithAggregatesFilter<"Comment"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Comment"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Comment"> | Date | string
   }
@@ -8484,7 +10008,7 @@ export namespace Prisma {
     OR?: SubscriptionWhereInput[]
     NOT?: SubscriptionWhereInput | SubscriptionWhereInput[]
     id?: StringFilter<"Subscription"> | string
-    userId?: IntFilter<"Subscription"> | number
+    userId?: StringFilter<"Subscription"> | string
     validUntil?: DateTimeFilter<"Subscription"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
@@ -8498,7 +10022,7 @@ export namespace Prisma {
 
   export type SubscriptionWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    userId?: number
+    userId?: string
     AND?: SubscriptionWhereInput | SubscriptionWhereInput[]
     OR?: SubscriptionWhereInput[]
     NOT?: SubscriptionWhereInput | SubscriptionWhereInput[]
@@ -8511,10 +10035,8 @@ export namespace Prisma {
     userId?: SortOrder
     validUntil?: SortOrder
     _count?: SubscriptionCountOrderByAggregateInput
-    _avg?: SubscriptionAvgOrderByAggregateInput
     _max?: SubscriptionMaxOrderByAggregateInput
     _min?: SubscriptionMinOrderByAggregateInput
-    _sum?: SubscriptionSumOrderByAggregateInput
   }
 
   export type SubscriptionScalarWhereWithAggregatesInput = {
@@ -8522,7 +10044,7 @@ export namespace Prisma {
     OR?: SubscriptionScalarWhereWithAggregatesInput[]
     NOT?: SubscriptionScalarWhereWithAggregatesInput | SubscriptionScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Subscription"> | string
-    userId?: IntWithAggregatesFilter<"Subscription"> | number
+    userId?: StringWithAggregatesFilter<"Subscription"> | string
     validUntil?: DateTimeWithAggregatesFilter<"Subscription"> | Date | string
   }
 
@@ -8601,6 +10123,7 @@ export namespace Prisma {
   }
 
   export type UserCreateInput = {
+    id?: string
     username: string
     email: string
     password: string
@@ -8613,7 +10136,7 @@ export namespace Prisma {
   }
 
   export type UserUncheckedCreateInput = {
-    id?: number
+    id?: string
     username: string
     email: string
     password: string
@@ -8626,6 +10149,7 @@ export namespace Prisma {
   }
 
   export type UserUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -8638,7 +10162,7 @@ export namespace Prisma {
   }
 
   export type UserUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -8651,7 +10175,7 @@ export namespace Prisma {
   }
 
   export type UserCreateManyInput = {
-    id?: number
+    id?: string
     username: string
     email: string
     password: string
@@ -8662,6 +10186,7 @@ export namespace Prisma {
   }
 
   export type UserUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -8672,7 +10197,7 @@ export namespace Prisma {
   }
 
   export type UserUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -8687,14 +10212,10 @@ export namespace Prisma {
     slug: string
     title: string
     content: string
-    isPremium?: boolean
     imageurl: string
-    tippmixPicture: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deadline: Date | string
     comments?: CommentCreateNestedManyWithoutPostInput
-    category: CategoryCreateNestedOneWithoutPostsInput
   }
 
   export type AdminPostsUncheckedCreateInput = {
@@ -8702,13 +10223,9 @@ export namespace Prisma {
     slug: string
     title: string
     content: string
-    isPremium?: boolean
     imageurl: string
-    tippmixPicture: string
-    categoryId: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deadline: Date | string
     comments?: CommentUncheckedCreateNestedManyWithoutPostInput
   }
 
@@ -8717,14 +10234,10 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
-    isPremium?: BoolFieldUpdateOperationsInput | boolean
     imageurl?: StringFieldUpdateOperationsInput | string
-    tippmixPicture?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
     comments?: CommentUpdateManyWithoutPostNestedInput
-    category?: CategoryUpdateOneRequiredWithoutPostsNestedInput
   }
 
   export type AdminPostsUncheckedUpdateInput = {
@@ -8732,13 +10245,9 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
-    isPremium?: BoolFieldUpdateOperationsInput | boolean
     imageurl?: StringFieldUpdateOperationsInput | string
-    tippmixPicture?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
     comments?: CommentUncheckedUpdateManyWithoutPostNestedInput
   }
 
@@ -8747,13 +10256,9 @@ export namespace Prisma {
     slug: string
     title: string
     content: string
-    isPremium?: boolean
     imageurl: string
-    tippmixPicture: string
-    categoryId: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deadline: Date | string
   }
 
   export type AdminPostsUpdateManyMutationInput = {
@@ -8761,12 +10266,9 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
-    isPremium?: BoolFieldUpdateOperationsInput | boolean
     imageurl?: StringFieldUpdateOperationsInput | string
-    tippmixPicture?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AdminPostsUncheckedUpdateManyInput = {
@@ -8774,52 +10276,213 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
-    isPremium?: BoolFieldUpdateOperationsInput | boolean
     imageurl?: StringFieldUpdateOperationsInput | string
-    tippmixPicture?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FreeTippsCreateInput = {
+    id?: string
+    slug: string
+    title: string
+    content: string
+    imageurl?: string | null
+    deadline: Date | string
+    price?: number
+    prize?: number
+    odds?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    comments?: CommentCreateNestedManyWithoutFreeTippInput
+  }
+
+  export type FreeTippsUncheckedCreateInput = {
+    id?: string
+    slug: string
+    title: string
+    content: string
+    imageurl?: string | null
+    deadline: Date | string
+    price?: number
+    prize?: number
+    odds?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    comments?: CommentUncheckedCreateNestedManyWithoutFreeTippInput
+  }
+
+  export type FreeTippsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    imageurl?: NullableStringFieldUpdateOperationsInput | string | null
     deadline?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
+    prize?: IntFieldUpdateOperationsInput | number
+    odds?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    comments?: CommentUpdateManyWithoutFreeTippNestedInput
   }
 
-  export type CategoryCreateInput = {
+  export type FreeTippsUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    imageurl?: NullableStringFieldUpdateOperationsInput | string | null
+    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
+    prize?: IntFieldUpdateOperationsInput | number
+    odds?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    comments?: CommentUncheckedUpdateManyWithoutFreeTippNestedInput
+  }
+
+  export type FreeTippsCreateManyInput = {
     id?: string
-    name: string
-    posts?: AdminPostsCreateNestedManyWithoutCategoryInput
+    slug: string
+    title: string
+    content: string
+    imageurl?: string | null
+    deadline: Date | string
+    price?: number
+    prize?: number
+    odds?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type CategoryUncheckedCreateInput = {
+  export type FreeTippsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    imageurl?: NullableStringFieldUpdateOperationsInput | string | null
+    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
+    prize?: IntFieldUpdateOperationsInput | number
+    odds?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FreeTippsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    imageurl?: NullableStringFieldUpdateOperationsInput | string | null
+    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
+    prize?: IntFieldUpdateOperationsInput | number
+    odds?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PremiumTippsCreateInput = {
     id?: string
-    name: string
-    posts?: AdminPostsUncheckedCreateNestedManyWithoutCategoryInput
+    slug: string
+    title: string
+    content: string
+    deadline: Date | string
+    imageurl?: string | null
+    price?: number
+    prize?: number
+    odds?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    comments?: CommentCreateNestedManyWithoutPremiumTippInput
   }
 
-  export type CategoryUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    posts?: AdminPostsUpdateManyWithoutCategoryNestedInput
-  }
-
-  export type CategoryUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    posts?: AdminPostsUncheckedUpdateManyWithoutCategoryNestedInput
-  }
-
-  export type CategoryCreateManyInput = {
+  export type PremiumTippsUncheckedCreateInput = {
     id?: string
-    name: string
+    slug: string
+    title: string
+    content: string
+    deadline: Date | string
+    imageurl?: string | null
+    price?: number
+    prize?: number
+    odds?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    comments?: CommentUncheckedCreateNestedManyWithoutPremiumTippInput
   }
 
-  export type CategoryUpdateManyMutationInput = {
+  export type PremiumTippsUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
+    imageurl?: NullableStringFieldUpdateOperationsInput | string | null
+    price?: IntFieldUpdateOperationsInput | number
+    prize?: IntFieldUpdateOperationsInput | number
+    odds?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    comments?: CommentUpdateManyWithoutPremiumTippNestedInput
   }
 
-  export type CategoryUncheckedUpdateManyInput = {
+  export type PremiumTippsUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
+    imageurl?: NullableStringFieldUpdateOperationsInput | string | null
+    price?: IntFieldUpdateOperationsInput | number
+    prize?: IntFieldUpdateOperationsInput | number
+    odds?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    comments?: CommentUncheckedUpdateManyWithoutPremiumTippNestedInput
+  }
+
+  export type PremiumTippsCreateManyInput = {
+    id?: string
+    slug: string
+    title: string
+    content: string
+    deadline: Date | string
+    imageurl?: string | null
+    price?: number
+    prize?: number
+    odds?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PremiumTippsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
+    imageurl?: NullableStringFieldUpdateOperationsInput | string | null
+    price?: IntFieldUpdateOperationsInput | number
+    prize?: IntFieldUpdateOperationsInput | number
+    odds?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PremiumTippsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
+    imageurl?: NullableStringFieldUpdateOperationsInput | string | null
+    price?: IntFieldUpdateOperationsInput | number
+    prize?: IntFieldUpdateOperationsInput | number
+    odds?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CommentCreateInput = {
@@ -8830,14 +10493,18 @@ export namespace Prisma {
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutCommentsInput
     post: AdminPostsCreateNestedOneWithoutCommentsInput
+    freeTipp?: FreeTippsCreateNestedOneWithoutCommentsInput
+    premiumTipp?: PremiumTippsCreateNestedOneWithoutCommentsInput
   }
 
   export type CommentUncheckedCreateInput = {
     id?: string
     content: string
     hidden?: boolean
-    userId: number
+    userId: string
     postId: string
+    freeTippId?: string | null
+    premiumTippId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -8850,14 +10517,18 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutCommentsNestedInput
     post?: AdminPostsUpdateOneRequiredWithoutCommentsNestedInput
+    freeTipp?: FreeTippsUpdateOneWithoutCommentsNestedInput
+    premiumTipp?: PremiumTippsUpdateOneWithoutCommentsNestedInput
   }
 
   export type CommentUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     hidden?: BoolFieldUpdateOperationsInput | boolean
-    userId?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
     postId?: StringFieldUpdateOperationsInput | string
+    freeTippId?: NullableStringFieldUpdateOperationsInput | string | null
+    premiumTippId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -8866,8 +10537,10 @@ export namespace Prisma {
     id?: string
     content: string
     hidden?: boolean
-    userId: number
+    userId: string
     postId: string
+    freeTippId?: string | null
+    premiumTippId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -8884,8 +10557,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     hidden?: BoolFieldUpdateOperationsInput | boolean
-    userId?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
     postId?: StringFieldUpdateOperationsInput | string
+    freeTippId?: NullableStringFieldUpdateOperationsInput | string | null
+    premiumTippId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -8898,7 +10573,7 @@ export namespace Prisma {
 
   export type SubscriptionUncheckedCreateInput = {
     id?: string
-    userId: number
+    userId: string
     validUntil: Date | string
   }
 
@@ -8910,13 +10585,13 @@ export namespace Prisma {
 
   export type SubscriptionUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    userId?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
     validUntil?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type SubscriptionCreateManyInput = {
     id?: string
-    userId: number
+    userId: string
     validUntil: Date | string
   }
 
@@ -8927,7 +10602,7 @@ export namespace Prisma {
 
   export type SubscriptionUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    userId?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
     validUntil?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -9015,17 +10690,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[]
@@ -9090,10 +10754,6 @@ export namespace Prisma {
     isBanned?: SortOrder
   }
 
-  export type UserAvgOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
   export type UserMaxOrderByAggregateInput = {
     id?: SortOrder
     username?: SortOrder
@@ -9114,26 +10774,6 @@ export namespace Prisma {
     isAdmin?: SortOrder
     isPaid?: SortOrder
     isBanned?: SortOrder
-  }
-
-  export type UserSumOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -9189,23 +10829,14 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type CategoryScalarRelationFilter = {
-    is?: CategoryWhereInput
-    isNot?: CategoryWhereInput
-  }
-
   export type AdminPostsCountOrderByAggregateInput = {
     id?: SortOrder
     slug?: SortOrder
     title?: SortOrder
     content?: SortOrder
-    isPremium?: SortOrder
     imageurl?: SortOrder
-    tippmixPicture?: SortOrder
-    categoryId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    deadline?: SortOrder
   }
 
   export type AdminPostsMaxOrderByAggregateInput = {
@@ -9213,13 +10844,9 @@ export namespace Prisma {
     slug?: SortOrder
     title?: SortOrder
     content?: SortOrder
-    isPremium?: SortOrder
     imageurl?: SortOrder
-    tippmixPicture?: SortOrder
-    categoryId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    deadline?: SortOrder
   }
 
   export type AdminPostsMinOrderByAggregateInput = {
@@ -9227,13 +10854,9 @@ export namespace Prisma {
     slug?: SortOrder
     title?: SortOrder
     content?: SortOrder
-    isPremium?: SortOrder
     imageurl?: SortOrder
-    tippmixPicture?: SortOrder
-    categoryId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    deadline?: SortOrder
   }
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -9250,29 +10873,139 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type AdminPostsListRelationFilter = {
-    every?: AdminPostsWhereInput
-    some?: AdminPostsWhereInput
-    none?: AdminPostsWhereInput
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type AdminPostsOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type CategoryCountOrderByAggregateInput = {
+  export type FreeTippsCountOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
+    slug?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    imageurl?: SortOrder
+    deadline?: SortOrder
+    price?: SortOrder
+    prize?: SortOrder
+    odds?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
-  export type CategoryMaxOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
+  export type FreeTippsAvgOrderByAggregateInput = {
+    price?: SortOrder
+    prize?: SortOrder
+    odds?: SortOrder
   }
 
-  export type CategoryMinOrderByAggregateInput = {
+  export type FreeTippsMaxOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
+    slug?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    imageurl?: SortOrder
+    deadline?: SortOrder
+    price?: SortOrder
+    prize?: SortOrder
+    odds?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FreeTippsMinOrderByAggregateInput = {
+    id?: SortOrder
+    slug?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    imageurl?: SortOrder
+    deadline?: SortOrder
+    price?: SortOrder
+    prize?: SortOrder
+    odds?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FreeTippsSumOrderByAggregateInput = {
+    price?: SortOrder
+    prize?: SortOrder
+    odds?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type PremiumTippsCountOrderByAggregateInput = {
+    id?: SortOrder
+    slug?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    deadline?: SortOrder
+    imageurl?: SortOrder
+    price?: SortOrder
+    prize?: SortOrder
+    odds?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PremiumTippsAvgOrderByAggregateInput = {
+    price?: SortOrder
+    prize?: SortOrder
+    odds?: SortOrder
+  }
+
+  export type PremiumTippsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    slug?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    deadline?: SortOrder
+    imageurl?: SortOrder
+    price?: SortOrder
+    prize?: SortOrder
+    odds?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PremiumTippsMinOrderByAggregateInput = {
+    id?: SortOrder
+    slug?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    deadline?: SortOrder
+    imageurl?: SortOrder
+    price?: SortOrder
+    prize?: SortOrder
+    odds?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PremiumTippsSumOrderByAggregateInput = {
+    price?: SortOrder
+    prize?: SortOrder
+    odds?: SortOrder
   }
 
   export type UserScalarRelationFilter = {
@@ -9285,18 +11018,26 @@ export namespace Prisma {
     isNot?: AdminPostsWhereInput
   }
 
+  export type FreeTippsNullableScalarRelationFilter = {
+    is?: FreeTippsWhereInput | null
+    isNot?: FreeTippsWhereInput | null
+  }
+
+  export type PremiumTippsNullableScalarRelationFilter = {
+    is?: PremiumTippsWhereInput | null
+    isNot?: PremiumTippsWhereInput | null
+  }
+
   export type CommentCountOrderByAggregateInput = {
     id?: SortOrder
     content?: SortOrder
     hidden?: SortOrder
     userId?: SortOrder
     postId?: SortOrder
+    freeTippId?: SortOrder
+    premiumTippId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-  }
-
-  export type CommentAvgOrderByAggregateInput = {
-    userId?: SortOrder
   }
 
   export type CommentMaxOrderByAggregateInput = {
@@ -9305,6 +11046,8 @@ export namespace Prisma {
     hidden?: SortOrder
     userId?: SortOrder
     postId?: SortOrder
+    freeTippId?: SortOrder
+    premiumTippId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -9315,22 +11058,16 @@ export namespace Prisma {
     hidden?: SortOrder
     userId?: SortOrder
     postId?: SortOrder
+    freeTippId?: SortOrder
+    premiumTippId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-  }
-
-  export type CommentSumOrderByAggregateInput = {
-    userId?: SortOrder
   }
 
   export type SubscriptionCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
     validUntil?: SortOrder
-  }
-
-  export type SubscriptionAvgOrderByAggregateInput = {
-    userId?: SortOrder
   }
 
   export type SubscriptionMaxOrderByAggregateInput = {
@@ -9343,10 +11080,6 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     validUntil?: SortOrder
-  }
-
-  export type SubscriptionSumOrderByAggregateInput = {
-    userId?: SortOrder
   }
 
   export type freeTipsStatisticCountOrderByAggregateInput = {
@@ -9465,14 +11198,6 @@ export namespace Prisma {
     update?: XOR<XOR<SubscriptionUpdateToOneWithWhereWithoutUserInput, SubscriptionUpdateWithoutUserInput>, SubscriptionUncheckedUpdateWithoutUserInput>
   }
 
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
   export type CommentUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<CommentCreateWithoutUserInput, CommentUncheckedCreateWithoutUserInput> | CommentCreateWithoutUserInput[] | CommentUncheckedCreateWithoutUserInput[]
     connectOrCreate?: CommentCreateOrConnectWithoutUserInput | CommentCreateOrConnectWithoutUserInput[]
@@ -9504,12 +11229,6 @@ export namespace Prisma {
     connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
   }
 
-  export type CategoryCreateNestedOneWithoutPostsInput = {
-    create?: XOR<CategoryCreateWithoutPostsInput, CategoryUncheckedCreateWithoutPostsInput>
-    connectOrCreate?: CategoryCreateOrConnectWithoutPostsInput
-    connect?: CategoryWhereUniqueInput
-  }
-
   export type CommentUncheckedCreateNestedManyWithoutPostInput = {
     create?: XOR<CommentCreateWithoutPostInput, CommentUncheckedCreateWithoutPostInput> | CommentCreateWithoutPostInput[] | CommentUncheckedCreateWithoutPostInput[]
     connectOrCreate?: CommentCreateOrConnectWithoutPostInput | CommentCreateOrConnectWithoutPostInput[]
@@ -9535,14 +11254,6 @@ export namespace Prisma {
     deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
   }
 
-  export type CategoryUpdateOneRequiredWithoutPostsNestedInput = {
-    create?: XOR<CategoryCreateWithoutPostsInput, CategoryUncheckedCreateWithoutPostsInput>
-    connectOrCreate?: CategoryCreateOrConnectWithoutPostsInput
-    upsert?: CategoryUpsertWithoutPostsInput
-    connect?: CategoryWhereUniqueInput
-    update?: XOR<XOR<CategoryUpdateToOneWithWhereWithoutPostsInput, CategoryUpdateWithoutPostsInput>, CategoryUncheckedUpdateWithoutPostsInput>
-  }
-
   export type CommentUncheckedUpdateManyWithoutPostNestedInput = {
     create?: XOR<CommentCreateWithoutPostInput, CommentUncheckedCreateWithoutPostInput> | CommentCreateWithoutPostInput[] | CommentUncheckedCreateWithoutPostInput[]
     connectOrCreate?: CommentCreateOrConnectWithoutPostInput | CommentCreateOrConnectWithoutPostInput[]
@@ -9557,46 +11268,96 @@ export namespace Prisma {
     deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
   }
 
-  export type AdminPostsCreateNestedManyWithoutCategoryInput = {
-    create?: XOR<AdminPostsCreateWithoutCategoryInput, AdminPostsUncheckedCreateWithoutCategoryInput> | AdminPostsCreateWithoutCategoryInput[] | AdminPostsUncheckedCreateWithoutCategoryInput[]
-    connectOrCreate?: AdminPostsCreateOrConnectWithoutCategoryInput | AdminPostsCreateOrConnectWithoutCategoryInput[]
-    createMany?: AdminPostsCreateManyCategoryInputEnvelope
-    connect?: AdminPostsWhereUniqueInput | AdminPostsWhereUniqueInput[]
+  export type CommentCreateNestedManyWithoutFreeTippInput = {
+    create?: XOR<CommentCreateWithoutFreeTippInput, CommentUncheckedCreateWithoutFreeTippInput> | CommentCreateWithoutFreeTippInput[] | CommentUncheckedCreateWithoutFreeTippInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutFreeTippInput | CommentCreateOrConnectWithoutFreeTippInput[]
+    createMany?: CommentCreateManyFreeTippInputEnvelope
+    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
   }
 
-  export type AdminPostsUncheckedCreateNestedManyWithoutCategoryInput = {
-    create?: XOR<AdminPostsCreateWithoutCategoryInput, AdminPostsUncheckedCreateWithoutCategoryInput> | AdminPostsCreateWithoutCategoryInput[] | AdminPostsUncheckedCreateWithoutCategoryInput[]
-    connectOrCreate?: AdminPostsCreateOrConnectWithoutCategoryInput | AdminPostsCreateOrConnectWithoutCategoryInput[]
-    createMany?: AdminPostsCreateManyCategoryInputEnvelope
-    connect?: AdminPostsWhereUniqueInput | AdminPostsWhereUniqueInput[]
+  export type CommentUncheckedCreateNestedManyWithoutFreeTippInput = {
+    create?: XOR<CommentCreateWithoutFreeTippInput, CommentUncheckedCreateWithoutFreeTippInput> | CommentCreateWithoutFreeTippInput[] | CommentUncheckedCreateWithoutFreeTippInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutFreeTippInput | CommentCreateOrConnectWithoutFreeTippInput[]
+    createMany?: CommentCreateManyFreeTippInputEnvelope
+    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
   }
 
-  export type AdminPostsUpdateManyWithoutCategoryNestedInput = {
-    create?: XOR<AdminPostsCreateWithoutCategoryInput, AdminPostsUncheckedCreateWithoutCategoryInput> | AdminPostsCreateWithoutCategoryInput[] | AdminPostsUncheckedCreateWithoutCategoryInput[]
-    connectOrCreate?: AdminPostsCreateOrConnectWithoutCategoryInput | AdminPostsCreateOrConnectWithoutCategoryInput[]
-    upsert?: AdminPostsUpsertWithWhereUniqueWithoutCategoryInput | AdminPostsUpsertWithWhereUniqueWithoutCategoryInput[]
-    createMany?: AdminPostsCreateManyCategoryInputEnvelope
-    set?: AdminPostsWhereUniqueInput | AdminPostsWhereUniqueInput[]
-    disconnect?: AdminPostsWhereUniqueInput | AdminPostsWhereUniqueInput[]
-    delete?: AdminPostsWhereUniqueInput | AdminPostsWhereUniqueInput[]
-    connect?: AdminPostsWhereUniqueInput | AdminPostsWhereUniqueInput[]
-    update?: AdminPostsUpdateWithWhereUniqueWithoutCategoryInput | AdminPostsUpdateWithWhereUniqueWithoutCategoryInput[]
-    updateMany?: AdminPostsUpdateManyWithWhereWithoutCategoryInput | AdminPostsUpdateManyWithWhereWithoutCategoryInput[]
-    deleteMany?: AdminPostsScalarWhereInput | AdminPostsScalarWhereInput[]
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
-  export type AdminPostsUncheckedUpdateManyWithoutCategoryNestedInput = {
-    create?: XOR<AdminPostsCreateWithoutCategoryInput, AdminPostsUncheckedCreateWithoutCategoryInput> | AdminPostsCreateWithoutCategoryInput[] | AdminPostsUncheckedCreateWithoutCategoryInput[]
-    connectOrCreate?: AdminPostsCreateOrConnectWithoutCategoryInput | AdminPostsCreateOrConnectWithoutCategoryInput[]
-    upsert?: AdminPostsUpsertWithWhereUniqueWithoutCategoryInput | AdminPostsUpsertWithWhereUniqueWithoutCategoryInput[]
-    createMany?: AdminPostsCreateManyCategoryInputEnvelope
-    set?: AdminPostsWhereUniqueInput | AdminPostsWhereUniqueInput[]
-    disconnect?: AdminPostsWhereUniqueInput | AdminPostsWhereUniqueInput[]
-    delete?: AdminPostsWhereUniqueInput | AdminPostsWhereUniqueInput[]
-    connect?: AdminPostsWhereUniqueInput | AdminPostsWhereUniqueInput[]
-    update?: AdminPostsUpdateWithWhereUniqueWithoutCategoryInput | AdminPostsUpdateWithWhereUniqueWithoutCategoryInput[]
-    updateMany?: AdminPostsUpdateManyWithWhereWithoutCategoryInput | AdminPostsUpdateManyWithWhereWithoutCategoryInput[]
-    deleteMany?: AdminPostsScalarWhereInput | AdminPostsScalarWhereInput[]
+  export type CommentUpdateManyWithoutFreeTippNestedInput = {
+    create?: XOR<CommentCreateWithoutFreeTippInput, CommentUncheckedCreateWithoutFreeTippInput> | CommentCreateWithoutFreeTippInput[] | CommentUncheckedCreateWithoutFreeTippInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutFreeTippInput | CommentCreateOrConnectWithoutFreeTippInput[]
+    upsert?: CommentUpsertWithWhereUniqueWithoutFreeTippInput | CommentUpsertWithWhereUniqueWithoutFreeTippInput[]
+    createMany?: CommentCreateManyFreeTippInputEnvelope
+    set?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    disconnect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    delete?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    update?: CommentUpdateWithWhereUniqueWithoutFreeTippInput | CommentUpdateWithWhereUniqueWithoutFreeTippInput[]
+    updateMany?: CommentUpdateManyWithWhereWithoutFreeTippInput | CommentUpdateManyWithWhereWithoutFreeTippInput[]
+    deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
+  }
+
+  export type CommentUncheckedUpdateManyWithoutFreeTippNestedInput = {
+    create?: XOR<CommentCreateWithoutFreeTippInput, CommentUncheckedCreateWithoutFreeTippInput> | CommentCreateWithoutFreeTippInput[] | CommentUncheckedCreateWithoutFreeTippInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutFreeTippInput | CommentCreateOrConnectWithoutFreeTippInput[]
+    upsert?: CommentUpsertWithWhereUniqueWithoutFreeTippInput | CommentUpsertWithWhereUniqueWithoutFreeTippInput[]
+    createMany?: CommentCreateManyFreeTippInputEnvelope
+    set?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    disconnect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    delete?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    update?: CommentUpdateWithWhereUniqueWithoutFreeTippInput | CommentUpdateWithWhereUniqueWithoutFreeTippInput[]
+    updateMany?: CommentUpdateManyWithWhereWithoutFreeTippInput | CommentUpdateManyWithWhereWithoutFreeTippInput[]
+    deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
+  }
+
+  export type CommentCreateNestedManyWithoutPremiumTippInput = {
+    create?: XOR<CommentCreateWithoutPremiumTippInput, CommentUncheckedCreateWithoutPremiumTippInput> | CommentCreateWithoutPremiumTippInput[] | CommentUncheckedCreateWithoutPremiumTippInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutPremiumTippInput | CommentCreateOrConnectWithoutPremiumTippInput[]
+    createMany?: CommentCreateManyPremiumTippInputEnvelope
+    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+  }
+
+  export type CommentUncheckedCreateNestedManyWithoutPremiumTippInput = {
+    create?: XOR<CommentCreateWithoutPremiumTippInput, CommentUncheckedCreateWithoutPremiumTippInput> | CommentCreateWithoutPremiumTippInput[] | CommentUncheckedCreateWithoutPremiumTippInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutPremiumTippInput | CommentCreateOrConnectWithoutPremiumTippInput[]
+    createMany?: CommentCreateManyPremiumTippInputEnvelope
+    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+  }
+
+  export type CommentUpdateManyWithoutPremiumTippNestedInput = {
+    create?: XOR<CommentCreateWithoutPremiumTippInput, CommentUncheckedCreateWithoutPremiumTippInput> | CommentCreateWithoutPremiumTippInput[] | CommentUncheckedCreateWithoutPremiumTippInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutPremiumTippInput | CommentCreateOrConnectWithoutPremiumTippInput[]
+    upsert?: CommentUpsertWithWhereUniqueWithoutPremiumTippInput | CommentUpsertWithWhereUniqueWithoutPremiumTippInput[]
+    createMany?: CommentCreateManyPremiumTippInputEnvelope
+    set?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    disconnect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    delete?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    update?: CommentUpdateWithWhereUniqueWithoutPremiumTippInput | CommentUpdateWithWhereUniqueWithoutPremiumTippInput[]
+    updateMany?: CommentUpdateManyWithWhereWithoutPremiumTippInput | CommentUpdateManyWithWhereWithoutPremiumTippInput[]
+    deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
+  }
+
+  export type CommentUncheckedUpdateManyWithoutPremiumTippNestedInput = {
+    create?: XOR<CommentCreateWithoutPremiumTippInput, CommentUncheckedCreateWithoutPremiumTippInput> | CommentCreateWithoutPremiumTippInput[] | CommentUncheckedCreateWithoutPremiumTippInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutPremiumTippInput | CommentCreateOrConnectWithoutPremiumTippInput[]
+    upsert?: CommentUpsertWithWhereUniqueWithoutPremiumTippInput | CommentUpsertWithWhereUniqueWithoutPremiumTippInput[]
+    createMany?: CommentCreateManyPremiumTippInputEnvelope
+    set?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    disconnect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    delete?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    update?: CommentUpdateWithWhereUniqueWithoutPremiumTippInput | CommentUpdateWithWhereUniqueWithoutPremiumTippInput[]
+    updateMany?: CommentUpdateManyWithWhereWithoutPremiumTippInput | CommentUpdateManyWithWhereWithoutPremiumTippInput[]
+    deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutCommentsInput = {
@@ -9609,6 +11370,18 @@ export namespace Prisma {
     create?: XOR<AdminPostsCreateWithoutCommentsInput, AdminPostsUncheckedCreateWithoutCommentsInput>
     connectOrCreate?: AdminPostsCreateOrConnectWithoutCommentsInput
     connect?: AdminPostsWhereUniqueInput
+  }
+
+  export type FreeTippsCreateNestedOneWithoutCommentsInput = {
+    create?: XOR<FreeTippsCreateWithoutCommentsInput, FreeTippsUncheckedCreateWithoutCommentsInput>
+    connectOrCreate?: FreeTippsCreateOrConnectWithoutCommentsInput
+    connect?: FreeTippsWhereUniqueInput
+  }
+
+  export type PremiumTippsCreateNestedOneWithoutCommentsInput = {
+    create?: XOR<PremiumTippsCreateWithoutCommentsInput, PremiumTippsUncheckedCreateWithoutCommentsInput>
+    connectOrCreate?: PremiumTippsCreateOrConnectWithoutCommentsInput
+    connect?: PremiumTippsWhereUniqueInput
   }
 
   export type UserUpdateOneRequiredWithoutCommentsNestedInput = {
@@ -9627,6 +11400,26 @@ export namespace Prisma {
     update?: XOR<XOR<AdminPostsUpdateToOneWithWhereWithoutCommentsInput, AdminPostsUpdateWithoutCommentsInput>, AdminPostsUncheckedUpdateWithoutCommentsInput>
   }
 
+  export type FreeTippsUpdateOneWithoutCommentsNestedInput = {
+    create?: XOR<FreeTippsCreateWithoutCommentsInput, FreeTippsUncheckedCreateWithoutCommentsInput>
+    connectOrCreate?: FreeTippsCreateOrConnectWithoutCommentsInput
+    upsert?: FreeTippsUpsertWithoutCommentsInput
+    disconnect?: FreeTippsWhereInput | boolean
+    delete?: FreeTippsWhereInput | boolean
+    connect?: FreeTippsWhereUniqueInput
+    update?: XOR<XOR<FreeTippsUpdateToOneWithWhereWithoutCommentsInput, FreeTippsUpdateWithoutCommentsInput>, FreeTippsUncheckedUpdateWithoutCommentsInput>
+  }
+
+  export type PremiumTippsUpdateOneWithoutCommentsNestedInput = {
+    create?: XOR<PremiumTippsCreateWithoutCommentsInput, PremiumTippsUncheckedCreateWithoutCommentsInput>
+    connectOrCreate?: PremiumTippsCreateOrConnectWithoutCommentsInput
+    upsert?: PremiumTippsUpsertWithoutCommentsInput
+    disconnect?: PremiumTippsWhereInput | boolean
+    delete?: PremiumTippsWhereInput | boolean
+    connect?: PremiumTippsWhereUniqueInput
+    update?: XOR<XOR<PremiumTippsUpdateToOneWithWhereWithoutCommentsInput, PremiumTippsUpdateWithoutCommentsInput>, PremiumTippsUncheckedUpdateWithoutCommentsInput>
+  }
+
   export type UserCreateNestedOneWithoutSubscriptionInput = {
     create?: XOR<UserCreateWithoutSubscriptionInput, UserUncheckedCreateWithoutSubscriptionInput>
     connectOrCreate?: UserCreateOrConnectWithoutSubscriptionInput
@@ -9639,17 +11432,6 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutSubscriptionInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSubscriptionInput, UserUpdateWithoutSubscriptionInput>, UserUncheckedUpdateWithoutSubscriptionInput>
-  }
-
-  export type NestedIntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -9685,33 +11467,6 @@ export namespace Prisma {
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
-  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
-  export type NestedFloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
-  }
-
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[]
@@ -9727,6 +11482,17 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedIntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -9790,6 +11556,33 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
   export type CommentCreateWithoutUserInput = {
     id?: string
     content: string
@@ -9797,6 +11590,8 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     post: AdminPostsCreateNestedOneWithoutCommentsInput
+    freeTipp?: FreeTippsCreateNestedOneWithoutCommentsInput
+    premiumTipp?: PremiumTippsCreateNestedOneWithoutCommentsInput
   }
 
   export type CommentUncheckedCreateWithoutUserInput = {
@@ -9804,6 +11599,8 @@ export namespace Prisma {
     content: string
     hidden?: boolean
     postId: string
+    freeTippId?: string | null
+    premiumTippId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -9855,8 +11652,10 @@ export namespace Prisma {
     id?: StringFilter<"Comment"> | string
     content?: StringFilter<"Comment"> | string
     hidden?: BoolFilter<"Comment"> | boolean
-    userId?: IntFilter<"Comment"> | number
+    userId?: StringFilter<"Comment"> | string
     postId?: StringFilter<"Comment"> | string
+    freeTippId?: StringNullableFilter<"Comment"> | string | null
+    premiumTippId?: StringNullableFilter<"Comment"> | string | null
     createdAt?: DateTimeFilter<"Comment"> | Date | string
     updatedAt?: DateTimeFilter<"Comment"> | Date | string
   }
@@ -9889,13 +11688,17 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutCommentsInput
+    freeTipp?: FreeTippsCreateNestedOneWithoutCommentsInput
+    premiumTipp?: PremiumTippsCreateNestedOneWithoutCommentsInput
   }
 
   export type CommentUncheckedCreateWithoutPostInput = {
     id?: string
     content: string
     hidden?: boolean
-    userId: number
+    userId: string
+    freeTippId?: string | null
+    premiumTippId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -9907,21 +11710,6 @@ export namespace Prisma {
 
   export type CommentCreateManyPostInputEnvelope = {
     data: CommentCreateManyPostInput | CommentCreateManyPostInput[]
-  }
-
-  export type CategoryCreateWithoutPostsInput = {
-    id?: string
-    name: string
-  }
-
-  export type CategoryUncheckedCreateWithoutPostsInput = {
-    id?: string
-    name: string
-  }
-
-  export type CategoryCreateOrConnectWithoutPostsInput = {
-    where: CategoryWhereUniqueInput
-    create: XOR<CategoryCreateWithoutPostsInput, CategoryUncheckedCreateWithoutPostsInput>
   }
 
   export type CommentUpsertWithWhereUniqueWithoutPostInput = {
@@ -9940,98 +11728,102 @@ export namespace Prisma {
     data: XOR<CommentUpdateManyMutationInput, CommentUncheckedUpdateManyWithoutPostInput>
   }
 
-  export type CategoryUpsertWithoutPostsInput = {
-    update: XOR<CategoryUpdateWithoutPostsInput, CategoryUncheckedUpdateWithoutPostsInput>
-    create: XOR<CategoryCreateWithoutPostsInput, CategoryUncheckedCreateWithoutPostsInput>
-    where?: CategoryWhereInput
-  }
-
-  export type CategoryUpdateToOneWithWhereWithoutPostsInput = {
-    where?: CategoryWhereInput
-    data: XOR<CategoryUpdateWithoutPostsInput, CategoryUncheckedUpdateWithoutPostsInput>
-  }
-
-  export type CategoryUpdateWithoutPostsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type CategoryUncheckedUpdateWithoutPostsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type AdminPostsCreateWithoutCategoryInput = {
+  export type CommentCreateWithoutFreeTippInput = {
     id?: string
-    slug: string
-    title: string
     content: string
-    isPremium?: boolean
-    imageurl: string
-    tippmixPicture: string
+    hidden?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
-    deadline: Date | string
-    comments?: CommentCreateNestedManyWithoutPostInput
+    user: UserCreateNestedOneWithoutCommentsInput
+    post: AdminPostsCreateNestedOneWithoutCommentsInput
+    premiumTipp?: PremiumTippsCreateNestedOneWithoutCommentsInput
   }
 
-  export type AdminPostsUncheckedCreateWithoutCategoryInput = {
+  export type CommentUncheckedCreateWithoutFreeTippInput = {
     id?: string
-    slug: string
-    title: string
     content: string
-    isPremium?: boolean
-    imageurl: string
-    tippmixPicture: string
+    hidden?: boolean
+    userId: string
+    postId: string
+    premiumTippId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    deadline: Date | string
-    comments?: CommentUncheckedCreateNestedManyWithoutPostInput
   }
 
-  export type AdminPostsCreateOrConnectWithoutCategoryInput = {
-    where: AdminPostsWhereUniqueInput
-    create: XOR<AdminPostsCreateWithoutCategoryInput, AdminPostsUncheckedCreateWithoutCategoryInput>
+  export type CommentCreateOrConnectWithoutFreeTippInput = {
+    where: CommentWhereUniqueInput
+    create: XOR<CommentCreateWithoutFreeTippInput, CommentUncheckedCreateWithoutFreeTippInput>
   }
 
-  export type AdminPostsCreateManyCategoryInputEnvelope = {
-    data: AdminPostsCreateManyCategoryInput | AdminPostsCreateManyCategoryInput[]
+  export type CommentCreateManyFreeTippInputEnvelope = {
+    data: CommentCreateManyFreeTippInput | CommentCreateManyFreeTippInput[]
   }
 
-  export type AdminPostsUpsertWithWhereUniqueWithoutCategoryInput = {
-    where: AdminPostsWhereUniqueInput
-    update: XOR<AdminPostsUpdateWithoutCategoryInput, AdminPostsUncheckedUpdateWithoutCategoryInput>
-    create: XOR<AdminPostsCreateWithoutCategoryInput, AdminPostsUncheckedCreateWithoutCategoryInput>
+  export type CommentUpsertWithWhereUniqueWithoutFreeTippInput = {
+    where: CommentWhereUniqueInput
+    update: XOR<CommentUpdateWithoutFreeTippInput, CommentUncheckedUpdateWithoutFreeTippInput>
+    create: XOR<CommentCreateWithoutFreeTippInput, CommentUncheckedCreateWithoutFreeTippInput>
   }
 
-  export type AdminPostsUpdateWithWhereUniqueWithoutCategoryInput = {
-    where: AdminPostsWhereUniqueInput
-    data: XOR<AdminPostsUpdateWithoutCategoryInput, AdminPostsUncheckedUpdateWithoutCategoryInput>
+  export type CommentUpdateWithWhereUniqueWithoutFreeTippInput = {
+    where: CommentWhereUniqueInput
+    data: XOR<CommentUpdateWithoutFreeTippInput, CommentUncheckedUpdateWithoutFreeTippInput>
   }
 
-  export type AdminPostsUpdateManyWithWhereWithoutCategoryInput = {
-    where: AdminPostsScalarWhereInput
-    data: XOR<AdminPostsUpdateManyMutationInput, AdminPostsUncheckedUpdateManyWithoutCategoryInput>
+  export type CommentUpdateManyWithWhereWithoutFreeTippInput = {
+    where: CommentScalarWhereInput
+    data: XOR<CommentUpdateManyMutationInput, CommentUncheckedUpdateManyWithoutFreeTippInput>
   }
 
-  export type AdminPostsScalarWhereInput = {
-    AND?: AdminPostsScalarWhereInput | AdminPostsScalarWhereInput[]
-    OR?: AdminPostsScalarWhereInput[]
-    NOT?: AdminPostsScalarWhereInput | AdminPostsScalarWhereInput[]
-    id?: StringFilter<"AdminPosts"> | string
-    slug?: StringFilter<"AdminPosts"> | string
-    title?: StringFilter<"AdminPosts"> | string
-    content?: StringFilter<"AdminPosts"> | string
-    isPremium?: BoolFilter<"AdminPosts"> | boolean
-    imageurl?: StringFilter<"AdminPosts"> | string
-    tippmixPicture?: StringFilter<"AdminPosts"> | string
-    categoryId?: StringFilter<"AdminPosts"> | string
-    createdAt?: DateTimeFilter<"AdminPosts"> | Date | string
-    updatedAt?: DateTimeFilter<"AdminPosts"> | Date | string
-    deadline?: DateTimeFilter<"AdminPosts"> | Date | string
+  export type CommentCreateWithoutPremiumTippInput = {
+    id?: string
+    content: string
+    hidden?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutCommentsInput
+    post: AdminPostsCreateNestedOneWithoutCommentsInput
+    freeTipp?: FreeTippsCreateNestedOneWithoutCommentsInput
+  }
+
+  export type CommentUncheckedCreateWithoutPremiumTippInput = {
+    id?: string
+    content: string
+    hidden?: boolean
+    userId: string
+    postId: string
+    freeTippId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CommentCreateOrConnectWithoutPremiumTippInput = {
+    where: CommentWhereUniqueInput
+    create: XOR<CommentCreateWithoutPremiumTippInput, CommentUncheckedCreateWithoutPremiumTippInput>
+  }
+
+  export type CommentCreateManyPremiumTippInputEnvelope = {
+    data: CommentCreateManyPremiumTippInput | CommentCreateManyPremiumTippInput[]
+  }
+
+  export type CommentUpsertWithWhereUniqueWithoutPremiumTippInput = {
+    where: CommentWhereUniqueInput
+    update: XOR<CommentUpdateWithoutPremiumTippInput, CommentUncheckedUpdateWithoutPremiumTippInput>
+    create: XOR<CommentCreateWithoutPremiumTippInput, CommentUncheckedCreateWithoutPremiumTippInput>
+  }
+
+  export type CommentUpdateWithWhereUniqueWithoutPremiumTippInput = {
+    where: CommentWhereUniqueInput
+    data: XOR<CommentUpdateWithoutPremiumTippInput, CommentUncheckedUpdateWithoutPremiumTippInput>
+  }
+
+  export type CommentUpdateManyWithWhereWithoutPremiumTippInput = {
+    where: CommentScalarWhereInput
+    data: XOR<CommentUpdateManyMutationInput, CommentUncheckedUpdateManyWithoutPremiumTippInput>
   }
 
   export type UserCreateWithoutCommentsInput = {
+    id?: string
     username: string
     email: string
     password: string
@@ -10043,7 +11835,7 @@ export namespace Prisma {
   }
 
   export type UserUncheckedCreateWithoutCommentsInput = {
-    id?: number
+    id?: string
     username: string
     email: string
     password: string
@@ -10064,13 +11856,9 @@ export namespace Prisma {
     slug: string
     title: string
     content: string
-    isPremium?: boolean
     imageurl: string
-    tippmixPicture: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deadline: Date | string
-    category: CategoryCreateNestedOneWithoutPostsInput
   }
 
   export type AdminPostsUncheckedCreateWithoutCommentsInput = {
@@ -10078,18 +11866,80 @@ export namespace Prisma {
     slug: string
     title: string
     content: string
-    isPremium?: boolean
     imageurl: string
-    tippmixPicture: string
-    categoryId: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deadline: Date | string
   }
 
   export type AdminPostsCreateOrConnectWithoutCommentsInput = {
     where: AdminPostsWhereUniqueInput
     create: XOR<AdminPostsCreateWithoutCommentsInput, AdminPostsUncheckedCreateWithoutCommentsInput>
+  }
+
+  export type FreeTippsCreateWithoutCommentsInput = {
+    id?: string
+    slug: string
+    title: string
+    content: string
+    imageurl?: string | null
+    deadline: Date | string
+    price?: number
+    prize?: number
+    odds?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FreeTippsUncheckedCreateWithoutCommentsInput = {
+    id?: string
+    slug: string
+    title: string
+    content: string
+    imageurl?: string | null
+    deadline: Date | string
+    price?: number
+    prize?: number
+    odds?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FreeTippsCreateOrConnectWithoutCommentsInput = {
+    where: FreeTippsWhereUniqueInput
+    create: XOR<FreeTippsCreateWithoutCommentsInput, FreeTippsUncheckedCreateWithoutCommentsInput>
+  }
+
+  export type PremiumTippsCreateWithoutCommentsInput = {
+    id?: string
+    slug: string
+    title: string
+    content: string
+    deadline: Date | string
+    imageurl?: string | null
+    price?: number
+    prize?: number
+    odds?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PremiumTippsUncheckedCreateWithoutCommentsInput = {
+    id?: string
+    slug: string
+    title: string
+    content: string
+    deadline: Date | string
+    imageurl?: string | null
+    price?: number
+    prize?: number
+    odds?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PremiumTippsCreateOrConnectWithoutCommentsInput = {
+    where: PremiumTippsWhereUniqueInput
+    create: XOR<PremiumTippsCreateWithoutCommentsInput, PremiumTippsUncheckedCreateWithoutCommentsInput>
   }
 
   export type UserUpsertWithoutCommentsInput = {
@@ -10104,6 +11954,7 @@ export namespace Prisma {
   }
 
   export type UserUpdateWithoutCommentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -10115,7 +11966,7 @@ export namespace Prisma {
   }
 
   export type UserUncheckedUpdateWithoutCommentsInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -10142,13 +11993,9 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
-    isPremium?: BoolFieldUpdateOperationsInput | boolean
     imageurl?: StringFieldUpdateOperationsInput | string
-    tippmixPicture?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
-    category?: CategoryUpdateOneRequiredWithoutPostsNestedInput
   }
 
   export type AdminPostsUncheckedUpdateWithoutCommentsInput = {
@@ -10156,16 +12003,91 @@ export namespace Prisma {
     slug?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
-    isPremium?: BoolFieldUpdateOperationsInput | boolean
     imageurl?: StringFieldUpdateOperationsInput | string
-    tippmixPicture?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FreeTippsUpsertWithoutCommentsInput = {
+    update: XOR<FreeTippsUpdateWithoutCommentsInput, FreeTippsUncheckedUpdateWithoutCommentsInput>
+    create: XOR<FreeTippsCreateWithoutCommentsInput, FreeTippsUncheckedCreateWithoutCommentsInput>
+    where?: FreeTippsWhereInput
+  }
+
+  export type FreeTippsUpdateToOneWithWhereWithoutCommentsInput = {
+    where?: FreeTippsWhereInput
+    data: XOR<FreeTippsUpdateWithoutCommentsInput, FreeTippsUncheckedUpdateWithoutCommentsInput>
+  }
+
+  export type FreeTippsUpdateWithoutCommentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    imageurl?: NullableStringFieldUpdateOperationsInput | string | null
     deadline?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
+    prize?: IntFieldUpdateOperationsInput | number
+    odds?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FreeTippsUncheckedUpdateWithoutCommentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    imageurl?: NullableStringFieldUpdateOperationsInput | string | null
+    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
+    prize?: IntFieldUpdateOperationsInput | number
+    odds?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PremiumTippsUpsertWithoutCommentsInput = {
+    update: XOR<PremiumTippsUpdateWithoutCommentsInput, PremiumTippsUncheckedUpdateWithoutCommentsInput>
+    create: XOR<PremiumTippsCreateWithoutCommentsInput, PremiumTippsUncheckedCreateWithoutCommentsInput>
+    where?: PremiumTippsWhereInput
+  }
+
+  export type PremiumTippsUpdateToOneWithWhereWithoutCommentsInput = {
+    where?: PremiumTippsWhereInput
+    data: XOR<PremiumTippsUpdateWithoutCommentsInput, PremiumTippsUncheckedUpdateWithoutCommentsInput>
+  }
+
+  export type PremiumTippsUpdateWithoutCommentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
+    imageurl?: NullableStringFieldUpdateOperationsInput | string | null
+    price?: IntFieldUpdateOperationsInput | number
+    prize?: IntFieldUpdateOperationsInput | number
+    odds?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PremiumTippsUncheckedUpdateWithoutCommentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
+    imageurl?: NullableStringFieldUpdateOperationsInput | string | null
+    price?: IntFieldUpdateOperationsInput | number
+    prize?: IntFieldUpdateOperationsInput | number
+    odds?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserCreateWithoutSubscriptionInput = {
+    id?: string
     username: string
     email: string
     password: string
@@ -10177,7 +12099,7 @@ export namespace Prisma {
   }
 
   export type UserUncheckedCreateWithoutSubscriptionInput = {
-    id?: number
+    id?: string
     username: string
     email: string
     password: string
@@ -10205,6 +12127,7 @@ export namespace Prisma {
   }
 
   export type UserUpdateWithoutSubscriptionInput = {
+    id?: StringFieldUpdateOperationsInput | string
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -10216,7 +12139,7 @@ export namespace Prisma {
   }
 
   export type UserUncheckedUpdateWithoutSubscriptionInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -10232,6 +12155,8 @@ export namespace Prisma {
     content: string
     hidden?: boolean
     postId: string
+    freeTippId?: string | null
+    premiumTippId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -10243,6 +12168,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     post?: AdminPostsUpdateOneRequiredWithoutCommentsNestedInput
+    freeTipp?: FreeTippsUpdateOneWithoutCommentsNestedInput
+    premiumTipp?: PremiumTippsUpdateOneWithoutCommentsNestedInput
   }
 
   export type CommentUncheckedUpdateWithoutUserInput = {
@@ -10250,6 +12177,8 @@ export namespace Prisma {
     content?: StringFieldUpdateOperationsInput | string
     hidden?: BoolFieldUpdateOperationsInput | boolean
     postId?: StringFieldUpdateOperationsInput | string
+    freeTippId?: NullableStringFieldUpdateOperationsInput | string | null
+    premiumTippId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10259,6 +12188,8 @@ export namespace Prisma {
     content?: StringFieldUpdateOperationsInput | string
     hidden?: BoolFieldUpdateOperationsInput | boolean
     postId?: StringFieldUpdateOperationsInput | string
+    freeTippId?: NullableStringFieldUpdateOperationsInput | string | null
+    premiumTippId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10267,7 +12198,9 @@ export namespace Prisma {
     id?: string
     content: string
     hidden?: boolean
-    userId: number
+    userId: string
+    freeTippId?: string | null
+    premiumTippId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -10279,13 +12212,17 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutCommentsNestedInput
+    freeTipp?: FreeTippsUpdateOneWithoutCommentsNestedInput
+    premiumTipp?: PremiumTippsUpdateOneWithoutCommentsNestedInput
   }
 
   export type CommentUncheckedUpdateWithoutPostInput = {
     id?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     hidden?: BoolFieldUpdateOperationsInput | boolean
-    userId?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    freeTippId?: NullableStringFieldUpdateOperationsInput | string | null
+    premiumTippId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10294,63 +12231,99 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     hidden?: BoolFieldUpdateOperationsInput | boolean
-    userId?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    freeTippId?: NullableStringFieldUpdateOperationsInput | string | null
+    premiumTippId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type AdminPostsCreateManyCategoryInput = {
+  export type CommentCreateManyFreeTippInput = {
     id?: string
-    slug: string
-    title: string
     content: string
-    isPremium?: boolean
-    imageurl: string
-    tippmixPicture: string
+    hidden?: boolean
+    userId: string
+    postId: string
+    premiumTippId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    deadline: Date | string
   }
 
-  export type AdminPostsUpdateWithoutCategoryInput = {
+  export type CommentUpdateWithoutFreeTippInput = {
     id?: StringFieldUpdateOperationsInput | string
-    slug?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
-    isPremium?: BoolFieldUpdateOperationsInput | boolean
-    imageurl?: StringFieldUpdateOperationsInput | string
-    tippmixPicture?: StringFieldUpdateOperationsInput | string
+    hidden?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
-    comments?: CommentUpdateManyWithoutPostNestedInput
+    user?: UserUpdateOneRequiredWithoutCommentsNestedInput
+    post?: AdminPostsUpdateOneRequiredWithoutCommentsNestedInput
+    premiumTipp?: PremiumTippsUpdateOneWithoutCommentsNestedInput
   }
 
-  export type AdminPostsUncheckedUpdateWithoutCategoryInput = {
+  export type CommentUncheckedUpdateWithoutFreeTippInput = {
     id?: StringFieldUpdateOperationsInput | string
-    slug?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
-    isPremium?: BoolFieldUpdateOperationsInput | boolean
-    imageurl?: StringFieldUpdateOperationsInput | string
-    tippmixPicture?: StringFieldUpdateOperationsInput | string
+    hidden?: BoolFieldUpdateOperationsInput | boolean
+    userId?: StringFieldUpdateOperationsInput | string
+    postId?: StringFieldUpdateOperationsInput | string
+    premiumTippId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
-    comments?: CommentUncheckedUpdateManyWithoutPostNestedInput
   }
 
-  export type AdminPostsUncheckedUpdateManyWithoutCategoryInput = {
+  export type CommentUncheckedUpdateManyWithoutFreeTippInput = {
     id?: StringFieldUpdateOperationsInput | string
-    slug?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
-    isPremium?: BoolFieldUpdateOperationsInput | boolean
-    imageurl?: StringFieldUpdateOperationsInput | string
-    tippmixPicture?: StringFieldUpdateOperationsInput | string
+    hidden?: BoolFieldUpdateOperationsInput | boolean
+    userId?: StringFieldUpdateOperationsInput | string
+    postId?: StringFieldUpdateOperationsInput | string
+    premiumTippId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CommentCreateManyPremiumTippInput = {
+    id?: string
+    content: string
+    hidden?: boolean
+    userId: string
+    postId: string
+    freeTippId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CommentUpdateWithoutPremiumTippInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    hidden?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutCommentsNestedInput
+    post?: AdminPostsUpdateOneRequiredWithoutCommentsNestedInput
+    freeTipp?: FreeTippsUpdateOneWithoutCommentsNestedInput
+  }
+
+  export type CommentUncheckedUpdateWithoutPremiumTippInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    hidden?: BoolFieldUpdateOperationsInput | boolean
+    userId?: StringFieldUpdateOperationsInput | string
+    postId?: StringFieldUpdateOperationsInput | string
+    freeTippId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CommentUncheckedUpdateManyWithoutPremiumTippInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    hidden?: BoolFieldUpdateOperationsInput | boolean
+    userId?: StringFieldUpdateOperationsInput | string
+    postId?: StringFieldUpdateOperationsInput | string
+    freeTippId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

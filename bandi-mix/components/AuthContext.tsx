@@ -36,9 +36,10 @@ export const useAuth = () => {
 function decodeJwt(token: string): User | null {
   try {
     const payload = JSON.parse(atob(token.split('.')[1]));
+    const username = payload.username || payload.name || (payload.email ? payload.email.split('@')[0] : 'anonymus');
     return {
       id: payload.id,
-      username: payload.username || payload.email,
+      username,
       email: payload.email,
       avatar: payload.avatar,
       isAdmin: payload.isAdmin,

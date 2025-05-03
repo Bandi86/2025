@@ -133,18 +133,37 @@ exports.Prisma.AdminPostsScalarFieldEnum = {
   slug: 'slug',
   title: 'title',
   content: 'content',
-  isPremium: 'isPremium',
   imageurl: 'imageurl',
-  tippmixPicture: 'tippmixPicture',
-  categoryId: 'categoryId',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  deadline: 'deadline'
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.CategoryScalarFieldEnum = {
+exports.Prisma.FreeTippsScalarFieldEnum = {
   id: 'id',
-  name: 'name'
+  slug: 'slug',
+  title: 'title',
+  content: 'content',
+  imageurl: 'imageurl',
+  deadline: 'deadline',
+  price: 'price',
+  prize: 'prize',
+  odds: 'odds',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.PremiumTippsScalarFieldEnum = {
+  id: 'id',
+  slug: 'slug',
+  title: 'title',
+  content: 'content',
+  deadline: 'deadline',
+  imageurl: 'imageurl',
+  price: 'price',
+  prize: 'prize',
+  odds: 'odds',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.CommentScalarFieldEnum = {
@@ -153,6 +172,8 @@ exports.Prisma.CommentScalarFieldEnum = {
   hidden: 'hidden',
   userId: 'userId',
   postId: 'postId',
+  freeTippId: 'freeTippId',
+  premiumTippId: 'premiumTippId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -189,7 +210,8 @@ exports.Prisma.NullsOrder = {
 exports.Prisma.ModelName = {
   User: 'User',
   AdminPosts: 'AdminPosts',
-  Category: 'Category',
+  FreeTipps: 'FreeTipps',
+  PremiumTipps: 'PremiumTipps',
   Comment: 'Comment',
   Subscription: 'Subscription',
   freeTipsStatistic: 'freeTipsStatistic'

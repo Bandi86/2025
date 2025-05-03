@@ -1,22 +1,10 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { marked } from 'marked';
-
-interface AdminPostMeta {
-  slug: string;
-  title: string;
-  content: string;
-  isPremium: boolean;
-  deadline: string;
-  imageurl?: string;
-  tippmixPicture?: string;
-  createdAt?: string;
-  updatedAt?: string;
-  commentsCount?: number;
-}
+import type { PostMeta } from '../types/t';
 
 const RenderPosts = () => {
-  const [posts, setPosts] = useState<AdminPostMeta[]>([]);
+  const [posts, setPosts] = useState<PostMeta[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -47,27 +35,42 @@ const RenderPosts = () => {
       {posts.map((post) => (
         <div
           key={post.slug}
-          className="card card-bordered bg-base-100 shadow-md hover:shadow-xl transition-shadow duration-200"
+          className="card-compact card-bordered bg-base-100 w-96 shadow-sm hover:shadow-xl transition-shadow duration-200 flex flex-col justify-between relative"
         >
-          {post.imageurl && (
-            <figure className="h-36 overflow-hidden rounded-t-box">
-              <img src={post.imageurl} alt={post.title} className="w-full h-full object-cover" />
-            </figure>
-          )}
-          <div className="card-body p-4">
-            <h2 className="card-title text-base font-semibold mb-1 line-clamp-2">{post.title}</h2>
-            <div className="flex items-center gap-2 mb-2">
+          <div className="flex flex-row items-stretch">
+
+            <div className="relative min-w-[96px] max-w-[120px] w-28 flex-shrink-0 flex flex-col justify-start">
+              {(post.isPremium || post.isPremium === false) && (
+                <span
+                  className={`badge absolute left-2 top-2 z-10 ${post.isPremium ? 'badge-primary' : 'badge-success'}`}
+                >
+                  {post.isPremium ? 'Prémium' : 'Ingyenes'}
+                </span>
+              )}
+              {post.imageurl && (
+                <figure className="h-24 w-full overflow-hidden rounded-l-box rounded-tr-none rounded-br-none">
+                  <img src={post.imageurl} alt={post.title} className="w-full h-full object-cover" />
+                </figure>
+              )}
+            </div>
+            <div className="flex-1 flex flex-col justify-between p-3">
+              <h2 className="card-title text-base font-semibold mb-1 line-clamp-2">{post.title}</h2>
+              <p className="text-sm text-base-content/70 line-clamp-2 mb-2">
+                {post.content?.replace(/[#*_`>\-\[\]!\n]/g, '').slice(0, 70) || ''}...
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center justify-between px-3 pb-2 pt-1 text-xs text-base-content/60">
+            <span>{post.createdAt ? new Date(post.createdAt).toLocaleDateString('hu-HU') : ''}</span>
+            <div className="flex items-center gap-2">
               {post.deadline && <span className="badge badge-info badge-xs">{post.deadline}</span>}
               <span className="badge badge-neutral badge-xs">💬 {post.commentsCount ?? 0}</span>
             </div>
-            <p className="text-sm text-base-content/70 line-clamp-2 mb-3">
-              {post.content?.replace(/[#*_`>\-\[\]!\n]/g, '').slice(0, 70) || ''}...
-            </p>
-            <div className="card-actions justify-end">
-              <a href={`/posts/${post.slug}`} className="btn btn-primary btn-xs btn-outline">
-                Részletek
-              </a>
-            </div>
+          </div>
+          <div className="card-actions justify-end px-3 pb-2">
+            <a href={`/posts/${post.slug}`} className="btn btn-primary btn-xs btn-outline">
+              Részletek
+            </a>
           </div>
         </div>
       ))}

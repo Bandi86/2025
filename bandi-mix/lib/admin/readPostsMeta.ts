@@ -1,69 +1,129 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { db } from '@/lib/db';
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
+import { db } from '@/lib/db'
+import type { PostMeta } from '../../types/t'
+import { randomUUID } from 'crypto'
 
-const POSTS_DIR = path.join(process.cwd(), 'content/admin-posts');
+const POSTS_DIR = path.join(process.cwd(), 'content/admin-posts')
 
-export interface AdminPostMeta {
-  slug: string;
-  title: string;
-  content: string;
-  isPremium: boolean;
-  deadline: string;
-  imageurl?: string;
-  tippmixPicture?: string;
-  createdAt?: string;
-  updatedAt?: string;
-}
-
-export function getAllAdminPostsMeta(): AdminPostMeta[] {
+export function getAllAdminPostsMeta(): PostMeta[] {
   try {
-    const files = fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith('.mdx'));
-    return files.map((filename) => {
-      const filePath = path.join(POSTS_DIR, filename);
-      const raw = fs.readFileSync(filePath, 'utf8');
-      const { data, content } = matter(raw);
-      // Fájl stat lekérése a létrehozás/frissítés dátumhoz
-      const stat = fs.statSync(filePath);
-      // Szinkronizáljuk az adatbázist az MDX slug alapján
-      const slug = data.slug || filename.replace(/\.mdx$/, '');
-      // Ellenőrizzük, hogy van-e ilyen slug az adatbázisban, ha nincs, létrehozzuk
-      db.adminPosts
-        .upsert({
-          where: { slug: String(slug) },
-          update: {
-            title: typeof data.title === 'string' ? data.title : '',
-            isPremium: !!data.isPremium,
-            deadline: typeof data.deadline === 'string' ? data.deadline : '',
-            imageurl: typeof data.imageurl === 'string' ? data.imageurl : '',
-            tippmixPicture: typeof data.tippmixPicture === 'string' ? data.tippmixPicture : '',
-          },
-          create: {
-            slug: String(slug),
-            title: typeof data.title === 'string' ? data.title : '',
-            isPremium: !!data.isPremium,
-            deadline: typeof data.deadline === 'string' ? data.deadline : '',
-            imageurl: typeof data.imageurl === 'string' ? data.imageurl : '',
-            tippmixPicture: typeof data.tippmixPicture === 'string' ? data.tippmixPicture : '',
-            content,
-          },
-        })
-        .catch(() => {}); // hibát lenyeljük, hogy ne akadjon meg a beolvasás
+    // Minden típushoz külön mappa
+    const rootFiles = fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith('.mdx'))
+    const freeTippsDir = path.join(POSTS_DIR, 'freetipps')
+    const premiumTippsDir = path.join(POSTS_DIR, 'premiumtipps')
+    const freeTippsFiles = fs.existsSync(freeTippsDir)
+      ? fs
+          .readdirSync(freeTippsDir)
+          .filter((f) => f.endsWith('.mdx'))
+          .map((f) => path.join('freetipps', f))
+      : []
+    const premiumTippsFiles = fs.existsSync(premiumTippsDir)
+      ? fs
+          .readdirSync(premiumTippsDir)
+          .filter((f) => f.endsWith('.mdx'))
+          .map((f) => path.join('premiumtipps', f))
+      : []
+    const allFiles = [
+      ...rootFiles.map((f) => ({ rel: f, type: 'post' as const })),
+      ...freeTippsFiles.map((f) => ({ rel: f, type: 'freetipp' as const })),
+      ...premiumTippsFiles.map((f) => ({ rel: f, type: 'premiumtipp' as const }))
+    ]
+    return allFiles.map(({ rel, type }) => {
+      const filePath = path.join(POSTS_DIR, rel)
+      const raw = fs.readFileSync(filePath, 'utf8')
+      const { data, content } = matter(raw)
+      const stat = fs.statSync(filePath)
+      const slug = data.slug || rel.replace(/\.mdx$/, '').replace(/\//g, '-')
+      const id = slug
+      // Szinkronizáció a típus alapján
+      if (type === 'freetipp') {
+        db.freeTipps
+          .upsert({
+            where: { slug: String(slug) },
+            update: {
+              title: data.title || '',
+              deadline: data.deadline || '',
+              imageurl: data.imageurl || '',
+              content
+            },
+            create: {
+              id: String(id),
+              slug: String(slug),
+              title: data.title || '',
+              deadline: data.deadline || '',
+              imageurl: data.imageurl || '',
+              content,
+              price: data.price || 0,
+              prize: data.prize || 0,
+              odds: data.odds || 0,
+              createdAt: stat.birthtime.toISOString(),
+              updatedAt: stat.mtime.toISOString()
+            }
+          })
+          .catch(() => {})
+      } else if (type === 'premiumtipp') {
+        db.premiumTipps
+          .upsert({
+            where: { slug: String(slug) },
+            update: {
+              title: data.title || '',
+              deadline: data.deadline || '',
+              imageurl: data.imageurl || '',
+              content
+            },
+            create: {
+              id: String(id),
+              slug: String(slug),
+              title: data.title || '',
+              deadline: data.deadline || '',
+              imageurl: data.imageurl || '',
+              content,
+              price: data.price || 0,
+              prize: data.prize || 0,
+              odds: data.odds || 0,
+              createdAt: stat.birthtime.toISOString(),
+              updatedAt: stat.mtime.toISOString()
+            }
+          })
+          .catch(() => {})
+      } else {
+        db.adminPosts
+          .upsert({
+            where: { slug: String(slug) },
+            update: {
+              title: data.title || '',
+              imageurl: data.imageurl || '',
+              content
+            },
+            create: {
+              id: String(randomUUID),
+              slug: String(slug),
+              title: data.title || '',
+              imageurl: data.imageurl || '',
+              content,
+              createdAt: stat.birthtime.toISOString(),
+              updatedAt: stat.mtime.toISOString()
+            }
+          })
+          .catch(() => {})
+      }
       return {
+        id: String(id),
         slug,
         title: data.title || '',
         isPremium: !!data.isPremium,
         deadline: data.deadline || '',
         imageurl: data.imageurl,
-        tippmixPicture: data.tippmixPicture,
         content,
         createdAt: stat.birthtime.toISOString(),
         updatedAt: stat.mtime.toISOString(),
-      };
-    });
+        type
+      }
+    })
   } catch (err) {
-    console.error('Admin post meta read error:', err);
-    return [];
+    console.error('Admin post meta read error:', err)
+    return []
   }
 }

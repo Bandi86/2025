@@ -69,6 +69,9 @@ export default function Navbar() {
                 tabIndex={0}
                 className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-200 rounded-box w-52"
               >
+                <li className="font-bold text-base-content/80 text-center pb-2 border-b">
+                  {user.username}
+                </li>
                 <li>
                   <Link href="/profile">Profilom</Link>
                 </li>

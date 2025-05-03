@@ -12,7 +12,7 @@ export async function GET(_req: NextRequest) {
       let commentsCount = 0;
       try {
         // Feltételezzük, hogy a kommentek tábla neve 'comment' és a slug mező 'postSlug'
-        commentsCount = await db.comment.count({ where: { postSlug: post.slug } });
+        commentsCount = await db.comment.count({ where: { } });
       } catch (e) {
         // ha nincs comment tábla vagy hiba van, 0 marad
       }
