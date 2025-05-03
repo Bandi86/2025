@@ -31,21 +31,22 @@ export function getAllAdminPostsMeta(): AdminPostMeta[] {
       // Ellenőrizzük, hogy van-e ilyen slug az adatbázisban, ha nincs, létrehozzuk
       db.adminPosts
         .upsert({
-          where: { slug },
+          where: { slug: String(slug) },
           update: {
-            title: data.title || '',
+            title: typeof data.title === 'string' ? data.title : '',
             isPremium: !!data.isPremium,
-            deadline: data.deadline || '',
-            imageurl: data.imageurl,
-            tippmixPicture: data.tippmixPicture,
+            deadline: typeof data.deadline === 'string' ? data.deadline : '',
+            imageurl: typeof data.imageurl === 'string' ? data.imageurl : '',
+            tippmixPicture: typeof data.tippmixPicture === 'string' ? data.tippmixPicture : '',
           },
           create: {
-            slug,
-            title: data.title || '',
+            slug: String(slug),
+            title: typeof data.title === 'string' ? data.title : '',
             isPremium: !!data.isPremium,
-            deadline: data.deadline || '',
-            imageurl: data.imageurl,
-            tippmixPicture: data.tippmixPicture,
+            deadline: typeof data.deadline === 'string' ? data.deadline : '',
+            imageurl: typeof data.imageurl === 'string' ? data.imageurl : '',
+            tippmixPicture: typeof data.tippmixPicture === 'string' ? data.tippmixPicture : '',
+            content,
           },
         })
         .catch(() => {}); // hibát lenyeljük, hogy ne akadjon meg a beolvasás

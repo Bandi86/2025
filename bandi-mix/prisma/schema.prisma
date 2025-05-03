@@ -28,7 +28,7 @@ model User {
 }
 
 model AdminPosts {
-  id             Int       @id @default(autoincrement())
+  id             String    @id @default(uuid())
   slug           String    @unique
   title          String
   content        String
@@ -36,25 +36,33 @@ model AdminPosts {
   imageurl       String
   tippmixPicture String
   comments       Comment[]
+  category       Category  @relation(fields: [categoryId], references: [id])
+  categoryId     String
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
   deadline       DateTime
 }
 
+model Category {
+  id        String    @id @default(uuid())
+  name      String    @unique
+  posts     AdminPosts[]
+}
+
 model Comment {
-  id        Int        @id @default(autoincrement())
+  id        String     @id @default(uuid())
   content   String
   hidden    Boolean    @default(false)
   user      User       @relation(fields: [userId], references: [id])
   userId    Int
   post      AdminPosts @relation(fields: [postId], references: [id])
-  postId    Int
+  postId    String
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
 }
 
 model Subscription {
-  id         Int      @id @default(autoincrement())
+  id         String   @id @default(uuid())
   user       User     @relation(fields: [userId], references: [id])
   userId     Int      @unique
   validUntil DateTime
@@ -62,7 +70,7 @@ model Subscription {
 
 // statistic of betting tipps free
 model freeTipsStatistic {
-  id             Int      @id @default(autoincrement())
+  id             String   @id @default(uuid())
   numberOfTipps  Int      @default(0)
   goodTippNumber Int      @default(0)
   badTippNumber  Int      @default(0)

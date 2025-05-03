@@ -136,9 +136,15 @@ exports.Prisma.AdminPostsScalarFieldEnum = {
   isPremium: 'isPremium',
   imageurl: 'imageurl',
   tippmixPicture: 'tippmixPicture',
+  categoryId: 'categoryId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   deadline: 'deadline'
+};
+
+exports.Prisma.CategoryScalarFieldEnum = {
+  id: 'id',
+  name: 'name'
 };
 
 exports.Prisma.CommentScalarFieldEnum = {
@@ -183,6 +189,7 @@ exports.Prisma.NullsOrder = {
 exports.Prisma.ModelName = {
   User: 'User',
   AdminPosts: 'AdminPosts',
+  Category: 'Category',
   Comment: 'Comment',
   Subscription: 'Subscription',
   freeTipsStatistic: 'freeTipsStatistic'

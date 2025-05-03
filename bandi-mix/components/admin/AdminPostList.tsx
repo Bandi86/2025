@@ -4,17 +4,7 @@ import axios from 'axios';
 import { useAuth } from '@/components/AuthContext';
 import CommentsModal from './CommentsModal';
 import AdminPostEditorModal from './AdminPostEditorModal';
-
-interface AdminPostMeta {
-  slug: string;
-  title: string;
-  isPremium: boolean;
-  deadline: string;
-  imageurl?: string;
-  tippmixPicture?: string;
-  createdAt?: string;
-  updatedAt?: string;
-}
+import { AdminPostMeta } from '@/lib/admin/readPostsMeta';
 
 const AdminPostList: React.FC = () => {
   const [posts, setPosts] = useState<AdminPostMeta[]>([]);
