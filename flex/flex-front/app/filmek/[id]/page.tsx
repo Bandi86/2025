@@ -1,32 +1,21 @@
-import React from 'react';
-
-interface MediaItem {
-  id: number;
-  name: string;
-  extension: string;
-  size: number;
-}
-
-async function getMovieItem(id: string): Promise<MediaItem | null> {
-  const res = await fetch(`http://localhost:8000/api/filmek`, { cache: 'no-store' });
-  const data = await res.json();
-  const item = data.movies.find((m: MediaItem) => String(m.id) === id);
-  return item || null;
-}
+import React from 'react'
+import { getMovieItem } from '@/app/helpers/getMovieItem'
 
 interface PageProps {
-  params: { id: string };
+  params: { id: string }
 }
 
 const Page = async ({ params }: PageProps) => {
-  const item = await getMovieItem(params.id);
+  const { id } = await params
+  const item = await getMovieItem(id)
   if (!item) {
     return (
       <div className="container mx-auto py-8">
         <div className="alert alert-error">Nincs ilyen film.</div>
       </div>
-    );
+    )
   }
+
   return (
     <div className="container mx-auto py-8 max-w-2xl">
       <div className="card bg-base-100 shadow-xl">
@@ -47,7 +36,7 @@ const Page = async ({ params }: PageProps) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Page;
+export default Page

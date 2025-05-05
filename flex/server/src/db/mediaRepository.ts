@@ -45,3 +45,14 @@ export async function getAllMediaItems() {
     metadata: row.metadata ? JSON.parse(row.metadata) : null,
   }));
 }
+
+// Új: OMDb metaadat cache mentése/frissítése
+export async function updateMediaMetadata(id: number, metadata: any) {
+  const db = await open({ filename: dbPath, driver: sqlite3.Database });
+  await db.run(
+    'UPDATE media_items SET metadata = ? WHERE id = ?',
+    JSON.stringify(metadata),
+    id
+  );
+  await db.close();
+}

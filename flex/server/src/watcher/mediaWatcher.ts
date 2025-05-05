@@ -1,4 +1,4 @@
-import chokidar from 'chokidar';
+import chokidar, { FSWatcher } from 'chokidar';
 import { saveMediaItems } from '../db/mediaRepository';
 import { MediaFile } from '../scanner/mediaScanner';
 import * as path from 'path';
@@ -7,7 +7,7 @@ import { open } from 'sqlite';
 import * as sqlite3 from 'sqlite3';
 
 const dbPath = path.join(__dirname, '../../data/media.db');
-const watchers: Record<string, chokidar.FSWatcher> = {};
+const watchers: Record<string, FSWatcher> = {};
 
 async function getIndexedDirs(): Promise<string[]> {
   const db = await open({ filename: dbPath, driver: sqlite3.Database });

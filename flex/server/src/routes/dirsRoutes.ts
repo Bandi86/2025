@@ -19,4 +19,15 @@ router.get('/dirs', async (_req, res) => {
   }
 });
 
+router.delete('/dirs', async (_req, res) => {
+  try {
+    const db = await open({ filename: dbPath, driver: sqlite3.Database });
+    await db.run('DELETE FROM media_items');
+    await db.close();
+    res.status(200).json({ message: 'Minden mappa törölve lett.' });
+  } catch (err) {
+    res.status(500).json({ error: 'Nem sikerült törölni a mappákat.' });
+  }
+});
+
 export default router;

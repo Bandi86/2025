@@ -1,67 +1,67 @@
-'use client';
-import React, { useState, useEffect } from 'react';
+'use client'
+import React, { useState, useEffect } from 'react'
+import { handleDeleteFolders } from '../helpers/handleDeleteFolders'
 
 const SettingsPage = () => {
-  const [path, setPath] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState('');
-  const [addedDirs, setAddedDirs] = useState<string[]>([]);
+  const [path, setPath] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [error, setError] = useState('')
+  const [addedDirs, setAddedDirs] = useState<string[]>([])
 
   async function fetchDirs() {
     try {
-      const res = await fetch('http://localhost:8000/api/dirs');
-      console.log(res);
+      const res = await fetch('http://localhost:8000/api/dirs')
       if (res.ok) {
-        const data = await res.json();
-        setAddedDirs(data.dirs || []);
+        const data = await res.json()
+        const rootDirs = data.dirs.map((dir: string) => dir.split('/').slice(0, 2).join('/'))
+        setAddedDirs(Array.from(new Set(rootDirs)))
       }
     } catch {
-      setError('Nem sikerült lekérni a mappákat.');
-    }
-    finally {
-      setLoading(false);
+      setError('Nem sikerült lekérni a mappákat.')
+    } finally {
+      setLoading(false)
     }
   }
 
   useEffect(() => {
-    fetchDirs();
-  }, []);
+    fetchDirs()
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setSuccess(false);
-    setError('');
+    e.preventDefault()
+    setLoading(true)
+    setSuccess(false)
+    setError('')
     try {
       const res = await fetch('http://localhost:8000/api/scan', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ paths: [path] }),
-      });
-      const result = await res.json();
-      if (!res.ok || result.error) throw new Error(result.error || 'Hiba a könyvtár hozzáadásakor');
-      setSuccess(true);
-      setPath('');
-      await fetchDirs();
+        body: JSON.stringify({ paths: [path] })
+      })
+      const result = await res.json()
+      if (!res.ok || result.error) throw new Error(result.error || 'Hiba a könyvtár hozzáadásakor')
+      setSuccess(true)
+      setPath('')
+      await fetchDirs()
     } catch (err: any) {
-      setError(err.message || 'Ismeretlen hiba');
+      setError(err.message || 'Ismeretlen hiba')
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   return (
     <div className="max-w-md mx-auto mt-10 card bg-base-100 shadow p-8">
       <h2 className="card-title mb-4">Könyvtár hozzáadása</h2>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <label className="form-control w-full">
-          <span className="label-text mb-1">Könyvtár elérési útja</span>
+          <span className="label-text">Könyvtár elérési útja</span>
           <div className="join w-full">
             <input
               type="text"
               className="input input-bordered join-item w-full"
-              placeholder="/home/filmek"
+              placeholder="G:\Filmek"
               value={path}
               onChange={(e) => setPath(e.target.value)}
               required
@@ -74,6 +74,20 @@ const SettingsPage = () => {
         {success && <div className="alert alert-success mt-2">Sikeres hozzáadás!</div>}
         {error && <div className="alert alert-error mt-2">{error}</div>}
       </form>
+      {addedDirs.length > 0 && (
+        <div className="mt-8 flex justify-center gap-6">
+          <h1>Összes hozzáadott mappa törlése:</h1>
+          <button
+            className="btn btn-primary join-item"
+            type="submit"
+            disabled={loading}
+            onClick={handleDeleteFolders}
+          >
+            Törlés
+          </button>
+        </div>
+      )}
+
       <div className="mt-8">
         <h3 className="font-bold mb-2">Hozzáadott mappák</h3>
         {addedDirs.length === 0 ? (
@@ -89,7 +103,7 @@ const SettingsPage = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SettingsPage;
+export default SettingsPage
