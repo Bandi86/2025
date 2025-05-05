@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express'
 import { getAllMediaItems } from '../db/mediaRepository'
 import generateTitleFromPath from '../helpers/generateTitleFromPath'
-import fetch from 'node-fetch'
 import * as dotenv from 'dotenv'
 dotenv.config()
 
@@ -36,6 +35,7 @@ export async function getMovies(req: Request, res: Response, next: NextFunction)
   }
 }
 
+// All Series
 export async function getSeries(req: Request, res: Response, next: NextFunction) {
   try {
     const series = (await getAllMediaItems()).filter((item) => item.type === 'sorozat')

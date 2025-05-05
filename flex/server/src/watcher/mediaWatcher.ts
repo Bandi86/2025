@@ -5,6 +5,7 @@ import * as path from 'path';
 import * as fs from 'fs/promises';
 import { open } from 'sqlite';
 import * as sqlite3 from 'sqlite3';
+import { randomUUID } from 'crypto';
 
 const dbPath = path.join(__dirname, '../../data/media.db');
 const watchers: Record<string, FSWatcher> = {};
@@ -20,6 +21,7 @@ async function getIndexedDirs(): Promise<string[]> {
 async function createMediaFile(filePath: string, type: 'film' | 'sorozat'): Promise<MediaFile> {
   const stat = await fs.stat(filePath);
   return {
+    id: randomUUID(),
     path: filePath,
     name: path.basename(filePath),
     extension: path.extname(filePath).toLowerCase(),

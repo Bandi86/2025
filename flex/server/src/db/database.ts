@@ -8,11 +8,11 @@ sqlite3.verbose();
 const dbPath = path.join(__dirname, '../../data/media.db');
 
 export async function initDatabase() {
-  // create db
-  if (!fs.existsSync(dbPath)) {
+  // create db directory if needed
+  if (!fs.existsSync(path.dirname(dbPath))) {
     fs.mkdirSync(path.dirname(dbPath), { recursive: true });
-    fs.writeFileSync(dbPath, '');
   }
+
   const db = await open({
     filename: dbPath,
     driver: sqlite3.Database,
@@ -20,16 +20,18 @@ export async function initDatabase() {
 
   await db.exec(`
     CREATE TABLE IF NOT EXISTS media_items (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      id TEXT PRIMARY KEY,
       name TEXT NOT NULL,
       path TEXT UNIQUE NOT NULL,
       extension TEXT,
       size INTEGER,
-      modifiedAt TEXT,
+      createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+      modifiedAt DATETIME,
       metadata TEXT,
       type TEXT
     );
   `);
+
   console.log('Database initialized');
   return db;
 }

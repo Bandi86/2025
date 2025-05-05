@@ -1,9 +1,9 @@
-import React from 'react'
-import Link from 'next/link'
-import { getMovies } from '@/app/helpers/getMovies'
+import React from 'react';
+import Link from 'next/link';
+import { getMovies } from '@/app/helpers/getMovies';
 
 const Page = async () => {
-  const movies = await getMovies()
+  const movies = await getMovies();
 
   return (
     <div className="container mx-auto py-8">
@@ -55,7 +55,7 @@ const Page = async () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

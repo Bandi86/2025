@@ -1,13 +1,10 @@
 import { RequestHandler } from 'express';
-import { scanMediaDirectories } from '../scanner/mediaScanner';
+import { MediaFile, scanMediaDirectories } from '../scanner/mediaScanner';
 import { saveMediaItems, updateMediaMetadata } from '../db/mediaRepository';
 import { addWatch } from '../watcher/mediaWatcher';
 import generateTitleFromPath from '../helpers/generateTitleFromPath';
-import fetch from 'node-fetch';
 import * as dotenv from 'dotenv';
 dotenv.config();
-
-
 
 async function getOmdbData(title: string): Promise<any> {
   try {
@@ -16,7 +13,7 @@ async function getOmdbData(title: string): Promise<any> {
     const url = `http://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(title)}`;
     const res = await fetch(url);
     if (!res.ok) return null;
-    const data = await res.json() as { Response: string; [key: string]: any };
+    const data = (await res.json()) as { Response: string; [key: string]: any };
     if (data.Response === 'False') return null;
     return data;
   } catch {
@@ -24,6 +21,7 @@ async function getOmdbData(title: string): Promise<any> {
   }
 }
 
+// SCAN the path
 export const scanHandler: RequestHandler<any, any, { paths: string[] }> = async (req, res) => {
   const { paths } = req.body;
 
@@ -36,7 +34,7 @@ export const scanHandler: RequestHandler<any, any, { paths: string[] }> = async 
     const { files, errors } = await scanMediaDirectories(paths);
 
     // Filter out files containing the word 'sample'
-    const filteredFiles = files.filter(file => !file.path.includes('sample'));
+    const filteredFiles: MediaFile[] = files.filter((file) => !file.path.includes('sample'));
 
     await saveMediaItems(filteredFiles);
 
@@ -47,13 +45,13 @@ export const scanHandler: RequestHandler<any, any, { paths: string[] }> = async 
         const omdb = await getOmdbData(title);
         if (omdb) {
           if ('id' in file) {
-            if (typeof file.id === 'number') {
+            if (typeof file.id === 'string') {
               await updateMediaMetadata(file.id, omdb);
             } else {
               console.warn(`File ${file.name} has an invalid 'id' type.`);
             }
           } else {
-            console.warn(`File ${file.name} does not have an 'id' property.`);
+            console.warn(`File ${file} does not have an 'id' property.`);
           }
         }
       }
@@ -66,7 +64,7 @@ export const scanHandler: RequestHandler<any, any, { paths: string[] }> = async 
     res.json({ files: filteredFiles });
 
     // Add watch for new directories
-    filteredFiles.forEach(file => {
+    filteredFiles.forEach((file) => {
       if (file.isNewDirectory) {
         addWatch(file.path);
       }
