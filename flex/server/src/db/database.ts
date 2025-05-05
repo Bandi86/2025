@@ -26,10 +26,10 @@ export async function initDatabase() {
       extension TEXT,
       size INTEGER,
       modifiedAt TEXT,
-      metadata TEXT
+      metadata TEXT,
+      type TEXT
     );
   `);
   console.log('Database initialized');
   return db;
-
 }

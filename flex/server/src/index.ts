@@ -5,6 +5,10 @@ import * as dotenv from 'dotenv';
 import * as bodyParser from 'body-parser';
 import { initDatabase } from './db/database';
 import mediaRoutes from './routes/mediaRoutes';
+import scanRoutes from './routes/scanRoutes';
+import streamRoutes from './routes/streamRoutes';
+import dirsRoutes from './routes/dirsRoutes';
+import { startWatchers } from './watcher/mediaWatcher';
 
 // Környezeti változók betöltése
 dotenv.config();
@@ -23,8 +27,11 @@ app.get('/', (_req: Request, res: Response) => {
   res.send('Flex Server is running!');
 });
 
-// Scan végpont
+// API végpontok
 app.use('/api', mediaRoutes);
+app.use('/api', scanRoutes);
+app.use('/api', streamRoutes);
+app.use('/api', dirsRoutes);
 
 // 404-es hiba kezelése (opcionális)
 app.use((_req, res) => {
@@ -40,6 +47,7 @@ app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
 // Szerver indítása
 (async () => {
   await initDatabase();
+  await startWatchers()
   app.listen(port, () => {
     console.log(`Szerver fut a http://localhost:${port} címen`);
   });

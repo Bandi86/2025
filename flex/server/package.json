@@ -12,14 +12,18 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "chokidar": "^4.0.3",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
+    "mime-types": "^3.0.1",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
+    "@types/chokidar": "^1.7.5",
     "@types/cors": "^2.8.17",
-    "@types/express": "^5.0.1"
+    "@types/express": "^5.0.1",
+    "@types/mime-types": "^2.1.4"
   }
 }
