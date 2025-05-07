@@ -5,41 +5,61 @@ import generateTitleFromPath from '../helpers/generateTitleFromPath';
 // Minden film
 export async function getMovies(req: Request, res: Response, next: NextFunction) {
   try {
-    const movies = (await getAllMediaItems()).filter((item) => item.type === 'film');
-    // Mostantól csak a saját adatbázisban tárolt OMDb metaadatokat adjuk vissza
-    const moviesWithOmdb = movies.map((movie) => {
-      const omdb = movie.metadata || null;
-      const title = generateTitleFromPath(movie.path);
+    const allItems = await getAllMediaItems();
+    const movies = allItems.filter((item) => item.type === 'film');
+
+    const moviesWithProcessedOmdb = movies.map((movie) => {
+      const displayTitle = movie.omdb?.title || generateTitleFromPath(movie.path);
       return {
-        ...movie,
-        title,
-        omdb: omdb
+        ...movie, // id, name, path, extension, size, modifiedAt, type, coverImagePath
+        title: displayTitle,
+        omdb: movie.omdb // Az omdb objektum már tartalmazza a szükséges mezőket (year, genre, stb.)
           ? {
-              year: omdb.Year,
-              genre: omdb.Genre,
-              director: omdb.Director,
-              actors: omdb.Actors,
-              plot: omdb.Plot,
-              imdbRating: omdb.imdbRating,
-              poster: omdb.Poster !== 'N/A' ? omdb.Poster : null,
+              year: movie.omdb.year,
+              genre: movie.omdb.genre,
+              director: movie.omdb.director,
+              actors: movie.omdb.actors,
+              plot: movie.omdb.plot,
+              imdbRating: movie.omdb.imdbRating,
+              poster: movie.omdb.posterUrl, // Itt a posterUrl-t használjuk
             }
           : null,
       };
     });
-    res.json({ movies: moviesWithOmdb });
+    res.json({ movies: moviesWithProcessedOmdb });
   } catch (err) {
-    console.error('Hiba a média lekérdezésénél:', err);
-    res.status(500).json({ error: 'Nem sikerült lekérni a médiafájlokat.' });
+    console.error('Hiba a filmek lekérdezésénél:', err);
+    res.status(500).json({ error: 'Nem sikerült lekérni a filmeket.' });
   }
 }
 
 // All Series
 export async function getSeries(req: Request, res: Response, next: NextFunction) {
   try {
-    const series = (await getAllMediaItems()).filter((item) => item.type === 'sorozat');
-    res.json({ series });
+    const allItems = await getAllMediaItems();
+    const series = allItems.filter((item) => item.type === 'sorozat');
+
+    const seriesWithProcessedOmdb = series.map((serie) => {
+      const displayTitle = serie.omdb?.title || generateTitleFromPath(serie.path);
+      return {
+        ...serie,
+        title: displayTitle,
+        omdb: serie.omdb
+        ? {
+            year: serie.omdb.year,
+            genre: serie.omdb.genre,
+            director: serie.omdb.director,
+            actors: serie.omdb.actors,
+            plot: serie.omdb.plot,
+            imdbRating: serie.omdb.imdbRating,
+            poster: serie.omdb.posterUrl,
+          }
+        : null,
+      };
+    });
+    res.json({ series: seriesWithProcessedOmdb });
   } catch (err) {
-    console.error('Hiba a média lekérdezésénél:', err);
-    res.status(500).json({ error: 'Nem sikerült lekérni a médiafájlokat.' });
+    console.error('Hiba a sorozatok lekérdezésénél:', err);
+    res.status(500).json({ error: 'Nem sikerült lekérni a sorozatokat.' });
   }
 }

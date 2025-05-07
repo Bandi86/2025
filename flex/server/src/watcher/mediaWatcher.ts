@@ -28,6 +28,7 @@ async function createMediaFile(filePath: string, type: 'film' | 'sorozat'): Prom
     size: stat.size,
     modifiedAt: stat.mtime,
     type,
+    cover_image_path: undefined, // Alapértelmezett érték undefined vagy null
   };
 }
 

@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
 import { MediaFile, scanMediaDirectories } from '../scanner/mediaScanner';
-import { saveMediaItems, updateMediaMetadata } from '../db/mediaRepository';
+import { saveMediaItems, saveOrUpdateOmdbMetadata } from '../db/mediaRepository';
 import { addWatch } from '../watcher/mediaWatcher';
 import generateTitleFromPath from '../helpers/generateTitleFromPath';
 import * as dotenv from 'dotenv';
@@ -134,14 +134,14 @@ export const scanHandler: RequestHandler<any, any, { paths: string[] }> = async 
         }
 
         if (omdb) {
-          if ('id' in file) {
-            if (typeof file.id === 'string') {
-              await updateMediaMetadata(file.id, omdb);
-            } else {
-              console.warn(`File ${file.name} has an invalid 'id' type.`);
-            }
+          if ('id' in file && typeof file.id === 'string') {
+            // A régi updateMediaMetadata helyett az újat használjuk
+            await saveOrUpdateOmdbMetadata(file.id, omdb);
+            console.log(`✅ OMDb adatok mentve/frissítve: ${file.name} (ID: ${file.id})`);
           } else {
-            console.warn(`File ${file} does not have an 'id' property.`);
+            console.warn(
+              `File ${file.name} has an invalid or missing 'id' property. OMDb data not saved.`
+            );
           }
         }
       }

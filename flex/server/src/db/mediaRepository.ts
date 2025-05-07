@@ -1,59 +1,212 @@
-import { MediaFile } from '../scanner/mediaScanner';
-import { open } from 'sqlite';
-import * as sqlite3 from 'sqlite3';
-import * as path from 'path';
-import * as fs from 'fs';
+import { MediaFile } from '../scanner/mediaScanner'
+import { open } from 'sqlite'
+import * as sqlite3 from 'sqlite3'
+import * as path from 'path'
+import * as fs from 'fs'
+import { initDatabase } from './database' // Importáljuk az initDatabase-t
 
+const dbPath = path.join(__dirname, '../../data/media.db')
 
-const dbPath = path.join(__dirname, '../../data/media.db');
+// Helper function to ensure database is initialized
+async function getDb() {
+  // Check if db file exists, if not, initDatabase will create it.
+  if (!fs.existsSync(dbPath)) {
+    console.log('Database file not found, initializing...')
+    await initDatabase() // Ensure the database and tables are created
+  }
+  return open({ filename: dbPath, driver: sqlite3.Database })
+}
 
 export async function saveMediaItems(items: MediaFile[]) {
-  const db = await open({ filename: dbPath, driver: sqlite3.Database });
+  const db = await getDb()
 
+  // Az id mező most már a MediaFile része, és a randomUUID() generálja
+  // A cover_image_path alapértelmezett értéke null vagy üres string lehet
   const insertStmt = await db.prepare(`
-    INSERT OR IGNORE INTO media_items (name, path, extension, size, modifiedAt, metadata, type)
-    VALUES (?, ?, ?, ?, ?, NULL, ?)
-  `);
+    INSERT OR IGNORE INTO media_items (id, name, path, extension, size, modified_at, type, cover_image_path)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+  `)
 
   for (const item of items) {
     await insertStmt.run(
+      item.id, // Most már az item objektumból jön
       item.name,
       item.path,
       item.extension,
       item.size ?? null,
       item.modifiedAt?.toISOString() ?? null,
-      item.type
-    );
+      item.type,
+      item.cover_image_path ?? null // Új mező
+    )
   }
 
-  await insertStmt.finalize();
-  await db.close();
+  await insertStmt.finalize()
+  await db.close()
 }
 
 export async function getAllMediaItems() {
-  const db = await open({ filename: dbPath, driver: sqlite3.Database });
+  const db = await getDb()
 
+  // LEFT JOIN-t használunk, hogy minden media_item-et visszakapjunk, akkor is, ha nincs hozzájuk OMDb adat
   const rows = await db.all(`
-      SELECT id, name, path, extension, size, modifiedAt, metadata, type
-      FROM media_items
-      ORDER BY name ASC
-    `);
+    SELECT
+      mi.id,
+      mi.name,
+      mi.path,
+      mi.extension,
+      mi.size,
+      mi.modified_at AS modifiedAt,
+      mi.type,
+      mi.cover_image_path AS coverImagePath,
+      om.title AS omdbTitle,
+      om.year AS omdbYear,
+      om.genre AS omdbGenre,
+      om.director AS omdbDirector,
+      om.actors AS omdbActors,
+      om.plot AS omdbPlot,
+      om.imdb_rating AS omdbImdbRating,
+      om.poster_url AS omdbPosterUrl,
+      om.api_response AS omdbApiResponse
+    FROM media_items mi
+    LEFT JOIN omdb_metadata om ON mi.id = om.media_item_id
+    ORDER BY mi.name ASC
+  `)
 
-  await db.close();
+  await db.close()
 
-  // Csak a létező fájlokat adjuk vissza
   return rows
-    .filter((row) => fs.existsSync(row.path))
+    .filter((row) => fs.existsSync(row.path)) // Csak a létező fájlokat adjuk vissza
     .map((row) => ({
-      ...row,
+      id: row.id,
+      name: row.name,
+      path: row.path,
+      extension: row.extension,
+      size: row.size,
       modifiedAt: row.modifiedAt ? new Date(row.modifiedAt) : null,
-      metadata: row.metadata ? JSON.parse(row.metadata) : null,
-    }));
+      type: row.type,
+      coverImagePath: row.coverImagePath,
+      // Az OMDb adatok beágyazása, ha léteznek
+      omdb: row.omdbTitle // Ha van omdbTitle, akkor feltételezzük, hogy vannak OMDb adatok
+        ? {
+            title: row.omdbTitle,
+            year: row.omdbYear,
+            genre: row.omdbGenre,
+            director: row.omdbDirector,
+            actors: row.omdbActors,
+            plot: row.omdbPlot,
+            imdbRating: row.omdbImdbRating,
+            posterUrl: row.omdbPosterUrl,
+            apiResponse: row.omdbApiResponse ? JSON.parse(row.omdbApiResponse) : null
+          }
+        : null
+    }))
 }
 
-// Új: OMDb metaadat cache mentése/frissítése
-export async function updateMediaMetadata(id: string, metadata: any) {
-  const db = await open({ filename: dbPath, driver: sqlite3.Database });
-  await db.run('UPDATE media_items SET metadata = ? WHERE id = ?', JSON.stringify(metadata), id);
-  await db.close();
+// Régi updateMediaMetadata helyett új függvény az omdb_metadata táblához
+export async function saveOrUpdateOmdbMetadata(mediaItemId: string, metadata: any) {
+  const db = await getDb()
+  // Az "metadata" objektumot feltételezzük, hogy az OMDb API válaszának struktúráját követi
+  // (pl. metadata.Title, metadata.Year, stb.)
+  // Az api_response mezőben a teljes, nyers JSON választ tároljuk stringként.
+
+  const {
+    Title,
+    Year,
+    Genre,
+    Director,
+    Actors,
+    Plot,
+    imdbRating,
+    Poster // Az OMDb API "Poster" mezőjét használjuk
+  } = metadata
+
+  await db.run(
+    `
+    INSERT INTO omdb_metadata (media_item_id, title, year, genre, director, actors, plot, imdb_rating, poster_url, api_response)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ON CONFLICT(media_item_id) DO UPDATE SET
+      title = excluded.title,
+      year = excluded.year,
+      genre = excluded.genre,
+      director = excluded.director,
+      actors = excluded.actors,
+      plot = excluded.plot,
+      imdb_rating = excluded.imdb_rating,
+      poster_url = excluded.poster_url,
+      api_response = excluded.api_response;
+  `,
+    mediaItemId,
+    Title ?? null,
+    Year ?? null,
+    Genre ?? null,
+    Director ?? null,
+    Actors ?? null,
+    Plot ?? null,
+    imdbRating ?? null,
+    Poster && Poster !== 'N/A' ? Poster : null, // A poster_url-t itt kezeljük
+    JSON.stringify(metadata) // A teljes API választ stringként tároljuk
+  )
+
+  await db.close()
+}
+
+// Az egyedi azonosító alapján lekérdezi a médiaelemet
+// és visszaadja a részletes információkat, beleértve az OMDb adatokat is.
+export async function getMediaItemById(id: string) {
+  const db = await getDb()
+  const row = await db.get(
+    `
+    SELECT
+      mi.id,
+      mi.name,
+      mi.path,
+      mi.extension,
+      mi.size,
+      mi.modified_at AS modifiedAt,
+      mi.type,
+      mi.cover_image_path AS coverImagePath,
+      om.title AS omdbTitle,
+      om.year AS omdbYear,
+      om.genre AS omdbGenre,
+      om.director AS omdbDirector,
+      om.actors AS omdbActors,
+      om.plot AS omdbPlot,
+      om.imdb_rating AS omdbImdbRating,
+      om.poster_url AS omdbPosterUrl,
+      om.api_response AS omdbApiResponse
+    FROM media_items mi
+    LEFT JOIN omdb_metadata om ON mi.id = om.media_item_id
+    WHERE mi.id = ?
+  `,
+    id
+  )
+  await db.close()
+
+  if (!row || !fs.existsSync(row.path)) {
+    return null
+  }
+
+  return {
+    id: row.id,
+    name: row.name,
+    path: row.path,
+    extension: row.extension,
+    size: row.size,
+    modifiedAt: row.modifiedAt ? new Date(row.modifiedAt) : null,
+    type: row.type,
+    coverImagePath: row.coverImagePath,
+    omdb: row.omdbTitle
+      ? {
+          title: row.omdbTitle,
+          year: row.omdbYear,
+          genre: row.omdbGenre,
+          director: row.omdbDirector,
+          actors: row.omdbActors,
+          plot: row.omdbPlot,
+          imdbRating: row.omdbImdbRating,
+          posterUrl: row.omdbPosterUrl,
+          apiResponse: row.omdbApiResponse ? JSON.parse(row.omdbApiResponse) : null
+        }
+      : null
+  }
 }

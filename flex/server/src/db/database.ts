@@ -25,10 +25,26 @@ export async function initDatabase() {
       path TEXT UNIQUE NOT NULL,
       extension TEXT,
       size INTEGER,
-      createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-      modifiedAt DATETIME,
-      metadata TEXT,
-      type TEXT
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      modified_at DATETIME,
+      type TEXT CHECK(type IN ('film', 'sorozat')),
+      cover_image_path TEXT
+    );
+  `);
+
+  await db.exec(`
+    CREATE TABLE IF NOT EXISTS omdb_metadata (
+      media_item_id TEXT PRIMARY KEY,
+      title TEXT,
+      year TEXT,
+      genre TEXT,
+      director TEXT,
+      actors TEXT,
+      plot TEXT,
+      imdb_rating TEXT,
+      poster_url TEXT,
+      api_response TEXT,
+      FOREIGN KEY (media_item_id) REFERENCES media_items(id) ON DELETE CASCADE
     );
   `);
 

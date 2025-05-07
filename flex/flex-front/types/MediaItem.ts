@@ -1,40 +1,25 @@
 export default interface MediaItem {
-  id: number
-  name: string
-  extension: string
-  size: number
-  coverUrl: string
-  title: string
-  description: string
-  omdb: {
-    title: string
-    year: string
-    rated: string
-    released: string
-    runtime: string
-    genre: string
-    director: string
-    writer: string
-    actors: string
-    plot: string
-    language: string
-    country: string
-    awards: string
-    poster: string
-    ratings: [
-      {
-        source: string
-        value: string
-      }
-    ]
-    metascore: string
-    imdbRating: string
-    imdbVotes: string
-    imdbID: string
-    type: string
-    DVD: string
-    boxOffice: string
-    production: string
-    website: string
-    response: string}
+  id: string;
+  path: string;
+  name: string;
+  extension: string;
+  title: string;
+  size?: number;
+  modifiedAt?: Date;
+  isNewDirectory?: boolean;
+  type: 'film' | 'sorozat';
+  nfoContent?: string;
+  linkedNfoPath?: string; // Az NFO fájl elérési útja, ha van
+  linkedMediaPath?: string; // A médiafájl elérési útja, ha ez egy NFO rekord
+  cover_image_path?: string; // Új mező a borítóképhez
+  omdb?: {
+    title: string;
+    year: string;
+    genre: string;
+    director: string;
+    actors: string;
+    plot: string;
+    imdbRating: string;
+    poster: string; // Az OMDb adatainak poster URL-je
+  };
 }
