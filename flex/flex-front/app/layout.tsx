@@ -1,47 +1,47 @@
-import type { Metadata } from 'next';
-import { Inter, Poppins } from 'next/font/google';
-import './globals.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
-
+import type { Metadata } from 'next'
+import { Inter, Poppins } from 'next/font/google'
+import './globals.css'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+import { UserProvider } from './UserContext'
 
 // Inter font a törzsszövegekhez
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
-});
+  variable: '--font-inter'
+})
 
 // Poppins font a címekhez
 const poppins = Poppins({
   weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-poppins',
-});
+  variable: '--font-poppins'
+})
 
 export const metadata: Metadata = {
   title: 'FlexMedia - Saját médiaszerver',
   description: 'Nézd meg a filmjeidet és sorozataidat egy helyen, bárhol, bármikor',
   icons: {
-    icon: '/favicon.ico',
-  },
-};
+    icon: '/favicon.ico'
+  }
+}
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="hu" data-theme="light" className={`${inter.variable} ${poppins.variable}`}>
       <body className="min-h-screen bg-base-200 flex flex-col">
-        <Header />
-        <main className="flex-1 container mx-auto px-4 py-6">
-          {children}
-        </main>
-        <Footer />
+        <UserProvider>
+          <Header />
+          <main className="flex-1 container mx-auto px-4 py-6">{children}</main>
+          <Footer />
+        </UserProvider>
       </body>
     </html>
-  );
+  )
 }

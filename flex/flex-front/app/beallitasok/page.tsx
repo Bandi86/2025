@@ -1,8 +1,22 @@
 'use client'
 import React, { useState, useEffect } from 'react'
+import { useUser } from '../UserContext'
 import { handleDeleteFolders } from '../helpers/handleDeleteFolders'
 
 const SettingsPage = () => {
+  const { user } = useUser()
+  // Ha nincs bejelentkezve, ne jelenjen meg a beállítás oldal
+  if (!user) {
+    return (
+      <div className="max-w-md mx-auto mt-10 card bg-base-100 shadow p-8 text-center">
+        <h2 className="text-xl font-bold mb-2">
+          Ez az oldal csak bejelentkezett felhasználók számára elérhető.
+        </h2>
+        <p>Kérlek, jelentkezz be a beállítások megtekintéséhez.</p>
+      </div>
+    )
+  }
+
   const [path, setPath] = useState('')
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
@@ -35,6 +49,7 @@ const SettingsPage = () => {
       } else {
         // Hiba kezelése, ha a backend nem 200 OK-t ad vissza
         const errorText = await res.text().catch(() => 'Ismeretlen szerverhiba')
+        // A hibaüzenet kiírása a felhasználónak
         setError(`Hiba a mappák lekérésekor: ${res.status} - ${errorText}`)
       }
     } catch (e: any) {
@@ -125,7 +140,7 @@ const SettingsPage = () => {
           </div>
         </label>
         {success && <div className="alert alert-success mt-2">Sikeres hozzáadás!</div>}
-        {error && <div className="alert alert-error mt-2">{error}</div>}
+        {addedDirs.length > 0 && error && <div className="alert alert-error mt-2">{error}</div>}
       </form>
       {addedDirs.length > 0 && (
         <div className="mt-8 flex justify-center gap-6">

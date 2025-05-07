@@ -1,4 +1,3 @@
-// delete all indexed folder
 export function handleDeleteFolders() {
   try {
     fetch('http://localhost:8000/api/dirs', {

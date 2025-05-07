@@ -1,10 +1,9 @@
-'use client' // Komponens átalakítása kliens oldali komponenssé
+'use client'
 
 import React, { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
 import { getMovies } from '@/app/helpers/getMovies'
-import MediaItem  from '@/types/MediaItem'
-
+import MediaItem from '@/types/MediaItem'
 
 const Page = () => {
   const [movies, setMovies] = useState<MediaItem[]>([])
@@ -18,7 +17,8 @@ const Page = () => {
         const fetchedMovies = await getMovies()
         setMovies(fetchedMovies || [])
       } catch (error) {
-        console.error('Hiba a filmek lekérésekor:', error)
+        console.error('Hiba a filmek betöltésekor:', error)
+
         setMovies([]) // Hiba esetén üres lista
       } finally {
         setIsLoading(false)
@@ -90,23 +90,26 @@ const Page = () => {
             </div>
           </div>
 
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Rendezés</span>
-            </label>
-            <select
-              className="select select-bordered select-primary w-full sm:w-auto shadow"
-              value={sortOrder}
-              onChange={(e) => setSortOrder(e.target.value)}
-            >
-              <option value="title-asc">Név szerint (A-Z)</option>
-              <option value="title-desc">Név szerint (Z-A)</option>
-              <option value="year-desc">Kiadási év (Újabb elöl)</option>
-              <option value="year-asc">Kiadási év (Régebbi elöl)</option>
-              <option value="rating-desc">IMDb értékelés (Csökkenő)</option>
-              <option value="rating-asc">IMDb értékelés (Növekvő)</option>
-            </select>
-          </div>
+          {/* Szűrő és rendező elemek */}
+          {movies.length > 0 && (
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Rendezés</span>
+              </label>
+              <select
+                className="select select-bordered select-primary w-full sm:w-auto shadow"
+                value={sortOrder}
+                onChange={(e) => setSortOrder(e.target.value)}
+              >
+                <option value="title-asc">Név szerint (A-Z)</option>
+                <option value="title-desc">Név szerint (Z-A)</option>
+                <option value="year-desc">Kiadási év (Újabb elöl)</option>
+                <option value="year-asc">Kiadási év (Régebbi elöl)</option>
+                <option value="rating-desc">IMDb értékelés (Csökkenő)</option>
+                <option value="rating-asc">IMDb értékelés (Növekvő)</option>
+              </select>
+            </div>
+          )}
         </div>
       </header>
 

@@ -8,7 +8,7 @@ import { initDatabase } from './database' // Importáljuk az initDatabase-t
 const dbPath = path.join(__dirname, '../../data/media.db')
 
 // Helper function to ensure database is initialized
-async function getDb() {
+export async function getDb() {
   // Check if db file exists, if not, initDatabase will create it.
   if (!fs.existsSync(dbPath)) {
     console.log('Database file not found, initializing...')

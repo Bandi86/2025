@@ -12,19 +12,23 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "chokidar": "^4.0.3",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
     "mime-types": "^3.0.1",
     "node-fetch": "^3.3.2",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/chokidar": "^1.7.5",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
+    "@types/jsonwebtoken": "^9.0.9",
     "@types/mime-types": "^2.1.4",
     "@types/node-fetch": "^2.6.12",
     "ts-node": "^10.9.2",

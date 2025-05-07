@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { getAllMediaItems } from '../db/mediaRepository';
-import generateTitleFromPath from '../helpers/generateTitleFromPath';
+import generateTitleFromPath  from '../helpers/generateTitleFromPath'
 
 // Minden film
 export async function getMovies(req: Request, res: Response, next: NextFunction) {

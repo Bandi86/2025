@@ -1,8 +1,8 @@
-import HeroSectionComponent from '@/app/components/home/HeroSection'
-import MovieCarouselSection from '@/app/components/home/MovieCarouselSection'
+import HeroSectionComponent from '@/components/home/HeroSection'
+import MovieCarouselSection from '@/components/home/MovieCarouselSection'
 import { getMovies } from './helpers/getMovies'
 import MediaItem from '@/types/MediaItem'
-import ContinueWatch from './components/home/ContinueWatch'
+import ContinueWatch from '@/components/home/ContinueWatch'
 
 export default async function Home() {
   const allMovies: MediaItem[] = await getMovies()
