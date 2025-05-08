@@ -3,6 +3,7 @@ import * as express from 'express'
 import * as cors from 'cors'
 import * as dotenv from 'dotenv'
 import * as bodyParser from 'body-parser'
+import * as cookieParser from 'cookie-parser'
 import { initDatabase } from './db/database'
 import userRoutes from './routes/userRoutes'
 import mediaRoutes from './routes/mediaRoutes'
@@ -10,6 +11,7 @@ import scanRoutes from './routes/scanRoutes'
 import streamRoutes from './routes/streamRoutes'
 import dirsRoutes from './routes/dirsRoutes'
 import { startWatchers } from './watcher/mediaWatcher'
+import { ApiError } from './lib/auth/error' // ApiError importálása
 
 // Környezeti változók betöltése
 dotenv.config()
@@ -18,10 +20,22 @@ const app = express()
 const port = process.env.PORT || 3000
 
 // Köztes rétegek
-app.use(cors())
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL || 'http://localhost:3000', // Frontend címe környezeti változóból vagy alapértelmezett
+    credentials: true // Engedélyezi a sütik küldését a cross-origin kéréseknél
+  })
+)
+
+app.use((req, res, next) => {
+  console.log(`Bejövő kérés: ${req.method} ${req.originalUrl}`);
+  next();
+});
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+app.use(cookieParser())
 
 // Főoldal
 app.get('/', (_req: Request, res: Response) => {
@@ -41,9 +55,18 @@ app.use((_req, res) => {
 })
 
 // Általános hiba kezelő (mindig a legvégén!)
-app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
-  console.error(err.stack)
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  console.error(err.stack) // Hibalogolás a szerver oldalon
+
+  if (err instanceof ApiError) {
+    // Ha ApiError, akkor a saját státuszkódját és üzenetét használjuk
+    res.status(err.status).json({ error: err.message })
+    return // Explicit void return
+  }
+
+  // Egyéb, nem kezelt hibák esetén általános 500-as hiba
   res.status(500).json({ error: 'Internal Server Error' })
+  return // Explicit void return
 })
 
 // Szerver indítása

@@ -3,17 +3,20 @@ import Link from 'next/link'
 import MediaItem from '@/types/MediaItem'
 
 const MovieCardSmall: React.FC<{ movie: MediaItem }> = ({ movie }) => {
-  const linkHref = movie.type === 'film' ? `/filmek/${movie.id}` : `/sorozatok/${movie.id}`
+  const { id, type, title, name, omdb } = movie
+  const { poster, year, imdbRating } = omdb || { poster: '', year: '', imdbRating: '' }
+
+  const linkHref = type === 'film' ? `/filmek/${id}` : `/sorozatok/${id}`
   return (
     <Link
       href={linkHref}
       className="card card-compact bg-base-100 shadow-md hover:shadow-lg transition-shadow duration-300 w-48 md:w-56 flex-shrink-0 snap-start card-hover group"
     >
       <figure className="h-64 md:h-72 relative overflow-hidden">
-        {movie.omdb?.poster ? (
+        {poster ? (
           <img
-            src={movie.omdb.poster}
-            alt={movie.title || movie.name}
+            src={poster}
+            alt={title || name || 'Media poster'}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
           />
@@ -38,11 +41,11 @@ const MovieCardSmall: React.FC<{ movie: MediaItem }> = ({ movie }) => {
       </figure>
       <div className="card-body p-3">
         <h2 className="card-title text-sm md:text-base line-clamp-1 font-poppins">
-          {movie.title || movie.name}
+          {title || name}
         </h2>
         <div className="flex justify-between items-center text-xs text-base-content/70 mt-1">
-          <span>{movie.omdb?.year || 'N/A'}</span>
-          {movie.omdb?.imdbRating && movie.omdb.imdbRating !== 'N/A' && (
+          <span>{year || 'N/A'}</span>
+          {imdbRating && imdbRating !== 'N/A' && (
             <div className="flex items-center gap-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +59,7 @@ const MovieCardSmall: React.FC<{ movie: MediaItem }> = ({ movie }) => {
                   clipRule="evenodd"
                 />
               </svg>
-              <span>{movie.omdb.imdbRating}</span>
+              <span>{imdbRating}</span>
             </div>
           )}
         </div>

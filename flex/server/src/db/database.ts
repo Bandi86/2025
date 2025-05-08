@@ -39,7 +39,9 @@ export async function initDatabase() {
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       modified_at DATETIME,
       type TEXT CHECK(type IN ('film', 'sorozat')),
-      cover_image_path TEXT
+      cover_image_path TEXT,
+      scanned_by_user_id TEXT, -- Új oszlop
+      FOREIGN KEY (scanned_by_user_id) REFERENCES users(id) ON DELETE SET NULL -- Opcionális: ha a usert törlik, ez NULL lesz
     );
   `)
 
@@ -55,6 +57,21 @@ export async function initDatabase() {
       imdb_rating TEXT,
       poster_url TEXT,
       api_response TEXT,
+      FOREIGN KEY (media_item_id) REFERENCES media_items(id) ON DELETE CASCADE
+    );
+  `)
+
+  await db.exec("DROP TABLE IF EXISTS user_seen_media;") // Régi tábla törlése, ha létezik
+  await db.exec(`
+    CREATE TABLE IF NOT EXISTS user_media_status (
+      user_id TEXT NOT NULL,
+      media_item_id TEXT NOT NULL,
+      current_time_seconds INTEGER DEFAULT 0,
+      total_duration_seconds INTEGER DEFAULT NULL,
+      is_completed BOOLEAN DEFAULT FALSE,
+      last_updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      PRIMARY KEY (user_id, media_item_id),
+      FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
       FOREIGN KEY (media_item_id) REFERENCES media_items(id) ON DELETE CASCADE
     );
   `)

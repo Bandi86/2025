@@ -2,9 +2,10 @@
 import React, { useState, useEffect } from 'react'
 import { useUser } from '../UserContext'
 import { handleDeleteFolders } from '../helpers/handleDeleteFolders'
+import axios from 'axios' // Axios importálása
 
 const SettingsPage = () => {
-  const { user } = useUser()
+  const { user, fetchScannedDirsCount } = useUser() // fetchScannedDirsCount hozzáadva
   // Ha nincs bejelentkezve, ne jelenjen meg a beállítás oldal
   if (!user) {
     return (
@@ -25,43 +26,47 @@ const SettingsPage = () => {
 
   // A fetchDirs függvény a könyvtárak lekérésére szolgál
   async function fetchDirs() {
-    setLoading(true) // Betöltési állapot beállítása
-    // setError(''); // Hibát csak sikeres lekérés után vagy explicit törléskor ürítünk
+    setLoading(true)
     try {
-      const res = await fetch('http://localhost:8000/api/dirs', {
-        cache: 'no-store' // Cache-elés tiltása a böngésző oldalon
+      // Axios GET kérés használata
+      const res = await axios.get('http://localhost:8000/api/dirs', {
+        // A cache: 'no-store' axios-ban alapértelmezettként vagy másképp kezelendő,
+        // tipikusan a backend oldalon cache-control headerekkel, vagy query paraméterrel, ha szükséges.
+        // Axios GET kérések alapból nem cache-elnek úgy, mint a fetch böngésző API.
       })
-      if (res.ok) {
-        const data = await res.json()
-        // Windows útvonalak kezelése (backslash), és csak a fő mappákat vesszük
-        // A slice(0,3) logika megmarad, feltételezve, hogy a backend fájl elérési utakat ad vissza,
-        // és ebből próbáljuk kinyerni a gyökér scannelt mappákat.
-        const rootDirs = data.dirs
-          .map((dir: string) => {
-            const parts = dir.split('\\')
-            // Biztonságosabb slice, hogy ne legyen hiba, ha parts rövidebb
-            return parts.slice(0, Math.min(parts.length, 3)).join('\\')
-          })
-          .filter(Boolean) // Eltávolítja az esetleges üres stringeket
+      // Axios esetén a res.data tartalmazza a választ
+      const data = res.data
+      const rootDirs = data.dirs
+        .map((dir: string) => {
+          const parts = dir.split('\\')
+          return parts.slice(0, Math.min(parts.length, 3)).join('\\')
+        })
+        .filter(Boolean)
 
-        setAddedDirs(Array.from(new Set(rootDirs)))
-        setError('') // Sikeres lekérés esetén hiba törlése
-      } else {
-        // Hiba kezelése, ha a backend nem 200 OK-t ad vissza
-        const errorText = await res.text().catch(() => 'Ismeretlen szerverhiba')
-        // A hibaüzenet kiírása a felhasználónak
-        setError(`Hiba a mappák lekérésekor: ${res.status} - ${errorText}`)
-      }
+      setAddedDirs(Array.from(new Set(rootDirs)))
+      setError('')
+      await fetchScannedDirsCount() // Frissítjük a globális mappaszámot is
     } catch (e: any) {
-      setError(e.message || 'Nem sikerült lekérni a mappákat.')
+      if (axios.isAxiosError(e) && e.response) {
+        setError(
+          `Hiba a mappák lekérésekor: ${e.response.status} - ${
+            e.response.data?.message || e.response.data?.error || e.message
+          }`
+        )
+      } else {
+        setError(e.message || 'Nem sikerült lekérni a mappákat.')
+      }
     } finally {
       setLoading(false)
     }
   }
 
   useEffect(() => {
-    fetchDirs()
-  }, [])
+    if (user) {
+      // Csak akkor hívjuk meg, ha van bejelentkezett felhasználó
+      fetchDirs()
+    }
+  }, [user]) // user dependency hozzáadva, hogy bejelentkezés után lefusson
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -69,26 +74,29 @@ const SettingsPage = () => {
     setSuccess(false)
     setError('')
     try {
-      const res = await fetch('http://localhost:8000/api/scan', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ paths: [path] })
+      // Axios POST kérés használata
+      const res = await axios.post('http://localhost:8000/api/scan', {
+        paths: [path]
       })
-      const result = await res.json()
-      if (!res.ok || result.error) throw new Error(result.error || 'Hiba a könyvtár hozzáadásakor')
+      // Axios esetén a res.data tartalmazza a választ
+      const result = res.data
+      // Axios hibát dob nem 2xx válaszok esetén, így a result.error ellenőrzés kevésbé releváns itt,
+      // hacsak a backend 2xx státusszal is küldhet hibát a body-ban.
+      // if (result.error) throw new Error(result.error || 'Hiba a könyvtár hozzáadásakor');
 
       setSuccess(true)
-
       const newPathToAdd = path.replace(/\//g, '\\')
-      // Az optimista frissítés itt a felhasználó által beírt útvonalat adja hozzá.
-      // A fetchDirs a végén majd a szerver által visszaadott, feldolgozott (gyökér) mappákat fogja beállítani.
       setAddedDirs((prevDirs) => Array.from(new Set([...prevDirs, newPathToAdd])))
-
-      setPath('') // Input mező ürítése
-
-      await fetchDirs()
+      setPath('')
+      await fetchDirs() // Ez meghívja fetchScannedDirsCount-ot is
     } catch (err: any) {
-      setError(err.message || 'Ismeretlen hiba')
+      if (axios.isAxiosError(err) && err.response) {
+        setError(
+          err.response.data?.message || err.response.data?.error || 'Hiba a könyvtár hozzáadásakor'
+        )
+      } else {
+        setError(err.message || 'Ismeretlen hiba')
+      }
     } finally {
       setLoading(false)
     }
@@ -108,7 +116,7 @@ const SettingsPage = () => {
       // Mivel a szerver oldalon a /dirs végpont már csak létező fájlok alapján ad vissza mappákat,
       // és a handleDeleteFolders törli az adatbázisból az elemeket,
       // a fetchDirs várhatóan üres listát (vagy a megmaradt mappákat) fog visszaadni.
-      await fetchDirs()
+      await fetchDirs() // Ez meghívja fetchScannedDirsCount-ot is
 
       // Opcionálisan itt beállíthatunk egy sikeres törlés üzenetet, ha van rá state.
       // Például: setSuccessMessage('Minden mappa sikeresen törölve.');

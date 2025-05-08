@@ -25,6 +25,11 @@ export type MediaFile = {
   linkedNfoPath?: string // Az NFO fájl elérési útja, ha van
   linkedMediaPath?: string // A médiafájl elérési útja, ha ez egy NFO rekord
   cover_image_path?: string // Új mező a borítóképhez
+  scanned_by_user_id: string // Felhasználó ID, aki beolvasta
+  coverImagePath?: string // Borítókép elérési útja, ha van
+  omdbMetadata?: any // OMDb metaadatok, ha vannak
+  additionalInfo?: string // További információk, ha szükségesek
+  // További mezők hozzáadhatók itt, ha szükséges
 }
 
 // Gyorsítótár implementáció
@@ -324,7 +329,12 @@ async function walkDirectory(directory: string, type: 'film' | 'sorozat'): Promi
       const batchResults = await Promise.all(batchPromises)
 
       // Egyesítjük az eredményeket
-      results = results.concat(batchResults.flat())
+      results = results.concat(
+        batchResults.flat().map((file) => ({
+          ...file,
+          scanned_by_user_id: 'scanned_by_user_id' in file ? file.scanned_by_user_id : 'unknown'
+        }))
+      )
     }
   } catch (error) {
     console.error(`❌ Hiba a könyvtár bejárása közben: ${directory}`, error)

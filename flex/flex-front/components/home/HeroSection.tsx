@@ -50,7 +50,7 @@ const HeroSection: React.FC<{ movie?: MediaItem; continueItem?: MediaItem }> = (
             </div>
           )}
           <h1 className="mb-5 text-4xl md:text-5xl font-bold font-poppins line-clamp-2 drop-shadow-lg">
-            {hero.title || hero.name}
+            {hero.title ?? hero.name}
           </h1>
           {hero.omdb?.plot && (
             <p className="mb-5 text-sm md:text-base line-clamp-3 drop-shadow-md">

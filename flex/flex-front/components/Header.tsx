@@ -5,9 +5,61 @@ import { useUser } from '@/app/UserContext'
 import React, { useEffect, useState } from 'react'
 
 export default function Header() {
-  const { user, logout } = useUser()
+  const { user, logout, scannedDirsCount } = useUser() // scannedDirsCount hozzáadva
   const [mounted, setMounted] = useState(false)
   useEffect(() => setMounted(true), [])
+
+  // Logout funkció, amely átirányít a főoldalra kijelentkezés után
+  const handleLogout = async () => {
+    try {
+      await logout() // A UserContext logout funkciójának hívása
+      // Opcionálisan itt lehetne egy router.push('/') vagy window.location.href = '/',
+      // ha a logout funkció a UserContext-ben nem kezelné az átirányítást.
+      // Jelenleg a UserContext logoutja csak a usert nullázza és a backendet hívja.
+      // A jobb felhasználói élmény érdekében az átirányítás itt is maradhat.
+      window.location.href = '/' // Átirányítás a főoldalra
+    } catch (error) {
+      console.error('Kijelentkezési hiba a Headerben:', error)
+      // Itt lehetne egy hibaüzenetet megjeleníteni a felhasználónak, ha szükséges
+    }
+  }
+
+  // Dinamikus menüpontok a felhasználói állapot alapján (mobil nézet)
+  const mobileMenuItems = [
+    { href: '/', label: 'Főoldal' },
+    { href: '/filmek', label: 'Filmek' },
+    { href: '/sorozatok', label: 'Sorozatok' },
+    // Beállítások és Profil linkek csak bejelentkezett felhasználónak
+    ...(user
+      ? [
+          { href: '/beallitasok', label: 'Beállítások' },
+          { href: '/profil', label: 'Profilom' }
+        ]
+      : [])
+  ]
+
+  // Dinamikus menüpontok a felhasználói állapot alapján (asztali nézet)
+  const desktopMenuItems = [
+    { href: '/', label: 'Főoldal' },
+    { href: '/filmek', label: 'Filmek' },
+    { href: '/sorozatok', label: 'Sorozatok' },
+    // Beállítások link csak bejelentkezett felhasználónak
+    ...(user ? [{ href: '/beallitasok', label: 'Beállítások' }] : [])
+  ]
+
+  if (!mounted) {
+    // Hydration mismatch elkerülése érdekében, amíg a kliensoldal nem mountolódott,
+    // ne rendereljünk semmit, vagy egy egyszerűbb placeholder-t.
+    // Ez segít elkerülni, hogy a szerver által renderelt (user=null) és a kliens által
+    // kezdetben renderelt (user=null, majd user betöltődik) UI között különbség legyen,
+    // ami hibát okozhat a dinamikus menüknél.
+    // Egy jobb megoldás lehet skeleton UI használata.
+    return (
+      <div className="bg-base-100 shadow-lg sticky top-0 z-10 border-b border-base-300">
+        <div className="navbar container mx-auto px-4 h-[68px]"></div>
+      </div>
+    ) // Vagy egy skeleton loader
+  }
 
   return (
     <div className="bg-base-100 shadow-lg sticky top-0 z-10 border-b border-base-300">
@@ -32,20 +84,28 @@ export default function Header() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[100] p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <Link href="/">Főoldal</Link>
-              </li>
-              <li>
-                <Link href="/filmek">Filmek</Link>
-              </li>
-              <li>
-                <Link href="/sorozatok">Sorozatok</Link>
-              </li>
-              <li>
-                <Link href="/beallitasok">Beállítások</Link>
-              </li>
+              {mobileMenuItems.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href}>{item.label}</Link>
+                </li>
+              ))}
+              {/* Mobil nézetben a be/ki jelentkezés és regisztráció */}
+              {!user ? (
+                <>
+                  <li>
+                    <Link href="/auth/?login">Bejelentkezés</Link>
+                  </li>
+                  <li>
+                    <Link href="/auth/?register">Regisztráció</Link>
+                  </li>
+                </>
+              ) : (
+                <li>
+                  <button onClick={handleLogout}>Kijelentkezés</button>
+                </li>
+              )}
             </ul>
           </div>
           <Link href="/" className="btn btn-ghost font-poppins text-xl normal-case">
@@ -56,45 +116,19 @@ export default function Header() {
 
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal">
-            <li>
-              <Link className="rounded-lg font-medium transition-colors hover:bg-base-200" href="/">
-                Főoldal
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="rounded-lg font-medium transition-colors hover:bg-base-200"
-                href="/filmek"
-              >
-                Filmek
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="rounded-lg font-medium transition-colors hover:bg-base-200"
-                href="/sorozatok"
-              >
-                Sorozatok
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="rounded-lg font-medium transition-colors hover:bg-base-200"
-                href="/beallitasok"
-              >
-                Beállítások
-              </Link>
-            </li>
-            {!user && (
+            {desktopMenuItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  className="rounded-lg font-medium transition-colors hover:bg-base-200"
+                  href={item.href}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+            {/* Asztali nézetben a profil, be/ki jelentkezés és regisztráció */}
+            {!user ? (
               <>
-                <li>
-                  <Link
-                    className="rounded-lg font-medium transition-colors hover:bg-base-200"
-                    href="/auth/?register"
-                  >
-                    Regisztráció
-                  </Link>
-                </li>
                 <li>
                   <Link
                     className="rounded-lg font-medium transition-colors hover:bg-base-200"
@@ -103,22 +137,29 @@ export default function Header() {
                     Bejelentkezés
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    className="rounded-lg font-medium transition-colors hover:bg-base-200"
+                    href="/auth/?register"
+                  >
+                    Regisztráció
+                  </Link>
+                </li>
               </>
-            )}
-            {user && (
+            ) : (
               <>
                 <li>
                   <Link
                     className="rounded-lg font-medium transition-colors hover:bg-base-200"
-                    href="/profile"
+                    href="/profil" // Profil link javítva /profil-ra
                   >
-                    Profil
+                    Profilom ({user.username})
                   </Link>
                 </li>
                 <li>
                   <button
-                    className="rounded-lg font-medium transition-colors hover:bg-base-200"
-                    onClick={logout}
+                    className="btn btn-ghost rounded-lg font-medium transition-colors hover:bg-base-200"
+                    onClick={handleLogout} // handleLogout használata
                   >
                     Kijelentkezés
                   </button>
@@ -130,8 +171,8 @@ export default function Header() {
 
         <div className="navbar-end gap-3">
           <div className="hidden sm:block">
-            {/* Asztali keresősáv */}
-            {user && <SearchBar />}
+            {/* Asztali keresősáv - csak akkor jelenik meg, ha van bejelentkezett felhasználó és van szkennelt mappa */}
+            {user && mounted && scannedDirsCount > 0 && <SearchBar />}
           </div>
           <div className="navbar-end gap-2">
             <button
@@ -169,7 +210,9 @@ export default function Header() {
       </div>
 
       {/* Mobil keresősáv */}
-      <div className="sm:hidden px-4 pb-3">{user && <SearchBar isMobile={true} />}</div>
+      <div className="sm:hidden px-4 pb-3">
+        {user && mounted && scannedDirsCount > 0 && <SearchBar isMobile={true} />}
+      </div>
     </div>
   )
 }

@@ -6,7 +6,7 @@ const LoginForm = () => {
   const [form, setForm] = useState({ username: '', password: '' })
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const { setUser } = useUser()
+  const { login } = useUser() // login funkció a UserContext-ből
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -18,18 +18,16 @@ const LoginForm = () => {
     setError(null)
     setLoading(true)
     try {
-      const res = await fetch('http://localhost:8000/api/user', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
-      })
-      const data = await res.json()
-      if (!res.ok) throw new Error(data.error || 'Ismeretlen hiba')
-      localStorage.setItem('token', data.token)
-      setUser({ username: data.username, email: data.email })
-      window.location.href = '/'
+      // A UserContext login funkciójának használata
+      await login({ username: form.username, password: form.password })
+      // Sikeres bejelentkezés után a UserContext frissíti a felhasználói állapotot
+      // és a cookie-t a szerver már beállította.
+      // Nincs szükség manuális token mentésre vagy setUser hívásra itt.
+      window.location.href = '/' // Átirányítás a főoldalra
     } catch (err: any) {
-      setError(err.message)
+      // A UserContext login funkciója már kezeli a hibát és továbbdobja azt,
+      // így itt csak meg kell jeleníteni.
+      setError(err.response?.data?.message || err.message || 'Ismeretlen bejelentkezési hiba')
     } finally {
       setLoading(false)
     }

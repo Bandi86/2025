@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import axios from 'axios' // Axios importálása
 
 const RegisterForm = () => {
-
   const router = useRouter()
 
   const [form, setForm] = useState({ username: '', email: '', password: '', confirmPassword: '' })
@@ -27,25 +27,33 @@ const RegisterForm = () => {
     }
     setLoading(true)
     try {
-      const res = await fetch('http://localhost:8000/api/user', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          username: form.username,
-          email: form.email,
-          password: form.password
-        })
+      // Axios használata a POST kéréshez
+      const response = await axios.post('http://localhost:8000/api/user', {
+        username: form.username,
+        email: form.email,
+        password: form.password
       })
-      const data = await res.json()
-      console.log(data)
-      if (!res.ok) throw new Error(data.error || 'Ismeretlen hiba')
+      // Az axios alapból hibát dob, ha a státuszkód nem 2xx, így a response.ok ellenőrzés kevésbé kritikus,
+      // de a specifikus backend válaszok kezelése hasznos lehet.
+      // console.log(response.data) // A backend válaszának logolása (opcionális)
+
       setSuccess('Sikeres regisztráció! Most már bejelentkezhetsz.')
       setForm({ username: '', email: '', password: '', confirmPassword: '' })
       setTimeout(() => {
-        router.push('/auth/?login')
+        router.push('/auth/?login') // Átirányítás a login oldalra
       }, 2000)
     } catch (err: any) {
-      setError(err.message)
+      if (axios.isAxiosError(err) && err.response) {
+        // Próbáljuk meg a backend által küldött hibaüzenetet használni
+        setError(
+          err.response.data?.message ||
+            err.response.data?.error ||
+            'Ismeretlen regisztrációs hiba történt.'
+        )
+      } else {
+        // Általános hibaüzenet, ha nem axios hiba vagy nincs response
+        setError(err.message || 'Ismeretlen regisztrációs hiba történt.')
+      }
     } finally {
       setLoading(false)
     }
