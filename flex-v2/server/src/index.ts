@@ -6,6 +6,7 @@ import * as bodyParser from 'body-parser'
 import * as cookieParser from 'cookie-parser'
 import { ApiError } from './lib/error'
 import { initDatabase } from './db/database'
+import userRoutes from './routes/userRouter'
 
 
 // Környezeti változók betöltése
@@ -38,7 +39,7 @@ app.get('/', (_req: Request, res: Response) => {
 })
 
 // API végpontok
-
+app.use('/api', userRoutes)
 
 // 404-es hiba kezelése (opcionális)
 app.use((_req, res) => {

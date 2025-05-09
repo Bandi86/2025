@@ -1,7 +1,6 @@
 import { Router, Request, Response, NextFunction } from 'express'
 import { authMiddleware } from '../middleware/authMIddleware'
 import { createNewUser, loginUser, logoutUser, getMe } from '../controllers/userController'
-import { ApiError } from '../lib/error'
 
 const router = Router()
 
@@ -13,9 +12,8 @@ router.use((req: Request, res: Response, next: NextFunction) => {
   next()
 })
 
-
 // Routes without authentication, or where asyncHandler was working
-router.post('/user/', async (req, res, next) => {
+router.post('/user/register', async (req, res, next) => {
   try {
     await createNewUser(req, res, next)
   } catch (error) {
@@ -38,17 +36,15 @@ router.post('/user/logout', async (req, res, next) => {
   }
 })
 
-
 router.get('/user/me', authMiddleware, async (req: Request, res: Response, next: NextFunction) => {
-authMiddleware(req, res, async () => {
-  try {
-    await getMe(req, res, next)
-  } catch (error) {
-    console.error('[userRoutes.ts] Hiba a getMe controllerben a /user/me útvonalon:', error)
-    next(error)
-  }
+  authMiddleware(req, res, async () => {
+    try {
+      await getMe(req, res, next)
+    } catch (error) {
+      console.error('[userRoutes.ts] Hiba a getMe controllerben a /user/me útvonalon:', error)
+      next(error)
+    }
+  })
 })
-})
-
 
 export default router

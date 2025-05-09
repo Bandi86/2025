@@ -1,4 +1,4 @@
-import * as bcrypt from 'bcryptjs'
+import * as bcrypt from 'bcrypt'
 import { ValidationError } from '../../lib/error'
 
 export const hashPassword = async (password: string): Promise<string> => {
