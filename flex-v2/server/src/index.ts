@@ -9,6 +9,8 @@ import { initDatabase } from './db/database';
 import userRoutes from './routes/userRoutes';
 import dirsRoutes from './routes/dirsRoutes';
 import scanRoutes from './routes/scanRoutes';
+import moviesRoutes from './routes/moviesRoutes';
+import seriesRoutes from './routes/seriesRoutes';
 
 // Környezeti változók betöltése
 dotenv.config();
@@ -43,6 +45,8 @@ app.get('/', (_req: Request, res: Response) => {
 app.use('/api', userRoutes);
 app.use('/api/dirs', dirsRoutes);
 app.use('/api/scans', scanRoutes);
+app.use('/api/media', moviesRoutes);
+app.use('/api/media', seriesRoutes);
 
 // 404-es hiba kezelése (opcionális)
 app.use((_req, res) => {
@@ -72,4 +76,3 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     console.log(`Szerver fut a http://localhost:${port} címen`);
   });
 })();
-app.use(cookieParser());

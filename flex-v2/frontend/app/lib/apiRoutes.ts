@@ -14,9 +14,16 @@ export const API_ROUTES = {
     FILES: '/files',
     ITEMS: '/media',
     SEARCH: '/search',
+    MOVIES: '/media/movies',
+    SERIES: '/media/series',
   },
   PLAYER: {
     STATE: '/player/state',
     CONTROL: '/player/control',
   },
+  LIBRARY: {
+    MOVIES: '/library/movies',
+    SERIES: '/library/series',
+  },
+
 };

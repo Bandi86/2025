@@ -116,6 +116,124 @@ export async function fetchScannedDirectories(token?: string) {
   return apiFetch(API_ROUTES.MEDIA.DIRS, { token });
 }
 
+// Filmek lekérdezése összes, vagy id-ra szűrve ha összes filmet kérünk akkorr pagination szerüen
+// quarry kéréssel ha ha van
+
+export async function fetchMovies(token?: string, id?: string, quarry?: string) {
+  let endpoint = API_ROUTES.MEDIA.MOVIES;
+  if (id) {
+    endpoint = `${API_ROUTES.MEDIA.MOVIES}/${id}`;
+  }
+  if (quarry) {
+    endpoint = `${API_ROUTES.MEDIA.MOVIES}?q=${quarry}`;
+  }
+  return apiFetch(endpoint, { token });
+}
+
+// Film lekérdezés kibővített paraméterekkel
+export type MovieFilterOptions = {
+  page?: number; // Lapozás: hanyadik oldal
+  limit?: number; // Lapozás: oldalankénti elemszám
+  search?: string; // Szabad szöveges keresés
+  genre?: string | string[]; // Műfaj szerinti szűrés
+  year?: number | [number, number]; // Év vagy évek intervalluma
+  sortBy?: 'title' | 'year' | 'rating' | 'added'; // Rendezés mező
+  sortOrder?: 'asc' | 'desc'; // Rendezés iránya
+  actors?: string[]; // Színészek szerinti szűrés
+  director?: string; // Rendező szerinti szűrés
+  rating?: number; // Értékelés szerinti szűrés
+  watched?: boolean; // Megnézett filmek szűrése
+  unwatched?: boolean; // Meg nem nézett filmek szűrése
+  favorite?: boolean; // Kedvenc filmek szűrése
+  watchedDate?: string; // Megnézés dátuma szerinti szűrés
+  unwatchedDate?: string; // Meg nem nézett filmek dátuma szerinti szűrés
+  favoriteDate?: string; // Kedvenc filmek dátuma szerinti szűrés
+  addedDate?: string; // Hozzáadás dátuma szerinti szűrés
+  updatedDate?: string; // Frissítés dátuma szerinti szűrés
+  deletedDate?: string; // Törlés dátuma szerinti szűrés
+  deleted?: boolean; // Törölt filmek szűrése
+  notDeleted?: boolean; // Nem törölt filmek szűrése
+};
+
+/**
+ * Kibővített film lekérdező függvény, ami támogatja a szűrést, rendezést és lapozást
+ *
+ * @param options - Szűrési, rendezési és lapozási beállítások
+ * @param token - Opcionális authentikációs token
+ * @returns Promise a lekérdezés eredményével (filmek + metaadatok)
+ */
+export async function fetchMoviesAdvanced(options: MovieFilterOptions = {}, token?: string) {
+  // Alap query paraméterek összeállítása
+  const queryParams: Record<string, string> = {};
+
+  // Lapozás
+  if (options.page !== undefined) queryParams.page = options.page.toString();
+  if (options.limit !== undefined) queryParams.limit = options.limit.toString();
+
+  // Keresés
+  if (options.search) queryParams.q = options.search;
+
+  // Műfaj szűrés
+  if (options.genre) {
+    if (Array.isArray(options.genre)) {
+      queryParams.genre = options.genre.join(',');
+    } else {
+      queryParams.genre = options.genre;
+    }
+  }
+
+  // Év szűrés
+  if (options.year !== undefined) {
+    if (Array.isArray(options.year)) {
+      queryParams.yearFrom = options.year[0].toString();
+      queryParams.yearTo = options.year[1].toString();
+    } else {
+      queryParams.year = options.year.toString();
+    }
+  }
+
+  // Színészek szűrés
+  if (options.actors && options.actors.length > 0) {
+    queryParams.actors = options.actors.join(',');
+  }
+
+  // Rendező szűrés
+  if (options.director) {
+    queryParams.director = options.director;
+  }
+
+  // Rendezés
+  if (options.sortBy) {
+    queryParams.sortBy = options.sortBy;
+    if (options.sortOrder) {
+      queryParams.sortOrder = options.sortOrder;
+    }
+  }
+
+  // Query string összeállítása
+  const queryString = Object.keys(queryParams)
+    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(queryParams[key])}`)
+    .join('&');
+
+  // Végpont összeállítása
+  const endpoint = `${API_ROUTES.MEDIA.MOVIES}${queryString ? `?${queryString}` : ''}`;
+
+  // API hívás végrehajtása
+  return apiFetch(endpoint, { token });
+}
+
+/**
+ * Film részletes adatainak lekérdezése ID alapján
+ *
+ * @param id - A film egyedi azonosítója
+ * @param token - Opcionális authentikációs token
+ * @returns Promise a film részletes adataival
+ */
+export async function fetchMovieDetails(id: string, token?: string) {
+  const endpoint = `${API_ROUTES.MEDIA.MOVIES}/${id}`;
+  return apiFetch(endpoint, { token });
+}
+
 // Egyszerű HTTP wrapper függvények
 export function get<T = any>(endpoint: string, options: Omit<FetchOptions, 'method'> = {}) {
   return apiFetch<T>(endpoint, { ...options, method: 'GET' });
