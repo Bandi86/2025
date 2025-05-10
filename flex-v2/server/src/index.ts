@@ -1,72 +1,75 @@
-import { Request, Response, NextFunction } from 'express'
-import * as express from 'express'
-import * as cors from 'cors'
-import * as dotenv from 'dotenv'
-import * as bodyParser from 'body-parser'
-import * as cookieParser from 'cookie-parser'
-import { ApiError } from './lib/error'
-import { initDatabase } from './db/database'
-import userRoutes from './routes/userRouter'
-
+import { Request, Response, NextFunction } from 'express';
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
+import { ApiError } from './lib/error';
+import { initDatabase } from './db/database';
+import userRoutes from './routes/userRoutes';
+import dirsRoutes from './routes/dirsRoutes';
+import scanRoutes from './routes/scanRoutes';
 
 // Környezeti változók betöltése
-dotenv.config()
+dotenv.config();
 
-const app = express()
-const port = process.env.PORT || 3000
+const app = express();
+const port = process.env.PORT || 3000;
 
 // Köztes rétegek
 app.use(
   cors({
     origin: process.env.FRONTEND_URL || 'http://localhost:3000', // Frontend címe környezeti változóból vagy alapértelmezett
-    credentials: true // Engedélyezi a sütik küldését a cross-origin kéréseknél
+    credentials: true, // Engedélyezi a sütik küldését a cross-origin kéréseknél
   })
-)
+);
 
 app.use((req, res, next) => {
   console.log(`Bejövő kérés: ${req.method} ${req.originalUrl}`);
   next();
 });
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-app.use(bodyParser.json())
-app.use(cookieParser())
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cookieParser());
 
 // Főoldal
 app.get('/', (_req: Request, res: Response) => {
-  res.send('Flex Server is running!')
-})
+  res.send('Flex Server is running!');
+});
 
 // API végpontok
-app.use('/api', userRoutes)
+app.use('/api', userRoutes);
+app.use('/api/dirs', dirsRoutes);
+app.use('/api/scans', scanRoutes);
 
 // 404-es hiba kezelése (opcionális)
 app.use((_req, res) => {
-  res.status(404).json({ error: 'Not found' })
-})
+  res.status(404).json({ error: 'Not found' });
+});
 
 // Általános hiba kezelő (mindig a legvégén!)
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  console.error(err.stack) // Hibalogolás a szerver oldalon
+  console.error(err.stack); // Hibalogolás a szerver oldalon
 
   if (err instanceof ApiError) {
     // Ha ApiError, akkor a saját státuszkódját és üzenetét használjuk
-    res.status(err.status).json({ error: err.message })
-    return // Explicit void return
+    res.status(err.status).json({ error: err.message });
+    return; // Explicit void return
   }
 
   // Egyéb, nem kezelt hibák esetén általános 500-as hiba
-  res.status(500).json({ error: 'Internal Server Error' })
-  return // Explicit void return
-})
+  res.status(500).json({ error: 'Internal Server Error' });
+  return; // Explicit void return
+});
 
 // Szerver indítása
-;(async () => {
-  await initDatabase()
+(async () => {
+  await initDatabase();
   //await startWatchers()
   app.listen(port, () => {
-    console.log(`Szerver fut a http://localhost:${port} címen`)
-  })
-})()
-app.use(cookieParser())
+    console.log(`Szerver fut a http://localhost:${port} címen`);
+  });
+})();
+app.use(cookieParser());

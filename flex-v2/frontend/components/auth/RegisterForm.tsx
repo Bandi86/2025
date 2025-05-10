@@ -1,48 +1,62 @@
-import React, { useState } from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import axios from 'axios'
-import { fetchData } from '@/app/lib/apiFetching'
+'use client';
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import axios from 'axios';
+import { useUser } from '@/app/UserContext';
+import apiClient from '@/app/lib/axiosInstance';
 
 const RegisterForm = () => {
-  const router = useRouter()
+  const router = useRouter();
+  const { setUser } = useUser();
 
-  const [form, setForm] = useState({ username: '', email: '', password: '', confirmPassword: '' })
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  const [success, setSuccess] = useState<string | null>(null)
+  const [form, setForm] = useState({ username: '', email: '', password: '', confirmPassword: '' });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
-    setError(null)
-    setSuccess(null)
-  }
+    setForm({ ...form, [e.target.name]: e.target.value });
+    setError(null);
+    setSuccess(null);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setError(null)
-    setSuccess(null)
+    e.preventDefault();
+    setError(null);
+    setSuccess(null);
+
     if (form.password !== form.confirmPassword) {
-      setError('A jelszavak nem egyeznek!')
-      return
+      setError('A jelszavak nem egyeznek!');
+      return;
     }
-    setLoading(true)
+
+    setLoading(true);
+
     try {
-      // A fetchData függvény használata a regisztrációs kéréshez
-      const res = await fetchData('user/register', 'POST', {
+      // A regisztrációs kérés küldése az API-nak
+      const response = await apiClient.post('/api/user/register', {
         username: form.username,
         email: form.email,
-        password: form.password
-      })
-      if (!res.success) {
-        throw new Error(res.error || 'Ismeretlen hiba történt a regisztráció során.')
+        password: form.password,
+      });
+
+      // Sikeres regisztráció esetén
+      if (response.data && response.data.user) {
+        // Beállítjuk a user adatait a kontextusban
+        setUser(response.data.user);
+
+        // Sikeres üzenet és form reset
+        setSuccess('Sikeres regisztráció! Most már bejelentkezhetsz.');
+        setForm({ username: '', email: '', password: '', confirmPassword: '' });
+
+        // Rövid várakozás után átirányítás a főoldalra vagy login oldalra
+        setTimeout(() => {
+          router.push('/'); // vagy '/auth/?login' ha nem automatikus a bejelentkeztetés
+        }, 2000);
+      } else {
+        throw new Error('Sikertelen regisztráció: érvénytelen válasz a szerverről.');
       }
-      // Sikeres regisztráció esetén beállítjuk a sikeres üzenetet
-      setSuccess('Sikeres regisztráció! Most már bejelentkezhetsz.')
-      setForm({ username: '', email: '', password: '', confirmPassword: '' })
-      setTimeout(() => {
-        router.push('/auth/?login') // Átirányítás a login oldalra
-      }, 2000)
     } catch (err: any) {
       if (axios.isAxiosError(err) && err.response) {
         // Próbáljuk meg a backend által küldött hibaüzenetet használni
@@ -50,15 +64,15 @@ const RegisterForm = () => {
           err.response.data?.message ||
             err.response.data?.error ||
             'Ismeretlen regisztrációs hiba történt.'
-        )
+        );
       } else {
         // Általános hibaüzenet, ha nem axios hiba vagy nincs response
-        setError(err.message || 'Ismeretlen regisztrációs hiba történt.')
+        setError(err.message || 'Ismeretlen regisztrációs hiba történt.');
       }
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <form
@@ -66,8 +80,9 @@ const RegisterForm = () => {
       className="max-w-md mx-auto bg-base-100 p-8 rounded-xl shadow-lg flex flex-col gap-4 mt-8"
     >
       <h2 className="text-2xl font-bold mb-2 text-center">Regisztráció</h2>
-      <label className="label"></label>
-      <span className="label-text">Felhasználónév</span>
+      <label className="label">
+        <span className="label-text">Felhasználónév</span>
+      </label>
       <input
         type="text"
         name="username"
@@ -78,8 +93,9 @@ const RegisterForm = () => {
         required
         minLength={3}
       />
-      <label className="label"></label>
-      <span className="label-text">Email</span>
+      <label className="label">
+        <span className="label-text">Email</span>
+      </label>
       <input
         type="email"
         name="email"
@@ -89,8 +105,9 @@ const RegisterForm = () => {
         onChange={handleChange}
         required
       />
-      <label className="label"></label>
-      <span className="label-text">Jelszó</span>
+      <label className="label">
+        <span className="label-text">Jelszó</span>
+      </label>
       <input
         type="password"
         name="password"
@@ -99,10 +116,11 @@ const RegisterForm = () => {
         value={form.password}
         onChange={handleChange}
         required
-        minLength={6}
+        minLength={8}
       />
-      <label className="label"></label>
-      <span className="label-text">Jelszó megerősítése</span>
+      <label className="label">
+        <span className="label-text">Jelszó megerősítése</span>
+      </label>
       <input
         type="password"
         name="confirmPassword"
@@ -125,7 +143,7 @@ const RegisterForm = () => {
         </Link>
       </div>
     </form>
-  )
-}
+  );
+};
 
-export default RegisterForm
+export default RegisterForm;

@@ -1,17 +1,17 @@
-"use client"
-import { useRouter } from 'next/router'
-import React, { useState } from 'react'
+'use client';
+import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
 
 const SearchBar = ({ isMobile = false }: { isMobile?: boolean } = {}) => {
-  const [query, setQuery] = useState('')
-  const router = useRouter()
+  const [query, setQuery] = useState('');
+  const router = useRouter();
 
   const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     if (query.trim()) {
-      router.push(`/search?q=${encodeURIComponent(query)}`)
+      router.push(`/search?q=${encodeURIComponent(query)}`);
     }
-  }
+  };
 
   return (
     <form onSubmit={handleSearch} className={`join w-full ${isMobile ? '' : 'max-w-xs'}`}>
@@ -37,7 +37,7 @@ const SearchBar = ({ isMobile = false }: { isMobile?: boolean } = {}) => {
         </svg>
       </button>
     </form>
-  )
-}
+  );
+};
 
-export default SearchBar
+export default SearchBar;

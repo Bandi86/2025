@@ -1,49 +1,57 @@
+'use client';
 import { headerItems } from '@/app/lib/headerHandling';
-import { User } from '@/app/UserContext'
-import HeaderClientParts from './HeaderClientParts'
-import SearchBar from './SearchBar'
+import HeaderClientParts from './HeaderClientParts';
+import SearchBar from './SearchBar';
 
-// Placeholder: Ezt a függvényt a projekt specifikus szerver oldali
-// autentikációs logikájával kell helyettesíteni (pl. session cookie olvasása).
-async function getServerSideUser(): Promise<User | null> {
-  // console.log('Fetching user on server side...');
-  // Példa:
-  // const { getUser } = await import('@/app/lib/auth-server'); // Tegyük fel van ilyen
-  // return await getUser();
-  return null; // Alapértelmezett, ha nincs bejelentkezett felhasználó
+function getIconForMenuItem(label: string): string {
+  switch (label) {
+    case 'Kezdőlap':
+      return 'home';
+    case 'Bejelentkezés':
+      return 'login';
+    case 'Regisztráció':
+      return 'user-plus';
+    case 'Profil':
+      return 'user';
+    case 'Könyvtárak':
+      return 'folder';
+    case 'Beállítások':
+      return 'settings';
+    case 'Kijelentkezés':
+      return 'logout';
+    case 'Filmek':
+      return 'film';
+    case 'Sorozatok':
+      return 'tv';
+    default:
+      return 'default-icon'; // Provide a default icon name if no match is found
+  }
 }
 
-// Placeholder: Ezt a függvényt a projekt specifikus szerver oldali
-// adatlekérési logikájával kell helyettesíteni.
-async function getScannedDirsCountServerSide(): Promise<number> {
-  // console.log('Fetching scannedDirsCount on server side...');
-  return 0; // Alapértelmezett érték
-}
+const Header = () => {
+  const { mobileMenuItems, desktopMenuItems } = headerItems({ user: null });
 
-const Header = async () => {
-  const user = await getServerSideUser();
-  const scannedDirsCount = await getScannedDirsCountServerSide();
+  const transformedMobileMenuItems = mobileMenuItems.map((item) => ({
+    name: item.label,
+    path: item.href,
+    icon: getIconForMenuItem(item.label),
+  }));
 
-  const { mobileMenuItems, desktopMenuItems } = headerItems({ user });
+  const transformedDesktopMenuItems = desktopMenuItems.map((item) => ({
+    name: item.label,
+    path: item.href,
+    icon: getIconForMenuItem(item.label),
+  }));
 
   return (
-    <div className="bg-base-100 shadow-lg sticky top-0 z-10 border-b border-base-300">
-      <div className="navbar container mx-auto px-4">
+    <header className="bg-gradient-to-r from-blue-700 to-blue-900 sticky top-0 z-40 shadow-md">
+      <div className="container mx-auto flex items-center justify-between h-15 px-4">
         <HeaderClientParts
-          user={user}
-          scannedDirsCount={scannedDirsCount}
-          mobileMenuItems={mobileMenuItems}
-          desktopMenuItems={desktopMenuItems}
+          mobileMenuItems={transformedMobileMenuItems}
+          desktopMenuItems={transformedDesktopMenuItems}
         />
       </div>
-
-      {/* Mobil keresősáv */}
-      {user && scannedDirsCount > 0 && (
-        <div className="sm:hidden px-4 pb-3">
-          <SearchBar isMobile={true} />
-        </div>
-      )}
-    </div>
+    </header>
   );
 };
 
