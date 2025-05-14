@@ -3,6 +3,8 @@ import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser'
+import swaggerUi from 'swagger-ui-express'
+import swaggerJsdoc from 'swagger-jsdoc'
 import { ApiError } from './lib/error'
 import prisma from './lib/client'
 import usersRoutes from './routes/usersRoute'
@@ -13,6 +15,25 @@ dotenv.config()
 const app = express()
 const PORT = process.env.PORT || 8080
 
+// Swagger dokumentáció beállítása
+const swaggerOptions = {
+  swaggerDefinition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'API dokumentáció',
+      version: '1.0.0',
+      description: 'Social Tippmix API dokumentáció'
+    },
+    servers: [
+      {
+        url: `http://localhost:${PORT}` // vagy a szerver címe
+      }
+    ]
+  },
+  apis: ['./src/routes/*.ts'] // vagy ahol az útvonalaid vannak
+}
+const swaggerDocs = swaggerJsdoc(swaggerOptions)
+
 // Köztes rétegek
 app.use(
   cors({
@@ -20,6 +41,8 @@ app.use(
     credentials: true // Engedélyezi a sütik küldését a cross-origin kéréseknél
   })
 )
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
 app.use((req, res, next) => {
   console.log(`Bejövő kérés: ${req.method} ${req.originalUrl}`)
@@ -67,7 +90,6 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     try {
       await prisma.$connect()
       console.log('DB connected successfully!')
-
     } catch (err) {
       console.error('DB connection error:', err)
     }

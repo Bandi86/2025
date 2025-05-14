@@ -12,12 +12,12 @@ import { signJwt } from '../lib/auth/jwt'
 
 export const loginUser = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { username, password } = req.body
+    const { name, password } = req.body
     // Ellenőrizzük a bemeneti adatokat
     const { valid, errors } = validateInputs(
-      { username, password },
+      { name, password },
       {
-        username: validateUsername,
+        name: validateUsername,
         password: validatePassword
       }
     )
@@ -27,7 +27,7 @@ export const loginUser = async (req: Request, res: Response, next: NextFunction)
     // Ellenőrizzük, hogy a felhasználó létezik-e
     const existingUser = await prisma.user.findFirst({
       where: {
-        name: username
+        name: name
       }
     })
     if (!existingUser) {
@@ -47,7 +47,18 @@ export const loginUser = async (req: Request, res: Response, next: NextFunction)
     res.cookie('token', token, {
       httpOnly: true, // Csak HTTP kérésekhez érhető el
       secure: process.env.NODE_ENV === 'production', // Csak HTTPS-en érhető el
-      maxAge: 24 * 60 * 60 * 1000 // 1 nap
+      maxAge: 24 * 60 * 60 * 1000, // 1 nap
+      sameSite: 'strict' // Csak ugyanazon a domainen érhető el
+    })
+    // is online beallitasa
+    await prisma.user.update({
+      where: {
+        id: user.id
+      },
+      data: {
+        isOnline: true,
+        lastLogin: new Date()
+      }
     })
     console.log('Felhasználó bejelentkezett:', user, token)
     // Sikeres bejelentkezés esetén válasz küldése
@@ -56,7 +67,8 @@ export const loginUser = async (req: Request, res: Response, next: NextFunction)
       user: {
         id: user.id,
         name: user.name,
-        email: user.email
+        email: user.email,
+        lastLogin: user.lastLogin
       }
     })
   } catch (error) {
