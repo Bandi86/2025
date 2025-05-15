@@ -4,11 +4,11 @@ import {
   validateUsername,
   validateEmail,
   validatePassword
-} from '../lib/auth/validation'
-import { ApiError } from '../lib/error'
-import prisma from '../lib/client'
-import { comparePassword } from '../lib/auth/bcrypt'
-import { signJwt } from '../lib/auth/jwt'
+} from '../../lib/auth/validation'
+import { ApiError } from '../../lib/error'
+import prisma from '../../lib/client'
+import { comparePassword } from '../../lib/auth/bcrypt'
+import { signJwt } from '../../lib/auth/jwt'
 
 export const loginUser = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -68,15 +68,21 @@ export const loginUser = async (req: Request, res: Response, next: NextFunction)
         id: user.id,
         name: user.name,
         email: user.email,
-        lastLogin: user.lastLogin
+        lastLogin: user.lastLogin,
+        role: user.role,
+        isOnline: user.isOnline,
+        createdAt: user.createdAt,
+        updatedAt: user.updatedAt
       }
     })
+  // Hiba esetén a hiba kezelése
   } catch (error) {
     // Hiba kezelése
     if (error instanceof ApiError) {
       res.status(error.status).json({ error: error.message })
     } else {
-      res.status(500).json({ error: 'Internal Server Error' })
+      console.error('Login error:', error)
+      res.status(500).json({ error: 'Internal server error' })
     }
   }
 }

@@ -7,7 +7,6 @@
 generator client {
   provider = "prisma-client-js"
   previewFeatures = ["driverAdapters"]
- // output   = "../prisma/generated" // A Prisma Client generálásának helye
 }
 
 datasource db {

@@ -1,6 +1,6 @@
 import express from 'express'
-import { createNewUser } from '../controllers/createNewUser'
-import { loginUser } from '../controllers/loginUser'
+import { createNewUser } from '../controllers/users/createNewUser'
+import { loginUser } from '../controllers/users/loginUser'
 import { authenticate } from '../middlewares/auth.middleware'
 import prisma from '../lib/client'
 
@@ -105,6 +105,10 @@ router.get('/', authenticate, async (req, res, next) => {
       where: { id: userId },
       data: { isOnline: false }
     })
+    console.log('[usersRoute.ts] Kijelentkezve:', req.user?.name)
+    // Kijelentkezés után a felhasználó adatainak törlése a memóriából
+    req.user = undefined
+    // Válasz küldése a felhasználónak
     res.status(200).json({ message: 'Kijelentkezve' })
   } catch (error) {
     next(error)

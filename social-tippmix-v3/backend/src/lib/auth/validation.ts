@@ -23,3 +23,20 @@ export function validateEmail(email: string): boolean {
 export function validatePassword(password: string): boolean {
   return typeof password === 'string' && password.length >= 8
 }
+
+export function validatePost(post: Record<string, any>): { valid: boolean; errors: string[] } {
+  const errors: string[] = []
+  let valid = true
+
+  if (typeof post.title !== 'string' || post.title.length < 3) {
+    errors.push('Invalid title')
+    valid = false
+  }
+
+  if (typeof post.content !== 'string' || post.content.length < 10) {
+    errors.push('Invalid content')
+    valid = false
+  }
+
+  return { valid, errors }
+}

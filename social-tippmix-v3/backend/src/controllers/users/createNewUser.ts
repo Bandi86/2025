@@ -1,13 +1,13 @@
 import { NextFunction, Response, Request } from 'express';
-import { ApiError } from '../lib/error';
+import { ApiError } from '../../lib/error';
 import {
   validateInputs,
   validateUsername,
   validateEmail,
   validatePassword,
-} from '../lib/auth/validation';
-import prisma from '../lib/client';
-import { hashPassword } from '../lib/auth/bcrypt';
+} from '../../lib/auth/validation';
+import prisma from '../../lib/client';
+import { hashPassword } from '../../lib/auth/bcrypt';
 
 export const createNewUser = async (req: Request, res: Response, next: NextFunction) => {
   try {

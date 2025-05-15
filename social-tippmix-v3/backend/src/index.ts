@@ -8,6 +8,8 @@ import swaggerJsdoc from 'swagger-jsdoc'
 import { ApiError } from './lib/error'
 import prisma from './lib/client'
 import usersRoutes from './routes/usersRoute'
+import postsRoutes from './routes/postsRoute'
+import { authenticate, authorize } from './middlewares/auth.middleware'
 
 // Környezeti változók betöltése
 dotenv.config()
@@ -61,11 +63,10 @@ app.get('/', (_req: Request, res: Response) => {
 
 // API végpontok
 app.use('/api/user', usersRoutes)
+app.use('/api/post', postsRoutes)
 
-// 404-es hiba kezelése (opcionális)
-app.use((_req, res) => {
-  res.status(404).json({ error: 'Not found' })
-})
+// admin route authorization
+app.use('/api/admin', authenticate, authorize(['admin']))
 
 // Általános hiba kezelő (mindig a legvégén!)
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {

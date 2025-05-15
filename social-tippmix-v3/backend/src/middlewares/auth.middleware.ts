@@ -1,48 +1,66 @@
 import jwt from 'jsonwebtoken'
-import { Request, Response, NextFunction } from 'express'
+import { Request, Response, NextFunction, RequestHandler } from 'express'
 import dotenv from 'dotenv'
+
+// A felhasználó típusának pontosítása
+interface JwtUser {
+  id: string
+  role: string
+  [key: string]: any
+}
 
 declare global {
   namespace Express {
     interface Request {
-      user?: any
+      user?: JwtUser
     }
   }
 }
 
 dotenv.config()
 
+// Middleware az autentikációhoz (csak cookie-t használ)
 const authenticate = (req: Request, res: Response, next: NextFunction): void => {
   const jwtSecret = process.env.JWT_SECRET
   const token = req.cookies['token']
 
   // Ellenőrizzük, hogy a token és a JWT titkos kulcs létezik-e
   if (!token) {
-    res.status(401).json({ message: 'Unauthorized' })
+    res.status(401).json({ message: 'Nincs bejelentkezve' })
     return
   }
   if (!jwtSecret) {
-    res.status(500).json({ message: 'JWT secret is not configured' })
+    res.status(500).json({ message: 'A JWT titkos kulcs nincs beállítva' })
     return
   }
   try {
-    const decoded = jwt.verify(token, jwtSecret)
+    // Token dekódolása és felhasználó hozzárendelése a kéréshez
+    const decoded = jwt.verify(token, jwtSecret) as JwtUser
     req.user = decoded
     next()
   } catch (error) {
-    res.status(401).json({ message: 'Unauthorized' })
+    // Hibás vagy lejárt token esetén
+    res.status(401).json({ message: 'Érvénytelen vagy lejárt token' })
+    return
   }
 }
 
-const authorize = (roles: string[]) => {
+// Middleware az autorizációhoz, szerepkörök alapján
+const authorize = (roles: string[]) : RequestHandler => {
   return (req: Request, res: Response, next: NextFunction) => {
+    // Ellenőrizzük, hogy a felhasználó be van-e jelentkezve
     if (!req.user) {
-      return res.status(401).json({ message: 'Unauthorized' })
+      res.status(401).json({ message: 'Nincs bejelentkezve' })
+      return next()
     }
-    if (!roles.includes(req.user.role)) {
-      return res.status(403).json({ message: 'Forbidden' })
+    // Ellenőrizzük, hogy a felhasználó szerepe engedélyezett-e
+    const userRole = req.user.role
+      res.status(403).json({ message: 'Nincs jogosultsága' })
+      return
     }
-    next()
   }
-}
+
+
 export { authenticate, authorize }
+
+
