@@ -14,11 +14,7 @@ function slugify(text: string): string {
 }
 
 // Create a new post
-export const createPost = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-): Promise<void> => {
+const createPost = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { title, content, authorId, category, imageUrl } = req.body
     // 1. Validáció
@@ -66,9 +62,15 @@ export const createPost = async (
       }
     })
   } catch (error: any) {
-    if (error.code === 'P2002') {
-      res.status(409).json({ error: 'A slug már létezik' })
+    if (error instanceof ApiError) {
+      res.status(error.status).json(error) // Use ApiError properties
+    } else if (error.code === 'P2002') {
+      res.status(409).json(new ApiError(409, 'A slug már létezik')) // Wrap Prisma error in ApiError
+    } else {
+      // Pass other errors to the global error handler or create a generic ApiError
+      next(error)
     }
-    next(error)
   }
 }
+
+export default createPost

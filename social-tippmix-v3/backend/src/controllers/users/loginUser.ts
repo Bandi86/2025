@@ -75,14 +75,14 @@ export const loginUser = async (req: Request, res: Response, next: NextFunction)
         updatedAt: user.updatedAt
       }
     })
-  // Hiba esetén a hiba kezelése
+    // Hiba esetén a hiba kezelése
   } catch (error) {
     // Hiba kezelése
     if (error instanceof ApiError) {
-      res.status(error.status).json({ error: error.message })
+      res.status(error.status).json(error) // Use ApiError instance directly
     } else {
       console.error('Login error:', error)
-      res.status(500).json({ error: 'Internal server error' })
+      res.status(500).json(new ApiError(500, 'Internal server error')) // Wrap in ApiError
     }
   }
 }

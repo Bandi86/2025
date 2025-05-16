@@ -51,6 +51,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     refreshUser()
+    const interval = setInterval(refreshUser, 60_000) // 1 percenként
+    return () => clearInterval(interval)
   }, [])
 
   const login = async (name: string, password: string) => {
@@ -59,6 +61,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     try {
       const user = await authProvider.login(name, password)
       setUser(user)
+      
+      // direct to admin page if user is admin
+      if (user.role === 'ADMIN') {
+        // Redirect to the admin page or any other page
+        if (typeof window !== 'undefined') {
+          window.location.href = '/admin'
+        }
+      }
     } catch (error) {
       setError('Sikertelen bejelentkezés')
       throw new Error('Sikertelen bejelentkezés')
@@ -85,8 +95,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setLoading(true)
     setError(null)
     try {
-      await authProvider.logout()
+      // Call backend logout endpoint (assume /api/user/logout is proxied or use full URL if needed)
+      await fetch('/api/user/logout', { method: 'GET', credentials: 'include' })
       setUser(null)
+      // Optionally: reload or redirect
+      if (typeof window !== 'undefined') {
+        window.location.href = '/auth?mode=login'
+      }
     } catch (error) {
       setError('Sikertelen kijelentkezés')
       throw new Error('Sikertelen kijelentkezés')

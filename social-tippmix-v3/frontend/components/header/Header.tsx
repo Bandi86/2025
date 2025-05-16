@@ -7,29 +7,41 @@ export default function Header() {
   const { user, logout, loading } = useAuth()
 
   return (
-    <header style={{ borderBottom: '1px solid #eee', marginBottom: 24, padding: '12px 0' }}>
-      <nav
-        style={{ display: 'flex', alignItems: 'center', gap: 24, maxWidth: 900, margin: '0 auto' }}
-      >
-        <Link href="/">Főoldal</Link>
-        <Link href="/auth-demo">Auth példa</Link>
-        <Link href="/about">Rólunk</Link>
-        <div style={{ marginLeft: 'auto', display: 'flex', gap: 16 }}>
-          {loading ? (
-            <span>Betöltés...</span>
-          ) : user ? (
-            <>
-              <span>👤 {user.name}</span>
-              <LogoutButton />
-            </>
-          ) : (
-            <>
-              <Link href={{ pathname: '/auth', query: { mode: 'login' } }}>Bejelentkezés</Link>
-              <Link href={{ pathname: '/auth', query: { mode: 'register' } }}>Regisztráció</Link>
-            </>
-          )}
-        </div>
-      </nav>
+    <header className="navbar bg-primary text-primary-content">
+      <div className="navbar-start">
+        <Link href="/" className="btn btn-ghost text-xl">
+          Social Tippmix
+        </Link>
+        <Link href="/auth-demo" className="btn btn-ghost">
+          Auth példa
+        </Link>
+        <Link href="/about" className="btn btn-ghost">
+          Rólunk
+        </Link>
+      </div>
+
+      <div className="navbar-end">
+        {loading ? (
+          <span className="loading loading-spinner"></span>
+        ) : user ? (
+          <>
+            <span className="mr-2">👤 {user.name}</span>
+            <LogoutButton />
+          </>
+        ) : (
+          <>
+            <Link href={{ pathname: '/auth', query: { mode: 'login' } }} className="btn btn-ghost">
+              Bejelentkezés
+            </Link>
+            <Link
+              href={{ pathname: '/auth', query: { mode: 'register' } }}
+              className="btn btn-ghost"
+            >
+              Regisztráció
+            </Link>
+          </>
+        )}
+      </div>
     </header>
   )
 }

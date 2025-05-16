@@ -3,6 +3,10 @@ import { createNewUser } from '../controllers/users/createNewUser'
 import { loginUser } from '../controllers/users/loginUser'
 import { authenticate } from '../middlewares/auth.middleware'
 import prisma from '../lib/client'
+import { getAllUser } from '../controllers/users/getAllUser'
+import { getUserById } from '../controllers/users/getUserById'
+import { updateUser } from '../controllers/users/updateUser' // Add this import
+import { deleteUser } from '../controllers/users/deleteUser' // Add this import
 
 const router = express.Router()
 
@@ -14,42 +18,7 @@ router.use((req, res, next) => {
   next()
 })
 
-/**
- * @swagger
- * components:
- *   securitySchemes:
- *     bearerAuth:
- *       type: http
- *       scheme: bearer
- *       bearerFormat: JWT
- */
-
-/**
- * @swagger
- * /api/user/register:
- *   post:
- *     summary: Új felhasználó regisztrálása
- *     tags:
- *       - User
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               name:
- *                 type: string
- *               email:
- *                 type: string
- *               password:
- *                 type: string
- *     responses:
- *       201:
- *         description: Sikeres regisztráció
- *       400:
- *         description: Hibás kérés
- */
+// NOTE: Swagger JSDoc comments for /api/user routes are now in src/swagger-definitions/user.swagger.js
 
 // Új felhasználó regisztrálása
 router.post('/register', async (req, res, next) => {
@@ -60,76 +29,31 @@ router.post('/register', async (req, res, next) => {
   }
 })
 
-/**
- * @swagger
- * /api/user/login:
- *   post:
- *     summary: Felhasználó bejelentkezése
- *     tags:
- *       - User
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               name:
- *                 type: string
- *               password:
- *                 type: string
- *     responses:
- *       200:
- *         description: Sikeres bejelentkezés
- *       401:
- *         description: Hibás név vagy jelszó
- */
 router.post('/login', loginUser)
 
-/**
- * @swagger
- * /api/user:
- *   get:
- *     summary: Kijelentkezés (token törlése)
- *     tags:
- *       - User
- *     responses:
- *       200:
- *         description: Sikeres kijelentkezés
- */
-router.get('/', authenticate, async (req, res, next) => {
+// Kijelentkezés
+// A felhasználó kijelentkezése és a token törlése
+// A GET /api/user végpontot átneveztem /api/user/logout-ra, hogy egyértelműbb legyen és ne ütközzön a getAllUser végponttal
+router.get('/logout', authenticate, async (req, res, next) => {
   try {
     res.clearCookie('token')
     const userId = req.user?.id
-    await prisma.user.update({
-      where: { id: userId },
-      data: { isOnline: false }
-    })
+    if (userId) {
+      // Csak akkor próbáljon frissíteni, ha van userId
+      await prisma.user.update({
+        where: { id: userId },
+        data: { isOnline: false }
+      })
+    }
     console.log('[usersRoute.ts] Kijelentkezve:', req.user?.name)
-    // Kijelentkezés után a felhasználó adatainak törlése a memóriából
     req.user = undefined
-    // Válasz küldése a felhasználónak
     res.status(200).json({ message: 'Kijelentkezve' })
   } catch (error) {
     next(error)
   }
 })
 
-/**
- * @swagger
- * /api/user/me:
- *   get:
- *     summary: Authentikált felhasználó adatainak lekérdezése
- *     tags:
- *       - User
- *     security:
- *       - bearerAuth: []
- *     responses:
- *       200:
- *         description: Sikeres lekérdezés
- *       401:
- *         description: Nincs jogosultság
- */
+// Felhasználó adatainak lekérdezése
 router.get('/me', authenticate, (req, res, next) => {
   try {
     // Válasz küldése a felhasználó adataival
@@ -138,5 +62,17 @@ router.get('/me', authenticate, (req, res, next) => {
     next(error)
   }
 })
+
+// Felhasználó adatainak frissítése
+router.put('/:id', authenticate, updateUser) // Changed from /update to /:id for consistency
+
+// Felhasználó adatainak törlése
+router.delete('/:id', authenticate, deleteUser)
+
+// Felhasználók listázása, szűrése, keresés, rendezés, lapozás, stb.
+router.get('/', authenticate, getAllUser) // Ez most már a GET /api/user végpont lesz a listázáshoz
+
+// Felhasználó adatainak lekérdezése ID alapján
+router.get('/:id', authenticate, getUserById)
 
 export default router

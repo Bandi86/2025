@@ -32,7 +32,10 @@ const swaggerOptions = {
       }
     ]
   },
-  apis: ['./src/routes/*.ts'] // vagy ahol az útvonalaid vannak
+  apis: [
+    './src/routes/*.ts', // Meglévő route fájlok
+    './src/swagger-definitions/*.js' // Új Swagger definíciós fájlok
+  ],
 }
 const swaggerDocs = swaggerJsdoc(swaggerOptions)
 

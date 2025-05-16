@@ -22,9 +22,16 @@ dotenv.config()
 // Middleware az autentikációhoz (csak cookie-t használ)
 const authenticate = (req: Request, res: Response, next: NextFunction): void => {
   const jwtSecret = process.env.JWT_SECRET
-  const token = req.cookies['token']
+  // 1. Próbáld cookie-ból
+  let token = req.cookies['token']
+  // 2. Ha nincs cookie, próbáld Authorization headerből
+  if (!token && req.headers.authorization) {
+    const authHeader = req.headers.authorization
+    if (authHeader.startsWith('Bearer ')) {
+      token = authHeader.slice(7)
+    }
+  }
 
-  // Ellenőrizzük, hogy a token és a JWT titkos kulcs létezik-e
   if (!token) {
     res.status(401).json({ message: 'Nincs bejelentkezve' })
     return
@@ -46,7 +53,7 @@ const authenticate = (req: Request, res: Response, next: NextFunction): void => 
 }
 
 // Middleware az autorizációhoz, szerepkörök alapján
-const authorize = (roles: string[]) : RequestHandler => {
+const authorize = (roles: string[]): RequestHandler => {
   return (req: Request, res: Response, next: NextFunction) => {
     // Ellenőrizzük, hogy a felhasználó be van-e jelentkezve
     if (!req.user) {
@@ -55,12 +62,9 @@ const authorize = (roles: string[]) : RequestHandler => {
     }
     // Ellenőrizzük, hogy a felhasználó szerepe engedélyezett-e
     const userRole = req.user.role
-      res.status(403).json({ message: 'Nincs jogosultsága' })
-      return
-    }
+    res.status(403).json({ message: 'Nincs jogosultsága' })
+    return
   }
-
+}
 
 export { authenticate, authorize }
-
-
