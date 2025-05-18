@@ -13,7 +13,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'jwt_secret'
 
 
 // Middleware: csak bejelentkezett felhasználó férhet hozzá
-export function requireAuth(req: Request, res: Response, next: NextFunction) {
+export function requireAuth(req: Request, res: Response, next: NextFunction) : void | Promise<void> {
   // 1. Session alapú
   if (req.isAuthenticated && req.isAuthenticated()) return next()
   // 2. JWT alapú
@@ -25,10 +25,10 @@ export function requireAuth(req: Request, res: Response, next: NextFunction) {
       req.user = decoded
       return next()
     } catch (err) {
-      return res.status(401).json({ error: 'Invalid or expired token' })
+    res.status(401).json({ error: 'Invalid or expired token' })
     }
   }
-  return res.status(401).json({ error: 'Not authenticated' })
+  res.status(401).json({ error: 'Not authenticated' })
 }
 
 // Middleware: csak adott szerepkörrel rendelkező felhasználó férhet hozzá

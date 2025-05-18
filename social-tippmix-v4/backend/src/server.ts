@@ -13,6 +13,9 @@ import rateLimit from 'express-rate-limit'
 import { ApiError } from './lib/error'
 import userRoutes from './routes/user'
 import passport from './lib/passport'
+import { globalSearch } from './controllers/search'
+import asyncHandler from './lib/asyncHandler'
+import commentRoutes from './routes/comment'
 
 // Környezeti változók betöltése
 dotenv.config()
@@ -103,6 +106,9 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
 
 app.use('/api/user', userRoutes)
+app.use('/api/comment', commentRoutes)
+
+app.get('/api/search', asyncHandler(globalSearch))
 
 // Általános hiba kezelő (mindig a legvégén!)
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
