@@ -1,0 +1,184 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @unique @default(uuid())
+  email         String    @unique
+  name          String?   @unique
+  password      String // Fontos: Biztonságos hash algoritmust használj a tárolás előtt!
+  emailVerified DateTime? // NextAuth számára szükséges
+  avatar        String? // NextAuth számára szükséges (profilkép URL)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  role          String    @default("USER") // pl. "USER", "ADMIN", "MODERATOR"
+
+  isOnline  Boolean   @default(false) // Új
+  lastLogin DateTime? // Új
+  status    String    @default("ACTIVE") // Új (pl. ACTIVE, BANNED, SUSPENDED)
+
+  posts         Post[] // A felhasználó által írt posztok
+  comments      Comment[] // A felhasználó által írt kommentek
+  likes         Like[] // A felhasználó által adott lájkok
+  notifications Notification[] // A felhasználó értesítései
+
+  // Követők/Követettek: Many-to-many ön-kapcsolat
+  // Akiket ez a felhasználó követ
+  following User[] @relation("FollowNetwork")
+  // Akik ezt a felhasználót követik
+  followers User[] @relation("FollowNetwork")
+
+  // Profil információk
+  profileImage String?
+  bio          String?
+  website      String?
+  location     String?
+  birthDate    DateTime?
+
+  // A felhasználó által küldött üzenetek
+  sentMessages Message[] @relation("SentMessages")
+
+  // Beszélgetések, amelyekben a felhasználó részt vesz
+  conversationParticipants ConversationParticipant[] @relation("UserParticipants")
+}
+
+model Post {
+  id        String       @id @default(cuid())
+  title     String
+  content   String
+  slug      String       @unique // Egyedi slug a poszt URL-jéhez
+  category  PostCategory
+  imageUrl  String? // Opcionális képútvonal
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+  author    User         @relation(fields: [authorId], references: [id])
+  authorId  String
+  comments  Comment[]
+  likes     Like[]       @relation("SinglePostLike")
+  tags      Tag[]        @relation("PostTags") // Prisma implicit összekötő táblát (_PostTags) hoz létre
+}
+
+model Comment {
+  id        String   @id @unique @default(uuid())
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId    String
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId  String
+  likes     Like[]   @relation("CommentLikes")
+}
+
+model Like {
+  id        String   @id @unique @default(uuid())
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade) // A felhasználó, aki lájkolt
+  userId    String
+
+  // A lájk vagy egy Post-hoz vagy egy Comment-hez tartozik
+  postId String?
+  post   Post?   @relation("SinglePostLike", fields: [postId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  commentId String?
+  comment   Comment? @relation("CommentLikes", fields: [commentId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  // Alkalmazás szinten kell biztosítani, hogy vagy postId vagy commentId legyen beállítva.
+  // Az egyediséget (egy felhasználó egy elemet csak egyszer lájkolhat) szintén alkalmazás szinten kell kezelni
+  // SQLite esetén a NULL értékek egyedi indexekben való viselkedése miatt.
+  // @@unique([userId, postId], name: "UserPostLikeUnique") // Ha commentId NULL
+  // @@unique([userId, commentId], name: "UserCommentLikeUnique") // Ha postId NULL
+}
+
+model Tag {
+  id        String   @id @unique @default(uuid())
+  name      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  posts     Post[]   @relation("PostTags") // Prisma implicit összekötő táblát (_PostTags) hoz létre
+}
+
+model Notification {
+  id        String   @id @unique @default(uuid())
+  type      String // pl. "NEW_FOLLOWER", "POST_LIKE", "COMMENT_REPLY"
+  message   String
+  createdAt DateTime @default(now())
+  isRead    Boolean  @default(false) // Olvasottság állapota
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade) // A felhasználó, aki kapja az értesítést
+  userId String
+
+  // Opcionális: Hivatkozás az értesítést kiváltó entitásra
+  // relatedEntityId String?
+  // relatedEntityType String? // pl. "POST", "COMMENT", "USER"
+}
+
+model Conversation {
+  id          String   @id @unique @default(uuid())
+  name        String? // Opcionális: csoportos beszélgetések neve
+  isGroupChat Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  messages     Message[] // Üzenetek ebben a beszélgetésben
+  participants ConversationParticipant[] @relation("ConversationParticipants") // Résztvevők ebben a beszélgetésben
+
+  lastMessageAt DateTime? // Beszélgetések rendezéséhez, alkalmazáslogika vagy trigger frissítheti
+}
+
+// Explicit összekötő tábla User és Conversation között (many-to-many)
+model ConversationParticipant {
+  user           User         @relation("UserParticipants", fields: [userId], references: [id], onDelete: Cascade)
+  userId         String
+  conversation   Conversation @relation("ConversationParticipants", fields: [conversationId], references: [id], onDelete: Cascade)
+  conversationId String
+  joinedAt       DateTime     @default(now())
+  // isAdmin     Boolean      @default(false) // pl. csoport adminisztrátor
+
+  @@id([userId, conversationId])
+  @@unique([userId, conversationId])
+}
+
+model Message {
+  id        String   @id @unique @default(uuid())
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) // Ha az üzenetek szerkeszthetők
+
+  sender   User   @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade) // Az üzenet küldője
+  senderId String
+
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade) // A beszélgetés, amelyhez az üzenet tartozik
+  conversationId String
+}
+
+enum UserRole {
+  USER
+  ADMIN
+  MODERATOR
+}
+
+enum UserStatus {
+  ACTIVE
+  BANNED
+  DELETED
+}
+
+enum PostCategory {
+  HIR
+  TIPP
+  ELEMZES
+  KOZLEMENY
+}
