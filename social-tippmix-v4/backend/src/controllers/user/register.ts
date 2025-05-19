@@ -15,9 +15,9 @@ function isStrongPassword(password: string): boolean {
 
 export async function register(req: Request, res: Response, next: NextFunction) {
   try {
-    const { username, password } = req.body
-    if (!username || !password) {
-      return res.status(400).json({ error: 'Username and password required' })
+    const { username, password, email } = req.body
+    if (!username || !password || !email) {
+      return res.status(400).json({ error: 'Username, email and password required' })
     }
     if (!isStrongPassword(password)) {
       return res
@@ -32,8 +32,8 @@ export async function register(req: Request, res: Response, next: NextFunction) 
       return res.status(409).json({ error: 'Username already exists' })
     }
     const hashed = await bcrypt.hash(password, 10)
-    const user = await prisma.user.create({ data: { username, password: hashed } })
-    res.status(201).json({ id: user.id, username: user.username })
+    const user = await prisma.user.create({ data: { username, email, password: hashed } })
+    res.status(201).json({ id: user.id, username: user.username, email: user.email })
   } catch (err) {
     next(err)
   }

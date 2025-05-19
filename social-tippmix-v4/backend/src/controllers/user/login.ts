@@ -24,7 +24,7 @@ export default function login(req: Request, res: Response, next: NextFunction) {
       if (err) return next(err)
       // isOnline és lastLogin frissítése
       await prisma.user.update({
-        where: { id: user.id },
+        where: { id: String(user.id) },
         data: {
           isOnline: true,
           lastLogin: new Date()

@@ -1,0 +1,42 @@
+@import 'tailwindcss';
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: 'mytheme';
+  default: true; /* set as default */
+  prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
+  color-scheme: light; /* color of browser-provided UI */
+
+  --color-base-100: oklch(96% 0.01 180); /* very light cyan-gray */
+  --color-base-200: oklch(92% 0.02 130); /* lighter green */
+  --color-base-300: oklch(88% 0.03 130); /* light green */
+  --color-base-content: oklch(20% 0.05 120); /* dark green */
+  --color-primary: oklch(55% 0.22 130); /* green */
+  --color-primary-content: oklch(100% 0 0); /* white */
+  --color-secondary: oklch(70% 0.15 110); /* lighter green */
+  --color-secondary-content: oklch(100% 0 0); /* white */
+  --color-accent: oklch(65% 0.2 100); /* light green */
+  --color-accent-content: oklch(100% 0 0); /* white */
+  --color-neutral: oklch(50% 0.03 120); /* mid green */
+  --color-neutral-content: oklch(100% 0 0); /* white */
+  --color-info: oklch(70% 0.2 220);
+  --color-info-content: oklch(98% 0.01 220);
+  --color-success: oklch(65% 0.25 140);
+  --color-success-content: oklch(98% 0.01 140);
+  --color-warning: oklch(80% 0.25 80);
+  --color-warning-content: oklch(20% 0.05 80);
+  --color-error: oklch(65% 0.3 30);
+  --color-error-content: oklch(98% 0.01 30);
+
+  --radius-selector: 1rem; /* border radius of selectors (checkbox, toggle, badge) */
+  --radius-field: 0.25rem; /* border radius of fields (button, input, select, tab) */
+  --radius-box: 0.5rem; /* border radius of boxes (card, modal, alert) */
+
+  --size-selector: 0.25rem; /* base size of selectors (checkbox, toggle, badge) */
+  --size-field: 0.25rem; /* base size of fields (button, input, select, tab) */
+
+  --border: 1px; /* border size */
+
+  --depth: 1; /* only 0 or 1 – Adds a shadow and subtle 3D effect to components */
+  --noise: 0; /* only 0 or 1 - Adds a subtle noise effect to components */
+}

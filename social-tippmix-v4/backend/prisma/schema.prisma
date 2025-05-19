@@ -17,7 +17,7 @@ datasource db {
 model User {
   id            String    @id @unique @default(uuid())
   email         String    @unique
-  name          String?   @unique
+  username      String?   @unique
   password      String // Fontos: Biztonságos hash algoritmust használj a tárolás előtt!
   emailVerified DateTime? // NextAuth számára szükséges
   avatar        String? // NextAuth számára szükséges (profilkép URL)
