@@ -13,28 +13,22 @@ function isStrongPassword(password: string): boolean {
   )
 }
 
-export async function register(req: Request, res: Response, next: NextFunction) {
-  try {
-    const { username, password, email } = req.body
-    if (!username || !password || !email) {
-      return res.status(400).json({ error: 'Username, email and password required' })
-    }
-    if (!isStrongPassword(password)) {
-      return res
-        .status(400)
-        .json({
-          error:
-            'A jelszónak legalább 8 karakteresnek kell lennie, tartalmaznia kell kis- és nagybetűt, számot és speciális karaktert.'
-        })
-    }
-    const existing = await prisma.user.findUnique({ where: { username } })
-    if (existing) {
-      return res.status(409).json({ error: 'Username already exists' })
-    }
-    const hashed = await bcrypt.hash(password, 10)
-    const user = await prisma.user.create({ data: { username, email, password: hashed } })
-    res.status(201).json({ id: user.id, username: user.username, email: user.email })
-  } catch (err) {
-    next(err)
+export async function register(req: Request, res: Response) {
+  const { username, password, email } = req.body
+  if (!username || !password || !email) {
+    return res.status(400).json({ error: 'Username, email and password required' })
   }
+  if (!isStrongPassword(password)) {
+    return res.status(400).json({
+      error:
+        'A jelszónak legalább 8 karakteresnek kell lennie, tartalmaznia kell kis- és nagybetűt, számot és speciális karaktert.'
+    })
+  }
+  const existing = await prisma.user.findUnique({ where: { username } })
+  if (existing) {
+    return res.status(409).json({ error: 'Username already exists' })
+  }
+  const hashed = await bcrypt.hash(password, 10)
+  const user = await prisma.user.create({ data: { username, email, password: hashed } })
+  res.status(201).json({ id: user.id, username: user.username, email: user.email })
 }
