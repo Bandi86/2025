@@ -77,6 +77,50 @@ export default function AdminSidebar() {
           </li>
           <li>
             <Link
+              href="/admin/posts"
+              className="flex items-center space-x-3 p-2 rounded-md hover:bg-slate-700 hover:text-white transition-colors duration-150"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 7.5h18M3 12h18m-7.5 4.5h7.5M3 17.25h7.5m-7.5 0a2.25 2.25 0 100 4.5h7.5a2.25 2.25 0 100-4.5H3zM3 17.25V21m18-3.75V21m0-3.75a2.25 2.25 0 100-4.5H13.5a2.25 2.25 0 100 4.5h7.5zM21 17.25V21m0-3.75a2.25 2.25 0 100-4.5H13.5a2.25 2.25 0 100 4.5h7.5zM21 17.25V21"
+                />
+              </svg>
+              <span>Manage Posts</span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/admin/comments"
+              className="flex items-center space-x-3 p-2 rounded-md hover:bg-slate-700 hover:text-white transition-colors duration-150"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 7.5h18M3 12h18m-7.5 4.5h7.5M3 17.25h7.5m-7.5 0a2.25 2.25 0 100 4.5h7.5a2.25 2.25 0 100-4.5H3zM3 17.25V21m18-3.75V21m0-3.75a2.25 2.25 0 100-4.5H13.5a2.25 2.25 0 100 4.5h7.5zM21 17.25V21m0-3.75a2.25 2.25 0 100-4.5H13.5a2.25 2.25 0 100 4.5h7.5zM21 17.25V21"
+                />
+              </svg>
+              <span>Manage Comments</span>
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/admin/settings"
               className="flex items-center space-x-3 p-2 rounded-md hover:bg-slate-700 hover:text-white transition-colors duration-150"
             >

@@ -15,6 +15,15 @@ interface UserTableProps {
 
 export default function UserTable({ users }: UserTableProps) {
   const [userToDelete, setUserToDelete] = useState<AdminUser | null>(null)
+  const [loading, setLoading] = useState(false)
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center py-8">
+        <span className="loading loading-spinner loading-lg text-primary"></span>
+      </div>
+    )
+  }
 
   const formatDate = (dateString?: string) => {
     if (!dateString) return 'Never'

@@ -1,7 +1,6 @@
 import { getCurrentUser } from '@/lib/auth/session'
 import { redirect } from 'next/navigation'
 import { fetchAdminUserById } from '@/lib/admin/users'
-import { AdminUser } from '@/types/admin-user'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { ArrowLeftIcon, Edit3Icon, Trash2Icon } from 'lucide-react'

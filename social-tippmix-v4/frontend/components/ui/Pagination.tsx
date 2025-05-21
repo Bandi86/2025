@@ -1,55 +1,49 @@
+// Reusable Pagination component for admin and other pages
 'use client'
 
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
-import { Button } from '@/components/ui/button' // Assuming a Button component
-import { FetchUsersParams } from '@/lib/admin/users'
-import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react' // Example icons
+import { Button } from '@/components/ui/button'
+import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
 
-interface PaginationControlsProps {
+export interface PaginationProps<ParamsType extends Record<string, any> = Record<string, any>> {
   currentPage: number
   totalPages: number
-  currentParams: FetchUsersParams // To preserve other filters/search queries
+  currentParams: ParamsType
 }
 
-export default function PaginationControls({
+export default function Pagination<ParamsType extends Record<string, any> = Record<string, any>>({
   currentPage,
   totalPages,
   currentParams
-}: PaginationControlsProps) {
+}: PaginationProps<ParamsType>) {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
   const handlePageChange = (newPage: number) => {
     if (newPage < 1 || newPage > totalPages) return
-
     const params = new URLSearchParams(searchParams.toString())
     params.set('page', String(newPage))
-    // Ensure other existing parameters are maintained
     Object.entries(currentParams).forEach(([key, value]) => {
       if (key !== 'page' && value !== undefined && value !== null && String(value).length > 0) {
         params.set(key, String(value))
       }
     })
-
     router.push(`${pathname}?${params.toString()}`)
   }
 
   const renderPageNumbers = () => {
     const pageNumbers = []
-    const maxPagesToShow = 5 // Max number of page buttons to show (excluding prev/next)
+    const maxPagesToShow = 5
     const halfMaxPages = Math.floor(maxPagesToShow / 2)
-
     let startPage = Math.max(1, currentPage - halfMaxPages)
     let endPage = Math.min(totalPages, currentPage + halfMaxPages)
-
     if (currentPage - halfMaxPages < 1) {
       endPage = Math.min(totalPages, maxPagesToShow)
     }
     if (currentPage + halfMaxPages > totalPages) {
       startPage = Math.max(1, totalPages - maxPagesToShow + 1)
     }
-
     if (startPage > 1) {
       pageNumbers.push(
         <Button
@@ -70,7 +64,6 @@ export default function PaginationControls({
         )
       }
     }
-
     for (let i = startPage; i <= endPage; i++) {
       pageNumbers.push(
         <Button
@@ -84,7 +77,6 @@ export default function PaginationControls({
         </Button>
       )
     }
-
     if (endPage < totalPages) {
       if (endPage < totalPages - 1) {
         pageNumbers.push(
@@ -107,6 +99,8 @@ export default function PaginationControls({
     }
     return pageNumbers
   }
+
+  if (totalPages <= 1) return null
 
   return (
     <div className="mt-8 flex items-center justify-center space-x-2">

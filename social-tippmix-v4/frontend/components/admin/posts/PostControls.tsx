@@ -2,40 +2,36 @@
 
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import { useCallback, useState, useEffect } from 'react'
-import { Input } from '@/components/ui/input' // Assuming an Input component
-import { Select } from '@/components/ui/select' // Assuming a Select component
+import { Input } from '@/components/ui/input'
+import { Select } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
-import { FetchUsersParams } from '@/types/admin-user' // Assuming a FetchUsersParams type
+import { FetchPostsParams } from '@/types/posts'
 
-interface UserControlsProps {
-  currentParams: FetchUsersParams
-  totalUsers: number
-  onlineUsers: number
+interface PostControlsProps {
+  currentParams: FetchPostsParams
+  totalPosts: number
 }
 
-// Helper to debounce function calls
 function debounce<F extends (...args: any[]) => any>(func: F, waitFor: number) {
   let timeout: NodeJS.Timeout
   return (...args: Parameters<F>): Promise<ReturnType<F>> =>
     new Promise((resolve) => {
-      if (timeout) {
-        clearTimeout(timeout)
-      }
+      if (timeout) clearTimeout(timeout)
       timeout = setTimeout(() => resolve(func(...args)), waitFor)
     })
 }
 
-export default function UserControls({ currentParams, totalUsers, onlineUsers }: UserControlsProps) {
+export default function PostControls({ currentParams, totalPosts }: PostControlsProps) {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
   const [searchTerm, setSearchTerm] = useState(currentParams.searchQuery || '')
-  const [roleFilter, setRoleFilter] = useState(currentParams.roleFilter || '')
-  const [statusFilter, setStatusFilter] = useState(currentParams.newStatusFilter || '')
+  const [categoryFilter, setCategoryFilter] = useState(currentParams.categoryFilter || '')
+  const [statusFilter, setStatusFilter] = useState(currentParams.statusFilter || '')
 
   const createQueryString = useCallback(
-    (paramsToUpdate: Partial<FetchUsersParams>) => {
+    (paramsToUpdate: Partial<FetchPostsParams>) => {
       const params = new URLSearchParams(searchParams.toString())
       Object.entries(paramsToUpdate).forEach(([key, value]) => {
         if (value !== undefined && value !== null && String(value).length > 0) {
@@ -44,7 +40,6 @@ export default function UserControls({ currentParams, totalUsers, onlineUsers }:
           params.delete(key)
         }
       })
-      // Always reset page to 1 when filters or search change
       if (Object.keys(paramsToUpdate).some((k) => k !== 'page')) {
         params.set('page', '1')
       }
@@ -61,10 +56,9 @@ export default function UserControls({ currentParams, totalUsers, onlineUsers }:
   )
 
   useEffect(() => {
-    // Sync local state if URL params change externally
     setSearchTerm(searchParams.get('searchQuery') || '')
-    setRoleFilter(searchParams.get('roleFilter') || '')
-    setStatusFilter(searchParams.get('newStatusFilter') || '')
+    setCategoryFilter(searchParams.get('categoryFilter') || '')
+    setStatusFilter(searchParams.get('statusFilter') || '')
   }, [searchParams])
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,39 +67,39 @@ export default function UserControls({ currentParams, totalUsers, onlineUsers }:
     debouncedSearch(newSearchTerm)
   }
 
-  const handleRoleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value
-    setRoleFilter(value)
-    router.push(pathname + '?' + createQueryString({ roleFilter: value }))
+    setCategoryFilter(value)
+    router.push(pathname + '?' + createQueryString({ categoryFilter: value }))
   }
 
   const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value
     setStatusFilter(value)
-    router.push(pathname + '?' + createQueryString({ newStatusFilter: value }))
+    router.push(pathname + '?' + createQueryString({ statusFilter: value }))
   }
 
   const handleClearFilters = () => {
     setSearchTerm('')
-    setRoleFilter('')
+    setCategoryFilter('')
     setStatusFilter('')
     router.push(
-      pathname + '?' + createQueryString({ searchQuery: '', roleFilter: '', newStatusFilter: '' })
+      pathname + '?' + createQueryString({ searchQuery: '', categoryFilter: '', statusFilter: '' })
     )
   }
 
-  // DaisyUI select options
-  const roleOptions = [
-    { value: '', label: 'All roles' },
-    { value: 'USER', label: 'User' },
-    { value: 'ADMIN', label: 'Admin' }
+  // Example options, replace with dynamic categories if available
+  const categoryOptions = [
+    { value: '', label: 'All categories' },
+    { value: 'sports', label: 'Sports' },
+    { value: 'news', label: 'News' },
+    { value: 'entertainment', label: 'Entertainment' }
   ]
   const statusOptions = [
     { value: '', label: 'All statuses' },
-    { value: 'active', label: 'Active' },
-    { value: 'inactive', label: 'Inactive' },
-    { value: 'suspended', label: 'Suspended' },
-    { value: 'banned', label: 'Banned' }
+    { value: 'published', label: 'Published' },
+    { value: 'draft', label: 'Draft' },
+    { value: 'archived', label: 'Archived' }
   ]
 
   return (
@@ -113,25 +107,25 @@ export default function UserControls({ currentParams, totalUsers, onlineUsers }:
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
         <div>
           <label htmlFor="search" className="block text-sm font-medium text-gray-700 mb-1">
-            Search Users
+            Search Posts
           </label>
           <Input
             id="search"
             type="text"
-            placeholder="Search by username or email..."
+            placeholder="Search by title or content..."
             value={searchTerm}
             onChange={handleSearchChange}
             className="w-full"
           />
         </div>
         <div>
-          <label htmlFor="roleFilter" className="block text-sm font-medium text-gray-700 mb-1">
-            Filter by Role
+          <label htmlFor="categoryFilter" className="block text-sm font-medium text-gray-700 mb-1">
+            Filter by Category
           </label>
           <Select
-            options={roleOptions}
-            value={roleFilter}
-            onChange={handleRoleChange}
+            options={categoryOptions}
+            value={categoryFilter}
+            onChange={handleCategoryChange}
             className="w-full"
           />
         </div>
@@ -150,11 +144,9 @@ export default function UserControls({ currentParams, totalUsers, onlineUsers }:
           <Button onClick={handleClearFilters} variant="outline" className="w-full md:w-auto">
             Clear Filters
           </Button>
-          {/* You can add a manual "Apply Filters" button if you remove automatic updates */}
         </div>
       </div>
-      <p className="text-sm text-gray-600 mt-4">Total users: {totalUsers}</p>
-      <p className='text-sm text-gray-600 mt-4'>Total online users: {onlineUsers}</p>
+      <p className="text-sm text-gray-600 mt-4">Total posts: {totalPosts}</p>
     </div>
   )
 }

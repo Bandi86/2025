@@ -33,3 +33,5 @@ export async function fetchAdminUserById(userId: string): Promise<AdminUser | nu
     return null
   }
 }
+
+export type { AdminUser } from '../../types/admin-user'

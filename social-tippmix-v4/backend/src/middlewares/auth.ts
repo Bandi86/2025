@@ -11,21 +11,26 @@ declare module 'express-session' {
 
 const JWT_SECRET = process.env.JWT_SECRET || 'jwt_secret'
 
-
 // Middleware: csak bejelentkezett felhasználó férhet hozzá
-export function requireAuth(req: Request, res: Response, next: NextFunction) : void | Promise<void> {
+export function requireAuth(req: Request, res: Response, next: NextFunction): void {
   // 1. Session alapú
   if (req.isAuthenticated && req.isAuthenticated()) return next()
-  // 2. JWT alapú
+  // 2. JWT az Authorization headerben vagy session_token cookie-ban
   const authHeader = req.headers.authorization
+  let token: string | undefined
   if (authHeader && authHeader.startsWith('Bearer ')) {
-    const token = authHeader.split(' ')[1]
+    token = authHeader.split(' ')[1]
+  } else if (req.cookies && req.cookies.session_token) {
+    token = req.cookies.session_token
+  }
+  if (token) {
     try {
       const decoded = jwt.verify(token, JWT_SECRET) as any
       req.user = decoded
       return next()
     } catch (err) {
-    res.status(401).json({ error: 'Invalid or expired token' })
+      res.status(401).json({ error: 'Invalid or expired token' })
+      return
     }
   }
   res.status(401).json({ error: 'Not authenticated' })

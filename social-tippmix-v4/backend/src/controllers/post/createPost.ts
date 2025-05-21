@@ -1,17 +1,25 @@
 import { NextFunction, Request, Response } from 'express'
 import prisma from '../../lib/client'
+import slugify from 'slugify'
 
 export async function createPost(req: Request, res: Response, next: NextFunction): Promise<void> {
   try {
-    const { title, content, slug, category, imageUrl, tags } = req.body
+    let { title, content, slug, category, imageUrl, tags } = req.body
+   
     // Kötelező mezők ellenőrzése
-    if (!title || !content || !slug || !category) {
-      res.status(400).json({ error: 'title, content, slug, category kötelező' })
+    if (!title || !content || !category) {
+      res.status(400).json({ error: 'title, content, category kötelező' })
+      return
+    }
+    // Slug generálás, ha nincs
+    if (!slug) {
+      slug = slugify(title, { lower: true, strict: true })
     }
     // Slug egyediség ellenőrzése
     const existing = await prisma.post.findUnique({ where: { slug } })
     if (existing) {
       res.status(409).json({ error: 'Slug already exists' })
+      return
     }
     // Auth user ID meghatározása (JWT vagy session alapján)
     let authorId: string | undefined
@@ -22,6 +30,7 @@ export async function createPost(req: Request, res: Response, next: NextFunction
     }
     if (!authorId) {
       res.status(401).json({ error: 'Not authenticated' })
+      return
     }
     // Post létrehozása
     const post = await prisma.post.create({

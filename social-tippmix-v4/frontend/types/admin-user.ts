@@ -1,5 +1,3 @@
-// Types for admin user management
-
 export interface AdminUser {
   id: string
   username: string

@@ -10,12 +10,16 @@ import helmet from 'helmet'
 import morgan from 'morgan'
 import session from 'express-session'
 import rateLimit from 'express-rate-limit'
-import { ApiError } from './lib/error'
-import userRoutes from './routes/user'
 import passport from './lib/passport'
-import { globalSearch } from './controllers/search'
+import { ApiError } from './lib/error'
+import { requireAuth } from './middlewares/auth'
 import asyncHandler from './lib/asyncHandler'
+import userRoutes from './routes/user'
+import postRoutes from './routes/post'
 import commentRoutes from './routes/comment'
+import { globalSearch } from './controllers/search'
+import uploadPostImage from './controllers/image/postImage'
+import getAllCategories from './controllers/categories/getAllCategories'
 
 // Környezeti változók betöltése
 dotenv.config()
@@ -107,6 +111,14 @@ app.use(cookieParser())
 
 app.use('/api/user', userRoutes)
 app.use('/api/comment', commentRoutes)
+app.use('/api/categories', asyncHandler(getAllCategories))
+app.use('/api/upload', requireAuth, asyncHandler(uploadPostImage))
+app.use('/api/post', postRoutes)
+app.get('/api/post-categories', (req, res) => {
+  // Prisma enum értékek visszaadása külön endpointon
+  const { PostCategory } = require('@prisma/client')
+  res.json({ postCategories: Object.values(PostCategory) })
+})
 
 app.get('/api/search', asyncHandler(globalSearch))
 

@@ -3,9 +3,9 @@ import axios from 'axios'
 const axiosClient = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api',
   headers: {
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/json'
   },
-  withCredentials: true,
+  withCredentials: true
 })
 
 // Ha akarsz token-t localStorage-ből például:
@@ -19,9 +19,23 @@ axiosClient.interceptors.request.use((config) => {
   return config
 })
 
+axiosClient.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response && error.response.status === 401) {
+      // Automatikus kijelentkeztetés vagy átirányítás loginra
+      if (typeof window !== 'undefined') {
+        window.location.href = '/login'
+      }
+    }
+    return Promise.reject(error)
+  }
+)
+
 export default axiosClient
 
-{/* hasznalat:
+{
+  /* hasznalat:
 import { useEffect } from 'react'
 import axiosClient from '@/lib/axios/axios-client'
 
@@ -34,4 +48,5 @@ export default function MyComponent() {
 
   return <div>Client oldal</div>
 }
-  */}
+  */
+}
