@@ -1,4 +1,4 @@
-import { fetchAdminPostById } from '@/lib/admin/posts'
+import { fetchAdminPostById } from '@/lib/api/posts'
 import { formatDateTimeHU } from '@/lib/format/date'
 import { notFound } from 'next/navigation'
 import React from 'react'
@@ -6,15 +6,37 @@ import PostComments from '@/components/admin/posts/PostComments'
 import PostLikes from '@/components/admin/posts/PostLikes'
 import Link from 'next/link'
 import PostImageModal from '@/components/admin/posts/PostImageModal'
+import LikeButton from '@/components/ui/LikeButton'
+import { UserProvider } from '@/context/UserContext'
+import { getCurrentUser } from '@/lib/auth/session'
+import { fetchAdminUserById } from '@/lib/api/users'
+import { User } from '@/types/user'
 
 interface Props {
   params: Promise<{ id: string }>
+}
+
+function mapAdminUserToUser(adminUser: any): User {
+  return {
+    ...adminUser,
+    emailVerified:
+      typeof adminUser.emailVerified === 'boolean'
+        ? String(adminUser.emailVerified)
+        : adminUser.emailVerified
+    // All other fields are compatible or optional
+  }
 }
 
 export default async function AdminPostDetailPage({ params }: Props) {
   const { id } = await params
   const post = await fetchAdminPostById(id)
   if (!post) return notFound()
+  const currentUserPayload = await getCurrentUser()
+  let currentUser: User | null = null
+  if (currentUserPayload?.id) {
+    const adminUser = await fetchAdminUserById(currentUserPayload.id)
+    if (adminUser) currentUser = mapAdminUserToUser(adminUser)
+  }
 
   // Helper for placeholder avatar
   const renderAvatar = () => {
@@ -67,86 +89,95 @@ export default async function AdminPostDetailPage({ params }: Props) {
   }
 
   return (
-    <div className="max-w-6xl mx-auto py-8 px-4">
-      {/* Vissza gomb és breadcrumb */}
-      <div className="mb-4 flex items-center gap-4">
-        <Link href="/admin/posts" className="btn btn-sm btn-ghost">
-          ← Vissza a posztokhoz
-        </Link>
-        <span className="text-base-content/40">/</span>
-        <span className="font-semibold text-base-content/70">{post.title}</span>
-      </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Bal oldal: Post tartalom */}
-        <div>
-          <div className="card bg-base-100 shadow-xl">
-            <div className="card-body">
-              <h1 className="card-title text-3xl font-bold mb-2">{post.title}</h1>
-              <div className="flex items-center gap-4 mb-4">
-                {renderAvatar()}
-                <div>
-                  <Link
-                    href={`/admin/users/${post.author?.id}`}
-                    className="font-semibold link link-primary hover:underline"
-                  >
-                    {post.author?.username}
-                  </Link>
-                  <div className="text-sm text-base-content/60">
-                    {formatDateTimeHU(post.createdAt)}
+    <UserProvider user={currentUser}>
+      <div className="max-w-6xl mx-auto py-8 px-4">
+        {/* Vissza gomb és breadcrumb */}
+        <div className="mb-4 flex items-center gap-4">
+          <Link href="/admin/posts" className="btn btn-sm btn-ghost">
+            ← Vissza a posztokhoz
+          </Link>
+          <span className="text-base-content/40">/</span>
+          <span className="font-semibold text-base-content/70">{post.title}</span>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Bal oldal: Post tartalom */}
+          <div>
+            <div className="card bg-base-100 shadow-xl">
+              <div className="card-body">
+                <h1 className="card-title text-3xl font-bold mb-2">{post.title}</h1>
+                <div className="flex items-center gap-4 mb-4">
+                  {renderAvatar()}
+                  <div>
+                    <Link
+                      href={`/admin/users/${post.author?.id}`}
+                      className="font-semibold link link-primary hover:underline"
+                    >
+                      {post.author?.username}
+                    </Link>
+                    <div className="text-sm text-base-content/60">
+                      {formatDateTimeHU(post.createdAt)}
+                    </div>
+                    {post.author?.email && (
+                      <div className="text-xs text-base-content/40">{post.author.email}</div>
+                    )}
                   </div>
-                  {post.author?.email && (
-                    <div className="text-xs text-base-content/40">{post.author.email}</div>
+                </div>
+                <div className="mb-2 flex flex-wrap items-center gap-2">
+                  <span className="badge badge-neutral">{post.category}</span>
+                  {post.tags &&
+                    post.tags.length > 0 &&
+                    post.tags.map((tag: any) => (
+                      <span key={tag.id} className="badge badge-outline">
+                        {tag.name}
+                      </span>
+                    ))}
+                  {/* LikeButton a poszthoz */}
+                  <LikeButton
+                    targetId={post.id}
+                    type="post"
+                    initialLiked={!!post.likedByCurrentUser}
+                    initialCount={post._count?.likes ?? post.likes?.length ?? 0}
+                  />
+                </div>
+                {renderPostImage()}
+                <div className="prose max-w-none mb-6">{post.content}</div>
+                <div className="divider my-4">Meta</div>
+                <div className="flex flex-wrap gap-4 text-sm text-base-content/60 mb-2">
+                  <span>Utoljára frissítve: {formatDateTimeHU(post.updatedAt)}</span>
+                  <span>Hozzászólások: {post._count?.comments ?? 0}</span>
+                  <span>Kedvelések: {post._count?.likes ?? 0}</span>
+                  <span>
+                    ID: <span className="font-mono text-xs">{post.id}</span>
+                  </span>
+                  {post.slug && (
+                    <span>
+                      Slug: <span className="font-mono text-xs">{post.slug}</span>
+                    </span>
+                  )}
+                  {post.status && (
+                    <span>
+                      Státusz: <span className="font-mono text-xs">{post.status}</span>
+                    </span>
                   )}
                 </div>
               </div>
-              <div className="mb-2 flex flex-wrap items-center gap-2">
-                <span className="badge badge-neutral">{post.category}</span>
-                {post.tags &&
-                  post.tags.length > 0 &&
-                  post.tags.map((tag: any) => (
-                    <span key={tag.id} className="badge badge-outline">
-                      {tag.name}
-                    </span>
-                  ))}
-              </div>
-              {renderPostImage()}
-              <div className="prose max-w-none mb-6">{post.content}</div>
-              <div className="divider my-4">Meta</div>
-              <div className="flex flex-wrap gap-4 text-sm text-base-content/60 mb-2">
-                <span>Utoljára frissítve: {formatDateTimeHU(post.updatedAt)}</span>
-                <span>Hozzászólások: {post._count?.comments ?? 0}</span>
-                <span>Kedvelések: {post._count?.likes ?? 0}</span>
-                <span>
-                  ID: <span className="font-mono text-xs">{post.id}</span>
-                </span>
-                {post.slug && (
-                  <span>
-                    Slug: <span className="font-mono text-xs">{post.slug}</span>
-                  </span>
-                )}
-                {post.status && (
-                  <span>
-                    Státusz: <span className="font-mono text-xs">{post.status}</span>
-                  </span>
-                )}
-              </div>
             </div>
           </div>
-        </div>
-        {/* Jobb oldal: Kommentek és Like-ok egy cardban, egymás alatt, görgethető */}
-        <div>
-          <div className="card bg-base-100 shadow-xl h-full flex flex-col">
-            <div className="card-body flex-1 flex flex-col gap-6 p-4">
-              <div className="flex-1 min-h-0 overflow-y-auto">
-                <PostComments comments={post.comments} postId={post.id} isAdmin={true} />
-              </div>
-              <div className="flex-1 min-h-0 overflow-y-auto">
-                <PostLikes likes={post.likes} />
+          {/* Jobb oldal: Kommentek és Like-ok egy cardban, egymás alatt, görgethető */}
+          <div>
+            <div className="card bg-base-100 shadow-xl h-full flex flex-col">
+              <div className="card-body flex-1 flex flex-col gap-6 p-4">
+                <div className="flex-1 min-h-0 overflow-y-auto">
+                  <PostComments comments={post.comments} postId={post.id} isAdmin={true} />
+                </div>
+                <div className="flex-1 min-h-0 overflow-y-auto">
+                  <PostLikes likes={post.likes} />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </UserProvider>
   )
 }

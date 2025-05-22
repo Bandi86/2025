@@ -4,9 +4,8 @@ import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { createAdminPost, createUserPost } from '@/lib/admin/posts'
+import { createAdminPost, createUserPost } from '@/lib/api/posts'
 import { fetchCategories } from '@/lib/categories'
-
 
 const postSchema = z.object({
   title: z.string().min(3, 'A cím legalább 3 karakter legyen!'),
@@ -60,15 +59,12 @@ const CreatePostPage = () => {
     } finally {
       setLoading(false)
     }
-    
   }
-
 
   return (
     <div className="max-w-xl mx-auto mt-8 p-6 bg-base-200 rounded-lg shadow">
       <h1 className="text-2xl font-bold mb-4">Új poszt létrehozása</h1>
       <form className="space-y-4" onSubmit={handleSubmit((data) => onSubmit(data, 'admin'))}>
-
         <>
           <label className="label">
             <span className="label-text">Cím</span>

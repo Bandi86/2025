@@ -20,6 +20,8 @@ import commentRoutes from './routes/comment'
 import { globalSearch } from './controllers/search'
 import uploadPostImage from './controllers/image/postImage'
 import getAllCategories from './controllers/categories/getAllCategories'
+import likeRoutes from './routes/like'
+import statRoutes from './routes/stat'
 
 // Környezeti változók betöltése
 dotenv.config()
@@ -114,6 +116,8 @@ app.use('/api/comment', commentRoutes)
 app.use('/api/categories', asyncHandler(getAllCategories))
 app.use('/api/upload', requireAuth, asyncHandler(uploadPostImage))
 app.use('/api/post', postRoutes)
+app.use('/api/like', likeRoutes)
+app.use('/api/stat', statRoutes)
 app.get('/api/post-categories', (req, res) => {
   // Prisma enum értékek visszaadása külön endpointon
   const { PostCategory } = require('@prisma/client')

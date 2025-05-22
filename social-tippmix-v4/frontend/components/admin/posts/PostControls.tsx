@@ -91,7 +91,7 @@ export default function PostControls({ currentParams, totalPosts }: PostControls
   // Example options, replace with dynamic categories if available
   const categoryOptions = [
     { value: '', label: 'All categories' },
-    { value: 'sports', label: 'Sports' },
+    { value: 'HIR', label: 'Hir' },
     { value: 'news', label: 'News' },
     { value: 'entertainment', label: 'Entertainment' }
   ]
@@ -103,50 +103,66 @@ export default function PostControls({ currentParams, totalPosts }: PostControls
   ]
 
   return (
-    <div className="mb-6 p-4 bg-gray-50 rounded-lg shadow">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
+    <div className="mb-6 p-4 bg-base-200 rounded-lg shadow-md">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
         <div>
-          <label htmlFor="search" className="block text-sm font-medium text-gray-700 mb-1">
-            Search Posts
+          <label htmlFor="search" className="block text-sm font-medium text-base-content/80 mb-1">
+            Keresés
           </label>
           <Input
             id="search"
             type="text"
-            placeholder="Search by title or content..."
+            placeholder="Cím vagy tartalom alapján..."
             value={searchTerm}
             onChange={handleSearchChange}
-            className="w-full"
+            className="w-full input input-bordered"
           />
         </div>
         <div>
-          <label htmlFor="categoryFilter" className="block text-sm font-medium text-gray-700 mb-1">
-            Filter by Category
+          <label
+            htmlFor="categoryFilter"
+            className="block text-sm font-medium text-base-content/80 mb-1"
+          >
+            Kategória
           </label>
           <Select
-            options={categoryOptions}
+            options={categoryOptions.map((opt) => ({
+              ...opt,
+              label: opt.value === '' ? 'Összes kategória' : opt.label
+            }))}
             value={categoryFilter}
             onChange={handleCategoryChange}
-            className="w-full"
+            className="w-full select select-bordered"
           />
         </div>
         <div>
-          <label htmlFor="statusFilter" className="block text-sm font-medium text-gray-700 mb-1">
-            Filter by Status
+          <label
+            htmlFor="statusFilter"
+            className="block text-sm font-medium text-base-content/80 mb-1"
+          >
+            Státusz
           </label>
           <Select
-            options={statusOptions}
+            options={statusOptions.map((opt) => ({
+              ...opt,
+              label: opt.value === '' ? 'Összes státusz' : opt.label
+            }))}
             value={statusFilter}
             onChange={handleStatusChange}
-            className="w-full"
+            className="w-full select select-bordered"
           />
         </div>
-        <div className="flex space-x-2">
-          <Button onClick={handleClearFilters} variant="outline" className="w-full md:w-auto">
-            Clear Filters
+        <div className="flex sm:col-span-2 lg:col-span-1 sm:justify-end space-x-2">
+          <Button
+            onClick={handleClearFilters}
+            variant="ghost"
+            className="btn btn-ghost w-full sm:w-auto"
+          >
+            Szűrők törlése
           </Button>
         </div>
       </div>
-      <p className="text-sm text-gray-600 mt-4">Total posts: {totalPosts}</p>
+      <p className="text-sm text-base-content/70 mt-4">Találatok: {totalPosts}</p>
     </div>
   )
 }

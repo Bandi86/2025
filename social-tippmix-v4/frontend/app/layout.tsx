@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import MainLayoutContent from '@/components/MainLayout'
 import { getCurrentUser } from '@/lib/auth/session'
+import UserInitializer from '@/components/auth/UserInitializer'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -29,7 +30,8 @@ export default async function RootLayout({
   return (
     <html lang="hu" data-theme="light">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <MainLayoutContent user={user}>{children}</MainLayoutContent>
+        <UserInitializer user={user} />
+        <MainLayoutContent>{children}</MainLayoutContent>
       </body>
     </html>
   )

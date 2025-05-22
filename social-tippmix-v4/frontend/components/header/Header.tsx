@@ -1,13 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
 import NavBar from './NavBar'
-import type { UserPayload } from '@/lib/auth/session' // Import UserPayload type
 
-interface HeaderProps {
-  user: UserPayload | null
-}
-
-const Header = ({ user }: HeaderProps) => {
+const Header = () => {
   return (
     <header className="navbar bg-primary text-primary-content">
       <div className="navbar-start">
@@ -23,7 +18,7 @@ const Header = ({ user }: HeaderProps) => {
       </div>
 
       <div className="navbar-end">
-        <NavBar user={user} />
+        <NavBar />
       </div>
     </header>
   )

@@ -1,6 +1,6 @@
 import { getCurrentUser } from '@/lib/auth/session'
 import { redirect } from 'next/navigation'
-import { fetchAdminUserById } from '@/lib/admin/users'
+import { fetchAdminUserById } from '@/lib/api/users'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { ArrowLeftIcon, Edit3Icon, Trash2Icon } from 'lucide-react'
@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge'
 import DeleteUserButton from '@/components/admin/users/DeleteUserButton'
 import Image from 'next/image'
 import { formatDateTimeHU } from '@/lib/format/date'
+import UserStats from '@/components/admin/users/UserStats'
 
 export default async function UserDetailsPage(props: { params: { userId: string } }) {
   let paramsObj: { userId: string } = { userId: '' }
@@ -223,32 +224,7 @@ export default async function UserDetailsPage(props: { params: { userId: string 
           </div>
         </div>
         <div className="divider my-8">Statisztikák</div>
-        <div className="stats stats-vertical md:stats-horizontal shadow mb-8">
-          <div className="stat">
-            <div className="stat-title">Posztok</div>
-            <div className="stat-value">{safeAdminUser._count?.posts ?? '-'}</div>
-          </div>
-          <div className="stat">
-            <div className="stat-title">Kommentek</div>
-            <div className="stat-value">{safeAdminUser._count?.comments ?? '-'}</div>
-          </div>
-          <div className="stat">
-            <div className="stat-title">Lájkok</div>
-            <div className="stat-value">{safeAdminUser._count?.likes ?? '-'}</div>
-          </div>
-          <div className="stat">
-            <div className="stat-title">Követők</div>
-            <div className="stat-value">{safeAdminUser._count?.followers ?? '-'}</div>
-          </div>
-          <div className="stat">
-            <div className="stat-title">Követések</div>
-            <div className="stat-value">{safeAdminUser._count?.following ?? '-'}</div>
-          </div>
-          <div className="stat">
-            <div className="stat-title">Munkamenetek</div>
-            <div className="stat-value">{safeAdminUser._count?.sessions ?? '-'}</div>
-          </div>
-        </div>
+        <UserStats stats={safeAdminUser._count ?? {}} />
       </div>
     </div>
   )

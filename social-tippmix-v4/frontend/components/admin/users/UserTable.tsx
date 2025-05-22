@@ -1,6 +1,6 @@
 'use client'
 
-import { AdminUser } from '@/lib/admin/users'
+import { AdminUser } from '@/types/admin-user'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { Eye, Edit2, Trash2 } from 'lucide-react'
 import DeleteUserModal from './DeleteUserModal'
 import { formatDateTimeHU } from '@/lib/format/date'
+import { useUserStore } from '@/store/userStore'
 
 interface UserTableProps {
   users: AdminUser[]
@@ -15,9 +16,9 @@ interface UserTableProps {
 
 export default function UserTable({ users }: UserTableProps) {
   const [userToDelete, setUserToDelete] = useState<AdminUser | null>(null)
-  const [loading, setLoading] = useState(false)
+  const { admin } = useUserStore()
 
-  if (loading) {
+  if (admin.adminLoading) {
     return (
       <div className="flex justify-center items-center py-8">
         <span className="loading loading-spinner loading-lg text-primary"></span>

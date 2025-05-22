@@ -3,21 +3,21 @@
 import { usePathname } from 'next/navigation'
 import Header from './header/Header'
 import React from 'react'
-import type { UserPayload } from '@/lib/auth/session' // Import UserPayload
+import { useUserStore } from '@/store'
 
 interface MainLayoutContentProps {
   children: React.ReactNode
-  user: UserPayload | null // Add user prop
 }
 
-export default function MainLayoutContent({ children, user }: MainLayoutContentProps) {
+export default function MainLayoutContent({ children }: MainLayoutContentProps) {
   const pathname = usePathname()
   const isAdminPage = pathname.startsWith('/admin')
+  // A user adatokat már a Zustand store-ból olvassuk, nem propként kapjuk
+  const user = useUserStore((state) => state.user)
 
   return (
     <>
-      {!isAdminPage && <Header user={user} />}
-      {/* Pass user to Header */}
+      {!isAdminPage && <Header />} {/* Már nem kell átadni a user prop-ot */}
       {children}
     </>
   )

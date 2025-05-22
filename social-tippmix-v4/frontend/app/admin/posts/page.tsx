@@ -1,6 +1,6 @@
 import PostControls from '@/components/admin/posts/PostControls'
 import PostTable from '@/components/admin/posts/PostTable'
-import { fetchAdminPosts } from '@/lib/admin/posts'
+import { fetchAdminPosts } from '@/lib/api/posts'
 import React from 'react'
 import Pagination from '@/components/ui/Pagination'
 

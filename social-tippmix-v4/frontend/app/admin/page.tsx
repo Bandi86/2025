@@ -1,12 +1,13 @@
-import AdminDashboardPanel from "@/components/admin/AdminDashboardPanel";
+import AdminDashboardPanel from '@/components/admin/AdminDashboardPanel'
 
-// filepath: c:\Users\bandi\Documents\code\2025\social-tippmix-v4\frontend\app\admin\page.tsx
 export default function AdminPage() {
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-4">Admin Dashboard</h1>
-      <p>Welcome to the admin area. Select an option from the sidebar to get started.</p>
-      {/* Add dashboard widgets or summaries here */}
+    <div className="max-w-5xl mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-2 text-primary">Admin Dashboard</h1>
+      <p className="mb-6 text-base-content/70">
+        Üdvözlünk az admin felületen! Itt gyors áttekintést kapsz a legfontosabb statisztikákról és
+        műveletekről.
+      </p>
       <AdminDashboardPanel />
     </div>
   )

@@ -1,8 +1,9 @@
-import { fetchAdminUsers } from '@/lib/admin/users'
-import { FetchUsersParams, AdminUser } from '@/types/admin-user'
+import { fetchAdminUsers } from '@/lib/api/users'
+import { FetchUsersParams } from '@/types/admin-user'
 import UserTable from '@/components/admin/users/UserTable'
 import UserControls from '@/components/admin/users/UserControls'
 import Pagination from '@/components/ui/Pagination'
+import { AdminUserInitializer } from '@/components/admin/users/AdminUserInitializer'
 
 function getSanitizedParams(
   searchParamsObj: Record<string, string | string[] | undefined>,
@@ -41,13 +42,26 @@ export default async function AdminUsersPage(props: {
     ])
   }
 
+  // Fetch data from the API
   const { users, totalPages, totalUsers } = await fetchAdminUsers(params)
 
   return (
     <div className="container mx-auto py-8 px-4 md:px-6">
+      {/* Initialize store with server data */}
+      <AdminUserInitializer
+        users={users}
+        totalUsers={totalUsers}
+        totalPages={totalPages}
+        currentParams={params}
+      />
+
       <h1 className="text-3xl font-bold mb-8 text-gray-800">Manage Users</h1>
 
-      <UserControls currentParams={params} totalUsers={totalUsers} onlineUsers={users.filter(user => user.isOnline).length} />
+      <UserControls
+        currentParams={params}
+        totalUsers={totalUsers}
+        onlineUsers={users.filter((user) => user.isOnline).length}
+      />
 
       {users.length > 0 ? (
         <UserTable users={users} />

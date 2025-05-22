@@ -1,18 +1,12 @@
 'use client'
 
 import { useState } from 'react'
-import { AdminUser } from '@/lib/admin/users'
+import { AdminUser } from '@/types/admin-user'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '@/components/ui/select'
+import { Select } from '@/components/ui/select'
 import { useRouter } from 'next/navigation'
-import { updateUser } from '@/lib/actions/admin'
+import { useUserStore } from '@/store/userStore'
 
 interface EditUserFormProps {
   user: AdminUser
@@ -27,6 +21,8 @@ interface FormData {
 
 export default function EditUserForm({ user }: EditUserFormProps) {
   const router = useRouter()
+  const { updateAdminUser, admin } = useUserStore()
+
   const [formData, setFormData] = useState<FormData>({
     username: user.username,
     email: user.email,
@@ -34,7 +30,6 @@ export default function EditUserForm({ user }: EditUserFormProps) {
     status: user.status
   })
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,26 +43,24 @@ export default function EditUserForm({ user }: EditUserFormProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitting(true)
     setError(null)
 
     try {
-      await updateUser(user.id, formData)
+      await updateAdminUser(user.id, formData)
 
       // Redirect back to the user details page
       router.push(`/admin/users/${user.id}`)
       router.refresh() // Refresh server components to show updated data
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error updating user:', err)
-      setError('Failed to update user. Please try again.')
-    } finally {
-      setIsSubmitting(false)
+      setError(err.message || 'Failed to update user. Please try again.')
     }
   }
 
   return (
     <form onSubmit={handleSubmit} className="bg-base-100 shadow-lg rounded-lg p-6 max-w-2xl">
       {error && <div className="alert alert-error mb-6 text-sm">{error}</div>}
+      {admin.adminError && <div className="alert alert-error mb-6 text-sm">{admin.adminError}</div>}
 
       <div className="grid grid-cols-1 gap-6">
         <div>
@@ -104,17 +97,14 @@ export default function EditUserForm({ user }: EditUserFormProps) {
             Role
           </label>
           <Select
+            options={[
+              { value: 'ADMIN', label: 'Admin' },
+              { value: 'USER', label: 'User' }
+            ]}
             value={formData.role}
-            onValueChange={(value: string) => handleSelectChange('role', value)}
-          >
-            <SelectTrigger id="role" className="w-full">
-              <SelectValue placeholder="Select role" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="ADMIN">Admin</SelectItem>
-              <SelectItem value="USER">User</SelectItem>
-            </SelectContent>
-          </Select>
+            onChange={(e) => handleSelectChange('role', e.target.value)}
+            className="w-full"
+          />
         </div>
 
         <div>
@@ -122,19 +112,16 @@ export default function EditUserForm({ user }: EditUserFormProps) {
             Status
           </label>
           <Select
+            options={[
+              { value: 'active', label: 'Active' },
+              { value: 'inactive', label: 'Inactive' },
+              { value: 'suspended', label: 'Suspended' },
+              { value: 'banned', label: 'Banned' }
+            ]}
             value={formData.status}
-            onValueChange={(value: string) => handleSelectChange('status', value)}
-          >
-            <SelectTrigger id="status" className="w-full">
-              <SelectValue placeholder="Select status" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="active">Active</SelectItem>
-              <SelectItem value="inactive">Inactive</SelectItem>
-              <SelectItem value="suspended">Suspended</SelectItem>
-              <SelectItem value="banned">Banned</SelectItem>
-            </SelectContent>
-          </Select>
+            onChange={(e) => handleSelectChange('status', e.target.value)}
+            className="w-full"
+          />
         </div>
 
         <div className="mt-4 flex items-center justify-end space-x-4">
@@ -142,11 +129,16 @@ export default function EditUserForm({ user }: EditUserFormProps) {
             type="button"
             variant="ghost"
             onClick={() => router.push(`/admin/users/${user.id}`)}
-            disabled={isSubmitting}
+            disabled={admin.adminLoading}
           >
             Cancel
           </Button>
-          <Button type="submit" variant="primary" isLoading={isSubmitting} loadingText="Saving...">
+          <Button
+            type="submit"
+            variant="primary"
+            isLoading={admin.adminLoading}
+            loadingText="Saving..."
+          >
             Save Changes
           </Button>
         </div>

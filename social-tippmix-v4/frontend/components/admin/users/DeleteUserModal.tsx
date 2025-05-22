@@ -1,11 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import { AdminUser } from '@/lib/admin/users'
+import { AdminUser } from '@/types/admin-user'
 import { Button } from '@/components/ui/button'
 import { Trash2Icon } from 'lucide-react'
 import { useRouter } from 'next/navigation'
-import { deleteUser } from '@/lib/actions/admin'
+import { useUserStore } from '@/store/userStore'
 
 interface DeleteUserModalProps {
   user: AdminUser
@@ -15,25 +15,23 @@ interface DeleteUserModalProps {
 
 export default function DeleteUserModal({ user, isOpen, onClose }: DeleteUserModalProps) {
   const router = useRouter()
-  const [isDeleting, setIsDeleting] = useState(false)
+  const { deleteAdminUser, admin } = useUserStore()
   const [error, setError] = useState<string | null>(null)
 
   if (!isOpen) return null
 
   const handleDelete = async () => {
-    setIsDeleting(true)
     setError(null)
 
     try {
-      await deleteUser(user.id)
+      await deleteAdminUser(user.id)
 
-      // Redirect to users list
-      router.push('/admin/users')
+      // Close the modal and refresh the page
+      onClose()
       router.refresh() // Refresh server components to show updated data
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error deleting user:', err)
-      setError('Failed to delete user. Please try again.')
-      setIsDeleting(false)
+      setError(err.message || 'Failed to delete user. Please try again.')
     }
   }
 
@@ -50,16 +48,19 @@ export default function DeleteUserModal({ user, isOpen, onClose }: DeleteUserMod
           <p className="py-2 text-sm text-base-content/70">This action cannot be undone.</p>
 
           {error && <div className="alert alert-error mb-4 text-sm mt-2">{error}</div>}
+          {admin.adminError && (
+            <div className="alert alert-error mb-4 text-sm mt-2">{admin.adminError}</div>
+          )}
 
           <div className="modal-action flex justify-end mt-6">
-            <Button onClick={onClose} variant="ghost" className="btn" disabled={isDeleting}>
+            <Button onClick={onClose} variant="ghost" className="btn" disabled={admin.adminLoading}>
               Cancel
             </Button>
             <Button
               onClick={handleDelete}
               variant="error"
               className="btn-error text-white"
-              isLoading={isDeleting}
+              isLoading={admin.adminLoading}
               loadingText="Deleting..."
             >
               <Trash2Icon className="h-4 w-4 mr-2" />

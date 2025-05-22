@@ -2,10 +2,11 @@
 
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import { useCallback, useState, useEffect } from 'react'
-import { Input } from '@/components/ui/input' // Assuming an Input component
-import { Select } from '@/components/ui/select' // Assuming a Select component
+import { Input } from '@/components/ui/input'
+import { Select } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
-import { FetchUsersParams } from '@/types/admin-user' // Assuming a FetchUsersParams type
+import { FetchUsersParams } from '@/types/admin-user'
+import { useUserStore } from '@/store/userStore'
 
 interface UserControlsProps {
   currentParams: FetchUsersParams
@@ -25,7 +26,11 @@ function debounce<F extends (...args: any[]) => any>(func: F, waitFor: number) {
     })
 }
 
-export default function UserControls({ currentParams, totalUsers, onlineUsers }: UserControlsProps) {
+export default function UserControls({
+  currentParams,
+  totalUsers,
+  onlineUsers
+}: UserControlsProps) {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -154,7 +159,7 @@ export default function UserControls({ currentParams, totalUsers, onlineUsers }:
         </div>
       </div>
       <p className="text-sm text-gray-600 mt-4">Total users: {totalUsers}</p>
-      <p className='text-sm text-gray-600 mt-4'>Total online users: {onlineUsers}</p>
+      <p className="text-sm text-gray-600 mt-4">Total online users: {onlineUsers}</p>
     </div>
   )
 }
