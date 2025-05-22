@@ -1,0 +1,11 @@
+{
+  "name": "error-handling-tests",
+  "version": "1.0.0",
+  "description": "Tests for the error handling system",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "colors": "^1.4.0",
+    "node-fetch": "^3.3.0"
+  }
+}

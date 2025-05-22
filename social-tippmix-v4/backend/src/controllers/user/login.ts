@@ -1,61 +1,89 @@
-import { Request, Response, NextFunction } from 'express'
-import passport from 'passport'
-import jwt from 'jsonwebtoken'
-import prisma from '../../lib/client'
+import { Request, Response, NextFunction } from 'express';
+import passport from 'passport';
+import jwt from 'jsonwebtoken';
+import prisma from '../../lib/client';
+import { UnauthorizedError, DatabaseError, ApiError, ErrorCode } from '../../lib/error';
+import { logAuth, logError } from '../../lib/logger';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'jwt_secret'
-const NODE_ENV = process.env.NODE_ENV || 'development'
+const JWT_SECRET = process.env.JWT_SECRET || 'jwt_secret';
+const NODE_ENV = process.env.NODE_ENV || 'development';
 
 export default async function login(req: Request, res: Response, next: NextFunction) {
   interface AuthInfo {
-    message?: string
+    message?: string;
   }
 
   interface User {
-    id: string // Changed to string to match JWT payload and Prisma schema typically
-    username: string
-    password: string
-    role: string
+    id: string;
+    username: string;
+    password: string;
+    role: string;
   }
 
   passport.authenticate('local', (err: any, user: User | false, info: AuthInfo | undefined) => {
-    if (err) return next(err)
-    if (!user) return res.status(401).json({ error: info?.message || 'Invalid credentials' })
+    if (err) {
+      // Handle Passport authentication error
+      logError('Authentication error', err);
+      return next(new ApiError(500, 'Authentication error occurred', ErrorCode.INTERNAL_ERROR));
+    }
+
+    if (!user) {
+      // Handle invalid credentials
+      logAuth('login_failed', undefined, { username: req.body.username, message: info?.message });
+      return next(
+        new UnauthorizedError(info?.message || 'Invalid credentials', {
+          code: ErrorCode.INVALID_CREDENTIALS,
+          username: req.body.username,
+        })
+      );
+    }
+
     req.logIn(user, async (err: any) => {
-      if (err) return next(err)
-      // isOnline és lastLogin frissítése
-      await prisma.user.update({
-        where: { id: user.id }, // Assuming user.id is string from passport strategy
-        data: {
-          isOnline: true,
-          lastLogin: new Date()
-        }
-      })
+      if (err) return next(err);
 
-      // JWT token generálás
-      const token = jwt.sign(
-        { id: user.id, username: user.username, role: user.role },
-        JWT_SECRET,
-        {
-          expiresIn: '1d'
-        }
-      )
+      try {
+        // Update user online status and last login time
+        await prisma.user.update({
+          where: { id: user.id },
+          data: {
+            isOnline: true,
+            lastLogin: new Date(),
+          },
+        });
 
-      // Set JWT as an HTTPOnly cookie
-      res.cookie('session_token', token, {
-        httpOnly: true,
-        secure: NODE_ENV === 'production', // Use secure cookies in production
-        sameSite: 'lax', // Or 'strict' depending on your needs
-        maxAge: 24 * 60 * 60 * 1000 // 1 day, should match token expiry
-      })
+        // Generate JWT token
+        const token = jwt.sign(
+          { id: user.id, username: user.username, role: user.role },
+          JWT_SECRET,
+          { expiresIn: '1d' }
+        );
 
-      // Ne adjuk vissza a jelszót és a tokent a JSON válaszban
-      const { password, ...userWithoutPassword } = user
-      res.json({
-        user: userWithoutPassword,
-        sessionId: req.sessionID // This is the express-session ID, separate from JWT
-        // token: token, // Token is now in cookie, not in response body
-      })
-    })
-  })(req, res, next)
+        // Set JWT as an HTTPOnly cookie
+        res.cookie('session_token', token, {
+          httpOnly: true,
+          secure: NODE_ENV === 'production',
+          sameSite: 'lax',
+          maxAge: 24 * 60 * 60 * 1000,
+        });
+
+        // Log successful login
+        logAuth('login_success', user.id, { username: user.username, role: user.role });
+
+        // Return user data without password
+        const { password, ...userWithoutPassword } = user;
+        res.json({
+          user: userWithoutPassword,
+          sessionId: req.sessionID,
+        });
+      } catch (error) {
+        // Handle database errors
+        logError('Login database operation failed', error);
+        return next(
+          new DatabaseError('Failed to update user login status', 'update', {
+            userId: user.id,
+          })
+        );
+      }
+    });
+  })(req, res, next);
 }

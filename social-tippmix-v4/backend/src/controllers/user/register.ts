@@ -1,34 +1,62 @@
-import { Request, Response, NextFunction } from 'express'
-import bcrypt from 'bcrypt'
-import prisma from '../../lib/client'
+import { Request, Response, NextFunction } from 'express';
+import bcrypt from 'bcrypt';
+import prisma from '../../lib/client';
+import { ErrorFactory, ValidationError, ConflictError } from '../../lib/error';
+import { RegisterUserInput, registerUserSchema } from '../../lib/validation';
+import { logAuth, logInfo } from '../../lib/logger';
 
-function isStrongPassword(password: string): boolean {
-  // Legalább 8 karakter, kisbetű, nagybetű, szám, speciális karakter
-  return (
-    /[a-z]/.test(password) &&
-    /[A-Z]/.test(password) &&
-    /[0-9]/.test(password) &&
-    /[^A-Za-z0-9]/.test(password) &&
-    password.length >= 8
-  )
-}
+export async function register(req: Request, res: Response, next: NextFunction) {
+  try {
+    // Zod validáció
+    const validatedData = registerUserSchema.safeParse(req.body);
+    if (!validatedData.success) {
+      throw ValidationError.fromZod(validatedData.error, 'Registration validation failed');
+    }
 
-export async function register(req: Request, res: Response) {
-  const { username, password, email } = req.body
-  if (!username || !password || !email) {
-    return res.status(400).json({ error: 'Username, email and password required' })
+    const { username, password, email } = validatedData.data as RegisterUserInput;
+
+    // Ellenőrizzük, hogy létezik-e a felhasználónév
+    const existingUsername = await prisma.user.findUnique({ where: { username } });
+    if (existingUsername) {
+      throw ErrorFactory.usernameAlreadyExists(username);
+    }
+
+    // Ellenőrizzük, hogy létezik-e az email cím
+    const existingEmail = await prisma.user.findUnique({ where: { email } });
+    if (existingEmail) {
+      throw ErrorFactory.emailAlreadyExists(email);
+    }
+
+    // Jelszó titkosítása
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+    // Felhasználó létrehozása
+    const user = await prisma.user.create({
+      data: {
+        username,
+        email,
+        password: hashedPassword,
+        role: 'USER',
+        status: 'ACTIVE',
+      },
+    });
+
+    // Sikeres regisztráció naplózása
+    logAuth('user_registered', user.id, { username, email });
+    logInfo(`New user registered: ${username}`);
+
+    // Sikeres válasz
+    res.status(201).json({
+      success: true,
+      message: 'Registration successful',
+      user: {
+        id: user.id,
+        username: user.username,
+        email: user.email,
+      },
+    });
+  } catch (error) {
+    next(error);
   }
-  if (!isStrongPassword(password)) {
-    return res.status(400).json({
-      error:
-        'A jelszónak legalább 8 karakteresnek kell lennie, tartalmaznia kell kis- és nagybetűt, számot és speciális karaktert.'
-    })
-  }
-  const existing = await prisma.user.findUnique({ where: { username } })
-  if (existing) {
-    return res.status(409).json({ error: 'Username already exists' })
-  }
-  const hashed = await bcrypt.hash(password, 10)
-  const user = await prisma.user.create({ data: { username, email, password: hashed } })
-  res.status(201).json({ id: user.id, username: user.username, email: user.email })
 }

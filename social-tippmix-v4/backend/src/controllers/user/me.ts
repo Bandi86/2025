@@ -1,13 +1,38 @@
-import { Request, Response } from 'express'
-import prisma from '../../lib/client'
+import { Request, Response, NextFunction } from 'express';
+import prisma from '../../lib/client';
+import { UnauthorizedError, NotFoundError } from '../../lib/error';
+import { logInfo } from '../../lib/logger';
 
-export async function me(req: Request, res: Response) {
-  if (!req.isAuthenticated() || !req.user) {
-    return res.status(401).json({ error: 'Not authenticated' })
+export async function me(req: Request, res: Response, next: NextFunction) {
+  try {
+    if (!req.isAuthenticated() || !req.user) {
+      throw new UnauthorizedError('Not authenticated');
+    }
+
+    const userId = (req.user as any).id;
+
+    const user = await prisma.user.findUnique({
+      where: { id: userId },
+      select: {
+        id: true,
+        username: true,
+        email: true,
+        role: true,
+        createdAt: true,
+        status: true,
+        isOnline: true,
+        avatar: true,
+      },
+    });
+
+    if (!user) {
+      throw new NotFoundError('User', userId);
+    }
+
+    logInfo('User retrieved profile', { userId });
+
+    res.json(user);
+  } catch (error) {
+    next(error);
   }
-  const user = await prisma.user.findUnique({ where: { id: (req.user as any).id } })
-  if (!user) {
-    return res.status(404).json({ error: 'User not found' })
-  }
-  res.json({ id: user.id, username: user.username })
 }

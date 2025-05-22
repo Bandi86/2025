@@ -1,26 +1,96 @@
-import { Request, Response } from 'express'
-import prisma from '../../lib/client'
+import { Request, Response, NextFunction } from 'express';
+import prisma from '../../lib/client';
+import { ValidationError, UnauthorizedError, NotFoundError, DatabaseError } from '../../lib/error';
+import { CreateCommentInput, createCommentSchema } from '../../lib/validation';
+import { logInfo, logError } from '../../lib/logger';
 
-export async function createComment(req: Request, res: Response) {
-  const { postId, content } = req.body
-  let userId: string | undefined
-  if (req.user && typeof req.user === 'object' && 'id' in req.user) {
-    userId = (req.user as any).id
-  } else if (req.session && req.session.userId) {
-    userId = req.session.userId
-  }
-  if (!userId) return res.status(401).json({ error: 'Not authenticated' })
-  if (!postId || !content) return res.status(400).json({ error: 'postId és content kötelező' })
-  const comment = await prisma.comment.create({
-    data: {
-      content,
-      postId,
-      authorId: userId
-    },
-    include: {
-      author: { select: { id: true, username: true, avatar: true } },
-      post: { select: { id: true, title: true } }
+export async function createComment(req: Request, res: Response, next: NextFunction) {
+  try {
+    // Validate input with Zod
+    const validationResult = createCommentSchema.safeParse(req.body);
+    if (!validationResult.success) {
+      throw ValidationError.fromZod(validationResult.error, 'Comment validation failed');
     }
-  })
-  res.status(201).json(comment)
+
+    const { postId, content } = validationResult.data as CreateCommentInput;
+
+    // Get authenticated user ID
+    let userId: string | undefined;
+    if (req.user && typeof req.user === 'object' && 'id' in req.user) {
+      userId = (req.user as any).id;
+    } else if (req.session && req.session.userId) {
+      userId = req.session.userId;
+    }
+
+    if (!userId) {
+      throw new UnauthorizedError('Authentication required to create a comment');
+    }
+
+    try {
+      // Check if post exists
+      const postExists = await prisma.post.findUnique({
+        where: { id: postId },
+        select: { id: true, authorId: true },
+      });
+
+      if (!postExists) {
+        throw new NotFoundError('Post', postId);
+      }
+
+      // Create comment
+      const comment = await prisma.comment.create({
+        data: {
+          content,
+          postId,
+          authorId: userId,
+        },
+        include: {
+          author: { select: { id: true, username: true, avatar: true } },
+          post: { select: { id: true, title: true, authorId: true } },
+        },
+      });
+
+      logInfo('Comment created', {
+        commentId: comment.id,
+        postId,
+        authorId: userId,
+        postAuthorId: comment.post.authorId,
+      });
+
+      // Create notification for post author if different from comment author
+      if (comment.post.authorId !== userId) {
+        try {
+          await prisma.notification.create({
+            data: {
+              type: 'COMMENT',
+              message: `${comment.author.username} commented on your post: "${comment.post.title}"`,
+              userId: comment.post.authorId,
+              // Note: adding relatedEntityId and relatedEntityType in data fields if needed
+              // Example: Add these fields to the schema with appropriate migration
+            },
+          });
+        } catch (notifError) {
+          // Don't fail if notification creation fails
+          logError('Failed to create notification for comment', notifError);
+        }
+      }
+
+      res.status(201).json({
+        success: true,
+        message: 'Comment created successfully',
+        comment,
+      });
+    } catch (dbError) {
+      if (!(dbError instanceof NotFoundError)) {
+        throw new DatabaseError('Failed to create comment', 'insert', {
+          error: (dbError as Error).message,
+          postId,
+          userId,
+        });
+      }
+      throw dbError;
+    }
+  } catch (error) {
+    next(error);
+  }
 }

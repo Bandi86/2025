@@ -52,6 +52,8 @@ model User {
 
   // Beszélgetések, amelyekben a felhasználó részt vesz
   conversationParticipants ConversationParticipant[] @relation("UserParticipants")
+  imageId                  String?                   @unique
+  image                    Image?                    @relation("UserImage", fields: [imageId], references: [id])
 }
 
 model Post {
@@ -68,6 +70,8 @@ model Post {
   comments  Comment[]
   likes     Like[]       @relation("SinglePostLike")
   tags      Tag[]        @relation("PostTags") // Prisma implicit összekötő táblát (_PostTags) hoz létre
+  imageId   String?      @unique
+  image     Image?       @relation("PostImage", fields: [imageId], references: [id])
 }
 
 model Comment {
@@ -80,6 +84,8 @@ model Comment {
   author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
   authorId  String
   likes     Like[]   @relation("CommentLikes")
+  imageId   String?  @unique
+  image     Image?   @relation("CommentImage", fields: [imageId], references: [id])
 }
 
 model Like {
@@ -108,34 +114,37 @@ model Tag {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   posts     Post[]   @relation("PostTags") // Prisma implicit összekötő táblát (_PostTags) hoz létre
+  imageId   String?  @unique
+  image     Image?   @relation("ImageTags", fields: [imageId], references: [id])
 }
 
 model Notification {
-  id        String   @id @unique @default(uuid())
+  id        String   @id @default(uuid())
   type      String // pl. "NEW_FOLLOWER", "POST_LIKE", "COMMENT_REPLY"
   message   String
   createdAt DateTime @default(now())
   isRead    Boolean  @default(false) // Olvasottság állapota
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade) // A felhasználó, aki kapja az értesítést
-  userId String
-
-  // Opcionális: Hivatkozás az értesítést kiváltó entitásra
-  // relatedEntityId String?
-  // relatedEntityType String? // pl. "POST", "COMMENT", "USER"
+  imageId String? @unique
+  image   Image?  @relation("NotificationImage", fields: [imageId], references: [id])
 }
 
 model Conversation {
-  id          String   @id @unique @default(uuid())
+  id          String   @id @default(uuid())
   name        String? // Opcionális: csoportos beszélgetések neve
   isGroupChat Boolean  @default(false)
   createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  updatedAt   DateTime @default(now())
 
   messages     Message[] // Üzenetek ebben a beszélgetésben
   participants ConversationParticipant[] @relation("ConversationParticipants") // Résztvevők ebben a beszélgetésben
 
   lastMessageAt DateTime? // Beszélgetések rendezéséhez, alkalmazáslogika vagy trigger frissítheti
+
+  imageId String? @unique
+  image   Image?  @relation("ConversationImage", fields: [imageId], references: [id])
 }
 
 // Explicit összekötő tábla User és Conversation között (many-to-many)
@@ -152,7 +161,7 @@ model ConversationParticipant {
 }
 
 model Message {
-  id        String   @id @unique @default(uuid())
+  id        String   @id @default(uuid())
   content   String
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) // Ha az üzenetek szerkeszthetők
@@ -162,6 +171,29 @@ model Message {
 
   conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade) // A beszélgetés, amelyhez az üzenet tartozik
   conversationId String
+
+  imageId String? @unique
+  image   Image?  @relation("MessageImage", fields: [imageId], references: [id])
+}
+
+model Image {
+  id        String   @id @default(uuid())
+  url       String   @unique
+  fileName  String
+  fileSize  Int
+  fileType  String
+  width     Int
+  height    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user         User?         @relation("UserImage")
+  post         Post?         @relation("PostImage")
+  comment      Comment?      @relation("CommentImage")
+  notification Notification? @relation("NotificationImage")
+  message      Message?      @relation("MessageImage")
+  conversation Conversation? @relation("ConversationImage")
+  tags         Tag?          @relation("ImageTags")
 }
 
 enum UserRole {
