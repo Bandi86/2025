@@ -24,7 +24,7 @@ export default async function AdminDashboardPanel() {
   const totalUsers = usersData.totalUsers
 
   // Legutóbbi 3 poszt
-  const recentPostsData = await fetchPosts({ limit: 3, sortBy: 'createdAt_desc' })
+  const recentPostsData = await fetchPosts({ limit: 3, sortBy: 'createdAt' })
   const recentPosts: any[] = recentPostsData.posts
 
   // Új posztok (7 nap)
@@ -34,9 +34,20 @@ export default async function AdminDashboardPanel() {
   // Függőben lévő posztok (ha van ilyen státusz)
   let pendingPosts = 0
   try {
-    const pending = await fetchPosts({ statusFilter: 'pending', limit: 1 })
-    pendingPosts = pending.totalPosts
-  } catch {}
+    // Add explicit logging for this potential authentication issue
+    console.log('Fetching pending posts for admin dashboard...')
+    const pending = await fetchPosts({
+      statusFilter: 'pending',
+      limit: 1
+    })
+    console.log('Successfully fetched pending posts')
+    pendingPosts = pending.totalPosts || 0
+  } catch (error: any) {
+    console.error('Error fetching pending posts:', error)
+    if (error.response?.status === 401) {
+      console.error('Authentication error when fetching pending posts - JWT token may be invalid')
+    }
+  }
 
   return (
     <div className="flex flex-col gap-6">

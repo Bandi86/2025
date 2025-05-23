@@ -1,14 +1,17 @@
+'use client'
+
 import Link from 'next/link'
 import React from 'react'
 import LogoutButton from '../auth/LogoutButton'
-import { getCurrentUser } from '@/lib/auth/session'
+import { useAuthStore } from '@/store/authStore'
 
-const NavBar = async () => {
-  const user = await getCurrentUser()
+const NavBar = () => {
+  const user = useAuthStore((state) => state.user)
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated)
 
   return (
     <>
-      {user ? (
+      {isAuthenticated && user ? (
         <>
           <span className="mr-2">👤 {user.username}</span>
           <Link href="/profile" className="btn btn-ghost">

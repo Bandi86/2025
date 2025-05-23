@@ -3,16 +3,21 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { useAuth } from '@/lib/auth/useAuth'
+import { useRouter } from 'next/navigation'
 
 export default function LoginForm() {
   const { login, isLoading, error, clearError } = useAuth()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    await login({ username, password })
-    // The login function from useAuth already handles redirection
+    const success = await login({ username, password })
+    if (success) {
+      router.push('/')
+      window.location.reload()
+    }
   }
 
   return (

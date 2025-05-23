@@ -1,6 +1,11 @@
 import { getCurrentUser } from '@/lib/auth/session'
 import { redirect } from 'next/navigation'
 import { fetchAdminUserById } from '@/lib/users/usersService'
+import {
+  fetchUserActivity,
+  fetchUserBadges,
+  fetchUserInteractions
+} from '@/lib/users/userActivityService'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { ArrowLeftIcon, Edit3Icon, Trash2Icon } from 'lucide-react'
@@ -9,6 +14,10 @@ import DeleteUserButton from '@/components/admin/users/DeleteUserButton'
 import Image from 'next/image'
 import { formatDateTimeHU } from '@/lib/format/date'
 import UserStats from '@/components/admin/users/UserStats'
+import UserActivity from '@/components/admin/users/UserActivity'
+import UserEngagement from '@/components/admin/users/UserEngagement'
+import UserBadges from '@/components/admin/users/UserBadges'
+import UserInteractions from '@/components/admin/users/UserInteractions'
 
 export default async function UserDetailsPage(props: { params: { userId: string } }) {
   let paramsObj: { userId: string } = { userId: '' }
@@ -22,6 +31,12 @@ export default async function UserDetailsPage(props: { params: { userId: string 
     redirect('/')
   }
   const adminUser = await fetchAdminUserById(paramsObj.userId)
+  // Fetch user activity data
+  const activityData = await fetchUserActivity(paramsObj.userId)
+  // Fetch user badges
+  const badges = await fetchUserBadges(paramsObj.userId)
+  // Fetch user interactions
+  const interactions = await fetchUserInteractions(paramsObj.userId)
   if (!adminUser) {
     return (
       <div className="p-6">
@@ -231,6 +246,38 @@ export default async function UserDetailsPage(props: { params: { userId: string 
           followers={safeAdminUser._count?.followers}
           following={safeAdminUser._count?.following}
         />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+          <UserActivity
+            lastLogin={safeAdminUser.lastLogin}
+            createdAt={safeAdminUser.createdAt}
+            postsLastWeek={activityData.postsLastWeek}
+            commentsLastWeek={activityData.commentsLastWeek}
+            likesLastWeek={activityData.likesLastWeek}
+            avgPostsPerMonth={activityData.avgPostsPerMonth}
+          />
+
+          <UserEngagement
+            engagementRate={activityData.engagementRate}
+            responseRate={activityData.responseRate}
+            likesPerPost={activityData.likesPerPost}
+            commentsPerPost={activityData.commentsPerPost}
+            postsPerWeek={activityData.postsPerWeek}
+          />
+        </div>
+
+        <div className="mt-8">
+          <UserBadges badges={badges} />
+        </div>
+
+        <div className="mt-8">
+          <UserInteractions
+            topFollowers={interactions.topFollowers}
+            topFollowing={interactions.topFollowing}
+            topCommenters={interactions.topCommenters}
+            topLikers={interactions.topLikers}
+          />
+        </div>
       </div>
     </div>
   )

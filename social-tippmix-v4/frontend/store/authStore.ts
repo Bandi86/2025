@@ -44,6 +44,8 @@ export const useAuthStore = createWithMiddleware<AuthState>(
           isAuthenticated: true,
           isLoading: false
         })
+        // Azonnal ellenőrizzük az auth státuszt is
+        await get().checkAuth()
         return true
       } else {
         set({
@@ -65,6 +67,8 @@ export const useAuthStore = createWithMiddleware<AuthState>(
           isAuthenticated: true,
           isLoading: false
         })
+        // Azonnal ellenőrizzük az auth státuszt is
+        await get().checkAuth()
       } else {
         set({
           isLoading: false,

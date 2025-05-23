@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+// Create base axios instance with default config
 const axiosClient = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api',
   headers: {
@@ -8,10 +9,24 @@ const axiosClient = axios.create({
   withCredentials: true // Important for cookie handling
 })
 
-// Remove token from localStorage - use HTTP-only cookies instead
-// The backend should set session_token as HTTP-only cookie
+// Intercept requests to add auth headers
 axiosClient.interceptors.request.use(
   (config) => {
+    // Always ensure withCredentials is set (needed for cookies)
+    config.withCredentials = true
+
+    // Client-side only: Extract token from cookie if available
+    if (typeof window !== 'undefined') {
+      // Read session_token from cookies
+      const cookies = document.cookie.split('; ')
+      const tokenCookie = cookies.find((cookie) => cookie.startsWith('session_token='))
+      if (tokenCookie) {
+        const token = tokenCookie.split('=')[1]
+        // Add token to Authorization header
+        config.headers['Authorization'] = `Bearer ${token}`
+      }
+    }
+
     return config
   },
   (error) => {

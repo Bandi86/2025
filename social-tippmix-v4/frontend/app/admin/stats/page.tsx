@@ -6,8 +6,8 @@ import { fetchAdminUsers } from '@/lib/users/usersService'
 
 export default async function AdminStatisztikaPage() {
   // Szerver oldali adatlekérés
-  const postsData = await fetchPosts({ limit: 1000, sortBy: 'createdAt_desc' })
-  const usersData = await fetchAdminUsers({ limit: 1000, sortBy: 'createdAt_desc' })
+  const postsData = await fetchPosts({ limit: 1000, sortBy: 'createdAt' })
+  const usersData = await fetchAdminUsers({ limit: 1000, sortBy: 'createdAt' })
 
   return (
     <main className="max-w-4xl mx-auto py-8 px-4">

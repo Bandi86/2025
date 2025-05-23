@@ -1,6 +1,5 @@
 import { getCurrentUser } from '@/lib/auth/session'
 import { redirect } from 'next/navigation'
-import UserInitializer from '@/components/auth/UserInitializer'
 import AdminLayoutClient from '@/components/admin/AdminLayoutClient'
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -13,8 +12,6 @@ export default async function AdminLayout({ children }: { children: React.ReactN
 
   return (
     <>
-      {/* Inicializáljuk a Zustand store-t a szerver adatokkal */}
-      <UserInitializer user={user} />
       {/* A tényleges admin layout ellenőrzés és megjelenítés már kliensoldali */}
       <AdminLayoutClient>{children}</AdminLayoutClient>
     </>

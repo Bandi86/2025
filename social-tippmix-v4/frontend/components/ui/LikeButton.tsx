@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { HeartIcon, Users2Icon } from 'lucide-react'
 import axios from 'axios'
-import { useUserValue } from '@/context/UserContext'
+import { useAuthStore } from '@/store/authStore'
 
 interface LikeButtonProps {
   targetId: string
@@ -39,7 +39,7 @@ export default function LikeButton({
   const [animate, setAnimate] = useState(false)
   const [page, setPage] = useState(1)
   const [hasMore, setHasMore] = useState(true)
-  const currentUser = useUserValue()
+  const { user } = useAuthStore()
 
   // Pulse animation on like
   useEffect(() => {
@@ -54,8 +54,8 @@ export default function LikeButton({
   function sortLikers(users: LikeUser[] | null) {
     if (!users) return []
     return [...users].sort((a, b) => {
-      if (currentUser?.id === a.id) return -1
-      if (currentUser?.id === b.id) return 1
+      if (user?.id === a.id) return -1
+      if (user?.id === b.id) return 1
       // If you have role info, prioritize admin/mod here (assuming user.role exists)
       // if (a.role === 'ADMIN' && b.role !== 'ADMIN') return -1
       // if (b.role === 'ADMIN' && a.role !== 'ADMIN') return 1
@@ -233,7 +233,7 @@ export default function LikeButton({
                       {user.avatar ? (
                         <div
                           className={`w-8 h-8 rounded-full ring-2 ring-offset-2 ring-offset-base-200/30 ${
-                            currentUser?.id === user.id
+                            user?.id === user.id
                               ? 'ring-primary'
                               : 'ring-base-300 group-hover:ring-secondary'
                           }`}
@@ -247,7 +247,7 @@ export default function LikeButton({
                       ) : (
                         <div
                           className={`avatar placeholder ring-2 ring-offset-2 ring-offset-base-200/30 ${
-                            currentUser?.id === user.id
+                            user?.id === user.id
                               ? 'ring-primary'
                               : 'ring-base-300 group-hover:ring-secondary'
                           }`}
@@ -290,7 +290,7 @@ export default function LikeButton({
                     <li
                       key={user.id}
                       className={`flex items-center gap-2.5 p-1.5 rounded-md transition-colors ${
-                        currentUser?.id === user.id ? 'bg-primary/10' : 'hover:bg-base-200/60'
+                        user?.id === user.id ? 'bg-primary/10' : 'hover:bg-base-200/60'
                       }`}
                     >
                       <div className="relative group avatar">
@@ -321,7 +321,7 @@ export default function LikeButton({
                       <a
                         href={`/profile/${user.id}`}
                         className={`font-medium link hover:link-primary ${
-                          currentUser?.id === user.id
+                          user?.id === user.id
                             ? 'font-bold text-primary link-primary'
                             : 'text-base-content hover:text-primary'
                         }`}
@@ -329,7 +329,7 @@ export default function LikeButton({
                         rel="noopener noreferrer"
                       >
                         {user.username}
-                        {currentUser?.id === user.id && (
+                        {user?.id === user.id && (
                           <span className="badge badge-primary badge-outline badge-xs ml-1.5 align-middle">
                             te
                           </span>

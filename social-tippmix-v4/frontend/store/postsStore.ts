@@ -60,7 +60,7 @@ export const usePostsStore = createWithMiddleware<PostsStore>(
     filters: {
       page: 1,
       limit: 10,
-      sortBy: 'createdAt_desc'
+      sortBy: 'createdAt'
     },
 
     // Állapot beállító függvények

@@ -9,10 +9,10 @@ export default async function StatTopLists() {
       <div className="card bg-base-100 shadow p-4">
         <h4 className="font-semibold mb-2">Legaktívabb felhasználók</h4>
         <ul className="list-disc ml-4">
-          {topUsers.length === 0 ? (
+          {topUsers?.length === 0 ? (
             <li className="text-base-content/60">Nincs adat</li>
           ) : (
-            topUsers.map((u: any) => (
+            topUsers?.map((u: any) => (
               <li key={u.id}>
                 <span className="font-bold">{u.displayName}</span> – {u.postCount} poszt
               </li>
@@ -23,10 +23,10 @@ export default async function StatTopLists() {
       <div className="card bg-base-100 shadow p-4">
         <h4 className="font-semibold mb-2">Legnépszerűbb posztok</h4>
         <ul className="list-decimal ml-4">
-          {topPosts.length === 0 ? (
+          {topPosts?.length === 0 ? (
             <li className="text-base-content/60">Nincs adat</li>
           ) : (
-            topPosts.map((p: any) => (
+            topPosts?.map((p: any) => (
               <li key={p.id}>
                 <span className="font-bold">{p.title || 'Cím nélkül'}</span> – {p.likeCount} like
               </li>
@@ -37,10 +37,10 @@ export default async function StatTopLists() {
       <div className="card bg-base-100 shadow p-4">
         <h4 className="font-semibold mb-2">Legtöbb kommentes posztok</h4>
         <ul className="list-decimal ml-4">
-          {topCommentPosts.length === 0 ? (
+          {topCommentPosts?.length === 0 ? (
             <li className="text-base-content/60">Nincs adat</li>
           ) : (
-            topCommentPosts.map((p: any) => (
+            topCommentPosts?.map((p: any) => (
               <li key={p.id}>
                 <span className="font-bold">{p.title || 'Cím nélkül'}</span> – {p.commentCount}{' '}
                 hozzászólás

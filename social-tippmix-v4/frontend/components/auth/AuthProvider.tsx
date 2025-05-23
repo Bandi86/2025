@@ -15,27 +15,16 @@ export default function AuthProvider({
   user?: User | null
   children: React.ReactNode
 }) {
-  const { setUser, checkAuth } = useAuthStore()
+  const { setUser } = useAuthStore()
 
-  // Set user data from SSR
+  // Set user data from SSR only once
   useEffect(() => {
     if (user) {
       setUser(user)
-    } else {
-      // If no user from SSR, check authentication status
-      checkAuth()
     }
-  }, [user, setUser, checkAuth])
+  }, [user, setUser])
 
-  // Check auth periodically to refresh user data
-  useEffect(() => {
-    // Check authentication every 5 minutes
-    const interval = setInterval(() => {
-      checkAuth()
-    }, 5 * 60 * 1000)
-
-    return () => clearInterval(interval)
-  }, [checkAuth])
+  // Periodikus checkAuth és minden automatikus checkAuth hívás ELTÁVOLÍTVA
 
   return <>{children}</>
 }

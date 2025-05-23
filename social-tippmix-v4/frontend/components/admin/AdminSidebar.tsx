@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import LogoutButton from '@/components/auth/LogoutButtonZustand'
+import LogoutButton from '@/components/auth/LogoutButton'
 
 const userId = '351b788c-d4b9-47ec-9644-582e187a1db9'
 
