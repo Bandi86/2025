@@ -1,4 +1,4 @@
-import { fetchAdminUsers } from '@/lib/api/users'
+import { fetchAdminUsers } from '@/lib/users/usersService'
 import { FetchUsersParams } from '@/types/admin-user'
 import UserTable from '@/components/admin/users/UserTable'
 import UserControls from '@/components/admin/users/UserControls'

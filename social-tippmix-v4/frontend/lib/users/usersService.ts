@@ -4,7 +4,6 @@ import { AdminUser, FetchUsersParams, PaginatedUsersResponse } from '../../types
 export async function fetchAdminUsers(
   params: FetchUsersParams = {}
 ): Promise<PaginatedUsersResponse> {
-  // Map frontend params to backend API params
   const query: Record<string, any> = {
     page: params.page,
     pageSize: params.limit,
@@ -13,7 +12,6 @@ export async function fetchAdminUsers(
     role: params.roleFilter,
     status: params.newStatusFilter
   }
-  // Remove undefined
   Object.keys(query).forEach((k) => query[k] === undefined && delete query[k])
   const res = await axiosServer.get('/user', { params: query })
   const { users, pagination } = res.data
@@ -33,5 +31,3 @@ export async function fetchAdminUserById(userId: string): Promise<AdminUser | nu
     return null
   }
 }
-
-export type { AdminUser } from '../../types/admin-user'

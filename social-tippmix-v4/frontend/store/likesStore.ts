@@ -1,5 +1,6 @@
 import { createWithMiddleware } from './middleware'
 import axiosClient from '@/lib/axios/axios-config-client'
+import * as likesService from '@/lib/likes/likesService'
 
 interface Like {
   id: string
@@ -44,11 +45,11 @@ export const useLikesStore = createWithMiddleware<LikesStore>(
     fetchLikes: async (targetId, targetType) => {
       set({ loading: true, error: null })
       try {
-        const response = await axiosClient.get(`/likes/${targetType}/${targetId}`)
-        set({ likes: response.data.likes, loading: false })
+        const data = await likesService.fetchLikes(targetId, targetType)
+        set({ likes: data.likes, loading: false })
       } catch (error: any) {
         set({
-          error: error.response?.data?.message || error.message || 'Error fetching likes',
+          error: error.message || 'Error fetching likes',
           loading: false
         })
       }
@@ -56,9 +57,8 @@ export const useLikesStore = createWithMiddleware<LikesStore>(
 
     toggleLike: async (targetId, targetType) => {
       try {
-        const response = await axiosClient.post(`/likes/${targetType}/${targetId}`)
+        const data = await likesService.toggleLike(targetId, targetType)
         set((state) => {
-          // If the like already exists, remove it; otherwise add it
           const existingLike = state.likes.find((l) => l.targetId === targetId)
           if (existingLike) {
             return {
@@ -66,12 +66,12 @@ export const useLikesStore = createWithMiddleware<LikesStore>(
             }
           }
           return {
-            likes: [...state.likes, response.data]
+            likes: [...state.likes, data]
           }
         })
       } catch (error: any) {
         set({
-          error: error.response?.data?.message || error.message || 'Error toggling like'
+          error: error.message || 'Error toggling like'
         })
       }
     },
@@ -79,11 +79,11 @@ export const useLikesStore = createWithMiddleware<LikesStore>(
     getUserLikes: async (userId) => {
       set({ loading: true, error: null })
       try {
-        const response = await axiosClient.get(`/users/${userId}/likes`)
-        set({ likes: response.data.likes, loading: false })
+        const data = await likesService.getUserLikes(userId)
+        set({ likes: data.likes, loading: false })
       } catch (error: any) {
         set({
-          error: error.response?.data?.message || error.message || 'Error fetching user likes',
+          error: error.message || 'Error fetching user likes',
           loading: false
         })
       }

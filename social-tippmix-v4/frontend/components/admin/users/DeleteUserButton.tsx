@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { AdminUser } from '@/lib/api/users'
+import type { AdminUser } from '@/types/admin-user'
 import { Button } from '@/components/ui/button'
 import { Trash2Icon } from 'lucide-react'
 import DeleteUserModal from './DeleteUserModal'

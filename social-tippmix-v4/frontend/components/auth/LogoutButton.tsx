@@ -1,22 +1,13 @@
 'use client'
 
-import { logoutUser } from '@/lib/actions'
-import { useTransition } from 'react'
+import { useAuth } from '@/lib/auth/useAuth'
 
 export default function LogoutButton() {
-  const [isPending, startTransition] = useTransition()
-
-  const handleLogout = async () => {
-    startTransition(async () => {
-      await logoutUser()
-      // For now, we rely on middleware to redirect, or a page refresh
-      window.location.href = '/login' // Force a reload to ensure middleware and layout re-render
-    })
-  }
+  const { logout, isLoading } = useAuth()
 
   return (
-    <button className="btn btn-ghost" onClick={handleLogout} disabled={isPending}>
-      {isPending ? 'Logging out...' : 'Logout'}
+    <button className="btn btn-ghost" onClick={logout} disabled={isLoading}>
+      {isLoading ? 'Logging out...' : 'Logout'}
     </button>
   )
 }

@@ -1,12 +1,12 @@
 import StatCards from '@/components/admin/stat/StatCards'
 import StatTrends from '@/components/admin/stat/StatTrends'
 import StatTopLists from '@/components/admin/stat/StatTopLists'
-import { fetchAdminPosts } from '@/lib/api/posts'
-import { fetchAdminUsers } from '@/lib/api/users'
+import { fetchPosts } from '@/lib/posts/postsService'
+import { fetchAdminUsers } from '@/lib/users/usersService'
 
 export default async function AdminStatisztikaPage() {
   // Szerver oldali adatlekérés
-  const postsData = await fetchAdminPosts({ limit: 1000, sortBy: 'createdAt_desc' })
+  const postsData = await fetchPosts({ limit: 1000, sortBy: 'createdAt_desc' })
   const usersData = await fetchAdminUsers({ limit: 1000, sortBy: 'createdAt_desc' })
 
   return (

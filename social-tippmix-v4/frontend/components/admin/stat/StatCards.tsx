@@ -1,5 +1,5 @@
 // Statisztikai kártyák (összes poszt, felhasználó, komment, like)
-import { fetchAggregatedStats } from '@/lib/api/stats'
+import { fetchAggregatedStats } from '@/lib/stats/statsService'
 // Kommentekhez és like-okhoz nincs globális API, így azokat nem jelenítjük meg
 
 export default async function StatCards() {

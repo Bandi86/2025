@@ -1,23 +1,45 @@
 'use client'
 
-import { useFormStatus } from 'react-dom'
-import { registerUser } from '@/lib/actions'
-import { useActionState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+import { useState } from 'react'
+import Link from 'next/link'
+import { useAuth } from '@/lib/auth/useAuth'
 
 export default function RegisterForm() {
-  const router = useRouter()
-  const [state, formAction] = useActionState(registerUser, undefined)
+  const { register, isLoading, error, clearError } = useAuth()
+  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [passwordError, setPasswordError] = useState('')
 
-  useEffect(() => {
-    if (state?.success) {
-      // router.push('/login') // Redirect to login page after successful registration
-      window.location.href = '/login' // Force a reload
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
+    // Clear previous errors
+    clearError()
+    setPasswordError('')
+
+    // Validate passwords match
+    if (password !== confirmPassword) {
+      setPasswordError('Passwords do not match')
+      return
     }
-  }, [state, router])
+
+    // Attempt registration
+    await register({ username, email, password })
+  }
 
   return (
-    <form action={formAction} className="space-y-4 md:space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+      {error && (
+        <div className="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg" role="alert">
+          {error}
+          <button onClick={clearError} className="float-right" aria-label="Close error message">
+            ×
+          </button>
+        </div>
+      )}
+
       <div>
         <label
           htmlFor="username"
@@ -29,11 +51,14 @@ export default function RegisterForm() {
           type="text"
           name="username"
           id="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           className="input input-bordered w-full"
-          placeholder="your_username"
+          placeholder="username"
           required
         />
       </div>
+
       <div>
         <label
           htmlFor="email"
@@ -45,11 +70,14 @@ export default function RegisterForm() {
           type="email"
           name="email"
           id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           className="input input-bordered w-full"
           placeholder="name@company.com"
           required
         />
       </div>
+
       <div>
         <label
           htmlFor="password"
@@ -61,14 +89,17 @@ export default function RegisterForm() {
           type="password"
           name="password"
           id="password"
-          placeholder="••••••••"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           className="input input-bordered w-full"
+          placeholder="••••••••"
           required
         />
       </div>
+
       <div>
         <label
-          htmlFor="passwordConfirm"
+          htmlFor="confirmPassword"
           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
         >
           Confirm Password
@@ -76,32 +107,26 @@ export default function RegisterForm() {
         <input
           type="password"
           name="confirmPassword"
-          id="passwordConfirm"
-          placeholder="••••••••"
+          id="confirmPassword"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
           className="input input-bordered w-full"
+          placeholder="••••••••"
           required
         />
+        {passwordError && <p className="mt-1 text-sm text-red-600">{passwordError}</p>}
       </div>
-      <RegisterButton />
-      {state?.message && <p className="text-sm font-medium text-red-500">{state.message}</p>}
-      {state?.errors && (
-        <div className="text-sm text-red-500">
-          <ul>
-            {Object.entries(state.errors).map(([key, value]) => (
-              <li key={key}>{`${key}: ${value}`}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </form>
-  )
-}
 
-function RegisterButton() {
-  const { pending } = useFormStatus()
-  return (
-    <button type="submit" className="btn btn-primary w-full" aria-disabled={pending}>
-      {pending ? 'Registering...' : 'Register'}
-    </button>
+      <button type="submit" className="btn btn-primary w-full" disabled={isLoading}>
+        {isLoading ? 'Creating account...' : 'Create Account'}
+      </button>
+
+      <div className="text-sm font-light text-gray-500 dark:text-gray-400">
+        Already have an account?{' '}
+        <Link href="/login" className="font-medium text-primary hover:underline">
+          Login here
+        </Link>
+      </div>
+    </form>
   )
 }

@@ -5,27 +5,32 @@ const axiosClient = axios.create({
   headers: {
     'Content-Type': 'application/json'
   },
-  withCredentials: true
+  withCredentials: true // Important for cookie handling
 })
 
-// Ha akarsz token-t localStorage-ből például:
-axiosClient.interceptors.request.use((config) => {
-  if (typeof window !== 'undefined') {
-    const token = localStorage.getItem('token')
-    if (token) {
-      config.headers['Authorization'] = `Bearer ${token}`
-    }
+// Remove token from localStorage - use HTTP-only cookies instead
+// The backend should set session_token as HTTP-only cookie
+axiosClient.interceptors.request.use(
+  (config) => {
+    return config
+  },
+  (error) => {
+    return Promise.reject(error)
   }
-  return config
-})
+)
 
 axiosClient.interceptors.response.use(
   (response) => response,
   (error) => {
+    // Handle authentication errors
     if (error.response && error.response.status === 401) {
-      // Automatikus kijelentkeztetés vagy átirányítás loginra
+      // Unauthorized - redirect to login
       if (typeof window !== 'undefined') {
-        window.location.href = '/login'
+        // Store the current URL to redirect back after login
+        const currentPath = window.location.pathname + window.location.search
+        if (currentPath !== '/login') {
+          window.location.href = `/login?redirect_to=${encodeURIComponent(currentPath)}`
+        }
       }
     }
     return Promise.reject(error)

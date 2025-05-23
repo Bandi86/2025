@@ -1,6 +1,6 @@
 import PostControls from '@/components/admin/posts/PostControls'
 import PostTable from '@/components/admin/posts/PostTable'
-import { fetchAdminPosts } from '@/lib/api/posts'
+import { fetchPosts } from '@/lib/posts/postsService'
 import React from 'react'
 import Pagination from '@/components/ui/Pagination'
 
@@ -37,7 +37,7 @@ export default async function AdminPostsPage(props: {
   }
 
   // Fetch posts from the server
-  const { posts, totalPages } = await fetchAdminPosts(params)
+  const { posts, totalPages } = await fetchPosts(params)
   const totalPosts = posts.length
 
   return (

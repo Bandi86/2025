@@ -1,11 +1,10 @@
 import Link from 'next/link'
 import React from 'react'
-import LogoutButton from '../auth/LogoutButtonZustand'
-import { useUserStore } from '@/store'
+import LogoutButton from '../auth/LogoutButton'
+import { getCurrentUser } from '@/lib/auth/session'
 
-const NavBar = () => {
-  // A user adatokat a Zustand store-ból olvassuk
-  const user = useUserStore((state) => state.user)
+const NavBar = async () => {
+  const user = await getCurrentUser()
 
   return (
     <>

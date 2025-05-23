@@ -8,19 +8,23 @@ const axiosServer = axios.create({
   headers: {
     'Content-Type': 'application/json'
   },
-  withCredentials: true
+  withCredentials: true // Important for cookie handling with the backend
 })
 
 axiosServer.interceptors.request.use(async (config) => {
-  const cookieStore = await cookies()
-  // Use the correct cookie name for JWT
-  const token = cookieStore.get('session_token')?.value
-  if (token) {
-    config.headers['Authorization'] = `Bearer ${token}`
+  try {
+    const cookieStore = await cookies()
+    const token = cookieStore.get('session_token')?.value
+
+    if (token) {
+      config.headers['Authorization'] = `Bearer ${token}`
+    }
+
+    return config
+  } catch (error) {
+    console.error('Error in axios server interceptor:', error)
+    return config
   }
-  return config
 })
 
 export default axiosServer
-
-// hasznalat const response = await axiosServer.get('/protected-data')

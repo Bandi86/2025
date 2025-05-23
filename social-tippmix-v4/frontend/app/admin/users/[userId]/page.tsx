@@ -1,6 +1,6 @@
 import { getCurrentUser } from '@/lib/auth/session'
 import { redirect } from 'next/navigation'
-import { fetchAdminUserById } from '@/lib/api/users'
+import { fetchAdminUserById } from '@/lib/users/usersService'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { ArrowLeftIcon, Edit3Icon, Trash2Icon } from 'lucide-react'
@@ -224,7 +224,13 @@ export default async function UserDetailsPage(props: { params: { userId: string 
           </div>
         </div>
         <div className="divider my-8">Statisztikák</div>
-        <UserStats stats={safeAdminUser._count ?? {}} />
+        <UserStats
+          posts={safeAdminUser._count?.posts}
+          comments={safeAdminUser._count?.comments}
+          likes={safeAdminUser._count?.likes}
+          followers={safeAdminUser._count?.followers}
+          following={safeAdminUser._count?.following}
+        />
       </div>
     </div>
   )

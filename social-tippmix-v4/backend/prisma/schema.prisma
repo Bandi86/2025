@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider        = "prisma-client-js"
   previewFeatures = ["driverAdapters"]
@@ -15,63 +9,47 @@ datasource db {
 }
 
 model User {
-  id            String    @id @unique @default(uuid())
-  email         String    @unique
-  username      String?   @unique
-  password      String // Fontos: Biztonságos hash algoritmust használj a tárolás előtt!
-  emailVerified DateTime? // NextAuth számára szükséges
-  avatar        String? // NextAuth számára szükséges (profilkép URL)
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  role          String    @default("USER") // pl. "USER", "ADMIN", "MODERATOR"
-
-  isOnline  Boolean   @default(false) // Új
-  lastLogin DateTime? // Új
-  status    String    @default("ACTIVE") // Új (pl. ACTIVE, BANNED, SUSPENDED)
-
-  posts         Post[] // A felhasználó által írt posztok
-  comments      Comment[] // A felhasználó által írt kommentek
-  likes         Like[] // A felhasználó által adott lájkok
-  notifications Notification[] // A felhasználó értesítései
-
-  // Követők/Követettek: Many-to-many ön-kapcsolat
-  // Akiket ez a felhasználó követ
-  following User[] @relation("FollowNetwork")
-  // Akik ezt a felhasználót követik
-  followers User[] @relation("FollowNetwork")
-
-  // Profil információk
-  profileImage String?
-  bio          String?
-  website      String?
-  location     String?
-  birthDate    DateTime?
-
-  // A felhasználó által küldött üzenetek
-  sentMessages Message[] @relation("SentMessages")
-
-  // Beszélgetések, amelyekben a felhasználó részt vesz
+  id                       String                    @id @unique @default(uuid())
+  email                    String                    @unique
+  username                 String?                   @unique
+  password                 String
+  emailVerified            DateTime?
+  avatar                   String?
+  createdAt                DateTime                  @default(now())
+  updatedAt                DateTime                  @updatedAt
+  role                     String                    @default("USER")
+  isOnline                 Boolean                   @default(false)
+  lastLogin                DateTime?
+  status                   String                    @default("ACTIVE")
+  profileImage             String?
+  bio                      String?
+  website                  String?
+  location                 String?
+  birthDate                DateTime?
+  comments                 Comment[]
   conversationParticipants ConversationParticipant[] @relation("UserParticipants")
-  imageId                  String?                   @unique
-  image                    Image?                    @relation("UserImage", fields: [imageId], references: [id])
+  likes                    Like[]
+  sentMessages             Message[]                 @relation("SentMessages")
+  notifications            Notification[]
+  posts                    Post[]
+  followers                User[]                    @relation("FollowNetwork")
+  following                User[]                    @relation("FollowNetwork")
 }
 
 model Post {
   id        String       @id @default(cuid())
   title     String
   content   String
-  slug      String       @unique // Egyedi slug a poszt URL-jéhez
+  slug      String       @unique
   category  PostCategory
-  imageUrl  String? // Opcionális képútvonal
+  imageUrl  String?
   createdAt DateTime     @default(now())
   updatedAt DateTime     @updatedAt
-  author    User         @relation(fields: [authorId], references: [id])
   authorId  String
   comments  Comment[]
   likes     Like[]       @relation("SinglePostLike")
-  tags      Tag[]        @relation("PostTags") // Prisma implicit összekötő táblát (_PostTags) hoz létre
-  imageId   String?      @unique
-  image     Image?       @relation("PostImage", fields: [imageId], references: [id])
+  author    User         @relation(fields: [authorId], references: [id])
+  tags      Tag[]        @relation("PostTags")
 }
 
 model Comment {
@@ -79,33 +57,22 @@ model Comment {
   content   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
   postId    String
-  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
   authorId  String
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
   likes     Like[]   @relation("CommentLikes")
-  imageId   String?  @unique
-  image     Image?   @relation("CommentImage", fields: [imageId], references: [id])
 }
 
 model Like {
   id        String   @id @unique @default(uuid())
   createdAt DateTime @default(now())
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade) // A felhasználó, aki lájkolt
   userId    String
-
-  // A lájk vagy egy Post-hoz vagy egy Comment-hez tartozik
-  postId String?
-  post   Post?   @relation("SinglePostLike", fields: [postId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-
+  postId    String?
   commentId String?
-  comment   Comment? @relation("CommentLikes", fields: [commentId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-
-  // Alkalmazás szinten kell biztosítani, hogy vagy postId vagy commentId legyen beállítva.
-  // Az egyediséget (egy felhasználó egy elemet csak egyszer lájkolhat) szintén alkalmazás szinten kell kezelni
-  // SQLite esetén a NULL értékek egyedi indexekben való viselkedése miatt.
-  // @@unique([userId, postId], name: "UserPostLikeUnique") // Ha commentId NULL
-  // @@unique([userId, commentId], name: "UserCommentLikeUnique") // Ha postId NULL
+  comment   Comment? @relation("CommentLikes", fields: [commentId], references: [id], onDelete: Cascade)
+  post      Post?    @relation("SinglePostLike", fields: [postId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Tag {
@@ -113,87 +80,53 @@ model Tag {
   name      String   @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  posts     Post[]   @relation("PostTags") // Prisma implicit összekötő táblát (_PostTags) hoz létre
-  imageId   String?  @unique
-  image     Image?   @relation("ImageTags", fields: [imageId], references: [id])
+  posts     Post[]   @relation("PostTags")
 }
 
 model Notification {
-  id        String   @id @default(uuid())
-  type      String // pl. "NEW_FOLLOWER", "POST_LIKE", "COMMENT_REPLY"
+  id        String   @id @unique @default(uuid())
+  type      String
   message   String
   createdAt DateTime @default(now())
-  isRead    Boolean  @default(false) // Olvasottság állapota
+  isRead    Boolean  @default(false)
   userId    String
+  actorId   String?
+  postId    String?
+  commentId String?
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  imageId String? @unique
-  image   Image?  @relation("NotificationImage", fields: [imageId], references: [id])
 }
 
 model Conversation {
-  id          String   @id @default(uuid())
-  name        String? // Opcionális: csoportos beszélgetések neve
-  isGroupChat Boolean  @default(false)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @default(now())
-
-  messages     Message[] // Üzenetek ebben a beszélgetésben
-  participants ConversationParticipant[] @relation("ConversationParticipants") // Résztvevők ebben a beszélgetésben
-
-  lastMessageAt DateTime? // Beszélgetések rendezéséhez, alkalmazáslogika vagy trigger frissítheti
-
-  imageId String? @unique
-  image   Image?  @relation("ConversationImage", fields: [imageId], references: [id])
+  id            String                    @id @unique @default(uuid())
+  name          String?
+  isGroupChat   Boolean                   @default(false)
+  createdAt     DateTime                  @default(now())
+  updatedAt     DateTime
+  lastMessageAt DateTime?
+  participants  ConversationParticipant[] @relation("ConversationParticipants")
+  messages      Message[]
 }
 
-// Explicit összekötő tábla User és Conversation között (many-to-many)
 model ConversationParticipant {
-  user           User         @relation("UserParticipants", fields: [userId], references: [id], onDelete: Cascade)
   userId         String
-  conversation   Conversation @relation("ConversationParticipants", fields: [conversationId], references: [id], onDelete: Cascade)
   conversationId String
   joinedAt       DateTime     @default(now())
-  // isAdmin     Boolean      @default(false) // pl. csoport adminisztrátor
+  conversation   Conversation @relation("ConversationParticipants", fields: [conversationId], references: [id], onDelete: Cascade)
+  user           User         @relation("UserParticipants", fields: [userId], references: [id], onDelete: Cascade)
 
   @@id([userId, conversationId])
   @@unique([userId, conversationId])
 }
 
 model Message {
-  id        String   @id @default(uuid())
-  content   String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now()) // Ha az üzenetek szerkeszthetők
-
-  sender   User   @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade) // Az üzenet küldője
-  senderId String
-
-  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade) // A beszélgetés, amelyhez az üzenet tartozik
+  id             String       @id @unique @default(uuid())
+  content        String
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @default(now())
+  senderId       String
   conversationId String
-
-  imageId String? @unique
-  image   Image?  @relation("MessageImage", fields: [imageId], references: [id])
-}
-
-model Image {
-  id        String   @id @default(uuid())
-  url       String   @unique
-  fileName  String
-  fileSize  Int
-  fileType  String
-  width     Int
-  height    Int
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  user         User?         @relation("UserImage")
-  post         Post?         @relation("PostImage")
-  comment      Comment?      @relation("CommentImage")
-  notification Notification? @relation("NotificationImage")
-  message      Message?      @relation("MessageImage")
-  conversation Conversation? @relation("ConversationImage")
-  tags         Tag?          @relation("ImageTags")
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  sender         User         @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade)
 }
 
 enum UserRole {
@@ -213,4 +146,17 @@ enum PostCategory {
   TIPP
   ELEMZES
   KOZLEMENY
+}
+
+model Image {
+  id        String   @id @unique @default(uuid())
+  url       String
+  fileName  String
+  fileSize  Int
+  fileType  String
+  width     Int
+  height    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      String? // Reference to User ID
 }

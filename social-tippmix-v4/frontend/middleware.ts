@@ -1,40 +1,96 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { isAuthenticated, getCurrentUser } from '@/lib/auth/session' // Adjusted path
+import { cookies } from 'next/headers'
+import { jwtVerify } from 'jose'
 
-// Add paths that should be protected here
-const protectedPaths = ['/profile', '/admin', '/create-post'] // Example protected paths
-// Add paths that should only be accessible to unauthenticated users
-const authPages = ['/login', '/register']
+// Configuration
+const JWT_SECRET_KEY = process.env.JWT_SECRET || 'jwt_secret'
+const SESSION_COOKIE_NAME = 'session_token'
 
+// Routes configuration
+const protectedPaths = ['/profile', '/admin', '/create-post', '/dashboard', '/settings']
+const authPages = ['/login', '/register', '/forgot-password', '/reset-password']
+const publicPaths = ['/', '/about', '/contact', '/posts', '/terms', '/privacy']
+
+// User roles
+const ADMIN_ROLE = 'ADMIN'
+
+// Interface for JWT payload
+interface UserPayload {
+  id: string
+  username: string
+  role: string
+  exp?: number
+}
+
+/**
+ * Verifies a JWT token and returns the payload if valid
+ */
+async function verifyToken(token: string): Promise<UserPayload | null> {
+  try {
+    const secret = new TextEncoder().encode(JWT_SECRET_KEY)
+    const { payload } = await jwtVerify<UserPayload>(token, secret, {
+      algorithms: ['HS256']
+    })
+
+    // Check token expiration
+    if (payload.exp && payload.exp * 1000 < Date.now()) {
+      return null
+    }
+
+    return payload
+  } catch (error) {
+    return null
+  }
+}
+
+/**
+ * The main middleware function
+ */
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
-  const isAuth = await isAuthenticated()
-  const user = await getCurrentUser()
 
-  // If trying to access a protected path without being authenticated, redirect to login
-  if (protectedPaths.some((path) => pathname.startsWith(path)) && !isAuth) {
-    const loginUrl = new URL('/login', request.url)
-    loginUrl.searchParams.set('redirect_to', pathname) // Optionally pass a redirect_to query param
-    return NextResponse.redirect(loginUrl)
+  // Skip middleware for static assets, api routes, etc.
+  if (
+    pathname.startsWith('/_next') ||
+    pathname.startsWith('/api') ||
+    pathname.includes('.') // Files like favicon.ico, etc.
+  ) {
+    return NextResponse.next()
   }
 
-  // If trying to access login/register page while already authenticated, redirect to home or profile
-  if (authPages.some((path) => pathname.startsWith(path)) && isAuth) {
-    return NextResponse.redirect(new URL('/', request.url)) // Redirect to homepage
+  // Get the session token from cookies
+  const cookieToken = request.cookies.get(SESSION_COOKIE_NAME)?.value
+  let user: UserPayload | null = null
+
+  if (cookieToken) {
+    user = await verifyToken(cookieToken)
   }
 
-  // Admin route protection
-  if (pathname.startsWith('/admin') && user?.role !== 'ADMIN') {
-    // Assuming 'ADMIN' is the role name for administrators
-    return NextResponse.redirect(new URL('/unauthorized', request.url)) // Or a 403 page
+  const isAuthenticated = !!user
+
+  // Handle protected routes - redirect to login if not authenticated
+  if (protectedPaths.some((path) => pathname.startsWith(path)) && !isAuthenticated) {
+    const redirectUrl = new URL('/login', request.url)
+    redirectUrl.searchParams.set('redirect_to', pathname)
+    return NextResponse.redirect(redirectUrl)
+  }
+
+  // Handle auth pages - redirect to home if already authenticated
+  if (authPages.some((path) => pathname.startsWith(path)) && isAuthenticated) {
+    const redirectTo = request.nextUrl.searchParams.get('redirect_to') || '/'
+    return NextResponse.redirect(new URL(redirectTo, request.url))
+  }
+
+  // Handle admin routes - redirect to unauthorized if not admin
+  if (pathname.startsWith('/admin') && user?.role !== ADMIN_ROLE) {
+    return NextResponse.redirect(new URL('/unauthorized', request.url))
   }
 
   return NextResponse.next()
 }
 
 export const config = {
-  // Matcher to specify which routes the middleware should run on.
-  // This avoids running middleware on static files, _next directory, etc.
+  // Matcher to specify which routes the middleware should run on
   matcher: [
     /*
      * Match all request paths except for the ones starting with:

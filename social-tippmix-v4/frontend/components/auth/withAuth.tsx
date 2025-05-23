@@ -2,56 +2,66 @@
 
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { useUserStore } from '@/store'
+import { useAuth } from '@/lib/auth/useAuth'
 
 /**
- * Higher Order Component, amely biztosítja, hogy csak bejelentkezett felhasználók
- * férhetnek hozzá a védett komponensekhez
+ * withAuth is a higher-order component that protects routes
+ * requiring authentication. It automatically redirects to login
+ * if the user is not authenticated.
+ *
+ * @param Component The component to wrap with authentication
+ * @param options Configuration options
+ * @returns A wrapped component with authentication protection
  */
-export function withAuth<P extends object>(Component: React.ComponentType<P>): React.FC<P> {
-  return function ProtectedComponent(props: P) {
+export function withAuth<P extends object>(
+  Component: React.ComponentType<P>,
+  options: {
+    requireAdmin?: boolean
+    redirectTo?: string
+  } = {}
+) {
+  return function AuthenticatedComponent(props: P) {
+    const { user, isAuthenticated, isLoading, isReady } = useAuth()
     const router = useRouter()
-    const { user, loading } = useUserStore()
+
+    const { requireAdmin = false, redirectTo = '/login' } = options
 
     useEffect(() => {
-      // Ha nem tölt már és nincs user, átirányítunk a login oldalra
-      if (!loading && !user) {
-        router.push('/login')
-      }
-    }, [user, loading, router])
+      // Wait until auth is checked
+      if (!isReady || isLoading) return
 
-    // Amíg tölt vagy még nincs eldöntve, hogy be van-e jelentkezve a user, addig loading-ot mutatunk
-    if (loading || !user) {
-      return <div className="flex items-center justify-center h-screen">Loading...</div>
+      // Redirect if not authenticated
+      if (!isAuthenticated) {
+        router.push(`${redirectTo}?redirect_to=${encodeURIComponent(window.location.pathname)}`)
+        return
+      }
+
+      // Check admin role if required
+      if (requireAdmin && user?.role !== 'ADMIN') {
+        router.push('/unauthorized')
+      }
+    }, [isAuthenticated, isLoading, isReady, user, router])
+
+    // Show nothing while checking auth
+    if (!isReady || isLoading) {
+      return (
+        <div className="flex justify-center items-center min-h-[50vh]">
+          <div className="loading loading-spinner loading-lg"></div>
+        </div>
+      )
     }
 
-    // Ha be van jelentkezve, megjelenítjük a komponenst
-    return <Component {...props} />
-  }
-}
-
-/**
- * Higher Order Component, amely biztosítja, hogy csak admin felhasználók
- * férhetnek hozzá az admin komponensekhez
- */
-export function withAdminAuth<P extends object>(Component: React.ComponentType<P>): React.FC<P> {
-  return function AdminProtectedComponent(props: P) {
-    const router = useRouter()
-    const { user, loading } = useUserStore()
-
-    useEffect(() => {
-      // Ha nem tölt már és nincs user vagy nem admin, átirányítunk
-      if (!loading && (!user || user.role !== 'admin')) {
-        router.push(user ? '/' : '/login')
-      }
-    }, [user, loading, router])
-
-    // Amíg tölt vagy még nincs eldöntve, hogy admin-e a user, addig loading-ot mutatunk
-    if (loading || !user || user.role !== 'admin') {
-      return <div className="flex items-center justify-center h-screen">Loading...</div>
+    // Show unauthorized message for non-admins if admin is required
+    if (requireAdmin && user?.role !== 'ADMIN') {
+      return null
     }
 
-    // Ha be van jelentkezve és admin, megjelenítjük a komponenst
+    // Show nothing if not authenticated
+    if (!isAuthenticated) {
+      return null
+    }
+
+    // User is authenticated, render the protected component
     return <Component {...props} />
   }
 }

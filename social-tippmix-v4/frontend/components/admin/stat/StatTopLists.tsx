@@ -1,4 +1,4 @@
-import { fetchAggregatedStats } from '@/lib/api/stats'
+import { fetchAggregatedStats } from '@/lib/stats/statsService'
 
 export default async function StatTopLists() {
   // Backend aggregált statisztika lekérés

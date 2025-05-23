@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { createAdminPost, createUserPost } from '@/lib/api/posts'
+import { createPostFormData } from '@/lib/posts/postsService'
 import { fetchCategories } from '@/lib/categories'
 
 const postSchema = z.object({
@@ -47,11 +47,7 @@ const CreatePostPage = () => {
       formData.append('content', data.content)
       if (data.category) formData.append('category', data.category)
       if (data.image && data.image[0]) formData.append('image', data.image[0])
-      if (mode === 'admin') {
-        await createAdminPost(formData)
-      } else {
-        await createUserPost(formData)
-      }
+      await createPostFormData(formData)
       setSuccess('Sikeres poszt feltöltés!')
       reset()
     } catch (e: any) {

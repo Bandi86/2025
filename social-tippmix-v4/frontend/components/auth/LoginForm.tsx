@@ -1,25 +1,31 @@
 'use client'
 
-import { useFormStatus } from 'react-dom'
-import { useActionState } from 'react' // Changed import source to 'react'
-import { loginUser } from '@/lib/actions'
-import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+import { useState } from 'react'
+import Link from 'next/link'
+import { useAuth } from '@/lib/auth/useAuth'
 
 export default function LoginForm() {
-  const router = useRouter()
-  const [state, formAction] = useActionState(loginUser, undefined) // Changed useFormState to useActionState
+  const { login, isLoading, error, clearError } = useAuth()
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
-  useEffect(() => {
-    if (state?.success) {
-      // router.push('/') // Redirect to home or dashboard
-      // For now, we rely on middleware to redirect, or a page refresh
-      window.location.href = '/' // Force a reload to ensure middleware and layout re-render
-    }
-  }, [state, router])
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    await login({ username, password })
+    // The login function from useAuth already handles redirection
+  }
 
   return (
-    <form action={formAction} className="space-y-4 md:space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+      {error && (
+        <div className="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg" role="alert">
+          {error}
+          <button onClick={clearError} className="float-right" aria-label="Close error message">
+            ×
+          </button>
+        </div>
+      )}
+
       <div>
         <label
           htmlFor="username"
@@ -31,6 +37,8 @@ export default function LoginForm() {
           type="text"
           name="username"
           id="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           className="input input-bordered w-full"
           placeholder="your_username"
           required
@@ -47,31 +55,33 @@ export default function LoginForm() {
           type="password"
           name="password"
           id="password"
-          placeholder="••••••••"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           className="input input-bordered w-full"
+          placeholder="••••••••"
           required
         />
       </div>
-      <LoginButton />
-      {state?.message && <p className="text-sm font-medium text-red-500">{state.message}</p>}
-      {state?.errors && (
-        <div className="text-sm text-red-500">
-          <ul>
-            {Object.entries(state.errors).map(([key, value]) => (
-              <li key={key}>{`${key}: ${value}`}</li>
-            ))}
-          </ul>
+      <div className="flex items-center justify-between">
+        <div className="flex items-start">
+          <Link
+            href="/forgot-password"
+            className="text-sm font-medium text-primary hover:underline"
+          >
+            Forgot password?
+          </Link>
         </div>
-      )}
-    </form>
-  )
-}
+      </div>
+      <button type="submit" className="btn btn-primary w-full" disabled={isLoading}>
+        {isLoading ? 'Logging in...' : 'Login'}
+      </button>
 
-function LoginButton() {
-  const { pending } = useFormStatus()
-  return (
-    <button type="submit" className="btn btn-primary w-full" aria-disabled={pending}>
-      {pending ? 'Logging in...' : 'Login'}
-    </button>
+      <div className="text-sm font-light text-gray-500 dark:text-gray-400">
+        Don't have an account?{' '}
+        <Link href="/register" className="font-medium text-primary hover:underline">
+          Register here
+        </Link>
+      </div>
+    </form>
   )
 }

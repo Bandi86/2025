@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { fetchAdminPosts } from '@/lib/api/posts'
-import { fetchAdminUsers } from '@/lib/api/users'
+import { fetchPosts } from '@/lib/posts/postsService'
+import { fetchAdminUsers } from '@/lib/users/usersService'
 
 function daysAgo(date: string, days: number) {
   const d = new Date(date)
@@ -11,7 +11,7 @@ function daysAgo(date: string, days: number) {
 
 export default async function AdminDashboardPanel() {
   // Összes poszt (limit: 1, de a totalPosts mező a teljes számot adja vissza)
-  const postsData = await fetchAdminPosts({ limit: 1 })
+  const postsData = await fetchPosts({ limit: 1 })
   let totalPosts =
     typeof postsData.totalPosts === 'number' && postsData.totalPosts > 0
       ? postsData.totalPosts
@@ -24,17 +24,17 @@ export default async function AdminDashboardPanel() {
   const totalUsers = usersData.totalUsers
 
   // Legutóbbi 3 poszt
-  const recentPostsData = await fetchAdminPosts({ limit: 3, sortBy: 'createdAt_desc' })
-  const recentPosts = recentPostsData.posts
+  const recentPostsData = await fetchPosts({ limit: 3, sortBy: 'createdAt_desc' })
+  const recentPosts: any[] = recentPostsData.posts
 
   // Új posztok (7 nap)
   const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
-  const newPosts7d = recentPostsData.posts.filter((p) => new Date(p.createdAt) > weekAgo).length
+  const newPosts7d = recentPosts.filter((p: any) => new Date(p.createdAt) > weekAgo).length
 
   // Függőben lévő posztok (ha van ilyen státusz)
   let pendingPosts = 0
   try {
-    const pending = await fetchAdminPosts({ statusFilter: 'pending', limit: 1 })
+    const pending = await fetchPosts({ statusFilter: 'pending', limit: 1 })
     pendingPosts = pending.totalPosts
   } catch {}
 

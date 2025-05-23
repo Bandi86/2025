@@ -46,27 +46,37 @@ export async function loginUser(prevState: any, formData: FormData): Promise<Aut
             path: '/'
           })
         } else {
-          // console.error('Next.js: Could not extract token value from backend Set-Cookie header.') // Keep for debugging if needed
+          console.error('Next.js: Could not extract token value from backend Set-Cookie header.')
         }
       } else {
-        // console.log('Next.js: No session_token string found in backend Set-Cookie header array.') // Keep for debugging if needed
+        console.log('Next.js: No session_token string found in backend Set-Cookie header array.')
       }
     } else {
-      // console.log('No Set-Cookie header or not an array received from backend.') // Keep for debugging if needed
+      console.log('No Set-Cookie header or not an array received from backend.')
     }
 
     revalidatePath('/', 'layout')
+
+    // Return success response with user data if available
+    return {
+      success: true,
+      message: 'Login successful',
+      user: response.data.user || {
+        id: response.data.id || '',
+        username: response.data.username || username,
+        role: response.data.role || 'USER'
+      }
+    }
   } catch (error: any) {
-    // console.error(
-    //   'Login action error:',
-    //   error.response
-    //     ? {
-    //         status: error.response.status,
-    //         // headers: error.response.headers, // Can be verbose
-    //         data: error.response.data
-    //       }
-    //     : error.message
-    // ) // Keep for debugging if needed
+    console.error(
+      'Login action error:',
+      error.response
+        ? {
+            status: error.response.status,
+            data: error.response.data
+          }
+        : error.message
+    )
     const errorMessage =
       error.response?.data?.error ||
       error.response?.data?.message ||
@@ -74,7 +84,6 @@ export async function loginUser(prevState: any, formData: FormData): Promise<Aut
       'An unexpected error occurred during login.'
     return { success: false, message: errorMessage }
   }
-  redirect('/')
 }
 
 export async function registerUser(prevState: any, formData: FormData): Promise<AuthResponse> {

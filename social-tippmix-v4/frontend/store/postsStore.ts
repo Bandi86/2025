@@ -1,6 +1,6 @@
 import { createWithMiddleware } from './middleware'
 import { Post, FetchPostsParams, PaginatedPostsResponse } from '@/types/posts'
-import axiosClient from '@/lib/axios/axios-config-client'
+import * as postsService from '@/lib/posts/postsService'
 
 interface PostsStore {
   // Állapot
@@ -82,14 +82,8 @@ export const usePostsStore = createWithMiddleware<PostsStore>(
     fetchPosts: async () => {
       const { filters } = get()
       set({ loading: true, error: null })
-
       try {
-        const query = mapFrontendToBackendParams(filters)
-        Object.keys(query).forEach((k) => query[k] === undefined && delete query[k])
-
-        const response = await axiosClient.get('/post', { params: query })
-        const { posts, pagination } = response.data
-
+        const { posts, pagination } = await postsService.fetchPosts(filters)
         set({
           posts: posts || [],
           pagination: {
@@ -101,7 +95,7 @@ export const usePostsStore = createWithMiddleware<PostsStore>(
         })
       } catch (error: any) {
         set({
-          error: error.response?.data?.message || error.message || 'Hiba a posztok betöltésekor',
+          error: error.message || 'Hiba a posztok betöltésekor',
           loading: false
         })
       }
@@ -109,14 +103,12 @@ export const usePostsStore = createWithMiddleware<PostsStore>(
 
     fetchPostById: async (id) => {
       set({ loading: true, error: null })
-
       try {
-        const response = await axiosClient.get(`/post/${id}`)
-        set({ selectedPost: response.data, loading: false })
+        const post = await postsService.fetchPostById(id)
+        set({ selectedPost: post, loading: false })
       } catch (error: any) {
         set({
-          error:
-            error.response?.data?.message || error.message || `Hiba a(z) ${id} poszt betöltésekor`,
+          error: error.message || `Hiba a(z) ${id} poszt betöltésekor`,
           loading: false
         })
       }
@@ -124,14 +116,12 @@ export const usePostsStore = createWithMiddleware<PostsStore>(
 
     createPost: async (post) => {
       set({ loading: true, error: null })
-
       try {
-        await axiosClient.post('/post', post)
-        // Újra betöltjük a posztokat az új értékekkel
+        await postsService.createPost(post)
         get().fetchPosts()
       } catch (error: any) {
         set({
-          error: error.response?.data?.message || error.message || 'Hiba a poszt létrehozásakor',
+          error: error.message || 'Hiba a poszt létrehozásakor',
           loading: false
         })
       }
@@ -139,22 +129,18 @@ export const usePostsStore = createWithMiddleware<PostsStore>(
 
     updatePost: async (id, post) => {
       set({ loading: true, error: null })
-
       try {
-        await axiosClient.put(`/post/${id}`, post)
-        // Frissítjük az aktuális posztot, ha az volt kiválasztva
+        await postsService.updatePost(id, post)
         const { selectedPost } = get()
         if (selectedPost && selectedPost.id === id) {
-          const response = await axiosClient.get(`/post/${id}`)
-          set({ selectedPost: response.data })
+          const updated = await postsService.fetchPostById(id)
+          set({ selectedPost: updated })
         }
-        // Újra betöltjük a posztokat is
         get().fetchPosts()
         set({ loading: false })
       } catch (error: any) {
         set({
-          error:
-            error.response?.data?.message || error.message || `Hiba a(z) ${id} poszt frissítésekor`,
+          error: error.message || `Hiba a(z) ${id} poszt frissítésekor`,
           loading: false
         })
       }
@@ -162,20 +148,16 @@ export const usePostsStore = createWithMiddleware<PostsStore>(
 
     deletePost: async (id) => {
       set({ loading: true, error: null })
-
       try {
-        await axiosClient.delete(`/post/${id}`)
-        // Ha a törölt poszt volt kiválasztva, akkor töröljük a kiválasztást
+        await postsService.deletePost(id)
         const { selectedPost } = get()
         if (selectedPost && selectedPost.id === id) {
           set({ selectedPost: null })
         }
-        // Újra betöltjük a posztokat
         get().fetchPosts()
       } catch (error: any) {
         set({
-          error:
-            error.response?.data?.message || error.message || `Hiba a(z) ${id} poszt törlésekor`,
+          error: error.message || `Hiba a(z) ${id} poszt törlésekor`,
           loading: false
         })
       }

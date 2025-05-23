@@ -1,5 +1,6 @@
 import { createWithMiddleware } from './middleware'
 import axiosClient from '@/lib/axios/axios-config-client'
+import * as sessionsService from '@/lib/sessions/sessionsService'
 
 interface Session {
   id: string
@@ -51,14 +52,14 @@ export const useSessionsStore = createWithMiddleware<SessionsStore>(
     fetchSessions: async () => {
       set({ loading: true, error: null })
       try {
-        const response = await axiosClient.get('/sessions')
+        const data = await sessionsService.fetchSessions()
         set({
-          sessions: response.data.sessions,
+          sessions: data.sessions,
           loading: false
         })
       } catch (error: any) {
         set({
-          error: error.response?.data?.message || error.message || 'Error fetching sessions',
+          error: error.message || 'Error fetching sessions',
           loading: false
         })
       }
@@ -67,14 +68,14 @@ export const useSessionsStore = createWithMiddleware<SessionsStore>(
     fetchCurrentSession: async () => {
       set({ loading: true, error: null })
       try {
-        const response = await axiosClient.get('/sessions/current')
+        const data = await sessionsService.fetchCurrentSession()
         set({
-          currentSession: response.data,
+          currentSession: data,
           loading: false
         })
       } catch (error: any) {
         set({
-          error: error.response?.data?.message || error.message || 'Error fetching current session',
+          error: error.message || 'Error fetching current session',
           loading: false
         })
       }
@@ -82,28 +83,27 @@ export const useSessionsStore = createWithMiddleware<SessionsStore>(
 
     terminateSession: async (sessionId) => {
       try {
-        await axiosClient.delete(`/sessions/${sessionId}`)
+        await sessionsService.terminateSession(sessionId)
         set((state) => ({
           sessions: state.sessions.filter((s) => s.id !== sessionId)
         }))
       } catch (error: any) {
         set({
-          error: error.response?.data?.message || error.message || 'Error terminating session'
+          error: error.message || 'Error terminating session'
         })
       }
     },
 
     terminateAllOtherSessions: async () => {
       try {
-        await axiosClient.delete('/sessions/others')
+        await sessionsService.terminateAllOtherSessions()
         const currentSession = get().currentSession
         set((state) => ({
           sessions: currentSession ? [currentSession] : []
         }))
       } catch (error: any) {
         set({
-          error:
-            error.response?.data?.message || error.message || 'Error terminating other sessions'
+          error: error.message || 'Error terminating other sessions'
         })
       }
     }

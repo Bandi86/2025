@@ -1,5 +1,6 @@
 import { createWithMiddleware } from './middleware'
 import axiosClient from '@/lib/axios/axios-config-client'
+import * as commentsService from '@/lib/comments/commentsService'
 
 interface Comment {
   id: string
@@ -56,19 +57,17 @@ export const useCommentsStore = createWithMiddleware<CommentsStore>(
     fetchComments: async (postId, page = 1) => {
       set({ loading: true, error: null })
       try {
-        const response = await axiosClient.get(`/comments/${postId}`, {
-          params: { page }
-        })
+        const data = await commentsService.fetchComments(postId, page)
         set({
-          comments: response.data.comments,
-          totalComments: response.data.total,
-          totalPages: response.data.totalPages,
+          comments: data.comments,
+          totalComments: data.total,
+          totalPages: data.totalPages,
           currentPage: page,
           loading: false
         })
       } catch (error: any) {
         set({
-          error: error.response?.data?.message || error.message || 'Error fetching comments',
+          error: error.message || 'Error fetching comments',
           loading: false
         })
       }
@@ -77,19 +76,15 @@ export const useCommentsStore = createWithMiddleware<CommentsStore>(
     createComment: async ({ postId, content }) => {
       set({ loading: true, error: null })
       try {
-        const response = await axiosClient.post(`/comments`, {
-          postId,
-          content
-        })
-        // Add new comment to state and update counts
+        const comment = await commentsService.createComment(postId, content)
         set((state) => ({
-          comments: [...state.comments, response.data],
+          comments: [...state.comments, comment],
           totalComments: state.totalComments + 1,
           loading: false
         }))
       } catch (error: any) {
         set({
-          error: error.response?.data?.message || error.message || 'Error creating comment',
+          error: error.message || 'Error creating comment',
           loading: false
         })
       }
@@ -98,17 +93,16 @@ export const useCommentsStore = createWithMiddleware<CommentsStore>(
     updateComment: async (commentId, content) => {
       set({ loading: true, error: null })
       try {
-        const response = await axiosClient.put(`/comments/${commentId}`, { content })
-        // Update comment in state
+        const updated = await commentsService.updateComment(commentId, content)
         set((state) => ({
           comments: state.comments.map((c) =>
-            c.id === commentId ? { ...c, content, updatedAt: response.data.updatedAt } : c
+            c.id === commentId ? { ...c, content, updatedAt: updated.updatedAt } : c
           ),
           loading: false
         }))
       } catch (error: any) {
         set({
-          error: error.response?.data?.message || error.message || 'Error updating comment',
+          error: error.message || 'Error updating comment',
           loading: false
         })
       }
@@ -117,8 +111,7 @@ export const useCommentsStore = createWithMiddleware<CommentsStore>(
     deleteComment: async (commentId) => {
       set({ loading: true, error: null })
       try {
-        await axiosClient.delete(`/comments/${commentId}`)
-        // Remove comment from state and update counts
+        await commentsService.deleteComment(commentId)
         set((state) => ({
           comments: state.comments.filter((c) => c.id !== commentId),
           totalComments: state.totalComments - 1,
@@ -126,7 +119,7 @@ export const useCommentsStore = createWithMiddleware<CommentsStore>(
         }))
       } catch (error: any) {
         set({
-          error: error.response?.data?.message || error.message || 'Error deleting comment',
+          error: error.message || 'Error deleting comment',
           loading: false
         })
       }
@@ -134,18 +127,15 @@ export const useCommentsStore = createWithMiddleware<CommentsStore>(
 
     likeComment: async (commentId) => {
       try {
-        const response = await axiosClient.post(`/comments/${commentId}/like`)
-        // Update like count in state
+        const data = await commentsService.likeComment(commentId)
         set((state) => ({
           comments: state.comments.map((c) =>
-            c.id === commentId
-              ? { ...c, _count: { likes: response.data.likes }, liked: response.data.liked }
-              : c
+            c.id === commentId ? { ...c, _count: { likes: data.likes }, liked: data.liked } : c
           )
         }))
       } catch (error: any) {
         set({
-          error: error.response?.data?.message || error.message || 'Error liking comment'
+          error: error.message || 'Error liking comment'
         })
       }
     }

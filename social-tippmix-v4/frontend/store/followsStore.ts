@@ -1,5 +1,6 @@
 import { createWithMiddleware } from './middleware'
 import axiosClient from '@/lib/axios/axios-config-client'
+import * as followsService from '@/lib/follows/followsService'
 
 interface Follow {
   id: string
@@ -64,18 +65,18 @@ export const useFollowsStore = createWithMiddleware<FollowsStore>(
     fetchFollowers: async (userId) => {
       set({ loading: true, error: null })
       try {
-        const response = await axiosClient.get(`/users/${userId}/followers`)
+        const data = await followsService.fetchFollowers(userId)
         set((state) => ({
-          followers: response.data.followers,
+          followers: data.followers,
           counts: {
             ...state.counts,
-            followers: response.data.followers.length
+            followers: data.followers.length
           },
           loading: false
         }))
       } catch (error: any) {
         set({
-          error: error.response?.data?.message || error.message || 'Error fetching followers',
+          error: error.message || 'Error fetching followers',
           loading: false
         })
       }
@@ -84,18 +85,18 @@ export const useFollowsStore = createWithMiddleware<FollowsStore>(
     fetchFollowing: async (userId) => {
       set({ loading: true, error: null })
       try {
-        const response = await axiosClient.get(`/users/${userId}/following`)
+        const data = await followsService.fetchFollowing(userId)
         set((state) => ({
-          following: response.data.following,
+          following: data.following,
           counts: {
             ...state.counts,
-            following: response.data.following.length
+            following: data.following.length
           },
           loading: false
         }))
       } catch (error: any) {
         set({
-          error: error.response?.data?.message || error.message || 'Error fetching following',
+          error: error.message || 'Error fetching following',
           loading: false
         })
       }
@@ -103,14 +104,14 @@ export const useFollowsStore = createWithMiddleware<FollowsStore>(
 
     toggleFollow: async (userId) => {
       try {
-        const response = await axiosClient.post(`/users/${userId}/follow`)
-        const isFollowing = response.data.following
+        const data = await followsService.toggleFollow(userId)
+        const isFollowing = data.following
 
         set((state) => {
           if (isFollowing) {
             // Add to following list
             return {
-              following: [...state.following, response.data],
+              following: [...state.following, data],
               counts: {
                 ...state.counts,
                 following: state.counts.following + 1
@@ -128,18 +129,18 @@ export const useFollowsStore = createWithMiddleware<FollowsStore>(
         })
       } catch (error: any) {
         set({
-          error: error.response?.data?.message || error.message || 'Error toggling follow'
+          error: error.message || 'Error toggling follow'
         })
       }
     },
 
     checkFollowStatus: async (userId) => {
       try {
-        const response = await axiosClient.get(`/users/${userId}/follow-status`)
-        return response.data.following
+        const data = await followsService.checkFollowStatus(userId)
+        return data.following
       } catch (error: any) {
         set({
-          error: error.response?.data?.message || error.message || 'Error checking follow status'
+          error: error.message || 'Error checking follow status'
         })
         return false
       }
