@@ -1,6 +1,0 @@
-@import "tailwindcss";
-@plugin "daisyui" {
-  themes: dim --default, winter;
-  root: ":root";
-  logs: true;
-}
