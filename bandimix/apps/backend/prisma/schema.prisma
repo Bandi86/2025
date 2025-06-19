@@ -1,5 +1,5 @@
 generator client {
-    provider = "prisma-client-js"
+    provider        = "prisma-client-js"
     previewFeatures = ["driverAdapters"]
 }
 
@@ -8,9 +8,85 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
+// Enumok
+
+enum Role {
+    FREE
+    PREMIUM
+    ADMIN
+}
+
+enum OrderStatus {
+    PENDING
+    COMPLETED
+    FAILED
+}
+
+// Modellek
+
 model User {
-    id        String   @default(uuid())
-    email     String   @unique
-    username  String
+    id       String @id @default(uuid())
+    email    String @unique
+    username String @unique
+    password String // Fontos! Itt a hash-elt jelszót tároljuk, soha nem a sima szövegest.
+    role     Role   @default(FREE) // Alapértelmezetten mindenki 'FREE' user.
+
+    posts    Post[] // Egy felhasználónak több posztja is lehet (egy-a-többhöz reláció).
+    comments Comment[] // Egy felhasználónak több kommentje is lehet.
+    orders   Order[] // Egy felhasználónak több rendelése is lehet.
+
     createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model Post {
+    id        String  @id @default(uuid())
+    title     String
+    content   String
+    imageUrl  String? // A '?' jelzi, hogy ez a mező nem kötelező (opcionális).
+    isPremium Boolean @default(false) // Ezzel jelöljük, hogy egy poszt prémium tartalom-e.
+
+    authorId String // Idegen kulcs a User modellhez.
+    author   User   @relation(fields: [authorId], references: [id], onDelete: Cascade) // Ha a usert töröljük, a posztjai is törlődnek.
+
+    comments Comment[] // Egy poszthoz több komment is tartozhat.
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@index([authorId]) // Index az authorId-n a gyorsabb lekérdezésekért.
+}
+
+
+model Comment {
+    id      String @id @default(uuid())
+    content String
+
+    authorId String // Idegen kulcs a User modellhez.
+    author   User   @relation(fields: [authorId], references: [id], onDelete: Cascade) // Ha a usert töröljük, a kommentjei is törlődnek.
+
+    postId String // Idegen kulcs a Post modellhez.
+    post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade) // Ha a posztot töröljük, a kommentjei is törlődnek.
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@index([authorId])
+    @@index([postId])
+}
+
+model Order {
+    id                    String      @id @default(uuid())
+    amount                Int // Az összeg, pl. Forintban fillérként, vagy centben tárolva.
+    currency              String // Pl. "huf", "eur"
+    status                OrderStatus @default(PENDING)
+    stripePaymentIntentId String?     @unique // A Stripe tranzakció azonosítója, a '?' jelzi, hogy kezdetben lehet null.
+
+    userId String // Melyik userhez tartozik a rendelés.
+    user   User   @relation(fields: [userId], references: [id])
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@index([userId])
 }
