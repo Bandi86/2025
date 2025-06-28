@@ -1,0 +1,26 @@
+{
+  "league_name": "Major League Soccer",
+  "country": "USA/Canada",
+  "api_id": 253,
+  "season_months": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "timezone": "America/New_York",
+  "data_sources": {
+    "api": "API-Sports ID: 253",
+    "alternative": {
+      "official": "https://www.mlssoccer.com",
+      "espn": "https://www.espn.com/soccer/league/_/name/mls",
+      "transfermarkt": "https://www.transfermarkt.com/major-league-soccer/startseite/wettbewerb/MLS1"
+    }
+  },
+  "last_updated": "2025-06-28T19:35:10.816376"
+}

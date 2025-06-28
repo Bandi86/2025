@@ -1,0 +1,5 @@
+venv
+plots
+__pycache__
+*.pyc
+data/szerencsemix_archive

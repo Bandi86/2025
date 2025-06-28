@@ -1,0 +1,35 @@
+{
+  "competition_id": "fa_cup",
+  "category": "cup_competitions",
+  "name": "FA Cup",
+  "type": "domestic",
+  "api_id": 45,
+  "quality_score": 85,
+  "season_months": [
+    11,
+    12,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "active_now": false,
+  "format": "knockout",
+  "timezone": "Europe/London",
+  "data_sources": {
+    "api_sports": "Primary API source",
+    "football_data": "Secondary API source",
+    "thesportsdb": "Free API source",
+    "uefa_com": "Official UEFA data",
+    "fifa_com": "FIFA tournament data"
+  },
+  "analysis_weights": {
+    "prediction_weight": 0.85,
+    "historical_importance": 0.6,
+    "cross_league_relevance": 0.7,
+    "seasonal_impact": 0.8,
+    "fatigue_factor": 0.5
+  },
+  "last_updated": "2025-06-28T20:15:09.392202"
+}

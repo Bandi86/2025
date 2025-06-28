@@ -1,0 +1,37 @@
+{
+  "competition_id": "europa_league",
+  "category": "cup_competitions",
+  "name": "UEFA Europa League",
+  "type": "continental",
+  "api_id": 3,
+  "quality_score": 88,
+  "season_months": [
+    9,
+    10,
+    11,
+    12,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "active_now": false,
+  "format": "knockout",
+  "timezone": "Europe/Zurich",
+  "data_sources": {
+    "api_sports": "Primary API source",
+    "football_data": "Secondary API source",
+    "thesportsdb": "Free API source",
+    "uefa_com": "Official UEFA data",
+    "fifa_com": "FIFA tournament data"
+  },
+  "analysis_weights": {
+    "prediction_weight": 0.88,
+    "historical_importance": 0.8,
+    "cross_league_relevance": 0.7,
+    "seasonal_impact": 0.8,
+    "fatigue_factor": 0.9
+  },
+  "last_updated": "2025-06-28T20:15:09.392050"
+}

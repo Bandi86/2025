@@ -1,0 +1,43 @@
+{
+  "team_name": "Real Madrid",
+  "league": "La Liga",
+  "goals_scored_avg": 1.8221270813955524,
+  "goals_conceded_avg": 0.525102247348854,
+  "corners_per_game": 5.508557350019894,
+  "corners_conceded_per_game": 4.144271486416128,
+  "cards_per_game": 2.0924748761444003,
+  "cards_opponent_avg": 3.1784234721940647,
+  "recent_form": [
+    "L",
+    "D",
+    "W",
+    "W",
+    "W",
+    "W",
+    "D",
+    "W",
+    "L",
+    "W"
+  ],
+  "home_performance": {
+    "matches_played": 19,
+    "wins": 12,
+    "draws": 4,
+    "losses": 1,
+    "win_rate": 0.6839032913596789,
+    "goals_per_game": 2.1149292158071007,
+    "goals_conceded_per_game": 0.7057547338245138
+  },
+  "away_performance": {
+    "matches_played": 19,
+    "wins": 9,
+    "draws": 5,
+    "losses": 3,
+    "win_rate": 0.49712263308774307,
+    "goals_per_game": 1.7413678992632293,
+    "goals_conceded_per_game": 0.9793160503683853
+  },
+  "league_position": 4,
+  "points_per_game": 2.280833508373071,
+  "last_updated": "2025-06-28T20:41:51.355021"
+}

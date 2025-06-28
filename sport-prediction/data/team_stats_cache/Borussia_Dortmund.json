@@ -1,0 +1,43 @@
+{
+  "team_name": "Borussia Dortmund",
+  "league": "Bundesliga",
+  "goals_scored_avg": 1.4881666963125824,
+  "goals_conceded_avg": 1.0931776872641994,
+  "corners_per_game": 5.141902731329215,
+  "corners_conceded_per_game": 3.9244439315205746,
+  "cards_per_game": 1.747872787801715,
+  "cards_opponent_avg": 1.0873689345317232,
+  "recent_form": [
+    "W",
+    "D",
+    "W",
+    "D",
+    "D",
+    "W",
+    "D",
+    "D",
+    "D",
+    "D"
+  ],
+  "home_performance": {
+    "matches_played": 19,
+    "wins": 11,
+    "draws": 4,
+    "losses": 2,
+    "win_rate": 0.6188622836416975,
+    "goals_per_game": 1.932814394196753,
+    "goals_conceded_per_game": 0.809820346173284
+  },
+  "away_performance": {
+    "matches_played": 19,
+    "wins": 8,
+    "draws": 5,
+    "losses": 4,
+    "win_rate": 0.44508982691335797,
+    "goals_per_game": 1.585269480740074,
+    "goals_conceded_per_game": 1.057365259629963
+  },
+  "league_position": 6,
+  "points_per_game": 2.028866692412382,
+  "last_updated": "2025-06-28T20:41:51.356241"
+}

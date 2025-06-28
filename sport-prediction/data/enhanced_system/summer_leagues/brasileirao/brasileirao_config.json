@@ -1,0 +1,37 @@
+{
+  "competition_id": "brasileirao",
+  "category": "summer_leagues",
+  "name": "Brasileir\u00e3o Serie A",
+  "country": "Brazil",
+  "api_id": 71,
+  "level": 1,
+  "quality_score": 82,
+  "season_months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "active_now": true,
+  "timezone": "America/Sao_Paulo",
+  "data_sources": {
+    "api_sports": "Primary API source",
+    "football_data": "Secondary API source",
+    "thesportsdb": "Free API source",
+    "espn": "ESPN sports data",
+    "local_sources": "Region specific sources"
+  },
+  "analysis_weights": {
+    "prediction_weight": 0.82,
+    "historical_importance": 0.6,
+    "cross_league_relevance": 0.9,
+    "seasonal_impact": 1.0,
+    "fatigue_factor": 0.5
+  },
+  "last_updated": "2025-06-28T20:15:09.393087"
+}

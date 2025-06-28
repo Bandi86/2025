@@ -1,0 +1,117 @@
+{
+  "extraction_metadata": {
+    "timestamp": "2025-06-28T21:30:26.149421",
+    "extractor_version": "HistoricalDataExtractor_v1.0",
+    "pages_analyzed": 7,
+    "total_historical_matches": 8,
+    "total_table_entries": 1,
+    "unique_leagues": 4
+  },
+  "historical_matches": [
+    {
+      "home_team": "Kizil",
+      "away_team": "Zsar",
+      "home_score": 0,
+      "away_score": 2,
+      "match_date": null,
+      "league": "kazah bajnokság Yuhao L. -",
+      "round_info": null,
+      "source_page": 25,
+      "confidence": 0.8
+    },
+    {
+      "home_team": "Guandong GZ",
+      "away_team": "Power FC",
+      "home_score": 0,
+      "away_score": 2,
+      "match_date": null,
+      "league": "8.Zhejiang FC 15 5 5 5 29:24 20 2-2-2 Zhejiang FC 2:2 2:1 1:1 2:2 3:0 2:2 4:2 EzüsT Liga",
+      "round_info": null,
+      "source_page": 25,
+      "confidence": 0.8
+    },
+    {
+      "home_team": "Ham",
+      "away_team": "Kam",
+      "home_score": 2,
+      "away_score": 5,
+      "match_date": null,
+      "league": "MoLDáv bajNokSág Norvég bajNokSág",
+      "round_info": null,
+      "source_page": 26,
+      "confidence": 0.8
+    },
+    {
+      "home_team": "EIK",
+      "away_team": "Tonsberg",
+      "home_score": 1,
+      "away_score": 1,
+      "match_date": null,
+      "league": "MoLDáv bajNokSág Norvég bajNokSág",
+      "round_info": null,
+      "source_page": 26,
+      "confidence": 0.8
+    },
+    {
+      "home_team": "Franciaország",
+      "away_team": "Litvánia",
+      "home_score": 83,
+      "away_score": 61,
+      "match_date": null,
+      "league": "KLQ 2.Hammarby 13 8 3 2 23:9 27 3-2-1 Hammarby 1:2 2:0 4:0 2:0 1:1 1:0 3:2 új-zélandi bajnokság",
+      "round_info": null,
+      "source_page": 27,
+      "confidence": 0.8
+    },
+    {
+      "home_team": "Spanyolország",
+      "away_team": "Csehország",
+      "home_score": 88,
+      "away_score": 81,
+      "match_date": null,
+      "league": "KLQ 2.Hammarby 13 8 3 2 23:9 27 3-2-1 Hammarby 1:2 2:0 4:0 2:0 1:1 1:0 3:2 új-zélandi bajnokság",
+      "round_info": null,
+      "source_page": 27,
+      "confidence": 0.8
+    },
+    {
+      "home_team": "Olaszország",
+      "away_team": "Törökország",
+      "home_score": 76,
+      "away_score": 74,
+      "match_date": null,
+      "league": "KLQ 2.Hammarby 13 8 3 2 23:9 27 3-2-1 Hammarby 1:2 2:0 4:0 2:0 1:1 1:0 3:2 új-zélandi bajnokság",
+      "round_info": null,
+      "source_page": 27,
+      "confidence": 0.8
+    },
+    {
+      "home_team": "Belgium",
+      "away_team": "Németország",
+      "home_score": 83,
+      "away_score": 59,
+      "match_date": null,
+      "league": "KLQ 2.Hammarby 13 8 3 2 23:9 27 3-2-1 Hammarby 1:2 2:0 4:0 2:0 1:1 1:0 3:2 új-zélandi bajnokság",
+      "round_info": null,
+      "source_page": 27,
+      "confidence": 0.8
+    }
+  ],
+  "league_tables": [
+    {
+      "position": 5,
+      "team_name": "Nordic United",
+      "matches_played": 15,
+      "wins": 8,
+      "draws": 2,
+      "losses": 5,
+      "goals_for": 27,
+      "goals_against": 20,
+      "goal_difference": 26,
+      "points": 3,
+      "league": "KLQ 2.Hammarby 13 8 3 2 23:9 27 3-2-1 Hammarby 1:2 2:0 4:0 2:0 1:1 1:0 3:2 új-zélandi bajnokság",
+      "source_page": 27,
+      "confidence": 0.9
+    }
+  ]
+}

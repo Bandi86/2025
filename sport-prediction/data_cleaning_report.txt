@@ -1,0 +1,27 @@
+============================================================
+SZERENCSEMIX ADATTISZTÍTÁSI JELENTÉS
+============================================================
+
+📊 CSAPATOK:
+   Összes csapat: 357
+   Tisztítandó: 0
+   Tisztaság: 100.0%
+
+🏆 TOP LIGÁK:
+   Ismeretlen Liga: 196 meccs
+   U21 International: 35 meccs
+   Premier League: 29 meccs
+   Bundesliga: 24 meccs
+   Serie A (Brazil): 18 meccs
+   Mls: 14 meccs
+   J1 League: 11 meccs
+   NB I: 10 meccs
+   Serie A: 7 meccs
+   Primera B: 6 meccs
+
+📈 ADATMINŐSÉG:
+   ❌ extraction_success_rate: 0.750 / 0.950
+   ✅ team_name_match_rate: 1.000 / 0.900
+   ❌ confidence_avg: 0.842 / 0.850
+   ❌ manual_review_rate: 0.000 / 0.100
+   ❌ duplicate_rate: 0.000 / 0.050

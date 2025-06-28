@@ -1,0 +1,24 @@
+
+TOVÁBBFEJLESZTETT BATCH FELDOLGOZÁSI JELENTÉS
+============================================
+
+🕐 Időtartam: 0:00:04.835643
+📊 Összesen feldolgozva: 3 fájl
+✅ Sikeres: 3 fájl
+❌ Sikertelen: 0 fájl
+📈 Sikerességi arány: 100.0%
+
+📋 KINYERT ADATOK:
+⚽ Meccsek: 68
+🏆 Eredmények: 0
+📊 Tabellák: 102
+
+⏱️ TELJESÍTMÉNY:
+🔄 Átlag feldolgozási idő: 2.5s/fájl
+🚀 Throughput: 0.62 fájl/perc
+
+🚨 HIBÁK:
+   Nincsenek hibák! 🎉
+
+🏆 Legtöbb meccs: Web__50sz__K__06-24_2025.06.24.pdf (34 meccs)
+⚡ Leggyorsabb: Web__49sz__P__06-20_2025.06.20.pdf (2.2s)

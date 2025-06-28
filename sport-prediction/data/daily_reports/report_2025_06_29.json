@@ -1,0 +1,169 @@
+{
+  "date": "2025-06-29",
+  "generated_at": "2025-06-29T01:01:41.146935",
+  "results": {
+    "timestamp": "2025-06-29T01:01:41.148707",
+    "total_matches": 510,
+    "matches_with_results": 129,
+    "matches_without_results": 381,
+    "completion_rate": 0.2529411764705882,
+    "recent_updates": [
+      {
+        "id": 508,
+        "date": "2025-04-30",
+        "match": "Botafogo PB vs Flamengo RJ",
+        "result": "1-0",
+        "updated_at": "2025-06-28 21:31:06"
+      },
+      {
+        "id": 509,
+        "date": "2025-04-30",
+        "match": "Cruzeiro MG vs Vila Nova GO",
+        "result": "0-1",
+        "updated_at": "2025-06-28 21:31:06"
+      },
+      {
+        "id": 510,
+        "date": "2025-04-30",
+        "match": "Cruz Azul vs Tigres UANL",
+        "result": "0-2",
+        "updated_at": "2025-06-28 21:31:06"
+      },
+      {
+        "id": 493,
+        "date": "2025-05-07",
+        "match": "Universitario de Deportes vs Independiente del Valle",
+        "result": "0-2",
+        "updated_at": "2025-06-28 21:31:05"
+      },
+      {
+        "id": 494,
+        "date": "2025-05-07",
+        "match": "Racing Montevideo vs CA Huracan",
+        "result": "0-1",
+        "updated_at": "2025-06-28 21:31:05"
+      },
+      {
+        "id": 495,
+        "date": "2025-05-07",
+        "match": "Dep. Iquique vs Atlético MG",
+        "result": "0-1",
+        "updated_at": "2025-06-28 21:31:05"
+      },
+      {
+        "id": 496,
+        "date": "2025-05-07",
+        "match": "Deportivo San Jose de Oruro vs Fluminense RJ",
+        "result": "0-1",
+        "updated_at": "2025-06-28 21:31:05"
+      },
+      {
+        "id": 497,
+        "date": "2025-05-07",
+        "match": "Cienciano vs Caracas FC",
+        "result": "0-2",
+        "updated_at": "2025-06-28 21:31:05"
+      },
+      {
+        "id": 498,
+        "date": "2025-05-03",
+        "match": "Magdeburg vs Münster",
+        "result": "0-1",
+        "updated_at": "2025-06-28 21:31:05"
+      },
+      {
+        "id": 499,
+        "date": "2025-05-03",
+        "match": "Excelsior vs PSV 2",
+        "result": "0-1",
+        "updated_at": "2025-06-28 21:31:05"
+      }
+    ]
+  },
+  "tables": {
+    "timestamp": "2025-06-29T01:01:41.149632",
+    "total_entries": 2,
+    "leagues": [
+      {
+        "league": "Premier Liga",
+        "team_count": 1,
+        "last_update": "2025-01-15"
+      },
+      {
+        "league": "Manual Test",
+        "team_count": 0,
+        "last_update": "2025-01-15"
+      }
+    ],
+    "league_count": 2
+  },
+  "predictions": {
+    "date": "2025-06-29",
+    "generated_at": "2025-06-29T01:01:41.141815",
+    "matches": [
+      {
+        "match_id": 1,
+        "home_team": "Csapat A2",
+        "away_team": "Csapat B2",
+        "league": "NB I",
+        "match_time": "16:00",
+        "predictions": {
+          "home_win_prob": 0.45,
+          "draw_prob": 0.28,
+          "away_win_prob": 0.27,
+          "confidence": 0.0,
+          "factors": {
+            "home_form": {
+              "matches_played": 0,
+              "points": 0,
+              "wins": 0,
+              "draws": 0,
+              "losses": 0,
+              "goals_for": 0,
+              "goals_against": 0,
+              "form_score": 0.0
+            },
+            "away_form": {
+              "matches_played": 0,
+              "points": 0,
+              "wins": 0,
+              "draws": 0,
+              "losses": 0,
+              "goals_for": 0,
+              "goals_against": 0,
+              "form_score": 0.0
+            },
+            "home_position": null,
+            "away_position": null,
+            "head_to_head": {
+              "matches_played": 0,
+              "team1_wins": 0,
+              "team2_wins": 0,
+              "draws": 0,
+              "team1_goals": 0,
+              "team2_goals": 0
+            },
+            "adjustments": {
+              "form": 0.0,
+              "position": 0.0,
+              "h2h": 0.0
+            }
+          }
+        },
+        "recommendations": []
+      }
+    ],
+    "summary": {
+      "total_matches": 1,
+      "high_confidence_bets": 0,
+      "recommended_combinations": []
+    }
+  },
+  "summary": {
+    "total_matches": 510,
+    "completion_rate": 0.2529411764705882,
+    "active_leagues": 2,
+    "daily_matches": 1,
+    "recommended_bets": 0
+  }
+}

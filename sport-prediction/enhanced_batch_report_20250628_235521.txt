@@ -1,0 +1,21 @@
+
+TOVÁBBFEJLESZTETT BATCH FELDOLGOZÁSI JELENTÉS
+============================================
+
+🕐 Időtartam: 0:00:00.000872
+📊 Összesen feldolgozva: 1 fájl
+✅ Sikeres: 0 fájl
+❌ Sikertelen: 1 fájl
+📈 Sikerességi arány: 0.0%
+
+📋 KINYERT ADATOK:
+⚽ Meccsek: 0
+🏆 Eredmények: 0
+📊 Tabellák: 0
+
+⏱️ TELJESÍTMÉNY:
+🔄 Átlag feldolgozási idő: 0.0s/fájl
+🚀 Throughput: 1.00 fájl/perc
+
+🚨 HIBÁK:
+   Szöveg kinyerés sikertelen: 1x

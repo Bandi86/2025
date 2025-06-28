@@ -1,0 +1,43 @@
+{
+  "team_name": "Liverpool FC",
+  "league": "Premier League",
+  "goals_scored_avg": 2.185714105235181,
+  "goals_conceded_avg": 0.9609935687125738,
+  "corners_per_game": 6.950052049545518,
+  "corners_conceded_per_game": 3.685692136653705,
+  "cards_per_game": 1.46074326622802,
+  "cards_opponent_avg": 2.9327913945641915,
+  "recent_form": [
+    "D",
+    "W",
+    "D",
+    "W",
+    "W",
+    "W",
+    "D",
+    "W",
+    "D",
+    "D"
+  ],
+  "home_performance": {
+    "matches_played": 19,
+    "wins": 13,
+    "draws": 4,
+    "losses": 0,
+    "win_rate": 0.7029067970668939,
+    "goals_per_game": 2.1681390317873026,
+    "goals_conceded_per_game": 0.6753491246929699
+  },
+  "away_performance": {
+    "matches_played": 19,
+    "wins": 9,
+    "draws": 5,
+    "losses": 3,
+    "win_rate": 0.512325437653515,
+    "goals_per_game": 1.7869763129605452,
+    "goals_conceded_per_game": 0.9565118435197274
+  },
+  "league_position": 5,
+  "points_per_game": 1.5210396400507669,
+  "last_updated": "2025-06-28T20:41:23.390044"
+}

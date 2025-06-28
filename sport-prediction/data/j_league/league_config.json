@@ -1,0 +1,28 @@
+{
+  "league_name": "J1 League",
+  "country": "Japan",
+  "api_id": 98,
+  "season_months": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "timezone": "Asia/Tokyo",
+  "data_sources": {
+    "api": "API-Sports ID: 98",
+    "alternative": {
+      "official": "https://www.jleague.jp",
+      "transfermarkt": "https://www.transfermarkt.com/j1-league/startseite/wettbewerb/JAP1",
+      "wikipedia": "https://en.wikipedia.org/wiki/2025_J1_League"
+    }
+  },
+  "last_updated": "2025-06-28T19:35:10.817403"
+}

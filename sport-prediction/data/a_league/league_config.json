@@ -1,0 +1,24 @@
+{
+  "league_name": "A-League Men",
+  "country": "Australia",
+  "api_id": 188,
+  "season_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "timezone": "Australia/Sydney",
+  "data_sources": {
+    "api": "API-Sports ID: 188",
+    "alternative": {
+      "official": "https://www.a-league.com.au",
+      "transfermarkt": "https://www.transfermarkt.com/a-league-men/startseite/wettbewerb/AUS1"
+    }
+  },
+  "last_updated": "2025-06-28T19:35:10.817658"
+}

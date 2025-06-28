@@ -1,0 +1,297 @@
+2025-06-28 23:29:06,528 - INFO - PDF fájlok felderítése: data/szerencsemix_archive
+2025-06-28 23:29:06,540 - INFO - Talált PDF fájlok: 1076
+2025-06-28 23:29:06,574 - INFO - Feldolgozási sorrend meghatározva: 1076 fájl
+2025-06-28 23:29:06,576 - INFO - Már feldolgozott fájlok: 10
+2025-06-28 23:29:06,584 - INFO - Szűrés után: 1066 új fájl
+2025-06-28 23:29:06,585 - INFO - Limit alkalmazva: 3 fájl
+2025-06-28 23:29:06,585 - INFO - Batch feldolgozás kezdése: 3 fájl, 2 worker
+2025-06-28 23:29:06,585 - INFO - Batch 1/1 feldolgozása (3 fájl)
+2025-06-28 23:29:09,243 - INFO - Sikeres: Web__46sz__K__06-10_2025.06.10.pdf (0 meccs mentve)
+2025-06-28 23:29:10,598 - INFO - Új csapat létrehozása: Magyarország -> Magyarország
+2025-06-28 23:29:10,601 - INFO - Új csapat létrehozása: Svédország -> Svédország
+2025-06-28 23:29:10,604 - INFO - Meccs betöltve: Magyarország vs Svédország (ID: 392)
+2025-06-28 23:29:10,607 - INFO - Új csapat létrehozása: U21Ausztria -> U21Ausztria
+2025-06-28 23:29:10,610 - INFO - Új csapat létrehozása: U21Lettország -> U21Lettország
+2025-06-28 23:29:10,612 - INFO - Meccs betöltve: U21Ausztria vs U21Lettország (ID: 393)
+2025-06-28 23:29:10,617 - INFO - Új csapat létrehozása: U21Ukrajna -> U21Ukrajna
+2025-06-28 23:29:10,620 - INFO - Meccs betöltve: U21Spanyolország vs U21Ukrajna (ID: 394)
+2025-06-28 23:29:10,624 - INFO - Új csapat létrehozása: Bulgária -> Bulgária
+2025-06-28 23:29:10,633 - INFO - Új csapat létrehozása: Ciprus -> Ciprus
+2025-06-28 23:29:10,637 - INFO - Meccs betöltve: Bulgária vs Ciprus (ID: 395)
+2025-06-28 23:29:10,640 - INFO - Új csapat létrehozása: Koszovó -> Koszovó
+2025-06-28 23:29:10,644 - INFO - Új csapat létrehozása: Örményország -> Örményország
+2025-06-28 23:29:10,648 - INFO - Meccs betöltve: Koszovó vs Örményország (ID: 396)
+2025-06-28 23:29:10,651 - INFO - Új csapat létrehozása: Luxemburg -> Luxemburg
+2025-06-28 23:29:10,654 - INFO - Új csapat létrehozása: Szlovénia -> Szlovénia
+2025-06-28 23:29:10,658 - INFO - Meccs betöltve: Luxemburg vs Szlovénia (ID: 397)
+2025-06-28 23:29:10,665 - INFO - Meccs betöltve: Magyarország vs Svédország (ID: 398)
+2025-06-28 23:29:10,668 - INFO - Új csapat létrehozása: Lengyelország -> Lengyelország
+2025-06-28 23:29:10,673 - INFO - Új csapat létrehozása: Moldova -> Moldova
+2025-06-28 23:29:10,676 - INFO - Meccs betöltve: Lengyelország vs Moldova (ID: 399)
+2025-06-28 23:29:10,679 - INFO - Új csapat létrehozása: Skócia -> Skócia
+2025-06-28 23:29:10,682 - INFO - Új csapat létrehozása: Izland -> Izland
+2025-06-28 23:29:10,684 - INFO - Meccs betöltve: Skócia vs Izland (ID: 400)
+2025-06-28 23:29:10,687 - INFO - Új csapat létrehozása: Írország -> Írország
+2025-06-28 23:29:10,690 - INFO - Új csapat létrehozása: Szenegál -> Szenegál
+2025-06-28 23:29:10,692 - INFO - Meccs betöltve: Írország vs Szenegál (ID: 401)
+2025-06-28 23:29:10,696 - INFO - Új csapat létrehozása: Marokkó -> Marokkó
+2025-06-28 23:29:10,699 - INFO - Új csapat létrehozása: Tunézia -> Tunézia
+2025-06-28 23:29:10,702 - INFO - Meccs betöltve: Marokkó vs Tunézia (ID: 402)
+2025-06-28 23:29:10,708 - INFO - Meccs betöltve: Bodö/Glimt vs Rosenborg (ID: 403)
+2025-06-28 23:29:10,711 - INFO - Új csapat létrehozása: Norvégia -> Norvégia
+2025-06-28 23:29:10,715 - INFO - Új csapat létrehozása: Olaszország -> Olaszország
+2025-06-28 23:29:10,718 - INFO - Meccs betöltve: Norvégia vs Olaszország (ID: 404)
+2025-06-28 23:29:10,725 - INFO - Új csapat létrehozása: Észtország -> Észtország
+2025-06-28 23:29:10,727 - INFO - Új csapat létrehozása: Izrael -> Izrael
+2025-06-28 23:29:10,732 - INFO - Meccs betöltve: Észtország vs Izrael (ID: 405)
+2025-06-28 23:29:10,734 - INFO - Új csapat létrehozása: Wales -> Wales
+2025-06-28 23:29:10,738 - INFO - Új csapat létrehozása: Liechtenstein -> Liechtenstein
+2025-06-28 23:29:10,740 - INFO - Meccs betöltve: Wales vs Liechtenstein (ID: 406)
+2025-06-28 23:29:10,743 - INFO - Új csapat létrehozása: Észak-Macedónia -> Észak-Macedónia
+2025-06-28 23:29:10,746 - INFO - Meccs betöltve: Észak-Macedónia vs Belgium (ID: 407)
+2025-06-28 23:29:10,749 - INFO - Új csapat létrehozása: Montenegró -> Montenegró
+2025-06-28 23:29:10,751 - INFO - Meccs betöltve: Csehország vs Montenegró (ID: 408)
+2025-06-28 23:29:10,754 - INFO - Új csapat létrehozása: Gibraltár -> Gibraltár
+2025-06-28 23:29:10,757 - INFO - Új csapat létrehozása: Horvátország -> Horvátország
+2025-06-28 23:29:10,760 - INFO - Meccs betöltve: Gibraltár vs Horvátország (ID: 409)
+2025-06-28 23:29:10,764 - INFO - Új csapat létrehozása: Antigua és Barbuda -> Antigua és Barbuda
+2025-06-28 23:29:10,798 - INFO - Új csapat létrehozása: Kuba -> Kuba
+2025-06-28 23:29:10,813 - INFO - Meccs betöltve: Antigua és Barbuda vs Kuba (ID: 410)
+2025-06-28 23:29:10,826 - INFO - Új csapat létrehozása: Kolumbia -> Kolumbia
+2025-06-28 23:29:10,845 - INFO - Új csapat létrehozása: Peru -> Peru
+2025-06-28 23:29:10,858 - INFO - Meccs betöltve: Kolumbia vs Peru (ID: 411)
+2025-06-28 23:29:10,894 - INFO - Új csapat létrehozása: Lietkabelis Panevezys -> Lietkabelis Panevezys
+2025-06-28 23:29:10,912 - INFO - Új csapat létrehozása: Rytas Vilnius -> Rytas Vilnius
+2025-06-28 23:29:10,921 - INFO - Meccs betöltve: Lietkabelis Panevezys vs Rytas Vilnius (ID: 412)
+2025-06-28 23:29:10,958 - INFO - Új csapat létrehozása: Panathinaikosz -> Panathinaikosz
+2025-06-28 23:29:10,968 - INFO - Új csapat létrehozása: Olympiakosz -> Olympiakosz
+2025-06-28 23:29:11,010 - INFO - Meccs betöltve: Panathinaikosz vs Olympiakosz (ID: 413)
+2025-06-28 23:29:11,047 - INFO - Új csapat létrehozása: Paris BC -> Paris BC
+2025-06-28 23:29:11,081 - INFO - Új csapat létrehozása: Bourg -> Bourg
+2025-06-28 23:29:11,117 - INFO - Meccs betöltve: Paris BC vs Bourg (ID: 414)
+2025-06-28 23:29:11,145 - INFO - Sikeres: Web__45sz__P__06-06_2025.06.06.pdf (23 meccs mentve)
+2025-06-28 23:29:12,023 - INFO - Új csapat létrehozása: Ecuador -> Ecuador
+2025-06-28 23:29:12,025 - INFO - Új csapat létrehozása: Brazília -> Brazília
+2025-06-28 23:29:12,028 - INFO - Meccs betöltve: Ecuador vs Brazília (ID: 415)
+2025-06-28 23:29:12,030 - INFO - Új csapat létrehozása: Paraguay -> Paraguay
+2025-06-28 23:29:12,031 - INFO - Új csapat létrehozása: Uruguay -> Uruguay
+2025-06-28 23:29:12,033 - INFO - Meccs betöltve: Paraguay vs Uruguay (ID: 416)
+2025-06-28 23:29:12,036 - INFO - Új csapat létrehozása: Chile -> Chile
+2025-06-28 23:29:12,038 - INFO - Új csapat létrehozása: Argentína -> Argentína
+2025-06-28 23:29:12,040 - INFO - Meccs betöltve: Chile vs Argentína (ID: 417)
+2025-06-28 23:29:12,043 - INFO - Meccs betöltve: Bulgária vs Ciprus (ID: 418)
+2025-06-28 23:29:12,050 - INFO - Meccs betöltve: Luxemburg vs Szlovénia (ID: 419)
+2025-06-28 23:29:12,054 - INFO - Meccs betöltve: Magyarország vs Svédország (ID: 420)
+2025-06-28 23:29:12,066 - INFO - Meccs betöltve: Lengyelország vs Moldova (ID: 421)
+2025-06-28 23:29:12,069 - INFO - Meccs betöltve: Skócia vs Izland (ID: 422)
+2025-06-28 23:29:12,072 - INFO - Meccs betöltve: Írország vs Szenegál (ID: 423)
+2025-06-28 23:29:12,075 - INFO - Meccs betöltve: Wales vs Liechtenstein (ID: 424)
+2025-06-28 23:29:12,079 - INFO - Meccs betöltve: Észak-Macedónia vs Belgium (ID: 425)
+2025-06-28 23:29:12,084 - INFO - Meccs betöltve: Csehország vs Montenegró (ID: 426)
+2025-06-28 23:29:12,088 - INFO - Meccs betöltve: Gibraltár vs Horvátország (ID: 427)
+2025-06-28 23:29:12,093 - INFO - Meccs betöltve: Kolumbia vs Peru (ID: 428)
+2025-06-28 23:29:12,097 - INFO - Sikeres: Web__44sz__K__06-03-9_2025.06.03.pdf (14 meccs mentve)
+2025-06-28 23:29:12,099 - INFO - Batch feldolgozás befejezve
+2025-06-28 23:30:49,676 - INFO - PDF fájlok felderítése: data/szerencsemix_archive
+2025-06-28 23:30:49,687 - INFO - Talált PDF fájlok: 1076
+2025-06-28 23:30:49,717 - INFO - Feldolgozási sorrend meghatározva: 1076 fájl
+2025-06-28 23:30:49,720 - INFO - Már feldolgozott fájlok: 13
+2025-06-28 23:30:49,725 - INFO - Szűrés után: 1063 új fájl
+2025-06-28 23:30:49,725 - INFO - Limit alkalmazva: 10 fájl
+2025-06-28 23:30:49,725 - INFO - Batch feldolgozás kezdése: 10 fájl, 2 worker
+2025-06-28 23:30:49,725 - INFO - Batch 1/2 feldolgozása (5 fájl)
+2025-06-28 23:30:51,813 - INFO - Új csapat létrehozása: Olimpia Asuncion -> Olimpia Asuncion
+2025-06-28 23:30:51,944 - INFO - Meccs betöltve: Olimpia Asuncion vs San Antonio Bulo Bulo (ID: 429)
+2025-06-28 23:30:52,050 - INFO - Új csapat létrehozása: Vélez Sarsfield -> Vélez Sarsfield
+2025-06-28 23:30:52,142 - INFO - Meccs betöltve: Penarol Montevideo vs Vélez Sarsfield (ID: 430)
+2025-06-28 23:30:52,227 - INFO - Új csapat létrehozása: Colo Colo -> Colo Colo
+2025-06-28 23:30:52,337 - INFO - Új csapat létrehozása: Atl. Bucaramanga -> Atl. Bucaramanga
+2025-06-28 23:30:52,426 - INFO - Meccs betöltve: Colo Colo vs Atl. Bucaramanga (ID: 431)
+2025-06-28 23:30:52,500 - INFO - Új csapat létrehozása: Racing Club -> Racing Club
+2025-06-28 23:30:52,602 - INFO - Új csapat létrehozása: Fortaleza -> Fortaleza
+2025-06-28 23:30:52,682 - INFO - Meccs betöltve: Racing Club vs Fortaleza (ID: 432)
+2025-06-28 23:30:52,722 - INFO - Új csapat létrehozása: Godoy Cruz -> Godoy Cruz
+2025-06-28 23:30:52,787 - INFO - Új csapat létrehozása: Atl. Grau -> Atl. Grau
+2025-06-28 23:30:52,870 - INFO - Meccs betöltve: Godoy Cruz vs Atl. Grau (ID: 433)
+2025-06-28 23:30:52,961 - INFO - Új csapat létrehozása: Gremio RS -> Gremio RS
+2025-06-28 23:30:53,072 - INFO - Új csapat létrehozása: Sp. Luqueno -> Sp. Luqueno
+2025-06-28 23:30:53,137 - INFO - Meccs betöltve: Gremio RS vs Sp. Luqueno (ID: 434)
+2025-06-28 23:30:53,251 - INFO - Új csapat létrehozása: Once Caldas -> Once Caldas
+2025-06-28 23:30:53,324 - INFO - Meccs betöltve: Fluminense RJ vs Once Caldas (ID: 435)
+2025-06-28 23:30:53,454 - INFO - Meccs betöltve: Union Espanola vs Deportivo San Jose de Oruro (ID: 436)
+2025-06-28 23:30:53,507 - INFO - Új csapat létrehozása: Atlético MG -> Atlético MG
+2025-06-28 23:30:53,542 - INFO - Új csapat létrehozása: Cienciano -> Cienciano
+2025-06-28 23:30:53,614 - INFO - Meccs betöltve: Atlético MG vs Cienciano (ID: 437)
+2025-06-28 23:30:53,682 - INFO - Új csapat létrehozása: Caracas FC -> Caracas
+2025-06-28 23:30:53,788 - INFO - Meccs betöltve: Caracas FC vs Dep. Iquique (ID: 438)
+2025-06-28 23:30:53,811 - INFO - Új csapat létrehozása: Ferroviaria SP -> Ferroviaria SP
+2025-06-28 23:30:53,814 - INFO - Új csapat létrehozása: Azerbajdzsán -> Azerbajdzsán
+2025-06-28 23:30:53,816 - INFO - Új csapat létrehozása: Litvánia -> Litvánia
+2025-06-28 23:30:53,818 - INFO - Meccs betöltve: Azerbajdzsán vs Litvánia (ID: 439)
+2025-06-28 23:30:53,825 - INFO - Meccs betöltve: Észtország vs Izrael (ID: 440)
+2025-06-28 23:30:53,828 - INFO - Új csapat létrehozása: Lettország -> Lettország
+2025-06-28 23:30:53,832 - INFO - Meccs betöltve: Lettország vs Észak-Macedónia (ID: 441)
+2025-06-28 23:30:53,834 - INFO - Új csapat létrehozása: Málta -> Málta
+2025-06-28 23:30:53,836 - INFO - Meccs betöltve: Málta vs Ciprus (ID: 442)
+2025-06-28 23:30:53,839 - INFO - Új csapat létrehozása: Görögország -> Görögország
+2025-06-28 23:30:53,842 - INFO - Meccs betöltve: Szlovénia vs Görögország (ID: 443)
+2025-06-28 23:30:53,844 - INFO - Új csapat létrehozása: Törökország -> Törökország
+2025-06-28 23:30:53,844 - INFO - Meccs betöltve: Ferroviaria SP vs Botafogo SP (ID: 444)
+2025-06-28 23:30:53,848 - INFO - Sikeres: Web__42sz__K__05-27_2025.05.27.pdf (11 meccs mentve)
+2025-06-28 23:30:53,852 - INFO - Meccs betöltve: Törökország vs Írország (ID: 445)
+2025-06-28 23:30:53,854 - INFO - Új csapat létrehozása: Szerbia -> Szerbia
+2025-06-28 23:30:53,858 - INFO - Meccs betöltve: Szerbia vs Magyarország (ID: 446)
+2025-06-28 23:30:53,861 - INFO - Új csapat létrehozása: Ukrajna -> Ukrajna
+2025-06-28 23:30:53,863 - INFO - Új csapat létrehozása: Albánia -> Albánia
+2025-06-28 23:30:53,866 - INFO - Meccs betöltve: Ukrajna vs Albánia (ID: 447)
+2025-06-28 23:30:53,869 - INFO - Új csapat létrehozása: Fehéroroszország -> Fehéroroszország
+2025-06-28 23:30:53,872 - INFO - Új csapat létrehozása: Finnország -> Finnország
+2025-06-28 23:30:53,876 - INFO - Meccs betöltve: Fehéroroszország vs Finnország (ID: 448)
+2025-06-28 23:30:53,881 - INFO - Meccs betöltve: Olaszország vs Svédország (ID: 449)
+2025-06-28 23:30:53,883 - INFO - Új csapat létrehozása: Dánia -> Dánia
+2025-06-28 23:30:53,887 - INFO - Meccs betöltve: Dánia vs Wales (ID: 450)
+2025-06-28 23:30:53,895 - INFO - Meccs betöltve: Norvégia vs Izland (ID: 451)
+2025-06-28 23:30:53,898 - INFO - Új csapat létrehozása: Németország -> Németország
+2025-06-28 23:30:53,900 - INFO - Új csapat létrehozása: Hollandia -> Hollandia
+2025-06-28 23:30:53,903 - INFO - Meccs betöltve: Németország vs Hollandia (ID: 452)
+2025-06-28 23:30:53,906 - INFO - Meccs betöltve: Belgium vs Spanyolország (ID: 453)
+2025-06-28 23:30:53,918 - INFO - Új csapat létrehozása: Ausztria -> Ausztria
+2025-06-28 23:30:53,920 - INFO - Meccs betöltve: Skócia vs Ausztria (ID: 454)
+2025-06-28 23:30:53,924 - INFO - Új csapat létrehozása: Anglia -> Anglia
+2025-06-28 23:30:53,926 - INFO - Új csapat létrehozása: Portugália -> Portugália
+2025-06-28 23:30:53,929 - INFO - Meccs betöltve: Anglia vs Portugália (ID: 455)
+2025-06-28 23:30:53,932 - INFO - Új csapat létrehozása: Franciaország -> Franciaország
+2025-06-28 23:30:53,935 - INFO - Új csapat létrehozása: Svájc -> Svájc
+2025-06-28 23:30:53,938 - INFO - Meccs betöltve: Franciaország vs Svájc (ID: 456)
+2025-06-28 23:30:53,941 - INFO - Új csapat létrehozása: Trefl Sopot -> Trefl Sopot
+2025-06-28 23:30:53,943 - INFO - Új csapat létrehozása: Start Lublin -> Start Lublin
+2025-06-28 23:30:53,945 - INFO - Meccs betöltve: Trefl Sopot vs Start Lublin (ID: 457)
+2025-06-28 23:30:53,949 - INFO - Sikeres: Web__43sz__P__05-30_2025.05.30.pdf (18 meccs mentve)
+2025-06-28 23:30:55,668 - INFO - Új csapat létrehozása: Maracana CE -> Maracana CE
+2025-06-28 23:30:55,767 - INFO - Új csapat létrehozása: Internacional RS -> Internacional RS
+2025-06-28 23:30:55,841 - INFO - Meccs betöltve: Maracana CE vs Internacional RS (ID: 458)
+2025-06-28 23:30:55,875 - INFO - Új csapat létrehozása: Ceara -> Ceara
+2025-06-28 23:30:55,964 - INFO - Meccs betöltve: Palmeiras SP vs Ceara (ID: 459)
+2025-06-28 23:30:56,037 - INFO - Új csapat létrehozása: Capital DF -> Capital DF
+2025-06-28 23:30:56,165 - INFO - Meccs betöltve: Capital DF vs Botafogo RJ (ID: 460)
+2025-06-28 23:30:56,218 - INFO - Új csapat létrehozása: Como -> Como
+2025-06-28 23:30:56,272 - INFO - Új csapat létrehozása: Internazionale -> Internazionale
+2025-06-28 23:30:56,319 - INFO - Meccs betöltve: Como vs Internazionale (ID: 461)
+2025-06-28 23:30:56,388 - INFO - Új csapat létrehozása: Napoli -> Napoli
+2025-06-28 23:30:56,440 - INFO - Új csapat létrehozása: Cagliari -> Cagliari
+2025-06-28 23:30:56,527 - INFO - Meccs betöltve: Napoli vs Cagliari (ID: 462)
+2025-06-28 23:30:56,554 - INFO - Sikeres: Web__40sz__K__05-20_2025.05.20.pdf (5 meccs mentve)
+2025-06-28 23:30:56,558 - INFO - Új csapat létrehozása: Szombathely -> Szombathely
+2025-06-28 23:30:56,560 - INFO - Új csapat létrehozása: Szolnok -> Szolnok
+2025-06-28 23:30:56,562 - INFO - Meccs betöltve: Szombathely vs Szolnok (ID: 463)
+2025-06-28 23:30:56,568 - INFO - Meccs betöltve: Napoli vs Cagliari (ID: 464)
+2025-06-28 23:30:56,571 - INFO - Új csapat létrehozása: Dundalk -> Dundalk
+2025-06-28 23:30:56,574 - INFO - Új csapat létrehozása: Kerry -> Kerry
+2025-06-28 23:30:56,576 - INFO - Meccs betöltve: Dundalk vs Kerry (ID: 465)
+2025-06-28 23:30:56,578 - INFO - Új csapat létrehozása: Karvina -> Karvina
+2025-06-28 23:30:56,580 - INFO - Új csapat létrehozása: Plzen -> Plzen
+2025-06-28 23:30:56,582 - INFO - Meccs betöltve: Karvina vs Plzen (ID: 466)
+2025-06-28 23:30:56,585 - INFO - Új csapat létrehozása: Ystad IF -> Ystad IF
+2025-06-28 23:30:56,587 - INFO - Meccs betöltve: Hammarby vs Ystad IF (ID: 467)
+2025-06-28 23:30:56,590 - INFO - Sikeres: Web__41sz__P__05-23_2025.05.23.pdf (5 meccs mentve)
+2025-06-28 23:30:58,594 - INFO - Új csapat létrehozása: Al-Nassr -> Al-Nassr
+2025-06-28 23:30:58,596 - INFO - Új csapat létrehozása: Al-Taawoun -> Al-Taawoun
+2025-06-28 23:30:58,598 - INFO - Meccs betöltve: Al-Nassr vs Al-Taawoun (ID: 468)
+2025-06-28 23:30:58,600 - INFO - Új csapat létrehozása: Haugesund -> Haugesund
+2025-06-28 23:30:58,602 - INFO - Meccs betöltve: Rosenborg vs Haugesund (ID: 469)
+2025-06-28 23:30:58,604 - INFO - Új csapat létrehozása: Kecskemét -> Kecskemét
+2025-06-28 23:30:58,606 - INFO - Új csapat létrehozása: Puskás Akadémia -> Puskás Akadémia
+2025-06-28 23:30:58,608 - INFO - Meccs betöltve: Kecskemét vs Puskás Akadémia (ID: 470)
+2025-06-28 23:30:58,610 - INFO - Új csapat létrehozása: Aston Villa -> Aston Villa
+2025-06-28 23:30:58,611 - INFO - Új csapat létrehozása: Tottenham -> Tottenham
+2025-06-28 23:30:58,613 - INFO - Meccs betöltve: Aston Villa vs Tottenham (ID: 471)
+2025-06-28 23:30:58,615 - INFO - Új csapat létrehozása: Manchester Utd. -> Manchester Utd.
+2025-06-28 23:30:58,617 - INFO - Meccs betöltve: Chelsea vs Manchester Utd. (ID: 472)
+2025-06-28 23:30:58,620 - INFO - Sikeres: Web__39sz__P__05-16-4_2025.05.16.pdf (5 meccs mentve)
+2025-06-28 23:30:58,621 - INFO - Batch 2/2 feldolgozása (5 fájl)
+2025-06-28 23:31:01,158 - INFO - Új csapat létrehozása: Talleres de Cordoba -> Talleres de Cordoba
+2025-06-28 23:31:01,233 - INFO - Új csapat létrehozása: Alianza Lima -> Alianza Lima
+2025-06-28 23:31:01,336 - INFO - Meccs betöltve: Talleres de Cordoba vs Alianza Lima (ID: 473)
+2025-06-28 23:31:01,384 - INFO - Meccs betöltve: Nacional Montevideo vs Internacional RS (ID: 474)
+2025-06-28 23:31:01,458 - INFO - Új csapat létrehozása: Bolivar La Paz -> Bolivar La Paz
+2025-06-28 23:31:01,500 - INFO - Meccs betöltve: Palmeiras SP vs Bolivar La Paz (ID: 475)
+2025-06-28 23:31:01,581 - INFO - Új csapat létrehozása: River Plate -> River Plate
+2025-06-28 23:31:01,683 - INFO - Új csapat létrehozása: Independiente del Valle -> Independiente del Valle
+2025-06-28 23:31:01,725 - INFO - Meccs betöltve: River Plate vs Independiente del Valle (ID: 476)
+2025-06-28 23:31:01,813 - INFO - Új csapat létrehozása: LDU Quito -> LDU Quito
+2025-06-28 23:31:01,862 - INFO - Meccs betöltve: Flamengo RJ vs LDU Quito (ID: 477)
+2025-06-28 23:31:01,920 - INFO - Új csapat létrehozása: Independiente Avellaneda -> Independiente Avellaneda
+2025-06-28 23:31:01,998 - INFO - Új csapat létrehozása: Guarani Asuncion -> Guarani Asuncion
+2025-06-28 23:31:02,079 - INFO - Meccs betöltve: Independiente Avellaneda vs Guarani Asuncion (ID: 478)
+2025-06-28 23:31:02,150 - INFO - Új csapat létrehozása: Racing Montevideo -> Racing Montevideo
+2025-06-28 23:31:02,239 - INFO - Új csapat létrehozása: Corinthians SP -> Corinthians SP
+2025-06-28 23:31:02,295 - INFO - Meccs betöltve: Racing Montevideo vs Corinthians SP (ID: 479)
+2025-06-28 23:31:02,371 - INFO - Meccs betöltve: Atlético MG vs Caracas FC (ID: 480)
+2025-06-28 23:31:02,399 - INFO - Meccs betöltve: Cienciano vs Dep. Iquique (ID: 481)
+2025-06-28 23:31:02,400 - INFO - Új csapat létrehozása: Shanghai Port -> Shanghai Port
+2025-06-28 23:31:02,404 - INFO - Meccs betöltve: Once Caldas vs Deportivo San Jose de Oruro (ID: 482)
+2025-06-28 23:31:02,406 - INFO - Meccs betöltve: Shanghai Port vs Qingdao Hainiu (ID: 483)
+2025-06-28 23:31:02,408 - INFO - Új csapat létrehozása: Zorya Luganszk -> Zorya Luganszk
+2025-06-28 23:31:02,411 - INFO - Új csapat létrehozása: Sahtar Doneck -> Sahtar Doneck
+2025-06-28 23:31:02,413 - INFO - Meccs betöltve: Zorya Luganszk vs Sahtar Doneck (ID: 484)
+2025-06-28 23:31:02,418 - INFO - Új csapat létrehozása: B36 Torshavn -> B36 Torshavn
+2025-06-28 23:31:02,420 - INFO - Új csapat létrehozása: FC Suduroy -> Suduroy
+2025-06-28 23:31:02,422 - INFO - Meccs betöltve: B36 Torshavn vs FC Suduroy (ID: 485)
+2025-06-28 23:31:02,425 - INFO - Új csapat létrehozása: Cambuur -> Cambuur
+2025-06-28 23:31:02,427 - INFO - Sikeres: Web__38sz__K__05-13_2025.05.13.pdf (10 meccs mentve)
+2025-06-28 23:31:02,430 - INFO - Új csapat létrehozása: Maastricht -> Maastricht
+2025-06-28 23:31:02,434 - INFO - Meccs betöltve: Cambuur vs Maastricht (ID: 486)
+2025-06-28 23:31:02,436 - INFO - Új csapat létrehozása: Atomerőmű -> Atomerőmű
+2025-06-28 23:31:02,439 - INFO - Meccs betöltve: Atomerőmű vs Szolnok (ID: 487)
+2025-06-28 23:31:02,443 - INFO - Új csapat létrehozása: Roeselare -> Roeselare
+2025-06-28 23:31:02,446 - INFO - Új csapat létrehozása: Haasrode Leuven -> Haasrode Leuven
+2025-06-28 23:31:02,449 - INFO - Meccs betöltve: Roeselare vs Haasrode Leuven (ID: 488)
+2025-06-28 23:31:02,454 - INFO - Sikeres: Web__37sz__P__05-09_2025.05.09.pdf (6 meccs mentve)
+2025-06-28 23:31:04,754 - INFO - Új csapat létrehozása: Libertad Asuncion -> Libertad Asuncion
+2025-06-28 23:31:04,826 - INFO - Meccs betöltve: Talleres de Cordoba vs Libertad Asuncion (ID: 489)
+2025-06-28 23:31:04,877 - INFO - Meccs betöltve: Vélez Sarsfield vs Olimpia Asuncion (ID: 490)
+2025-06-28 23:31:04,890 - INFO - Meccs betöltve: Barcelona Guayaquil vs River Plate (ID: 491)
+2025-06-28 23:31:04,933 - INFO - Új csapat létrehozása: Atl. Nacional Medellin -> Atl. Nacional Medellin
+2025-06-28 23:31:04,948 - INFO - Meccs betöltve: Atl. Nacional Medellin vs Internacional RS (ID: 492)
+2025-06-28 23:31:05,025 - INFO - Meccs betöltve: Universitario de Deportes vs Independiente del Valle (ID: 493)
+2025-06-28 23:31:05,086 - INFO - Új csapat létrehozása: CA Huracan -> CA Huracan
+2025-06-28 23:31:05,101 - INFO - Meccs betöltve: Racing Montevideo vs CA Huracan (ID: 494)
+2025-06-28 23:31:05,150 - INFO - Meccs betöltve: Dep. Iquique vs Atlético MG (ID: 495)
+2025-06-28 23:31:05,314 - INFO - Meccs betöltve: Deportivo San Jose de Oruro vs Fluminense RJ (ID: 496)
+2025-06-28 23:31:05,450 - INFO - Meccs betöltve: Cienciano vs Caracas FC (ID: 497)
+2025-06-28 23:31:05,492 - INFO - Sikeres: Web__36sz__K__05-06_2025.05.06.pdf (9 meccs mentve)
+2025-06-28 23:31:05,633 - INFO - Új csapat létrehozása: Magdeburg -> Magdeburg
+2025-06-28 23:31:05,636 - INFO - Új csapat létrehozása: Münster -> Münster
+2025-06-28 23:31:05,638 - INFO - Meccs betöltve: Magdeburg vs Münster (ID: 498)
+2025-06-28 23:31:05,640 - INFO - Új csapat létrehozása: Excelsior -> Excelsior
+2025-06-28 23:31:05,642 - INFO - Új csapat létrehozása: PSV 2 -> PSV 2
+2025-06-28 23:31:05,645 - INFO - Meccs betöltve: Excelsior vs PSV 2 (ID: 499)
+2025-06-28 23:31:05,656 - INFO - Új csapat létrehozása: Nice -> Nice
+2025-06-28 23:31:05,659 - INFO - Új csapat létrehozása: Reims -> Reims
+2025-06-28 23:31:05,661 - INFO - Meccs betöltve: Nice vs Reims (ID: 500)
+2025-06-28 23:31:05,663 - INFO - Új csapat létrehozása: Manchester City -> Manchester City
+2025-06-28 23:31:05,666 - INFO - Új csapat létrehozása: Wolverhampton -> Wolverhampton
+2025-06-28 23:31:05,668 - INFO - Meccs betöltve: Manchester City vs Wolverhampton (ID: 501)
+2025-06-28 23:31:05,671 - INFO - Új csapat létrehozása: Porto -> Porto
+2025-06-28 23:31:05,674 - INFO - Új csapat létrehozása: Moreirense -> Moreirense
+2025-06-28 23:31:05,676 - INFO - Meccs betöltve: Porto vs Moreirense (ID: 502)
+2025-06-28 23:31:05,681 - INFO - Új csapat létrehozása: Anadolu Efes -> Anadolu Efes
+2025-06-28 23:31:05,684 - INFO - Meccs betöltve: Anadolu Efes vs Panathinaikosz (ID: 503)
+2025-06-28 23:31:05,689 - INFO - Meccs betöltve: Anadolu Efes vs Panathinaikosz (ID: 504)
+2025-06-28 23:31:05,692 - INFO - Új csapat létrehozása: Barcelona -> Barcelona
+2025-06-28 23:31:05,694 - INFO - Új csapat létrehozása: Monaco -> Monaco
+2025-06-28 23:31:05,697 - INFO - Meccs betöltve: Barcelona vs Monaco (ID: 505)
+2025-06-28 23:31:05,703 - INFO - Meccs betöltve: Barcelona vs Monaco (ID: 506)
+2025-06-28 23:31:05,705 - INFO - Új csapat létrehozása: Kalpa -> Kalpa
+2025-06-28 23:31:05,708 - INFO - Új csapat létrehozása: SaiPa -> SaiPa
+2025-06-28 23:31:05,710 - INFO - Meccs betöltve: Kalpa vs SaiPa (ID: 507)
+2025-06-28 23:31:05,714 - INFO - Sikeres: Web__35sz__P__05-02_2025.05.02.pdf (10 meccs mentve)
+2025-06-28 23:31:06,436 - INFO - Új csapat létrehozása: Botafogo PB -> Botafogo PB
+2025-06-28 23:31:06,438 - INFO - Meccs betöltve: Botafogo PB vs Flamengo RJ (ID: 508)
+2025-06-28 23:31:06,441 - INFO - Új csapat létrehozása: Cruzeiro MG -> Cruzeiro MG
+2025-06-28 23:31:06,443 - INFO - Meccs betöltve: Cruzeiro MG vs Vila Nova GO (ID: 509)
+2025-06-28 23:31:06,445 - INFO - Új csapat létrehozása: Cruz Azul -> Cruz Azul
+2025-06-28 23:31:06,448 - INFO - Új csapat létrehozása: Tigres UANL -> Tigres UANL
+2025-06-28 23:31:06,450 - INFO - Meccs betöltve: Cruz Azul vs Tigres UANL (ID: 510)
+2025-06-28 23:31:06,454 - INFO - Sikeres: Web__34sz__K__04-29_2025.04.29.pdf (3 meccs mentve)
+2025-06-28 23:31:06,454 - INFO - Batch feldolgozás befejezve

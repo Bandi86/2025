@@ -1,0 +1,151 @@
+Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,B365H,B365D,B365A
+2024-03-05,Real Salt Lake,Cincinnati,2,4,A,3.62,3.35,2.44
+2024-03-05,DC United,NYC FC,4,0,H,3.95,3.94,1.68
+2024-03-05,Nashville SC,Columbus Crew,5,0,H,1.91,3.3,3.37
+2024-03-08,LAFC,LA Galaxy,2,0,H,1.96,3.32,3.79
+2024-03-08,St. Louis City,Seattle Sounders,2,0,H,2.21,3.55,2.19
+2024-03-12,NY Red Bulls,Cincinnati,1,0,H,1.62,3.77,2.15
+2024-03-12,Nashville SC,LA Galaxy,1,1,D,2.5,3.3,3.72
+2024-03-12,Vancouver,NYC FC,1,0,H,3.17,3.17,2.63
+2024-03-13,Montreal,Minnesota United,2,1,H,3.86,3.71,2.13
+2024-03-14,Minnesota United,Cincinnati,0,3,A,3.24,3.67,3.03
+2024-03-16,Seattle Sounders,NY Red Bulls,2,0,H,3.61,3.39,2.11
+2024-03-18,LAFC,Austin FC,2,3,A,3.7,3.5,1.57
+2024-03-19,Real Salt Lake,Colorado Rapids,2,1,H,1.78,3.81,2.69
+2024-03-19,FC Dallas,Portland Timbers,0,0,D,2.45,3.19,3.86
+2024-03-19,Columbus Crew,Cincinnati,2,1,H,1.56,3.81,3.65
+2024-03-21,LAFC,Real Salt Lake,4,0,H,2.35,3.02,2.8
+2024-03-22,LAFC,Montreal,1,2,A,3.4,3.71,3.77
+2024-03-22,Toronto FC,Sporting KC,3,4,A,3.8,3.88,3.67
+2024-03-22,NY Red Bulls,Orlando City,3,3,D,2.2,3.97,3.75
+2024-03-24,Portland Timbers,Orlando City,1,1,D,3.68,3.4,3.9
+2024-03-25,Chicago Fire,Seattle Sounders,1,1,D,3.39,3.61,1.65
+2024-03-27,Nashville SC,Montreal,2,2,D,3.34,3.61,2.27
+2024-03-28,Portland Timbers,Chicago Fire,2,1,H,2.08,3.92,3.0
+2024-03-28,Toronto FC,Montreal,3,0,H,1.51,3.38,1.51
+2024-04-03,Real Salt Lake,DC United,1,1,D,3.98,3.26,3.97
+2024-04-06,San Jose Earthquakes,Portland Timbers,0,5,A,3.56,3.36,3.28
+2024-04-06,Philadelphia Union,Colorado Rapids,1,0,H,2.78,3.69,2.93
+2024-04-09,DC United,Real Salt Lake,0,1,A,2.36,3.45,2.92
+2024-04-09,Atlanta United,LA Galaxy,2,1,H,3.46,3.04,2.49
+2024-04-10,Atlanta United,LA Galaxy,1,2,A,3.4,3.87,3.97
+2024-04-12,NYC FC,New England,3,0,H,2.73,3.71,2.88
+2024-04-13,Austin FC,FC Dallas,4,1,H,2.22,3.74,3.17
+2024-04-16,FC Dallas,LA Galaxy,2,1,H,1.55,3.34,1.6
+2024-04-17,Vancouver,Montreal,0,0,D,3.46,3.21,2.9
+2024-04-17,Chicago Fire,Philadelphia Union,3,0,H,2.86,3.11,2.03
+2024-04-19,Portland Timbers,Atlanta United,1,0,H,2.22,3.55,3.87
+2024-04-22,San Jose Earthquakes,LA Galaxy,1,1,D,3.35,3.42,2.91
+2024-04-22,LA Galaxy,FC Dallas,2,2,D,3.65,3.37,2.08
+2024-04-23,DC United,Toronto FC,2,1,H,2.4,3.01,1.97
+2024-04-25,St. Louis City,Atlanta United,3,1,H,2.0,3.81,1.89
+2024-04-25,Charlotte FC,NYC FC,2,1,H,3.73,3.52,3.86
+2024-04-25,Nashville SC,Orlando City,1,2,A,1.62,3.4,2.09
+2024-05-02,NY Red Bulls,Columbus Crew,0,2,A,1.5,3.4,1.71
+2024-05-08,New England,Inter Miami CF,0,2,A,3.95,3.81,2.61
+2024-05-12,Seattle Sounders,LAFC,2,2,D,2.48,3.71,3.5
+2024-05-12,Atlanta United,LAFC,2,3,A,3.78,3.88,1.87
+2024-05-13,Philadelphia Union,Vancouver,0,2,A,3.74,3.86,2.49
+2024-05-15,NYC FC,LAFC,2,1,H,2.63,3.42,2.69
+2024-05-16,FC Dallas,Cincinnati,1,2,A,2.63,3.45,1.91
+2024-05-18,LAFC,Portland Timbers,4,1,H,3.48,3.74,2.31
+2024-05-19,Austin FC,Philadelphia Union,3,1,H,3.22,3.55,2.47
+2024-05-24,FC Dallas,Sporting KC,3,2,H,2.44,3.5,3.59
+2024-05-25,Portland Timbers,Atlanta United,2,0,H,3.24,3.74,1.68
+2024-06-02,Atlanta United,Cincinnati,0,0,D,3.33,3.0,1.84
+2024-06-03,Portland Timbers,Sporting KC,3,2,H,3.79,3.8,3.79
+2024-06-04,Seattle Sounders,San Jose Earthquakes,0,1,A,3.3,3.37,3.72
+2024-06-04,Philadelphia Union,Seattle Sounders,2,2,D,3.96,3.47,3.29
+2024-06-05,Charlotte FC,Portland Timbers,3,0,H,2.7,3.01,3.87
+2024-06-06,Real Salt Lake,Atlanta United,0,1,A,1.98,3.69,2.27
+2024-06-08,Sporting KC,Minnesota United,1,2,A,3.96,3.42,1.74
+2024-06-12,Chicago Fire,LA Galaxy,2,0,H,3.74,3.15,1.66
+2024-06-13,LA Galaxy,St. Louis City,1,0,H,3.36,3.56,3.09
+2024-06-14,Portland Timbers,Philadelphia Union,1,3,A,3.11,3.49,3.67
+2024-06-16,Colorado Rapids,Nashville SC,3,1,H,2.75,3.36,3.67
+2024-06-18,Real Salt Lake,Cincinnati,0,1,A,2.98,3.1,1.52
+2024-06-20,San Jose Earthquakes,Columbus Crew,5,1,H,2.33,3.89,2.41
+2024-06-21,Portland Timbers,Cincinnati,1,1,D,3.73,3.9,3.23
+2024-06-25,Nashville SC,Chicago Fire,3,0,H,2.04,3.96,3.77
+2024-06-25,Houston Dynamo,DC United,1,1,D,3.51,3.88,3.06
+2024-06-28,Philadelphia Union,FC Dallas,1,0,H,2.08,3.2,1.77
+2024-07-02,New England,Orlando City,1,3,A,2.95,3.77,1.55
+2024-07-04,Montreal,Cincinnati,1,2,A,1.57,3.63,2.67
+2024-07-05,Austin FC,Chicago Fire,0,1,A,3.8,3.1,2.08
+2024-07-06,LA Galaxy,Inter Miami CF,1,2,A,2.86,3.91,3.5
+2024-07-08,Orlando City,Toronto FC,5,0,H,2.53,3.84,1.86
+2024-07-08,Real Salt Lake,Seattle Sounders,3,2,H,3.53,3.15,1.87
+2024-07-11,Nashville SC,Toronto FC,2,0,H,3.71,3.2,2.24
+2024-07-15,FC Dallas,New England,2,2,D,2.45,3.77,2.39
+2024-07-17,Toronto FC,Chicago Fire,3,1,H,2.48,3.44,1.61
+2024-07-17,Portland Timbers,Orlando City,1,0,H,3.87,3.08,3.5
+2024-07-18,St. Louis City,Chicago Fire,1,1,D,2.4,3.8,3.92
+2024-07-20,Atlanta United,NYC FC,3,0,H,2.21,3.14,2.43
+2024-07-21,Portland Timbers,Austin FC,3,2,H,2.2,3.47,3.58
+2024-07-22,DC United,LAFC,2,1,H,1.8,3.6,1.79
+2024-07-22,Seattle Sounders,Atlanta United,0,3,A,3.92,3.61,2.12
+2024-07-24,NY Red Bulls,LA Galaxy,3,0,H,2.48,3.38,1.56
+2024-07-24,FC Dallas,Montreal,2,1,H,2.97,3.32,3.61
+2024-07-25,Houston Dynamo,St. Louis City,2,3,A,2.75,3.68,2.32
+2024-07-26,New England,Vancouver,2,0,H,1.75,3.94,3.06
+2024-07-28,Seattle Sounders,Chicago Fire,2,1,H,1.95,3.27,2.69
+2024-08-02,NY Red Bulls,DC United,2,0,H,1.61,3.71,1.86
+2024-08-03,Houston Dynamo,Portland Timbers,2,1,H,3.18,3.04,2.44
+2024-08-03,LA Galaxy,Philadelphia Union,0,3,A,2.14,3.95,2.25
+2024-08-03,Atlanta United,Charlotte FC,1,0,H,1.72,3.25,2.62
+2024-08-06,Montreal,Real Salt Lake,1,1,D,1.58,3.6,3.29
+2024-08-08,Portland Timbers,Austin FC,1,1,D,2.64,3.41,2.32
+2024-08-08,New England,Atlanta United,2,2,D,3.78,3.96,1.64
+2024-08-08,Philadelphia Union,St. Louis City,1,3,A,3.85,3.15,1.72
+2024-08-08,FC Dallas,Minnesota United,1,2,A,1.73,3.05,1.92
+2024-08-14,FC Dallas,Colorado Rapids,3,1,H,2.95,3.03,3.68
+2024-08-15,Orlando City,San Jose Earthquakes,2,2,D,2.63,3.12,3.47
+2024-08-17,Sporting KC,Montreal,0,1,A,1.76,3.06,3.99
+2024-08-19,NY Red Bulls,Columbus Crew,4,4,D,2.88,3.39,2.08
+2024-08-19,Austin FC,Atlanta United,0,0,D,2.47,3.47,2.64
+2024-08-19,Sporting KC,St. Louis City,1,1,D,2.29,3.98,3.08
+2024-08-21,Sporting KC,Philadelphia Union,2,0,H,2.44,3.36,3.58
+2024-08-23,Minnesota United,San Jose Earthquakes,0,0,D,3.7,3.81,2.34
+2024-08-23,LAFC,Minnesota United,1,1,D,2.02,3.35,3.32
+2024-08-27,Austin FC,Colorado Rapids,1,0,H,2.22,3.17,3.19
+2024-09-01,Philadelphia Union,Seattle Sounders,0,0,D,2.14,3.15,2.43
+2024-09-03,NYC FC,Columbus Crew,1,3,A,3.68,3.12,2.49
+2024-09-04,Real Salt Lake,Vancouver,0,1,A,3.24,3.02,2.88
+2024-09-04,Austin FC,Philadelphia Union,0,1,A,1.69,3.88,3.04
+2024-09-06,NY Red Bulls,St. Louis City,1,1,D,1.99,3.32,3.22
+2024-09-07,Nashville SC,San Jose Earthquakes,0,2,A,1.97,3.14,2.47
+2024-09-09,Portland Timbers,Philadelphia Union,4,3,H,3.66,3.66,2.12
+2024-09-10,Columbus Crew,Montreal,2,0,H,3.25,3.17,1.95
+2024-09-10,Minnesota United,Seattle Sounders,1,0,H,3.36,3.61,2.49
+2024-09-11,Atlanta United,Nashville SC,2,0,H,3.14,3.84,3.69
+2024-09-14,NY Red Bulls,St. Louis City,1,3,A,3.71,3.56,2.86
+2024-09-22,St. Louis City,Real Salt Lake,0,2,A,3.24,3.12,2.97
+2024-09-22,Portland Timbers,Chicago Fire,0,0,D,2.75,3.89,2.75
+2024-09-23,DC United,Colorado Rapids,1,0,H,2.88,3.33,2.93
+2024-09-28,Houston Dynamo,Colorado Rapids,1,1,D,2.65,3.18,2.87
+2024-10-06,NYC FC,Portland Timbers,1,1,D,3.22,3.42,2.17
+2024-10-08,DC United,Vancouver,1,0,H,3.31,3.2,3.89
+2024-10-10,Toronto FC,San Jose Earthquakes,2,0,H,1.78,3.1,2.7
+2024-10-13,Inter Miami CF,Cincinnati,3,2,H,2.44,3.37,2.15
+2024-10-15,Toronto FC,DC United,1,1,D,2.69,3.23,2.02
+2024-10-16,St. Louis City,Austin FC,1,0,H,1.82,3.14,3.38
+2024-10-17,FC Dallas,New England,1,1,D,2.79,3.14,2.21
+2024-10-20,Toronto FC,FC Dallas,1,0,H,3.97,3.29,3.56
+2024-10-23,San Jose Earthquakes,New England,1,4,A,2.09,3.9,2.2
+2024-10-25,Atlanta United,Charlotte FC,2,3,A,2.18,3.95,3.56
+2024-10-26,Chicago Fire,New England,4,0,H,2.09,3.13,2.66
+2024-11-01,San Jose Earthquakes,Sporting KC,0,1,A,3.5,3.27,2.87
+2024-11-01,Nashville SC,Seattle Sounders,1,1,D,1.97,3.81,1.9
+2024-11-03,New England,Montreal,3,1,H,3.94,3.5,2.28
+2024-11-04,Colorado Rapids,New England,0,2,A,2.57,4.0,2.9
+2024-11-05,San Jose Earthquakes,Seattle Sounders,2,2,D,1.84,3.35,3.09
+2024-11-08,Columbus Crew,Sporting KC,1,1,D,3.23,3.03,2.7
+2024-11-12,Houston Dynamo,Atlanta United,3,1,H,3.37,3.66,2.08
+2024-11-15,Sporting KC,Cincinnati,0,2,A,3.19,3.99,3.14
+2024-11-17,Portland Timbers,Charlotte FC,2,0,H,1.59,3.36,2.45
+2024-11-17,NY Red Bulls,Austin FC,2,4,A,2.05,3.11,3.72
+2024-11-19,Houston Dynamo,New England,1,4,A,1.99,3.79,1.5
+2024-11-20,NY Red Bulls,Atlanta United,0,0,D,2.33,3.85,3.91
+2024-11-22,NY Red Bulls,Real Salt Lake,2,0,H,3.52,3.14,1.63
+2024-11-25,LA Galaxy,Minnesota United,2,4,A,3.75,3.34,3.26
+2024-11-26,LAFC,Nashville SC,1,0,H,2.43,3.68,3.4

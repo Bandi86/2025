@@ -1,0 +1,22 @@
+============================================================
+SZERENCSEMIX BATCH FELDOLGOZÁSI JELENTÉS
+============================================================
+
+📊 ÖSSZESÍTŐ:
+   Összes fájl: 3
+   Sikeres: 3
+   Sikertelen: 0
+   Kihagyott: 0
+   Feldolgozás alatt: 0
+   Sikerességi arány: 100.0%
+
+⏱️ IDŐZÍTÉS:
+   Kezdés: 2025-06-28 23:29:06
+   Eltelt idő: 0:00:05.514328
+   Jelenlegi sebesség: 32.7 fájl/perc
+   Becsült befejezés: 2025-06-28 23:29:12
+
+🏆 LEGJOBB TALÁLATOK:
+   Web__45sz__P__06-06_2025.06.06.pdf: 23 meccs
+   Web__44sz__K__06-03-9_2025.06.03.pdf: 14 meccs
+   Web__46sz__K__06-10_2025.06.10.pdf: 0 meccs

@@ -1,0 +1,39 @@
+{
+  "competition_id": "j_league",
+  "category": "summer_leagues",
+  "name": "J1 League",
+  "country": "Japan",
+  "api_id": 98,
+  "level": 2,
+  "quality_score": 72,
+  "season_months": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "active_now": true,
+  "timezone": "Asia/Tokyo",
+  "data_sources": {
+    "api_sports": "Primary API source",
+    "football_data": "Secondary API source",
+    "thesportsdb": "Free API source",
+    "espn": "ESPN sports data",
+    "local_sources": "Region specific sources"
+  },
+  "analysis_weights": {
+    "prediction_weight": 0.72,
+    "historical_importance": 0.6,
+    "cross_league_relevance": 0.7,
+    "seasonal_impact": 1.0,
+    "fatigue_factor": 0.5
+  },
+  "last_updated": "2025-06-28T20:15:09.393284"
+}

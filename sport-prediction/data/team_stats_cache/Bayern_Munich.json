@@ -1,0 +1,43 @@
+{
+  "team_name": "Bayern Munich",
+  "league": "Bundesliga",
+  "goals_scored_avg": 1.5995859987524288,
+  "goals_conceded_avg": 0.5578634885525919,
+  "corners_per_game": 7.418172347121605,
+  "corners_conceded_per_game": 4.893356139628806,
+  "cards_per_game": 2.0935076315088215,
+  "cards_opponent_avg": 2.3557547853013525,
+  "recent_form": [
+    "D",
+    "D",
+    "D",
+    "W",
+    "L",
+    "W",
+    "W",
+    "W",
+    "W",
+    "W"
+  ],
+  "home_performance": {
+    "matches_played": 19,
+    "wins": 13,
+    "draws": 4,
+    "losses": 0,
+    "win_rate": 0.7183687525133029,
+    "goals_per_game": 2.211432507037248,
+    "goals_conceded_per_game": 0.6506099959787153
+  },
+  "away_performance": {
+    "matches_played": 19,
+    "wins": 9,
+    "draws": 5,
+    "losses": 3,
+    "win_rate": 0.5246950020106423,
+    "goals_per_game": 1.8240850060319271,
+    "goals_conceded_per_game": 0.9379574969840365
+  },
+  "league_position": 5,
+  "points_per_game": 1.787591593349403,
+  "last_updated": "2025-06-28T20:41:51.355938"
+}

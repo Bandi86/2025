@@ -1,0 +1,16 @@
+{
+  "date": "2025-06-29",
+  "extraction_time": "2025-06-28T23:19:16.875910",
+  "matches_count": 1,
+  "matches": [
+    {
+      "date": "2025-06-29",
+      "time": "16:00",
+      "home_team": "Csapat A2",
+      "away_team": "Csapat B2",
+      "league": "NB I",
+      "source_pdf": "Web__51sz__P__06-27_2025.06.27.pdf",
+      "confidence": 0.7
+    }
+  ]
+}

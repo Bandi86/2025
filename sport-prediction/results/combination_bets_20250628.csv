@@ -1,0 +1,51 @@
+date,combo_size,matches,markets,total_odds,avg_edge,min_confidence,quality_score,risk_score
+2024-03-02,2,Nott'm Forest vs Liverpool | Luton vs Aston Villa,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.1311999999999998,0.2924718749961041,1.0,326.4210972220664,1.527777777777778
+2023-05-03,2,Man City vs West Ham | Liverpool vs Fulham,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.0736,0.27548460851395307,1.0,326.01938434055813,1.5
+2024-08-17,2,Newcastle vs Southampton | West Ham vs Aston Villa,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.198,0.3051500666680236,1.0,325.99171695243524,1.6214285714285714
+2024-03-02,2,Luton vs Aston Villa | Newcastle vs Wolves,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.2608,0.3057327884774787,1.0,325.0419573467083,1.590277777777778
+2023-12-03,2,Chelsea vs Brighton | Man City vs Tottenham,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.0808,0.2748593523474217,1.0,324.74437409389685,1.625
+2023-12-06,2,Sheffield United vs Liverpool | Aston Villa vs Man City,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.0349,0.268479797360928,1.0,324.23543249594087,1.650375939849624
+2023-05-06,2,Man City vs Leeds | Tottenham vs Crystal Palace,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.249,0.305895836900642,1.0,323.92814116833335,1.8307692307692307
+2024-12-22,2,Tottenham vs Liverpool | Leicester vs Wolves,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.171,0.28685368857762916,1.0,323.6279936969513,1.7846153846153845
+2024-12-22,2,Tottenham vs Liverpool | Fulham vs Southampton,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.0410000000000004,0.24858570337269564,1.0,322.2159208600998,1.7076923076923076
+2024-02-10,2,Liverpool vs Burnley | Nott'm Forest vs Newcastle,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.261,0.29847282223322624,1.0,320.72074092216116,1.7781954887218043
+2023-12-03,2,Bournemouth vs Aston Villa | Man City vs Tottenham,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.0808,0.25492898084033705,1.0,318.47297337863836,1.625
+2024-02-17,2,Burnley vs Arsenal | Newcastle vs Bournemouth,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.3236,0.31097163891632185,1.0,317.67294574087487,1.560810810810811
+2024-02-10,2,Wolves vs Brentford | Liverpool vs Burnley,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.3275,0.3087436045687668,1.0,317.0226307941323,1.8157894736842104
+2024-02-17,2,Man City vs Chelsea | Newcastle vs Bournemouth,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.1311999999999998,0.2649299771698197,1.0,316.7887078201464,1.527777777777778
+2023-09-30,2,Tottenham vs Liverpool | West Ham vs Sheffield United,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.2712,0.29660769717109653,1.0,316.54219502174897,1.727941176470588
+2024-02-17,2,Newcastle vs Bournemouth | Brentford vs Liverpool,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.1904,0.2775428590599077,1.0,315.9766187133324,1.5
+2024-02-17,2,Man City vs Chelsea | Burnley vs Arsenal,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.2608,0.2925463577829691,1.0,314.410857341826,1.590277777777778
+2024-03-30,2,Chelsea vs Burnley | Newcastle vs West Ham,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.2199999999999998,0.28121090105013574,1.0,313.214300660014,1.5135135135135136
+2024-02-17,2,Burnley vs Arsenal | Brentford vs Liverpool,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.3236,0.30515923967305714,1.0,313.15654687631945,1.560810810810811
+2024-03-02,2,Nott'm Forest vs Liverpool | Newcastle vs Wolves,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.3236,0.30488152882622266,1.0,313.0043558742245,1.560810810810811
+2024-02-10,2,Liverpool vs Burnley | Luton vs Sheffield United,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.4605,0.331393159359512,1.0,312.3165743093789,1.8909774436090225
+2024-02-17,2,Man City vs Chelsea | Brentford vs Liverpool,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.1311999999999998,0.259117577926555,1.0,311.72137090974934,1.527777777777778
+2024-12-14,2,Newcastle vs Leicester | Liverpool vs Fulham,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.16,0.26620649611803293,1.0,311.6385296559605,1.5416666666666667
+2025-02-23,2,Newcastle vs Nott'm Forest | Man City vs Liverpool,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.3379999999999996,0.3029228890134115,1.0,309.33935415834554,1.6928571428571428
+2023-09-16,2,Man United vs Brighton | Tottenham vs Sheffield United,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.16,0.2622809979161289,1.0,308.66698015988163,1.5416666666666667
+2023-09-16,2,Wolves vs Liverpool | Man United vs Brighton,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.0736,0.24092384603994466,1.0,307.4159850759301,1.5
+2024-03-09,2,Arsenal vs Brentford | Crystal Palace vs Luton,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.52,0.3400062775085059,1.0,307.29659348187664,1.715277777777778
+2023-12-03,2,Bournemouth vs Aston Villa | Chelsea vs Brighton,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.3409,0.3002652513325702,1.0,306.83967932116946,1.5
+2024-05-11,2,West Ham vs Luton | Everton vs Sheffield United,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.2032,0.2702726873720235,1.0,306.79106294853955,1.5625
+2023-12-10,2,Everton vs Chelsea | Luton vs Man City,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.3800000000000003,0.3073663997283641,1.0,306.5583545271211,1.7867647058823528
+2025-02-01,2,Bournemouth vs Liverpool | Ipswich vs Southampton,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.4912,0.33276183257481495,1.0,306.5011887905373,1.7013888888888888
+2023-05-21,2,Brighton vs Southampton | Man City vs Chelsea,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.0999999999999996,0.2463067443216052,1.0,306.03399982586313,1.5714285714285714
+2024-04-13,2,Brentford vs Sheffield United | Newcastle vs Tottenham,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.0808,0.24123618753328446,1.0,305.94684525629077,1.625
+2024-02-10,2,Tottenham vs Brighton | Nott'm Forest vs Newcastle,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.38,0.3070029783831545,1.0,305.5137498393401,1.7142857142857144
+2024-03-10,2,Aston Villa vs Tottenham | West Ham vs Burnley,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.3120000000000003,0.29090909863114334,1.0,305.18103814990343,1.7499999999999998
+2023-09-30,2,Tottenham vs Liverpool | Newcastle vs Burnley,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.0808,0.23945504427582692,1.0,304.412834185046,1.625
+2023-04-30,2,Newcastle vs Southampton | Liverpool vs Tottenham,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.5949999999999998,0.3508207541971668,1.0,303.56063588063864,1.6533333333333333
+2024-02-10,2,Wolves vs Brentford | Tottenham vs Brighton,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.4499999999999997,0.31727376071869506,1.0,302.21248446660525,1.75
+2024-05-04,2,Sheffield United vs Nott'm Forest | Arsenal vs Bournemouth,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.0881000000000003,0.23855996786189665,1.0,302.20291333337093,1.6804511278195489
+2024-05-05,2,Brighton vs Aston Villa | Chelsea vs West Ham,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.0999999999999996,0.24069888105320958,1.0,301.54058873026173,1.5714285714285714
+2023-12-10,2,Fulham vs West Ham | Luton vs Man City,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.584,0.3417965180819855,1.0,301.13960936493834,1.8970588235294117
+2024-12-26,2,Newcastle vs Aston Villa | Nott'm Forest vs Tottenham,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.43,0.31196713700563516,1.0,300.9244136805302,1.58
+2024-05-11,2,Nott'm Forest vs Chelsea | West Ham vs Luton,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.16,0.25240036497322565,1.0,299.63226598421875,1.5416666666666667
+2024-03-02,2,Tottenham vs Crystal Palace | Luton vs Aston Villa,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.2032,0.26216328038846565,1.0,299.3512927180723,1.5625
+2023-04-26,2,West Ham vs Liverpool | Man City vs Arsenal,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.7054,0.36637243303921413,1.0,299.33135851482643,1.5308641975308641
+2024-02-18,2,Sheffield United vs Brighton | Luton vs Man United,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.4649,0.3165374080953421,1.0,299.1848985984261,1.5
+2024-04-02,2,West Ham vs Tottenham | Newcastle vs Everton,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.2211,0.2626005250617393,1.0,298.8122125473825,1.7556390977443608
+2023-05-14,2,Everton vs Man City | Arsenal vs Brighton,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.5551,0.33488101795995145,1.0,298.6100458278863,1.591503267973856
+2023-10-08,2,Brighton vs Liverpool | Wolves vs Aston Villa,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.3800000000000003,0.2962864532817604,1.0,298.22357992094004,1.7867647058823528
+2025-02-15,2,Man City vs Newcastle | Southampton vs Bournemouth,Over/Under-Over 2.5 | Over/Under-Over 2.5,2.16,0.2507532707772276,1.0,298.16530001073346,1.5416666666666667

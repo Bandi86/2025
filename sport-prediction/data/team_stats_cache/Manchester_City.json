@@ -1,0 +1,43 @@
+{
+  "team_name": "Manchester City",
+  "league": "Premier League",
+  "goals_scored_avg": 1.7564514137791503,
+  "goals_conceded_avg": 0.8820347419214349,
+  "corners_per_game": 5.2039189005119955,
+  "corners_conceded_per_game": 4.128745620915233,
+  "cards_per_game": 1.0188935430476662,
+  "cards_opponent_avg": 1.9898640074693856,
+  "recent_form": [
+    "D",
+    "L",
+    "W",
+    "W",
+    "L",
+    "W",
+    "W",
+    "W",
+    "W",
+    "W"
+  ],
+  "home_performance": {
+    "matches_played": 19,
+    "wins": 13,
+    "draws": 4,
+    "losses": 1,
+    "win_rate": 0.6930039039179716,
+    "goals_per_game": 2.1404109309703205,
+    "goals_conceded_per_game": 0.6911937537312455
+  },
+  "away_performance": {
+    "matches_played": 19,
+    "wins": 9,
+    "draws": 5,
+    "losses": 3,
+    "win_rate": 0.5044031231343773,
+    "goals_per_game": 1.7632093694031319,
+    "goals_conceded_per_game": 0.9683953152984341
+  },
+  "league_position": 1,
+  "points_per_game": 1.458126987097838,
+  "last_updated": "2025-06-28T20:41:23.389447"
+}

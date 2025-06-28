@@ -1,0 +1,135 @@
+{
+  "progress": {
+    "total_files": 10,
+    "completed": 10,
+    "failed": 0,
+    "skipped": 0,
+    "in_progress": 0,
+    "start_time": "2025-06-28 23:30:49.725907",
+    "estimated_completion": "2025-06-28 23:31:06.454383",
+    "current_rate": 35.86699799802373
+  },
+  "jobs": [
+    {
+      "pdf_path": "data/szerencsemix_archive/organized/2025/05-Május/Web__43sz__P__05-30_2025.05.30.pdf",
+      "priority": 10,
+      "estimated_date": "2025-05-30",
+      "file_size": 4336139,
+      "last_attempt": "2025-06-28T23:30:49.726344",
+      "attempt_count": 1,
+      "status": "completed",
+      "error_message": null,
+      "processing_time": 4.222977638244629,
+      "matches_extracted": 18
+    },
+    {
+      "pdf_path": "data/szerencsemix_archive/organized/2025/05-Május/Web__42sz__K__05-27_2025.05.27.pdf",
+      "priority": 9,
+      "estimated_date": "2025-05-27",
+      "file_size": 4472835,
+      "last_attempt": "2025-06-28T23:30:49.726608",
+      "attempt_count": 1,
+      "status": "completed",
+      "error_message": null,
+      "processing_time": 4.1216208934783936,
+      "matches_extracted": 11
+    },
+    {
+      "pdf_path": "data/szerencsemix_archive/organized/2025/05-Május/Web__41sz__P__05-23_2025.05.23.pdf",
+      "priority": 9,
+      "estimated_date": "2025-05-23",
+      "file_size": 5717856,
+      "last_attempt": "2025-06-28T23:30:53.848299",
+      "attempt_count": 1,
+      "status": "completed",
+      "error_message": null,
+      "processing_time": 2.7422335147857666,
+      "matches_extracted": 5
+    },
+    {
+      "pdf_path": "data/szerencsemix_archive/organized/2025/05-Május/Web__40sz__K__05-20_2025.05.20.pdf",
+      "priority": 9,
+      "estimated_date": "2025-05-20",
+      "file_size": 6155825,
+      "last_attempt": "2025-06-28T23:30:53.949431",
+      "attempt_count": 1,
+      "status": "completed",
+      "error_message": null,
+      "processing_time": 2.6054069995880127,
+      "matches_extracted": 5
+    },
+    {
+      "pdf_path": "data/szerencsemix_archive/organized/2025/05-Május/Web__39sz__P__05-16-4_2025.05.16.pdf",
+      "priority": 9,
+      "estimated_date": "2025-05-16",
+      "file_size": 4472718,
+      "last_attempt": "2025-06-28T23:30:56.554879",
+      "attempt_count": 1,
+      "status": "completed",
+      "error_message": null,
+      "processing_time": 2.0657339096069336,
+      "matches_extracted": 5
+    },
+    {
+      "pdf_path": "data/szerencsemix_archive/organized/2025/05-Május/Web__38sz__K__05-13_2025.05.13.pdf",
+      "priority": 9,
+      "estimated_date": "2025-05-13",
+      "file_size": 4168950,
+      "last_attempt": "2025-06-28T23:30:58.622027",
+      "attempt_count": 1,
+      "status": "completed",
+      "error_message": null,
+      "processing_time": 3.805143117904663,
+      "matches_extracted": 10
+    },
+    {
+      "pdf_path": "data/szerencsemix_archive/organized/2025/05-Május/Web__37sz__P__05-09_2025.05.09.pdf",
+      "priority": 9,
+      "estimated_date": "2025-05-09",
+      "file_size": 4292060,
+      "last_attempt": "2025-06-28T23:30:58.623068",
+      "attempt_count": 1,
+      "status": "completed",
+      "error_message": null,
+      "processing_time": 3.8312151432037354,
+      "matches_extracted": 6
+    },
+    {
+      "pdf_path": "data/szerencsemix_archive/organized/2025/05-Május/Web__36sz__K__05-06_2025.05.06.pdf",
+      "priority": 9,
+      "estimated_date": "2025-05-06",
+      "file_size": 4729057,
+      "last_attempt": "2025-06-28T23:31:02.427211",
+      "attempt_count": 1,
+      "status": "completed",
+      "error_message": null,
+      "processing_time": 3.081066846847534,
+      "matches_extracted": 9
+    },
+    {
+      "pdf_path": "data/szerencsemix_archive/organized/2025/05-Május/Web__35sz__P__05-02_2025.05.02.pdf",
+      "priority": 9,
+      "estimated_date": "2025-05-02",
+      "file_size": 4440902,
+      "last_attempt": "2025-06-28T23:31:02.454338",
+      "attempt_count": 1,
+      "status": "completed",
+      "error_message": null,
+      "processing_time": 3.2607243061065674,
+      "matches_extracted": 10
+    },
+    {
+      "pdf_path": "data/szerencsemix_archive/organized/2025/04-Április/Web__34sz__K__04-29_2025.04.29.pdf",
+      "priority": 8,
+      "estimated_date": "2025-04-29",
+      "file_size": 4526235,
+      "last_attempt": "2025-06-28T23:31:05.508319",
+      "attempt_count": 1,
+      "status": "completed",
+      "error_message": null,
+      "processing_time": 0.9459831714630127,
+      "matches_extracted": 3
+    }
+  ],
+  "last_updated": "2025-06-28T23:31:06.454603"
+}

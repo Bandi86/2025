@@ -1,0 +1,43 @@
+{
+  "team_name": "FC Barcelona",
+  "league": "La Liga",
+  "goals_scored_avg": 2.3272375908200784,
+  "goals_conceded_avg": 0.6436442756506859,
+  "corners_per_game": 6.96127721153006,
+  "corners_conceded_per_game": 2.0,
+  "cards_per_game": 2.3099667963881623,
+  "cards_opponent_avg": 3.1223836683948623,
+  "recent_form": [
+    "W",
+    "W",
+    "W",
+    "W",
+    "D",
+    "D",
+    "D",
+    "W",
+    "W",
+    "W"
+  ],
+  "home_performance": {
+    "matches_played": 19,
+    "wins": 13,
+    "draws": 4,
+    "losses": 0,
+    "win_rate": 0.7361724085290163,
+    "goals_per_game": 2.261282743881246,
+    "goals_conceded_per_game": 0.6221241463535738
+  },
+  "away_performance": {
+    "matches_played": 19,
+    "wins": 10,
+    "draws": 5,
+    "losses": 3,
+    "win_rate": 0.5389379268232131,
+    "goals_per_game": 1.8668137804696392,
+    "goals_conceded_per_game": 0.9165931097651804
+  },
+  "league_position": 1,
+  "points_per_game": 2.312883502328213,
+  "last_updated": "2025-06-28T20:41:51.355384"
+}

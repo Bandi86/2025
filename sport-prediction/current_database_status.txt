@@ -1,0 +1,678 @@
+🔍 ADATBÁZIS ÁLLAPOT ELLENŐRZÉS
+==================================================
+📁 Adatbázis: /home/bandi/Documents/code/2025/sport-prediction/data/football_database.db
+📏 Fájl méret: 444.0 KB
+🕒 Utolsó módosítás: 2025-06-28 23:55:42.935262
+
+📊 TÁBLÁK ÉS REKORDOK:
+------------------------------
+  teams               :    591 rekord
+  team_statistics     :      0 rekord
+  historical_matches  :    510 rekord
+  future_matches      :      3 rekord
+  league_tables       :      0 rekord
+  betting_odds        :      0 rekord
+  extraction_logs     :     40 rekord
+  manual_corrections  :      0 rekord
+  data_quality_metrics:      5 rekord
+
+👥 CSAPATOK:
+------------------------------
+  ID:  1 | Demo Hazai           | Demo Hazai           | Hungary
+  ID:  2 | Demo Vendég          | Demo Vendég          | Hungary
+  ID:  3 | Csapat A2            | Csapat A2            | Hungary
+  ID:  4 | Csapat B2            | Csapat B2            | Hungary
+  ID:  5 | Csapat A3            | Csapat A3            | Hungary
+  ID:  6 | Csapat B3            | Csapat B3            | Hungary
+  ID:  7 | Csapat C1            | Csapat C1            | Hungary
+  ID:  8 | Csapat D1            | Csapat D1            | Hungary
+  ID:  9 | Csapat C2            | Csapat C2            | Hungary
+  ID: 10 | Csapat D2            | Csapat D2            | Hungary
+  ID: 11 | Dep. Binacional      | Dep. Binacional      | International
+  ID: 12 | Huancayo             | Huancayo             | International
+  ID: 13 | Club Sportivo Ben Hur | Club Sportivo Ben Hur | International
+  ID: 14 | Independ. de Chivilcoy | Independ. de Chivilcoy | International
+  ID: 15 | Criciuma             | Criciuma             | International
+  ID: 16 | Avai                 | Avai                 | International
+  ID: 17 | Dep. Cuenca          | Dep. Cuenca          | International
+  ID: 18 | Mushuc Runa          | Mushuc Runa          | International
+  ID: 19 | Belgrano de Cordoba  | Belgrano de Cordoba  | International
+  ID: 20 | Defensores de Belgrano | Defensores de Belgrano | International
+  ID: 21 | Sapporo              | Sapporo              | International
+  ID: 22 | Roasso Kumamoto      | Roasso Kumamoto      | International
+  ID: 23 | Kataller Toyama      | Kataller Toyama      | International
+  ID: 24 | JEF United Chiba     | JEF United Chiba     | International
+  ID: 25 | Mito                 | Mito                 | International
+  ID: 26 | Tokushima            | Tokushima            | International
+  ID: 27 | Kofu                 | Kofu                 | International
+  ID: 28 | Ehime                | Ehime                | International
+  ID: 29 | Fujieda MYFC         | Fujieda MYFC         | International
+  ID: 30 | Imabari              | Imabari              | International
+  ID: 31 | Oita Trinita         | Oita Trinita         | International
+  ID: 32 | Omiya Ardija         | Omiya Ardija         | International
+  ID: 33 | Sagan Tosu           | Sagan Tosu           | International
+  ID: 34 | Iwaki                | Iwaki                | International
+  ID: 35 | Yamagata             | Yamagata             | International
+  ID: 36 | Nagasaki             | Nagasaki             | International
+  ID: 37 | Yamaguchi            | Yamaguchi            | International
+  ID: 38 | Blaublitz Akita      | Blaublitz Akita      | International
+  ID: 39 | Jubilo Iwata         | Jubilo Iwata         | International
+  ID: 40 | Vegalta Sendai       | Vegalta Sendai       | International
+  ID: 41 | Seinäjoen JK         | Seinäjoen JK         | International
+  ID: 42 | Mariehamn            | Mariehamn            | International
+  ID: 43 | Haka                 | Haka                 | International
+  ID: 44 | Ilves                | Ilves                | International
+  ID: 45 | KTP                  | KTP                  | International
+  ID: 46 | Jaro                 | Jaro                 | International
+  ID: 47 | AC Oulu              | AC Oulu              | International
+  ID: 48 | Vaasa PS             | Vaasa PS             | International
+  ID: 49 | Kashima A.           | Kashima A.           | International
+  ID: 50 | Okayama              | Okayama              | International
+  ID: 51 | Shimizu SP           | Shimizu SP           | International
+  ID: 52 | Kashiwa R.           | Kashiwa R.           | International
+  ID: 53 | Avispa Fukuoka       | Avispa Fukuoka       | International
+  ID: 54 | Vissel Kobe          | Vissel Kobe          | International
+  ID: 55 | FC Tokyo             | FC Tokyo             | International
+  ID: 56 | Yokohama FC          | Yokohama FC          | International
+  ID: 57 | Kyoto                | Kyoto                | International
+  ID: 58 | Gamba Osaka          | Gamba Osaka          | International
+  ID: 59 | Sanfrecce Hiroshima  | Sanfrecce Hiroshima  | International
+  ID: 60 | Nagoya GE            | Nagoya GE            | International
+  ID: 61 | Shonan Bellmare      | Shonan Bellmare      | International
+  ID: 62 | Yokohama FM          | Yokohama FM          | International
+  ID: 63 | Anyang               | Anyang               | International
+  ID: 64 | Gwangju              | Gwangju              | International
+  ID: 65 | Suwon City           | Suwon City           | International
+  ID: 66 | Gangwon              | Gangwon              | International
+  ID: 67 | Ansan Greeners       | Ansan Greeners       | International
+  ID: 68 | Cheonan City         | Cheonan City         | International
+  ID: 69 | Bucheon              | Bucheon              | International
+  ID: 70 | Gyeongnam            | Gyeongnam            | International
+  ID: 71 | Chungnam Asan        | Chungnam Asan        | International
+  ID: 72 | Seoul E-Land         | Seoul E-Land         | International
+  ID: 73 | Hwaseong             | Hwaseong             | International
+  ID: 74 | Seongnam             | Seongnam             | International
+  ID: 75 | SalPa                | SalPa                | International
+  ID: 76 | Lahti                | Lahti                | International
+  ID: 77 | Klubi 04             | Klubi 04             | International
+  ID: 78 | Seinäjoen JK 2       | Seinäjoen JK 2       | International
+  ID: 79 | Flekkeröy            | Flekkeröy            | International
+  ID: 80 | Vard Haugesund       | Vard Haugesund       | International
+  ID: 81 | Sandnes Ulf          | Sandnes Ulf          | International
+  ID: 82 | Sandviken            | Sandviken            | International
+  ID: 83 | Arendal              | Arendal              | International
+  ID: 84 | Eik-Tonsberg         | Eik-Tonsberg         | International
+  ID: 85 | Västeras SK          | Västeras SK          | International
+  ID: 86 | Landskrona           | Landskrona           | International
+  ID: 87 | Örgryte              | Örgryte              | International
+  ID: 88 | Helsingborg          | Helsingborg          | International
+  ID: 89 | Sundsvall            | Sundsvall            | International
+  ID: 90 | Östersund FK         | Östersund FK         | International
+  ID: 91 | Trelleborg           | Trelleborg           | International
+  ID: 92 | Oddevold             | Oddevold             | International
+  ID: 93 | Hässleholms IF       | Hässleholms IF       | International
+  ID: 94 | IFK Skovde FK        | IFK Skovde FK        | International
+  ID: 95 | Haninge              | Haninge              | International
+  ID: 96 | Assyriska FF         | Assyriska FF         | International
+  ID: 97 | BK Olympic           | BK Olympic           | International
+  ID: 98 | Skövde               | Skövde               | International
+  ID: 99 | Jönköping Södra      | Jönköping Södra      | International
+  ID: 100 | Trollhättan          | Trollhättan          | International
+  ID: 101 | Ljungskile           | Ljungskile           | International
+  ID: 102 | Angelholm            | Angelholm            | International
+  ID: 103 | Oskarshamn           | Oskarshamn           | International
+  ID: 104 | Eskilsminne          | Eskilsminne          | International
+  ID: 105 | FC Arlanda           | FC Arlanda           | International
+  ID: 106 | Stockholm Internazionale | Stockholm Internazionale | International
+  ID: 107 | IF Karlstad          | IF Karlstad          | International
+  ID: 108 | Gefle                | Gefle                | International
+  ID: 109 | Hödd                 | Hödd                 | International
+  ID: 110 | Mjöndalen            | Mjöndalen            | International
+  ID: 111 | Kongsvinger          | Kongsvinger          | International
+  ID: 112 | Raufoss              | Raufoss              | International
+  ID: 113 | Lilleström           | Lilleström           | International
+  ID: 114 | Sogndal              | Sogndal              | International
+  ID: 115 | Moss                 | Moss                 | International
+  ID: 116 | Egersund             | Egersund             | International
+  ID: 117 | Odd Grenland         | Odd Grenland         | International
+  ID: 118 | Start                | Start                | International
+  ID: 119 | Skeid                | Skeid                | International
+  ID: 120 | Aalesund             | Aalesund             | International
+  ID: 121 | Stabaek              | Stabaek              | International
+  ID: 122 | Ranheim              | Ranheim              | International
+  ID: 123 | Völsungur Husavik    | Völsungur Husavik    | International
+  ID: 124 | Fylkir               | Fylkir               | International
+  ID: 125 | Hammarby             | Hammarby             | International
+  ID: 126 | Halmstad             | Halmstad             | International
+  ID: 128 | Sirius               | Sirius               | International
+  ID: 129 | HB Torshavn          | HB Torshavn          | International
+  ID: 130 | TB Tvöroyri          | TB Tvöroyri          | International
+  ID: 131 | Liverpool Montevideo | Liverpool Montevideo | International
+  ID: 132 | Montevideo Wanderers | Montevideo Wanderers | International
+  ID: 133 | Defensor Montevideo  | Defensor Montevideo  | International
+  ID: 134 | Plaza Colonia        | Plaza Colonia        | International
+  ID: 135 | Penarol Montevideo   | Penarol Montevideo   | International
+  ID: 136 | CA Cerro             | CA Cerro             | International
+  ID: 137 | Palmeiras SP         | Palmeiras SP         | International
+  ID: 138 | Botafogo RJ          | Botafogo RJ          | International
+  ID: 148 | Benfica              | Benfica              | International
+  ID: 149 | Chelsea              | Chelsea              | International
+  ID: 159 | Rosario Central      | Rosario Central      | International
+  ID: 160 | Union SF             | Union SF             | International
+  ID: 161 | Sportivo Italiano    | Sportivo Italiano    | International
+  ID: 162 | Dep. Flandria        | Dep. Flandria        | International
+  ID: 163 | Dep. Merlo           | Dep. Merlo           | International
+  ID: 164 | Dep. Armenio         | Dep. Armenio         | International
+  ID: 165 | Villa San Carlos     | Villa San Carlos     | International
+  ID: 166 | CSYD Liniers         | CSYD Liniers         | International
+  ID: 167 | Excursionistas       | Excursionistas       | International
+  ID: 168 | Argentino de Quilmes | Argentino de Quilmes | International
+  ID: 169 | Rosenborg            | Rosenborg            | International
+  ID: 170 | Viking Stavanger     | Viking Stavanger     | International
+  ID: 171 | Arsenal Sarandí      | Arsenal Sarandí      | International
+  ID: 172 | Atl. Colegiales      | Atl. Colegiales      | International
+  ID: 173 | Tristan Suarez       | Tristan Suarez       | International
+  ID: 174 | Ferro Carril Oeste   | Ferro Carril Oeste   | International
+  ID: 175 | Chacarita Juniors    | Chacarita Juniors    | International
+  ID: 176 | Nueva Chicago        | Nueva Chicago        | International
+  ID: 177 | Talleres de Remedios | Talleres de Remedios | International
+  ID: 178 | Gimnasia Jujuy       | Gimnasia Jujuy       | International
+  ID: 179 | Atl. Temperley       | Atl. Temperley       | International
+  ID: 180 | Chaco For Ever       | Chaco For Ever       | International
+  ID: 181 | Dep. Madryn          | Dep. Madryn          | International
+  ID: 183 | San Martin de Tucuman | San Martin de Tucuman | International
+  ID: 184 | Patronato Parana     | Patronato Parana     | International
+  ID: 185 | Dep. Tarma           | Dep. Tarma           | International
+  ID: 186 | Dep. Garcilaso       | Dep. Garcilaso       | International
+  ID: 187 | UTC de Cajamarca     | UTC de Cajamarca     | International
+  ID: 188 | Sport Boys Callao    | Sport Boys Callao    | International
+  ID: 189 | Longford Town        | Longford Town        | International
+  ID: 190 | UC Dublin            | UC Dublin            | International
+  ID: 191 | U21Anglia            | U21Anglia            | International
+  ID: 192 | U21Németország       | U21Németország       | International
+  ID: 200 | San Antonio Bulo Bulo | San Antonio Bulo Bulo | International
+  ID: 201 | Deportivo San Jose de Oruro | Deportivo San Jose de Oruro | International
+  ID: 202 | Oriente Petrolero    | Oriente Petrolero    | International
+  ID: 203 | Real Tomayapo        | Real Tomayapo        | International
+  ID: 204 | Vila Nova GO         | Vila Nova GO         | International
+  ID: 205 | Atlético GO          | Atlético GO          | International
+  ID: 206 | Athlético PR         | Athlético PR         | International
+  ID: 207 | Coritiba             | Coritiba             | International
+  ID: 208 | Delfin Manta         | Delfin Manta         | International
+  ID: 209 | Manta FC             | Manta FC             | International
+  ID: 210 | Barcelona Guayaquil  | Barcelona Guayaquil  | International
+  ID: 211 | Libertad Loja        | Libertad Loja        | International
+  ID: 212 | Guarani SP           | Guarani SP           | International
+  ID: 213 | CSA                  | CSA                  | International
+  ID: 214 | Retro FC             | Retro FC             | International
+  ID: 215 | Londrina             | Londrina             | International
+  ID: 216 | Central Coast Rhinos | Central Coast Rhinos | International
+  ID: 217 | Canberra Brave       | Canberra Brave       | International
+  ID: 218 | Melbourne Mustangs   | Melbourne Mustangs   | International
+  ID: 219 | Adelaide Adrenaline  | Adelaide Adrenaline  | International
+  ID: 220 | Newcastle North Stars | Newcastle North Stars | International
+  ID: 221 | Melbourne Ice        | Melbourne Ice        | International
+  ID: 222 | Perth Thunder        | Perth Thunder        | International
+  ID: 223 | Brisbane Lightning   | Brisbane Lightning   | International
+  ID: 224 | Brisbane Broncos     | Brisbane Broncos     | International
+  ID: 225 | New Zealand Warriors | New Zealand Warriors | International
+  ID: 226 | St. George Illawarra | St. George Illawarra | International
+  ID: 227 | Parramatta Eels      | Parramatta Eels      | International
+  ID: 228 | Dolphins             | Dolphins             | International
+  ID: 229 | South Sydney Rabbitohs | South Sydney Rabbitohs | International
+  ID: 230 | Catalan Dragons      | Catalan Dragons      | International
+  ID: 231 | Huddersfield         | Huddersfield         | International
+  ID: 232 | Warrington           | Warrington           | International
+  ID: 233 | Hull FC              | Hull FC              | International
+  ID: 234 | Castleford           | Castleford           | International
+  ID: 235 | Wigan                | Wigan                | International
+  ID: 236 | New England Free Jacks | New England Free Jacks | International
+  ID: 237 | Houston Sabercats    | Houston Sabercats    | International
+  ID: 238 | Toulouse             | Toulouse             | International
+  ID: 239 | Bordeaux             | Bordeaux             | International
+  ID: 240 | Dortmund             | Dortmund             | International
+  ID: 241 | Monterrey            | Monterrey            | International
+  ID: 242 | Esperance de Tunis   | Esperance de Tunis   | International
+  ID: 249 | Los Angeles FC       | Los Angeles FC       | International
+  ID: 250 | Flamengo RJ          | Flamengo RJ          | International
+  ID: 257 | Guadeloupe           | Guadeloupe           | International
+  ID: 258 | Guatemala            | Guatemala            | International
+  ID: 264 | Panama               | Panama               | International
+  ID: 265 | Jamaika              | Jamaika              | International
+  ID: 271 | Honduras             | Honduras             | International
+  ID: 272 | Curacao              | Curacao              | International
+  ID: 278 | Kanada               | Kanada               | International
+  ID: 279 | Salvador             | Salvador             | International
+  ID: 285 | Independiente SF     | Independiente SF     | International
+  ID: 286 | Independiente Medellin | Independiente Medellin | International
+  ID: 289 | Dallas               | Dallas               | International
+  ID: 290 | Atlanta              | Atlanta              | International
+  ID: 291 | Washington           | Washington           | International
+  ID: 292 | Minnesota            | Minnesota            | International
+  ID: 293 | Seattle              | Seattle              | International
+  ID: 294 | Indiana              | Indiana              | International
+  ID: 295 | Kawasaki Frontale    | Kawasaki Frontale    | International
+  ID: 296 | Albirex Niigata      | Albirex Niigata      | International
+  ID: 297 | Qingdao Hainiu       | Qingdao Hainiu       | International
+  ID: 298 | Zhejiang FC          | Zhejiang FC          | International
+  ID: 299 | Shanghai Shenhua     | Shanghai Shenhua     | International
+  ID: 300 | Tianjin Tigers       | Tianjin Tigers       | International
+  ID: 301 | Changchun Yatai      | Changchun Yatai      | International
+  ID: 302 | Qingdao West Coast   | Qingdao West Coast   | International
+  ID: 303 | Meizhou Hakka        | Meizhou Hakka        | International
+  ID: 304 | Beijing Guoan        | Beijing Guoan        | International
+  ID: 305 | Shandong Taishan     | Shandong Taishan     | International
+  ID: 306 | Wuhan Three Towns    | Wuhan Three Towns    | International
+  ID: 307 | Chengdu Rongcheng    | Chengdu Rongcheng    | International
+  ID: 308 | Shenzhen Peng City   | Shenzhen Peng City   | International
+  ID: 309 | U21Hollandia         | U21Hollandia         | International
+  ID: 317 | U21Franciaország     | U21Franciaország     | International
+  ID: 324 | Enköping             | Enköping             | International
+  ID: 325 | Vasalund             | Vasalund             | International
+  ID: 326 | Ulsan                | Ulsan                | International
+  ID: 333 | Mamelodi Sundowns    | Mamelodi Sundowns    | International
+  ID: 334 | Fluminense RJ        | Fluminense RJ        | International
+  ID: 341 | Spanyolország        | Spanyolország        | International
+  ID: 342 | Csehország           | csehország           | International
+  ID: 343 | Belgium              | Belgium              | International
+  ID: 345 | Valencia             | Valencia             | International
+  ID: 346 | Real Madrid          | Real Madrid          | International
+  ID: 347 | Bayern München       | Bayern München       | International
+  ID: 348 | Boca Juniors         | Boca Juniors         | International
+  ID: 365 | Guabira Montero      | Guabira Montero      | International
+  ID: 366 | CDT Real Oruro       | CDT Real Oruro       | International
+  ID: 367 | Botafogo SP          | Botafogo SP          | International
+  ID: 368 | Chapecoense          | Chapecoense          | International
+  ID: 369 | America MG           | America MG           | International
+  ID: 370 | Alianza Huanuco      | Alianza Huanuco      | International
+  ID: 371 | Universitario de Deportes | Universitario de Deportes | International
+  ID: 372 | Lexington SC         | Lexington SC         | International
+  ID: 373 | Colorado Springs     | Colorado Springs     | International
+  ID: 374 | Hartford             | Hartford             | International
+  ID: 375 | Loudoun Utd.         | Loudoun Utd.         | International
+  ID: 376 | North Carolina       | North Carolina       | International
+  ID: 377 | Louisville City      | Louisville City      | International
+  ID: 381 | Tecnico Univ. Ambato | Tecnico Univ. Ambato | International
+  ID: 382 | Kansas City          | Kansas City          | International
+  ID: 383 | Angel City FC        | Angel City FC        | International
+  ID: 384 | Racing Louisville    | Racing Louisville    | International
+  ID: 385 | Orlando              | Orlando              | International
+  ID: 386 | Machida Zelvia       | Machida Zelvia       | International
+  ID: 387 | Cerezo Osaka         | Cerezo Osaka         | International
+  ID: 388 | Tokyo Verdy          | Tokyo Verdy          | International
+  ID: 389 | Daegu                | Daegu                | International
+  ID: 390 | Jeonbuk              | Jeonbuk              | International
+  ID: 391 | FC Seoul             | FC Seoul             | International
+  ID: 392 | Pohang               | Pohang               | International
+  ID: 393 | Jeju                 | Jeju                 | International
+  ID: 394 | Incheon              | Incheon              | International
+  ID: 395 | Hönefoss             | Hönefoss             | International
+  ID: 396 | Rana FK              | Rana FK              | International
+  ID: 397 | Grorud               | Grorud               | International
+  ID: 398 | Ullensaker/Kisa      | Ullensaker/Kisa      | International
+  ID: 399 | Kjelsas              | Kjelsas              | International
+  ID: 400 | Strömmen             | Strömmen             | International
+  ID: 401 | Pors Grenland        | Pors Grenland        | International
+  ID: 402 | Dalian Yingbo        | Dalian Yingbo        | International
+  ID: 403 | Asane                | Asane                | International
+  ID: 404 | United Nordic        | United Nordic        | International
+  ID: 411 | Urawa RD             | Urawa RD             | International
+  ID: 417 | U21Portugália        | U21Portugália        | International
+  ID: 423 | U21Spanyolország     | U21Spanyolország     | International
+  ID: 429 | Ferrocarril Midland  | Ferrocarril Midland  | International
+  ID: 430 | Real Pilar           | Real Pilar           | International
+  ID: 431 | Brown de Adrogue     | Brown de Adrogue     | International
+  ID: 432 | Argentino de Merlo   | Argentino de Merlo   | International
+  ID: 433 | Atl. Acassuso        | Atl. Acassuso        | International
+  ID: 434 | Dock Sud             | Dock Sud             | International
+  ID: 435 | Atl. Fenix           | Atl. Fenix           | International
+  ID: 436 | UAI Urquiza          | UAI Urquiza          | International
+  ID: 437 | Dep. Laferrere       | Dep. Laferrere       | International
+  ID: 438 | Comunicaciones       | Comunicaciones       | International
+  ID: 439 | Grindavik            | Grindavik            | International
+  ID: 440 | Bodö/Glimt           | Bodö/Glimt           | International
+  ID: 441 | Brann Bergen         | Brann Bergen         | International
+  ID: 443 | Union Espanola       | Union Espanola       | International
+  ID: 444 | Coquimbo Unido       | Coquimbo Unido       | International
+  ID: 445 | Universidad de Chile | Universidad de Chile | International
+  ID: 446 | Dep. Iquique         | Dep. Iquique         | International
+  ID: 448 | Huachipato           | Huachipato           | International
+  ID: 449 | Palestino            | Palestino            | International
+  ID: 450 | Olympique Akbou      | Olympique Akbou      | International
+  ID: 451 | Belouizdad           | Belouizdad           | International
+  ID: 452 | Paradou              | Paradou              | International
+  ID: 453 | ES Mostaganem        | ES Mostaganem        | International
+  ID: 454 | Melgar               | Melgar               | International
+  ID: 455 | Los Chankas          | Los Chankas          | International
+  ID: 456 | Sporting Cristal     | Sporting Cristal     | International
+  ID: 457 | Juventud de Las Piedras | Juventud de Las Piedras | International
+  ID: 458 | Danubio Montevideo   | Danubio Montevideo   | International
+  ID: 459 | Miramar Missiones    | Miramar Missiones    | International
+  ID: 460 | Nacional Montevideo  | Nacional Montevideo  | International
+  ID: 462 | Club Almagro         | Club Almagro         | International
+  ID: 463 | San Miguel           | San Miguel           | International
+  ID: 464 | Gimnasia Tiro de Salta | Gimnasia Tiro de Salta | International
+  ID: 465 | Dep. Maipu           | Dep. Maipu           | International
+  ID: 466 | Oviedo               | Oviedo               | International
+  ID: 467 | Mirandes             | Mirandes             | International
+  ID: 468 | Always Ready La Paz  | Always Ready La Paz  | International
+  ID: 469 | Academia del Balompie Boliviano | Academia del Balompie Boliviano | International
+  ID: 470 | Universitario de Vinto | Universitario de Vinto | International
+  ID: 471 | Remo                 | Remo                 | International
+  ID: 472 | Paysandu             | Paysandu             | International
+  ID: 473 | El Nacional Quito    | El Nacional Quito    | International
+  ID: 474 | Univ. Catolica de Quito | Univ. Catolica de Quito | International
+  ID: 475 | Emelec Guayaquil     | Emelec Guayaquil     | International
+  ID: 476 | Detroit              | Detroit              | International
+  ID: 477 | FC Miami             | FC Miami             | International
+  ID: 478 | Utah                 | Utah                 | International
+  ID: 479 | Seattle Reign        | Seattle Reign        | International
+  ID: 480 | Penrith Panthers     | Penrith Panthers     | International
+  ID: 481 | Newcastle Knights    | Newcastle Knights    | International
+  ID: 482 | Melbourne Storm      | Melbourne Storm      | International
+  ID: 483 | Canterbury Crusaders | Canterbury Crusaders | International
+  ID: 484 | Waikato Chiefs       | Waikato Chiefs       | International
+  ID: 485 | Leigh Centurions     | Leigh Centurions     | International
+  ID: 486 | Chicago Hounds       | Chicago Hounds       | International
+  ID: 487 | Toulon               | Toulon               | International
+  ID: 488 | Magyarország         | Magyarország         | Hungary
+  ID: 489 | Svédország           | Svédország           | Hungary
+  ID: 490 | U21Ausztria          | U21Ausztria          | Hungary
+  ID: 491 | U21Lettország        | U21Lettország        | Hungary
+  ID: 492 | U21Ukrajna           | U21Ukrajna           | Hungary
+  ID: 493 | Bulgária             | Bulgária             | Hungary
+  ID: 494 | Ciprus               | Ciprus               | Hungary
+  ID: 495 | Koszovó              | Koszovó              | Hungary
+  ID: 496 | Örményország         | Örményország         | Hungary
+  ID: 497 | Luxemburg            | Luxemburg            | Hungary
+  ID: 498 | Szlovénia            | Szlovénia            | Hungary
+  ID: 499 | Lengyelország        | Lengyelország        | Hungary
+  ID: 500 | Moldova              | Moldova              | Hungary
+  ID: 501 | Skócia               | Skócia               | Hungary
+  ID: 502 | Izland               | Izland               | Hungary
+  ID: 503 | Írország             | Írország             | Hungary
+  ID: 504 | Szenegál             | Szenegál             | Hungary
+  ID: 505 | Marokkó              | Marokkó              | Hungary
+  ID: 506 | Tunézia              | Tunézia              | Hungary
+  ID: 507 | Norvégia             | Norvégia             | Hungary
+  ID: 508 | Olaszország          | Olaszország          | Hungary
+  ID: 509 | Észtország           | Észtország           | Hungary
+  ID: 510 | Izrael               | Izrael               | Hungary
+  ID: 511 | Wales                | Wales                | Hungary
+  ID: 512 | Liechtenstein        | Liechtenstein        | Hungary
+  ID: 513 | Észak-Macedónia      | Észak-Macedónia      | Hungary
+  ID: 514 | Montenegró           | Montenegró           | Hungary
+  ID: 515 | Gibraltár            | Gibraltár            | Hungary
+  ID: 516 | Horvátország         | Horvátország         | Hungary
+  ID: 517 | Antigua és Barbuda   | Antigua és Barbuda   | Hungary
+  ID: 518 | Kuba                 | Kuba                 | Hungary
+  ID: 519 | Kolumbia             | Kolumbia             | Hungary
+  ID: 520 | Peru                 | Peru                 | Hungary
+  ID: 521 | Lietkabelis Panevezys | Lietkabelis Panevezys | Hungary
+  ID: 522 | Rytas Vilnius        | Rytas Vilnius        | Hungary
+  ID: 523 | Panathinaikosz       | Panathinaikosz       | Hungary
+  ID: 524 | Olympiakosz          | Olympiakosz          | Hungary
+  ID: 525 | Paris BC             | Paris BC             | Hungary
+  ID: 526 | Bourg                | Bourg                | Hungary
+  ID: 527 | Ecuador              | Ecuador              | Hungary
+  ID: 528 | Brazília             | Brazília             | Hungary
+  ID: 529 | Paraguay             | Paraguay             | Hungary
+  ID: 530 | Uruguay              | Uruguay              | Hungary
+  ID: 531 | Chile                | Chile                | Hungary
+  ID: 532 | Argentína            | Argentína            | Hungary
+  ID: 533 | Olimpia Asuncion     | Olimpia Asuncion     | Hungary
+  ID: 534 | Vélez Sarsfield      | Vélez Sarsfield      | Hungary
+  ID: 535 | Colo Colo            | Colo Colo            | Hungary
+  ID: 536 | Atl. Bucaramanga     | Atl. Bucaramanga     | Hungary
+  ID: 537 | Racing Club          | Racing Club          | Hungary
+  ID: 538 | Fortaleza            | Fortaleza            | Hungary
+  ID: 539 | Godoy Cruz           | Godoy Cruz           | Hungary
+  ID: 540 | Atl. Grau            | Atl. Grau            | Hungary
+  ID: 541 | Gremio RS            | Gremio RS            | Hungary
+  ID: 542 | Sp. Luqueno          | Sp. Luqueno          | Hungary
+  ID: 543 | Once Caldas          | Once Caldas          | Hungary
+  ID: 544 | Atlético MG          | Atlético MG          | Hungary
+  ID: 545 | Cienciano            | Cienciano            | Hungary
+  ID: 546 | Caracas FC           | Caracas              | Hungary
+  ID: 547 | Azerbajdzsán         | Azerbajdzsán         | Hungary
+  ID: 548 | Litvánia             | Litvánia             | Hungary
+  ID: 549 | Ferroviaria SP       | Ferroviaria SP       | Hungary
+  ID: 550 | Lettország           | Lettország           | Hungary
+  ID: 551 | Málta                | Málta                | Hungary
+  ID: 552 | Görögország          | Görögország          | Hungary
+  ID: 553 | Törökország          | Törökország          | Hungary
+  ID: 554 | Szerbia              | Szerbia              | Hungary
+  ID: 555 | Ukrajna              | Ukrajna              | Hungary
+  ID: 556 | Albánia              | Albánia              | Hungary
+  ID: 557 | Fehéroroszország     | Fehéroroszország     | Hungary
+  ID: 558 | Finnország           | Finnország           | Hungary
+  ID: 559 | Dánia                | Dánia                | Hungary
+  ID: 560 | Németország          | Németország          | Hungary
+  ID: 561 | Hollandia            | Hollandia            | Hungary
+  ID: 562 | Ausztria             | Ausztria             | Hungary
+  ID: 563 | Anglia               | Anglia               | Hungary
+  ID: 564 | Portugália           | Portugália           | Hungary
+  ID: 565 | Franciaország        | Franciaország        | Hungary
+  ID: 566 | Svájc                | Svájc                | Hungary
+  ID: 567 | Trefl Sopot          | Trefl Sopot          | Hungary
+  ID: 568 | Start Lublin         | Start Lublin         | Hungary
+  ID: 569 | Maracana CE          | Maracana CE          | Hungary
+  ID: 570 | Internacional RS     | Internacional RS     | Hungary
+  ID: 571 | Ceara                | Ceara                | Hungary
+  ID: 572 | Capital DF           | Capital DF           | Hungary
+  ID: 573 | Como                 | Como                 | Hungary
+  ID: 574 | Internazionale       | Internazionale       | Hungary
+  ID: 575 | Napoli               | Napoli               | Hungary
+  ID: 576 | Cagliari             | Cagliari             | Hungary
+  ID: 577 | Szombathely          | Szombathely          | Hungary
+  ID: 578 | Szolnok              | Szolnok              | Hungary
+  ID: 579 | Dundalk              | Dundalk              | Hungary
+  ID: 580 | Kerry                | Kerry                | Hungary
+  ID: 581 | Karvina              | Karvina              | Hungary
+  ID: 582 | Plzen                | Plzen                | Hungary
+  ID: 583 | Ystad IF             | Ystad IF             | Hungary
+  ID: 584 | Al-Nassr             | Al-Nassr             | Hungary
+  ID: 585 | Al-Taawoun           | Al-Taawoun           | Hungary
+  ID: 586 | Haugesund            | Haugesund            | Hungary
+  ID: 587 | Kecskemét            | Kecskemét            | Hungary
+  ID: 588 | Puskás Akadémia      | Puskás Akadémia      | Hungary
+  ID: 589 | Aston Villa          | Aston Villa          | Hungary
+  ID: 590 | Tottenham            | Tottenham            | Hungary
+  ID: 591 | Manchester Utd.      | Manchester Utd.      | Hungary
+  ID: 592 | Talleres de Cordoba  | Talleres de Cordoba  | Hungary
+  ID: 593 | Alianza Lima         | Alianza Lima         | Hungary
+  ID: 594 | Bolivar La Paz       | Bolivar La Paz       | Hungary
+  ID: 595 | River Plate          | River Plate          | Hungary
+  ID: 596 | Independiente del Valle | Independiente del Valle | Hungary
+  ID: 597 | LDU Quito            | LDU Quito            | Hungary
+  ID: 598 | Independiente Avellaneda | Independiente Avellaneda | Hungary
+  ID: 599 | Guarani Asuncion     | Guarani Asuncion     | Hungary
+  ID: 600 | Racing Montevideo    | Racing Montevideo    | Hungary
+  ID: 601 | Corinthians SP       | Corinthians SP       | Hungary
+  ID: 602 | Shanghai Port        | Shanghai Port        | Hungary
+  ID: 603 | Zorya Luganszk       | Zorya Luganszk       | Hungary
+  ID: 604 | Sahtar Doneck        | Sahtar Doneck        | Hungary
+  ID: 605 | B36 Torshavn         | B36 Torshavn         | Hungary
+  ID: 606 | FC Suduroy           | Suduroy              | Hungary
+  ID: 607 | Cambuur              | Cambuur              | Hungary
+  ID: 608 | Maastricht           | Maastricht           | Hungary
+  ID: 609 | Atomerőmű            | Atomerőmű            | Hungary
+  ID: 610 | Roeselare            | Roeselare            | Hungary
+  ID: 611 | Haasrode Leuven      | Haasrode Leuven      | Hungary
+  ID: 612 | Libertad Asuncion    | Libertad Asuncion    | Hungary
+  ID: 613 | Atl. Nacional Medellin | Atl. Nacional Medellin | Hungary
+  ID: 614 | CA Huracan           | CA Huracan           | Hungary
+  ID: 615 | Magdeburg            | Magdeburg            | Hungary
+  ID: 616 | Münster              | Münster              | Hungary
+  ID: 617 | Excelsior            | Excelsior            | Hungary
+  ID: 618 | PSV 2                | PSV 2                | Hungary
+  ID: 619 | Nice                 | Nice                 | Hungary
+  ID: 620 | Reims                | Reims                | Hungary
+  ID: 621 | Manchester City      | Manchester City      | Hungary
+  ID: 622 | Wolverhampton        | Wolverhampton        | Hungary
+  ID: 623 | Porto                | Porto                | Hungary
+  ID: 624 | Moreirense           | Moreirense           | Hungary
+  ID: 625 | Anadolu Efes         | Anadolu Efes         | Hungary
+  ID: 626 | Barcelona            | Barcelona            | Hungary
+  ID: 627 | Monaco               | Monaco               | Hungary
+  ID: 628 | Kalpa                | Kalpa                | Hungary
+  ID: 629 | SaiPa                | SaiPa                | Hungary
+  ID: 630 | Botafogo PB          | Botafogo PB          | Hungary
+  ID: 631 | Cruzeiro MG          | Cruzeiro MG          | Hungary
+  ID: 632 | Cruz Azul            | Cruz Azul            | Hungary
+  ID: 633 | Tigres UANL          | Tigres UANL          | Hungary
+  ID: 634 | Columbus             | Columbus             | Hungary
+  ID: 635 | Atlanta Utd.         | Atlanta Utd.         | Hungary
+  ID: 636 | Dortmund Klubcsa     | Dortmund Klubcsa     | Hungary
+  ID: 637 | Chicago              | Chicago              | Hungary
+  ID: 638 | Philadelphia         | Philadelphia         | Hungary
+  ID: 639 | Vancouver            | Vancouver            | Hungary
+  ID: 640 | San Diego            | San Diego            | Hungary
+  ID: 641 | Ulsan Klu            | Ulsan Klu            | Hungary
+  ID: 642 | Paris SG             | Paris SG             | Hungary
+  ID: 643 | Inter Miami          | Inter Miami          | Hungary
+  ID: 644 | Monterrey K          | Monterrey K          | Hungary
+  ID: 645 | Bayern M             | Bayern M             | Hungary
+  ID: 646 | Juventus             | Juventus             | Hungary
+  ID: 647 | Wydad Casablanca     | Wydad Casablanca     | Hungary
+  ID: 648 | Pachuca              | Pachuca              | Hungary
+  ID: 649 | USA                  | USA                  | Hungary
+  ID: 650 | Costa Rica           | Costa Rica           | Hungary
+  ID: 651 | Cincinnati           | Cincinnati           | Hungary
+  ID: 652 | Toronto FC           | Toronto              | Hungary
+  ID: 653 | Portland M           | Portland M           | Hungary
+  ID: 654 | Haiti                | Haiti                | Hungary
+  ID: 655 | D.C. United          | D.C. United          | Hungary
+  ID: 656 | Nashville ML         | Nashville ML         | Hungary
+  ID: 657 | Montreal             | Montreal             | Hungary
+  ID: 658 | New York City FC     | New York City        | Hungary
+  ID: 659 | Charlotte            | Charlotte            | Hungary
+  ID: 660 | New England          | New England          | Hungary
+  ID: 661 | Colorado Rapids ML   | Colorado Rapids ML   | Hungary
+  ID: 662 | New York RB          | New York RB          | Hungary
+  ID: 663 | Salt Lake            | Salt Lake            | Hungary
+  ID: 664 | Fluminense RJ Klubcsapa | Fluminense RJ Klubcsapa | Hungary
+  ID: 665 | River Plate Klubcs   | River Plate Klubcs   | Hungary
+  ID: 666 | Salzburg             | Salzburg             | Hungary
+  ID: 667 | Houston              | Houston              | Hungary
+  ID: 668 | San Jose             | San Jose             | Hungary
+  ID: 669 | Colorado Rapids      | Colorado Rapids      | Hungary
+  ID: 670 | Los Angeles Galaxy MLS | Los Angeles Galaxy MLS | Hungary
+  ID: 671 | Portland             | Portland             | Hungary
+  ID: 672 | Nashville            | Nashville            | Hungary
+  ID: 673 | Dortmund Klubcsapat v | Dortmund Klubcsapat v | Hungary
+  ID: 674 | Pachuca Klubcs       | Pachuca Klubcs       | Hungary
+  ID: 675 | Salvador G           | Salvador G           | Hungary
+  ID: 676 | Valerenga            | Valerenga            | Hungary
+  ID: 677 | Molde                | Molde                | Hungary
+  ID: 678 | KFUM Oslo            | KFUM Oslo            | Hungary
+  ID: 679 | Str                  | Str                  | Hungary
+  ID: 680 | Kristiansund         | Kristiansund         | Hungary
+  ID: 681 | Rosenborg Norv       | Rosenborg Norv       | Hungary
+  ID: 682 | Atl. Madrid          | Atl. Madrid          | Hungary
+  ID: 683 | Porto Klu            | Porto Klu            | Hungary
+  ID: 684 | Dortmund Klubcs      | Dortmund Klubcs      | Hungary
+  ID: 685 | Urawa RD Klub        | Urawa RD Klub        | Hungary
+  ID: 686 | Wydad Casablanca Klubcsap | Wydad Casablanca Klubcsap | Hungary
+  ID: 687 | Dortmund Klubcsapat  | Dortmund Klubcsapat  | Hungary
+  ID: 688 | Seattle Klubcs       | Seattle Klubcs       | Hungary
+  ID: 689 | Cincinnati ML        | Cincinnati ML        | Hungary
+  ID: 690 | Charlotte MLS        | Charlotte MLS        | Hungary
+  ID: 691 | FTC                  | Ferencváros          | Hungary
+  ID: 692 | MTK                  | MTK Budapest         | Hungary
+  ID: 693 | Arsenal              | Arsenal              | Hungary
+  ID: 694 | Crystal Palace       | Crystal Palace       | Hungary
+  ID: 695 | Milan                | Milan                | Hungary
+  ID: 696 | Bologna              | Bologna              | Hungary
+  ID: 697 | Empoli               | Empoli               | Hungary
+  ID: 698 | Celta Vigo           | Celta Vigo           | Hungary
+  ID: 699 | Villarreal Sp        | Villarreal Sp        | Hungary
+  ID: 700 | Osasuna              | Osasuna              | Hungary
+  ID: 701 | Sevilla              | Sevilla              | Hungary
+  ID: 702 | Betis                | Betis                | Hungary
+  ID: 703 | Valladolid           | Valladolid           | Hungary
+  ID: 704 | Leverkusen           | Leverkusen           | Hungary
+  ID: 705 | Augsburg             | Augsburg             | Hungary
+  ID: 706 | Hoffenheim           | Hoffenheim           | Hungary
+  ID: 707 | E. Frankfurt         | E. Frankfurt         | Hungary
+  ID: 708 | RB Leipzig Bund      | RB Leipzig Bund      | Hungary
+  ID: 709 | ZTE                  | Zalaegerszeg         | Hungary
+  ID: 710 | Kecskem              | Kecskem              | Hungary
+  ID: 711 | Roma Ola             | Roma Ola             | Hungary
+  ID: 712 | Monza                | Monza                | Hungary
+  ID: 713 | Torino               | Torino               | Hungary
+  ID: 714 | Liverpool            | Liverpool            | Hungary
+  ID: 715 | Tottenham P          | Tottenham P          | Hungary
+  ID: 716 | Wolfsburg            | Wolfsburg            | Hungary
+  ID: 717 | Freiburg             | Freiburg             | Hungary
+  ID: 718 | Lazio                | Lazio                | Hungary
+  ID: 719 | Parma                | Parma                | Hungary
+  ID: 720 | Venezia              | Venezia              | Hungary
+  ID: 721 | Fiorentina           | Fiorentina           | Hungary
+
+⚽ TÖRTÉNELMI MECCSEK:
+------------------------------
+  ID:  1 | 2023-01-17 | Demo Hazai      vs Demo Vendég     | N/A | Demo Liga
+       Forrás: web_05sz__01-17_k16_2023.01.17.pdf | Bizonyosság: 0.30
+  ID:  2 | 2023-01-27 | Demo Hazai      vs Demo Vendég     | N/A | Demo Liga
+       Forrás: web_08sz__01-27_p16_2023.01.27.pdf | Bizonyosság: 0.30
+  ID:  3 | 2023-01-13 | Demo Hazai      vs Demo Vendég     | N/A | Demo Liga
+       Forrás: web_04sz__01-13_p16_2023.01.13.pdf | Bizonyosság: 0.30
+  ID:  4 | 2023-01-24 | Demo Hazai      vs Demo Vendég     | N/A | Demo Liga
+       Forrás: web_07sz__01-24_k16_2023.01.24.pdf | Bizonyosság: 0.30
+  ID:  5 | 2023-01-31 | Demo Hazai      vs Demo Vendég     | N/A | Demo Liga
+       Forrás: web_09sz__01-31_k16_2023.01.31.pdf | Bizonyosság: 0.30
+  ID:  6 | 2025-06-26 | Csapat C1       vs Csapat D1       | 1-2 | NB I
+       Forrás: Web__51sz__P__06-27_2025.06.27.pdf | Bizonyosság: 0.80
+  ID:  7 | 2025-06-25 | Csapat C2       vs Csapat D2       | 2-1 | NB I
+       Forrás: Web__51sz__P__06-27_2025.06.27.pdf | Bizonyosság: 0.80
+  ID:  8 | 2025-06-23 | Csapat C1       vs Csapat D1       | 1-2 | NB I
+       Forrás: Web__50sz__K__06-24_2025.06.24.pdf | Bizonyosság: 0.80
+  ID:  9 | 2025-06-22 | Csapat C2       vs Csapat D2       | 2-1 | NB I
+       Forrás: Web__50sz__K__06-24_2025.06.24.pdf | Bizonyosság: 0.80
+  ID: 10 | 2025-06-19 | Csapat C1       vs Csapat D1       | 1-2 | NB I
+       Forrás: Web__49sz__P__06-20_2025.06.20.pdf | Bizonyosság: 0.80
+  ... és még 500 meccs
+
+📈 FELDOLGOZÁSI STATISZTIKÁK:
+------------------------------
+  completed      :  35 fájl | Átlag bizonyosság: 0.42 | Meccsek: 246
+  failed         :   5 fájl | Átlag bizonyosság: 0.00 | Meccsek: 0
+
+📏 ADATMINŐSÉGI METRIKÁK:
+------------------------------
+  ❌ confidence_avg           :   0.84 /   0.85
+  ❌ duplicate_rate           :   0.00 /   0.05
+  ❌ extraction_success_rate  :   0.75 /   0.95
+  ❌ manual_review_rate       :   0.00 /   0.10
+  ✅ team_name_match_rate     :   1.00 /   0.90
+
+🏆 LIGA ÖSSZESÍTÉS:
+------------------------------
+  Ismeretlen Liga     : 309 meccs | ~490 csapat
+  U21 International   :  35 meccs | ~38 csapat
+  Premier League      :  32 meccs | ~46 csapat
+  Bundesliga          :  24 meccs | ~28 csapat
+  Serie A (Brazil)    :  18 meccs | ~21 csapat
+  Mls                 :  14 meccs | ~19 csapat
+  J1 League           :  11 meccs | ~15 csapat
+  NB I                :  10 meccs | ~ 4 csapat
+  Serie A             :   7 meccs | ~ 9 csapat
+  La Liga             :   6 meccs | ~ 7 csapat
+  Primera B           :   6 meccs | ~ 9 csapat
+  Demo Liga           :   5 meccs | ~ 2 csapat
+  Ligue 1             :   5 meccs | ~ 8 csapat
+  Eliteserien         :   4 meccs | ~ 5 csapat
+  K League 2          :   4 meccs | ~ 6 csapat
+  1. Divisjon         :   3 meccs | ~ 6 csapat
+  Championship        :   3 meccs | ~ 3 csapat
+  J2 League           :   3 meccs | ~ 4 csapat
+  Serie B (Brazil)    :   3 meccs | ~ 6 csapat
+  Allsvenskan         :   2 meccs | ~ 2 csapat
+  K League 1          :   2 meccs | ~ 4 csapat
+  Primera Division (Argentina):   1 meccs | ~ 2 csapat
+  Segunda Division    :   1 meccs | ~ 2 csapat
+  Superettan          :   1 meccs | ~ 2 csapat
+  Usl Championship    :   1 meccs | ~ 2 csapat
+
+✅ Adatbázis ellenőrzés befejezve!

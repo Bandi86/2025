@@ -1,0 +1,102 @@
+{
+  "generated_at": "2025-06-28T20:51:27.890626",
+  "total_matches": 3,
+  "matches": [
+    {
+      "match_id": "2025-06-29_Manchester_City_Liverpool",
+      "date": "2025-06-29",
+      "time": "16:00",
+      "home_team": "Manchester City",
+      "away_team": "Liverpool FC",
+      "competition": "Premier League",
+      "venue": "Etihad Stadium",
+      "odds": {
+        "match_result": {
+          "home_win": 2.1,
+          "draw": 3.4,
+          "away_win": 3.2
+        },
+        "total_goals": {
+          "over_25": 1.85,
+          "under_25": 1.95
+        },
+        "both_teams_score": {
+          "yes": 1.75,
+          "no": 2.05
+        },
+        "corners": {
+          "over_9": 1.9,
+          "under_9": 1.9
+        },
+        "cards": {
+          "over_3": 2.1,
+          "under_3": 1.7
+        }
+      }
+    },
+    {
+      "match_id": "2025-06-29_Real_Madrid_Barcelona",
+      "date": "2025-06-29",
+      "time": "20:00",
+      "home_team": "Real Madrid",
+      "away_team": "FC Barcelona",
+      "competition": "La Liga",
+      "venue": "Santiago Bernabéu",
+      "odds": {
+        "match_result": {
+          "home_win": 2.25,
+          "draw": 3.2,
+          "away_win": 3.1
+        },
+        "total_goals": {
+          "over_25": 1.8,
+          "under_25": 2.0
+        },
+        "both_teams_score": {
+          "yes": 1.65,
+          "no": 2.2
+        },
+        "corners": {
+          "over_9": 1.95,
+          "under_9": 1.85
+        },
+        "cards": {
+          "over_3": 1.85,
+          "under_3": 1.95
+        }
+      }
+    },
+    {
+      "match_id": "2025-06-30_Bayern_Munich_Dortmund",
+      "date": "2025-06-30",
+      "time": "18:30",
+      "home_team": "Bayern Munich",
+      "away_team": "Borussia Dortmund",
+      "competition": "Bundesliga",
+      "venue": "Allianz Arena",
+      "odds": {
+        "match_result": {
+          "home_win": 1.95,
+          "draw": 3.6,
+          "away_win": 3.8
+        },
+        "total_goals": {
+          "over_25": 1.75,
+          "under_25": 2.05
+        },
+        "both_teams_score": {
+          "yes": 1.7,
+          "no": 2.1
+        },
+        "corners": {
+          "over_9": 2.0,
+          "under_9": 1.8
+        },
+        "cards": {
+          "over_3": 2.2,
+          "under_3": 1.6
+        }
+      }
+    }
+  ]
+}

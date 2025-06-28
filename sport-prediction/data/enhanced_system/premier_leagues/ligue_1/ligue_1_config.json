@@ -1,0 +1,39 @@
+{
+  "competition_id": "ligue_1",
+  "category": "premier_leagues",
+  "name": "Ligue 1",
+  "country": "France",
+  "api_id": 61,
+  "level": 1,
+  "quality_score": 87,
+  "season_months": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "active_now": false,
+  "timezone": "Europe/Paris",
+  "data_sources": {
+    "api_sports": "Primary API source",
+    "football_data": "Secondary API source",
+    "thesportsdb": "Free API source",
+    "official_website": "League official data",
+    "transfermarkt": "Player/team valuations",
+    "fbref": "Advanced statistics"
+  },
+  "analysis_weights": {
+    "prediction_weight": 0.87,
+    "historical_importance": 0.8,
+    "cross_league_relevance": 0.9,
+    "seasonal_impact": 1.0,
+    "fatigue_factor": 0.5
+  },
+  "last_updated": "2025-06-28T20:15:09.390603"
+}

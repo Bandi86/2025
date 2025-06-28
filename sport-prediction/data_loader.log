@@ -1,0 +1,38 @@
+2025-06-28 22:53:01,729 - INFO - PDF feldolgozás kezdése: web_05sz__01-17_k16_2023.01.17.pdf
+2025-06-28 22:53:01,734 - INFO - PDF feldolgozás kezdése: web_08sz__01-27_p16_2023.01.27.pdf
+2025-06-28 22:53:01,742 - INFO - PDF feldolgozás kezdése: web_04sz__01-13_p16_2023.01.13.pdf
+2025-06-28 22:53:01,747 - INFO - PDF feldolgozás kezdése: web_07sz__01-24_k16_2023.01.24.pdf
+2025-06-28 22:53:01,753 - INFO - PDF feldolgozás kezdése: web_09sz__01-31_k16_2023.01.31.pdf
+2025-06-28 22:54:39,688 - INFO - PDF feldolgozás kezdése: web_05sz__01-17_k16_2023.01.17.pdf
+2025-06-28 22:54:39,689 - ERROR - Hiba PDF feldolgozáskor: 'UltraPreciseFootballExtractor' object has no attribute 'extract_from_pdf'
+2025-06-28 22:54:39,696 - INFO - PDF feldolgozás kezdése: web_08sz__01-27_p16_2023.01.27.pdf
+2025-06-28 22:54:39,696 - ERROR - Hiba PDF feldolgozáskor: 'UltraPreciseFootballExtractor' object has no attribute 'extract_from_pdf'
+2025-06-28 22:54:39,705 - INFO - PDF feldolgozás kezdése: web_04sz__01-13_p16_2023.01.13.pdf
+2025-06-28 22:54:39,705 - ERROR - Hiba PDF feldolgozáskor: 'UltraPreciseFootballExtractor' object has no attribute 'extract_from_pdf'
+2025-06-28 22:54:39,710 - INFO - PDF feldolgozás kezdése: web_07sz__01-24_k16_2023.01.24.pdf
+2025-06-28 22:54:39,710 - ERROR - Hiba PDF feldolgozáskor: 'UltraPreciseFootballExtractor' object has no attribute 'extract_from_pdf'
+2025-06-28 22:54:39,716 - INFO - PDF feldolgozás kezdése: web_09sz__01-31_k16_2023.01.31.pdf
+2025-06-28 22:54:39,717 - ERROR - Hiba PDF feldolgozáskor: 'UltraPreciseFootballExtractor' object has no attribute 'extract_from_pdf'
+2025-06-28 22:55:56,937 - INFO - PDF feldolgozás kezdése: web_05sz__01-17_k16_2023.01.17.pdf
+2025-06-28 22:56:19,106 - INFO - PDF feldolgozás kezdése: web_08sz__01-27_p16_2023.01.27.pdf
+2025-06-28 22:56:41,327 - INFO - PDF feldolgozás kezdése: web_04sz__01-13_p16_2023.01.13.pdf
+2025-06-28 22:57:02,959 - INFO - PDF feldolgozás kezdése: web_07sz__01-24_k16_2023.01.24.pdf
+2025-06-28 22:57:24,380 - INFO - PDF feldolgozás kezdése: web_09sz__01-31_k16_2023.01.31.pdf
+2025-06-28 22:58:29,896 - INFO - PDF feldolgozás kezdése: web_05sz__01-17_k16_2023.01.17.pdf
+2025-06-28 22:58:29,903 - INFO - Új csapat létrehozása: Demo Hazai -> Demo Hazai
+2025-06-28 22:58:29,908 - INFO - Új csapat létrehozása: Demo Vendég -> Demo Vendég
+2025-06-28 22:58:29,910 - INFO - Meccs betöltve: Demo Hazai vs Demo Vendég (ID: 1)
+2025-06-28 22:58:29,916 - INFO - PDF feldolgozás kezdése: web_08sz__01-27_p16_2023.01.27.pdf
+2025-06-28 22:58:29,919 - INFO - Meccs betöltve: Demo Hazai vs Demo Vendég (ID: 2)
+2025-06-28 22:58:29,925 - INFO - PDF feldolgozás kezdése: web_04sz__01-13_p16_2023.01.13.pdf
+2025-06-28 22:58:29,927 - INFO - Meccs betöltve: Demo Hazai vs Demo Vendég (ID: 3)
+2025-06-28 22:58:29,931 - INFO - PDF feldolgozás kezdése: web_07sz__01-24_k16_2023.01.24.pdf
+2025-06-28 22:58:29,933 - INFO - Meccs betöltve: Demo Hazai vs Demo Vendég (ID: 4)
+2025-06-28 22:58:29,941 - INFO - PDF feldolgozás kezdése: web_09sz__01-31_k16_2023.01.31.pdf
+2025-06-28 22:58:29,947 - INFO - Meccs betöltve: Demo Hazai vs Demo Vendég (ID: 5)
+2025-06-29 00:06:59,499 - INFO - Új csapat létrehozása: Test Team A -> Test Team A
+2025-06-29 00:06:59,504 - INFO - Új csapat létrehozása: Test Team B -> Test Team B
+2025-06-29 00:07:04,512 - ERROR - Hiba liga táblázat betöltéskor: database is locked
+2025-06-29 00:08:07,381 - INFO - Új csapat létrehozása: Test Team B -> Test Team B
+2025-06-29 00:08:12,389 - ERROR - Hiba liga táblázat betöltéskor: database is locked
+2025-06-29 00:08:51,588 - INFO - Liga táblázat betöltve: Premier Liga (1 csapat)

@@ -1,0 +1,26 @@
+{
+  "system_name": "Enhanced Multi-League System",
+  "version": "2.0",
+  "created": "2025-06-28T20:15:09.389524",
+  "total_competitions": 21,
+  "active_competitions": 10,
+  "data_categories": [
+    "premier_leagues",
+    "secondary_leagues",
+    "cup_competitions",
+    "summer_leagues"
+  ],
+  "quality_levels": {
+    "tier_1": "90-100 (Top European leagues, Champions League)",
+    "tier_2": "80-89 (Strong domestic leagues, Europa League)",
+    "tier_3": "70-79 (Developing leagues, domestic cups)",
+    "tier_4": "60-69 (Lower quality leagues)"
+  },
+  "analysis_features": [
+    "cross_league_comparison",
+    "cup_vs_league_dynamics",
+    "seasonal_form_tracking",
+    "international_competition_impact",
+    "player_fatigue_modeling"
+  ]
+}

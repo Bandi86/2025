@@ -1,0 +1,36 @@
+{
+  "competition_id": "bundesliga_2",
+  "category": "secondary_leagues",
+  "name": "2. Bundesliga",
+  "country": "Germany",
+  "api_id": 79,
+  "level": 2,
+  "quality_score": 73,
+  "season_months": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "active_now": false,
+  "timezone": "Europe/Berlin",
+  "data_sources": {
+    "api_sports": "Primary API source",
+    "football_data": "Secondary API source",
+    "thesportsdb": "Free API source"
+  },
+  "analysis_weights": {
+    "prediction_weight": 0.73,
+    "historical_importance": 0.6,
+    "cross_league_relevance": 0.7,
+    "seasonal_impact": 1.0,
+    "fatigue_factor": 0.5
+  },
+  "last_updated": "2025-06-28T20:15:09.390908"
+}
