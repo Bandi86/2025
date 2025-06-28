@@ -13,10 +13,10 @@ const poppins = Poppins({
 
 
 export const metadata: Metadata = {
-  title: "Web Dev Blog",
-  description: "Your favorite blog about web development",
+  title: 'Web Dev Blog',
+  description: 'Your favorite blog about web development',
   icons: {
-     icon: '/logo.svg',
+    icon: '/logo.svg',
   },
 };
 
