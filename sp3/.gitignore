@@ -112,4 +112,5 @@ public
 pdf
 ml_pipeline/venv
 ml_pipeline/test_api.py
+ml_pipeline/models
 data
