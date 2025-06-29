@@ -1,0 +1,92 @@
+version: '3.8'
+
+services:
+  # Backend Service (NestJS)
+  backend:
+    build:
+      context: ./backend
+      target: development
+    container_name: sp3_backend
+    environment:
+      - DATABASE_URL=postgresql://sp3_user:sp3_password@postgres:5432/sp3_db?schema=public
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - sp3_network
+    depends_on:
+      - postgres
+      - redis
+
+  # Frontend Service (Next.js)
+  frontend:
+    build:
+      context: ./frontend
+      target: development
+    container_name: sp3_frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    networks:
+      - sp3_network
+    depends_on:
+      - backend
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: sp3_postgres
+    environment:
+      POSTGRES_USER: sp3_user
+      POSTGRES_PASSWORD: sp3_password
+      POSTGRES_DB: sp3_db
+    ports:
+      - "55432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init:/docker-entrypoint-initdb.d
+    networks:
+      - sp3_network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: sp3_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    networks:
+      - sp3_network
+
+  # pgAdmin (Optional - for database management)
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: sp3_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@sp3.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - sp3_network
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
+  redis_data:
+  pgadmin_data:
+
+networks:
+  sp3_network:
+    driver: bridge

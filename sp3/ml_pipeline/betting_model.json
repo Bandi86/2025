@@ -1,0 +1,25 @@
+{
+  "type": "statistical_odds_model",
+  "average_probabilities": {
+    "home": 0.45733742151053175,
+    "draw": 0.2152577170741851,
+    "away": 0.32740486141528313
+  },
+  "league_adjustments": {
+    "Válogatott": {
+      "home_boost": 0.05,
+      "draw_penalty": -0.02
+    },
+    "U19 Nemzetközi": {
+      "home_boost": 0.03,
+      "draw_boost": 0.02
+    },
+    "Premier League": {
+      "quality_boost": 0.02
+    },
+    "Magyar NB I": {
+      "home_boost": 0.08
+    }
+  },
+  "created_at": "2025-06-30T00:52:47.557972"
+}

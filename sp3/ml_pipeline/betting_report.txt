@@ -1,0 +1,40 @@
+
+🚀 SPORTFOGADÁSI ODDS ELEMZÉS JELENTÉS
+=====================================
+Készítve: 2025-06-30 00:52:47
+
+📊 ÖSSZEFOGLALÓ STATISZTIKÁK
+----------------------------
+• Elemzett meccsek száma: 58
+• Különböző ligák: 4
+• Talált value bet-ek: 10
+
+🏟️ LIGA ELOSZLÁS
+-----------------
+• Egyéb Liga: 39 meccs
+• Válogatott: 11 meccs
+• U19 Nemzetközi: 6 meccs
+• Premier League: 2 meccs
+
+📈 ODDS STATISZTIKÁK
+--------------------
+• Átlagos hazai odds: 2.12
+• Átlagos döntetlen odds: 6.78
+• Átlagos vendég odds: 3.31
+
+💎 TOP VALUE BET-EK
+-------------------
+• Spanyolország vs Japán Kétesély (H: 1X, D: 12, V: X2): Döntetlen (1.11) - Value: 311.3%
+• Lengyelország vs Ukrajna Kétesély (H: 1X, D: 12, V: X2): Döntetlen (1.04) - Value: 303.8%
+• Franciaország vs Brazília Kétesély (H: 1X, D: 12, V: X2): Döntetlen (1.20) - Value: 280.4%
+• Szerbia vs Izland Kétesély (H: 1X, D: 12, V: X2): Döntetlen (1.19) - Value: 252.9%
+• Olaszország vs Belgium: Vendég győzelem (1.16) - Value: 235.2%
+
+📁 LÉTREHOZOTT FÁJLOK
+---------------------
+• betting_analysis.db - Teljes adatbázis
+• betting_model.json - Statisztikai modell
+• value_betting_opportunities.json - Value bet-ek
+• betting_report.txt - Ez a jelentés
+
+✅ SPORTFOGADÁSI ELEMZÉS SIKERESEN BEFEJEZVE

@@ -1,0 +1,27 @@
+
+🚀 GYORS FUTBALL ELEMZÉS JELENTÉS
+================================
+Dátum: 2025-06-30 00:45:24
+
+📊 ÖSSZEFOGLALÓ
+---------------
+• Összes meccs eredmény: 30
+• Különböző csapatok: 43
+• Különböző ligák: 5
+• Modell állapot: ✅ Betanítva
+
+🏆 MINTA EREDMÉNYEK
+-------------------
+• Flamengo Rj 1:0 Bayern Munich (Unknown League)
+• Németország - Olaszország 3:2 Hu. Dánia - Franciaország (Bundesliga)
+• Németország 3:2 Olaszország (Bundesliga)
+• Anglia - Hollandia 2:1 Argentin (Eredivisie)
+• Portugália 0:1 Hollandia (Eredivisie)
+
+✅ ELEMZÉS SIKERESEN BEFEJEZVE
+
+📁 Létrehozott fájlok:
+• quick_football.db - Adatbázis
+• quick_football_model.pkl - ML modell (ha volt elég adat)
+• statistical_model.json - Statisztikai modell
+• quick_football_report.txt - Ez a jelentés
