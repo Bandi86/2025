@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+*.pyc
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db-journal
+*.sqlite3-journal
+
+# PDFs
+pdf/
+*.pdf
+
+# Excel files
+*.xlsx
+*.xls

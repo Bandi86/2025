@@ -1,0 +1,4312 @@
+[
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "02:00",
+    "match_id": "23198",
+    "teams": "Florida - Edmonton",
+    "odds": [
+      "2,05",
+      "4,10",
+      "2,95"
+    ],
+    "raw_line": "Sze 02:00                    23198                                     Florida - Edmonton                                  2,05      4,10          2,95",
+    "line_number": 139
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "03:00",
+    "match_id": "23130",
+    "teams": "Monterrey - Internazionale",
+    "odds": [
+      "6,00",
+      "4,60",
+      "1,50"
+    ],
+    "raw_line": "Sze 03:00                    23130                                  Monterrey - Internazionale                             6,00      4,60          1,50",
+    "line_number": 144
+  },
+  {
+    "type": "K_format",
+    "time": "12:30",
+    "match_id": "15224",
+    "teams": "Daegu - Pohang",
+    "odds": [
+      "3,60",
+      "3,60",
+      "1,81"
+    ],
+    "raw_line": "K 12:30          15224          Daegu - Pohang                                                                                                   3,60 3,60 1,81",
+    "line_number": 155
+  },
+  {
+    "type": "K_format",
+    "time": "12:30",
+    "match_id": "15548",
+    "teams": "FC Seoul - Gangwon",
+    "odds": [
+      "1,57",
+      "3,65",
+      "5,00"
+    ],
+    "raw_line": "K 12:30          15548          FC Seoul - Gangwon                                                                                               1,57 3,65 5,00",
+    "line_number": 156
+  },
+  {
+    "type": "K_format",
+    "time": "12:30",
+    "match_id": "15935",
+    "teams": "Jeonbuk - Suwon City",
+    "odds": [
+      "1,47",
+      "4,10",
+      "5,50"
+    ],
+    "raw_line": "K 12:30          15935          Jeonbuk - Suwon City                                                                                             1,47 4,10 5,50",
+    "line_number": 157
+  },
+  {
+    "type": "K_format",
+    "time": "13:35",
+    "match_id": "19766",
+    "teams": "Beijing Guoan - Qingdao West Coast",
+    "odds": [
+      "1,26",
+      "5,50",
+      "7,25"
+    ],
+    "raw_line": "K 13:35          19766          Beijing Guoan - Qingdao West Coast                                                                               1,26 5,50 7,25",
+    "line_number": 159
+  },
+  {
+    "type": "K_format",
+    "time": "13:35",
+    "match_id": "19811",
+    "teams": "Beijing Guoan - Qingdao West Coast              Hendikep 0:1",
+    "odds": [
+      "1,82",
+      "3,80",
+      "2,95"
+    ],
+    "raw_line": "K 13:35          19811          Beijing Guoan - Qingdao West Coast              Hendikep 0:1                                                     1,82 3,80 2,95",
+    "line_number": 160
+  },
+  {
+    "type": "K_format",
+    "time": "16:00",
+    "match_id": "34522",
+    "teams": "U19Norvégia - U19Hollandia",
+    "odds": [
+      "5,25",
+      "4,40",
+      "1,44"
+    ],
+    "raw_line": "K   16:00        34522          U19Norvégia - U19Hollandia                                                                                       5,25   4,40 1,44",
+    "line_number": 162
+  },
+  {
+    "type": "K_format",
+    "time": "16:00",
+    "match_id": "34523",
+    "teams": "U19Norvégia - U19Hollandia                      Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "2,03",
+      "1,18",
+      "1,14"
+    ],
+    "raw_line": "K   16:00        34523          U19Norvégia - U19Hollandia                      Kétesély (H: 1X, D: 12, V: X2)                                   2,03   1,18 1,14",
+    "line_number": 163
+  },
+  {
+    "type": "K_format",
+    "time": "16:00",
+    "match_id": "34528",
+    "teams": "U19Norvégia - U19Hollandia                      Hendikep 0:1",
+    "odds": [
+      "10,50",
+      "5,75",
+      "1,13"
+    ],
+    "raw_line": "K   16:00        34528          U19Norvégia - U19Hollandia                      Hendikep 0:1                                                    10,50   5,75 1,13",
+    "line_number": 166
+  },
+  {
+    "type": "K_format",
+    "time": "16:00",
+    "match_id": "34529",
+    "teams": "U19Norvégia - U19Hollandia                      Hendikep 1:0",
+    "odds": [
+      "2,27",
+      "3,65",
+      "2,31"
+    ],
+    "raw_line": "K   16:00        34529          U19Norvégia - U19Hollandia                      Hendikep 1:0                                                     2,27   3,65 2,31",
+    "line_number": 167
+  },
+  {
+    "type": "K_format",
+    "time": "16:00",
+    "match_id": "34530",
+    "teams": "U19Norvégia - U19Hollandia                      Hendikep 2:0",
+    "odds": [
+      "1,47",
+      "4,35",
+      "4,20"
+    ],
+    "raw_line": "K   16:00        34530          U19Norvégia - U19Hollandia                      Hendikep 2:0                                                     1,47   4,35 4,20",
+    "line_number": 168
+  },
+  {
+    "type": "K_format",
+    "time": "16:00",
+    "match_id": "34544",
+    "teams": "U19Norvégia - U19Hollandia                      1. félidő - 1X2",
+    "odds": [
+      "4,85",
+      "2,36",
+      "1,92"
+    ],
+    "raw_line": "K   16:00        34544          U19Norvégia - U19Hollandia                      1. félidő - 1X2                                                  4,85   2,36 1,92",
+    "line_number": 176
+  },
+  {
+    "type": "K_format",
+    "time": "19:00",
+    "match_id": "34622",
+    "teams": "U19Németország - U19Anglia",
+    "odds": [
+      "2,22",
+      "3,55",
+      "2,64"
+    ],
+    "raw_line": "K   19:00        34622          U19Németország - U19Anglia                                                                                       2,22   3,55 2,64",
+    "line_number": 177
+  },
+  {
+    "type": "K_format",
+    "time": "19:00",
+    "match_id": "34623",
+    "teams": "U19Németország - U19Anglia                      Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "1,39",
+      "1,25",
+      "1,42"
+    ],
+    "raw_line": "K   19:00        34623          U19Németország - U19Anglia                      Kétesély (H: 1X, D: 12, V: X2)                                   1,39   1,25 1,42",
+    "line_number": 178
+  },
+  {
+    "type": "K_format",
+    "time": "19:00",
+    "match_id": "00791",
+    "teams": "U19Németország - U19Anglia                      Hendikep 0:2",
+    "odds": [
+      "10,00",
+      "6,00",
+      "1,13"
+    ],
+    "raw_line": "K   19:00        00791          U19Németország - U19Anglia                      Hendikep 0:2                                                    10,00   6,00 1,13",
+    "line_number": 181
+  },
+  {
+    "type": "K_format",
+    "time": "19:00",
+    "match_id": "34628",
+    "teams": "U19Németország - U19Anglia                      Hendikep 0:1",
+    "odds": [
+      "4,65",
+      "4,00",
+      "1,46"
+    ],
+    "raw_line": "K   19:00        34628          U19Németország - U19Anglia                      Hendikep 0:1                                                     4,65   4,00 1,46",
+    "line_number": 182
+  },
+  {
+    "type": "K_format",
+    "time": "19:00",
+    "match_id": "34629",
+    "teams": "U19Németország - U19Anglia                      Hendikep 1:0",
+    "odds": [
+      "1,42",
+      "4,10",
+      "4,90"
+    ],
+    "raw_line": "K   19:00        34629          U19Németország - U19Anglia                      Hendikep 1:0                                                     1,42   4,10 4,90",
+    "line_number": 183
+  },
+  {
+    "type": "K_format",
+    "time": "19:00",
+    "match_id": "34641",
+    "teams": "U19Németország - U19Anglia                      1. félidő - 1X2",
+    "odds": [
+      "2,95",
+      "2,07",
+      "3,05"
+    ],
+    "raw_line": "K   19:00        34641          U19Németország - U19Anglia                      1. félidő - 1X2                                                 2,95    2,07 3,05",
+    "line_number": 191
+  },
+  {
+    "type": "K_format",
+    "time": "18:00",
+    "match_id": "23796",
+    "teams": "Fluminense RJ - Dortmund",
+    "odds": [
+      "5,75",
+      "4,30",
+      "1,43"
+    ],
+    "raw_line": "K   18:00        23796          Fluminense RJ - Dortmund                                                                                         5,75   4,30 1,43",
+    "line_number": 193
+  },
+  {
+    "type": "K_format",
+    "time": "18:00",
+    "match_id": "23797",
+    "teams": "Fluminense RJ - Dortmund                        Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "2,06",
+      "1,18",
+      "1,13"
+    ],
+    "raw_line": "K   18:00        23797          Fluminense RJ - Dortmund                        Kétesély (H: 1X, D: 12, V: X2)                                   2,06   1,18 1,13",
+    "line_number": 194
+  },
+  {
+    "type": "K_format",
+    "time": "18:00",
+    "match_id": "23807",
+    "teams": "Fluminense RJ - Dortmund                        Hendikep 0:1",
+    "odds": [
+      "13,00",
+      "6,50",
+      "1,13"
+    ],
+    "raw_line": "K   18:00        23807          Fluminense RJ - Dortmund                        Hendikep 0:1                                                    13,00   6,50 1,13",
+    "line_number": 197
+  },
+  {
+    "type": "K_format",
+    "time": "18:00",
+    "match_id": "23814",
+    "teams": "Fluminense RJ - Dortmund                        Hendikep 1:0",
+    "odds": [
+      "2,39",
+      "3,75",
+      "2,36"
+    ],
+    "raw_line": "K   18:00        23814          Fluminense RJ - Dortmund                        Hendikep 1:0                                                     2,39   3,75 2,36",
+    "line_number": 198
+  },
+  {
+    "type": "K_format",
+    "time": "18:00",
+    "match_id": "23815",
+    "teams": "Fluminense RJ - Dortmund                        Hendikep 2:0",
+    "odds": [
+      "1,51",
+      "4,50",
+      "4,40"
+    ],
+    "raw_line": "K   18:00        23815          Fluminense RJ - Dortmund                        Hendikep 2:0                                                     1,51   4,50 4,40",
+    "line_number": 199
+  },
+  {
+    "type": "K_format",
+    "time": "18:00",
+    "match_id": "23856",
+    "teams": "Fluminense RJ - Dortmund           Az első 10 perc eredménye (0-9:59)",
+    "odds": [
+      "11,00",
+      "1,17",
+      "4,85"
+    ],
+    "raw_line": "K   18:00   23856            Fluminense RJ - Dortmund           Az első 10 perc eredménye (0-9:59)                                                  11,00   1,17 4,85",
+    "line_number": 231
+  },
+  {
+    "type": "K_format",
+    "time": "18:00",
+    "match_id": "23857",
+    "teams": "Fluminense RJ - Dortmund           1. félidő - 1X2",
+    "odds": [
+      "5,50",
+      "2,41",
+      "1,96"
+    ],
+    "raw_line": "K   18:00   23857            Fluminense RJ - Dortmund           1. félidő - 1X2                                                                      5,50   2,41 1,96",
+    "line_number": 232
+  },
+  {
+    "type": "K_format",
+    "time": "18:00",
+    "match_id": "09879",
+    "teams": "Fluminense RJ - Dortmund           Szögletek száma (H: 0-8, D: 9-11, V: 12+)",
+    "odds": [
+      "2,53",
+      "2,63",
+      "2,67"
+    ],
+    "raw_line": "K   18:00   09879            Fluminense RJ - Dortmund           Szögletek száma (H: 0-8, D: 9-11, V: 12+)                                            2,53   2,63 2,67",
+    "line_number": 239
+  },
+  {
+    "type": "K_format",
+    "time": "18:00",
+    "match_id": "09875",
+    "teams": "Fluminense RJ - Dortmund           Melyik csapat végez el több szögletet? (H: 1, D: ua., V: 2)",
+    "odds": [
+      "3,50",
+      "8,00",
+      "1,35"
+    ],
+    "raw_line": "K   18:00   09875            Fluminense RJ - Dortmund           Melyik csapat végez el több szögletet? (H: 1, D: ua., V: 2)                          3,50   8,00 1,35",
+    "line_number": 240
+  },
+  {
+    "type": "K_format",
+    "time": "18:00",
+    "match_id": "23897",
+    "teams": "Fluminense RJ - Dortmund           2. félidő - 1X2",
+    "odds": [
+      "4,60",
+      "2,65",
+      "1,80"
+    ],
+    "raw_line": "K   18:00   23897            Fluminense RJ - Dortmund           2. félidő - 1X2                                                                      4,60   2,65 1,80",
+    "line_number": 245
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "22087",
+    "teams": "River Plate - Urawa RD",
+    "odds": [
+      "1,47",
+      "4,00",
+      "5,75"
+    ],
+    "raw_line": "K   21:00   22087            River Plate - Urawa RD                                                                                                  1,47   4,00 5,75",
+    "line_number": 255
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "22088",
+    "teams": "River Plate - Urawa RD             Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "1,13",
+      "1,20",
+      "1,99"
+    ],
+    "raw_line": "K   21:00   22088            River Plate - Urawa RD             Kétesély (H: 1X, D: 12, V: X2)                                                       1,13   1,20 1,99",
+    "line_number": 256
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "22190",
+    "teams": "River Plate - Urawa RD             Hendikep 0:2",
+    "odds": [
+      "5,25",
+      "4,55",
+      "1,44"
+    ],
+    "raw_line": "K   21:00   22190            River Plate - Urawa RD             Hendikep 0:2                                                                         5,25   4,55 1,44",
+    "line_number": 259
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "22374",
+    "teams": "River Plate - Urawa RD             Hendikep 0:1",
+    "odds": [
+      "2,57",
+      "3,55",
+      "2,28"
+    ],
+    "raw_line": "K   21:00   22374            River Plate - Urawa RD             Hendikep 0:1                                                                         2,57   3,55 2,28",
+    "line_number": 260
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "22375",
+    "teams": "River Plate - Urawa RD             Hendikep 1:0",
+    "odds": [
+      "1,13",
+      "6,25",
+      "14,00"
+    ],
+    "raw_line": "K   21:00   22375            River Plate - Urawa RD             Hendikep 1:0                                                                         1,13   6,25 14,00",
+    "line_number": 261
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "22463",
+    "teams": "River Plate - Urawa RD              Az első 10 perc eredménye (0-9:59)",
+    "odds": [
+      "5,25",
+      "1,15",
+      "12,00"
+    ],
+    "raw_line": "K 21:00      22463            River Plate - Urawa RD              Az első 10 perc eredménye (0-9:59)                                                   5,25   1,15 12,00",
+    "line_number": 293
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "22464",
+    "teams": "River Plate - Urawa RD              1. félidő - 1X2",
+    "odds": [
+      "2,06",
+      "2,23",
+      "5,75"
+    ],
+    "raw_line": "K 21:00      22464            River Plate - Urawa RD              1. félidő - 1X2                                                                      2,06   2,23 5,75",
+    "line_number": 294
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "09929",
+    "teams": "River Plate - Urawa RD              Szögletek száma (H: 0-8, D: 9-11, V: 12+)",
+    "odds": [
+      "2,29",
+      "2,64",
+      "2,98"
+    ],
+    "raw_line": "K 21:00      09929            River Plate - Urawa RD              Szögletek száma (H: 0-8, D: 9-11, V: 12+)                                            2,29   2,64 2,98",
+    "line_number": 298
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "09934",
+    "teams": "River Plate - Urawa RD              Melyik csapat végez el több szögletet? (H: 1, D: ua., V: 2)",
+    "odds": [
+      "1,35",
+      "8,00",
+      "3,50"
+    ],
+    "raw_line": "K 21:00      09934            River Plate - Urawa RD              Melyik csapat végez el több szögletet? (H: 1, D: ua., V: 2)                          1,35   8,00 3,50",
+    "line_number": 299
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "22681",
+    "teams": "River Plate - Urawa RD              2. félidő - 1X2",
+    "odds": [
+      "1,87",
+      "2,47",
+      "4,70"
+    ],
+    "raw_line": "K 21:00      22681            River Plate - Urawa RD              2. félidő - 1X2                                                                      1,87   2,47 4,70",
+    "line_number": 303
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "00:00",
+    "match_id": "23956",
+    "teams": "Ulsan - Mamelodi Sundowns",
+    "odds": [
+      "3,05",
+      "3,20",
+      "2,14"
+    ],
+    "raw_line": "Sze 00:00    23956            Ulsan - Mamelodi Sundowns                                                                                                3,05   3,20 2,14",
+    "line_number": 313
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "00:00",
+    "match_id": "23957",
+    "teams": "Ulsan - Mamelodi Sundowns           Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "1,45",
+      "1,30",
+      "1,32"
+    ],
+    "raw_line": "Sze 00:00    23957            Ulsan - Mamelodi Sundowns           Kétesély (H: 1X, D: 12, V: X2)                                                       1,45   1,30 1,32",
+    "line_number": 314
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "00:00",
+    "match_id": "23963",
+    "teams": "Ulsan - Mamelodi Sundowns           Hendikep 0:1",
+    "odds": [
+      "6,50",
+      "4,50",
+      "1,36"
+    ],
+    "raw_line": "Sze 00:00    23963            Ulsan - Mamelodi Sundowns           Hendikep 0:1                                                                         6,50   4,50 1,36",
+    "line_number": 317
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "00:00",
+    "match_id": "23964",
+    "teams": "Ulsan - Mamelodi Sundowns           Hendikep 1:0",
+    "odds": [
+      "1,53",
+      "4,05",
+      "4,80"
+    ],
+    "raw_line": "Sze 00:00    23964            Ulsan - Mamelodi Sundowns           Hendikep 1:0                                                                         1,53   4,05 4,80",
+    "line_number": 318
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "00:00",
+    "match_id": "31872",
+    "teams": "Ulsan - Mamelodi Sundowns           Hendikep 2:0",
+    "odds": [
+      "1,15",
+      "6,50",
+      "11,50"
+    ],
+    "raw_line": "Sze 00:00    31872            Ulsan - Mamelodi Sundowns           Hendikep 2:0                                                                         1,15   6,50 11,50",
+    "line_number": 319
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "00:00",
+    "match_id": "23978",
+    "teams": "Ulsan - Mamelodi Sundowns           Az első 10 perc eredménye (0-9:59)",
+    "odds": [
+      "8,25",
+      "1,13",
+      "7,00"
+    ],
+    "raw_line": "Sze 00:00    23978            Ulsan - Mamelodi Sundowns           Az első 10 perc eredménye (0-9:59)                                                  8,25    1,13 7,00",
+    "line_number": 344
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "00:00",
+    "match_id": "23979",
+    "teams": "Ulsan - Mamelodi Sundowns           1. félidő - 1X2",
+    "odds": [
+      "3,60",
+      "2,02",
+      "2,99"
+    ],
+    "raw_line": "Sze 00:00    23979            Ulsan - Mamelodi Sundowns           1. félidő - 1X2                                                                     3,60    2,02 2,99",
+    "line_number": 345
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "00:00",
+    "match_id": "09845",
+    "teams": "Ulsan - Mamelodi Sundowns           Szögletek száma (H: 0-8, D: 9-11, V: 12+)",
+    "odds": [
+      "1,79",
+      "2,79",
+      "4,30"
+    ],
+    "raw_line": "Sze 00:00    09845            Ulsan - Mamelodi Sundowns           Szögletek száma (H: 0-8, D: 9-11, V: 12+)                                           1,79    2,79 4,30",
+    "line_number": 349
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "00:00",
+    "match_id": "09828",
+    "teams": "Ulsan - Mamelodi Sundowns           Melyik csapat végez el több szögletet? (H: 1, D: ua., V: 2)",
+    "odds": [
+      "1,75",
+      "7,00",
+      "2,28"
+    ],
+    "raw_line": "Sze 00:00    09828            Ulsan - Mamelodi Sundowns           Melyik csapat végez el több szögletet? (H: 1, D: ua., V: 2)                         1,75    7,00 2,28",
+    "line_number": 350
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "00:00",
+    "match_id": "24018",
+    "teams": "Ulsan - Mamelodi Sundowns            2. félidő - 1X2",
+    "odds": [
+      "3,05",
+      "2,29",
+      "2,60"
+    ],
+    "raw_line": "Sze 00:00    24018            Ulsan - Mamelodi Sundowns            2. félidő - 1X2                                                                      3,05   2,29 2,60",
+    "line_number": 359
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "03:00",
+    "match_id": "23130",
+    "teams": "Monterrey - Internazionale",
+    "odds": [
+      "6,00",
+      "4,60",
+      "1,50"
+    ],
+    "raw_line": "Sze 03:00    23130            Monterrey - Internazionale                                                                                                6,00   4,60 1,50",
+    "line_number": 369
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "03:00",
+    "match_id": "23214",
+    "teams": "Monterrey - Internazionale           Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "2,15",
+      "1,16",
+      "1,12"
+    ],
+    "raw_line": "Sze 03:00    23214            Monterrey - Internazionale           Kétesély (H: 1X, D: 12, V: X2)                                                       2,15   1,16 1,12",
+    "line_number": 370
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "03:00",
+    "match_id": "23332",
+    "teams": "Monterrey - Internazionale           Hendikep 0:1",
+    "odds": [
+      "14,00",
+      "6,75",
+      "1,12"
+    ],
+    "raw_line": "Sze 03:00    23332            Monterrey - Internazionale           Hendikep 0:1                                                                        14,00   6,75 1,12",
+    "line_number": 373
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "03:00",
+    "match_id": "23333",
+    "teams": "Monterrey - Internazionale           Hendikep 1:0",
+    "odds": [
+      "2,53",
+      "3,65",
+      "2,27"
+    ],
+    "raw_line": "Sze 03:00    23333            Monterrey - Internazionale           Hendikep 1:0                                                                         2,53   3,65 2,27",
+    "line_number": 374
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "03:00",
+    "match_id": "23355",
+    "teams": "Monterrey - Internazionale           Hendikep 2:0",
+    "odds": [
+      "1,55",
+      "4,40",
+      "4,20"
+    ],
+    "raw_line": "Sze 03:00    23355            Monterrey - Internazionale           Hendikep 2:0                                                                         1,55   4,40 4,20",
+    "line_number": 375
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "03:00",
+    "match_id": "23569",
+    "teams": "Monterrey - Internazionale           Az első 10 perc eredménye (0-9:59)",
+    "odds": [
+      "11,50",
+      "1,17",
+      "4,80"
+    ],
+    "raw_line": "Sze 03:00    23569            Monterrey - Internazionale           Az első 10 perc eredménye (0-9:59)                                                  11,50   1,17 4,80",
+    "line_number": 400
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "03:00",
+    "match_id": "23570",
+    "teams": "Monterrey - Internazionale           1. félidő - 1X2",
+    "odds": [
+      "5,75",
+      "2,40",
+      "1,93"
+    ],
+    "raw_line": "Sze 03:00    23570            Monterrey - Internazionale           1. félidő - 1X2                                                                      5,75   2,40 1,93",
+    "line_number": 401
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "03:00",
+    "match_id": "09893",
+    "teams": "Monterrey - Internazionale           Szögletek száma (H: 0-8, D: 9-11, V: 12+)",
+    "odds": [
+      "2,22",
+      "2,65",
+      "3,10"
+    ],
+    "raw_line": "Sze 03:00    09893            Monterrey - Internazionale           Szögletek száma (H: 0-8, D: 9-11, V: 12+)                                            2,22   2,65 3,10",
+    "line_number": 408
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "03:00",
+    "match_id": "09892",
+    "teams": "Monterrey - Internazionale           Melyik csapat végez el több szögletet? (H: 1, D: ua., V: 2)",
+    "odds": [
+      "3,35",
+      "7,50",
+      "1,39"
+    ],
+    "raw_line": "Sze 03:00    09892            Monterrey - Internazionale           Melyik csapat végez el több szögletet? (H: 1, D: ua., V: 2)                          3,35   7,50 1,39",
+    "line_number": 409
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "03:00",
+    "match_id": "23689",
+    "teams": "Monterrey - Internazionale           2. félidő - 1X2",
+    "odds": [
+      "4,90",
+      "2,68",
+      "1,75"
+    ],
+    "raw_line": "Sze 03:00    23689            Monterrey - Internazionale           2. félidő - 1X2                                                                      4,90   2,68 1,75",
+    "line_number": 413
+  },
+  {
+    "type": "K_format",
+    "time": "18:00",
+    "match_id": "08563",
+    "teams": "U21Franciaország - U21Lengyelország",
+    "odds": [
+      "1,19",
+      "6,00",
+      "9,50"
+    ],
+    "raw_line": "K   18:00   08563            U21Franciaország - U21Lengyelország                                                                                    1,19   6,00 9,50",
+    "line_number": 431
+  },
+  {
+    "type": "K_format",
+    "time": "18:00",
+    "match_id": "08564",
+    "teams": "U21Franciaország - U21Lengyelország               Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "1,06",
+      "1,10",
+      "2,73"
+    ],
+    "raw_line": "K   18:00   08564            U21Franciaország - U21Lengyelország               Kétesély (H: 1X, D: 12, V: X2)                                       1,06   1,10 2,73",
+    "line_number": 432
+  },
+  {
+    "type": "K_format",
+    "time": "18:00",
+    "match_id": "08569",
+    "teams": "U21Franciaország - U21Lengyelország               Hendikep 0:3",
+    "odds": [
+      "4,85",
+      "4,95",
+      "1,35"
+    ],
+    "raw_line": "K   18:00   08569            U21Franciaország - U21Lengyelország               Hendikep 0:3                                                         4,85   4,95 1,35",
+    "line_number": 435
+  },
+  {
+    "type": "K_format",
+    "time": "18:00",
+    "match_id": "08570",
+    "teams": "U21Franciaország - U21Lengyelország               Hendikep 0:2",
+    "odds": [
+      "2,69",
+      "3,90",
+      "1,92"
+    ],
+    "raw_line": "K   18:00   08570            U21Franciaország - U21Lengyelország               Hendikep 0:2                                                         2,69   3,90 1,92",
+    "line_number": 436
+  },
+  {
+    "type": "K_format",
+    "time": "18:00",
+    "match_id": "08571",
+    "teams": "U21Franciaország - U21Lengyelország               Hendikep 0:1",
+    "odds": [
+      "1,68",
+      "3,80",
+      "3,45"
+    ],
+    "raw_line": "K   18:00   08571            U21Franciaország - U21Lengyelország               Hendikep 0:1                                                         1,68   3,80 3,45",
+    "line_number": 437
+  },
+  {
+    "type": "K_format",
+    "time": "18:00",
+    "match_id": "08585",
+    "teams": "U21Franciaország - U21Lengyelország               1. félidő - 1X2",
+    "odds": [
+      "1,57",
+      "2,65",
+      "7,25"
+    ],
+    "raw_line": "K   18:00   08585            U21Franciaország - U21Lengyelország               1. félidő - 1X2                                                      1,57   2,65 7,25",
+    "line_number": 451
+  },
+  {
+    "type": "K_format",
+    "time": "18:00",
+    "match_id": "08944",
+    "teams": "U21Grúzia - U21Portugália",
+    "odds": [
+      "8,00",
+      "5,50",
+      "1,25"
+    ],
+    "raw_line": "K   18:00   08944            U21Grúzia - U21Portugália                                                                                              8,00   5,50 1,25",
+    "line_number": 452
+  },
+  {
+    "type": "K_format",
+    "time": "18:00",
+    "match_id": "08945",
+    "teams": "U21Grúzia - U21Portugália                         Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "2,53",
+      "1,12",
+      "1,08"
+    ],
+    "raw_line": "K   18:00   08945            U21Grúzia - U21Portugália                         Kétesély (H: 1X, D: 12, V: X2)                                       2,53   1,12 1,08",
+    "line_number": 453
+  },
+  {
+    "type": "K_format",
+    "time": "18:00",
+    "match_id": "08951",
+    "teams": "U21Grúzia - U21Portugália                         Hendikep 1:0",
+    "odds": [
+      "3,05",
+      "3,80",
+      "1,79"
+    ],
+    "raw_line": "K   18:00   08951            U21Grúzia - U21Portugália                         Hendikep 1:0                                                         3,05   3,80 1,79",
+    "line_number": 456
+  },
+  {
+    "type": "K_format",
+    "time": "18:00",
+    "match_id": "08952",
+    "teams": "U21Grúzia - U21Portugália                         Hendikep 2:0",
+    "odds": [
+      "1,80",
+      "4,00",
+      "2,91"
+    ],
+    "raw_line": "K   18:00   08952            U21Grúzia - U21Portugália                         Hendikep 2:0                                                         1,80   4,00 2,91",
+    "line_number": 457
+  },
+  {
+    "type": "K_format",
+    "time": "18:00",
+    "match_id": "00851",
+    "teams": "U21Grúzia - U21Portugália                         Hendikep 3:0",
+    "odds": [
+      "1,30",
+      "5,25",
+      "5,25"
+    ],
+    "raw_line": "K   18:00   00851            U21Grúzia - U21Portugália                         Hendikep 3:0                                                         1,30   5,25 5,25",
+    "line_number": 458
+  },
+  {
+    "type": "K_format",
+    "time": "18:00",
+    "match_id": "08964",
+    "teams": "U21Grúzia - U21Portugália                         1. félidő - 1X2",
+    "odds": [
+      "6,25",
+      "2,63",
+      "1,64"
+    ],
+    "raw_line": "K   18:00   08964            U21Grúzia - U21Portugália                         1. félidő - 1X2                                                      6,25   2,63 1,64",
+    "line_number": 472
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "07960",
+    "teams": "U21Románia - U21Szlovákia (Helyszín: Szlovákia)",
+    "odds": [
+      "2,71",
+      "3,65",
+      "2,14"
+    ],
+    "raw_line": "K   21:00   07960            U21Románia - U21Szlovákia (Helyszín: Szlovákia)                                                                        2,71   3,65 2,14",
+    "line_number": 473
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "07961",
+    "teams": "U21Románia - U21Szlovákia                         Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "1,45",
+      "1,25",
+      "1,38"
+    ],
+    "raw_line": "K   21:00   07961            U21Románia - U21Szlovákia                         Kétesély (H: 1X, D: 12, V: X2)                                       1,45   1,25 1,38",
+    "line_number": 474
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "07966",
+    "teams": "U21Románia - U21Szlovákia                         Hendikep 0:1",
+    "odds": [
+      "4,80",
+      "4,35",
+      "1,40"
+    ],
+    "raw_line": "K   21:00   07966            U21Románia - U21Szlovákia                         Hendikep 0:1                                                         4,80   4,35 1,40",
+    "line_number": 477
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "07967",
+    "teams": "U21Románia - U21Szlovákia                         Hendikep 1:0",
+    "odds": [
+      "1,49",
+      "4,15",
+      "4,20"
+    ],
+    "raw_line": "K   21:00   07967            U21Románia - U21Szlovákia                         Hendikep 1:0                                                         1,49   4,15 4,20",
+    "line_number": 478
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "07970",
+    "teams": "U21Románia - U21Szlovákia                         Hendikep 2:0",
+    "odds": [
+      "1,16",
+      "6,00",
+      "8,75"
+    ],
+    "raw_line": "K   21:00   07970            U21Románia - U21Szlovákia                         Hendikep 2:0                                                         1,16   6,00 8,75",
+    "line_number": 479
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "07995",
+    "teams": "U21Románia - U21Szlovákia                         1. félidő - 1X2",
+    "odds": [
+      "2,99",
+      "2,21",
+      "2,75"
+    ],
+    "raw_line": "K   21:00   07995            U21Románia - U21Szlovákia                         1. félidő - 1X2                                                      2,99   2,21 2,75",
+    "line_number": 490
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "08113",
+    "teams": "U21Spanyolország - U21Olaszország",
+    "odds": [
+      "1,59",
+      "3,75",
+      "4,70"
+    ],
+    "raw_line": "K   21:00   08113            U21Spanyolország - U21Olaszország                                                                                      1,59   3,75 4,70",
+    "line_number": 491
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "08116",
+    "teams": "U21Spanyolország - U21Olaszország                 Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "1,17",
+      "1,23",
+      "1,82"
+    ],
+    "raw_line": "K   21:00   08116            U21Spanyolország - U21Olaszország                 Kétesély (H: 1X, D: 12, V: X2)                                       1,17   1,23 1,82",
+    "line_number": 492
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "08136",
+    "teams": "U21Spanyolország - U21Olaszország                 Hendikep 0:2",
+    "odds": [
+      "5,50",
+      "4,60",
+      "1,33"
+    ],
+    "raw_line": "K   21:00   08136            U21Spanyolország - U21Olaszország                 Hendikep 0:2                                                         5,50   4,60 1,33",
+    "line_number": 495
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "08137",
+    "teams": "U21Spanyolország - U21Olaszország            Hendikep 0:1",
+    "odds": [
+      "2,79",
+      "3,50",
+      "1,97"
+    ],
+    "raw_line": "K   21:00    08137            U21Spanyolország - U21Olaszország            Hendikep 0:1                                                      2,79 3,50 1,97",
+    "line_number": 503
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "08138",
+    "teams": "U21Spanyolország - U21Olaszország            Hendikep 1:0",
+    "odds": [
+      "1,16",
+      "5,25",
+      "10,00"
+    ],
+    "raw_line": "K   21:00    08138            U21Spanyolország - U21Olaszország            Hendikep 1:0                                                      1,16 5,25 10,00",
+    "line_number": 504
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "08188",
+    "teams": "U21Spanyolország - U21Olaszország            1. félidő - 1X2",
+    "odds": [
+      "2,14",
+      "2,14",
+      "4,65"
+    ],
+    "raw_line": "K   21:00    08188            U21Spanyolország - U21Olaszország            1. félidő - 1X2                                                   2,14 2,14 4,65",
+    "line_number": 516
+  },
+  {
+    "type": "K_format",
+    "time": "18:30",
+    "match_id": "15172",
+    "teams": "ASO Chlef - MC Alger",
+    "odds": [
+      "3,70",
+      "2,81",
+      "1,91"
+    ],
+    "raw_line": "K   18:30    15172            ASO Chlef - MC Alger                                                                                           3,70    2,81    1,91",
+    "line_number": 518
+  },
+  {
+    "type": "K_format",
+    "time": "18:30",
+    "match_id": "14435",
+    "teams": "Belouizdad - MC Oran",
+    "odds": [
+      "1,25",
+      "4,00",
+      "10,00"
+    ],
+    "raw_line": "K   18:30    14435            Belouizdad - MC Oran                                                                                           1,25    4,00   10,00",
+    "line_number": 519
+  },
+  {
+    "type": "K_format",
+    "time": "18:30",
+    "match_id": "14443",
+    "teams": "Belouizdad - MC Oran                         Hendikep 0:1",
+    "odds": [
+      "1,91",
+      "3,20",
+      "3,20"
+    ],
+    "raw_line": "K   18:30    14443            Belouizdad - MC Oran                         Hendikep 0:1                                                      1,91    3,20   3,20",
+    "line_number": 520
+  },
+  {
+    "type": "K_format",
+    "time": "18:30",
+    "match_id": "14759",
+    "teams": "ES Mostaganem - Kabylie",
+    "odds": [
+      "2,81",
+      "2,60",
+      "2,44"
+    ],
+    "raw_line": "K   18:30    14759            ES Mostaganem - Kabylie                                                                                        2,81    2,60   2,44",
+    "line_number": 521
+  },
+  {
+    "type": "K_format",
+    "time": "18:30",
+    "match_id": "14532",
+    "teams": "NC Magra - Constantine",
+    "odds": [
+      "1,48",
+      "3,45",
+      "5,50"
+    ],
+    "raw_line": "K   18:30    14532            NC Magra - Constantine                                                                                         1,48    3,45   5,50",
+    "line_number": 522
+  },
+  {
+    "type": "K_format",
+    "time": "21:00",
+    "match_id": "14479",
+    "teams": "JS Saoura - Paradou",
+    "odds": [
+      "1,65",
+      "3,15",
+      "4,40"
+    ],
+    "raw_line": "K   21:00    14479            JS Saoura - Paradou                                                                                            1,65    3,15   4,40",
+    "line_number": 523
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "00:00",
+    "match_id": "17733",
+    "teams": "Colo Colo - Cobresal",
+    "odds": [
+      "1,35",
+      "4,10",
+      "6,00"
+    ],
+    "raw_line": "Sze 00:00    17733            Colo Colo - Cobresal                                                                                           1,35 4,10 6,00",
+    "line_number": 525
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "00:30",
+    "match_id": "36613",
+    "teams": "Volta Redonda - Avai",
+    "odds": [
+      "2,22",
+      "2,81",
+      "2,92"
+    ],
+    "raw_line": "Sze 00:30    36613            Volta Redonda - Avai                                                                                           2,22 2,81 2,92",
+    "line_number": 527
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "01:00",
+    "match_id": "21554",
+    "teams": "Montevideo Wanderers - Defensor Montevideo",
+    "odds": [
+      "2,19",
+      "3,05",
+      "2,73"
+    ],
+    "raw_line": "Sze 01:00    21554            Montevideo Wanderers - Defensor Montevideo                                                                     2,19 3,05 2,73",
+    "line_number": 529
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "02:15",
+    "match_id": "25038",
+    "teams": "Curacao - Salvador",
+    "odds": [
+      "1,94",
+      "3,20",
+      "3,55"
+    ],
+    "raw_line": "Sze 02:15    25038            Curacao - Salvador                                                                                              1,94   3,20 3,55",
+    "line_number": 531
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "02:15",
+    "match_id": "25043",
+    "teams": "Curacao - Salvador                           Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "1,25",
+      "1,30",
+      "1,54"
+    ],
+    "raw_line": "Sze 02:15    25043            Curacao - Salvador                           Kétesély (H: 1X, D: 12, V: X2)                                     1,25   1,30 1,54",
+    "line_number": 532
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "02:15",
+    "match_id": "27252",
+    "teams": "Curacao - Salvador                           Hendikep 0:2",
+    "odds": [
+      "9,75",
+      "5,50",
+      "1,16"
+    ],
+    "raw_line": "Sze 02:15    27252            Curacao - Salvador                           Hendikep 0:2                                                       9,75   5,50 1,16",
+    "line_number": 535
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "02:15",
+    "match_id": "25048",
+    "teams": "Curacao - Salvador                           Hendikep 0:1",
+    "odds": [
+      "4,15",
+      "3,50",
+      "1,61"
+    ],
+    "raw_line": "Sze 02:15    25048            Curacao - Salvador                           Hendikep 0:1                                                       4,15   3,50 1,61",
+    "line_number": 536
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "02:15",
+    "match_id": "25049",
+    "teams": "Curacao - Salvador                           Hendikep 1:0",
+    "odds": [
+      "1,25",
+      "4,40",
+      "8,00"
+    ],
+    "raw_line": "Sze 02:15    25049            Curacao - Salvador                           Hendikep 1:0                                                       1,25   4,40 8,00",
+    "line_number": 537
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "02:15",
+    "match_id": "25142",
+    "teams": "Curacao - Salvador                           1. félidő - 1X2",
+    "odds": [
+      "2,74",
+      "1,86",
+      "4,05"
+    ],
+    "raw_line": "Sze 02:15    25142            Curacao - Salvador                           1. félidő - 1X2                                                    2,74   1,86 4,05",
+    "line_number": 545
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "04:30",
+    "match_id": "25503",
+    "teams": "Kanada - Honduras",
+    "odds": [
+      "1,31",
+      "4,75",
+      "7,25"
+    ],
+    "raw_line": "Sze 04:30    25503            Kanada - Honduras                                                                                               1,31   4,75 7,25",
+    "line_number": 546
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "04:30",
+    "match_id": "25504",
+    "teams": "Kanada - Honduras                            Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "1,09",
+      "1,15",
+      "2,33"
+    ],
+    "raw_line": "Sze 04:30    25504            Kanada - Honduras                            Kétesély (H: 1X, D: 12, V: X2)                                     1,09   1,15 2,33",
+    "line_number": 547
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "04:30",
+    "match_id": "25516",
+    "teams": "Kanada - Honduras                            Hendikep 0:2",
+    "odds": [
+      "3,65",
+      "3,95",
+      "1,60"
+    ],
+    "raw_line": "Sze 04:30    25516            Kanada - Honduras                            Hendikep 0:2                                                       3,65   3,95 1,60",
+    "line_number": 550
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "04:30",
+    "match_id": "25517",
+    "teams": "Kanada - Honduras                            Hendikep 0:1",
+    "odds": [
+      "2,03",
+      "3,45",
+      "2,72"
+    ],
+    "raw_line": "Sze 04:30    25517            Kanada - Honduras                            Hendikep 0:1                                                       2,03   3,45 2,72",
+    "line_number": 551
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "04:30",
+    "match_id": "25518",
+    "teams": "Kanada - Honduras                            Hendikep 1:0",
+    "odds": [
+      "1,07",
+      "6,50",
+      "16,00"
+    ],
+    "raw_line": "Sze 04:30    25518            Kanada - Honduras                            Hendikep 1:0                                                       1,07   6,50 16,00",
+    "line_number": 552
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "04:30",
+    "match_id": "25530",
+    "teams": "Kanada - Honduras                            1. félidő - 1X2",
+    "odds": [
+      "1,77",
+      "2,33",
+      "6,50"
+    ],
+    "raw_line": "Sze 04:30    25530            Kanada - Honduras                            1. félidő - 1X2                                                   1,77    2,33 6,50",
+    "line_number": 560
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "02:00",
+    "match_id": "23198",
+    "teams": "Florida - Edmonton",
+    "odds": [
+      "2,05",
+      "4,10",
+      "2,95"
+    ],
+    "raw_line": "Sze 02:00    23198            Florida - Edmonton                                                                                     2,05   4,10 2,95",
+    "line_number": 727
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "02:00",
+    "match_id": "23199",
+    "teams": "Florida - Edmonton                          Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "1,32",
+      "1,20",
+      "1,59"
+    ],
+    "raw_line": "Sze 02:00    23199            Florida - Edmonton                          Kétesély (H: 1X, D: 12, V: X2)                             1,32   1,20 1,59",
+    "line_number": 728
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "02:00",
+    "match_id": "23255",
+    "teams": "Florida - Edmonton                          Hendikep 0:1",
+    "odds": [
+      "2,33",
+      "8,50",
+      "1,66"
+    ],
+    "raw_line": "Sze 02:00    23255            Florida - Edmonton                          Hendikep 0:1                                               2,33   8,50 1,66",
+    "line_number": 731
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "02:00",
+    "match_id": "23256",
+    "teams": "Florida - Edmonton                          Hendikep 1:0",
+    "odds": [
+      "1,34",
+      "9,00",
+      "3,45"
+    ],
+    "raw_line": "Sze 02:00    23256            Florida - Edmonton                          Hendikep 1:0                                               1,34   9,00 3,45",
+    "line_number": 732
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "02:00",
+    "match_id": "23275",
+    "teams": "Florida - Edmonton                          1. harmad - 1X2",
+    "odds": [
+      "2,38",
+      "2,56",
+      "2,95"
+    ],
+    "raw_line": "Sze 02:00    23275            Florida - Edmonton                          1. harmad - 1X2                                            2,38   2,56 2,95",
+    "line_number": 734
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "04:00",
+    "match_id": "11588",
+    "teams": "Abbotsford - Charlotte",
+    "odds": [
+      "2,24",
+      "3,65",
+      "2,33"
+    ],
+    "raw_line": "Sze 04:00    11588            Abbotsford - Charlotte                                                                                 2,24 3,65 2,33",
+    "line_number": 736
+  },
+  {
+    "type": "K_format",
+    "time": "18:45",
+    "match_id": "32440",
+    "teams": "Barcelona - Cartagena",
+    "odds": [
+      "1,62",
+      "4,70",
+      "3,15"
+    ],
+    "raw_line": "K 18:45      32440            Barcelona - Cartagena                                                                                  1,62 4,70 3,15",
+    "line_number": 745
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "12:30",
+    "match_id": "16535",
+    "teams": "Daejeon Citizen - Gimcheon Sangmu",
+    "odds": [
+      "3,10",
+      "3,70",
+      "1,93"
+    ],
+    "raw_line": "Sze 12:30    16535            Daejeon Citizen - Gimcheon Sangmu                                                                      3,10 3,70 1,93",
+    "line_number": 754
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "12:30",
+    "match_id": "16930",
+    "teams": "Jeju - Gwangju",
+    "odds": [
+      "2,71",
+      "3,20",
+      "2,34"
+    ],
+    "raw_line": "Sze 12:30    16930            Jeju - Gwangju                                                                                         2,71 3,20 2,34",
+    "line_number": 755
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "13:35",
+    "match_id": "21199",
+    "teams": "Henan Songshan - Shanghai Port",
+    "odds": [
+      "3,00",
+      "4,05",
+      "1,88"
+    ],
+    "raw_line": "Sze 13:35    21199            Henan Songshan - Shanghai Port                                                                         3,00 4,05 1,88",
+    "line_number": 757
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "14:00",
+    "match_id": "24944",
+    "teams": "Shenzhen Peng City - Wuhan Three Towns",
+    "odds": [
+      "2,19",
+      "3,55",
+      "2,69"
+    ],
+    "raw_line": "Sze 14:00    24944            Shenzhen Peng City - Wuhan Three Towns                                                                 2,19 3,55 2,69",
+    "line_number": 758
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "16:00",
+    "match_id": "19663",
+    "teams": "Ilves - Seinäjoen JK",
+    "odds": [
+      "1,51",
+      "3,95",
+      "4,25"
+    ],
+    "raw_line": "Sze 16:00    19663            Ilves - Seinäjoen JK                                                                                   1,51   3,95   4,25",
+    "line_number": 760
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "16:00",
+    "match_id": "19468",
+    "teams": "Mariehamn - Kuopio PS",
+    "odds": [
+      "5,75",
+      "4,05",
+      "1,37"
+    ],
+    "raw_line": "Sze 16:00    19468            Mariehamn - Kuopio PS                                                                                  5,75   4,05   1,37",
+    "line_number": 761
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "16:00",
+    "match_id": "19618",
+    "teams": "Mariehamn - Kuopio PS                       Hendikep 1:0",
+    "odds": [
+      "2,49",
+      "3,50",
+      "2,17"
+    ],
+    "raw_line": "Sze 16:00    19618            Mariehamn - Kuopio PS                       Hendikep 1:0                                               2,49   3,50   2,17",
+    "line_number": 762
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "20:00",
+    "match_id": "19413",
+    "teams": "Helsinki JK - Haka",
+    "odds": [
+      "1,33",
+      "4,45",
+      "5,75"
+    ],
+    "raw_line": "Sze 20:00    19413            Helsinki JK - Haka                                                                                     1,33   4,45   5,75",
+    "line_number": 763
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "20:00",
+    "match_id": "19421",
+    "teams": "Helsinki JK - Haka                          Hendikep 0:1",
+    "odds": [
+      "1,99",
+      "3,70",
+      "2,64"
+    ],
+    "raw_line": "Sze 20:00    19421            Helsinki JK - Haka                          Hendikep 0:1                                               1,99   3,70   2,64",
+    "line_number": 764
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "20:00",
+    "match_id": "19258",
+    "teams": "Jaro - AC Oulu",
+    "odds": [
+      "2,28",
+      "3,15",
+      "2,53"
+    ],
+    "raw_line": "Sze 20:00    19258            Jaro - AC Oulu                                                                                         2,28   3,15   2,53",
+    "line_number": 765
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "20:00",
+    "match_id": "19021",
+    "teams": "Vaasa PS - Gnistan",
+    "odds": [
+      "1,88",
+      "3,45",
+      "3,05"
+    ],
+    "raw_line": "Sze 20:00    19021            Vaasa PS - Gnistan                                                                                     1,88   3,45   3,05",
+    "line_number": 766
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "16:00",
+    "match_id": "32726",
+    "teams": "Seinäjoen JK 2 - KaPa",
+    "odds": [
+      "1,55",
+      "4,35",
+      "3,65"
+    ],
+    "raw_line": "Sze 16:00    32726            Seinäjoen JK 2 - KaPa                                                                                  1,55 4,35 3,65",
+    "line_number": 768
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "17:30",
+    "match_id": "32773",
+    "teams": "PK-35 - SalPa",
+    "odds": [
+      "1,39",
+      "3,90",
+      "5,75"
+    ],
+    "raw_line": "Sze 17:30    32773            PK-35 - SalPa                                                                                          1,39 3,90 5,75",
+    "line_number": 769
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "18:00",
+    "match_id": "24119",
+    "teams": "Manchester City - Wydad Casablanca",
+    "odds": [
+      "1,04",
+      "8,50",
+      "29,00"
+    ],
+    "raw_line": "Sze 18:00    24119            Manchester City - Wydad Casablanca                                                                     1,04   8,50 29,00",
+    "line_number": 771
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "18:00",
+    "match_id": "24125",
+    "teams": "Manchester City - Wydad Casablanca          Hendikep 0:4",
+    "odds": [
+      "4,25",
+      "5,25",
+      "1,47"
+    ],
+    "raw_line": "Sze 18:00    24125            Manchester City - Wydad Casablanca          Hendikep 0:4                                               4,25   5,25 1,47",
+    "line_number": 773
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "18:00",
+    "match_id": "24126",
+    "teams": "Manchester City - Wydad Casablanca          Hendikep 0:3",
+    "odds": [
+      "2,48",
+      "4,25",
+      "2,12"
+    ],
+    "raw_line": "Sze 18:00    24126            Manchester City - Wydad Casablanca          Hendikep 0:3                                               2,48   4,25 2,12",
+    "line_number": 774
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "18:00",
+    "match_id": "24127",
+    "teams": "Manchester City - Wydad Casablanca          Hendikep 0:2",
+    "odds": [
+      "1,62",
+      "4,25",
+      "3,85"
+    ],
+    "raw_line": "Sze 18:00    24127            Manchester City - Wydad Casablanca          Hendikep 0:2                                               1,62   4,25 3,85",
+    "line_number": 775
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "18:00",
+    "match_id": "24142",
+    "teams": "Manchester City - Wydad Casablanca      Az első 10 perc eredménye (0-9:59)",
+    "odds": [
+      "3,20",
+      "1,24",
+      "35,00"
+    ],
+    "raw_line": "Sze 18:00    24142            Manchester City - Wydad Casablanca      Az első 10 perc eredménye (0-9:59)                                               3,20 1,24 35,00",
+    "line_number": 808
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "18:00",
+    "match_id": "24143",
+    "teams": "Manchester City - Wydad Casablanca      1. félidő - 1X2",
+    "odds": [
+      "1,27",
+      "3,60",
+      "23,00"
+    ],
+    "raw_line": "Sze 18:00    24143            Manchester City - Wydad Casablanca      1. félidő - 1X2                                                                  1,27 3,60 23,00",
+    "line_number": 809
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "18:00",
+    "match_id": "09796",
+    "teams": "Manchester City - Wydad Casablanca      Szögletek száma (H: 0-8, D: 9-11, V: 12+)",
+    "odds": [
+      "2,55",
+      "2,64",
+      "2,64"
+    ],
+    "raw_line": "Sze 18:00    09796            Manchester City - Wydad Casablanca      Szögletek száma (H: 0-8, D: 9-11, V: 12+)                                        2,55 2,64 2,64",
+    "line_number": 813
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "18:00",
+    "match_id": "09792",
+    "teams": "Manchester City - Wydad Casablanca      Melyik csapat végez el több szögletet? (H: 1, D: ua., V: 2)",
+    "odds": [
+      "1,04",
+      "10,00",
+      "11,50"
+    ],
+    "raw_line": "Sze 18:00    09792            Manchester City - Wydad Casablanca      Melyik csapat végez el több szögletet? (H: 1, D: ua., V: 2)                      1,04 10,00 11,50",
+    "line_number": 814
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "18:00",
+    "match_id": "24182",
+    "teams": "Manchester City - Wydad Casablanca      2. félidő - 1X2",
+    "odds": [
+      "1,19",
+      "3,85",
+      "20,00"
+    ],
+    "raw_line": "Sze 18:00    24182            Manchester City - Wydad Casablanca      2. félidő - 1X2                                                                  1,19 3,85 20,00",
+    "line_number": 818
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "24499",
+    "teams": "Real Madrid - Al-Hilal (KSA)",
+    "odds": [
+      "1,21",
+      "6,00",
+      "9,00"
+    ],
+    "raw_line": "Sze 21:00    24499            Real Madrid - Al-Hilal (KSA)                                                                                             1,21 6,00 9,00",
+    "line_number": 828
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "24500",
+    "teams": "Real Madrid - Al-Hilal                  Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "1,06",
+      "1,10",
+      "2,69"
+    ],
+    "raw_line": "Sze 21:00    24500            Real Madrid - Al-Hilal                  Kétesély (H: 1X, D: 12, V: X2)                                                   1,06 1,10 2,69",
+    "line_number": 829
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "24505",
+    "teams": "Real Madrid - Al-Hilal                  Hendikep 0:3",
+    "odds": [
+      "5,00",
+      "5,25",
+      "1,39"
+    ],
+    "raw_line": "Sze 21:00    24505            Real Madrid - Al-Hilal                  Hendikep 0:3                                                                     5,00 5,25 1,39",
+    "line_number": 832
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "24506",
+    "teams": "Real Madrid - Al-Hilal                  Hendikep 0:2",
+    "odds": [
+      "2,76",
+      "4,15",
+      "1,97"
+    ],
+    "raw_line": "Sze 21:00    24506            Real Madrid - Al-Hilal                  Hendikep 0:2                                                                     2,76 4,15 1,97",
+    "line_number": 833
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "24507",
+    "teams": "Real Madrid - Al-Hilal                  Hendikep 0:1",
+    "odds": [
+      "1,73",
+      "4,10",
+      "3,50"
+    ],
+    "raw_line": "Sze 21:00    24507            Real Madrid - Al-Hilal                  Hendikep 0:1                                                                     1,73 4,10 3,50",
+    "line_number": 834
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "24539",
+    "teams": "Real Madrid - Al-Hilal           Az első 10 perc eredménye (0-9:59)",
+    "odds": [
+      "4,00",
+      "1,21",
+      "13,00"
+    ],
+    "raw_line": "Sze 21:00    24539            Real Madrid - Al-Hilal           Az első 10 perc eredménye (0-9:59)                                                   4,00   1,21 13,00",
+    "line_number": 867
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "24547",
+    "teams": "Real Madrid - Al-Hilal           1. félidő - 1X2",
+    "odds": [
+      "1,62",
+      "2,84",
+      "7,25"
+    ],
+    "raw_line": "Sze 21:00    24547            Real Madrid - Al-Hilal           1. félidő - 1X2                                                                      1,62   2,84 7,25",
+    "line_number": 868
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "09752",
+    "teams": "Real Madrid - Al-Hilal           Szögletek száma (H: 0-8, D: 9-11, V: 12+)",
+    "odds": [
+      "3,05",
+      "2,67",
+      "2,25"
+    ],
+    "raw_line": "Sze 21:00    09752            Real Madrid - Al-Hilal           Szögletek száma (H: 0-8, D: 9-11, V: 12+)                                            3,05   2,67 2,25",
+    "line_number": 872
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "09770",
+    "teams": "Real Madrid - Al-Hilal           Melyik csapat végez el több szögletet? (H: 1,a D: ua., V: 2)",
+    "odds": [
+      "1,16",
+      "9,25",
+      "5,50"
+    ],
+    "raw_line": "Sze 21:00    09770            Real Madrid - Al-Hilal           Melyik csapat végez el több szögletet? (H: 1,a D: ua., V: 2)                         1,16   9,25 5,50",
+    "line_number": 873
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "24621",
+    "teams": "Real Madrid - Al-Hilal           2. félidő - 1X2",
+    "odds": [
+      "1,51",
+      "3,05",
+      "6,25"
+    ],
+    "raw_line": "Sze 21:00    24621            Real Madrid - Al-Hilal           2. félidő - 1X2                                                                      1,51   3,05 6,25",
+    "line_number": 877
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "00:00",
+    "match_id": "24684",
+    "teams": "Pachuca - Salzburg",
+    "odds": [
+      "2,79",
+      "3,45",
+      "2,17"
+    ],
+    "raw_line": "Cs 00:00     24684            Pachuca - Salzburg                                                                                                    2,79   3,45 2,17",
+    "line_number": 887
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "00:00",
+    "match_id": "24685",
+    "teams": "Pachuca - Salzburg               Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "1,44",
+      "1,27",
+      "1,36"
+    ],
+    "raw_line": "Cs 00:00     24685            Pachuca - Salzburg               Kétesély (H: 1X, D: 12, V: X2)                                                       1,44   1,27 1,36",
+    "line_number": 888
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "00:00",
+    "match_id": "24690",
+    "teams": "Pachuca - Salzburg               Hendikep 0:1",
+    "odds": [
+      "5,75",
+      "4,40",
+      "1,41"
+    ],
+    "raw_line": "Cs 00:00     24690            Pachuca - Salzburg               Hendikep 0:1                                                                         5,75   4,40 1,41",
+    "line_number": 891
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "00:00",
+    "match_id": "24691",
+    "teams": "Pachuca - Salzburg               Hendikep 1:0",
+    "odds": [
+      "1,52",
+      "4,15",
+      "4,80"
+    ],
+    "raw_line": "Cs 00:00     24691            Pachuca - Salzburg               Hendikep 1:0                                                                         1,52   4,15 4,80",
+    "line_number": 892
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "00:00",
+    "match_id": "24692",
+    "teams": "Pachuca - Salzburg               Hendikep 2:0",
+    "odds": [
+      "1,15",
+      "6,50",
+      "11,50"
+    ],
+    "raw_line": "Cs 00:00     24692            Pachuca - Salzburg               Hendikep 2:0                                                                         1,15   6,50 11,50",
+    "line_number": 893
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "00:00",
+    "match_id": "24706",
+    "teams": "Pachuca - Salzburg               Az első 10 perc eredménye (0-9:59)",
+    "odds": [
+      "7,75",
+      "1,14",
+      "7,00"
+    ],
+    "raw_line": "Cs 00:00     24706            Pachuca - Salzburg               Az első 10 perc eredménye (0-9:59)                                                   7,75   1,14 7,00",
+    "line_number": 918
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "00:00",
+    "match_id": "24707",
+    "teams": "Pachuca - Salzburg               1. félidő - 1X2",
+    "odds": [
+      "3,35",
+      "2,09",
+      "3,00"
+    ],
+    "raw_line": "Cs 00:00     24707            Pachuca - Salzburg               1. félidő - 1X2                                                                      3,35   2,09 3,00",
+    "line_number": 919
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "00:00",
+    "match_id": "09949",
+    "teams": "Pachuca - Salzburg               Szögletek száma (H: 0-8, D: 9-11, V: 12+)",
+    "odds": [
+      "2,53",
+      "2,64",
+      "2,66"
+    ],
+    "raw_line": "Cs 00:00     09949            Pachuca - Salzburg               Szögletek száma (H: 0-8, D: 9-11, V: 12+)                                            2,53   2,64 2,66",
+    "line_number": 923
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "00:00",
+    "match_id": "09951",
+    "teams": "Pachuca - Salzburg               Melyik csapat végez el több szögletet? (H: 1, D: ua., V: 2)",
+    "odds": [
+      "2,12",
+      "7,50",
+      "1,84"
+    ],
+    "raw_line": "Cs 00:00     09951            Pachuca - Salzburg               Melyik csapat végez el több szögletet? (H: 1, D: ua., V: 2)                          2,12   7,50 1,84",
+    "line_number": 924
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "00:00",
+    "match_id": "24764",
+    "teams": "Pachuca - Salzburg               2. félidő - 1X2",
+    "odds": [
+      "2,86",
+      "2,40",
+      "2,61"
+    ],
+    "raw_line": "Cs 00:00     24764            Pachuca - Salzburg               2. félidő - 1X2                                                                      2,86   2,40 2,61",
+    "line_number": 926
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "03:00",
+    "match_id": "24275",
+    "teams": "Al-Ain (UAE) - Juventus",
+    "odds": [
+      "11,00",
+      "6,25",
+      "1,16"
+    ],
+    "raw_line": "Cs 03:00     24275            Al-Ain (UAE) - Juventus                                                                                                 11,00 6,25   1,16",
+    "line_number": 943
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "03:00",
+    "match_id": "24276",
+    "teams": "Al-Ain - Juventus                  Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "2,88",
+      "1,09",
+      "1,05"
+    ],
+    "raw_line": "Cs 03:00     24276            Al-Ain - Juventus                  Kétesély (H: 1X, D: 12, V: X2)                                                        2,88 1,09   1,05",
+    "line_number": 944
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "03:00",
+    "match_id": "24319",
+    "teams": "Al-Ain - Juventus                  Hendikep 1:0",
+    "odds": [
+      "3,90",
+      "4,00",
+      "1,66"
+    ],
+    "raw_line": "Cs 03:00     24319            Al-Ain - Juventus                  Hendikep 1:0                                                                          3,90 4,00   1,66",
+    "line_number": 947
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "03:00",
+    "match_id": "24320",
+    "teams": "Al-Ain - Juventus                  Hendikep 2:0",
+    "odds": [
+      "2,08",
+      "4,00",
+      "2,65"
+    ],
+    "raw_line": "Cs 03:00     24320            Al-Ain - Juventus                  Hendikep 2:0                                                                          2,08 4,00   2,65",
+    "line_number": 948
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "03:00",
+    "match_id": "24321",
+    "teams": "Al-Ain - Juventus                  Hendikep 3:0",
+    "odds": [
+      "1,41",
+      "5,00",
+      "4,85"
+    ],
+    "raw_line": "Cs 03:00     24321            Al-Ain - Juventus                  Hendikep 3:0                                                                          1,41 5,00   4,85",
+    "line_number": 949
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "03:00",
+    "match_id": "24337",
+    "teams": "Al-Ain - Juventus                  Az első 10 perc eredménye (0-9:59)",
+    "odds": [
+      "16,00",
+      "1,20",
+      "4,00"
+    ],
+    "raw_line": "Cs 03:00     24337            Al-Ain - Juventus                  Az első 10 perc eredménye (0-9:59)                                                   16,00 1,20   4,00",
+    "line_number": 975
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "03:00",
+    "match_id": "24338",
+    "teams": "Al-Ain - Juventus                  1. félidő - 1X2",
+    "odds": [
+      "8,75",
+      "2,79",
+      "1,57"
+    ],
+    "raw_line": "Cs 03:00     24338            Al-Ain - Juventus                  1. félidő - 1X2                                                                       8,75 2,79   1,57",
+    "line_number": 976
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "03:00",
+    "match_id": "09775",
+    "teams": "Al-Ain - Juventus                  Szögletek száma (H: 0-8, D: 9-11, V: 12+)",
+    "odds": [
+      "2,58",
+      "2,63",
+      "2,61"
+    ],
+    "raw_line": "Cs 03:00     09775            Al-Ain - Juventus                  Szögletek száma (H: 0-8, D: 9-11, V: 12+)                                             2,58 2,63   2,61",
+    "line_number": 980
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "03:00",
+    "match_id": "09785",
+    "teams": "Al-Ain - Juventus                  Melyik csapat végez el több szögletet? (H: 1, D: ua., V: 2)",
+    "odds": [
+      "7,00",
+      "9,75",
+      "1,11"
+    ],
+    "raw_line": "Cs 03:00     09785            Al-Ain - Juventus                  Melyik csapat végez el több szögletet? (H: 1, D: ua., V: 2)                           7,00 9,75   1,11",
+    "line_number": 981
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "03:00",
+    "match_id": "24406",
+    "teams": "Al-Ain - Juventus                  2. félidő - 1X2",
+    "odds": [
+      "7,50",
+      "3,00",
+      "1,46"
+    ],
+    "raw_line": "Cs 03:00     24406            Al-Ain - Juventus                  2. félidő - 1X2                                                                       7,50 3,00   1,46",
+    "line_number": 985
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "18:00",
+    "match_id": "09031",
+    "teams": "U21Dánia - U21Finnország",
+    "odds": [
+      "1,69",
+      "3,90",
+      "3,80"
+    ],
+    "raw_line": "Sze 18:00    09031            U21Dánia - U21Finnország                                                                                                1,69   3,90 3,80",
+    "line_number": 996
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "18:00",
+    "match_id": "09032",
+    "teams": "U21Dánia - U21Finnország           Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "1,22",
+      "1,22",
+      "1,72"
+    ],
+    "raw_line": "Sze 18:00    09032            U21Dánia - U21Finnország           Kétesély (H: 1X, D: 12, V: X2)                                                       1,22   1,22 1,72",
+    "line_number": 997
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "18:00",
+    "match_id": "09043",
+    "teams": "U21Dánia - U21Finnország           Hendikep 0:2",
+    "odds": [
+      "5,75",
+      "4,90",
+      "1,29"
+    ],
+    "raw_line": "Sze 18:00    09043            U21Dánia - U21Finnország           Hendikep 0:2                                                                         5,75   4,90 1,29",
+    "line_number": 1000
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "18:00",
+    "match_id": "09046",
+    "teams": "U21Dánia - U21Finnország           Hendikep 0:1",
+    "odds": [
+      "2,99",
+      "3,70",
+      "1,83"
+    ],
+    "raw_line": "Sze 18:00    09046            U21Dánia - U21Finnország           Hendikep 0:1                                                                         2,99   3,70 1,83",
+    "line_number": 1001
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "18:00",
+    "match_id": "09047",
+    "teams": "U21Dánia - U21Finnország           Hendikep 1:0",
+    "odds": [
+      "1,23",
+      "5,00",
+      "7,50"
+    ],
+    "raw_line": "Sze 18:00    09047            U21Dánia - U21Finnország           Hendikep 1:0                                                                         1,23   5,00 7,50",
+    "line_number": 1002
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "18:00",
+    "match_id": "09079",
+    "teams": "U21Dánia - U21Finnország               1. félidő - 1X2",
+    "odds": [
+      "2,26",
+      "2,22",
+      "3,90"
+    ],
+    "raw_line": "Sze 18:00    09079            U21Dánia - U21Finnország               1. félidő - 1X2                                             2,26   2,22 3,90",
+    "line_number": 1018
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "18:00",
+    "match_id": "09204",
+    "teams": "U21Hollandia - U21Ukrajna",
+    "odds": [
+      "1,40",
+      "4,70",
+      "5,50"
+    ],
+    "raw_line": "Sze 18:00    09204            U21Hollandia - U21Ukrajna                                                                          1,40   4,70 5,50",
+    "line_number": 1019
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "18:00",
+    "match_id": "09205",
+    "teams": "U21Hollandia - U21Ukrajna              Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "1,13",
+      "1,16",
+      "2,12"
+    ],
+    "raw_line": "Sze 18:00    09205            U21Hollandia - U21Ukrajna              Kétesély (H: 1X, D: 12, V: X2)                              1,13   1,16 2,12",
+    "line_number": 1020
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "18:00",
+    "match_id": "09214",
+    "teams": "U21Hollandia - U21Ukrajna              Hendikep 0:2",
+    "odds": [
+      "3,75",
+      "4,35",
+      "1,54"
+    ],
+    "raw_line": "Sze 18:00    09214            U21Hollandia - U21Ukrajna              Hendikep 0:2                                                3,75   4,35 1,54",
+    "line_number": 1023
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "18:00",
+    "match_id": "09217",
+    "teams": "U21Hollandia - U21Ukrajna              Hendikep 0:1",
+    "odds": [
+      "2,15",
+      "3,75",
+      "2,38"
+    ],
+    "raw_line": "Sze 18:00    09217            U21Hollandia - U21Ukrajna              Hendikep 0:1                                                2,15   3,75 2,38",
+    "line_number": 1024
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "18:00",
+    "match_id": "09219",
+    "teams": "U21Hollandia - U21Ukrajna              Hendikep 1:0",
+    "odds": [
+      "1,12",
+      "6,00",
+      "10,50"
+    ],
+    "raw_line": "Sze 18:00    09219            U21Hollandia - U21Ukrajna              Hendikep 1:0                                                1,12   6,00 10,50",
+    "line_number": 1025
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "18:00",
+    "match_id": "09236",
+    "teams": "U21Hollandia - U21Ukrajna              1. félidő - 1X2",
+    "odds": [
+      "1,84",
+      "2,49",
+      "4,85"
+    ],
+    "raw_line": "Sze 18:00    09236            U21Hollandia - U21Ukrajna              1. félidő - 1X2                                             1,84   2,49 4,85",
+    "line_number": 1034
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "09460",
+    "teams": "U21Anglia - U21Németország",
+    "odds": [
+      "2,15",
+      "3,50",
+      "2,78"
+    ],
+    "raw_line": "Sze 21:00    09460            U21Anglia - U21Németország                                                                         2,15   3,50 2,78",
+    "line_number": 1035
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "09464",
+    "teams": "U21Anglia - U21Németország             Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "1,36",
+      "1,26",
+      "1,45"
+    ],
+    "raw_line": "Sze 21:00    09464            U21Anglia - U21Németország             Kétesély (H: 1X, D: 12, V: X2)                              1,36   1,26 1,45",
+    "line_number": 1036
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "09472",
+    "teams": "U21Anglia - U21Németország             Hendikep 0:2",
+    "odds": [
+      "9,50",
+      "5,75",
+      "1,14"
+    ],
+    "raw_line": "Sze 21:00    09472            U21Anglia - U21Németország             Hendikep 0:2                                                9,50   5,75 1,14",
+    "line_number": 1039
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "09476",
+    "teams": "U21Anglia - U21Németország             Hendikep 0:1",
+    "odds": [
+      "4,40",
+      "4,00",
+      "1,49"
+    ],
+    "raw_line": "Sze 21:00    09476            U21Anglia - U21Németország             Hendikep 0:1                                                4,40   4,00 1,49",
+    "line_number": 1040
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "09477",
+    "teams": "U21Anglia - U21Németország             Hendikep 1:0",
+    "odds": [
+      "1,39",
+      "4,20",
+      "5,25"
+    ],
+    "raw_line": "Sze 21:00    09477            U21Anglia - U21Németország             Hendikep 1:0                                                1,39   4,20 5,25",
+    "line_number": 1041
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "09539",
+    "teams": "U21Anglia - U21Németország             1. félidő - 1X2",
+    "odds": [
+      "2,83",
+      "2,10",
+      "3,15"
+    ],
+    "raw_line": "Sze 21:00    09539            U21Anglia - U21Németország             1. félidő - 1X2                                             2,83   2,10 3,15",
+    "line_number": 1050
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "09631",
+    "teams": "U21Szlovénia - U21Csehország",
+    "odds": [
+      "2,25",
+      "3,50",
+      "2,64"
+    ],
+    "raw_line": "Sze 21:00    09631            U21Szlovénia - U21Csehország                                                                       2,25   3,50 2,64",
+    "line_number": 1051
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "09632",
+    "teams": "U21Szlovénia - U21Csehország           Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "1,39",
+      "1,26",
+      "1,41"
+    ],
+    "raw_line": "Sze 21:00    09632            U21Szlovénia - U21Csehország           Kétesély (H: 1X, D: 12, V: X2)                              1,39   1,26 1,41",
+    "line_number": 1052
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "09638",
+    "teams": "U21Szlovénia - U21Csehország           Hendikep 0:2",
+    "odds": [
+      "10,00",
+      "6,00",
+      "1,13"
+    ],
+    "raw_line": "Sze 21:00    09638            U21Szlovénia - U21Csehország           Hendikep 0:2                                               10,00   6,00 1,13",
+    "line_number": 1055
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "09639",
+    "teams": "U21Szlovénia - U21Csehország           Hendikep 0:1",
+    "odds": [
+      "4,60",
+      "4,15",
+      "1,44"
+    ],
+    "raw_line": "Sze 21:00    09639            U21Szlovénia - U21Csehország           Hendikep 0:1                                                4,60   4,15 1,44",
+    "line_number": 1056
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "09640",
+    "teams": "U21Szlovénia - U21Csehország           Hendikep 1:0",
+    "odds": [
+      "1,42",
+      "4,20",
+      "4,80"
+    ],
+    "raw_line": "Sze 21:00    09640            U21Szlovénia - U21Csehország           Hendikep 1:0                                                1,42   4,20 4,80",
+    "line_number": 1057
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "09652",
+    "teams": "U21Szlovénia - U21Csehország           1. félidő - 1X2",
+    "odds": [
+      "2,91",
+      "2,13",
+      "2,97"
+    ],
+    "raw_line": "Sze 21:00    09652            U21Szlovénia - U21Csehország           1. félidő - 1X2                                            2,91    2,13 2,97",
+    "line_number": 1066
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "19:00",
+    "match_id": "34770",
+    "teams": "Kongsvinger - Aalesund",
+    "odds": [
+      "1,96",
+      "3,50",
+      "2,83"
+    ],
+    "raw_line": "Sze 19:00    34770            Kongsvinger - Aalesund                                                                            1,96    3,50   2,83",
+    "line_number": 1068
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "19:00",
+    "match_id": "33777",
+    "teams": "Lilleström - Asane",
+    "odds": [
+      "1,19",
+      "5,25",
+      "8,25"
+    ],
+    "raw_line": "Sze 19:00    33777            Lilleström - Asane                                                                                1,19    5,25   8,25",
+    "line_number": 1069
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "19:00",
+    "match_id": "33822",
+    "teams": "Lyn - Raufoss",
+    "odds": [
+      "2,02",
+      "3,40",
+      "2,77"
+    ],
+    "raw_line": "Sze 19:00    33822            Lyn - Raufoss                                                                                     2,02    3,40   2,77",
+    "line_number": 1070
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "19:00",
+    "match_id": "33868",
+    "teams": "Moss - Hödd",
+    "odds": [
+      "1,83",
+      "3,40",
+      "3,25"
+    ],
+    "raw_line": "Sze 19:00    33868            Moss - Hödd                                                                                       1,83    3,40   3,25",
+    "line_number": 1071
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "19:00",
+    "match_id": "33969",
+    "teams": "Odd Grenland - Mjöndalen",
+    "odds": [
+      "1,46",
+      "3,95",
+      "4,75"
+    ],
+    "raw_line": "Sze 19:00    33969            Odd Grenland - Mjöndalen                                                                          1,46    3,95   4,75",
+    "line_number": 1072
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "19:00",
+    "match_id": "32858",
+    "teams": "Ranheim - Start",
+    "odds": [
+      "1,94",
+      "3,55",
+      "2,83"
+    ],
+    "raw_line": "Sze 19:00    32858            Ranheim - Start                                                                                   1,94    3,55   2,83",
+    "line_number": 1073
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "19:00",
+    "match_id": "34030",
+    "teams": "Skeid - Sogndal",
+    "odds": [
+      "3,15",
+      "3,35",
+      "1,86"
+    ],
+    "raw_line": "Sze 19:00    34030            Skeid - Sogndal                                                                                   3,15    3,35   1,86",
+    "line_number": 1074
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "19:00",
+    "match_id": "33453",
+    "teams": "Stabaek - Egersund",
+    "odds": [
+      "1,71",
+      "3,60",
+      "3,50"
+    ],
+    "raw_line": "Sze 19:00    33453            Stabaek - Egersund                                                                                1,71    3,60   3,50",
+    "line_number": 1075
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "20:00",
+    "match_id": "05272",
+    "teams": "America MG - Ferroviaria SP",
+    "odds": [
+      "4,20",
+      "3,25",
+      "1,66"
+    ],
+    "raw_line": "Sze 20:00    05272            America MG - Ferroviaria SP                                                                                 4,20   3,25    1,66",
+    "line_number": 1084
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "20:00",
+    "match_id": "05356",
+    "teams": "Bahia BA - EC Juventude RS",
+    "odds": [
+      "1,38",
+      "4,15",
+      "5,50"
+    ],
+    "raw_line": "Sze 20:00    05356            Bahia BA - EC Juventude RS                                                                                  1,38   4,15    5,50",
+    "line_number": 1085
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "20:00",
+    "match_id": "05450",
+    "teams": "Corinthians SP - Cruzeiro MG",
+    "odds": [
+      "1,43",
+      "4,05",
+      "4,95"
+    ],
+    "raw_line": "Sze 20:00    05450            Corinthians SP - Cruzeiro MG                                                                                1,43   4,05    4,95",
+    "line_number": 1086
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "20:00",
+    "match_id": "05629",
+    "teams": "Fluminense RJ - Real Brasilia",
+    "odds": [
+      "1,41",
+      "4,05",
+      "5,25"
+    ],
+    "raw_line": "Sze 20:00    05629            Fluminense RJ - Real Brasilia                                                                               1,41   4,05    5,25",
+    "line_number": 1087
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "20:00",
+    "match_id": "05651",
+    "teams": "Gremio RS - Flamengo RJ",
+    "odds": [
+      "3,95",
+      "3,20",
+      "1,71"
+    ],
+    "raw_line": "Sze 20:00    05651            Gremio RS - Flamengo RJ                                                                                     3,95   3,20    1,71",
+    "line_number": 1088
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "20:00",
+    "match_id": "05672",
+    "teams": "RB Bragantino - 3B da Amazonia",
+    "odds": [
+      "1,16",
+      "5,50",
+      "9,50"
+    ],
+    "raw_line": "Sze 20:00    05672            RB Bragantino - 3B da Amazonia                                                                              1,16   5,50    9,50",
+    "line_number": 1089
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "20:00",
+    "match_id": "05696",
+    "teams": "Sao Paulo SP - Internacional RS",
+    "odds": [
+      "1,47",
+      "3,70",
+      "4,95"
+    ],
+    "raw_line": "Sze 20:00    05696            Sao Paulo SP - Internacional RS                                                                             1,47   3,70    4,95",
+    "line_number": 1090
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "20:00",
+    "match_id": "05857",
+    "teams": "Sport Recife - Palmeiras SP",
+    "odds": [
+      "13,50",
+      "6,50",
+      "1,08"
+    ],
+    "raw_line": "Sze 20:00    05857            Sport Recife - Palmeiras SP                                                                                13,50   6,50    1,08",
+    "line_number": 1091
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "20:00",
+    "match_id": "21604",
+    "teams": "Danubio Montevideo - Racing Montevideo",
+    "odds": [
+      "2,74",
+      "2,78",
+      "2,35"
+    ],
+    "raw_line": "Sze 20:00    21604            Danubio Montevideo - Racing Montevideo                                                                     2,74 2,78 2,35",
+    "line_number": 1093
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "22:30",
+    "match_id": "22102",
+    "teams": "Montevideo City Torque - Miramar Missiones",
+    "odds": [
+      "1,49",
+      "3,60",
+      "5,00"
+    ],
+    "raw_line": "Sze 22:30    22102            Montevideo City Torque - Miramar Missiones                                                                 1,49 3,60 5,00",
+    "line_number": 1094
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "01:30",
+    "match_id": "22365",
+    "teams": "Nacional Montevideo - Juventud de Las Piedras",
+    "odds": [
+      "1,34",
+      "4,20",
+      "6,00"
+    ],
+    "raw_line": "Cs 01:30     22365            Nacional Montevideo - Juventud de Las Piedras                                                              1,34 4,20 6,00",
+    "line_number": 1095
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "01:00",
+    "match_id": "07230",
+    "teams": "Costa Rica - Dominikai Köztársaság",
+    "odds": [
+      "1,26",
+      "4,95",
+      "8,50"
+    ],
+    "raw_line": "Cs 01:00     07230            Costa Rica - Dominikai Köztársaság                                                                          1,26   4,95 8,50",
+    "line_number": 1097
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "01:00",
+    "match_id": "07231",
+    "teams": "Costa Rica - Dominikai Köztársaság              Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "1,07",
+      "1,14",
+      "2,47"
+    ],
+    "raw_line": "Cs 01:00     07231            Costa Rica - Dominikai Köztársaság              Kétesély (H: 1X, D: 12, V: X2)                              1,07   1,14 2,47",
+    "line_number": 1098
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "01:00",
+    "match_id": "07251",
+    "teams": "Costa Rica - Dominikai Köztársaság              Hendikep 0:2",
+    "odds": [
+      "3,25",
+      "3,90",
+      "1,71"
+    ],
+    "raw_line": "Cs 01:00     07251            Costa Rica - Dominikai Köztársaság              Hendikep 0:2                                                3,25   3,90 1,71",
+    "line_number": 1101
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "01:00",
+    "match_id": "07252",
+    "teams": "Costa Rica - Dominikai Köztársaság              Hendikep 0:1",
+    "odds": [
+      "1,89",
+      "3,55",
+      "2,95"
+    ],
+    "raw_line": "Cs 01:00     07252            Costa Rica - Dominikai Köztársaság              Hendikep 0:1                                                1,89   3,55 2,95",
+    "line_number": 1102
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "01:00",
+    "match_id": "07253",
+    "teams": "Costa Rica - Dominikai Köztársaság              Hendikep 1:0",
+    "odds": [
+      "1,06",
+      "6,75",
+      "18,00"
+    ],
+    "raw_line": "Cs 01:00     07253            Costa Rica - Dominikai Köztársaság              Hendikep 1:0                                                1,06   6,75 18,00",
+    "line_number": 1103
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "01:00",
+    "match_id": "07300",
+    "teams": "Costa Rica - Dominikai Köztársaság              1. félidő - 1X2",
+    "odds": [
+      "1,68",
+      "2,43",
+      "7,00"
+    ],
+    "raw_line": "Cs 01:00     07300            Costa Rica - Dominikai Köztársaság              1. félidő - 1X2                                             1,68   2,43 7,00",
+    "line_number": 1111
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "04:00",
+    "match_id": "07418",
+    "teams": "Suriname - Mexikó",
+    "odds": [
+      "8,75",
+      "5,00",
+      "1,25"
+    ],
+    "raw_line": "Cs 04:00     07418            Suriname - Mexikó                                                                                           8,75   5,00 1,25",
+    "line_number": 1112
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "04:00",
+    "match_id": "07419",
+    "teams": "Suriname - Mexikó                               Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "2,52",
+      "1,13",
+      "1,07"
+    ],
+    "raw_line": "Cs 04:00     07419            Suriname - Mexikó                               Kétesély (H: 1X, D: 12, V: X2)                              2,52   1,13 1,07",
+    "line_number": 1113
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "04:00",
+    "match_id": "07424",
+    "teams": "Suriname - Mexikó                               Hendikep 0:1",
+    "odds": [
+      "18,00",
+      "7,00",
+      "1,05"
+    ],
+    "raw_line": "Cs 04:00     07424            Suriname - Mexikó                               Hendikep 0:1                                               18,00   7,00 1,05",
+    "line_number": 1116
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "04:00",
+    "match_id": "07425",
+    "teams": "Suriname - Mexikó                               Hendikep 1:0",
+    "odds": [
+      "3,05",
+      "3,60",
+      "1,84"
+    ],
+    "raw_line": "Cs 04:00     07425            Suriname - Mexikó                               Hendikep 1:0                                               3,05    3,60 1,84",
+    "line_number": 1117
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "04:00",
+    "match_id": "07426",
+    "teams": "Suriname - Mexikó                               Hendikep 2:0",
+    "odds": [
+      "1,75",
+      "3,90",
+      "3,10"
+    ],
+    "raw_line": "Cs 04:00     07426            Suriname - Mexikó                               Hendikep 2:0                                               1,75    3,90 3,10",
+    "line_number": 1118
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "04:00",
+    "match_id": "07441",
+    "teams": "Suriname - Mexikó                               1. félidő - 1X2",
+    "odds": [
+      "7,00",
+      "2,47",
+      "1,66"
+    ],
+    "raw_line": "Cs 04:00     07441            Suriname - Mexikó                               1. félidő - 1X2                                            7,00    2,47 1,66",
+    "line_number": 1126
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "01:00",
+    "match_id": "33584",
+    "teams": "FC Miami - Charleston",
+    "odds": [
+      "4,45",
+      "3,85",
+      "1,50"
+    ],
+    "raw_line": "Cs 01:00     33584            FC Miami - Charleston                                                                                      4,45 3,85 1,50",
+    "line_number": 1128
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "02:00",
+    "match_id": "33608",
+    "teams": "Birmingham Legion - Sacramento",
+    "odds": [
+      "2,63",
+      "3,45",
+      "2,08"
+    ],
+    "raw_line": "Cs 02:00     33608            Birmingham Legion - Sacramento                                                                             2,63 3,45 2,08",
+    "line_number": 1129
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "02:00",
+    "match_id": "18389",
+    "teams": "LDU Quito - Barcelona Guayaquil",
+    "odds": [
+      "1,52",
+      "3,35",
+      "5,25"
+    ],
+    "raw_line": "Cs 02:00     18389            LDU Quito - Barcelona Guayaquil                                                                            1,52 3,35 5,25",
+    "line_number": 1131
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "02:00",
+    "match_id": "33501",
+    "teams": "Comerciantes Unidos - Alianza Lima",
+    "odds": [
+      "4,75",
+      "3,80",
+      "1,48"
+    ],
+    "raw_line": "Cs 02:00     33501            Comerciantes Unidos - Alianza Lima                                                                         4,75 3,80 1,48",
+    "line_number": 1133
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "11:45",
+    "match_id": "03253",
+    "teams": "U21Ausztria - U21Argentína",
+    "odds": [
+      "1,05",
+      "13,00",
+      "8,25"
+    ],
+    "raw_line": "Sze 11:45    03253            U21Ausztria - U21Argentína                                                                                 1,05    13,00   8,25",
+    "line_number": 1139
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "11:45",
+    "match_id": "03319",
+    "teams": "U21Izland - U21Románia",
+    "odds": [
+      "1,08",
+      "12,00",
+      "7,50"
+    ],
+    "raw_line": "Sze 11:45    03319            U21Izland - U21Románia                                                                                     1,08    12,00   7,50",
+    "line_number": 1140
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "14:00",
+    "match_id": "03316",
+    "teams": "U21Magyarország - U21Brazília",
+    "odds": [
+      "1,08",
+      "11,50",
+      "7,25"
+    ],
+    "raw_line": "Sze 14:00    03316            U21Magyarország - U21Brazília                                                                              1,08    11,50   7,25",
+    "line_number": 1141
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "14:00",
+    "match_id": "03332",
+    "teams": "U21Észak-Macedónia - U21Feröer-szigetek",
+    "odds": [
+      "2,40",
+      "8,50",
+      "1,62"
+    ],
+    "raw_line": "Sze 14:00    03332            U21Észak-Macedónia - U21Feröer-szigetek                                                                    2,40     8,50   1,62",
+    "line_number": 1142
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "16:15",
+    "match_id": "03174",
+    "teams": "U21Norvégia - U21Szlovénia",
+    "odds": [
+      "1,23",
+      "10,00",
+      "4,15"
+    ],
+    "raw_line": "Sze 16:15    03174            U21Norvégia - U21Szlovénia                                                                                 1,23    10,00   4,15",
+    "line_number": 1143
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "18:45",
+    "match_id": "03400",
+    "teams": "U21Tunézia - U21Svájc",
+    "odds": [
+      "3,25",
+      "8,75",
+      "1,37"
+    ],
+    "raw_line": "Sze 18:45    03400            U21Tunézia - U21Svájc                                                                                      3,25     8,75   1,37",
+    "line_number": 1144
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "21:00",
+    "match_id": "03403",
+    "teams": "U21Németország - U21Szerbia",
+    "odds": [
+      "1,14",
+      "11,00",
+      "5,50"
+    ],
+    "raw_line": "Sze 21:00    03403            U21Németország - U21Szerbia                                                                                1,14    11,00   5,50",
+    "line_number": 1145
+  },
+  {
+    "type": "day_format",
+    "day": "Sze",
+    "time": "12:05",
+    "match_id": "32707",
+    "teams": "Queensland Maroons - New South Wales",
+    "odds": [
+      "2,71",
+      "19,00",
+      "1,37"
+    ],
+    "raw_line": "Sze 12:05    32707            Queensland Maroons - New South Wales                                                                                                              2,71 19,00 1,37",
+    "line_number": 1164
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "15:15",
+    "match_id": "22640",
+    "teams": "CA Cerro - Cerro Largo Melo",
+    "odds": [
+      "2,80",
+      "2,84",
+      "2,27"
+    ],
+    "raw_line": "Cs 15:15     22640            CA Cerro - Cerro Largo Melo                                                                                                                       2,80 2,84 2,27",
+    "line_number": 1171
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "17:30",
+    "match_id": "22722",
+    "teams": "Progreso Montevideo - Boston River",
+    "odds": [
+      "2,53",
+      "3,05",
+      "2,35"
+    ],
+    "raw_line": "Cs 17:30     22722            Progreso Montevideo - Boston River                                                                                                                2,53 3,05 2,35",
+    "line_number": 1172
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "20:00",
+    "match_id": "10034",
+    "teams": "Liverpool Montevideo - Penarol Montevideo",
+    "odds": [
+      "3,15",
+      "3,00",
+      "1,99"
+    ],
+    "raw_line": "Cs 20:00     10034            Liverpool Montevideo - Penarol Montevideo                                                                                                         3,15 3,00 1,99",
+    "line_number": 1173
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "17:00",
+    "match_id": "18909",
+    "teams": "Inter Turku - KTP",
+    "odds": [
+      "1,18",
+      "5,25",
+      "8,75"
+    ],
+    "raw_line": "Cs 17:00     18909            Inter Turku - KTP                                                                                                                                 1,18 5,25 8,75",
+    "line_number": 1175
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "17:00",
+    "match_id": "18939",
+    "teams": "Inter Turku - KTP                                             Hendikep 0:1",
+    "odds": [
+      "1,63",
+      "3,90",
+      "3,55"
+    ],
+    "raw_line": "Cs 17:00     18939            Inter Turku - KTP                                             Hendikep 0:1                                                                        1,63 3,90 3,55",
+    "line_number": 1176
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "17:30",
+    "match_id": "32795",
+    "teams": "JIPPO - Turku PS",
+    "odds": [
+      "2,54",
+      "3,35",
+      "2,19"
+    ],
+    "raw_line": "Cs 17:30     32795            JIPPO - Turku PS                                                                                                                                  2,54 3,35 2,19",
+    "line_number": 1178
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "17:30",
+    "match_id": "32816",
+    "teams": "JäPS - Ekenas IF",
+    "odds": [
+      "3,05",
+      "3,45",
+      "1,89"
+    ],
+    "raw_line": "Cs 17:30     32816            JäPS - Ekenas IF                                                                                                                                  3,05 3,45 1,89",
+    "line_number": 1179
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "17:30",
+    "match_id": "32837",
+    "teams": "Lahti - Klubi 04",
+    "odds": [
+      "1,59",
+      "3,95",
+      "3,75"
+    ],
+    "raw_line": "Cs 17:30     32837            Lahti - Klubi 04                                                                                                                                  1,59 3,95 3,75",
+    "line_number": 1180
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "18:00",
+    "match_id": "03244",
+    "teams": "Palmeiras SP - Al-Ahly (EGY)",
+    "odds": [
+      "1,49",
+      "3,90",
+      "5,50"
+    ],
+    "raw_line": "Cs 18:00     03244            Palmeiras SP - Al-Ahly (EGY)                                                                                                                       1,49   3,90 5,50",
+    "line_number": 1182
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "18:00",
+    "match_id": "03245",
+    "teams": "Palmeiras SP - Al-Ahly                                        Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "1,13",
+      "1,21",
+      "1,95"
+    ],
+    "raw_line": "Cs 18:00     03245            Palmeiras SP - Al-Ahly                                        Kétesély (H: 1X, D: 12, V: X2)                                                       1,13   1,21 1,95",
+    "line_number": 1183
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "18:00",
+    "match_id": "03257",
+    "teams": "Palmeiras SP - Al-Ahly                                        Hendikep 0:2",
+    "odds": [
+      "5,50",
+      "4,60",
+      "1,41"
+    ],
+    "raw_line": "Cs 18:00     03257            Palmeiras SP - Al-Ahly                                        Hendikep 0:2                                                                         5,50   4,60 1,41",
+    "line_number": 1186
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "18:00",
+    "match_id": "03262",
+    "teams": "Palmeiras SP - Al-Ahly                                        Hendikep 0:1",
+    "odds": [
+      "2,68",
+      "3,50",
+      "2,22"
+    ],
+    "raw_line": "Cs 18:00     03262            Palmeiras SP - Al-Ahly                                        Hendikep 0:1                                                                         2,68   3,50 2,22",
+    "line_number": 1187
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "18:00",
+    "match_id": "03263",
+    "teams": "Palmeiras SP - Al-Ahly                                        Hendikep 1:0",
+    "odds": [
+      "1,14",
+      "6,25",
+      "14,00"
+    ],
+    "raw_line": "Cs 18:00     03263            Palmeiras SP - Al-Ahly                                        Hendikep 1:0                                                                         1,14   6,25 14,00",
+    "line_number": 1188
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "18:00",
+    "match_id": "03283",
+    "teams": "Palmeiras SP - Al-Ahly                                        Az első 10 perc eredménye (0-9:59)",
+    "odds": [
+      "5,25",
+      "1,14",
+      "12,00"
+    ],
+    "raw_line": "Cs 18:00     03283            Palmeiras SP - Al-Ahly                                        Az első 10 perc eredménye (0-9:59)                                                   5,25   1,14 12,00",
+    "line_number": 1213
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "18:00",
+    "match_id": "03284",
+    "teams": "Palmeiras SP - Al-Ahly                                        1. félidő - 1X2",
+    "odds": [
+      "2,11",
+      "2,18",
+      "5,50"
+    ],
+    "raw_line": "Cs 18:00     03284            Palmeiras SP - Al-Ahly                                        1. félidő - 1X2                                                                      2,11   2,18 5,50",
+    "line_number": 1214
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "18:00",
+    "match_id": "03342",
+    "teams": "Palmeiras SP - Al-Ahly                                        2. félidő - 1X2",
+    "odds": [
+      "1,91",
+      "2,42",
+      "4,65"
+    ],
+    "raw_line": "Cs 18:00     03342            Palmeiras SP - Al-Ahly                                        2. félidő - 1X2                                                                      1,91   2,42 4,65",
+    "line_number": 1215
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "21:00",
+    "match_id": "03406",
+    "teams": "Inter Miami - Porto",
+    "odds": [
+      "4,95",
+      "4,15",
+      "1,50"
+    ],
+    "raw_line": "Cs 21:00     03406            Inter Miami - Porto                                                                                                   4,95   4,15 1,50",
+    "line_number": 1232
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "21:00",
+    "match_id": "03407",
+    "teams": "Inter Miami - Porto              Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "1,94",
+      "1,19",
+      "1,15"
+    ],
+    "raw_line": "Cs 21:00     03407            Inter Miami - Porto              Kétesély (H: 1X, D: 12, V: X2)                                                       1,94   1,19 1,15",
+    "line_number": 1233
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "21:00",
+    "match_id": "03426",
+    "teams": "Inter Miami - Porto              Hendikep 0:1",
+    "odds": [
+      "11,00",
+      "6,25",
+      "1,17"
+    ],
+    "raw_line": "Cs 21:00     03426            Inter Miami - Porto              Hendikep 0:1                                                                        11,00   6,25 1,17",
+    "line_number": 1236
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "21:00",
+    "match_id": "03427",
+    "teams": "Inter Miami - Porto              Hendikep 1:0",
+    "odds": [
+      "2,20",
+      "3,80",
+      "2,55"
+    ],
+    "raw_line": "Cs 21:00     03427            Inter Miami - Porto              Hendikep 1:0                                                                         2,20   3,80 2,55",
+    "line_number": 1237
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "21:00",
+    "match_id": "03448",
+    "teams": "Inter Miami - Porto              Hendikep 2:0",
+    "odds": [
+      "1,45",
+      "4,75",
+      "4,85"
+    ],
+    "raw_line": "Cs 21:00     03448            Inter Miami - Porto              Hendikep 2:0                                                                         1,45   4,75 4,85",
+    "line_number": 1238
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "21:00",
+    "match_id": "03499",
+    "teams": "Inter Miami - Porto              Az első 10 perc eredménye (0-9:59)",
+    "odds": [
+      "10,00",
+      "1,18",
+      "5,00"
+    ],
+    "raw_line": "Cs 21:00     03499            Inter Miami - Porto              Az első 10 perc eredménye (0-9:59)                                                  10,00   1,18 5,00",
+    "line_number": 1263
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "21:00",
+    "match_id": "03500",
+    "teams": "Inter Miami - Porto              1. félidő - 1X2",
+    "odds": [
+      "4,85",
+      "2,39",
+      "2,05"
+    ],
+    "raw_line": "Cs 21:00     03500            Inter Miami - Porto              1. félidő - 1X2                                                                      4,85   2,39 2,05",
+    "line_number": 1264
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "21:00",
+    "match_id": "03568",
+    "teams": "Inter Miami - Porto              2. félidő - 1X2",
+    "odds": [
+      "4,15",
+      "2,66",
+      "1,88"
+    ],
+    "raw_line": "Cs 21:00     03568            Inter Miami - Porto              2. félidő - 1X2                                                                      4,15   2,66 1,88",
+    "line_number": 1265
+  },
+  {
+    "type": "P_format",
+    "time": "00:00",
+    "match_id": "03683",
+    "teams": "Seattle - Atl. Madrid",
+    "odds": [
+      "10,00",
+      "5,75",
+      "1,19"
+    ],
+    "raw_line": "P 00:00      03683            Seattle - Atl. Madrid                                                                                                10,00   5,75 1,19",
+    "line_number": 1275
+  },
+  {
+    "type": "P_format",
+    "time": "00:00",
+    "match_id": "03684",
+    "teams": "Seattle - Atl. Madrid            Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "2,80",
+      "1,10",
+      "1,05"
+    ],
+    "raw_line": "P 00:00      03684            Seattle - Atl. Madrid            Kétesély (H: 1X, D: 12, V: X2)                                                       2,80   1,10 1,05",
+    "line_number": 1276
+  },
+  {
+    "type": "P_format",
+    "time": "00:00",
+    "match_id": "03690",
+    "teams": "Seattle - Atl. Madrid            Hendikep 1:0",
+    "odds": [
+      "3,75",
+      "3,90",
+      "1,70"
+    ],
+    "raw_line": "P 00:00      03690            Seattle - Atl. Madrid            Hendikep 1:0                                                                         3,75   3,90 1,70",
+    "line_number": 1279
+  },
+  {
+    "type": "P_format",
+    "time": "00:00",
+    "match_id": "03691",
+    "teams": "Seattle - Atl. Madrid            Hendikep 2:0",
+    "odds": [
+      "2,00",
+      "4,00",
+      "2,78"
+    ],
+    "raw_line": "P 00:00      03691            Seattle - Atl. Madrid            Hendikep 2:0                                                                         2,00   4,00 2,78",
+    "line_number": 1280
+  },
+  {
+    "type": "P_format",
+    "time": "00:00",
+    "match_id": "03692",
+    "teams": "Seattle - Atl. Madrid            Hendikep 3:0",
+    "odds": [
+      "1,38",
+      "5,25",
+      "5,25"
+    ],
+    "raw_line": "P 00:00      03692            Seattle - Atl. Madrid            Hendikep 3:0                                                                         1,38   5,25 5,25",
+    "line_number": 1281
+  },
+  {
+    "type": "P_format",
+    "time": "00:00",
+    "match_id": "03736",
+    "teams": "Seattle - Atl. Madrid                 Az első 10 perc eredménye (0-9:59)",
+    "odds": [
+      "15,00",
+      "1,19",
+      "4,05"
+    ],
+    "raw_line": "P 00:00      03736            Seattle - Atl. Madrid                 Az első 10 perc eredménye (0-9:59)                                                   15,00 1,19   4,05",
+    "line_number": 1313
+  },
+  {
+    "type": "P_format",
+    "time": "00:00",
+    "match_id": "03737",
+    "teams": "Seattle - Atl. Madrid                 1. félidő - 1X2",
+    "odds": [
+      "8,50",
+      "2,73",
+      "1,60"
+    ],
+    "raw_line": "P 00:00      03737            Seattle - Atl. Madrid                 1. félidő - 1X2                                                                       8,50 2,73   1,60",
+    "line_number": 1314
+  },
+  {
+    "type": "P_format",
+    "time": "00:00",
+    "match_id": "04098",
+    "teams": "Seattle - Atl. Madrid                 2. félidő - 1X2",
+    "odds": [
+      "7,25",
+      "2,95",
+      "1,49"
+    ],
+    "raw_line": "P 00:00      04098            Seattle - Atl. Madrid                 2. félidő - 1X2                                                                       7,25 2,95   1,49",
+    "line_number": 1315
+  },
+  {
+    "type": "P_format",
+    "time": "03:00",
+    "match_id": "04173",
+    "teams": "Paris SG - Botafogo RJ",
+    "odds": [
+      "1,09",
+      "7,75",
+      "16,00"
+    ],
+    "raw_line": "P 03:00      04173            Paris SG - Botafogo RJ                                                                                                      1,09 7,75   16,00",
+    "line_number": 1325
+  },
+  {
+    "type": "P_format",
+    "time": "03:00",
+    "match_id": "04289",
+    "teams": "Paris SG - Botafogo RJ                Hendikep 0:3",
+    "odds": [
+      "3,75",
+      "4,65",
+      "1,59"
+    ],
+    "raw_line": "P 03:00      04289            Paris SG - Botafogo RJ                Hendikep 0:3                                                                          3,75 4,65   1,59",
+    "line_number": 1327
+  },
+  {
+    "type": "P_format",
+    "time": "03:00",
+    "match_id": "04291",
+    "teams": "Paris SG - Botafogo RJ                Hendikep 0:2",
+    "odds": [
+      "2,18",
+      "3,95",
+      "2,50"
+    ],
+    "raw_line": "P 03:00      04291            Paris SG - Botafogo RJ                Hendikep 0:2                                                                          2,18 3,95   2,50",
+    "line_number": 1328
+  },
+  {
+    "type": "P_format",
+    "time": "03:00",
+    "match_id": "04292",
+    "teams": "Paris SG - Botafogo RJ                Hendikep 0:1",
+    "odds": [
+      "1,46",
+      "4,35",
+      "5,25"
+    ],
+    "raw_line": "P 03:00      04292            Paris SG - Botafogo RJ                Hendikep 0:1                                                                          1,46 4,35   5,25",
+    "line_number": 1329
+  },
+  {
+    "type": "P_format",
+    "time": "03:00",
+    "match_id": "04308",
+    "teams": "Paris SG - Botafogo RJ                Az első 10 perc eredménye (0-9:59)",
+    "odds": [
+      "3,65",
+      "1,22",
+      "19,00"
+    ],
+    "raw_line": "P 03:00      04308            Paris SG - Botafogo RJ                Az első 10 perc eredménye (0-9:59)                                                    3,65 1,22   19,00",
+    "line_number": 1355
+  },
+  {
+    "type": "P_format",
+    "time": "03:00",
+    "match_id": "04309",
+    "teams": "Paris SG - Botafogo RJ                1. félidő - 1X2",
+    "odds": [
+      "1,45",
+      "3,05",
+      "11,00"
+    ],
+    "raw_line": "P 03:00      04309            Paris SG - Botafogo RJ                1. félidő - 1X2                                                                       1,45 3,05   11,00",
+    "line_number": 1356
+  },
+  {
+    "type": "P_format",
+    "time": "03:00",
+    "match_id": "04355",
+    "teams": "Paris SG - Botafogo RJ                2. félidő - 1X2",
+    "odds": [
+      "1,35",
+      "3,25",
+      "9,50"
+    ],
+    "raw_line": "P 03:00      04355            Paris SG - Botafogo RJ                2. félidő - 1X2                                                                       1,35 3,25   9,50",
+    "line_number": 1357
+  },
+  {
+    "type": "day_format",
+    "day": "Cs",
+    "time": "22:00",
+    "match_id": "33544",
+    "teams": "Atl. Grau - Cusco",
+    "odds": [
+      "1,71",
+      "3,25",
+      "3,85"
+    ],
+    "raw_line": "Cs 22:00     33544            Atl. Grau - Cusco                                                                                                          1,71 3,25 3,85",
+    "line_number": 1368
+  },
+  {
+    "type": "P_format",
+    "time": "00:45",
+    "match_id": "07610",
+    "teams": "Trinidad és Tobago - Haiti",
+    "odds": [
+      "4,15",
+      "3,25",
+      "1,78"
+    ],
+    "raw_line": "P    00:45   07610            Trinidad és Tobago - Haiti                                                                                     4,15   3,25 1,78",
+    "line_number": 1377
+  },
+  {
+    "type": "P_format",
+    "time": "00:45",
+    "match_id": "07611",
+    "teams": "Trinidad és Tobago - Haiti                         Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "1,65",
+      "1,28",
+      "1,20"
+    ],
+    "raw_line": "P    00:45   07611            Trinidad és Tobago - Haiti                         Kétesély (H: 1X, D: 12, V: X2)                              1,65   1,28 1,20",
+    "line_number": 1378
+  },
+  {
+    "type": "P_format",
+    "time": "00:45",
+    "match_id": "07619",
+    "teams": "Trinidad és Tobago - Haiti                         Hendikep 0:1",
+    "odds": [
+      "9,00",
+      "4,95",
+      "1,20"
+    ],
+    "raw_line": "P    00:45   07619            Trinidad és Tobago - Haiti                         Hendikep 0:1                                                9,00   4,95 1,20",
+    "line_number": 1381
+  },
+  {
+    "type": "P_format",
+    "time": "00:45",
+    "match_id": "07620",
+    "teams": "Trinidad és Tobago - Haiti                         Hendikep 1:0",
+    "odds": [
+      "1,74",
+      "3,60",
+      "3,35"
+    ],
+    "raw_line": "P    00:45   07620            Trinidad és Tobago - Haiti                         Hendikep 1:0                                                1,74   3,60 3,35",
+    "line_number": 1382
+  },
+  {
+    "type": "P_format",
+    "time": "00:45",
+    "match_id": "07629",
+    "teams": "Trinidad és Tobago - Haiti                         Hendikep 2:0",
+    "odds": [
+      "1,23",
+      "5,00",
+      "7,00"
+    ],
+    "raw_line": "P    00:45   07629            Trinidad és Tobago - Haiti                         Hendikep 2:0                                                1,23   5,00 7,00",
+    "line_number": 1383
+  },
+  {
+    "type": "P_format",
+    "time": "00:45",
+    "match_id": "07670",
+    "teams": "Trinidad és Tobago - Haiti                         1. félidő - 1X2",
+    "odds": [
+      "4,25",
+      "2,03",
+      "2,37"
+    ],
+    "raw_line": "P    00:45   07670            Trinidad és Tobago - Haiti                         1. félidő - 1X2                                             4,25   2,03 2,37",
+    "line_number": 1391
+  },
+  {
+    "type": "P_format",
+    "time": "03:15",
+    "match_id": "07900",
+    "teams": "Szaúd-Arábia - USA (Helyszín: USA)",
+    "odds": [
+      "4,55",
+      "3,65",
+      "1,62"
+    ],
+    "raw_line": "P    03:15   07900            Szaúd-Arábia - USA (Helyszín: USA)                                                                             4,55   3,65 1,62",
+    "line_number": 1392
+  },
+  {
+    "type": "P_format",
+    "time": "03:15",
+    "match_id": "07901",
+    "teams": "Szaúd-Arábia - USA                                 Kétesély (H: 1X, D: 12, V: X2)",
+    "odds": [
+      "1,79",
+      "1,24",
+      "1,17"
+    ],
+    "raw_line": "P    03:15   07901            Szaúd-Arábia - USA                                 Kétesély (H: 1X, D: 12, V: X2)                              1,79   1,24 1,17",
+    "line_number": 1393
+  },
+  {
+    "type": "P_format",
+    "time": "03:15",
+    "match_id": "07935",
+    "teams": "Szaúd-Arábia - USA                                 Hendikep 0:1",
+    "odds": [
+      "10,00",
+      "5,25",
+      "1,17"
+    ],
+    "raw_line": "P    03:15   07935            Szaúd-Arábia - USA                                 Hendikep 0:1                                               10,00   5,25 1,17",
+    "line_number": 1396
+  },
+  {
+    "type": "P_format",
+    "time": "03:15",
+    "match_id": "07937",
+    "teams": "Szaúd-Arábia - USA                                 Hendikep 1:0",
+    "odds": [
+      "1,92",
+      "3,40",
+      "2,96"
+    ],
+    "raw_line": "P    03:15   07937            Szaúd-Arábia - USA                                 Hendikep 1:0                                                1,92   3,40 2,96",
+    "line_number": 1397
+  },
+  {
+    "type": "P_format",
+    "time": "03:15",
+    "match_id": "07938",
+    "teams": "Szaúd-Arábia - USA                                 Hendikep 2:0",
+    "odds": [
+      "1,29",
+      "4,65",
+      "6,25"
+    ],
+    "raw_line": "P    03:15   07938            Szaúd-Arábia - USA                                 Hendikep 2:0                                                1,29   4,65 6,25",
+    "line_number": 1398
+  },
+  {
+    "type": "P_format",
+    "time": "03:15",
+    "match_id": "07950",
+    "teams": "Szaúd-Arábia - USA                                 1. félidő - 1X2",
+    "odds": [
+      "4,70",
+      "2,04",
+      "2,23"
+    ],
+    "raw_line": "P    03:15   07950            Szaúd-Arábia - USA                                 1. félidő - 1X2                                            4,70    2,04 2,23",
+    "line_number": 1406
+  },
+  {
+    "type": "P_format",
+    "time": "01:00",
+    "match_id": "10073",
+    "teams": "América de Cali - Independiente Medellin",
+    "odds": [
+      "2,04",
+      "2,89",
+      "3,20"
+    ],
+    "raw_line": "P 01:00      10073            América de Cali - Independiente Medellin                                                                      2,04 2,89 3,20",
+    "line_number": 1408
+  },
+  {
+    "type": "P_format",
+    "time": "01:00",
+    "match_id": "10118",
+    "teams": "Dep. Tolima - Junior de Barranquilla",
+    "odds": [
+      "2,04",
+      "2,85",
+      "3,25"
+    ],
+    "raw_line": "P 01:00      10118            Dep. Tolima - Junior de Barranquilla                                                                          2,04 2,85 3,25",
+    "line_number": 1409
+  },
+  {
+    "type": "P_format",
+    "time": "02:00",
+    "match_id": "12970",
+    "teams": "Libertad Loja - Tecnico Univ. Ambato",
+    "odds": [
+      "1,97",
+      "3,15",
+      "3,05"
+    ],
+    "raw_line": "P 02:00      12970            Libertad Loja - Tecnico Univ. Ambato                                                                          1,97 3,15 3,05",
+    "line_number": 1411
+  },
+  {
+    "type": "P_format",
+    "time": "13:35",
+    "match_id": "13157",
+    "teams": "Shandong Taishan - Chengdu Rongcheng",
+    "odds": [
+      "2,44",
+      "3,75",
+      "2,11"
+    ],
+    "raw_line": "P 13:35      13157            Shandong Taishan - Chengdu Rongcheng                                                                          2,44 3,75 2,11",
+    "line_number": 1422
+  },
+  {
+    "type": "P_format",
+    "time": "20:30",
+    "match_id": "13159",
+    "teams": "Salernitana - Sampdoria",
+    "odds": [
+      "2,38",
+      "2,83",
+      "2,97"
+    ],
+    "raw_line": "P 20:30      13159            Salernitana - Sampdoria                                                                                       2,38 2,83 2,97",
+    "line_number": 1424
+  },
+  {
+    "type": "P_format",
+    "time": "20:45",
+    "match_id": "10265",
+    "teams": "Drogheda Utd. - Sligo",
+    "odds": [
+      "1,66",
+      "3,25",
+      "4,15"
+    ],
+    "raw_line": "P    20:45   10265            Drogheda Utd. - Sligo                                                                                         1,66    3,25   4,15",
+    "line_number": 1426
+  },
+  {
+    "type": "P_format",
+    "time": "20:45",
+    "match_id": "10460",
+    "teams": "Galway Utd. - St. Patrick's",
+    "odds": [
+      "2,56",
+      "3,05",
+      "2,31"
+    ],
+    "raw_line": "P    20:45   10460            Galway Utd. - St. Patrick's                                                                                   2,56    3,05   2,31",
+    "line_number": 1427
+  },
+  {
+    "type": "P_format",
+    "time": "20:45",
+    "match_id": "11103",
+    "teams": "Shamrock Rovers - Cork City",
+    "odds": [
+      "1,20",
+      "4,95",
+      "9,00"
+    ],
+    "raw_line": "P    20:45   11103            Shamrock Rovers - Cork City                                                                                   1,20    4,95   9,00",
+    "line_number": 1428
+  },
+  {
+    "type": "P_format",
+    "time": "20:45",
+    "match_id": "10688",
+    "teams": "Shelbourne - Derry City",
+    "odds": [
+      "2,13",
+      "2,95",
+      "2,92"
+    ],
+    "raw_line": "P    20:45   10688            Shelbourne - Derry City                                                                                       2,13    2,95   2,92",
+    "line_number": 1429
+  },
+  {
+    "type": "P_format",
+    "time": "20:45",
+    "match_id": "10801",
+    "teams": "Waterford FC - Bohemians Dublin",
+    "odds": [
+      "3,80",
+      "3,50",
+      "1,66"
+    ],
+    "raw_line": "P    20:45   10801            Waterford FC - Bohemians Dublin                                                                               3,80    3,50   1,66",
+    "line_number": 1430
+  },
+  {
+    "type": "P_format",
+    "time": "20:45",
+    "match_id": "10214",
+    "teams": "Athlone - Finn Harps",
+    "odds": [
+      "1,96",
+      "3,10",
+      "3,15"
+    ],
+    "raw_line": "P    20:45   10214            Athlone - Finn Harps                                                                                          1,96    3,10   3,15",
+    "line_number": 1432
+  },
+  {
+    "type": "P_format",
+    "time": "20:45",
+    "match_id": "10433",
+    "teams": "Dundalk - Treaty Utd.",
+    "odds": [
+      "1,36",
+      "4,05",
+      "6,00"
+    ],
+    "raw_line": "P    20:45   10433            Dundalk - Treaty Utd.                                                                                         1,36    4,05   6,00",
+    "line_number": 1433
+  },
+  {
+    "type": "P_format",
+    "time": "20:45",
+    "match_id": "10546",
+    "teams": "Kerry - Bray",
+    "odds": [
+      "2,99",
+      "3,35",
+      "1,94"
+    ],
+    "raw_line": "P    20:45   10546            Kerry - Bray                                                                                                  2,99    3,35   1,94",
+    "line_number": 1434
+  },
+  {
+    "type": "P_format",
+    "time": "20:45",
+    "match_id": "10764",
+    "teams": "UC Dublin - Cobh Ramblers",
+    "odds": [
+      "2,46",
+      "3,05",
+      "2,39"
+    ],
+    "raw_line": "P    20:45   10764            UC Dublin - Cobh Ramblers                                                                                     2,46    3,05   2,39",
+    "line_number": 1435
+  },
+  {
+    "type": "P_format",
+    "time": "20:45",
+    "match_id": "10880",
+    "teams": "Wexford Youths - Longford Town",
+    "odds": [
+      "1,54",
+      "3,70",
+      "4,35"
+    ],
+    "raw_line": "P    20:45   10880            Wexford Youths - Longford Town                                                                                1,54    3,70   4,35",
+    "line_number": 1436
+  },
+  {
+    "type": "P_format",
+    "time": "21:00",
+    "match_id": "13160",
+    "teams": "Racing de Cordoba - Dep. Madryn",
+    "odds": [
+      "2,30",
+      "2,45",
+      "3,25"
+    ],
+    "raw_line": "P 21:00      13160            Racing de Cordoba - Dep. Madryn                                                                               2,30 2,45 3,25",
+    "line_number": 1438
+  },
+  {
+    "type": "P_format",
+    "time": "23:30",
+    "match_id": "13335",
+    "teams": "Dep. Union La Calera - Univ.Catolica de Santiago",
+    "odds": [
+      "2,64",
+      "2,98",
+      "2,30"
+    ],
+    "raw_line": "P 23:30      13335            Dep. Union La Calera - Univ.Catolica de Santiago                                                              2,64 2,98 2,30",
+    "line_number": 1440
+  },
+  {
+    "type": "P_format",
+    "time": "12:00",
+    "match_id": "13117",
+    "teams": "Wests Tigers - Canberra Raiders",
+    "odds": [
+      "3,15",
+      "24,00",
+      "1,33"
+    ],
+    "raw_line": "P 12:00      13117            Wests Tigers - Canberra Raiders                                                                                                              3,15 24,00 1,33",
+    "line_number": 1462
+  },
+  {
+    "type": "P_format",
+    "time": "21:05",
+    "match_id": "13219",
+    "teams": "Toulouse - Bayonne",
+    "odds": [
+      "1,08",
+      "29,00",
+      "6,75"
+    ],
+    "raw_line": "P 21:05      13219            Toulouse - Bayonne                                                                                                                           1,08 29,00 6,75",
+    "line_number": 1464
+  },
+  {
+    "type": "day_format",
+    "day": "V",
+    "time": "01:30",
+    "match_id": "06096",
+    "teams": "Ferroviaria SP - CRB",
+    "odds": [
+      "2,22",
+      "2,84",
+      "2,87"
+    ],
+    "raw_line": "V 01:30      06096            Ferroviaria SP - CRB                                                                                                                         2,22 2,84 2,87",
+    "line_number": 1480
+  },
+  {
+    "type": "day_format",
+    "day": "V",
+    "time": "01:30",
+    "match_id": "11372",
+    "teams": "NJ/NY Gotham FC - Bay FC",
+    "odds": [
+      "1,36",
+      "3,95",
+      "6,25"
+    ],
+    "raw_line": "V 01:30      11372            NJ/NY Gotham FC - Bay FC                                                                                                                     1,36     3,95   6,25",
+    "line_number": 1483
+  },
+  {
+    "type": "day_format",
+    "day": "V",
+    "time": "01:30",
+    "match_id": "11393",
+    "teams": "North Carolina - Houston",
+    "odds": [
+      "1,57",
+      "3,35",
+      "4,65"
+    ],
+    "raw_line": "V 01:30      11393            North Carolina - Houston                                                                                                                     1,57     3,35   4,65",
+    "line_number": 1484
+  },
+  {
+    "type": "day_format",
+    "day": "V",
+    "time": "04:00",
+    "match_id": "11434",
+    "teams": "Portland - Chicago",
+    "odds": [
+      "1,36",
+      "4,00",
+      "6,00"
+    ],
+    "raw_line": "V 04:00      11434            Portland - Chicago                                                                                                                           1,36     4,00   6,00",
+    "line_number": 1485
+  },
+  {
+    "type": "day_format",
+    "day": "V",
+    "time": "14:30",
+    "match_id": "09430",
+    "teams": "Valerenga - Molde",
+    "odds": [
+      "2,21",
+      "3,60",
+      "2,64"
+    ],
+    "raw_line": "V    14:30   09430            Valerenga - Molde                                                                                                                            2,21     3,60   2,64",
+    "line_number": 1497
+  },
+  {
+    "type": "day_format",
+    "day": "V",
+    "time": "17:00",
+    "match_id": "10560",
+    "teams": "Ham-Kam - Tromsö",
+    "odds": [
+      "3,30",
+      "3,55",
+      "1,90"
+    ],
+    "raw_line": "V    17:00   10560            Ham-Kam - Tromsö                                                                                                                             3,30     3,55   1,90",
+    "line_number": 1498
+  },
+  {
+    "type": "day_format",
+    "day": "V",
+    "time": "17:00",
+    "match_id": "10843",
+    "teams": "KFUM Oslo - Strömsgodset",
+    "odds": [
+      "1,96",
+      "3,55",
+      "3,15"
+    ],
+    "raw_line": "V    17:00   10843            KFUM Oslo - Strömsgodset                                                                                                                     1,96     3,55   3,15",
+    "line_number": 1499
+  },
+  {
+    "type": "day_format",
+    "day": "V",
+    "time": "17:00",
+    "match_id": "10988",
+    "teams": "Kristiansund - Rosenborg",
+    "odds": [
+      "4,40",
+      "4,00",
+      "1,58"
+    ],
+    "raw_line": "V    17:00   10988            Kristiansund - Rosenborg                                                                                                                     4,40     4,00   1,58",
+    "line_number": 1500
+  },
+  {
+    "type": "day_format",
+    "day": "V",
+    "time": "17:00",
+    "match_id": "11094",
+    "teams": "Sandefjord - Haugesund",
+    "odds": [
+      "1,30",
+      "5,00",
+      "7,00"
+    ],
+    "raw_line": "V    17:00   11094            Sandefjord - Haugesund                                                                                                                       1,30     5,00   7,00",
+    "line_number": 1501
+  },
+  {
+    "type": "day_format",
+    "day": "V",
+    "time": "17:00",
+    "match_id": "11517",
+    "teams": "Sarpsborg - Bryne",
+    "odds": [
+      "1,50",
+      "4,20",
+      "4,90"
+    ],
+    "raw_line": "V    17:00   11517            Sarpsborg - Bryne                                                                                                                            1,50     4,20   4,90",
+    "line_number": 1502
+  },
+  {
+    "type": "day_format",
+    "day": "V",
+    "time": "19:15",
+    "match_id": "12444",
+    "teams": "Viking Stavanger - Fredrikstad",
+    "odds": [
+      "1,47",
+      "4,30",
+      "5,00"
+    ],
+    "raw_line": "V    19:15   12444            Viking Stavanger - Fredrikstad                                                                                                               1,47     4,30   5,00",
+    "line_number": 1503
+  },
+  {
+    "type": "day_format",
+    "day": "V",
+    "time": "21:00",
+    "match_id": "06150",
+    "teams": "Atlético GO - Volta Redonda",
+    "odds": [
+      "1,69",
+      "3,00",
+      "4,45"
+    ],
+    "raw_line": "V 21:00      06150            Atlético GO - Volta Redonda                                                                                                                  1,69 3,00 4,45",
+    "line_number": 1505
+  },
+  {
+    "type": "day_format",
+    "day": "V",
+    "time": "21:00",
+    "match_id": "06194",
+    "teams": "Coritiba - Cuiaba",
+    "odds": [
+      "1,79",
+      "2,88",
+      "4,10"
+    ],
+    "raw_line": "V 21:00      06194            Coritiba - Cuiaba                                                                                                                            1,79 2,88 4,10",
+    "line_number": 1506
+  },
+  {
+    "type": "day_format",
+    "day": "V",
+    "time": "23:00",
+    "match_id": "06244",
+    "teams": "Amazonas AM - Vila Nova GO",
+    "odds": [
+      "2,36",
+      "2,76",
+      "2,75"
+    ],
+    "raw_line": "V 23:00      06244            Amazonas AM - Vila Nova GO                                                                                                                   2,36 2,76 2,75",
+    "line_number": 1507
+  },
+  {
+    "type": "day_format",
+    "day": "H",
+    "time": "04:00",
+    "match_id": "11458",
+    "teams": "San Diego - Washington",
+    "odds": [
+      "1,75",
+      "3,30",
+      "3,60"
+    ],
+    "raw_line": "H 04:00      11458            San Diego - Washington                                                                                                                       1,75 3,30 3,60",
+    "line_number": 1509
+  }
+]
