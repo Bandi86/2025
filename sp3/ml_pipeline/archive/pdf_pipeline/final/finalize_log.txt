@@ -1,0 +1,229 @@
+Összes sor: 524
+Mentett meccsek: 0
+
+Szűrési okok:
+nem engedélyezett liga: 315
+nem 1x2 piac: 209
+Tovább tisztított, klasszikus 1X2 meccsek: 0 db. Eredmény: pdf_pipeline/final/labdarugas_meccsek_final.csv
+Összes sor: 524
+Mentett meccsek: 284
+
+Szűrési okok:
+rossz bajnokság: 31
+nem 1x2 piac: 209
+
+Előforduló bajnokságok (rövid név):
+mls: 10
+kolumbiai: 10
+kinai: 8
+norveg: 13
+sved: 18
+feroer-szigeteki: 3
+izlandi: 16
+perui: 15
+ir: 11
+argentin: 55
+brazil: 37
+ecuadori: 15
+gold: 16
+u21: 8
+boliviai: 16
+uruguayi: 13
+klubcsapat: 28
+del-koreai: 6
+valogatott: 8
+finn: 5
+u19: 2
+japan: 2
+Tovább tisztított, klasszikus 1X2 meccsek: 284 db. Eredmény: pdf_pipeline/final/labdarugas_meccsek_final.csv
+Összes sor: 524
+Mentett meccsek: 284
+
+Szűrési okok:
+rossz bajnokság: 31
+nem 1x2 piac: 209
+
+Előforduló bajnokságok (rövid név):
+mls: 10
+kolumbiai: 10
+kinai: 8
+norveg: 13
+sved: 18
+feroer-szigeteki: 3
+izlandi: 16
+perui: 15
+ir: 11
+argentin: 55
+brazil: 37
+ecuadori: 15
+gold: 16
+u21: 8
+boliviai: 16
+uruguayi: 13
+klubcsapat: 28
+del-koreai: 6
+valogatott: 8
+finn: 5
+u19: 2
+japan: 2
+Tovább tisztított, klasszikus 1X2 meccsek: 284 db. Eredmény: pdf_pipeline/final/labdarugas_meccsek_final.csv
+Adatbázisba mentve: 284 meccs. DB: pdf_pipeline/db/labdarugas_meccsek.db
+Összes sor: 524
+Mentett meccsek: 284
+
+Szűrési okok:
+rossz bajnokság: 31
+nem 1x2 piac: 209
+
+Előforduló bajnokságok (rövid név):
+mls: 10
+kolumbiai: 10
+kinai: 8
+norveg: 13
+sved: 18
+feroer-szigeteki: 3
+izlandi: 16
+perui: 15
+ir: 11
+argentin: 55
+brazil: 37
+ecuadori: 15
+gold: 16
+u21: 8
+boliviai: 16
+uruguayi: 13
+klubcsapat: 28
+del-koreai: 6
+valogatott: 8
+finn: 5
+u19: 2
+japan: 2
+Tovább tisztított, klasszikus 1X2 meccsek: 284 db. Eredmény: pdf_pipeline/final/labdarugas_meccsek_final.csv
+Összes sor: 524
+Mentett meccsek: 284
+
+Szűrési okok:
+rossz bajnokság: 31
+nem 1x2 piac: 209
+
+Előforduló bajnokságok (rövid név):
+mls: 10
+kolumbiai: 10
+kinai: 8
+norveg: 13
+sved: 18
+feroer-szigeteki: 3
+izlandi: 16
+perui: 15
+ir: 11
+argentin: 55
+brazil: 37
+ecuadori: 15
+gold: 16
+u21: 8
+boliviai: 16
+uruguayi: 13
+klubcsapat: 28
+del-koreai: 6
+valogatott: 8
+finn: 5
+u19: 2
+japan: 2
+Tovább tisztított, klasszikus 1X2 meccsek: 284 db. Eredmény: pdf_pipeline/final/labdarugas_meccsek_final.csv
+Adatbázisba mentve: 284 meccs. DB: pdf_pipeline/db/labdarugas_meccsek.db
+Összes sor: 524
+Mentett meccsek: 284
+
+Szűrési okok:
+rossz bajnokság: 31
+nem 1x2 piac: 209
+
+Előforduló bajnokságok (rövid név):
+mls: 10
+kolumbiai: 10
+kinai: 8
+norveg: 13
+sved: 18
+feroer-szigeteki: 3
+izlandi: 16
+perui: 15
+ir: 11
+argentin: 55
+brazil: 37
+ecuadori: 15
+gold: 16
+u21: 8
+boliviai: 16
+uruguayi: 13
+klubcsapat: 28
+del-koreai: 6
+valogatott: 8
+finn: 5
+u19: 2
+japan: 2
+Tovább tisztított, klasszikus 1X2 meccsek: 284 db. Eredmény: pdf_pipeline/final/labdarugas_meccsek_final.csv
+Adatbázisba mentve: 284 meccs. DB: pdf_pipeline/db/labdarugas_meccsek.db
+Összes sor: 524
+Mentett meccsek: 251
+
+Szűrési okok:
+rossz bajnokság: 19
+nem 1x2 piac: 254
+
+Előforduló bajnokságok (rövid név):
+mls: 5
+kolumbiai: 10
+kinai: 8
+norveg: 13
+sved: 18
+feroer-szigeteki: 3
+izlandi: 16
+perui: 15
+ir: 11
+argentin: 55
+brazil: 37
+ecuadori: 15
+gold: 6
+u21: 2
+boliviai: 16
+uruguayi: 13
+klubcsapat: 9
+del-koreai: 6
+valogatott: 4
+finn: 5
+u19: 1
+japan: 2
+Tovább tisztított, klasszikus 1X2 meccsek: 251 db. Eredmény: pdf_pipeline/final/labdarugas_meccsek_final.csv
+Adatbázisba mentve: 251 meccs. DB: pdf_pipeline/db/labdarugas_meccsek.db
+Összes sor: 440
+Mentett meccsek: 167
+
+Szűrési okok:
+rossz bajnokság: 19
+nem 1x2 piac: 254
+
+Előforduló bajnokságok (rövid név):
+mls: 5
+kolumbiai: 10
+kinai: 8
+norveg: 13
+sved: 18
+feroer-szigeteki: 3
+izlandi: 16
+perui: 15
+ir: 11
+argentin: 55
+brazil: 37
+ecuadori: 15
+gold: 6
+u21: 2
+boliviai: 16
+uruguayi: 13
+klubcsapat: 9
+del-koreai: 6
+valogatott: 4
+finn: 5
+u19: 1
+japan: 2
+Tovább tisztított, klasszikus 1X2 meccsek: 167 db. Eredmény: pdf_pipeline/final/labdarugas_meccsek_final.csv
+Adatbázisba mentve: 167 meccs. DB: pdf_pipeline/db/labdarugas_meccsek.db

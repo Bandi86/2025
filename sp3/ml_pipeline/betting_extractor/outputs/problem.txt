@@ -1,0 +1,5 @@
+1.meg mindig at csuszik a csapat2 neve ha az 2 vagy tobb reszletbol all
+2.meg mindig nem vonja ossze az ossze tartozo objetumokat elofordul jon 2 objektumot keszit pedig eleg lenne egyet is.
+3. a forras file mindket pdfet hasznalta igy mikor letrejon a json akkor az mar mindket pdf tartalmat tartalmazza szerintem.
+4. JO lenne akkor inkabb azt csinalni hogy szetbontani a json fileokat inkabb napokra talan jobban at lehetne latni, pl 2025.06.01 neven levo jsbe csak az adott napra tartozo meccs objektumok lennenek. Viszont elotte generalni lehet egy darabot amibe benne van minden es abbol bontani darabokra, hogy meglegyen az eredeti. Elvileg 1 heten csak 2 pdf jelenik. Lehetne egy mappa struktura hogy 2025 amin belul lehetne mappa hogy szammal ami azt jeloli hanyadik het van, abba kerulne a 2 teljes json, es azon belul datumozva a kisebb json filok, vagy valami ilyesmi.
+TASK: javitas addig amig a nev es a dupliakcio meg nem javul utana mehet a 4. pont alkalamazasa addig nem.

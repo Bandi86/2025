@@ -8,11 +8,11 @@ export class MlProcessorController {
   constructor(private readonly mlProcessorService: MlProcessorService) {}
 
   @Post('predict')
-  async predict(@Body() matchData: any): Promise<{ prediction: string }> {
+  async predict(@Body() matchData: any): Promise<any> {
     this.logger.log('Received prediction request.');
     try {
       const prediction = await this.mlProcessorService.predictMatch(matchData);
-      return { prediction };
+      return prediction;
     } catch (error) {
       this.logger.error(`Prediction error: ${error}`);
       throw error; // Re-throw to let NestJS handle the HTTP response

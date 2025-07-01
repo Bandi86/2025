@@ -1,0 +1,188 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ========================================
+// CORE MODELS - FUTBALL ADATBÁZIS
+// ========================================
+
+// Bajnokságok és kupák
+model Competition {
+  id        String          @id @default(cuid())
+  name      String // "Premier League", "Bundesliga"
+  shortName String? // "PL", "BL"
+  country   String // "England", "Germany"
+  type      CompetitionType @default(LEAGUE)
+  tier      Int             @default(1) // 1=első osztály, 2=második osztály
+  season    String // "2024/25"
+  isActive  Boolean         @default(true)
+
+  // Kapcsolatok
+  teams   CompetitionTeam[]
+  matches Match[]
+  tables  LeagueTable[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([name, season])
+  @@map("competitions")
+}
+
+// Csapatok
+model Team {
+  id               String  @id @default(cuid())
+  name             String // "Manchester United"
+  shortName        String? // "Man Utd"
+  alternativeNames Json? // ["MUFC", "Manchester United FC"]
+  city             String?
+  country          String
+  founded          Int?
+  stadium          String?
+  isActive         Boolean @default(true)
+
+  // Kapcsolatok
+  homeMatches  Match[]           @relation("HomeTeam")
+  awayMatches  Match[]           @relation("AwayTeam")
+  competitions CompetitionTeam[]
+  tables       LeagueTable[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("teams")
+}
+
+// Csapatok bajnokságokban (N-M kapcsolat)
+model CompetitionTeam {
+  id            String  @id @default(cuid())
+  competitionId String
+  teamId        String
+  season        String
+  isActive      Boolean @default(true)
+
+  competition Competition @relation(fields: [competitionId], references: [id], onDelete: Cascade)
+  team        Team        @relation(fields: [teamId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@unique([competitionId, teamId, season])
+  @@map("competition_teams")
+}
+
+// Meccsek (történelmi és jövőbeli)
+model Match {
+  id            String   @id @default(cuid())
+  date          DateTime // Mérkőzés dátuma és időpontja
+  homeTeamId    String
+  awayTeamId    String
+  competitionId String
+  round         Int? // Forduló száma
+  matchday      Int? // Játéknap
+  season        String // "2024/25"
+  venue         String? // Stadion neve
+
+  // Eredmények (null ha jövőbeli)
+  homeScore Int?
+  awayScore Int?
+  status    MatchStatus @default(SCHEDULED)
+
+  // Részletes statisztikák (JSON)
+  statistics Json? // {shots: {home: 12, away: 8}, possession: {home: 60, away: 40}}
+
+  // ML Predikciók
+  prediction          Json? // {homeWin: 0.4, draw: 0.3, awayWin: 0.3, overUnder: {...}}
+  confidence          Float? // 0.0 - 1.0
+  predictionUpdatedAt DateTime?
+
+  // Metadata és adatforrás
+  sourceType           DataSource @default(MANUAL_INPUT)
+  sourcePath           String? // PDF fájl elérési útja vagy API endpoint
+  extractionConfidence Float? // 0.0 - 1.0 (PDF extrakció biztonsága)
+  manualVerified       Boolean    @default(false)
+  notes                String?
+
+  // Kapcsolatok
+  homeTeam    Team        @relation("HomeTeam", fields: [homeTeamId], references: [id])
+  awayTeam    Team        @relation("AwayTeam", fields: [awayTeamId], references: [id])
+  competition Competition @relation(fields: [competitionId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("matches")
+}
+
+// Liga táblázatok (időpont specifikus snapshots)
+model LeagueTable {
+  id            String   @id @default(cuid())
+  competitionId String
+  teamId        String
+  matchday      Int
+  season        String
+  snapshotDate  DateTime @default(now())
+
+  // Tabella pozíció és statisztikák
+  position       Int
+  points         Int
+  played         Int
+  won            Int
+  drawn          Int
+  lost           Int
+  goalsFor       Int
+  goalsAgainst   Int
+  goalDifference Int
+
+  // Form (utolsó 5 meccs)
+  form String? // "WDLWW"
+
+  // Metadata
+  sourceType DataSource @default(MANUAL_INPUT)
+  sourcePath String?
+
+  // Kapcsolatok
+  competition Competition @relation(fields: [competitionId], references: [id], onDelete: Cascade)
+  team        Team        @relation(fields: [teamId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@unique([competitionId, teamId, matchday, season])
+  @@map("league_tables")
+}
+
+// ========================================
+// ENUMS
+// ========================================
+
+enum CompetitionType {
+  LEAGUE // Bajnokság (Premier League, Bundesliga)
+  CUP // Kupa (FA Cup, DFB Pokal)
+  INTERNATIONAL // Nemzetközi (Champions League, Europa League)
+  FRIENDLY // Barátságos
+}
+
+enum MatchStatus {
+  SCHEDULED // Tervezett (jövőbeli)
+  LIVE // Élő
+  HALFTIME // Félidő
+  FINISHED // Befejezett
+  POSTPONED // Elhalasztott
+  CANCELLED // Törölt
+  ABANDONED // Megszakított
+}
+
+enum DataSource {
+  PDF_EXTRACTION // PDF-ből kinyert adat
+  MANUAL_INPUT // Kézi bevitel
+  API_IMPORT // API-ból importált
+  WEB_SCRAPING // Web scraping
+  CSV_IMPORT // CSV feltöltés
+}

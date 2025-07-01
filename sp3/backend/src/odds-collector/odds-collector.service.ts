@@ -21,32 +21,44 @@ export class OddsCollectorService {
   async processPdfOdds(ocrContent: string): Promise<string> {
     this.logger.log('Starting PDF odds processing...');
     const pythonScriptPath = 'parse_tippmix_pdf.py';
-    const pythonExecutable = '/home/bandi/Documents/code/2025/sp3/ml_pipeline/venv/bin/python';
+    const pythonExecutable =
+      '/home/bandi/Documents/code/2025/sp3/ml_pipeline/venv/bin/python';
 
     return new Promise((resolve, reject) => {
       // Pass OCR content via stdin to avoid command line argument length limits
-      const child = exec(`${pythonExecutable} ${pythonScriptPath}`, (error, stdout, stderr) => {
-        if (error) {
-          this.logger.error(`exec error: ${error}`);
-          this.logger.error(`stderr: ${stderr}`);
-          return reject(`PDF processing failed: ${stderr || error.message}`);
-        }
-        if (stderr) {
-          this.logger.warn(`Python script stderr: ${stderr}`);
-        }
-        this.logger.log(`Python script stdout: ${stdout}`);
+      const child = exec(
+        `${pythonExecutable} ${pythonScriptPath}`,
+        (error, stdout, stderr) => {
+          if (error) {
+            this.logger.error(`exec error: ${error}`);
+            this.logger.error(`stderr: ${stderr}`);
+            return reject(`PDF processing failed: ${stderr || error.message}`);
+          }
+          if (stderr) {
+            this.logger.warn(`Python script stderr: ${stderr}`);
+          }
+          this.logger.log(`Python script stdout: ${stdout}`);
 
-        try {
-          const parsedData = JSON.parse(stdout);
-          this.saveParsedOddsToDb(parsedData);
-          resolve('PDF odds processing completed. Check logs for details.');
-        } catch (parseError) {
-          this.logger.error(`Error parsing Python script output: ${parseError}`);
-          reject(`Failed to parse Python script output: ${parseError.message}`);
-        }
-      });
-      child.stdin.write(ocrContent);
-      child.stdin.end();
+          try {
+            const parsedData = JSON.parse(stdout);
+            this.saveParsedOddsToDb(parsedData);
+            resolve('PDF odds processing completed. Check logs for details.');
+          } catch (parseError) {
+            this.logger.error(
+              `Error parsing Python script output: ${parseError}`,
+            );
+            reject(
+              `Failed to parse Python script output: ${parseError.message}`,
+            );
+          }
+        },
+      );
+      if (child.stdin) {
+        child.stdin.write(ocrContent);
+        child.stdin.end();
+      } else {
+        reject('Failed to write to Python script stdin');
+      }
     });
   }
 
@@ -55,21 +67,36 @@ export class OddsCollectorService {
       const { date, time, sorszam, home_team, away_team, markets } = matchData;
 
       // Assuming a default league for now, or you can try to infer it
-      let league = await this.leagueRepository.findOne({ where: { name: 'Premier League' } });
+      let league = await this.leagueRepository.findOne({
+        where: { name: 'Premier League' },
+      });
       if (!league) {
-        league = this.leagueRepository.create({ name: 'Premier League', country: 'England' });
+        league = this.leagueRepository.create({
+          name: 'Premier League',
+          country: 'England',
+        });
         await this.leagueRepository.save(league);
       }
 
-      let homeTeam = await this.teamRepository.findOne({ where: { name: home_team } });
+      let homeTeam = await this.teamRepository.findOne({
+        where: { name: home_team },
+      });
       if (!homeTeam) {
-        homeTeam = this.teamRepository.create({ name: home_team, league: league });
+        homeTeam = this.teamRepository.create({
+          name: home_team,
+          league: league,
+        });
         await this.teamRepository.save(homeTeam);
       }
 
-      let awayTeam = await this.teamRepository.findOne({ where: { name: away_team } });
+      let awayTeam = await this.teamRepository.findOne({
+        where: { name: away_team },
+      });
       if (!awayTeam) {
-        awayTeam = this.teamRepository.create({ name: away_team, league: league });
+        awayTeam = this.teamRepository.create({
+          name: away_team,
+          league: league,
+        });
         await this.teamRepository.save(awayTeam);
       }
 
@@ -94,7 +121,9 @@ export class OddsCollectorService {
           status: 'SCHEDULED',
         });
         await this.matchRepository.save(match);
-        this.logger.log(`Created new match: ${homeTeam.name} vs ${awayTeam.name}`);
+        this.logger.log(
+          `Created new match: ${homeTeam.name} vs ${awayTeam.name}`,
+        );
       }
 
       // Save/Update Odds
@@ -128,11 +157,15 @@ export class OddsCollectorService {
 
       if (existingOdd) {
         await this.oddRepository.update(existingOdd.id, oddsToSave);
-        this.logger.debug(`Updated odds for ${bookmakerName} for match ${match.id}`);
+        this.logger.debug(
+          `Updated odds for ${bookmakerName} for match ${match.id}`,
+        );
       } else {
         const newOdd = this.oddRepository.create(oddsToSave);
         await this.oddRepository.save(newOdd);
-        this.logger.debug(`Created new odds for ${bookmakerName} for match ${match.id}`);
+        this.logger.debug(
+          `Created new odds for ${bookmakerName} for match ${match.id}`,
+        );
       }
     }
   }

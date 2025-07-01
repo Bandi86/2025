@@ -1,0 +1,792 @@
+[
+  {
+    "date": "11/08/2023",
+    "match": "Burnley - Man City",
+    "bet": "draw",
+    "odds": 5.5,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 9900.0
+  },
+  {
+    "date": "12/08/2023",
+    "match": "Arsenal - Nott'm Forest",
+    "bet": "draw",
+    "odds": 7.0,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 9800.0
+  },
+  {
+    "date": "12/08/2023",
+    "match": "Brighton - Luton",
+    "bet": "draw",
+    "odds": 5.5,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 9700.0
+  },
+  {
+    "date": "12/08/2023",
+    "match": "Newcastle - Aston Villa",
+    "bet": "draw",
+    "odds": 3.75,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 9600.0
+  },
+  {
+    "date": "13/08/2023",
+    "match": "Brentford - Tottenham",
+    "bet": "draw",
+    "odds": 3.4,
+    "stake": 100.0,
+    "result": "d",
+    "profit": 240.0,
+    "bankroll": 9840.0
+  },
+  {
+    "date": "14/08/2023",
+    "match": "Man United - Wolves",
+    "bet": "draw",
+    "odds": 5.5,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 9740.0
+  },
+  {
+    "date": "19/08/2023",
+    "match": "Liverpool - Bournemouth",
+    "bet": "draw",
+    "odds": 7.0,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 9640.0
+  },
+  {
+    "date": "19/08/2023",
+    "match": "Wolves - Brighton",
+    "bet": "draw",
+    "odds": 3.8,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 9540.0
+  },
+  {
+    "date": "19/08/2023",
+    "match": "Tottenham - Man United",
+    "bet": "draw",
+    "odds": 3.6,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 9440.0
+  },
+  {
+    "date": "19/08/2023",
+    "match": "Man City - Newcastle",
+    "bet": "draw",
+    "odds": 4.0,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 9340.0
+  },
+  {
+    "date": "20/08/2023",
+    "match": "Aston Villa - Everton",
+    "bet": "draw",
+    "odds": 4.0,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 9240.0
+  },
+  {
+    "date": "20/08/2023",
+    "match": "West Ham - Chelsea",
+    "bet": "draw",
+    "odds": 3.5,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 9140.0
+  },
+  {
+    "date": "21/08/2023",
+    "match": "Crystal Palace - Arsenal",
+    "bet": "draw",
+    "odds": 4.0,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 9040.0
+  },
+  {
+    "date": "25/08/2023",
+    "match": "Chelsea - Luton",
+    "bet": "draw",
+    "odds": 5.5,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 8940.0
+  },
+  {
+    "date": "26/08/2023",
+    "match": "Bournemouth - Tottenham",
+    "bet": "draw",
+    "odds": 3.75,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 8840.0
+  },
+  {
+    "date": "26/08/2023",
+    "match": "Arsenal - Fulham",
+    "bet": "draw",
+    "odds": 7.0,
+    "stake": 100.0,
+    "result": "d",
+    "profit": 600.0,
+    "bankroll": 9440.0
+  },
+  {
+    "date": "26/08/2023",
+    "match": "Man United - Nott'm Forest",
+    "bet": "draw",
+    "odds": 6.0,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 9340.0
+  },
+  {
+    "date": "26/08/2023",
+    "match": "Brighton - West Ham",
+    "bet": "draw",
+    "odds": 4.75,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 9240.0
+  },
+  {
+    "date": "27/08/2023",
+    "match": "Sheffield United - Man City",
+    "bet": "draw",
+    "odds": 8.0,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 9140.0
+  },
+  {
+    "date": "27/08/2023",
+    "match": "Newcastle - Liverpool",
+    "bet": "draw",
+    "odds": 3.75,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 9040.0
+  },
+  {
+    "date": "01/09/2023",
+    "match": "Luton - West Ham",
+    "bet": "draw",
+    "odds": 3.8,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 8940.0
+  },
+  {
+    "date": "02/09/2023",
+    "match": "Brentford - Bournemouth",
+    "bet": "draw",
+    "odds": 3.8,
+    "stake": 100.0,
+    "result": "d",
+    "profit": 280.0,
+    "bankroll": 9220.0
+  },
+  {
+    "date": "02/09/2023",
+    "match": "Burnley - Tottenham",
+    "bet": "draw",
+    "odds": 4.0,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 9120.0
+  },
+  {
+    "date": "02/09/2023",
+    "match": "Chelsea - Nott'm Forest",
+    "bet": "draw",
+    "odds": 4.5,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 9020.0
+  },
+  {
+    "date": "02/09/2023",
+    "match": "Man City - Fulham",
+    "bet": "draw",
+    "odds": 8.0,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 8920.0
+  },
+  {
+    "date": "02/09/2023",
+    "match": "Brighton - Newcastle",
+    "bet": "draw",
+    "odds": 3.8,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 8820.0
+  },
+  {
+    "date": "03/09/2023",
+    "match": "Liverpool - Aston Villa",
+    "bet": "draw",
+    "odds": 4.5,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 8720.0
+  },
+  {
+    "date": "03/09/2023",
+    "match": "Arsenal - Man United",
+    "bet": "draw",
+    "odds": 3.8,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 8620.0
+  },
+  {
+    "date": "16/09/2023",
+    "match": "Wolves - Liverpool",
+    "bet": "draw",
+    "odds": 5.0,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 8520.0
+  },
+  {
+    "date": "16/09/2023",
+    "match": "Aston Villa - Crystal Palace",
+    "bet": "draw",
+    "odds": 3.6,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 8420.0
+  },
+  {
+    "date": "16/09/2023",
+    "match": "Fulham - Luton",
+    "bet": "draw",
+    "odds": 3.75,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 8320.0
+  },
+  {
+    "date": "16/09/2023",
+    "match": "Man United - Brighton",
+    "bet": "draw",
+    "odds": 4.0,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 8220.0
+  },
+  {
+    "date": "16/09/2023",
+    "match": "Tottenham - Sheffield United",
+    "bet": "draw",
+    "odds": 5.5,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 8120.0
+  },
+  {
+    "date": "16/09/2023",
+    "match": "West Ham - Man City",
+    "bet": "draw",
+    "odds": 4.5,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 8020.0
+  },
+  {
+    "date": "16/09/2023",
+    "match": "Newcastle - Brentford",
+    "bet": "draw",
+    "odds": 4.2,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 7920.0
+  },
+  {
+    "date": "17/09/2023",
+    "match": "Bournemouth - Chelsea",
+    "bet": "draw",
+    "odds": 3.75,
+    "stake": 100.0,
+    "result": "d",
+    "profit": 275.0,
+    "bankroll": 8195.0
+  },
+  {
+    "date": "17/09/2023",
+    "match": "Everton - Arsenal",
+    "bet": "draw",
+    "odds": 4.5,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 8095.0
+  },
+  {
+    "date": "23/09/2023",
+    "match": "Man City - Nott'm Forest",
+    "bet": "draw",
+    "odds": 8.5,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 7995.0
+  },
+  {
+    "date": "23/09/2023",
+    "match": "Brentford - Everton",
+    "bet": "draw",
+    "odds": 3.8,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 7895.0
+  },
+  {
+    "date": "23/09/2023",
+    "match": "Burnley - Man United",
+    "bet": "draw",
+    "odds": 4.2,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 7795.0
+  },
+  {
+    "date": "24/09/2023",
+    "match": "Arsenal - Tottenham",
+    "bet": "draw",
+    "odds": 4.33,
+    "stake": 100.0,
+    "result": "d",
+    "profit": 333.0,
+    "bankroll": 8128.0
+  },
+  {
+    "date": "24/09/2023",
+    "match": "Brighton - Bournemouth",
+    "bet": "draw",
+    "odds": 5.25,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 8028.0
+  },
+  {
+    "date": "24/09/2023",
+    "match": "Chelsea - Aston Villa",
+    "bet": "draw",
+    "odds": 3.75,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 7928.0
+  },
+  {
+    "date": "24/09/2023",
+    "match": "Liverpool - West Ham",
+    "bet": "draw",
+    "odds": 5.0,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 7828.0
+  },
+  {
+    "date": "24/09/2023",
+    "match": "Sheffield United - Newcastle",
+    "bet": "draw",
+    "odds": 4.75,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 7728.0
+  },
+  {
+    "date": "30/09/2023",
+    "match": "Aston Villa - Brighton",
+    "bet": "draw",
+    "odds": 3.75,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 7628.0
+  },
+  {
+    "date": "30/09/2023",
+    "match": "Bournemouth - Arsenal",
+    "bet": "draw",
+    "odds": 4.5,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 7528.0
+  },
+  {
+    "date": "30/09/2023",
+    "match": "Everton - Luton",
+    "bet": "draw",
+    "odds": 3.8,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 7428.0
+  },
+  {
+    "date": "30/09/2023",
+    "match": "Man United - Crystal Palace",
+    "bet": "draw",
+    "odds": 4.2,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 7328.0
+  },
+  {
+    "date": "30/09/2023",
+    "match": "Newcastle - Burnley",
+    "bet": "draw",
+    "odds": 5.75,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 7228.0
+  },
+  {
+    "date": "30/09/2023",
+    "match": "West Ham - Sheffield United",
+    "bet": "draw",
+    "odds": 4.5,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 7128.0
+  },
+  {
+    "date": "30/09/2023",
+    "match": "Wolves - Man City",
+    "bet": "draw",
+    "odds": 5.75,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 7028.0
+  },
+  {
+    "date": "30/09/2023",
+    "match": "Tottenham - Liverpool",
+    "bet": "draw",
+    "odds": 4.0,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 6928.0
+  },
+  {
+    "date": "02/10/2023",
+    "match": "Fulham - Chelsea",
+    "bet": "draw",
+    "odds": 3.5,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 6828.0
+  },
+  {
+    "date": "07/10/2023",
+    "match": "Luton - Tottenham",
+    "bet": "draw",
+    "odds": 4.75,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 6728.0
+  },
+  {
+    "date": "07/10/2023",
+    "match": "Burnley - Chelsea",
+    "bet": "draw",
+    "odds": 3.8,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 6628.0
+  },
+  {
+    "date": "07/10/2023",
+    "match": "Everton - Bournemouth",
+    "bet": "draw",
+    "odds": 3.6,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 6528.0
+  },
+  {
+    "date": "07/10/2023",
+    "match": "Fulham - Sheffield United",
+    "bet": "draw",
+    "odds": 3.8,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 6428.0
+  },
+  {
+    "date": "07/10/2023",
+    "match": "Man United - Brentford",
+    "bet": "draw",
+    "odds": 4.2,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 6328.0
+  },
+  {
+    "date": "08/10/2023",
+    "match": "Brighton - Liverpool",
+    "bet": "draw",
+    "odds": 3.8,
+    "stake": 100.0,
+    "result": "d",
+    "profit": 280.0,
+    "bankroll": 6608.0
+  },
+  {
+    "date": "08/10/2023",
+    "match": "West Ham - Newcastle",
+    "bet": "draw",
+    "odds": 3.75,
+    "stake": 100.0,
+    "result": "d",
+    "profit": 275.0,
+    "bankroll": 6883.0
+  },
+  {
+    "date": "21/10/2023",
+    "match": "Liverpool - Everton",
+    "bet": "draw",
+    "odds": 5.75,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 6783.0
+  },
+  {
+    "date": "21/10/2023",
+    "match": "Brentford - Burnley",
+    "bet": "draw",
+    "odds": 3.75,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 6683.0
+  },
+  {
+    "date": "21/10/2023",
+    "match": "Man City - Brighton",
+    "bet": "draw",
+    "odds": 5.25,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 6583.0
+  },
+  {
+    "date": "21/10/2023",
+    "match": "Newcastle - Crystal Palace",
+    "bet": "draw",
+    "odds": 4.5,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 6483.0
+  },
+  {
+    "date": "21/10/2023",
+    "match": "Nott'm Forest - Luton",
+    "bet": "draw",
+    "odds": 3.75,
+    "stake": 100.0,
+    "result": "d",
+    "profit": 275.0,
+    "bankroll": 6758.0
+  },
+  {
+    "date": "21/10/2023",
+    "match": "Sheffield United - Man United",
+    "bet": "draw",
+    "odds": 5.25,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 6658.0
+  },
+  {
+    "date": "22/10/2023",
+    "match": "Aston Villa - West Ham",
+    "bet": "draw",
+    "odds": 3.6,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 6558.0
+  },
+  {
+    "date": "23/10/2023",
+    "match": "Tottenham - Fulham",
+    "bet": "draw",
+    "odds": 4.5,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 6458.0
+  },
+  {
+    "date": "27/10/2023",
+    "match": "Crystal Palace - Tottenham",
+    "bet": "draw",
+    "odds": 3.75,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 6358.0
+  },
+  {
+    "date": "28/10/2023",
+    "match": "Chelsea - Brentford",
+    "bet": "draw",
+    "odds": 4.0,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 6258.0
+  },
+  {
+    "date": "28/10/2023",
+    "match": "Arsenal - Sheffield United",
+    "bet": "draw",
+    "odds": 8.5,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 6158.0
+  },
+  {
+    "date": "28/10/2023",
+    "match": "Bournemouth - Burnley",
+    "bet": "draw",
+    "odds": 3.5,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 6058.0
+  },
+  {
+    "date": "28/10/2023",
+    "match": "Wolves - Newcastle",
+    "bet": "draw",
+    "odds": 4.0,
+    "stake": 100.0,
+    "result": "d",
+    "profit": 300.0,
+    "bankroll": 6358.0
+  },
+  {
+    "date": "29/10/2023",
+    "match": "West Ham - Everton",
+    "bet": "draw",
+    "odds": 3.5,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 6258.0
+  },
+  {
+    "date": "29/10/2023",
+    "match": "Aston Villa - Luton",
+    "bet": "draw",
+    "odds": 6.5,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 6158.0
+  },
+  {
+    "date": "29/10/2023",
+    "match": "Brighton - Fulham",
+    "bet": "draw",
+    "odds": 4.2,
+    "stake": 100.0,
+    "result": "d",
+    "profit": 320.0,
+    "bankroll": 6478.0
+  },
+  {
+    "date": "29/10/2023",
+    "match": "Liverpool - Nott'm Forest",
+    "bet": "draw",
+    "odds": 5.75,
+    "stake": 100.0,
+    "result": "h",
+    "profit": -100.0,
+    "bankroll": 6378.0
+  },
+  {
+    "date": "29/10/2023",
+    "match": "Man United - Man City",
+    "bet": "draw",
+    "odds": 3.8,
+    "stake": 100.0,
+    "result": "a",
+    "profit": -100.0,
+    "bankroll": 6278.0
+  }
+]
