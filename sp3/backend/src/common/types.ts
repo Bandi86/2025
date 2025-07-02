@@ -213,6 +213,16 @@ export interface MatchResponse {
   confidence?: number;
   createdAt: string;
   updatedAt: string;
+  markets?: Array<{
+    id: string;
+    name: string;
+    origName?: string;
+    odds1?: number;
+    oddsX?: number;
+    odds2?: number;
+    createdAt: string;
+    updatedAt: string;
+  }>;
 }
 
 export interface TeamResponse {

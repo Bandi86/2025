@@ -66,9 +66,10 @@ def process_all_pdfs():
         # 2. TXT -> JSON konverzió
         print("  → JSON létrehozása...")
         txt_file = script_dir / "txts" / f"{pdf_file.stem}_lines.txt"
+        json_file = script_dir / "jsons" / f"{pdf_file.stem}_lines.json"
 
         try:
-            cmd = ["python3", "extract_matches.py", str(txt_file)]
+            cmd = ["python3", "extract_matches.py", str(txt_file), str(json_file)]
             if force_reprocess:
                 cmd.append("--force")
 

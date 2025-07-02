@@ -2,7 +2,8 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
 }
 
 datasource db {
@@ -114,6 +115,7 @@ model Match {
   homeTeam    Team        @relation("HomeTeam", fields: [homeTeamId], references: [id])
   awayTeam    Team        @relation("AwayTeam", fields: [awayTeamId], references: [id])
   competition Competition @relation(fields: [competitionId], references: [id])
+  markets     Market[]    @relation("MatchMarkets")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -156,6 +158,22 @@ model LeagueTable {
 
   @@unique([competitionId, teamId, matchday, season])
   @@map("league_tables")
+}
+
+// Piacok (fogadási lehetőségek)
+model Market {
+  id        String   @id @default(cuid())
+  matchId   String
+  name      String
+  origName  String?
+  odds1     Float?
+  oddsX     Float?
+  odds2     Float?
+  match     Match    @relation("MatchMarkets", fields: [matchId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("markets")
 }
 
 // ========================================

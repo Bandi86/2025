@@ -61,12 +61,13 @@ export class MatchesService {
   ): Promise<PaginatedResponse<MatchResponse>> {
     const {
       page = 1,
-      limit = 20,
+      limit: rawLimit = 20,
       sortBy = 'date',
       sortOrder = 'desc',
       ...filterOptions
     } = filters;
-
+    const limit =
+      typeof rawLimit === 'string' ? parseInt(rawLimit, 10) : rawLimit;
     const skip = (page - 1) * limit;
 
     // Build where clause
@@ -119,6 +120,7 @@ export class MatchesService {
         homeTeam: true,
         awayTeam: true,
         competition: true,
+        markets: true, // oddsok
       },
       orderBy: {
         [sortBy]: sortOrder,
@@ -149,6 +151,7 @@ export class MatchesService {
         homeTeam: true,
         awayTeam: true,
         competition: true,
+        markets: true, // oddsok
       },
     });
 
@@ -345,6 +348,16 @@ export class MatchesService {
       confidence: match.confidence,
       createdAt: match.createdAt.toISOString(),
       updatedAt: match.updatedAt.toISOString(),
+      markets: match.markets?.map((m: any) => ({
+        id: m.id,
+        name: m.name,
+        origName: m.origName,
+        odds1: m.odds1,
+        oddsX: m.oddsX,
+        odds2: m.odds2,
+        createdAt: m.createdAt.toISOString(),
+        updatedAt: m.updatedAt.toISOString(),
+      })),
     };
   }
 
@@ -435,6 +448,7 @@ export class MatchesService {
         homeTeam: true,
         awayTeam: true,
         competition: true,
+        markets: true,
       },
       orderBy: {
         date: 'asc',
@@ -454,6 +468,7 @@ export class MatchesService {
         homeTeam: true,
         awayTeam: true,
         competition: true,
+        markets: true,
       },
       orderBy: {
         date: 'desc',
@@ -476,6 +491,7 @@ export class MatchesService {
         homeTeam: true,
         awayTeam: true,
         competition: true,
+        markets: true,
       },
       orderBy: {
         date: 'desc',
