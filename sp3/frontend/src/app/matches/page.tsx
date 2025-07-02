@@ -340,8 +340,12 @@ export default function MatchesPage() {
                     const isSelected = selectedCompetitions.has(competition);
                     const isStarred = starredCompetitions.has(competition);
 
+                    // Find the first match with this competition to get the ID
+                    const competitionMatch = matches.find(m => formatCompetitionName(m.competition.name) === competition);
+                    const competitionId = competitionMatch?.competition.id || competition;
+
                     return (
-                      <div key={competition} className={`flex items-center gap-2 p-2 rounded-md transition-colors group ${
+                      <div key={`${competitionId}-${competition}`} className={`flex items-center gap-2 p-2 rounded-md transition-colors group ${
                         isSelected ? 'bg-blue-600/20 border border-blue-500/30' : 'hover:bg-slate-700/30'
                       }`}>
                         <button
@@ -429,210 +433,216 @@ export default function MatchesPage() {
               </Card>
             ) : (
               <div className="space-y-6">
-                {sortedGroupedEntries.map(([competition, dates]) => (
-                  <Card key={competition} className="bg-slate-800/50 border-slate-700/50 overflow-hidden">
-                    <CardContent className="p-0">
-                      {Object.entries(dates).map(([date, matches]) => (
-                        <div key={date} className="border-b border-slate-700/30 last:border-b-0">
-                          <div className="divide-y divide-slate-700/20">
-                            {matches.map((match) => {
-                              const mainMarket = match.markets?.find(m =>
-                                m.name.toLowerCase().includes("fő piac") ||
-                                m.name.toLowerCase().includes("main") ||
-                                m.name.toLowerCase().includes("1x2")
-                              ) || match.markets?.[0];
-                              const otherMarkets = match.markets?.filter(m => m.id !== mainMarket?.id) || [];
-                              const isExpanded = expanded[match.id];
-                              const matchStatus = getMatchStatus(match);
+                {sortedGroupedEntries.map(([competition, dates]) => {
+                  // Find the first match with this competition to get the ID
+                  const competitionMatch = Object.values(dates).flat()[0];
+                  const competitionId = competitionMatch?.competition.id || competition;
 
-                              // Dynamic card styling based on match status
-                              const getCardBg = () => {
-                                switch (matchStatus.type) {
-                                  case 'live':
-                                    return 'bg-red-900/10 border-l-4 border-red-500/50 hover:bg-red-900/20';
-                                  case 'soon':
-                                    return 'bg-orange-900/10 border-l-4 border-orange-500/50 hover:bg-orange-900/20';
-                                  case 'finished':
-                                    return 'bg-slate-700/20 border-l-4 border-slate-500/30 hover:bg-slate-700/30';
-                                  default:
-                                    return 'hover:bg-slate-700/15';
-                                }
-                              };
+                  return (
+                    <Card key={`${competitionId}-${competition}`} className="bg-slate-800/50 border-slate-700/50 overflow-hidden">
+                      <CardContent className="p-0">
+                        {Object.entries(dates).map(([date, matches]) => (
+                          <div key={date} className="border-b border-slate-700/30 last:border-b-0">
+                            <div className="divide-y divide-slate-700/20">
+                              {matches.map((match) => {
+                                const mainMarket = match.markets?.find(m =>
+                                  m.name.toLowerCase().includes("fő piac") ||
+                                  m.name.toLowerCase().includes("main") ||
+                                  m.name.toLowerCase().includes("1x2")
+                                ) || match.markets?.[0];
+                                const otherMarkets = match.markets?.filter(m => m.id !== mainMarket?.id) || [];
+                                const isExpanded = expanded[match.id];
+                                const matchStatus = getMatchStatus(match);
 
-                              return (
-                                <div key={match.id}>
-                                  <div className={`px-4 py-4 transition-colors ${getCardBg()}`}>
-                                    <div className="flex items-center justify-between">
-                                      {/* Match Info */}
-                                      <div className="flex-1 min-w-0">
-                                        <div className="flex items-center gap-4 mb-3">
-                                          {/* Time with better typography */}
-                                          <div className="flex items-center gap-2">
-                                            <Clock className="h-4 w-4 text-slate-400" />
-                                            <span className="font-mono text-base font-bold text-white tracking-wider">
-                                              {formatTime(match.date)}
-                                            </span>
-                                          </div>
+                                // Dynamic card styling based on match status
+                                const getCardBg = () => {
+                                  switch (matchStatus.type) {
+                                    case 'live':
+                                      return 'bg-red-900/10 border-l-4 border-red-500/50 hover:bg-red-900/20';
+                                    case 'soon':
+                                      return 'bg-orange-900/10 border-l-4 border-orange-500/50 hover:bg-orange-900/20';
+                                    case 'finished':
+                                      return 'bg-slate-700/20 border-l-4 border-slate-500/30 hover:bg-slate-700/30';
+                                    default:
+                                      return 'hover:bg-slate-700/15';
+                                  }
+                                };
 
-                                          {/* Competition name and match count */}
-                                          <div className="flex items-center gap-3">
-                                            <div className="p-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-sm">
-                                              <Trophy className="h-3 w-3 text-white" />
+                                return (
+                                  <div key={match.id}>
+                                    <div className={`px-4 py-4 transition-colors ${getCardBg()}`}>
+                                      <div className="flex items-center justify-between">
+                                        {/* Match Info */}
+                                        <div className="flex-1 min-w-0">
+                                          <div className="flex items-center gap-4 mb-3">
+                                            {/* Time with better typography */}
+                                            <div className="flex items-center gap-2">
+                                              <Clock className="h-4 w-4 text-slate-400" />
+                                              <span className="font-mono text-base font-bold text-white tracking-wider">
+                                                {formatTime(match.date)}
+                                              </span>
                                             </div>
-                                            <span className="text-slate-300 text-sm font-medium">{competition}</span>
-                                            <Badge variant="outline" className="border-slate-600 text-slate-400 text-xs">
-                                              {Object.values(grouped[competition]).flat().length}
-                                            </Badge>
+
+                                            {/* Competition name and match count */}
+                                            <div className="flex items-center gap-3">
+                                              <div className="p-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-sm">
+                                                <Trophy className="h-3 w-3 text-white" />
+                                              </div>
+                                              <span className="text-slate-300 text-sm font-medium">{competition}</span>
+                                              <Badge variant="outline" className="border-slate-600 text-slate-400 text-xs">
+                                                {Object.values(grouped[competition]).flat().length}
+                                              </Badge>
+                                            </div>
+
+                                            {/* Status badges */}
+                                            {matchStatus.type === 'live' && (
+                                              <Badge className="bg-red-500/20 text-red-400 border-red-500/30 animate-pulse text-xs px-2 py-0.5">
+                                                {matchStatus.label}
+                                              </Badge>
+                                            )}
+                                            {matchStatus.type === 'soon' && (
+                                              <Badge className="bg-orange-500/20 text-orange-400 border-orange-500/30 text-xs px-2 py-0.5">
+                                                {matchStatus.label}
+                                              </Badge>
+                                            )}
+                                            {matchStatus.type === 'finished' && (
+                                              <Badge variant="secondary" className="bg-slate-700 text-white text-xs px-2 py-0.5">
+                                                {match.homeScore} - {match.awayScore}
+                                              </Badge>
+                                            )}
                                           </div>
 
-                                          {/* Status badges */}
-                                          {matchStatus.type === 'live' && (
-                                            <Badge className="bg-red-500/20 text-red-400 border-red-500/30 animate-pulse text-xs px-2 py-0.5">
-                                              {matchStatus.label}
-                                            </Badge>
-                                          )}
-                                          {matchStatus.type === 'soon' && (
-                                            <Badge className="bg-orange-500/20 text-orange-400 border-orange-500/30 text-xs px-2 py-0.5">
-                                              {matchStatus.label}
-                                            </Badge>
-                                          )}
-                                          {matchStatus.type === 'finished' && (
-                                            <Badge variant="secondary" className="bg-slate-700 text-white text-xs px-2 py-0.5">
-                                              {match.homeScore} - {match.awayScore}
-                                            </Badge>
-                                          )}
-                                        </div>
+                                          {/* Teams in one line with proper alignment */}
+                                          <div className="flex items-center justify-center gap-4 text-white max-w-md">
+                                            <div className="flex items-center gap-2 flex-1 justify-end">
+                                              <span className="font-semibold text-base text-right min-w-0">
+                                                {capitalizeTeamName(match.homeTeam.name)}
+                                              </span>
+                                              <img
+                                                src={getTeamLogo(match.homeTeam)}
+                                                alt="logo"
+                                                className="w-5 h-5 rounded border border-slate-600 flex-shrink-0"
+                                              />
+                                            </div>
 
-                                        {/* Teams in one line with proper alignment */}
-                                        <div className="flex items-center justify-center gap-4 text-white max-w-md">
-                                          <div className="flex items-center gap-2 flex-1 justify-end">
-                                            <span className="font-semibold text-base text-right min-w-0">
-                                              {capitalizeTeamName(match.homeTeam.name)}
-                                            </span>
-                                            <img
-                                              src={getTeamLogo(match.homeTeam)}
-                                              alt="logo"
-                                              className="w-5 h-5 rounded border border-slate-600 flex-shrink-0"
-                                            />
-                                          </div>
+                                            <span className="text-slate-400 font-bold text-lg px-3 flex-shrink-0">-</span>
 
-                                          <span className="text-slate-400 font-bold text-lg px-3 flex-shrink-0">-</span>
-
-                                          <div className="flex items-center gap-2 flex-1">
-                                            <img
-                                              src={getTeamLogo(match.awayTeam)}
-                                              alt="logo"
-                                              className="w-5 h-5 rounded border border-slate-600 flex-shrink-0"
-                                            />
-                                            <span className="font-semibold text-base min-w-0">
-                                              {capitalizeTeamName(match.awayTeam.name)}
-                                            </span>
-                                          </div>
-                                        </div>
-                                      </div>
-
-                                      {/* Odds */}
-                                      <div className="flex items-center gap-2 ml-6 flex-shrink-0">
-                                        <div className="flex gap-2">
-                                          <div className="text-center">
-                                            <div className="text-xs text-slate-400 mb-1">1</div>
-                                            <button className={`px-3 py-2 rounded-md font-bold text-sm transition-all min-w-[50px] ${
-                                              mainMarket?.odds1
-                                                ? 'bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white shadow-md hover:shadow-green-500/20'
-                                                : 'bg-slate-700 text-slate-400 cursor-not-allowed'
-                                            }`}>
-                                              {mainMarket?.odds1 || '-'}
-                                            </button>
-                                          </div>
-                                          <div className="text-center">
-                                            <div className="text-xs text-slate-400 mb-1">X</div>
-                                            <button className={`px-3 py-2 rounded-md font-bold text-sm transition-all min-w-[50px] ${
-                                              mainMarket?.oddsX
-                                                ? 'bg-gradient-to-r from-yellow-600 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 text-white shadow-md hover:shadow-yellow-500/20'
-                                                : 'bg-slate-700 text-slate-400 cursor-not-allowed'
-                                            }`}>
-                                              {mainMarket?.oddsX || '-'}
-                                            </button>
-                                          </div>
-                                          <div className="text-center">
-                                            <div className="text-xs text-slate-400 mb-1">2</div>
-                                            <button className={`px-3 py-2 rounded-md font-bold text-sm transition-all min-w-[50px] ${
-                                              mainMarket?.odds2
-                                                ? 'bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white shadow-md hover:shadow-blue-500/20'
-                                                : 'bg-slate-700 text-slate-400 cursor-not-allowed'
-                                            }`}>
-                                              {mainMarket?.odds2 || '-'}
-                                            </button>
+                                            <div className="flex items-center gap-2 flex-1">
+                                              <img
+                                                src={getTeamLogo(match.awayTeam)}
+                                                alt="logo"
+                                                className="w-5 h-5 rounded border border-slate-600 flex-shrink-0"
+                                              />
+                                              <span className="font-semibold text-base min-w-0">
+                                                {capitalizeTeamName(match.awayTeam.name)}
+                                              </span>
+                                            </div>
                                           </div>
                                         </div>
 
-                                        {/* Expand button with text */}
-                                        {otherMarkets.length > 0 && (
-                                          <button
-                                            onClick={() => toggleExpand(match.id)}
-                                            className="flex items-center gap-2 px-3 py-2 rounded-md bg-slate-700/50 hover:bg-slate-600/50 text-slate-300 hover:text-white transition-all ml-2"
-                                            aria-label={isExpanded ? "Piacok bezárása" : "Több piac"}
-                                          >
-                                            <span className="text-sm font-medium">
-                                              További piacok ({otherMarkets.length})
-                                            </span>
-                                            {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-                                          </button>
-                                        )}
+                                        {/* Odds */}
+                                        <div className="flex items-center gap-2 ml-6 flex-shrink-0">
+                                          <div className="flex gap-2">
+                                            <div className="text-center">
+                                              <div className="text-xs text-slate-400 mb-1">1</div>
+                                              <button className={`px-3 py-2 rounded-md font-bold text-sm transition-all min-w-[50px] ${
+                                                mainMarket?.odds1
+                                                  ? 'bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white shadow-md hover:shadow-green-500/20'
+                                                  : 'bg-slate-700 text-slate-400 cursor-not-allowed'
+                                              }`}>
+                                                {mainMarket?.odds1 || '-'}
+                                              </button>
+                                            </div>
+                                            <div className="text-center">
+                                              <div className="text-xs text-slate-400 mb-1">X</div>
+                                              <button className={`px-3 py-2 rounded-md font-bold text-sm transition-all min-w-[50px] ${
+                                                mainMarket?.oddsX
+                                                  ? 'bg-gradient-to-r from-yellow-600 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 text-white shadow-md hover:shadow-yellow-500/20'
+                                                  : 'bg-slate-700 text-slate-400 cursor-not-allowed'
+                                              }`}>
+                                                {mainMarket?.oddsX || '-'}
+                                              </button>
+                                            </div>
+                                            <div className="text-center">
+                                              <div className="text-xs text-slate-400 mb-1">2</div>
+                                              <button className={`px-3 py-2 rounded-md font-bold text-sm transition-all min-w-[50px] ${
+                                                mainMarket?.odds2
+                                                  ? 'bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white shadow-md hover:shadow-blue-500/20'
+                                                  : 'bg-slate-700 text-slate-400 cursor-not-allowed'
+                                              }`}>
+                                                {mainMarket?.odds2 || '-'}
+                                              </button>
+                                            </div>
+                                          </div>
+
+                                          {/* Expand button with text */}
+                                          {otherMarkets.length > 0 && (
+                                            <button
+                                              onClick={() => toggleExpand(match.id)}
+                                              className="flex items-center gap-2 px-3 py-2 rounded-md bg-slate-700/50 hover:bg-slate-600/50 text-slate-300 hover:text-white transition-all ml-2"
+                                              aria-label={isExpanded ? "Piacok bezárása" : "Több piac"}
+                                            >
+                                              <span className="text-sm font-medium">
+                                                További piacok ({otherMarkets.length})
+                                              </span>
+                                              {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                                            </button>
+                                          )}
+                                        </div>
                                       </div>
                                     </div>
-                                  </div>
 
-                                  {/* Expanded Markets */}
-                                  {isExpanded && otherMarkets.length > 0 && (
-                                    <div className="px-4 pb-4 bg-slate-700/10 border-t border-slate-700/20">
-                                      <div className="mt-3">
-                                        <h4 className="text-slate-300 font-medium mb-2 flex items-center gap-2 text-sm">
-                                          <Star className="h-3.5 w-3.5" />
-                                          További piacok
-                                        </h4>
-                                        <div className="space-y-2">
-                                          {otherMarkets.map((market) => (
-                                            <div key={market.id} className="bg-slate-800/40 rounded-md p-3 border border-slate-700/20">
-                                              <div className="flex items-center justify-between">
-                                                <span className="text-slate-300 font-medium text-sm">{market.name}</span>
-                                                <div className="flex gap-1.5">
-                                                  <button className={`px-2.5 py-1 rounded text-xs font-bold transition-all ${
-                                                    market.odds1
-                                                      ? 'bg-green-600/70 hover:bg-green-600 text-white'
-                                                      : 'bg-slate-600 text-slate-400 cursor-not-allowed'
-                                                  }`}>
-                                                    {market.odds1 || '-'}
-                                                  </button>
-                                                  {market.oddsX && (
-                                                    <button className="px-2.5 py-1 rounded text-xs font-bold bg-yellow-600/70 hover:bg-yellow-600 text-white transition-all">
-                                                      {market.oddsX}
+                                    {/* Expanded Markets */}
+                                    {isExpanded && otherMarkets.length > 0 && (
+                                      <div className="px-4 pb-4 bg-slate-700/10 border-t border-slate-700/20">
+                                        <div className="mt-3">
+                                          <h4 className="text-slate-300 font-medium mb-2 flex items-center gap-2 text-sm">
+                                            <Star className="h-3.5 w-3.5" />
+                                            További piacok
+                                          </h4>
+                                          <div className="space-y-2">
+                                            {otherMarkets.map((market) => (
+                                              <div key={market.id} className="bg-slate-800/40 rounded-md p-3 border border-slate-700/20">
+                                                <div className="flex items-center justify-between">
+                                                  <span className="text-slate-300 font-medium text-sm">{market.name}</span>
+                                                  <div className="flex gap-1.5">
+                                                    <button className={`px-2.5 py-1 rounded text-xs font-bold transition-all ${
+                                                      market.odds1
+                                                        ? 'bg-green-600/70 hover:bg-green-600 text-white'
+                                                        : 'bg-slate-600 text-slate-400 cursor-not-allowed'
+                                                    }`}>
+                                                      {market.odds1 || '-'}
                                                     </button>
-                                                  )}
-                                                  <button className={`px-2.5 py-1 rounded text-xs font-bold transition-all ${
-                                                    market.odds2
-                                                      ? 'bg-blue-600/70 hover:bg-blue-600 text-white'
-                                                      : 'bg-slate-600 text-slate-400 cursor-not-allowed'
-                                                  }`}>
-                                                    {market.odds2 || '-'}
-                                                  </button>
+                                                    {market.oddsX && (
+                                                      <button className="px-2.5 py-1 rounded text-xs font-bold bg-yellow-600/70 hover:bg-yellow-600 text-white transition-all">
+                                                        {market.oddsX}
+                                                      </button>
+                                                    )}
+                                                    <button className={`px-2.5 py-1 rounded text-xs font-bold transition-all ${
+                                                      market.odds2
+                                                        ? 'bg-blue-600/70 hover:bg-blue-600 text-white'
+                                                        : 'bg-slate-600 text-slate-400 cursor-not-allowed'
+                                                    }`}>
+                                                      {market.odds2 || '-'}
+                                                    </button>
+                                                  </div>
                                                 </div>
                                               </div>
-                                            </div>
-                                          ))}
+                                            ))}
+                                          </div>
                                         </div>
                                       </div>
-                                    </div>
-                                  )}
-                                </div>
-                              );
-                            })}
+                                    )}
+                                  </div>
+                                );
+                              })}
+                            </div>
                           </div>
-                        </div>
-                      ))}
-                    </CardContent>
-                  </Card>
-                ))}
+                        ))}
+                      </CardContent>
+                    </Card>
+                  );
+                })}
               </div>
             )}
           </div>

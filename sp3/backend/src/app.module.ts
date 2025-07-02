@@ -6,6 +6,8 @@ import { PrismaModule } from './database/prisma.module';
 import { MatchesModule } from './matches/matches.module';
 import { TeamsModule } from './teams/teams.module';
 import { CompetitionsModule } from './competitions/competitions.module';
+import { JsonImporterModule } from './json-importer/json-importer.module';
+import { AutoStartupService } from './common/auto-startup.service';
 
 @Module({
   imports: [
@@ -17,8 +19,9 @@ import { CompetitionsModule } from './competitions/competitions.module';
     MatchesModule,
     TeamsModule,
     CompetitionsModule,
+    JsonImporterModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, AutoStartupService],
 })
 export class AppModule {}

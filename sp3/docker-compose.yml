@@ -16,6 +16,7 @@ services:
     volumes:
       - ./backend:/usr/src/app
       - /usr/src/app/node_modules
+      - ./ml_pipeline:/usr/src/ml_pipeline
     command: npm run start:dev
     networks:
       - sp3_network
