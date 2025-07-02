@@ -113,4 +113,5 @@ pdf
 ml_pipeline/venv
 ml_pipeline/test_api.py
 ml_pipeline/models
+ml_pipeline/betting_extractor/pdfs
 data
