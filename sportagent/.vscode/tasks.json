@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run Sport Agent",
+			"type": "shell",
+			"command": "source .venv/bin/activate.fish && python -m src.main --interactive",
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}

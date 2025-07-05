@@ -1,0 +1,165 @@
+2025-07-05 21:09:25 - test_simplified_enhanced_google_search - INFO - Simplified Enhanced Google Search Agent teszt indítása
+2025-07-05 21:09:25 - test_simplified_enhanced_google_search - INFO - Keresés: 'football matches today'
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO - Találatok száma: 19
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -   1. James threatens early on for England against Franc vs France in Zurich at Euro
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Status: live
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Verseny: Euro
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Megbízhatóság: 0.75
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -   2. James threatens early on for England vs France
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Status: live
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Verseny: Euro
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Megbízhatóság: 0.75
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -   3. Nine vs man PSG beat Bayern to reach Club World Cup semi
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Dátum: 2025-07-05
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Status: scheduled
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Verseny: World Cup
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Megbízhatóság: 0.75
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -   4. When England won the Euros vs best pictures from an unforgettable summerAttribut
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Status: scheduled
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Verseny: Euro
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Megbízhatóság: 0.75
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -   5. Diogo Jota vs a tribute
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Status: live
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Verseny: None
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO -      Megbízhatóság: 0.75
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO - ==================================================
+2025-07-05 21:09:27 - test_simplified_enhanced_google_search - INFO - Keresés: 'premier league fixtures'
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO - Találatok száma: 19
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -   1. James threatens early on for England against Franc vs France in Zurich at Euro
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Status: live
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Verseny: Euro
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Megbízhatóság: 0.75
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -   2. James threatens early on for England vs France
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Status: live
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Verseny: Euro
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Megbízhatóság: 0.75
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -   3. Nine vs man PSG beat Bayern to reach Club World Cup semi
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Dátum: 2025-07-05
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Status: scheduled
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Verseny: World Cup
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Megbízhatóság: 0.75
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -   4. When England won the Euros vs best pictures from an unforgettable summerAttribut
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Status: scheduled
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Verseny: Euro
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Megbízhatóság: 0.75
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -   5. Diogo Jota vs a tribute
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Status: live
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Verseny: None
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO -      Megbízhatóság: 0.75
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO - ==================================================
+2025-07-05 21:09:29 - test_simplified_enhanced_google_search - INFO - Keresés: 'champions league results'
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO - Találatok száma: 19
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -   1. James threatens early on for England against Franc vs France in Zurich at Euro
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Status: live
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Verseny: Euro
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Megbízhatóság: 0.75
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -   2. James threatens early on for England vs France
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Status: live
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Verseny: Euro
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Megbízhatóság: 0.75
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -   3. Nine vs man PSG beat Bayern to reach Club World Cup semi
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Dátum: 2025-07-05
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Status: scheduled
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Verseny: World Cup
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Megbízhatóság: 0.75
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -   4. When England won the Euros vs best pictures from an unforgettable summerAttribut
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Status: scheduled
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Verseny: Euro
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Megbízhatóság: 0.75
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -   5. Diogo Jota vs a tribute
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Status: live
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Verseny: None
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO -      Megbízhatóság: 0.75
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO - ==================================================
+2025-07-05 21:09:31 - test_simplified_enhanced_google_search - INFO - Keresés: 'arsenal vs chelsea'
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO - Találatok száma: 19
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -   1. James threatens early on for England against Franc vs France in Zurich at Euro
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Status: live
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Verseny: Euro
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Megbízhatóság: 0.75
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -   2. James threatens early on for England vs France
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Status: live
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Verseny: Euro
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Megbízhatóság: 0.75
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -   3. Nine vs man PSG beat Bayern to reach Club World Cup semi
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Dátum: 2025-07-05
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Status: scheduled
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Verseny: World Cup
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Megbízhatóság: 0.75
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -   4. When England won the Euros vs best pictures from an unforgettable summerAttribut
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Status: scheduled
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Verseny: Euro
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Megbízhatóság: 0.75
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -   5. Diogo Jota vs a tribute
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Status: live
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Verseny: None
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO -      Megbízhatóság: 0.75
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO - ==================================================
+2025-07-05 21:09:32 - test_simplified_enhanced_google_search - INFO - Sport hírek tesztelése
+2025-07-05 21:09:42 - test_simplified_enhanced_google_search - INFO - Hírek száma: 10
+2025-07-05 21:09:42 - test_simplified_enhanced_google_search - INFO -   1. Football Extra newsletter
+2025-07-05 21:09:42 - test_simplified_enhanced_google_search - INFO -      Forrás: news_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:42 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:42 - test_simplified_enhanced_google_search - INFO -   2. Insight: Must-read football stories
+2025-07-05 21:09:42 - test_simplified_enhanced_google_search - INFO -      Forrás: news_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:42 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:42 - test_simplified_enhanced_google_search - INFO -   3. More European football
+2025-07-05 21:09:42 - test_simplified_enhanced_google_search - INFO -      Forrás: news_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:09:42 - test_simplified_enhanced_google_search - INFO - 
+2025-07-05 21:09:42 - test_simplified_enhanced_google_search - INFO - Simplified Enhanced Google Search Agent teszt befejezve

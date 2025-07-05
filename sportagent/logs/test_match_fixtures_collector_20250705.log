@@ -1,0 +1,70 @@
+2025-07-05 21:16:23 - test_match_fixtures_collector - INFO - Match Fixtures Collector Agent teszt indítása
+2025-07-05 21:16:23 - test_match_fixtures_collector - INFO - === MAI MÉRKŐZÉSEK ===
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO - Mai mérkőzések száma: 12
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -   1. amFC Liefering vs Union Gurten
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -      Időpont: FC Liefering vs Union Gurten. Kick-off at 9:00am
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -      Bajnokság: None
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -      Forrás: Sky Sports
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -      Odds: 9.00 - None - 9:00
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO - 
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -   2. pmHamKam vs Brann
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -      Időpont: HamKam vs Brann. Kick-off at 1:00pm
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -      Bajnokság: None
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -      Forrás: Sky Sports
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -      Odds: 1.00 - 5.00 - 3.00
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO - 
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -   3. pmKristiansund BK vs Bodo
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -      Időpont: Kristiansund BK vs Bodo/Glimt. Kick-off at 7:00pm
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -      Bajnokság: None
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -      Forrás: Sky Sports
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -      Odds: 7.00 - None - 7:00
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO - 
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -   4. Paris Saint vs Germain
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -      Időpont: None
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -      Bajnokság: None
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -      Forrás: ESPN
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO - 
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -   5. View fixtureParis Saint vs Germain
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -      Időpont: None
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -      Bajnokság: None
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO -      Forrás: Sky Sports
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO - 
+2025-07-05 21:16:40 - test_match_fixtures_collector - INFO - === HOLNAPI MÉRKŐZÉSEK ===
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO - Holnapi mérkőzések száma: 12
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -   1. amFC Liefering vs Union Gurten
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -      Időpont: FC Liefering vs Union Gurten. Kick-off at 9:00am
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -      Bajnokság: None
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -      Forrás: Sky Sports
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -      Odds: 9.00 - None - 9:00
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO - 
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -   2. pmHamKam vs Brann
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -      Időpont: HamKam vs Brann. Kick-off at 1:00pm
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -      Bajnokság: None
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -      Forrás: Sky Sports
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -      Odds: 1.00 - 5.00 - 3.00
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO - 
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -   3. pmKristiansund BK vs Bodo
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -      Időpont: Kristiansund BK vs Bodo/Glimt. Kick-off at 7:00pm
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -      Bajnokság: None
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -      Forrás: Sky Sports
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -      Odds: 7.00 - None - 7:00
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO - 
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -   4. Paris Saint vs Germain
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -      Időpont: None
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -      Bajnokság: None
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -      Forrás: ESPN
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO - 
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -   5. View fixtureParis Saint vs Germain
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -      Időpont: None
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -      Bajnokság: None
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO -      Forrás: Sky Sports
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO - 
+2025-07-05 21:17:00 - test_match_fixtures_collector - INFO - === ÖSSZEFOGLALÓ ===
+2025-07-05 21:17:17 - test_match_fixtures_collector - INFO - Összes mérkőzés: 12
+2025-07-05 21:17:17 - test_match_fixtures_collector - INFO - Bajnokságok szerint:
+2025-07-05 21:17:17 - test_match_fixtures_collector - INFO -   None: 11 mérkőzés
+2025-07-05 21:17:17 - test_match_fixtures_collector - INFO -   World Cup: 1 mérkőzés
+2025-07-05 21:17:17 - test_match_fixtures_collector - INFO - Források szerint:
+2025-07-05 21:17:17 - test_match_fixtures_collector - INFO -   Sky Sports: 11 mérkőzés
+2025-07-05 21:17:17 - test_match_fixtures_collector - INFO -   ESPN: 1 mérkőzés
+2025-07-05 21:17:17 - test_match_fixtures_collector - INFO - Match Fixtures Collector Agent teszt befejezve

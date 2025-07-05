@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Részletes Meccs Elemzés</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .content {
+            padding: 30px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .prediction {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .factors {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 Részletes Meccs Elemzés</h1>
+            <p>Generálva: {{ generated_at.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>📋 Meccs Előnézet</h2>
+                <p>{{ analysis.analysis.match_preview.summary }}</p>
+            </div>
+
+            <div class="section">
+                <h2>📊 Statisztikai Elemzés</h2>
+                <p>{{ analysis.analysis.statistical_analysis.attacking_strength }}</p>
+            </div>
+
+            <div class="section">
+                <h2>💰 Odds Elemzés</h2>
+                <p>{{ analysis.analysis.odds_analysis.market_sentiment }}</p>
+            </div>
+
+            <div class="section prediction">
+                <h2>🎯 Előrejelzés</h2>
+                <p><strong>Várható eredmény:</strong> {{ analysis.analysis.prediction.predicted_result }}</p>
+                <p><strong>Bizalom:</strong> {{ analysis.analysis.prediction.confidence }}</p>
+            </div>
+
+            <div class="section factors">
+                <h2>🔑 Kulcs Tényezők</h2>
+                <ul>
+                {% for factor in analysis.analysis.key_factors %}
+                    <li>{{ factor }}</li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

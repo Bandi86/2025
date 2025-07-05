@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport Meccsek Riport</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .content {
+            padding: 30px;
+        }
+        .summary {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .match-card {
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .match-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .teams {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #495057;
+        }
+        .league {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        .odds {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .odd {
+            background: #007bff;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+        .time {
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚽ Sport Meccsek Riport</h1>
+            <p>Generálva: {{ generated_at }}</p>
+        </div>
+        
+        <div class="content">
+            <div class="summary">
+                <h2>📊 Összefoglaló</h2>
+                <p><strong>Meccsek száma:</strong> {{ total_matches }}</p>
+                <p><strong>Ligák:</strong> {{ leagues|join(', ') }}</p>
+                {% for key, value in summary.items() %}
+                <p><strong>{{ key }}:</strong> {{ value }}</p>
+                {% endfor %}
+            </div>
+            
+            <h2>🏆 Meccsek</h2>
+            {% for match in matches %}
+            <div class="match-card">
+                <div class="match-header">
+                    <div class="teams">{{ match.home_team }} vs {{ match.away_team }}</div>
+                    <div class="time">{{ match.time }}</div>
+                </div>
+                <div class="league">{{ match.league }}</div>
+                {% if match.odds_home %}
+                <div class="odds">
+                    <span class="odd">1: {{ match.odds_home }}</span>
+                    <span class="odd">X: {{ match.odds_draw }}</span>
+                    <span class="odd">2: {{ match.odds_away }}</span>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+2025-07-05 21:01:58 - test_enhanced_google_search - INFO - Enhanced Google Search Agent teszt indítása
+2025-07-05 21:01:58 - test_enhanced_google_search - INFO - Keresés: 'football matches today'
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO - Találatok száma: 9
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -   1. Must vs read football stories
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -      Verseny: None
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -      Megbízhatóság: 0.8
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO - 
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -   2. Arteta sets two vs week deadline for Gy
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -      Verseny: None
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.espn.com/soccer/
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -      Megbízhatóság: 0.8
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO - 
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -   3. France vs England LIVE
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -      Verseny: Euro
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.skysports.com/football
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -      Megbízhatóság: 0.8
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO - 
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -   4. Nine vs player PSG beat Bayern to reach Club World Cup semi
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -      Verseny: World Cup
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.skysports.com/football
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -      Megbízhatóság: 0.8
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO - 
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -   5. Estevao net vs new club
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -      Verseny: None
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.skysports.com/football
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO -      Megbízhatóság: 0.8
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO - 
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO - ==================================================
+2025-07-05 21:03:36 - test_enhanced_google_search - INFO - Keresés: 'premier league fixtures'
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO - Találatok száma: 9
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -   1. Must vs read football stories
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -      Verseny: None
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -      Megbízhatóság: 0.8
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO - 
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -   2. Arteta sets two vs week deadline for Gy
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -      Verseny: None
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.espn.com/soccer/
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -      Megbízhatóság: 0.8
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO - 
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -   3. France vs England LIVE
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -      Verseny: Euro
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.skysports.com/football
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -      Megbízhatóság: 0.8
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO - 
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -   4. Nine vs player PSG beat Bayern to reach Club World Cup semi
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -      Verseny: World Cup
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.skysports.com/football
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -      Megbízhatóság: 0.8
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO - 
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -   5. Estevao net vs new club
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -      Verseny: None
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.skysports.com/football
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO -      Megbízhatóság: 0.8
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO - 
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO - ==================================================
+2025-07-05 21:05:05 - test_enhanced_google_search - INFO - Keresés: 'champions league results'
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO - Találatok száma: 8
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -   1. Must vs read football stories
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -      Verseny: None
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.bbc.com/sport/football
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -      Megbízhatóság: 0.8
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO - 
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -   2. Arteta sets two vs week deadline for Gy
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -      Verseny: None
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.espn.com/soccer/
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -      Megbízhatóság: 0.8
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO - 
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -   3. France vs England LIVE
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -      Verseny: Euro
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.skysports.com/football
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -      Megbízhatóság: 0.8
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO - 
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -   4. Nine vs player PSG beat Bayern to reach Club World Cup semi
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -      Verseny: World Cup
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.skysports.com/football
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -      Megbízhatóság: 0.8
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO - 
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -   5. Estevao net vs new club
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -      Dátum: None
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -      Verseny: None
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -      Forrás: direct_scraping_https://www.skysports.com/football
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO -      Megbízhatóság: 0.8
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO - 
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO - ==================================================
+2025-07-05 21:06:33 - test_enhanced_google_search - INFO - Keresés: 'arsenal vs chelsea'

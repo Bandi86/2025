@@ -1,0 +1,51 @@
+2025-07-05 20:30:43 - sportagent - INFO - Betöltve: 0 meccs, 0 elemzés, 0 stratégia
+2025-07-05 20:30:43 - sportagent - INFO - DataStorage inicializálva
+2025-07-05 20:30:43 - sportagent - INFO - AnalysisAgent inicializálva
+2025-07-05 20:30:43 - sportagent - INFO - BettingStrategyAgent inicializálva
+2025-07-05 20:30:43 - sportagent - INFO - Sport Betting Orchestrator inicializálva
+2025-07-05 20:31:25 - sportagent - INFO - Kezdődik az átfogó adatgyűjtés: 2025-07-06
+2025-07-05 20:31:25 - sportagent - INFO - Odds adatok gyűjtése...
+2025-07-05 20:31:25 - sportagent - INFO - Csapat statisztikák gyűjtése...
+2025-07-05 20:31:25 - sportagent - INFO - Hírek gyűjtése...
+2025-07-05 20:31:25 - sportagent - INFO - ✅ statistics adatgyűjtés befejezve
+2025-07-05 20:31:25 - sportagent - INFO - Közösségi sentiment gyűjtése...
+2025-07-05 20:31:25 - sportagent - INFO - ✅ social adatgyűjtés befejezve
+2025-07-05 20:31:25 - sportagent - ERROR - Odds scraping hiba https://www.oddschecker.com: 403 Client Error: Forbidden for url: https://www.oddschecker.com/
+2025-07-05 20:31:26 - sportagent - INFO - ✅ 0 meccs találva: www.espn.com
+2025-07-05 20:31:30 - sportagent - ERROR - Fixtures scraping hiba https://www.bbc.com/sport/football/fixtures: 404 Client Error: Not Found for url: https://www.bbc.com/sport/football/fixtures
+2025-07-05 20:31:31 - sportagent - INFO - ✅ news adatgyűjtés befejezve
+2025-07-05 20:31:33 - sportagent - INFO - ✅ 0 meccs találva: www.skysports.com
+2025-07-05 20:31:33 - sportagent - INFO - ✅ odds adatgyűjtés befejezve
+2025-07-05 20:31:36 - sportagent - ERROR - Fixtures scraping hiba https://www.goal.com/en/fixtures: 404 Client Error: Not Found for url: https://www.goal.com/en/fixtures
+2025-07-05 20:31:40 - sportagent - ERROR - Fixtures scraping hiba https://www.football.london/fixtures: 404 Client Error: Not Found for url: https://www.football.london/fixtures
+2025-07-05 20:31:44 - sportagent - INFO - ✅ 0 meccs találva: www.livescore.com
+2025-07-05 20:31:48 - sportagent - INFO - ✅ fixtures adatgyűjtés befejezve
+2025-07-05 20:31:48 - sportagent - INFO - Adatok kombinálása és tisztítása...
+2025-07-05 20:32:46 - sportagent - INFO - Betöltve: 0 meccs, 0 elemzés, 0 stratégia
+2025-07-05 20:32:46 - sportagent - INFO - DataStorage inicializálva
+2025-07-05 20:32:46 - sportagent - INFO - AnalysisAgent inicializálva
+2025-07-05 20:32:46 - sportagent - INFO - BettingStrategyAgent inicializálva
+2025-07-05 20:32:46 - sportagent - INFO - Sport Betting Orchestrator inicializálva
+2025-07-05 20:33:24 - sportagent - INFO - Kezdődik az átfogó adatgyűjtés: 2025-07-06
+2025-07-05 20:33:24 - sportagent - INFO - Odds adatok gyűjtése...
+2025-07-05 20:33:24 - sportagent - INFO - Csapat statisztikák gyűjtése...
+2025-07-05 20:33:24 - sportagent - INFO - Hírek gyűjtése...
+2025-07-05 20:33:24 - sportagent - INFO - ✅ statistics adatgyűjtés befejezve
+2025-07-05 20:33:24 - sportagent - INFO - Közösségi sentiment gyűjtése...
+2025-07-05 20:33:24 - sportagent - INFO - ✅ social adatgyűjtés befejezve
+2025-07-05 20:33:24 - sportagent - ERROR - Odds scraping hiba https://www.oddschecker.com: 403 Client Error: Forbidden for url: https://www.oddschecker.com/
+2025-07-05 20:33:26 - sportagent - INFO - ✅ 0 meccs találva: www.espn.com
+2025-07-05 20:33:31 - sportagent - ERROR - Fixtures scraping hiba https://www.bbc.com/sport/football/fixtures: 404 Client Error: Not Found for url: https://www.bbc.com/sport/football/fixtures
+2025-07-05 20:33:32 - sportagent - INFO - ✅ news adatgyűjtés befejezve
+2025-07-05 20:33:32 - sportagent - INFO - ✅ odds adatgyűjtés befejezve
+2025-07-05 20:33:36 - sportagent - INFO - ✅ 0 meccs találva: www.skysports.com
+2025-07-05 20:33:38 - sportagent - ERROR - Fixtures scraping hiba https://www.goal.com/en/fixtures: 404 Client Error: Not Found for url: https://www.goal.com/en/fixtures
+2025-07-05 20:33:41 - sportagent - ERROR - Fixtures scraping hiba https://www.football.london/fixtures: 404 Client Error: Not Found for url: https://www.football.london/fixtures
+2025-07-05 20:33:44 - sportagent - INFO - ✅ 0 meccs találva: www.livescore.com
+2025-07-05 20:33:47 - sportagent - INFO - ✅ fixtures adatgyűjtés befejezve
+2025-07-05 20:33:47 - sportagent - INFO - Adatok kombinálása és tisztítása...
+2025-07-05 20:33:47 - sportagent - INFO - Adatok sikeresen mentve
+2025-07-05 20:33:47 - sportagent - INFO - 0 mérkőzés tárolva
+2025-07-05 20:33:47 - sportagent - INFO - Tárolva 0 mérkőzés
+2025-07-05 20:52:24 - sportagent - INFO - RSS Data Collector inicializálva
+2025-07-05 20:52:24 - sportagent - INFO - Free API Collector inicializálva

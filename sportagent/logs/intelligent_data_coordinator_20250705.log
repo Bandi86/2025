@@ -1,0 +1,10 @@
+2025-07-05 20:52:24 - intelligent_data_coordinator - INFO - Intelligens adatgyűjtés indítása...
+2025-07-05 20:52:24 - intelligent_data_coordinator - ERROR - Hiba az RSS hírek gyűjtésében: 'RSSDataCollector' object has no attribute 'collect_all_feeds'
+2025-07-05 20:52:24 - intelligent_data_coordinator - ERROR - Hiba a Free API adatok gyűjtésében: 'FreeAPICollector' object has no attribute 'collect_matches'
+2025-07-05 20:52:24 - intelligent_data_coordinator - WARNING - Feladat 'rss_news' nem adott vissza adatokat
+2025-07-05 20:52:24 - intelligent_data_coordinator - INFO - Feladat 'free_api' sikeresen befejezve
+2025-07-05 20:52:36 - intelligent_data_coordinator - INFO - Google: 0 hír találva
+2025-07-05 20:52:36 - intelligent_data_coordinator - WARNING - Feladat 'google_news' nem adott vissza adatokat
+2025-07-05 20:52:38 - intelligent_data_coordinator - INFO - Google: 0 mérkőzés találva
+2025-07-05 20:52:38 - intelligent_data_coordinator - WARNING - Feladat 'google_matches' nem adott vissza adatokat
+2025-07-05 20:52:38 - intelligent_data_coordinator - INFO - Adatgyűjtés befejezve. Minőség: 0.00, Elemek: 0

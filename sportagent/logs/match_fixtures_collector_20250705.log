@@ -1,0 +1,69 @@
+2025-07-05 21:16:23 - match_fixtures_collector - INFO - Mérkőzések gyűjtése: today (2025-07-05)
+2025-07-05 21:16:23 - match_fixtures_collector - INFO - Próbálkozás: BBC Sport
+2025-07-05 21:16:23 - match_fixtures_collector - WARNING - BBC Sport: Nincs adat
+2025-07-05 21:16:25 - match_fixtures_collector - INFO - Próbálkozás: ESPN
+2025-07-05 21:16:26 - match_fixtures_collector - INFO - ESPN: 1 mérkőzés
+2025-07-05 21:16:28 - match_fixtures_collector - INFO - Próbálkozás: Sky Sports
+2025-07-05 21:16:29 - match_fixtures_collector - INFO - Sky Sports: 35 mérkőzés
+2025-07-05 21:16:31 - match_fixtures_collector - INFO - Próbálkozás: Goal.com
+2025-07-05 21:16:31 - match_fixtures_collector - WARNING - Goal.com: Nincs adat
+2025-07-05 21:16:34 - match_fixtures_collector - INFO - Próbálkozás: LiveScore
+2025-07-05 21:16:34 - match_fixtures_collector - WARNING - LiveScore: Nincs adat
+2025-07-05 21:16:36 - match_fixtures_collector - INFO - Próbálkozás: FlashScore
+2025-07-05 21:16:36 - match_fixtures_collector - WARNING - FlashScore: Nincs adat
+2025-07-05 21:16:37 - match_fixtures_collector - INFO - Próbálkozás: SofaScore
+2025-07-05 21:16:37 - match_fixtures_collector - WARNING - SofaScore: Nincs adat
+2025-07-05 21:16:39 - match_fixtures_collector - INFO - Próbálkozás: Oddschecker
+2025-07-05 21:16:39 - match_fixtures_collector - WARNING - Oddschecker: Nincs adat
+2025-07-05 21:16:40 - match_fixtures_collector - INFO - Összesen 12 egyedi mérkőzés találva
+2025-07-05 21:16:40 - match_fixtures_collector - INFO - Mérkőzések gyűjtése: tomorrow (2025-07-06)
+2025-07-05 21:16:40 - match_fixtures_collector - INFO - Próbálkozás: BBC Sport
+2025-07-05 21:16:41 - match_fixtures_collector - WARNING - BBC Sport: Nincs adat
+2025-07-05 21:16:42 - match_fixtures_collector - INFO - Próbálkozás: ESPN
+2025-07-05 21:16:43 - match_fixtures_collector - INFO - ESPN: 1 mérkőzés
+2025-07-05 21:16:46 - match_fixtures_collector - INFO - Próbálkozás: Sky Sports
+2025-07-05 21:16:47 - match_fixtures_collector - INFO - Sky Sports: 35 mérkőzés
+2025-07-05 21:16:49 - match_fixtures_collector - INFO - Próbálkozás: Goal.com
+2025-07-05 21:16:49 - match_fixtures_collector - WARNING - Goal.com: Nincs adat
+2025-07-05 21:16:51 - match_fixtures_collector - INFO - Próbálkozás: LiveScore
+2025-07-05 21:16:51 - match_fixtures_collector - WARNING - LiveScore: Nincs adat
+2025-07-05 21:16:54 - match_fixtures_collector - INFO - Próbálkozás: FlashScore
+2025-07-05 21:16:54 - match_fixtures_collector - WARNING - FlashScore: Nincs adat
+2025-07-05 21:16:56 - match_fixtures_collector - INFO - Próbálkozás: SofaScore
+2025-07-05 21:16:56 - match_fixtures_collector - WARNING - SofaScore: Nincs adat
+2025-07-05 21:16:58 - match_fixtures_collector - INFO - Próbálkozás: Oddschecker
+2025-07-05 21:16:58 - match_fixtures_collector - WARNING - Oddschecker: Nincs adat
+2025-07-05 21:17:00 - match_fixtures_collector - INFO - Összesen 12 egyedi mérkőzés találva
+2025-07-05 21:17:00 - match_fixtures_collector - INFO - Mérkőzések gyűjtése: tomorrow (2025-07-06)
+2025-07-05 21:17:00 - match_fixtures_collector - INFO - Próbálkozás: BBC Sport
+2025-07-05 21:17:00 - match_fixtures_collector - WARNING - BBC Sport: Nincs adat
+2025-07-05 21:17:02 - match_fixtures_collector - INFO - Próbálkozás: ESPN
+2025-07-05 21:17:03 - match_fixtures_collector - INFO - ESPN: 1 mérkőzés
+2025-07-05 21:17:04 - match_fixtures_collector - INFO - Próbálkozás: Sky Sports
+2025-07-05 21:17:04 - match_fixtures_collector - INFO - Sky Sports: 35 mérkőzés
+2025-07-05 21:17:07 - match_fixtures_collector - INFO - Próbálkozás: Goal.com
+2025-07-05 21:17:07 - match_fixtures_collector - WARNING - Goal.com: Nincs adat
+2025-07-05 21:17:09 - match_fixtures_collector - INFO - Próbálkozás: LiveScore
+2025-07-05 21:17:09 - match_fixtures_collector - WARNING - LiveScore: Nincs adat
+2025-07-05 21:17:10 - match_fixtures_collector - INFO - Próbálkozás: FlashScore
+2025-07-05 21:17:10 - match_fixtures_collector - WARNING - FlashScore: Nincs adat
+2025-07-05 21:17:12 - match_fixtures_collector - INFO - Próbálkozás: SofaScore
+2025-07-05 21:17:12 - match_fixtures_collector - WARNING - SofaScore: Nincs adat
+2025-07-05 21:17:14 - match_fixtures_collector - INFO - Próbálkozás: Oddschecker
+2025-07-05 21:17:14 - match_fixtures_collector - WARNING - Oddschecker: Nincs adat
+2025-07-05 21:17:17 - match_fixtures_collector - INFO - Összesen 12 egyedi mérkőzés találva
+2025-07-05 21:27:56 - match_fixtures_collector - INFO - Mai mérkőzések gyűjtése: 2025-07-05
+2025-07-05 21:27:56 - match_fixtures_collector - INFO - Gyűjtés _collect_from_bbc_sport forrásból
+2025-07-05 21:27:56 - match_fixtures_collector - INFO - _collect_from_bbc_sport: 5 mérkőzés találva
+2025-07-05 21:27:58 - match_fixtures_collector - INFO - Gyűjtés _collect_from_espn forrásból
+2025-07-05 21:28:01 - match_fixtures_collector - INFO - _collect_from_espn: 12 mérkőzés találva
+2025-07-05 21:28:03 - match_fixtures_collector - INFO - Gyűjtés _collect_from_sky_sports forrásból
+2025-07-05 21:28:04 - match_fixtures_collector - INFO - _collect_from_sky_sports: 36 mérkőzés találva
+2025-07-05 21:28:05 - match_fixtures_collector - INFO - Gyűjtés _collect_from_goal_com forrásból
+2025-07-05 21:28:08 - match_fixtures_collector - INFO - _collect_from_goal_com: 19 mérkőzés találva
+2025-07-05 21:28:09 - match_fixtures_collector - INFO - Gyűjtés _collect_from_livescore forrásból
+2025-07-05 21:28:10 - match_fixtures_collector - INFO - Gyűjtés _collect_from_flashscore forrásból
+2025-07-05 21:28:11 - match_fixtures_collector - INFO - Gyűjtés _collect_from_sofascore forrásból
+2025-07-05 21:28:11 - match_fixtures_collector - INFO - Gyűjtés _collect_from_transfermarkt forrásból
+2025-07-05 21:28:14 - match_fixtures_collector - INFO - _collect_from_transfermarkt: 14 mérkőzés találva
+2025-07-05 21:28:15 - match_fixtures_collector - INFO - Összesen 45 egyedi mérkőzés today (2025-07-05)
