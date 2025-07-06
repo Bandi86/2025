@@ -1,1 +1,1382 @@
-{}
+{
+  "pmhalmstads_bk-aik-2025-07-06": {
+    "match_id": "pmhalmstads_bk-aik-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.803071"
+  },
+  "halmstads_bk-aik-2025-07-06": {
+    "match_id": "halmstads_bk-aik-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:31:00.056259"
+  },
+  "pmifk_gothenburg-ik_sirius-2025-07-06": {
+    "match_id": "pmifk_gothenburg-ik_sirius-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.804969"
+  },
+  "ifk_gothenburg-ik_sirius-2025-07-06": {
+    "match_id": "ifk_gothenburg-ik_sirius-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:31:00.060309"
+  },
+  "pmkfum_oslo-bryne-2025-07-06": {
+    "match_id": "pmkfum_oslo-bryne-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.807023"
+  },
+  "kfum_oslo-bryne-2025-07-06": {
+    "match_id": "kfum_oslo-bryne-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:31:00.065794"
+  },
+  "pmsandefjord-rosenborg-2025-07-06": {
+    "match_id": "pmsandefjord-rosenborg-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.810005"
+  },
+  "sandefjord-rosenborg-2025-07-06": {
+    "match_id": "sandefjord-rosenborg-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:31:00.076000"
+  },
+  "pmsarpsborg-haugesund-2025-07-06": {
+    "match_id": "pmsarpsborg-haugesund-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.812902"
+  },
+  "sarpsborg-haugesund-2025-07-06": {
+    "match_id": "sarpsborg-haugesund-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:31:00.083176"
+  },
+  "nine-psg-2025-07-06": {
+    "match_id": "nine-psg-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:31:00.180130"
+  },
+  "pmff_jaro-ifk_mariehamn-2025-07-06": {
+    "match_id": "pmff_jaro-ifk_mariehamn-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.818358"
+  },
+  "ff_jaro-ifk_mariehamn-2025-07-06": {
+    "match_id": "ff_jaro-ifk_mariehamn-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:31:00.092799"
+  },
+  "pmestadio_santa_laura-universidad_sek-2025-07-06": {
+    "match_id": "pmestadio_santa_laura-universidad_sek-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.820840"
+  },
+  "pmdjurgardens_if-degerfors-2025-07-06": {
+    "match_id": "pmdjurgardens_if-degerfors-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.821991"
+  },
+  "djurgardens_if-degerfors-2025-07-06": {
+    "match_id": "djurgardens_if-degerfors-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:31:00.102407"
+  },
+  "pmif_elfsborg-hacken-2025-07-06": {
+    "match_id": "pmif_elfsborg-hacken-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.825853"
+  },
+  "if_elfsborg-hacken-2025-07-06": {
+    "match_id": "if_elfsborg-hacken-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:31:00.111750"
+  },
+  "pmfc_haka-fc_inter_turku-2025-07-06": {
+    "match_id": "pmfc_haka-fc_inter_turku-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.831656"
+  },
+  "fc_haka-fc_inter_turku-2025-07-06": {
+    "match_id": "fc_haka-fc_inter_turku-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:31:00.119223"
+  },
+  "pmnorway_women-finland_women-2025-07-06": {
+    "match_id": "pmnorway_women-finland_women-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.838182"
+  },
+  "norway_women-finland_women-2025-07-06": {
+    "match_id": "norway_women-finland_women-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:31:00.126470"
+  },
+  "pmswitzerland_women-iceland_women-2025-07-06": {
+    "match_id": "pmswitzerland_women-iceland_women-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.843131"
+  },
+  "switzerland_women-iceland_women-2025-07-06": {
+    "match_id": "switzerland_women-iceland_women-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:31:00.134937"
+  },
+  "pmseattle_sounders_fc-columbus_crew-2025-07-06": {
+    "match_id": "pmseattle_sounders_fc-columbus_crew-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.848689"
+  },
+  "seattle_sounders_fc-columbus_crew-2025-07-06": {
+    "match_id": "seattle_sounders_fc-columbus_crew-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:31:00.143683"
+  },
+  "sweden-allsvenskan-2025-07-06": {
+    "match_id": "sweden-allsvenskan-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.854728"
+  },
+  "finland-veikkausliga-2025-07-06": {
+    "match_id": "finland-veikkausliga-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.857492"
+  },
+  "latvia-virsliga-2025-07-06": {
+    "match_id": "latvia-virsliga-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.861566"
+  },
+  "uruguay-segunda_division-2025-07-06": {
+    "match_id": "uruguay-segunda_division-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.865164"
+  },
+  "lithuania-a_lyga-2025-07-06": {
+    "match_id": "lithuania-a_lyga-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.868328"
+  },
+  "estonia-meistriliiga-2025-07-06": {
+    "match_id": "estonia-meistriliiga-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.871837"
+  },
+  "faroe_islands-premier_league-2025-07-06": {
+    "match_id": "faroe_islands-premier_league-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.874469"
+  },
+  "kazakhstan-premier_league-2025-07-06": {
+    "match_id": "kazakhstan-premier_league-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.877379"
+  },
+  "eik-toensbergeik-2025-07-06": {
+    "match_id": "eik-toensbergeik-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.880977"
+  },
+  "moldova-national_division-2025-07-06": {
+    "match_id": "moldova-national_division-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.884815"
+  },
+  "belarus-premier_league-2025-07-06": {
+    "match_id": "belarus-premier_league-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.887789"
+  },
+  "iceland-besta_deildin-2025-07-06": {
+    "match_id": "iceland-besta_deildin-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.891189"
+  },
+  "uruguay-primera_division-2025-07-06": {
+    "match_id": "uruguay-primera_division-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.895066"
+  },
+  "chile-primera_division-2025-07-06": {
+    "match_id": "chile-primera_division-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.899287"
+  },
+  "paraguay-division_profesional-2025-07-06": {
+    "match_id": "paraguay-division_profesional-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.902552"
+  },
+  "cwcparis_saint-germain-2025-07-06": {
+    "match_id": "cwcparis_saint-germain-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.907017"
+  },
+  "liverpool-holding_champions-2025-07-06": {
+    "match_id": "liverpool-holding_champions-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.912737"
+  },
+  "grant_halverson-fifa-2025-07-06": {
+    "match_id": "grant_halverson-fifa-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.917875"
+  },
+  "catherine_ivill-ama-2025-07-06": {
+    "match_id": "catherine_ivill-ama-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.922909"
+  },
+  "austin_fc-los_angeles_football_club-2025-07-06": {
+    "match_id": "austin_fc-los_angeles_football_club-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:31:00.160583"
+  },
+  "gunners_agree_five-year_deal_with_madueke-2025-07-06": {
+    "match_id": "gunners_agree_five-year_deal_with_madueke-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:31:00.171447"
+  },
+  "success-what_next-2025-07-06": {
+    "match_id": "success-what_next-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:31:00.184814"
+  },
+  "s_club_world_cup_loss_to_nine-man_paris_saint-2025-07-06": {
+    "match_id": "s_club_world_cup_loss_to_nine-man_paris_saint-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.945014"
+  },
+  "calvert-manchester_united-2025-07-06": {
+    "match_id": "calvert-manchester_united-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.952039"
+  },
+  "the_ultimate_pep-mourinho_combined_xi-2025-07-06": {
+    "match_id": "the_ultimate_pep-mourinho_combined_xi-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.956221"
+  },
+  "usa-major_league_soccer-2025-07-06": {
+    "match_id": "usa-major_league_soccer-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.960433"
+  },
+  "imagoin-demand_mvpssesko-2025-07-06": {
+    "match_id": "imagoin-demand_mvpssesko-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.965814"
+  },
+  "ndez_included-real_madrid-2025-07-06": {
+    "match_id": "ndez_included-real_madrid-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:31:00.202291"
+  },
+  "josh_wilson-esbrandj-2025-07-06": {
+    "match_id": "josh_wilson-esbrandj-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.981194"
+  },
+  "myles_peart-harrism-2025-07-06": {
+    "match_id": "myles_peart-harrism-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:12:55.984752"
+  },
+  "what_went_wrong-france-2025-07-06": {
+    "match_id": "what_went_wrong-france-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:31:00.049526"
+  },
+  "fixtures-football-2025-07-06": {
+    "match_id": "fixtures-football-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:31:00.147913"
+  },
+  "fixtures-today-2025-07-06": {
+    "match_id": "fixtures-today-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:31:00.152716"
+  },
+  "aboutlivescore-latest_football_scores-2025-07-06": {
+    "match_id": "aboutlivescore-latest_football_scores-2025-07-06",
+    "prediction_confidence": 0.25,
+    "key_factors": [],
+    "risk_assessment": {
+      "prediction_uncertainty": 0.75,
+      "odds_volatility": 0.3,
+      "team_inconsistency": 0.2,
+      "injury_risk": 0.1,
+      "weather_conditions": 0.0,
+      "referee_bias": 0.05,
+      "total_risk": 0.2333333333333333
+    },
+    "value_bets": [],
+    "match_insights": {
+      "recommended_outcome": "home",
+      "confidence_level": "low",
+      "betting_advice": "Óvatosan, bizonytalan kimenetel",
+      "risk_warning": "",
+      "key_stats": {}
+    },
+    "created_at": "2025-07-06T13:31:00.192661"
+  }
+}

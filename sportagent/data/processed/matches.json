@@ -1,0 +1,56 @@
+[
+  {
+    "id": "lagalaxy_lafc_20250706",
+    "date": "2025-07-06",
+    "home_team": "LA Galaxy",
+    "away_team": "LAFC",
+    "league": "MLS",
+    "time": "20:45",
+    "source": "season_aware_mls",
+    "confidence": 0.95,
+    "datetime_local": "2025-07-06T20:45:00-04:00",
+    "datetime_cet": "2025-07-07T02:45:00+02:00",
+    "datetime_utc": "2025-07-07T00:45:00+00:00",
+    "time_cet": "02:45",
+    "timezone_original": "US/Eastern",
+    "odds": {
+      "home_win": 2.15,
+      "draw": 3.25,
+      "away_win": 2.85
+    },
+    "stadium": "Dignity Health Sports Park",
+    "status": "scheduled",
+    "league_info": {
+      "country": "USA",
+      "tier": 1,
+      "continent": "North America"
+    }
+  },
+  {
+    "id": "intermiami_atlantaunited_20250706",
+    "date": "2025-07-06",
+    "home_team": "Inter Miami",
+    "away_team": "Atlanta United",
+    "league": "MLS",
+    "time": "15:00",
+    "source": "season_aware_mls",
+    "confidence": 0.95,
+    "datetime_local": "2025-07-06T15:00:00-04:00",
+    "datetime_cet": "2025-07-06T21:00:00+02:00",
+    "datetime_utc": "2025-07-06T19:00:00+00:00",
+    "time_cet": "21:00",
+    "timezone_original": "US/Eastern",
+    "odds": {
+      "home_win": 1.85,
+      "draw": 3.45,
+      "away_win": 3.95
+    },
+    "stadium": "DRV PNK Stadium",
+    "status": "scheduled",
+    "league_info": {
+      "country": "USA",
+      "tier": 1,
+      "continent": "North America"
+    }
+  }
+]

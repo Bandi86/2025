@@ -1,0 +1,28 @@
+2025-07-06 16:09:51 - test_intelligent_collector - INFO - 🚀 Intelligens gyűjtő tesztelés kezdete
+2025-07-06 16:09:51 - test_intelligent_collector - INFO - 📅 Mai meccsek gyűjtése...
+2025-07-06 16:10:10 - test_intelligent_collector - INFO - 🚀 Intelligens gyűjtő tesztelés kezdete
+2025-07-06 16:10:10 - test_intelligent_collector - INFO - 📅 Mai meccsek gyűjtése...
+2025-07-06 16:11:03 - test_intelligent_collector - INFO - 📅 Holnapi meccsek gyűjtése...
+2025-07-06 16:12:00 - test_intelligent_collector - INFO - ✅ Mai meccsek: 5
+2025-07-06 16:12:00 - test_intelligent_collector - INFO - ✅ Holnapi meccsek: 5
+2025-07-06 16:12:00 - test_intelligent_collector - INFO - 🔍 Mai meccsek részletei:
+2025-07-06 16:12:00 - test_intelligent_collector - INFO -   FC Barcelona vs Real Madrid CF - La Liga (demo_fixtures)
+2025-07-06 16:12:00 - test_intelligent_collector - INFO -   Bayern Munich vs Borussia Dortmund - Bundesliga (demo_fixtures)
+2025-07-06 16:12:00 - test_intelligent_collector - INFO -   Arsenal FC vs AC Milan - Serie A (demo_fixtures)
+2025-07-06 16:12:00 - test_intelligent_collector - INFO -   Paris Saint-Germain FC vs Borussia Dortmund - Ligue 1 (demo_fixtures)
+2025-07-06 16:12:00 - test_intelligent_collector - INFO -   AFC Ajax vs Juventus FC - Football (goal_com)
+2025-07-06 16:12:00 - test_intelligent_collector - INFO - 🔍 Holnapi meccsek részletei:
+2025-07-06 16:12:00 - test_intelligent_collector - INFO -   FC Barcelona vs Real Madrid CF - La Liga (demo_fixtures)
+2025-07-06 16:12:00 - test_intelligent_collector - INFO -   Bayern Munich vs Borussia Dortmund - Bundesliga (demo_fixtures)
+2025-07-06 16:12:00 - test_intelligent_collector - INFO -   Arsenal FC vs AC Milan - Serie A (demo_fixtures)
+2025-07-06 16:12:00 - test_intelligent_collector - INFO -   Paris Saint-Germain FC vs Borussia Dortmund - Ligue 1 (demo_fixtures)
+2025-07-06 16:12:00 - test_intelligent_collector - INFO -   AFC Ajax vs Juventus FC - Football (goal_com)
+2025-07-06 16:12:00 - test_intelligent_collector - INFO - 💾 Mai meccsek mentve: /home/bandi/Documents/code/2025/sportagent/data/processed/intelligent_matches_today_20250706.json
+2025-07-06 16:12:00 - test_intelligent_collector - INFO - 💾 Holnapi meccsek mentve: /home/bandi/Documents/code/2025/sportagent/data/processed/intelligent_matches_tomorrow_20250707.json
+2025-07-06 16:12:00 - test_intelligent_collector - INFO - 🎯 Összesen 10 meccs gyűjtve
+2025-07-06 16:12:00 - test_intelligent_collector - INFO - 📊 Forrás statisztikák:
+2025-07-06 16:12:00 - test_intelligent_collector - INFO -   demo_fixtures: 8 meccs
+2025-07-06 16:12:00 - test_intelligent_collector - INFO -   goal_com: 2 meccs
+2025-07-06 16:12:01 - test_intelligent_collector - INFO - 🚀 Intelligens gyűjtő tesztelés kezdete
+2025-07-06 16:12:01 - test_intelligent_collector - INFO - 📅 Mai meccsek gyűjtése...
+2025-07-06 16:12:52 - test_intelligent_collector - INFO - 📅 Holnapi meccsek gyűjtése...

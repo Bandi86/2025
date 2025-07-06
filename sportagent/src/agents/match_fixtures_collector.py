@@ -648,6 +648,7 @@ class MatchFixturesCollector:
             odds = self._extract_odds(text)
 
             return {
+                'id': self._generate_fixture_id(home_team, away_team, date, match_time),  # Egyedi ID generálás
                 'date': date,
                 'time': match_time,
                 'home_team': home_team,
@@ -885,3 +886,31 @@ class MatchFixturesCollector:
         except Exception as e:
             self.logger.warning(f"Hiba összefoglaló generálás során: {str(e)}")
             return {'total_matches': len(fixtures)}
+
+    def _generate_fixture_id(self, home_team: str, away_team: str, date: str, time: Optional[str] = None) -> str:
+        """
+        Egyedi ID generálása a fixture-höz
+
+        Args:
+            home_team: Hazai csapat neve
+            away_team: Vendég csapat neve
+            date: Mérkőzés dátuma
+            time: Mérkőzés időpontja (opcionális)
+
+        Returns:
+            Egyedi ID string
+        """
+        # Csapat nevek normalizálása
+        home_clean = re.sub(r'[^\w]', '', home_team.lower()) if home_team else 'unknown'
+        away_clean = re.sub(r'[^\w]', '', away_team.lower()) if away_team else 'unknown'
+
+        # Dátum normalizálása
+        date_clean = re.sub(r'[^\w]', '', date) if date else 'unknown'
+
+        # Idő normalizálása
+        time_clean = re.sub(r'[^\w]', '', time) if time else 'unknown'
+
+        # ID összeállítása
+        fixture_id = f"{home_clean}_{away_clean}_{date_clean}_{time_clean}"
+
+        return fixture_id

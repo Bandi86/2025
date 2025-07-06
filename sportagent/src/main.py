@@ -13,6 +13,7 @@ from rich.panel import Panel
 
 # Helyi importok
 from .config import Config
+from .multi_agent_system import CleanSportOrchestrator
 from .scrapers.match_scraper import MatchScraper
 from .apis.sports_api import SportsAPI
 from .data.data_processor import DataProcessor
@@ -202,17 +203,25 @@ def main(date, interactive, format, demo):
     """
     Sport Agent - Intelligens sportadatok gyűjtője és elemzője
     """
-    agent = SportAgent()
 
     if interactive:
+        # Multi-agent rendszer interaktív mód
+        orchestrator = CleanSportOrchestrator()
+        orchestrator.interactive_mode()
+    elif demo:
+        # Demo mód a régi rendszerrel
+        agent = SportAgent()
         agent.interactive_mode(demo_mode=demo)
     else:
-        matches = agent.collect_matches(date, demo_mode=demo)
-        if matches:
-            report_path = agent.generate_report(matches, format)
-            console.print(f"🎉 Kész! Riport: {report_path}", style="bold green")
+        # Multi-agent rendszer gyors elemzés
+        orchestrator = CleanSportOrchestrator()
+
+        if date == "tomorrow":
+            orchestrator.quick_tomorrow_analysis()
+        elif date == "today" or not date:
+            orchestrator.quick_today_analysis()
         else:
-            console.print("❌ Nem találtam meccseket", style="bold red")
+            orchestrator.run_daily_analysis("both")
 
 if __name__ == "__main__":
     main()

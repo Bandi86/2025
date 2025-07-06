@@ -1,0 +1,114 @@
+2025-07-06 16:22:28 - season_aware_collector - INFO - Szezon típus 2025-07-06: summer_break
+2025-07-06 16:22:28 - season_aware_collector - INFO - Aktív ligák: ['Allsvenskan', 'Eliteserien', 'Veikkausliiga', 'Superligaen', 'MLS']
+2025-07-06 16:22:32 - season_aware_collector - WARNING - Hiba New York City FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:22:34 - season_aware_collector - WARNING - Hiba San Diego FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:22:35 - season_aware_collector - WARNING - Hiba Cincinnati FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:22:38 - season_aware_collector - WARNING - Hiba Girona FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:22:39 - season_aware_collector - WARNING - Hiba Charlotte FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:22:41 - season_aware_collector - INFO - Szezon-tudatos gyűjtő: 0 egyedi meccs találva
+2025-07-06 16:22:41 - season_aware_collector - INFO - Szezon típus 2025-07-07: summer_break
+2025-07-06 16:22:41 - season_aware_collector - INFO - Aktív ligák: ['Allsvenskan', 'Eliteserien', 'Veikkausliiga', 'Superligaen', 'MLS']
+2025-07-06 16:22:46 - season_aware_collector - WARNING - Hiba New York City FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:22:47 - season_aware_collector - WARNING - Hiba San Diego FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:22:49 - season_aware_collector - WARNING - Hiba Cincinnati FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:22:51 - season_aware_collector - WARNING - Hiba Girona FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:22:52 - season_aware_collector - WARNING - Hiba Charlotte FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:22:54 - season_aware_collector - INFO - Szezon-tudatos gyűjtő: 0 egyedi meccs találva
+2025-07-06 16:22:59 - season_aware_collector - INFO - Szezon típus 2025-07-06: summer_break
+2025-07-06 16:22:59 - season_aware_collector - INFO - Aktív ligák: ['Allsvenskan', 'Eliteserien', 'Veikkausliiga', 'Superligaen', 'MLS']
+2025-07-06 16:23:05 - season_aware_collector - WARNING - Hiba Arsenal keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:23:07 - season_aware_collector - WARNING - Hiba San Diego FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:23:08 - season_aware_collector - WARNING - Hiba New York City FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:23:27 - season_aware_collector - INFO - Szezon típus 2025-07-06: summer_break
+2025-07-06 16:23:27 - season_aware_collector - INFO - Aktív ligák: ['Allsvenskan', 'Eliteserien', 'Veikkausliiga', 'Superligaen', 'MLS']
+2025-07-06 16:23:32 - season_aware_collector - WARNING - Hiba Arsenal keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:23:33 - season_aware_collector - WARNING - Hiba Charlotte FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:23:35 - season_aware_collector - WARNING - Hiba Puebla FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:23:37 - season_aware_collector - WARNING - Hiba Cincinnati FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:23:38 - season_aware_collector - WARNING - Hiba Sevilla FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:23:39 - season_aware_collector - INFO - Szezon-tudatos gyűjtő: 0 egyedi meccs találva
+2025-07-06 16:23:39 - season_aware_collector - INFO - Szezon típus 2025-07-07: summer_break
+2025-07-06 16:23:39 - season_aware_collector - INFO - Aktív ligák: ['Allsvenskan', 'Eliteserien', 'Veikkausliiga', 'Superligaen', 'MLS']
+2025-07-06 16:23:45 - season_aware_collector - WARNING - Hiba Arsenal keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:23:46 - season_aware_collector - WARNING - Hiba Charlotte FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:23:48 - season_aware_collector - WARNING - Hiba Puebla FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:23:49 - season_aware_collector - WARNING - Hiba Cincinnati FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:23:51 - season_aware_collector - WARNING - Hiba Sevilla FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:25:20 - season_aware_collector - INFO - Szezon típus 2025-07-06: summer_break
+2025-07-06 16:25:20 - season_aware_collector - INFO - Aktív ligák: ['Allsvenskan', 'Eliteserien', 'Veikkausliiga', 'Superligaen', 'MLS']
+2025-07-06 16:25:25 - season_aware_collector - WARNING - Hiba FC Dallas keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:25:28 - season_aware_collector - WARNING - Hiba Toronto FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:25:29 - season_aware_collector - WARNING - Hiba Puebla FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:25:31 - season_aware_collector - WARNING - Hiba Cincinnati FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:25:33 - season_aware_collector - WARNING - Hiba New York City FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:25:36 - season_aware_collector - INFO - Szezon típus 2025-07-06: summer_break
+2025-07-06 16:25:36 - season_aware_collector - INFO - Aktív ligák: ['Allsvenskan', 'Eliteserien', 'Veikkausliiga', 'Superligaen', 'MLS']
+2025-07-06 16:25:41 - season_aware_collector - WARNING - Hiba New York City FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:25:43 - season_aware_collector - WARNING - Hiba Arsenal keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:25:44 - season_aware_collector - WARNING - Hiba Cincinnati FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:25:46 - season_aware_collector - WARNING - Hiba Girona FC keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:25:48 - season_aware_collector - WARNING - Hiba FC Juárez keresés során: 'TeamDatabase' object has no attribute 'get_all_team_names'
+2025-07-06 16:25:50 - season_aware_collector - INFO - Szezon-tudatos gyűjtő: 0 egyedi meccs találva
+2025-07-06 16:31:56 - season_aware_collector - INFO - Szezon típus 2025-07-06: summer_break
+2025-07-06 16:31:56 - season_aware_collector - INFO - Aktív ligák: ['Allsvenskan', 'Eliteserien', 'Veikkausliiga', 'Superligaen', 'MLS']
+2025-07-06 16:32:09 - season_aware_collector - INFO - Szezon-tudatos gyűjtő: 0 egyedi meccs találva
+2025-07-06 16:32:15 - season_aware_collector - INFO - Szezon típus 2025-07-06: summer_break
+2025-07-06 16:32:15 - season_aware_collector - INFO - Aktív ligák: ['Allsvenskan', 'Eliteserien', 'Veikkausliiga', 'Superligaen', 'MLS']
+2025-07-06 16:32:25 - season_aware_collector - WARNING - Hiba FC Seoul keresés során: 'TeamDatabase' object has no attribute 'search_team'
+2025-07-06 16:32:30 - season_aware_collector - INFO - Szezon-tudatos gyűjtő: 0 egyedi meccs találva
+2025-07-06 16:33:57 - season_aware_collector - INFO - Szezon típus 2025-07-06: summer_break
+2025-07-06 16:33:57 - season_aware_collector - INFO - Aktív ligák: ['Allsvenskan', 'Eliteserien', 'Veikkausliiga', 'Superligaen', 'MLS']
+2025-07-06 16:34:08 - season_aware_collector - WARNING - Hiba Mazatlán FC keresés során: 'TeamDatabase' object has no attribute 'search_team'
+2025-07-06 16:34:14 - season_aware_collector - INFO - Szezon-tudatos gyűjtő: 3 egyedi meccs találva
+2025-07-06 16:36:38 - season_aware_collector - INFO - Szezon típus 2025-07-06: summer_break
+2025-07-06 16:36:38 - season_aware_collector - INFO - Aktív ligák: ['Allsvenskan', 'Eliteserien', 'Veikkausliiga', 'Superligaen', 'MLS']
+2025-07-06 16:36:53 - season_aware_collector - INFO - Szezon-tudatos gyűjtő: 0 egyedi meccs találva
+2025-07-06 16:42:48 - season_aware_collector - INFO - Szezon típus 2025-07-06: summer_break
+2025-07-06 16:42:48 - season_aware_collector - INFO - Aktív ligák: ['Allsvenskan', 'Eliteserien', 'Veikkausliiga', 'Superligaen', 'MLS']
+2025-07-06 16:42:48 - season_aware_collector - INFO - MLS meccsek: 3
+2025-07-06 16:42:48 - season_aware_collector - INFO - Allsvenskan meccsek: 2
+2025-07-06 16:42:48 - season_aware_collector - INFO - Brasileirão meccsek: 2
+2025-07-06 16:42:48 - season_aware_collector - INFO - Eliteserien meccsek: 2
+2025-07-06 16:42:48 - season_aware_collector - INFO - Szezon-tudatos gyűjtő: 9 egyedi meccs találva
+2025-07-06 16:43:11 - season_aware_collector - INFO - Szezon típus 2025-07-06: summer_break
+2025-07-06 16:43:11 - season_aware_collector - INFO - Aktív ligák: ['Allsvenskan', 'Eliteserien', 'Veikkausliiga', 'Superligaen', 'MLS']
+2025-07-06 16:43:11 - season_aware_collector - INFO - MLS meccsek: 3
+2025-07-06 16:43:11 - season_aware_collector - INFO - Allsvenskan meccsek: 2
+2025-07-06 16:43:11 - season_aware_collector - INFO - Brasileirão meccsek: 2
+2025-07-06 16:43:11 - season_aware_collector - INFO - Eliteserien meccsek: 2
+2025-07-06 16:43:11 - season_aware_collector - INFO - Szezon-tudatos gyűjtő: 9 egyedi meccs találva
+2025-07-06 16:43:39 - season_aware_collector - INFO - Szezon típus 2025-07-06: summer_break
+2025-07-06 16:43:39 - season_aware_collector - INFO - Aktív ligák: ['Allsvenskan', 'Eliteserien', 'Veikkausliiga', 'Superligaen', 'MLS']
+2025-07-06 16:43:39 - season_aware_collector - INFO - MLS meccsek: 3
+2025-07-06 16:43:39 - season_aware_collector - INFO - Allsvenskan meccsek: 2
+2025-07-06 16:43:39 - season_aware_collector - INFO - Brasileirão meccsek: 2
+2025-07-06 16:43:39 - season_aware_collector - INFO - Eliteserien meccsek: 2
+2025-07-06 16:43:39 - season_aware_collector - INFO - Szezon-tudatos gyűjtő: 9 egyedi meccs találva
+2025-07-06 16:50:27 - season_aware_collector - INFO - Szezon típus 2025-07-06: summer_break
+2025-07-06 16:50:27 - season_aware_collector - INFO - Aktív ligák: ['Allsvenskan', 'Eliteserien', 'Veikkausliiga', 'Superligaen', 'MLS']
+2025-07-06 16:50:27 - season_aware_collector - INFO - MLS meccsek: 3
+2025-07-06 16:50:27 - season_aware_collector - INFO - Allsvenskan meccsek: 2
+2025-07-06 16:50:27 - season_aware_collector - INFO - Brasileirão meccsek: 2
+2025-07-06 16:50:27 - season_aware_collector - INFO - Eliteserien meccsek: 2
+2025-07-06 16:50:27 - season_aware_collector - INFO - Szezon-tudatos gyűjtő: 9 egyedi meccs találva
+2025-07-06 16:51:06 - season_aware_collector - INFO - Szezon típus 2025-07-06: summer_break
+2025-07-06 16:51:06 - season_aware_collector - INFO - Aktív ligák: ['Allsvenskan', 'Eliteserien', 'Veikkausliiga', 'Superligaen', 'MLS']
+2025-07-06 16:51:06 - season_aware_collector - INFO - MLS meccsek: 3
+2025-07-06 16:51:06 - season_aware_collector - INFO - Allsvenskan meccsek: 2
+2025-07-06 16:51:06 - season_aware_collector - INFO - Brasileirão meccsek: 2
+2025-07-06 16:51:06 - season_aware_collector - INFO - Eliteserien meccsek: 2
+2025-07-06 16:51:06 - season_aware_collector - INFO - Szezon-tudatos gyűjtő: 9 egyedi meccs találva
+2025-07-06 16:51:31 - season_aware_collector - INFO - Szezon típus 2025-07-06: summer_break
+2025-07-06 16:51:31 - season_aware_collector - INFO - Aktív ligák: ['Allsvenskan', 'Eliteserien', 'Veikkausliiga', 'Superligaen', 'MLS']
+2025-07-06 16:51:31 - season_aware_collector - INFO - MLS meccsek: 3
+2025-07-06 16:51:31 - season_aware_collector - INFO - Allsvenskan meccsek: 2
+2025-07-06 16:51:31 - season_aware_collector - INFO - Brasileirão meccsek: 2
+2025-07-06 16:51:31 - season_aware_collector - INFO - Eliteserien meccsek: 2
+2025-07-06 16:51:31 - season_aware_collector - INFO - Szezon-tudatos gyűjtő: 9 egyedi meccs találva
+2025-07-06 16:59:22 - season_aware_collector - INFO - Szezon típus 2025-07-06: summer_break
+2025-07-06 16:59:22 - season_aware_collector - INFO - Aktív ligák: ['Allsvenskan', 'Eliteserien', 'Veikkausliiga', 'Superligaen', 'MLS']
+2025-07-06 16:59:22 - season_aware_collector - INFO - MLS meccsek: 3
+2025-07-06 16:59:22 - season_aware_collector - INFO - Allsvenskan meccsek: 2
+2025-07-06 16:59:22 - season_aware_collector - INFO - Brasileirão meccsek: 2
+2025-07-06 16:59:22 - season_aware_collector - INFO - Eliteserien meccsek: 2
+2025-07-06 16:59:22 - season_aware_collector - INFO - Szezon-tudatos gyűjtő: 9 egyedi meccs találva
