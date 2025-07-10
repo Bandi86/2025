@@ -1,0 +1,18 @@
+{
+  "timestamp": "2025-07-08T11:27:46.386807",
+  "type": "orphaned_txt_files",
+  "severity": "low",
+  "details": {
+    "txt_without_pdf": [
+      "Web__51sz__P__06-27_lines",
+      "Web__47sz__P__06-13_lines",
+      "Web__46sz__K__06-10_lines",
+      "Web__52sz__K__07-01_lines",
+      "Web__50sz__K__06-24_lines",
+      "Web__49sz__P__06-20_lines",
+      "Web__48sz__K__06-17_lines",
+      "Web__53sz__P__2025_07-04_lines"
+    ]
+  },
+  "session_id": "20250708_112746"
+}

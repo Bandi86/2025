@@ -1,0 +1,11 @@
+{
+  "timestamp": "2025-07-08T11:21:14.496336",
+  "step": "analyze_json_output",
+  "description": "JSON files analyzed",
+  "data": {
+    "json_files": [],
+    "json_match_counts": {},
+    "total_matches": 0
+  },
+  "session_id": "20250708_112056"
+}

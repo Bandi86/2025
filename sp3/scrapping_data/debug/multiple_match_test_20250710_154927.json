@@ -1,0 +1,36 @@
+[
+  {
+    "match": "Samoa W vs Tahiti W",
+    "success": true,
+    "duration": 30.453339,
+    "data": {
+      "home_team": "Samoa W",
+      "away_team": "Tahiti W",
+      "score": "3-1",
+      "match_time": "02:00",
+      "league": "OFC Nations Cup Women",
+      "status": "finished",
+      "region": "AUSTRALIA & OCEANIA",
+      "match_date": "2025-07-10",
+      "scraped_at": "2025-07-10T15:48:58.672308",
+      "source": "flashscore"
+    }
+  },
+  {
+    "match": "Cook Islands W vs Papua New Guinea W",
+    "success": true,
+    "duration": 28.544765,
+    "data": {
+      "home_team": "Cook Islands W",
+      "away_team": "Papua New Guinea W",
+      "score": "0-8",
+      "match_time": "05:00",
+      "league": "OFC Nations Cup Women",
+      "status": "finished",
+      "region": "AUSTRALIA & OCEANIA",
+      "match_date": "2025-07-10",
+      "scraped_at": "2025-07-10T15:49:27.217153",
+      "source": "flashscore"
+    }
+  }
+]

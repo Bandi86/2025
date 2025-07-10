@@ -1,0 +1,58 @@
+{
+  "timestamp": "2025-07-08T11:27:58.696611",
+  "type": "significant_txt_json_difference",
+  "severity": "medium",
+  "details": {
+    "differences": [
+      {
+        "file": "Web__51sz__P__06-27_lines.txt",
+        "txt_estimate": 1219,
+        "json_actual": 233,
+        "difference_ratio": 0.8088597210828548
+      },
+      {
+        "file": "Web__47sz__P__06-13_lines.txt",
+        "txt_estimate": 1278,
+        "json_actual": 279,
+        "difference_ratio": 0.7816901408450704
+      },
+      {
+        "file": "Web__46sz__K__06-10_lines.txt",
+        "txt_estimate": 1271,
+        "json_actual": 250,
+        "difference_ratio": 0.8033044846577498
+      },
+      {
+        "file": "Web__50sz__K__06-24_lines.txt",
+        "txt_estimate": 1300,
+        "json_actual": 103,
+        "difference_ratio": 0.9207692307692308
+      },
+      {
+        "file": "Web__49sz__P__06-20_lines.txt",
+        "txt_estimate": 1246,
+        "json_actual": 260,
+        "difference_ratio": 0.7913322632423756
+      },
+      {
+        "file": "Web__52sz__K__07-01_lines.txt",
+        "txt_estimate": 1317,
+        "json_actual": 54,
+        "difference_ratio": 0.958997722095672
+      },
+      {
+        "file": "Web__53sz__P__2025_07-04_lines.txt",
+        "txt_estimate": 1310,
+        "json_actual": 180,
+        "difference_ratio": 0.8625954198473282
+      },
+      {
+        "file": "Web__48sz__K__06-17_lines.txt",
+        "txt_estimate": 1314,
+        "json_actual": 140,
+        "difference_ratio": 0.893455098934551
+      }
+    ]
+  },
+  "session_id": "20250708_112746"
+}

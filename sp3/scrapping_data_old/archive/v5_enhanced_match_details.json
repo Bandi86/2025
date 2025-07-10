@@ -1,0 +1,478 @@
+{
+    "header_info": {
+        "final_score": "4-0",
+        "home_team": "Bolivar",
+        "away_team": "Independiente",
+        "main_title": "BOL 4-0 IND | Bolivar - Independiente",
+        "league_round": "Bolivia Division Profesional",
+        "full_league_name": "Bolivia Division Profesional",
+        "round_number": "",
+        "date": "08.07.2025",
+        "time": "00:00",
+        "date_time_hungarian": "2025. július 8., 00:00"
+    },
+    "extra_info": {
+        "referee": "",
+        "venue": "",
+        "capacity": "",
+        "attendance": ""
+    },
+    "summary": [
+        {
+            "time": "11'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "player": "",
+            "team": "",
+            "details": {
+                "raw": "11'"
+            },
+            "raw_text": "11'"
+        },
+        {
+            "time": "21'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "player": "",
+            "team": "",
+            "details": {
+                "raw": "21'"
+            },
+            "raw_text": "21'"
+        },
+        {
+            "time": "44'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "player": "",
+            "team": "",
+            "details": {
+                "raw": "44'"
+            },
+            "raw_text": "44'"
+        },
+        {
+            "time": "2'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "player": "",
+            "team": "",
+            "details": {
+                "raw": "45+2'"
+            },
+            "raw_text": "45+2'"
+        },
+        {
+            "time": "4'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "player": "",
+            "team": "",
+            "details": {
+                "raw": "45+4'"
+            },
+            "raw_text": "45+4'"
+        },
+        {
+            "time": "46'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "player": "",
+            "team": "",
+            "details": {
+                "raw": "46'"
+            },
+            "raw_text": "46'"
+        },
+        {
+            "time": "46'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "player": "",
+            "team": "",
+            "details": {
+                "raw": "46'"
+            },
+            "raw_text": "46'"
+        },
+        {
+            "time": "59'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "player": "",
+            "team": "",
+            "details": {
+                "raw": "59'"
+            },
+            "raw_text": "59'"
+        },
+        {
+            "time": "72'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "player": "",
+            "team": "",
+            "details": {
+                "raw": "72'"
+            },
+            "raw_text": "72'"
+        },
+        {
+            "time": "73'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "player": "",
+            "team": "",
+            "details": {
+                "raw": "73'"
+            },
+            "raw_text": "73'"
+        },
+        {
+            "time": "73'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "player": "",
+            "team": "",
+            "details": {
+                "raw": "73'"
+            },
+            "raw_text": "73'"
+        },
+        {
+            "time": "73'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "player": "",
+            "team": "",
+            "details": {
+                "raw": "73'"
+            },
+            "raw_text": "73'"
+        },
+        {
+            "time": "79'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "player": "",
+            "team": "",
+            "details": {
+                "raw": "79'"
+            },
+            "raw_text": "79'"
+        },
+        {
+            "time": "84'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "player": "",
+            "team": "",
+            "details": {
+                "raw": "84'"
+            },
+            "raw_text": "84'"
+        },
+        {
+            "time": "86'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "player": "",
+            "team": "",
+            "details": {
+                "raw": "86'"
+            },
+            "raw_text": "86'"
+        },
+        {
+            "time": "86'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "player": "",
+            "team": "",
+            "details": {
+                "raw": "86'"
+            },
+            "raw_text": "86'"
+        },
+        {
+            "time": "87'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "player": "",
+            "team": "",
+            "details": {
+                "raw": "87'"
+            },
+            "raw_text": "87'"
+        },
+        {
+            "time": "2'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "player": "",
+            "team": "",
+            "details": {
+                "raw": "90+2'"
+            },
+            "raw_text": "90+2'"
+        },
+        {
+            "time": "4'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "player": "",
+            "team": "",
+            "details": {
+                "raw": "90+4'"
+            },
+            "raw_text": "90+4'"
+        },
+        {
+            "time": "5'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "player": "",
+            "team": "",
+            "details": {
+                "raw": "90+5'"
+            },
+            "raw_text": "90+5'"
+        },
+        {
+            "time": "7'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "player": "",
+            "team": "",
+            "details": {
+                "raw": "90+7'"
+            },
+            "raw_text": "90+7'"
+        }
+    ],
+    "statistics": {},
+    "lineups": {
+        "home_team": [
+            {
+                "name": "Catano D.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Justiniano L.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Lampe C. (K)",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Paz L.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Rivero E.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Romero D.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Saavedra E.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Sagredo J.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Sagredo J.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Torren M.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Velasquez J.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Lanzillotta F. (K)",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Ayhuana A.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Mamani Y.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Mena F.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Mendez B.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Pato Rodriguez",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Ramirez R.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Sabja L.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Vaca Moreno E.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Velasquez J.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Aguilera D.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Avila R.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Cardozo R.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Castellon D.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Chajtur M.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Mercado A.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Morales J. (K)",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Navarro D.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Rivera A.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Soleto W.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Thomaz",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Arauz E. (K)",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Arteaga N.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Cristaldo G.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Grass P.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Martinez Y.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Rivera E.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Ubah B.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Vedia C.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Velasquez E.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Villalba D.",
+                "number": "",
+                "position": ""
+            },
+            {
+                "name": "Willie",
+                "number": "",
+                "position": ""
+            }
+        ],
+        "away_team": [],
+        "substitutes": {
+            "home": [],
+            "away": []
+        }
+    }
+}

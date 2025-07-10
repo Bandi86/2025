@@ -41,7 +41,13 @@ export class TeamsController {
   @ApiQuery({ name: 'competitionId', required: false, type: String })
   @ApiQuery({ name: 'season', required: false, type: String })
   findAll(@Query() filters: TeamFilters) {
-    return this.teamsService.findAll(filters);
+    // Convert string query params to proper types
+    const processedFilters: TeamFilters = {
+      ...filters,
+      page: filters.page ? parseInt(filters.page as any, 10) : 1,
+      limit: filters.limit ? parseInt(filters.limit as any, 10) : 20,
+    };
+    return this.teamsService.findAll(processedFilters);
   }
 
   @Get(':id')

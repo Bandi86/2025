@@ -1,0 +1,22 @@
+[Unit]
+Description=PDF Auto-Processor Watcher
+After=network.target
+
+[Service]
+Type=simple
+User=bandi
+WorkingDirectory=/home/bandi/Documents/code/2025/sp3/ml_pipeline/betting_extractor
+ExecStart=/usr/bin/python3 /home/bandi/Documents/code/2025/sp3/ml_pipeline/betting_extractor/scripts/auto_watcher.py
+Restart=always
+RestartSec=10
+
+# Környezeti változók (ha szükséges)
+Environment=PATH=/usr/bin:/bin:/usr/local/bin
+Environment=PYTHONPATH=/home/bandi/Documents/code/2025/sp3/ml_pipeline/betting_extractor
+
+# Logolás
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

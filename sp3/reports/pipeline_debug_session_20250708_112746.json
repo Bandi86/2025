@@ -1,0 +1,1371 @@
+{
+  "session_id": "20250708_112746",
+  "timestamp": "2025-07-08T11:27:58.750364",
+  "health_status": "🔴 KRITIKUS",
+  "statistics": {
+    "pdf_files": 8,
+    "txt_lines": {
+      "Web__51sz__P__06-27_lines.txt": 2989,
+      "Web__47sz__P__06-13_lines.txt": 3087,
+      "Web__46sz__K__06-10_lines.txt": 3049,
+      "Web__50sz__K__06-24_lines.txt": 3063,
+      "Web__49sz__P__06-20_lines.txt": 2821,
+      "Web__52sz__K__07-01_lines.txt": 2839,
+      "Web__53sz__P__2025_07-04_lines.txt": 2558,
+      "Web__48sz__K__06-17_lines.txt": 3143
+    },
+    "txt_matches": {
+      "Web__51sz__P__06-27_lines.txt": 1219,
+      "Web__47sz__P__06-13_lines.txt": 1278,
+      "Web__46sz__K__06-10_lines.txt": 1271,
+      "Web__50sz__K__06-24_lines.txt": 1300,
+      "Web__49sz__P__06-20_lines.txt": 1246,
+      "Web__52sz__K__07-01_lines.txt": 1317,
+      "Web__53sz__P__2025_07-04_lines.txt": 1310,
+      "Web__48sz__K__06-17_lines.txt": 1314
+    },
+    "json_matches": {
+      "Web__47sz__P__06-13_lines.json": 279,
+      "Web__50sz__K__06-24_lines.json": 103,
+      "Web__46sz__K__06-10_lines.json": 250,
+      "Web__48sz__K__06-17_lines.json": 140,
+      "Web__51sz__P__06-27_lines.json": 233,
+      "Web__53sz__P__2025_07-04_lines.json": 180,
+      "Web__49sz__P__06-20_lines.json": 260,
+      "Web__52sz__K__07-01_lines.json": 54
+    },
+    "json_duplicates": {
+      "2025-06-13_gangwon_jeonbuk_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-13_gwangju_fc seoul_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-13_dalian yingbo_meizhou hakka_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-13_wuhan three towns_qingdao hainiu_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-13_orebro_sandviken_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-13_cork city_bohemians dublin_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-13_derry city_galway utd._": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-13_shelbourne_shamrock rovers_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-13_st. patrick's_drogheda utd._": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-13_athlone_kerry_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-13_dundalk_uc dublin_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-13_finn harps_wexford youths_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-13_treaty utd._bray_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-13_montevideo city torque_progreso montevideo_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-13_plaza colonia_ca cerro_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-13_utc de cajamarca_atl. grau_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_cusco_cienciano_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_gimnasia tiro de salta_quilmes_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_deportes limache_dep. union la calera_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_houston_san diego_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_utah_nj_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_bay fc_orlando_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_portland_san jose_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_zhejiang fc_shanghai port_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_beijing guoan_changchun yatai_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_qingdao west coast_yunnan yukun_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_henan songshan_chengdu rongcheng_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_shenzhen peng city_shanghai shenhua_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_tianjin tigers_shandong taishan_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_shonan bellmare_machida zelvia_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_kashima a._sanfrecce hiroshima_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_yokohama fc_kawasaki frontale_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_fc tokyo_cerezo osaka_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_mito_sagan tosu_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_gimcheon sangmu_pohang_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_jeju_daegu_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_suwon city_anyang_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_inter turku_haka_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_ac oulu_helsinki jk_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_gnistan_ktp_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_kuopio ps_ilves_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_mariehamn_vaasa ps_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_seinajoen jk_jaro_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_falkenberg_helsingborg_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_kalmar_landskrona_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_ostersund fk_oddevold_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_umea fc_sundsvall_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_kongsvinger_sogndal_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_hodd_lillestrom_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_miramar missiones_juventud de las piedras_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_boston river_danubio montevideo_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_racing montevideo_nacional montevideo_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_palestino_la serena_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_univ.catolica de santiago_huachipato_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_defensores de belgrano_gimnasia jujuy_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_tristan suarez_san miguel_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_talleres de remedios_central norte salta_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_dep. maipu_racing de cordoba_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_estudiantes buenos aires_chaco for ever_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_atl. temperley_colon_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_estudiantes rio cuarto_gimnasia mendoza_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_melgar_sport boys callao_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_adc juan pablo ii_los angeles_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_alianza lima_huancayo_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_longford town_cobh ramblers_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_sligo_waterford fc_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_san antonio bulo bulo_guabira montero_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_cdt real oruro_the strongest_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_real tomayapo_blooming santa cruz_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_independiente del valle_libertad loja_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_barcelona guayaquil_manta fc_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_cuniburo fc_ldu quito_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_st. louis_los angeles_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_columbus_vancouver_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_new england_fc cincinnati_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_philadelphia_charlotte_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_austin_new york rb_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_chicago_nashville_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_houston_montreal_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_kansas city_dallas_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_minnesota_san diego fc_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_colorado rapids_orlando_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_salt lake_d.c. united_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-14_chicago_seattle reign_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_kansas city_racing louisville_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_angel city fc_north carolina_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_defensor montevideo_liverpool montevideo_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_al-ahly (egy)_inter miami_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_mexiko_dominikai koztarsasag_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_albirex niigata_yokohama fm_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_okayama_avispa fukuoka_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_tokyo verdy_kashiwa r._": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_vissel kobe_nagoya ge_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_shimizu sp_gamba osaka_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_kataller toyama_fujieda myfc_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_sapporo_imabari_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_yamaguchi_iwaki_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_yamagata_vegalta sendai_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_jubilo iwata_ehime_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_nagasaki_omiya ardija_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_oita trinita_blaublitz akita_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_kofu_roasso kumamoto_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_tokushima_jef united chiba_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_start_lyn_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_egersund_ranheim_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_asane_skeid_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_mjondalen_moss_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_raufoss_odd grenland_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_aalesund_stabaek_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_brage_orgryte_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_trelleborg_utsikten_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_varberg_vasteras sk_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_vestri_ka akureyri_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_ibv_breidablik_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_afturelding_ia akranes_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_fram_fh_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_bayern munchen_auckland city_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_paris sg_atl. madrid_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-16_palmeiras sp_porto_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-16_botafogo rj_seattle_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_sporting cristal_dep. garcilaso_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_ayacucho_universitario de deportes_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-16_dep. binacional_alianza huanuco_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_san telmo_nueva chicago_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_atl. guemes_ferro carril oeste_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_dep. madryn_atl. atlanta_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_patronato parana_atl. los andes_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_o'higgins_union espanola_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_coquimbo unido_universidad de chile_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-16_nublense_audax italiano_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_tecnico univ. ambato_aucas quito_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_dep. cuenca_el nacional quito_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-16_delfin manta_mushuc runa_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_academia del balompie boliviano_independiente petrolero_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_bolivar la paz_always ready la paz_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-16_oriente petrolero_jorge wilstermann_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-15_portland_washington_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-16_usa_trinidad es tobago_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-16_haiti_szaud-arabia_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-16_costa rica_suriname_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-16_chelsea_los angeles_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-17_boca juniors_benfica_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-17_flamengo rj_esperance de tunis_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-17_panama_guadeloupe_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-17_jamaika_guatemala_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-17_dep. iquique_everton vina del mar_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-17_univ. catolica de quito_emelec guayaquil_": [
+        "Web__47sz__P__06-13_lines.json",
+        "Web__46sz__K__06-10_lines.json"
+      ],
+      "2025-06-27_daejeon citizen_jeju_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-27_gimcheon sangmu_jeonbuk_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-27_gnistan_inter turku_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-27_kuopio ps_helsinki jk_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-27_ayacucho_los angeles_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-27_adc juan pablo ii_cienciano_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-28_dep. binacional_huancayo_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-27_bohemians dublin_sligo_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-27_cork city_st. patrick's_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-27_derry city_drogheda utd._": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-27_galway utd._shelbourne_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-27_shamrock rovers_waterford fc_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-28_dep. cuenca_mushuc runa_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-28_belgrano de cordoba_defensores de belgrano_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-28_seinajoen jk_mariehamn_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-28_haka_ilves_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-28_ktp_jaro_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-28_ac oulu_vaasa ps_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-28_kashima a._okayama_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-28_shimizu sp_kashiwa r._": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-28_avispa fukuoka_vissel kobe_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-28_kyoto_gamba osaka_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-28_sanfrecce hiroshima_nagoya ge_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-28_anyang_gwangju_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-28_suwon city_gangwon_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-28_hammarby_halmstad_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-28_oster_sirius_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-28_rosario central_union sf_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-28_rosenborg_viking stavanger_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-28_delfin manta_manta fc_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-28_barcelona guayaquil_libertad loja_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-29_orense machala_ldu quito_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-29_mexiko_szaud-arabia_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-29_fc seoul_pohang_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-29_aik stockholm_goteborg_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-29_degerfors_brommapojkarna_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-29_hacken_gais_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-29_varnamo_elfsborg_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-29_haugesund_kristiansund_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-29_bodo/glimt_sarpsborg_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-29_bryne_ham-kam_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-29_fredrikstad_tromso_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-29_molde_kfum oslo_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-29_stromsgodset_valerenga_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-30_usa_costa rica_": [
+        "Web__50sz__K__06-24_lines.json",
+        "Web__51sz__P__06-27_lines.json"
+      ],
+      "2025-06-20_shandong taishan_chengdu rongcheng_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-20_drogheda utd._sligo_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-20_galway utd._st. patrick's_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-20_shamrock rovers_cork city_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-20_shelbourne_derry city_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-20_waterford fc_bohemians dublin_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-20_athlone_finn harps_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-20_dundalk_treaty utd._": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-20_kerry_bray_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-20_uc dublin_cobh ramblers_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-20_wexford youths_longford town_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-20_racing de cordoba_dep. madryn_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-20_dep. union la calera_univ.catolica de santiago_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-21_botafogo sp_chapecoense_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-21_america mg_criciuma_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-21_alianza huanuco_utc de cajamarca_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-21_universitario de deportes_dep. tarma_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-21_lexington sc_colorado springs_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-21_hartford_loudoun utd._": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-21_north carolina_louisville city_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-21_kansas city_angel city fc_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-21_racing louisville_orlando_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-21_bodo/glimt_brann bergen_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-21_club almagro_tristan suarez_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-21_avai_athletico pr_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-21_remo_paysandu_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-22_ferroviaria sp_crb_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-21_utah_seattle reign_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-22_nj/ny gotham fc_bay fc_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-22_north carolina_houston_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-22_portland_chicago_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-22_valerenga_molde_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-22_ham-kam_tromso_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-22_kfum oslo_stromsgodset_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-22_kristiansund_rosenborg_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-22_sandefjord_haugesund_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-22_sarpsborg_bryne_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-22_viking stavanger_fredrikstad_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-22_atletico go_volta redonda_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-22_coritiba_cuiaba_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-22_amazonas am_vila nova go_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-06-23_san diego_washington_": [
+        "Web__48sz__K__06-17_lines.json",
+        "Web__49sz__P__06-20_lines.json"
+      ],
+      "2025-07-02_dortmund_monterrey_": [
+        "Web__51sz__P__06-27_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ],
+      "2025-07-04_ac oulu_kuopio ps_": [
+        "Web__53sz__P__2025_07-04_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ],
+      "2025-07-04_japs_salpa_": [
+        "Web__53sz__P__2025_07-04_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ],
+      "2025-07-04_dania_svedorszag_": [
+        "Web__53sz__P__2025_07-04_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ],
+      "2025-07-04_nemetorszag_lengyelorszag_": [
+        "Web__53sz__P__2025_07-04_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ],
+      "2025-07-04_huancayo_utc de cajamarca_": [
+        "Web__53sz__P__2025_07-04_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ],
+      "2025-07-04_los angeles_dep. tarma_": [
+        "Web__53sz__P__2025_07-04_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ],
+      "2025-07-04_derry city_waterford fc_": [
+        "Web__53sz__P__2025_07-04_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ],
+      "2025-07-04_drogheda utd._galway utd._": [
+        "Web__53sz__P__2025_07-04_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ],
+      "2025-07-04_shelbourne_cork city_": [
+        "Web__53sz__P__2025_07-04_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ],
+      "2025-07-04_st. patrick's_bohemians dublin_": [
+        "Web__53sz__P__2025_07-04_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ],
+      "2025-07-04_bray_wexford youths_": [
+        "Web__53sz__P__2025_07-04_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ],
+      "2025-07-04_cobh ramblers_athlone_": [
+        "Web__53sz__P__2025_07-04_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ],
+      "2025-07-04_finn harps_longford town_": [
+        "Web__53sz__P__2025_07-04_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ],
+      "2025-07-04_kerry_dundalk_": [
+        "Web__53sz__P__2025_07-04_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ],
+      "2025-07-04_uc dublin_treaty utd._": [
+        "Web__53sz__P__2025_07-04_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ],
+      "2025-07-05_palmeiras sp_chelsea_": [
+        "Web__53sz__P__2025_07-04_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ],
+      "2025-07-04_cd recoleta_sp. trinidense_": [
+        "Web__53sz__P__2025_07-04_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ],
+      "2025-07-05_coritiba_volta redonda_": [
+        "Web__53sz__P__2025_07-04_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ],
+      "2025-07-05_libertad loja_dep. cuenca_": [
+        "Web__53sz__P__2025_07-04_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ],
+      "2025-07-05_dallas_minnesota_": [
+        "Web__53sz__P__2025_07-04_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ],
+      "2025-07-05_colorado rapids_kansas city_": [
+        "Web__53sz__P__2025_07-04_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ],
+      "2025-07-05_los angeles_vancouver_": [
+        "Web__53sz__P__2025_07-04_lines.json",
+        "Web__52sz__K__07-01_lines.json"
+      ]
+    },
+    "db_imported": 0,
+    "anomalies": [
+      {
+        "timestamp": "2025-07-08T11:27:46.386671",
+        "type": "missing_txt_files",
+        "severity": "medium",
+        "details": {
+          "pdf_without_txt": [
+            "Web__52sz__K__07-01",
+            "Web__48sz__K__06-17",
+            "Web__50sz__K__06-24",
+            "Web__51sz__P__06-27",
+            "Web__49sz__P__06-20",
+            "Web__46sz__K__06-10",
+            "Web__47sz__P__06-13",
+            "Web__53sz__P__2025_07-04"
+          ]
+        },
+        "session_id": "20250708_112746"
+      },
+      {
+        "timestamp": "2025-07-08T11:27:46.386807",
+        "type": "orphaned_txt_files",
+        "severity": "low",
+        "details": {
+          "txt_without_pdf": [
+            "Web__51sz__P__06-27_lines",
+            "Web__47sz__P__06-13_lines",
+            "Web__46sz__K__06-10_lines",
+            "Web__52sz__K__07-01_lines",
+            "Web__50sz__K__06-24_lines",
+            "Web__49sz__P__06-20_lines",
+            "Web__48sz__K__06-17_lines",
+            "Web__53sz__P__2025_07-04_lines"
+          ]
+        },
+        "session_id": "20250708_112746"
+      },
+      {
+        "timestamp": "2025-07-08T11:27:58.621701",
+        "type": "json_missing_competition",
+        "severity": "high",
+        "details": {
+          "file": "Web__47sz__P__06-13_lines.json",
+          "count": 279,
+          "total_matches": 279,
+          "percentage": 100.0
+        },
+        "session_id": "20250708_112746"
+      },
+      {
+        "timestamp": "2025-07-08T11:27:58.628923",
+        "type": "json_missing_competition",
+        "severity": "high",
+        "details": {
+          "file": "Web__50sz__K__06-24_lines.json",
+          "count": 103,
+          "total_matches": 103,
+          "percentage": 100.0
+        },
+        "session_id": "20250708_112746"
+      },
+      {
+        "timestamp": "2025-07-08T11:27:58.633817",
+        "type": "json_missing_competition",
+        "severity": "high",
+        "details": {
+          "file": "Web__46sz__K__06-10_lines.json",
+          "count": 250,
+          "total_matches": 250,
+          "percentage": 100.0
+        },
+        "session_id": "20250708_112746"
+      },
+      {
+        "timestamp": "2025-07-08T11:27:58.634888",
+        "type": "json_missing_markets",
+        "severity": "medium",
+        "details": {
+          "file": "Web__46sz__K__06-10_lines.json",
+          "count": 6,
+          "total_matches": 250,
+          "percentage": 2.4
+        },
+        "session_id": "20250708_112746"
+      },
+      {
+        "timestamp": "2025-07-08T11:27:58.639485",
+        "type": "json_missing_competition",
+        "severity": "high",
+        "details": {
+          "file": "Web__48sz__K__06-17_lines.json",
+          "count": 140,
+          "total_matches": 140,
+          "percentage": 100.0
+        },
+        "session_id": "20250708_112746"
+      },
+      {
+        "timestamp": "2025-07-08T11:27:58.640553",
+        "type": "json_missing_markets",
+        "severity": "medium",
+        "details": {
+          "file": "Web__48sz__K__06-17_lines.json",
+          "count": 1,
+          "total_matches": 140,
+          "percentage": 0.71
+        },
+        "session_id": "20250708_112746"
+      },
+      {
+        "timestamp": "2025-07-08T11:27:58.645076",
+        "type": "json_missing_competition",
+        "severity": "high",
+        "details": {
+          "file": "Web__51sz__P__06-27_lines.json",
+          "count": 233,
+          "total_matches": 233,
+          "percentage": 100.0
+        },
+        "session_id": "20250708_112746"
+      },
+      {
+        "timestamp": "2025-07-08T11:27:58.648641",
+        "type": "json_missing_competition",
+        "severity": "high",
+        "details": {
+          "file": "Web__53sz__P__2025_07-04_lines.json",
+          "count": 180,
+          "total_matches": 180,
+          "percentage": 100.0
+        },
+        "session_id": "20250708_112746"
+      },
+      {
+        "timestamp": "2025-07-08T11:27:58.652938",
+        "type": "json_missing_competition",
+        "severity": "high",
+        "details": {
+          "file": "Web__49sz__P__06-20_lines.json",
+          "count": 260,
+          "total_matches": 260,
+          "percentage": 100.0
+        },
+        "session_id": "20250708_112746"
+      },
+      {
+        "timestamp": "2025-07-08T11:27:58.655242",
+        "type": "json_missing_competition",
+        "severity": "high",
+        "details": {
+          "file": "Web__52sz__K__07-01_lines.json",
+          "count": 54,
+          "total_matches": 54,
+          "percentage": 100.0
+        },
+        "session_id": "20250708_112746"
+      },
+      {
+        "timestamp": "2025-07-08T11:27:58.664910",
+        "type": "duplicate_content_differs",
+        "severity": "medium",
+        "details": {
+          "match_id": "2025-06-13_gangwon_jeonbuk_",
+          "file1": "Web__47sz__P__06-13_lines.json",
+          "file2": "Web__46sz__K__06-10_lines.json",
+          "markets1_count": 1,
+          "markets2_count": 1
+        },
+        "session_id": "20250708_112746"
+      },
+      {
+        "timestamp": "2025-07-08T11:27:58.673964",
+        "type": "duplicate_content_differs",
+        "severity": "medium",
+        "details": {
+          "match_id": "2025-06-13_gwangju_fc seoul_",
+          "file1": "Web__47sz__P__06-13_lines.json",
+          "file2": "Web__46sz__K__06-10_lines.json",
+          "markets1_count": 1,
+          "markets2_count": 1
+        },
+        "session_id": "20250708_112746"
+      },
+      {
+        "timestamp": "2025-07-08T11:27:58.681145",
+        "type": "duplicate_content_differs",
+        "severity": "medium",
+        "details": {
+          "match_id": "2025-06-13_dalian yingbo_meizhou hakka_",
+          "file1": "Web__47sz__P__06-13_lines.json",
+          "file2": "Web__46sz__K__06-10_lines.json",
+          "markets1_count": 1,
+          "markets2_count": 5
+        },
+        "session_id": "20250708_112746"
+      },
+      {
+        "timestamp": "2025-07-08T11:27:58.688676",
+        "type": "duplicate_content_differs",
+        "severity": "medium",
+        "details": {
+          "match_id": "2025-06-13_wuhan three towns_qingdao hainiu_",
+          "file1": "Web__47sz__P__06-13_lines.json",
+          "file2": "Web__46sz__K__06-10_lines.json",
+          "markets1_count": 1,
+          "markets2_count": 5
+        },
+        "session_id": "20250708_112746"
+      },
+      {
+        "timestamp": "2025-07-08T11:27:58.696041",
+        "type": "duplicate_content_differs",
+        "severity": "medium",
+        "details": {
+          "match_id": "2025-06-13_orebro_sandviken_",
+          "file1": "Web__47sz__P__06-13_lines.json",
+          "file2": "Web__46sz__K__06-10_lines.json",
+          "markets1_count": 1,
+          "markets2_count": 1
+        },
+        "session_id": "20250708_112746"
+      },
+      {
+        "timestamp": "2025-07-08T11:27:58.696611",
+        "type": "significant_txt_json_difference",
+        "severity": "medium",
+        "details": {
+          "differences": [
+            {
+              "file": "Web__51sz__P__06-27_lines.txt",
+              "txt_estimate": 1219,
+              "json_actual": 233,
+              "difference_ratio": 0.8088597210828548
+            },
+            {
+              "file": "Web__47sz__P__06-13_lines.txt",
+              "txt_estimate": 1278,
+              "json_actual": 279,
+              "difference_ratio": 0.7816901408450704
+            },
+            {
+              "file": "Web__46sz__K__06-10_lines.txt",
+              "txt_estimate": 1271,
+              "json_actual": 250,
+              "difference_ratio": 0.8033044846577498
+            },
+            {
+              "file": "Web__50sz__K__06-24_lines.txt",
+              "txt_estimate": 1300,
+              "json_actual": 103,
+              "difference_ratio": 0.9207692307692308
+            },
+            {
+              "file": "Web__49sz__P__06-20_lines.txt",
+              "txt_estimate": 1246,
+              "json_actual": 260,
+              "difference_ratio": 0.7913322632423756
+            },
+            {
+              "file": "Web__52sz__K__07-01_lines.txt",
+              "txt_estimate": 1317,
+              "json_actual": 54,
+              "difference_ratio": 0.958997722095672
+            },
+            {
+              "file": "Web__53sz__P__2025_07-04_lines.txt",
+              "txt_estimate": 1310,
+              "json_actual": 180,
+              "difference_ratio": 0.8625954198473282
+            },
+            {
+              "file": "Web__48sz__K__06-17_lines.txt",
+              "txt_estimate": 1314,
+              "json_actual": 140,
+              "difference_ratio": 0.893455098934551
+            }
+          ]
+        },
+        "session_id": "20250708_112746"
+      },
+      {
+        "timestamp": "2025-07-08T11:27:58.734926",
+        "type": "backend_import_trigger_failed",
+        "severity": "high",
+        "details": {
+          "returncode": 1,
+          "stderr": "Error response from daemon: No such container: sp3-backend-1\n"
+        },
+        "session_id": "20250708_112746"
+      }
+    ],
+    "data_loss_points": []
+  },
+  "summary": {
+    "pdf_files": 8,
+    "txt_files": 8,
+    "json_files": 8,
+    "total_txt_matches": 10255,
+    "total_json_matches": 1499,
+    "cross_file_duplicates": 257,
+    "total_anomalies": 19,
+    "high_severity_anomalies": 9
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "timestamp": "2025-07-08T11:27:58.696914",
+  "step": "analyze_json_output",
+  "description": "JSON files analyzed",
+  "data": {
+    "json_files": [
+      "Web__47sz__P__06-13_lines.json",
+      "Web__50sz__K__06-24_lines.json",
+      "Web__46sz__K__06-10_lines.json",
+      "Web__48sz__K__06-17_lines.json",
+      "Web__51sz__P__06-27_lines.json",
+      "Web__53sz__P__2025_07-04_lines.json",
+      "Web__49sz__P__06-20_lines.json",
+      "Web__52sz__K__07-01_lines.json"
+    ],
+    "json_match_counts": {
+      "Web__47sz__P__06-13_lines.json": 279,
+      "Web__50sz__K__06-24_lines.json": 103,
+      "Web__46sz__K__06-10_lines.json": 250,
+      "Web__48sz__K__06-17_lines.json": 140,
+      "Web__51sz__P__06-27_lines.json": 233,
+      "Web__53sz__P__2025_07-04_lines.json": 180,
+      "Web__49sz__P__06-20_lines.json": 260,
+      "Web__52sz__K__07-01_lines.json": 54
+    },
+    "total_matches": 1499
+  },
+  "session_id": "20250708_112746"
+}

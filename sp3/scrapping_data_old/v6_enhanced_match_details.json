@@ -1,0 +1,24 @@
+{
+  "header": {
+    "full_league_name": "",
+    "round_number": "",
+    "formatted_header": ""
+  },
+  "summary": [],
+  "lineups": {
+    "home_team": [],
+    "away_team": []
+  },
+  "statistics": {},
+  "extra_info": {
+    "referee": "",
+    "venue": "",
+    "capacity": "",
+    "attendance": ""
+  },
+  "scraping_metadata": {
+    "version": "v6",
+    "timestamp": "2025-07-08T16:02:56.442935",
+    "source_url": "https://www.eredmenyek.com/fodbold/bolivia/division-profesional/bolivar-vs-independiente/fVLU1Wtb/"
+  }
+}

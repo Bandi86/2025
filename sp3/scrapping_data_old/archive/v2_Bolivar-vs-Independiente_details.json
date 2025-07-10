@@ -1,0 +1,199 @@
+{
+    "header_info": {
+        "main_title": "BOL 4-0 IND | Bolivar - Independiente",
+        "league_round": "Bolivar-Independiente",
+        "date_time_hungarian": "2025. július 8., 00:00",
+        "date": "08.07.2025",
+        "time": "00:00",
+        "final_score": "4-0",
+        "home_team": "Bolivar",
+        "away_team": "Independiente"
+    },
+    "summary": [
+        {
+            "time": "11'",
+            "type": "event",
+            "description": "Esemény",
+            "player": "Paz L.",
+            "raw_text": "11'Paz L. [BOL]"
+        },
+        {
+            "time": "21'",
+            "type": "event",
+            "description": "Esemény",
+            "player": "Justiniano L. Catano D.",
+            "raw_text": "21'Justiniano L. (Catano D.) () [BOL]"
+        },
+        {
+            "time": "44'",
+            "type": "event",
+            "description": "Esemény",
+            "player": "Chajtur M.",
+            "raw_text": "44'Chajtur M. [IND]"
+        },
+        {
+            "time": "45'",
+            "type": "event",
+            "description": "Esemény",
+            "player": "Mercado A.",
+            "raw_text": "45+2'Mercado A. [IND]"
+        },
+        {
+            "time": "45'",
+            "type": "event",
+            "description": "Esemény",
+            "player": "Catano D.",
+            "raw_text": "45+4'Catano D. [BOL]"
+        },
+        {
+            "time": "46'",
+            "type": "event",
+            "description": "Esemény",
+            "player": "Arteaga N.Mercado A.",
+            "raw_text": "46'Arteaga N.(Mercado A.)[IND]"
+        },
+        {
+            "time": "46'",
+            "type": "event",
+            "description": "Esemény",
+            "player": "Cristaldo G.Navarro D.",
+            "raw_text": "46'Cristaldo G.(Navarro D.)[IND]"
+        },
+        {
+            "time": "59'",
+            "type": "event",
+            "description": "Esemény",
+            "player": "Villalba D.Chajtur M.",
+            "raw_text": "59'Villalba D.(Chajtur M.)[IND]"
+        },
+        {
+            "time": "72'",
+            "type": "event",
+            "description": "Esemény",
+            "player": "Romero D. Büntető",
+            "raw_text": "72'Romero D. (Büntető) [BOL]"
+        },
+        {
+            "time": "73'",
+            "type": "event",
+            "description": "Esemény",
+            "player": "Ubah B.Cardozo R.",
+            "raw_text": "73'Ubah B.(Cardozo R.)[IND]"
+        },
+        {
+            "time": "73'",
+            "type": "event",
+            "description": "Esemény",
+            "player": "Pato RodriguezCatano D.",
+            "raw_text": "73'Pato Rodriguez(Catano D.)[BOL]"
+        },
+        {
+            "time": "73'",
+            "type": "event",
+            "description": "Esemény",
+            "player": "Vaca Moreno E.Saavedra E.",
+            "raw_text": "73'Vaca Moreno E.(Saavedra E.)[BOL]"
+        },
+        {
+            "time": "79'",
+            "type": "event",
+            "description": "Esemény",
+            "player": "Rivera E.Thomaz",
+            "raw_text": "79'Rivera E.(Thomaz)[IND]"
+        },
+        {
+            "time": "84'",
+            "type": "event",
+            "description": "Esemény",
+            "player": "Rivera A.",
+            "raw_text": "84'Rivera A. [IND]"
+        },
+        {
+            "time": "86'",
+            "type": "event",
+            "description": "Esemény",
+            "player": "Mena F.Rivero E.",
+            "raw_text": "86'Mena F.(Rivero E.)[BOL]"
+        },
+        {
+            "time": "86'",
+            "type": "event",
+            "description": "Esemény",
+            "player": "Ayhuana A.Justiniano L.",
+            "raw_text": "86'Ayhuana A.(Justiniano L.)[BOL]"
+        },
+        {
+            "time": "87'",
+            "type": "event",
+            "description": "Esemény",
+            "player": "Ayhuana A.",
+            "raw_text": "87'Ayhuana A. [BOL]"
+        },
+        {
+            "time": "90'",
+            "type": "event",
+            "description": "Esemény",
+            "player": "Aguilera D.",
+            "raw_text": "90+2'Aguilera D. [IND]"
+        },
+        {
+            "time": "90'",
+            "type": "event",
+            "description": "Esemény",
+            "player": "Romero D. Büntető",
+            "raw_text": "90+4'Romero D. (Büntető) [BOL]"
+        },
+        {
+            "time": "90'",
+            "type": "event",
+            "description": "Esemény",
+            "player": "Rivera E.",
+            "raw_text": "90+5'Rivera E. [IND]"
+        },
+        {
+            "time": "90'",
+            "type": "event",
+            "description": "Esemény",
+            "player": "Sabja L.Velasquez J.",
+            "raw_text": "90+7'Sabja L.(Velasquez J.)[BOL]"
+        }
+    ],
+    "statistics": {},
+    "lineups": {},
+    "debug_info": {
+        "events_extracted": 21,
+        "sample_events": [
+            {
+                "time": "11'",
+                "type": "event",
+                "description": "Esemény",
+                "player": "Paz L.",
+                "raw_text": "11'Paz L. [BOL]"
+            },
+            {
+                "time": "21'",
+                "type": "event",
+                "description": "Esemény",
+                "player": "Justiniano L. Catano D.",
+                "raw_text": "21'Justiniano L. (Catano D.) () [BOL]"
+            },
+            {
+                "time": "44'",
+                "type": "event",
+                "description": "Esemény",
+                "player": "Chajtur M.",
+                "raw_text": "44'Chajtur M. [IND]"
+            }
+        ],
+        "page_title": "BOL 4-0 IND | Bolivar - Independiente",
+        "url": "https://m.eredmenyek.com/merkozes/KOVqFIMi/",
+        "title_info_parsed": {
+            "score": "4-0",
+            "home_team": "Bolivar",
+            "away_team": "Independiente",
+            "competition": ""
+        },
+        "datetime_found": true,
+        "main_content_found": true
+    }
+}

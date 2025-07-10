@@ -1,0 +1,27 @@
+{
+  "timestamp": "2025-07-08T11:21:24.535847",
+  "step": "backend_import",
+  "description": "Backend import completed",
+  "data": {
+    "initial": {
+      "matches": 0,
+      "markets": 0,
+      "odds": 0,
+      "teams": 899,
+      "competitions": 120
+    },
+    "final": {
+      "matches": 0,
+      "markets": 0,
+      "odds": 0,
+      "teams": 899,
+      "competitions": 120
+    },
+    "imported": {
+      "matches": 0,
+      "markets": 0,
+      "odds": 0
+    }
+  },
+  "session_id": "20250708_112056"
+}

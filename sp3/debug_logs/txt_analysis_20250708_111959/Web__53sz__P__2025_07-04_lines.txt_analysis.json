@@ -1,0 +1,119 @@
+{
+  "file": "Web__53sz__P__2025_07-04_lines.txt",
+  "line_count": 2558,
+  "potential_matches": 1138,
+  "potential_odds": 2529,
+  "structure_patterns": {
+    "contains_numbers": 29,
+    "contains_time": 2500
+  },
+  "issues": [],
+  "sample_lines": {
+    "match_lines": [
+      {
+        "line_number": 112,
+        "content": "02:014: P 17:00 20625 AC Oulu - Kuopio PS 3,70 3,50 1,68",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 113,
+        "content": "02:015: P 17:00 20627 AC Oulu - Kuopio PS Kétesély (H: 1X, D: 12, V: X2) 1,63 1,19 1,18",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 114,
+        "content": "02:016: P 17:00 20630 AC Oulu - Kuopio PS Mindkét csapat szerez gólt (H: Igen, V: Nem) 1,62 2,03",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 115,
+        "content": "02:017: P 17:00 20637 AC Oulu - Kuopio PS Gólszám 2,5 (H: kev., V: több) 2,06 1,60",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 117,
+        "content": "02:019: P 17:30 18977 JäPS - SalPa 1,54 3,90 4,10",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 119,
+        "content": "02:021: P 18:00 16459 Dánia - Svédország 5,75 4,15 1,44",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 120,
+        "content": "02:022: P 18:00 16460 Dánia - Svédország Kétesély (H: 1X, D: 12, V: X2) 2,04 1,19 1,12",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 121,
+        "content": "02:023: P 18:00 16461 Dánia - Svédország Döntetlennél a tét visszajár 3,75 1,19",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 122,
+        "content": "02:024: P 18:00 16464 Dánia - Svédország Mindkét csapat szerez gólt (H: Igen, V: Nem) 1,80 1,80",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 123,
+        "content": "02:025: P 18:00 16508 Dánia - Svédország Gólszám 1,5 (H: kev., V: több) 3,70 1,19",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      }
+    ],
+    "odds_lines": [
+      {
+        "line_number": 2,
+        "content": "=== OLDAL 1 ===",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 3,
+        "content": "01:001: XXiv. évfolyam 53. szám",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 4,
+        "content": "01:002: 2025. július 4.",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 5,
+        "content": "01:003: a szerencsejáték zrt. ingyenes kiadványa",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 6,
+        "content": "01:004: m e g j e l e n i k k e d d e n é s p é n t e k e n",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 7,
+        "content": "01:005: 3 MILLIÁRD 520 MILLIÓ A tét AZ ÖtÖSLOttÓN!",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 8,
+        "content": "01:006: vÁRhAtÓ főNyeReMéNy SkANDINÁv LOttÓ - 27. hét NAPI MÁZLI - 27. hét",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 9,
+        "content": "01:007: A 27. héteN",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 10,
+        "content": "01:008: eLSő (GéPI) SORSOLÁS sorsolás 1. sOrsOlÁs 2. sOrsOlÁs",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 11,
+        "content": "01:009: 3 520 1 4 11 12 18 27 35 napja: éV éV nAPjA sziMBÓluM éV éV nAPjA sziMBÓluM",
+        "pattern": "(\\d+\\.?\\d*)"
+      }
+    ],
+    "empty_lines": 29,
+    "unrecognized_lines": []
+  }
+}

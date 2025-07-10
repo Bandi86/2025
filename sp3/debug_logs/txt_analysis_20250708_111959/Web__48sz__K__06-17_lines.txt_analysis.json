@@ -1,0 +1,119 @@
+{
+  "file": "Web__48sz__K__06-17_lines.txt",
+  "line_count": 3143,
+  "potential_matches": 1156,
+  "potential_odds": 3114,
+  "structure_patterns": {
+    "contains_numbers": 29,
+    "contains_time": 3085
+  },
+  "issues": [],
+  "sample_lines": {
+    "match_lines": [
+      {
+        "line_number": 115,
+        "content": "02:014: K 12:30 15224 Daegu - Pohang 3,60 3,60 1,81",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 116,
+        "content": "02:015: K 12:30 15548 FC Seoul - Gangwon 1,57 3,65 5,00",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 117,
+        "content": "02:016: K 12:30 15935 Jeonbuk - Suwon City 1,47 4,10 5,50",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 119,
+        "content": "02:018: K 13:35 19766 Beijing Guoan - Qingdao West Coast 1,26 5,50 7,25",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 120,
+        "content": "02:019: K 13:35 19811 Beijing Guoan - Qingdao West Coast Hendikep 0:1 1,82 3,80 2,95",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 122,
+        "content": "02:021: K 16:00 34522 U19Norvégia - U19Hollandia 5,25 4,40 1,44",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 123,
+        "content": "02:022: K 16:00 34523 U19Norvégia - U19Hollandia Kétesély (H: 1X, D: 12, V: X2) 2,03 1,18 1,14",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 124,
+        "content": "02:023: K 16:00 34524 U19Norvégia - U19Hollandia Döntetlennél a tét visszajár 3,55 1,21",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 125,
+        "content": "02:024: K 16:00 34525 U19Norvégia - U19Hollandia Mindkét csapat szerez gólt (H: Igen, V: Nem) 1,63 2,01",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 126,
+        "content": "02:025: K 16:00 34528 U19Norvégia - U19Hollandia Hendikep 0:1 10,50 5,75 1,13",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      }
+    ],
+    "odds_lines": [
+      {
+        "line_number": 2,
+        "content": "=== OLDAL 1 ===",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 3,
+        "content": "01:001: XXiv. évfolyam 48. szám",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 4,
+        "content": "01:002: 2025. június 17.",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 5,
+        "content": "01:003: a szerencsejáték zrt. ingyenes kiadványa",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 6,
+        "content": "01:004: m e g j e l e n i k k e d d e n é s p é n t e k e n",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 7,
+        "content": "01:005: 150 MILLIÓ A tét A SKANDINÁV LOttÓN!",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 8,
+        "content": "01:006: ötöSLOttÓ - 24. hét hAtOSLOttÓ - 24. hét NAPI MÁzLI - 24. hét",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 9,
+        "content": "01:007: 2 17 37 44 78 3 6 10 23 37 41 Sorsolás 1. SORSOLÁS 2. SORSOLÁS",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 10,
+        "content": "01:008: húzÁSI SORReND húzÁSI SORReND napja: ÉV ÉV NAPJA SZIMBÓLUM ÉV ÉV NAPJA SZIMBÓLUM",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 11,
+        "content": "01:009: 2 17 37 78 44 41 3 37 23 10 6 2025.06.15. 50 1.19. 12 Szőlő 8 2.18. 1 Nap",
+        "pattern": "(\\d+\\.?\\d*)"
+      }
+    ],
+    "empty_lines": 29,
+    "unrecognized_lines": []
+  }
+}

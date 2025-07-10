@@ -1,0 +1,119 @@
+{
+  "file": "Web__50sz__K__06-24_lines.txt",
+  "line_count": 3063,
+  "potential_matches": 1163,
+  "potential_odds": 3034,
+  "structure_patterns": {
+    "contains_numbers": 29,
+    "contains_time": 3005
+  },
+  "issues": [],
+  "sample_lines": {
+    "match_lines": [
+      {
+        "line_number": 255,
+        "content": "02:014: K 11:00 14045 Klubi 04 - Helsinki JK 11,00 7,00 1,09",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 256,
+        "content": "02:015: K 17:00 27322 AC Oulu - Seinäjoen JK 3,75 3,65 1,64",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 257,
+        "content": "02:016: K 17:00 28145 Haka - Kuopio PS 2,99 3,20 1,98",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 258,
+        "content": "02:017: K 17:30 28283 Ekenas IF - Jaro 2,62 3,15 2,22",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 260,
+        "content": "02:019: K 19:30 07269 IFK Stocksund - Karlberg 3,75 4,80 1,48",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 261,
+        "content": "02:020: K 19:30 07275 Jarfalla - IK Franke 1,48 4,80 3,75",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 262,
+        "content": "02:021: K 19:30 07276 Rappe GOIF - Kristianstad 3,80 4,20 1,55",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 264,
+        "content": "02:023: K 20:00 14680 U19Franciaország - U19Portugália 1,41 3,95 5,25",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 265,
+        "content": "02:024: K 20:00 14681 U19Spanyolország - U19Olaszország 1,25 4,80 7,25",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 267,
+        "content": "02:026: K 21:00 20751 Auckland City - Boca Juniors 25,00 15,00",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      }
+    ],
+    "odds_lines": [
+      {
+        "line_number": 2,
+        "content": "=== OLDAL 1 ===",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 3,
+        "content": "01:001: XXiv. évfolyam 50. szám",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 4,
+        "content": "01:002: 2025. június 24.",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 5,
+        "content": "01:003: a szerencsejáték zrt. ingyenes kiadványa",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 6,
+        "content": "01:004: m e g j e l e n i k k e d d e n é s p é n t e k e n",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 7,
+        "content": "01:005: A SZERDAI SKANDIVAL 230 MILLIÓt NYERhEt!",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 8,
+        "content": "01:006: ötöSLOttÓ - 25. hét hAtOSLOttÓ - 25. hét NAPI MáZLI - 25. hét",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 9,
+        "content": "01:007: 46 48 79 81 83 3 13 17 29 40 44 Sorsolás 1. SORSOLÁS 2. SORSOLÁS",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 10,
+        "content": "01:008: húZáSI SORREND húZáSI SORREND napja: ÉV ÉV NAPJA SZIMBÓLUM ÉV ÉV NAPJA SZIMBÓLUM",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 11,
+        "content": "01:009: 79 46 83 81 48 44 3 40 13 17 29 2025.06.22. 88 11.14. 9 ház 97 11.19. 8 hald",
+        "pattern": "(\\d+\\.?\\d*)"
+      }
+    ],
+    "empty_lines": 29,
+    "unrecognized_lines": []
+  }
+}

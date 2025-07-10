@@ -1,0 +1,119 @@
+{
+  "file": "Web__46sz__K__06-10_lines.txt",
+  "line_count": 3049,
+  "potential_matches": 1096,
+  "potential_odds": 3020,
+  "structure_patterns": {
+    "contains_numbers": 29,
+    "contains_time": 2991
+  },
+  "issues": [],
+  "sample_lines": {
+    "match_lines": [
+      {
+        "line_number": 125,
+        "content": "02:014: K 12:15 33339 Srí Lanka - Tajvan 2,65 3,35 2,10",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 126,
+        "content": "02:015: K 12:15 33340 Srí Lanka - Tajvan Kétesély (H: 1X, D: 12, V: X2) 1,41 1,22 1,30",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 127,
+        "content": "02:016: K 12:15 33341 Srí Lanka - Tajvan Döntetlennél a tét visszajár 1,96 1,67",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 128,
+        "content": "02:017: K 12:15 33392 Srí Lanka - Tajvan Mindkét csapat szerez gólt (H: Igen, V: Nem) 1,66 1,97",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 129,
+        "content": "02:018: K 12:15 33391 Srí Lanka - Tajvan Gólszám 2,5 (H: kev., V: több) 1,89 1,72",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 130,
+        "content": "02:019: K 17:00 34204 Türkmenisztán - Thaiföld 2,69 3,20 2,16",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 131,
+        "content": "02:020: K 17:00 34205 Türkmenisztán - Thaiföld Kétesély (H: 1X, D: 12, V: X2) 1,39 1,24 1,30",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 132,
+        "content": "02:021: K 17:00 34206 Türkmenisztán - Thaiföld Döntetlennél a tét visszajár 1,95 1,68",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 133,
+        "content": "02:022: K 17:00 34207 Türkmenisztán - Thaiföld Mindkét csapat szerez gólt (H: Igen, V: Nem) 1,69 1,92",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 134,
+        "content": "02:023: K 17:00 34214 Türkmenisztán - Thaiföld Gólszám 2,5 (H: kev., V: több) 1,81 1,79",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      }
+    ],
+    "odds_lines": [
+      {
+        "line_number": 2,
+        "content": "=== OLDAL 1 ===",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 3,
+        "content": "01:001: XXiv. évfolyam 46. szám",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 4,
+        "content": "01:002: 2025. június 10.",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 5,
+        "content": "01:003: a szerencsejáték zrt. ingyenes kiadványa",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 6,
+        "content": "01:004: m e g j e l e n i k k e d d e n é s p é n t e k e n",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 7,
+        "content": "01:005: Fogadáskészítővel értek el kiemelkedő",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 8,
+        "content": "01:006: nyereményeket játékosaink",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 9,
+        "content": "01:007: A 23. hét második felében – a csütörtöktől vasárnapig terjedő időszakban – a Tippmixen és a Tippmixprón is",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 10,
+        "content": "01:008: kiemelkedő nagyságú nyereményeket értek el játékosaink a Fogadáskészítő használatával. Egy budapesti Tippmix-",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 11,
+        "content": "01:009: játékosunk például a Spanyolország – Franciaország Nemzetek Ligája-mérkőzés kapcsán használta ezt a funkciót.",
+        "pattern": "(\\d+\\.?\\d*)"
+      }
+    ],
+    "empty_lines": 29,
+    "unrecognized_lines": []
+  }
+}

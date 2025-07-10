@@ -1,0 +1,96 @@
+{
+  "header": {
+    "home_team": "",
+    "away_team": "",
+    "score": {
+      "home": "",
+      "away": "",
+      "full_score": ""
+    },
+    "date": "",
+    "league": "Bolivia Division Profesional",
+    "status": "scraped"
+  },
+  "summary": [],
+  "lineups": {
+    "home_team": [],
+    "away_team": []
+  },
+  "statistics": {},
+  "extra_info": {},
+  "debug_info": {
+    "structure_analysis": {
+      "title": "",
+      "url": "https://www.eredmenyek.com/fodbold/bolivia/division-profesional/bolivar-vs-independiente/fVLU1Wtb/",
+      "body_text_length": 86,
+      "elements_with_classes": {},
+      "common_selectors": {
+        "[class*='team']": {
+          "count": 0,
+          "sample_text": []
+        },
+        "[class*='score']": {
+          "count": 0,
+          "sample_text": []
+        },
+        "[class*='match']": {
+          "count": 0,
+          "sample_text": []
+        },
+        "[class*='event']": {
+          "count": 0,
+          "sample_text": []
+        },
+        "[class*='stat']": {
+          "count": 0,
+          "sample_text": []
+        },
+        "[class*='lineup']": {
+          "count": 0,
+          "sample_text": []
+        },
+        "h1": {
+          "count": 0,
+          "sample_text": []
+        },
+        "h2": {
+          "count": 0,
+          "sample_text": []
+        },
+        "h3": {
+          "count": 0,
+          "sample_text": []
+        },
+        ".title": {
+          "count": 0,
+          "sample_text": []
+        },
+        ".header": {
+          "count": 0,
+          "sample_text": []
+        }
+      }
+    },
+    "extracted_data": {
+      "all_text_elements": [
+        "Hiba: A kívánt oldal nem jeleníthető meg. Kérjük, később próbálja újra!\nEredmenyek.com",
+        "Hiba: A kívánt oldal nem jeleníthető meg. Kérjük, később próbálja újra!",
+        "Hiba:",
+        "Eredmenyek.com"
+      ],
+      "potential_teams": [],
+      "potential_scores": [],
+      "potential_times": [],
+      "potential_events": []
+    },
+    "page_title": "",
+    "current_url": "https://www.eredmenyek.com/fodbold/bolivia/division-profesional/bolivar-vs-independiente/fVLU1Wtb/",
+    "body_text_sample": "Hiba: A kívánt oldal nem jeleníthető meg. Kérjük, később próbálja újra!\nEredmenyek.com"
+  },
+  "scraping_metadata": {
+    "version": "v7_advanced",
+    "timestamp": "2025-07-10T09:29:17.914881",
+    "source_url": "https://www.eredmenyek.com/fodbold/bolivia/division-profesional/bolivar-vs-independiente/fVLU1Wtb/",
+    "debug_mode": true
+  }
+}

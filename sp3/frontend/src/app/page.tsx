@@ -8,7 +8,7 @@ export default function Home() {
   const [health, setHealth] = useState<{ status: string } | null>(null);
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/health')
+    fetch('http://localhost:3001/health')
       .then((res) => res.json())
       .then((data) => setHealth(data))
       .catch(() => setHealth({ status: 'offline' }));

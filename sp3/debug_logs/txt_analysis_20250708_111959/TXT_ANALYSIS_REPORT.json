@@ -1,0 +1,11 @@
+{
+  "files_analyzed": 8,
+  "total_lines": 23549,
+  "potential_matches": 9077,
+  "potential_odds": 23317,
+  "structure_patterns": {
+    "contains_numbers": 232,
+    "contains_time": 23085
+  },
+  "issues_found": []
+}

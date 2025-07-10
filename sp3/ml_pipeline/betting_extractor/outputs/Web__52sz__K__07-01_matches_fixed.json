@@ -1,0 +1,4973 @@
+{
+    "matches": [
+        {
+            "page": 2,
+            "date": "2025-07-01",
+            "day": "Kedd",
+            "time": "16:00",
+            "league": "Norvég 3., 1. csoport",
+            "team1": "brann bergen 2",
+            "team2": "pors grenland",
+            "orig_team1": "Brann Bergen 2",
+            "orig_team2": "Pors Grenland",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,83 3,95 2,87",
+                    "odds1": "1.83",
+                    "oddsX": "3.95",
+                    "odds2": "2.87"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,25 1,16 1,56",
+                    "odds1": "1.25",
+                    "oddsX": "1.16",
+                    "odds2": "1.56"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "1,48 2,30",
+                    "odds1": "1.48",
+                    "odds2": "2.30"
+                }
+            ]
+        },
+        {
+            "page": 2,
+            "date": "2025-07-01",
+            "day": "Kedd",
+            "time": "17:00",
+            "league": "Finn bajnokság",
+            "team1": "kuopio ps",
+            "team2": "gnistan",
+            "orig_team1": "Kuopio PS",
+            "orig_team2": "Gnistan",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,51 3,70 4,60",
+                    "odds1": "1.51",
+                    "oddsX": "3.70",
+                    "odds2": "4.60"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,13 1,17 1,79",
+                    "odds1": "1.13",
+                    "oddsX": "1.17",
+                    "odds2": "1.79"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "1,23 3,35",
+                    "odds1": "1.23",
+                    "odds2": "3.35"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,67 1,96",
+                    "odds1": "1.67",
+                    "odds2": "1.96"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "2,11 1,57",
+                    "odds1": "2.11",
+                    "odds2": "1.57"
+                }
+            ]
+        },
+        {
+            "page": 2,
+            "date": "2025-07-01",
+            "day": "Kedd",
+            "time": "18:00",
+            "league": "Válogatott mérkőzés, női",
+            "team1": "esztorszag",
+            "team2": "koszovo",
+            "orig_team1": "Észtország",
+            "orig_team2": "Koszovó",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "3,45 3,20 1,83",
+                    "odds1": "3.45",
+                    "oddsX": "3.20",
+                    "odds2": "1.83"
+                }
+            ]
+        },
+        {
+            "page": 2,
+            "date": "2025-07-01",
+            "day": "Kedd",
+            "time": "21:00",
+            "league": "Klubcsapat vb",
+            "team1": "real madrid",
+            "team2": "juventus",
+            "orig_team1": "Real Madrid",
+            "orig_team2": "Juventus",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,65 3,90 5,25",
+                    "odds1": "1.65",
+                    "oddsX": "3.90",
+                    "odds2": "5.25"
+                },
+                {
+                    "name": "Ki jut tovább?",
+                    "orig_market": "1,30 3,25",
+                    "odds1": "1.30",
+                    "odds2": "3.25"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,14 1,21 1,93",
+                    "odds1": "1.14",
+                    "oddsX": "1.21",
+                    "odds2": "1.93"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "1,22 3,45",
+                    "odds1": "1.22",
+                    "odds2": "3.45"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,69 1,92",
+                    "odds1": "1.69",
+                    "odds2": "1.92"
+                },
+                {
+                    "name": "Gólszám 1,5 (H: kev., V: több)",
+                    "orig_market": "3,60 1,20",
+                    "odds1": "3.60",
+                    "odds2": "1.20"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "1,97 1,66",
+                    "odds1": "1.97",
+                    "odds2": "1.66"
+                },
+                {
+                    "name": "Gólszám 3,5 (H: kev., V: több)",
+                    "orig_market": "1,38 2,58",
+                    "odds1": "1.38",
+                    "odds2": "2.58"
+                },
+                {
+                    "name": "Gólszám 4,5 (H: kev., V: több)",
+                    "orig_market": "1,13 4,40",
+                    "odds1": "1.13",
+                    "odds2": "4.40"
+                },
+                {
+                    "name": "Gólszám (0-1) 01",
+                    "orig_market": "3,95",
+                    "odds1": "3.95"
+                },
+                {
+                    "name": "Gólszám (2-3) 02",
+                    "orig_market": "1,97",
+                    "odds1": "1.97"
+                },
+                {
+                    "name": "Gólszám (4-5) 03",
+                    "orig_market": "3,35",
+                    "odds1": "3.35"
+                },
+                {
+                    "name": "Gólszám (6+) 04",
+                    "orig_market": "11,00",
+                    "odds1": "11.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Hazai és kevesebb) 01",
+                    "orig_market": "8,25",
+                    "odds1": "8.25"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "13,00",
+                    "odds1": "13.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Vendég és kevesebb) 03",
+                    "orig_market": "16,00",
+                    "odds1": "16.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Hazai és több) 04",
+                    "orig_market": "1,88",
+                    "odds1": "1.88"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Döntetlen és több) 05",
+                    "orig_market": "4,75",
+                    "odds1": "4.75"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Vendég és több) 06",
+                    "orig_market": "6,75",
+                    "odds1": "6.75"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Hazai és kevesebb) 01",
+                    "orig_market": "4,30",
+                    "odds1": "4.30"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "4,85",
+                    "odds1": "4.85"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Vendég és kevesebb) 03",
+                    "orig_market": "11,50",
+                    "odds1": "11.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Hazai és több) 04",
+                    "orig_market": "2,35",
+                    "odds1": "2.35"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Döntetlen és több) 05",
+                    "orig_market": "13,00",
+                    "odds1": "13.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Vendég és több) 06",
+                    "orig_market": "8,50",
+                    "odds1": "8.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Hazai és kevesebb) 01",
+                    "orig_market": "2,46",
+                    "odds1": "2.46"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "4,85",
+                    "odds1": "4.85"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Vendég és kevesebb) 03",
+                    "orig_market": "6,50",
+                    "odds1": "6.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Hazai és több) 04",
+                    "orig_market": "3,95",
+                    "odds1": "3.95"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Döntetlen és több) 05",
+                    "orig_market": "13,00",
+                    "odds1": "13.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Vendég és több) 06",
+                    "orig_market": "19,00",
+                    "odds1": "19.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 4,5 (Hazai és kevesebb) 01",
+                    "orig_market": "1,97",
+                    "odds1": "1.97"
+                },
+                {
+                    "name": "1X2 + Gólszám 4,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "3,75",
+                    "odds1": "3.75"
+                },
+                {
+                    "name": "1X2 + Gólszám 4,5 (Vendég és kevesebb) 03",
+                    "orig_market": "5,75",
+                    "odds1": "5.75"
+                },
+                {
+                    "name": "1X2 + Gólszám 4,5 (Hazai és több) 04",
+                    "orig_market": "6,75",
+                    "odds1": "6.75"
+                },
+                {
+                    "name": "1X2 + Gólszám 4,5 (Döntetlen és több) 05",
+                    "orig_market": "65,00",
+                    "odds1": "65.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 4,5 (Vendég és több) 06",
+                    "orig_market": "30,00",
+                    "odds1": "30.00"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Hazai és igen) 01",
+                    "orig_market": "3,30",
+                    "odds1": "3.30"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Hazai és nem) 02",
+                    "orig_market": "2,80",
+                    "odds1": "2.80"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Döntetlen és igen) 03",
+                    "orig_market": "4,80",
+                    "odds1": "4.80"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Döntetlen és nem) 04",
+                    "orig_market": "13,50",
+                    "odds1": "13.50"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Vendég és igen) 05",
+                    "orig_market": "9,50",
+                    "odds1": "9.50"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Vendég és nem) 06",
+                    "orig_market": "10,00",
+                    "odds1": "10.00"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Igen és több, mint 2,5) 01",
+                    "orig_market": "2,11",
+                    "odds1": "2.11"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Igen és kevesebb, mint 2,5) 02",
+                    "orig_market": "7,25",
+                    "odds1": "7.25"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Nem és több, mint 2,5) 03",
+                    "orig_market": "6,75",
+                    "odds1": "6.75"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Nem és kevesebb, mint 2,5) 04",
+                    "orig_market": "2,57",
+                    "odds1": "2.57"
+                },
+                {
+                    "name": "Az első 10 perc eredménye (0-9:59)",
+                    "orig_market": "5,00 1,17 10,50",
+                    "odds1": "5.00",
+                    "oddsX": "1.17",
+                    "odds2": "10.50"
+                },
+                {
+                    "name": "félidő - 1X2",
+                    "orig_market": "2,04 2,35 5,25",
+                    "odds1": "2.04",
+                    "oddsX": "2.35",
+                    "odds2": "5.25"
+                },
+                {
+                    "name": "félidő - Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,14 1,43 1,55",
+                    "odds1": "1.14",
+                    "oddsX": "1.43",
+                    "odds2": "1.55"
+                },
+                {
+                    "name": "Szögletszám 10,5 (H: kev., V: több)",
+                    "orig_market": "1,39 2,57",
+                    "odds1": "1.39",
+                    "odds2": "2.57"
+                },
+                {
+                    "name": "Szögletszám 6,5 (H: kev., V: több)",
+                    "orig_market": "3,65 1,20",
+                    "odds1": "3.65",
+                    "odds2": "1.20"
+                },
+                {
+                    "name": "Szögletszám 7,5 (H: kev., V: több)",
+                    "orig_market": "2,64 1,37",
+                    "odds1": "2.64",
+                    "odds2": "1.37"
+                },
+                {
+                    "name": "Szögletszám 8,5 (H: kev., V: több)",
+                    "orig_market": "2,01 1,63",
+                    "odds1": "2.01",
+                    "odds2": "1.63"
+                },
+                {
+                    "name": "Szögletszám 9,5 (H: kev., V: több)",
+                    "orig_market": "1,63 2,02",
+                    "odds1": "1.63",
+                    "odds2": "2.02"
+                },
+                {
+                    "name": "Szögletek száma (H: 0-8, D: 9-11, V: 12+)",
+                    "orig_market": "2,01 2,69 3,55",
+                    "odds1": "2.01",
+                    "oddsX": "2.69",
+                    "odds2": "3.55"
+                },
+                {
+                    "name": "Melyik csapat végez el több szögletet? (H: 1, D: ua., V: 2)",
+                    "orig_market": "1,50 7,50 2,86",
+                    "odds1": "1.50",
+                    "oddsX": "7.50",
+                    "odds2": "2.86"
+                },
+                {
+                    "name": "Hazai csapat szögletszám 5,5 (H: kev., V: több)",
+                    "orig_market": "1,63 2,02",
+                    "odds1": "1.63",
+                    "odds2": "2.02"
+                },
+                {
+                    "name": "Vendégcsapat szögletszám 3,5 (H: kev., V: több)",
+                    "orig_market": "1,86 1,75",
+                    "odds1": "1.86",
+                    "odds2": "1.75"
+                },
+                {
+                    "name": "Büntetőlap-szám 2,5 (H: kev., V: több)",
+                    "orig_market": "4,40 1,13",
+                    "odds1": "4.40",
+                    "odds2": "1.13"
+                },
+                {
+                    "name": "Büntetőlap-szám 3,5 (H: kev., V: több)",
+                    "orig_market": "2,60 1,38",
+                    "odds1": "2.60",
+                    "odds2": "1.38"
+                },
+                {
+                    "name": "Büntetőlap-szám 4,5 (H: kev., V: több)",
+                    "orig_market": "1,77 1,84",
+                    "odds1": "1.77",
+                    "odds2": "1.84"
+                },
+                {
+                    "name": "Büntetőlap-szám 5,5 (H: kev., V: több)",
+                    "orig_market": "1,36 2,68",
+                    "odds1": "1.36",
+                    "odds2": "2.68"
+                },
+                {
+                    "name": "Büntetőlap-szám 6,5 (H: kev., V: több)",
+                    "orig_market": "1,15 4,10",
+                    "odds1": "1.15",
+                    "odds2": "4.10"
+                },
+                {
+                    "name": "Melyik csapat kap több büntetőlapot? (H: 1, D: ua., V: 2)",
+                    "orig_market": "3,15 4,05 1,70",
+                    "odds1": "3.15",
+                    "oddsX": "4.05",
+                    "odds2": "1.70"
+                },
+                {
+                    "name": "félidő - Büntetőlap-szám 0,5 (H: kev., V: több)",
+                    "orig_market": "3,55 1,20",
+                    "odds1": "3.55",
+                    "odds2": "1.20"
+                },
+                {
+                    "name": "félidő - Büntetőlap-szám 1,5 (H: kev., V: több)",
+                    "orig_market": "1,72 1,89",
+                    "odds1": "1.72",
+                    "odds2": "1.89"
+                },
+                {
+                    "name": "félidő - Büntetőlap-szám 2,5 (H: kev., V: több)",
+                    "orig_market": "1,21 3,50",
+                    "odds1": "1.21",
+                    "odds2": "3.50"
+                },
+                {
+                    "name": "Lesz kiállítás? (H: Igen, V: Nem)",
+                    "orig_market": "4,55 1,12",
+                    "odds1": "4.55",
+                    "odds2": "1.12"
+                },
+                {
+                    "name": "félidő - 1X2 + Gólszám 1,5 01",
+                    "orig_market": "3,55",
+                    "odds1": "3.55"
+                },
+                {
+                    "name": "félidő - 1X2 + Gólszám 1,5 02",
+                    "orig_market": "3,10",
+                    "odds1": "3.10"
+                },
+                {
+                    "name": "félidő - 1X2 + Gólszám 1,5 03",
+                    "orig_market": "7,00",
+                    "odds1": "7.00"
+                },
+                {
+                    "name": "félidő - 1X2 + Gólszám 1,5 04",
+                    "orig_market": "4,00",
+                    "odds1": "4.00"
+                },
+                {
+                    "name": "félidő - 1X2 + Gólszám 1,5 05",
+                    "orig_market": "7,25",
+                    "odds1": "7.25"
+                },
+                {
+                    "name": "félidő - 1X2 + Gólszám 1,5 06",
+                    "orig_market": "14,50",
+                    "odds1": "14.50"
+                },
+                {
+                    "name": "félidő - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "3,00 1,29",
+                    "odds1": "3.00",
+                    "odds2": "1.29"
+                },
+                {
+                    "name": "félidő - Gólszám 1,5 (H: kev., V: több)",
+                    "orig_market": "1,47 2,32",
+                    "odds1": "1.47",
+                    "odds2": "2.32"
+                },
+                {
+                    "name": "félidő - Hazai csapat - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "2,12 1,57",
+                    "odds1": "2.12",
+                    "odds2": "1.57"
+                },
+                {
+                    "name": "félidő - Vendégcsapat - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "1,41 2,49",
+                    "odds1": "1.41",
+                    "odds2": "2.49"
+                },
+                {
+                    "name": "félidő - 1X2",
+                    "orig_market": "1,90 2,56 4,30",
+                    "odds1": "1.90",
+                    "oddsX": "2.56",
+                    "odds2": "4.30"
+                },
+                {
+                    "name": "félidő - Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,14 1,30 1,52",
+                    "odds1": "1.14",
+                    "oddsX": "1.30",
+                    "odds2": "1.52"
+                },
+                {
+                    "name": "félidő - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "3,75 1,19",
+                    "odds1": "3.75",
+                    "odds2": "1.19"
+                },
+                {
+                    "name": "félidő - Gólszám 1,5 (H: kev., V: több)",
+                    "orig_market": "1,71 1,90",
+                    "odds1": "1.71",
+                    "odds2": "1.90"
+                },
+                {
+                    "name": "Hazai csapat - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "4,75 1,11",
+                    "odds1": "4.75",
+                    "odds2": "1.11"
+                },
+                {
+                    "name": "Hazai csapat - Gólszám 1,5 (H: kev., V: több)",
+                    "orig_market": "2,06 1,60",
+                    "odds1": "2.06",
+                    "odds2": "1.60"
+                },
+                {
+                    "name": "Hazai csapat - Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "1,33 2,79",
+                    "odds1": "1.33",
+                    "odds2": "2.79"
+                },
+                {
+                    "name": "Vendégcsapat - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "2,29 1,48",
+                    "odds1": "2.29",
+                    "odds2": "1.48"
+                },
+                {
+                    "name": "Vendégcsapat - Gólszám 1,5 (H: kev., V: több)",
+                    "orig_market": "1,25 3,25",
+                    "odds1": "1.25",
+                    "odds2": "3.25"
+                },
+                {
+                    "name": "Mindkét félidőben több, mint 1,5 gól lesz? (H: Igen, V: Nem)",
+                    "orig_market": "4,15 1,15",
+                    "odds1": "4.15",
+                    "odds2": "1.15"
+                },
+                {
+                    "name": "Mindkét félidőben kevesebb, mint 1,5 gól lesz? (H: Igen, V: Nem)",
+                    "orig_market": "2,55 1,39",
+                    "odds1": "2.55",
+                    "odds2": "1.39"
+                },
+                {
+                    "name": "Melyik félidőben lesz több gól? (H: 1. fi, D: ua., V: 2. fi)",
+                    "orig_market": "2,82 3,30 2,04",
+                    "odds1": "2.82",
+                    "oddsX": "3.30",
+                    "odds2": "2.04"
+                },
+                {
+                    "name": "Félidő/végeredmény (Real Madrid/Real Madrid) 01",
+                    "orig_market": "2,17",
+                    "odds1": "2.17"
+                },
+                {
+                    "name": "Félidő/végeredmény (Real Madrid/Döntetlen) 02",
+                    "orig_market": "13,50",
+                    "odds1": "13.50"
+                },
+                {
+                    "name": "Félidő/végeredmény (Real Madrid/Juventus) 03",
+                    "orig_market": "45,00",
+                    "odds1": "45.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Real Madrid) 04",
+                    "orig_market": "4,35",
+                    "odds1": "4.35"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Döntetlen) 05",
+                    "orig_market": "5,25",
+                    "odds1": "5.25"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Juventus) 06",
+                    "orig_market": "10,50",
+                    "odds1": "10.50"
+                },
+                {
+                    "name": "Félidő/végeredmény (Juventus/Real Madrid) 07",
+                    "orig_market": "22,00",
+                    "odds1": "22.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Juventus/Döntetlen) 08",
+                    "orig_market": "15,00",
+                    "odds1": "15.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Juventus/Juventus) 09",
+                    "orig_market": "8,25",
+                    "odds1": "8.25"
+                },
+                {
+                    "name": "Pontos végeredmények (Real Madrid 1:0, 2:0, 3:0) 01",
+                    "orig_market": "2,97",
+                    "odds1": "2.97"
+                },
+                {
+                    "name": "Pontos végeredmények (Juventus 1:0, 2:0, 3:0) 02",
+                    "orig_market": "9,00",
+                    "odds1": "9.00"
+                },
+                {
+                    "name": "Pontos végeredmények (Real Madrid 4:0, 5:0, 6:0) 03",
+                    "orig_market": "15,00",
+                    "odds1": "15.00"
+                },
+                {
+                    "name": "Pontos végeredmények (Juventus 4:0, 5:0, 6:0) 04 1",
+                    "orig_market": "00,00",
+                    "odds1": "00.00"
+                },
+                {
+                    "name": "Pontos végeredmények (Real Madrid 2:1, 3:1, 4:1) 05",
+                    "orig_market": "4,10",
+                    "odds1": "4.10"
+                },
+                {
+                    "name": "Pontos végeredmények (Juventus 2:1, 3:1, 4:1) 06",
+                    "orig_market": "11,00",
+                    "odds1": "11.00"
+                },
+                {
+                    "name": "Pontos végeredmények (Real Madrid 3:2, 4:2, 4:3, 5:1) 07",
+                    "orig_market": "12,00",
+                    "odds1": "12.00"
+                },
+                {
+                    "name": "Pontos végeredmények (Juventus 3:2, 4:2, 4:3, 5:1) 08",
+                    "orig_market": "35,00",
+                    "odds1": "35.00"
+                },
+                {
+                    "name": "Pontos végeredmények (Real Madrid más) 09",
+                    "orig_market": "40,00",
+                    "odds1": "40.00"
+                },
+                {
+                    "name": "Pontos végeredmények (Juventus más) 10 1",
+                    "orig_market": "00,00",
+                    "odds1": "00.00"
+                },
+                {
+                    "name": "Pontos végeredmények (Döntetlen) 11",
+                    "orig_market": "3,25",
+                    "odds1": "3.25"
+                },
+                {
+                    "name": "Lesz hosszabbítás+Lesz gól a hosszabbításban? (H: Igen, V: Nem)",
+                    "orig_market": "5,25 1,13",
+                    "odds1": "5.25",
+                    "odds2": "1.13"
+                },
+                {
+                    "name": "A továbbjutás 11-es párbajban dől el? (H: Igen, V: Nem)",
+                    "orig_market": "6,25 1,09",
+                    "odds1": "6.25",
+                    "odds2": "1.09"
+                }
+            ]
+        },
+        {
+            "page": 4,
+            "date": "2025-07-02",
+            "day": "Szerda",
+            "time": "03:00",
+            "league": "Klubcsapat vb",
+            "team1": "dortmund",
+            "team2": "monterrey",
+            "orig_team1": "Dortmund",
+            "orig_team2": "Monterrey",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,53 3,90 5,00",
+                    "odds1": "1.53",
+                    "oddsX": "3.90",
+                    "odds2": "5.00"
+                },
+                {
+                    "name": "Ki jut tovább?",
+                    "orig_market": "1,31 3,15",
+                    "odds1": "1.31",
+                    "odds2": "3.15"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,15 1,21 1,90",
+                    "odds1": "1.15",
+                    "oddsX": "1.21",
+                    "odds2": "1.90"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "1,23 3,35",
+                    "odds1": "1.23",
+                    "odds2": "3.35"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,70 1,91",
+                    "odds1": "1.70",
+                    "odds2": "1.91"
+                },
+                {
+                    "name": "Gólszám 1,5 (H: kev., V: több)",
+                    "orig_market": "3,85 1,17",
+                    "odds1": "3.85",
+                    "odds2": "1.17"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "2,02 1,63",
+                    "odds1": "2.02",
+                    "odds2": "1.63"
+                },
+                {
+                    "name": "Gólszám 3,5 (H: kev., V: több)",
+                    "orig_market": "1,41 2,50",
+                    "odds1": "1.41",
+                    "odds2": "2.50"
+                },
+                {
+                    "name": "Gólszám 4,5 (H: kev., V: több)",
+                    "orig_market": "1,15 4,15",
+                    "odds1": "1.15",
+                    "odds2": "4.15"
+                },
+                {
+                    "name": "Gólszám (0-1) 01",
+                    "orig_market": "3,85",
+                    "odds1": "3.85"
+                },
+                {
+                    "name": "Gólszám (2-3) 02",
+                    "orig_market": "1,96",
+                    "odds1": "1.96"
+                },
+                {
+                    "name": "Gólszám (4-5) 03",
+                    "orig_market": "3,40",
+                    "odds1": "3.40"
+                },
+                {
+                    "name": "Gólszám (6+) 04",
+                    "orig_market": "11,50",
+                    "odds1": "11.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Hazai és kevesebb) 01",
+                    "orig_market": "8,00",
+                    "odds1": "8.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "13,00",
+                    "odds1": "13.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Vendég és kevesebb) 03",
+                    "orig_market": "16,00",
+                    "odds1": "16.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Hazai és több) 04",
+                    "orig_market": "1,92",
+                    "odds1": "1.92"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Döntetlen és több) 05",
+                    "orig_market": "4,75",
+                    "odds1": "4.75"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Vendég és több) 06",
+                    "orig_market": "6,50",
+                    "odds1": "6.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Hazai és kevesebb) 01",
+                    "orig_market": "4,25",
+                    "odds1": "4.25"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "4,85",
+                    "odds1": "4.85"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Vendég és kevesebb) 03",
+                    "orig_market": "10,50",
+                    "odds1": "10.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Hazai és több) 04",
+                    "orig_market": "2,40",
+                    "odds1": "2.40"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Döntetlen és több) 05",
+                    "orig_market": "13,00",
+                    "odds1": "13.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Vendég és több) 06",
+                    "orig_market": "8,25",
+                    "odds1": "8.25"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Hazai és kevesebb) 01",
+                    "orig_market": "2,45",
+                    "odds1": "2.45"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "4,85",
+                    "odds1": "4.85"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Vendég és kevesebb) 03",
+                    "orig_market": "6,25",
+                    "odds1": "6.25"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Hazai és több) 04",
+                    "orig_market": "4,10",
+                    "odds1": "4.10"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Döntetlen és több) 05",
+                    "orig_market": "13,00",
+                    "odds1": "13.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Vendég és több) 06",
+                    "orig_market": "18,00",
+                    "odds1": "18.00"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Hazai és igen) 01",
+                    "orig_market": "3,35",
+                    "odds1": "3.35"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Hazai és nem) 02",
+                    "orig_market": "2,82",
+                    "odds1": "2.82"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Döntetlen és igen) 03",
+                    "orig_market": "4,85",
+                    "odds1": "4.85"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Döntetlen és nem) 04",
+                    "orig_market": "13,00",
+                    "odds1": "13.00"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Vendég és igen) 05",
+                    "orig_market": "9,25",
+                    "odds1": "9.25"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Vendég és nem) 06",
+                    "orig_market": "9,50",
+                    "odds1": "9.50"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Igen és több, mint 2,5) 01",
+                    "orig_market": "2,12",
+                    "odds1": "2.12"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Igen és kevesebb, mint 2,5) 02",
+                    "orig_market": "7,25",
+                    "odds1": "7.25"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Nem és több, mint 2,5) 03",
+                    "orig_market": "7,00",
+                    "odds1": "7.00"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Nem és kevesebb, mint 2,5) 04",
+                    "orig_market": "2,52",
+                    "odds1": "2.52"
+                },
+                {
+                    "name": "Az első 10 perc eredménye (0-9:59)",
+                    "orig_market": "5,25 1,16 10,50",
+                    "odds1": "5.25",
+                    "oddsX": "1.16",
+                    "odds2": "10.50"
+                },
+                {
+                    "name": "félidő - 1X2",
+                    "orig_market": "2,08 2,32 5,00",
+                    "odds1": "2.08",
+                    "oddsX": "2.32",
+                    "odds2": "5.00"
+                },
+                {
+                    "name": "Szögletszám 10,5 (H: kev., V: több)",
+                    "orig_market": "1,42 2,47",
+                    "odds1": "1.42",
+                    "odds2": "2.47"
+                },
+                {
+                    "name": "Szögletszám 11,5 (H: kev., V: több)",
+                    "orig_market": "1,25 3,20",
+                    "odds1": "1.25",
+                    "odds2": "3.20"
+                },
+                {
+                    "name": "Szögletszám 7,5 (H: kev., V: több)",
+                    "orig_market": "2,75 1,34",
+                    "odds1": "2.75",
+                    "odds2": "1.34"
+                },
+                {
+                    "name": "Szögletszám 8,5 (H: kev., V: több)",
+                    "orig_market": "2,09 1,58",
+                    "odds1": "2.09",
+                    "odds2": "1.58"
+                },
+                {
+                    "name": "Szögletszám 9,5 (H: kev., V: több)",
+                    "orig_market": "1,68 1,95",
+                    "odds1": "1.68",
+                    "odds2": "1.95"
+                },
+                {
+                    "name": "Szögletek száma (H: 0-8, D: 9-11, V: 12+)",
+                    "orig_market": "2,09 2,67 3,35",
+                    "odds1": "2.09",
+                    "oddsX": "2.67",
+                    "odds2": "3.35"
+                },
+                {
+                    "name": "Melyik csapat végez el több szögletet? (H: 1, D: ua., V: 2)",
+                    "orig_market": "1,55 7,75 2,68",
+                    "odds1": "1.55",
+                    "oddsX": "7.75",
+                    "odds2": "2.68"
+                },
+                {
+                    "name": "Lesz kiállítás? (H: Igen, V: Nem)",
+                    "orig_market": "3,65 1,20",
+                    "odds1": "3.65",
+                    "odds2": "1.20"
+                },
+                {
+                    "name": "félidő - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "2,96 1,29",
+                    "odds1": "2.96",
+                    "odds2": "1.29"
+                },
+                {
+                    "name": "félidő - Gólszám 1,5 (H: kev., V: több)",
+                    "orig_market": "1,46 2,36",
+                    "odds1": "1.46",
+                    "odds2": "2.36"
+                },
+                {
+                    "name": "Hazai csapat - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "4,60 1,12",
+                    "odds1": "4.60",
+                    "odds2": "1.12"
+                },
+                {
+                    "name": "Hazai csapat - Gólszám 1,5 (H: kev., V: több)",
+                    "orig_market": "2,01 1,63",
+                    "odds1": "2.01",
+                    "odds2": "1.63"
+                },
+                {
+                    "name": "Vendégcsapat - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "2,30 1,48",
+                    "odds1": "2.30",
+                    "odds2": "1.48"
+                },
+                {
+                    "name": "Félidő/végeredmény (Dortmund/Dortmund) 01",
+                    "orig_market": "2,22",
+                    "odds1": "2.22"
+                },
+                {
+                    "name": "Félidő/végeredmény (Dortmund/Döntetlen) 02",
+                    "orig_market": "13,50",
+                    "odds1": "13.50"
+                },
+                {
+                    "name": "Félidő/végeredmény (Dortmund/Monterrey) 03",
+                    "orig_market": "45,00",
+                    "odds1": "45.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Dortmund) 04",
+                    "orig_market": "4,35",
+                    "odds1": "4.35"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Döntetlen) 05",
+                    "orig_market": "5,25",
+                    "odds1": "5.25"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Monterrey) 06",
+                    "orig_market": "10,00",
+                    "odds1": "10.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Monterrey/Dortmund) 07",
+                    "orig_market": "22,00",
+                    "odds1": "22.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Monterrey/Döntetlen) 08",
+                    "orig_market": "15,00",
+                    "odds1": "15.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Monterrey/Monterrey) 09",
+                    "orig_market": "8,00",
+                    "odds1": "8.00"
+                },
+                {
+                    "name": "Lesz hosszabbítás+Lesz gól a hosszabbításban? (H: Igen, V: Nem)",
+                    "orig_market": "5,25 1,13",
+                    "odds1": "5.25",
+                    "odds2": "1.13"
+                },
+                {
+                    "name": "A továbbjutás 11-es párbajban dől el? (H: Igen, V: Nem)",
+                    "orig_market": "6,25 1,09",
+                    "odds1": "6.25",
+                    "odds2": "1.09"
+                }
+            ]
+        },
+        {
+            "page": 5,
+            "date": "2025-07-03",
+            "day": "Csütörtök",
+            "time": "21:30",
+            "league": "Izlandi Kupa",
+            "team1": "valur",
+            "team2": "stjarnan",
+            "orig_team1": "Valur",
+            "orig_team2": "Stjarnan",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,72 3,80 3,25",
+                    "odds1": "1.72",
+                    "oddsX": "3.80",
+                    "odds2": "3.25"
+                },
+                {
+                    "name": "Ki jut tovább?",
+                    "orig_market": "1,45 2,38",
+                    "odds1": "1.45",
+                    "odds2": "2.38"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,21 1,17 1,60",
+                    "odds1": "1.21",
+                    "oddsX": "1.17",
+                    "odds2": "1.60"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "1,41 2,48",
+                    "odds1": "1.41",
+                    "odds2": "2.48"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,33 2,78",
+                    "odds1": "1.33",
+                    "odds2": "2.78"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "3,05 1,28",
+                    "odds1": "3.05",
+                    "odds2": "1.28"
+                },
+                {
+                    "name": "Gólszám 3,5 (H: kev., V: több)",
+                    "orig_market": "1,88 1,73",
+                    "odds1": "1.88",
+                    "odds2": "1.73"
+                }
+            ]
+        },
+        {
+            "page": 10,
+            "date": "2025-07-02",
+            "day": "Szerda",
+            "time": "12:00",
+            "league": "Dél-koreai FA Kupa",
+            "team1": "daegu",
+            "team2": "gangwon",
+            "orig_team1": "Daegu",
+            "orig_team2": "Gangwon",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "2,92 3,20 2,02",
+                    "odds1": "2.92",
+                    "oddsX": "3.20",
+                    "odds2": "2.02"
+                },
+                {
+                    "name": "Ki jut tovább?",
+                    "orig_market": "2,05 1,61",
+                    "odds1": "2.05",
+                    "odds2": "1.61"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,44 1,23 1,26",
+                    "odds1": "1.44",
+                    "oddsX": "1.23",
+                    "odds2": "1.26"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "2,11 1,57",
+                    "odds1": "2.11",
+                    "odds2": "1.57"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,68 1,94",
+                    "odds1": "1.68",
+                    "odds2": "1.94"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "1,84 1,77",
+                    "odds1": "1.84",
+                    "odds2": "1.77"
+                }
+            ]
+        },
+        {
+            "page": 10,
+            "date": "2025-07-02",
+            "day": "Szerda",
+            "time": "12:00",
+            "league": "Dél-koreai FA Kupa",
+            "team1": "gimpo citizen",
+            "team2": "bucheon",
+            "orig_team1": "Gimpo Citizen",
+            "orig_team2": "Bucheon",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "2,57 3,00 2,34",
+                    "odds1": "2.57",
+                    "oddsX": "3.00",
+                    "odds2": "2.34"
+                }
+            ]
+        },
+        {
+            "page": 10,
+            "date": "2025-07-02",
+            "day": "Szerda",
+            "time": "12:00",
+            "league": "Dél-koreai FA Kupa",
+            "team1": "gwangju",
+            "team2": "ulsan",
+            "orig_team1": "Gwangju",
+            "orig_team2": "Ulsan",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "2,75 3,10 2,15",
+                    "odds1": "2.75",
+                    "oddsX": "3.10",
+                    "odds2": "2.15"
+                },
+                {
+                    "name": "Ki jut tovább?",
+                    "orig_market": "1,94 1,68",
+                    "odds1": "1.94",
+                    "odds2": "1.68"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,39 1,24 1,29",
+                    "odds1": "1.39",
+                    "oddsX": "1.24",
+                    "odds2": "1.29"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "1,97 1,66",
+                    "odds1": "1.97",
+                    "odds2": "1.66"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,74 1,86",
+                    "odds1": "1.74",
+                    "odds2": "1.86"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "1,74 1,87",
+                    "odds1": "1.74",
+                    "odds2": "1.87"
+                }
+            ]
+        },
+        {
+            "page": 10,
+            "date": "2025-07-02",
+            "day": "Szerda",
+            "time": "12:30",
+            "league": "Dél-koreai FA Kupa",
+            "team1": "fc seoul",
+            "team2": "jeonbuk",
+            "orig_team1": "FC Seoul",
+            "orig_team2": "Jeonbuk",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "2,03 2,98 3,10",
+                    "odds1": "2.03",
+                    "oddsX": "2.98",
+                    "odds2": "3.10"
+                },
+                {
+                    "name": "Ki jut tovább?",
+                    "orig_market": "1,58 2,10",
+                    "odds1": "1.58",
+                    "odds2": "2.10"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,24 1,26 1,44",
+                    "odds1": "1.24",
+                    "oddsX": "1.26",
+                    "odds2": "1.44"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "1,54 2,18",
+                    "odds1": "1.54",
+                    "odds2": "2.18"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,88 1,73",
+                    "odds1": "1.88",
+                    "odds2": "1.73"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "1,61 2,05",
+                    "odds1": "1.61",
+                    "odds2": "2.05"
+                }
+            ]
+        },
+        {
+            "page": 10,
+            "date": "2025-07-02",
+            "day": "Szerda",
+            "time": "12:00",
+            "league": "Japán bajnokság",
+            "team1": "vissel kobe",
+            "team2": "sanfrecce hiroshima",
+            "orig_team1": "Vissel Kobe",
+            "orig_team2": "Sanfrecce Hiroshima",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "2,19 3,20 2,94",
+                    "odds1": "2.19",
+                    "oddsX": "3.20",
+                    "odds2": "2.94"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,33 1,30 1,43",
+                    "odds1": "1.33",
+                    "oddsX": "1.30",
+                    "odds2": "1.43"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "1,68 1,95",
+                    "odds1": "1.68",
+                    "odds2": "1.95"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,83 1,77",
+                    "odds1": "1.83",
+                    "odds2": "1.77"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "1,64 2,00",
+                    "odds1": "1.64",
+                    "odds2": "2.00"
+                }
+            ]
+        },
+        {
+            "page": 10,
+            "date": "2025-07-02",
+            "day": "Szerda",
+            "time": "17:00",
+            "league": "Finn bajnokság",
+            "team1": "helsinki jk",
+            "team2": "jaro",
+            "orig_team1": "Helsinki JK",
+            "orig_team2": "Jaro",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,16 5,50 9,50",
+                    "odds1": "1.16",
+                    "oddsX": "5.50",
+                    "odds2": "9.50"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "1,05 6,25",
+                    "odds1": "1.05",
+                    "odds2": "6.25"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,94 1,69",
+                    "odds1": "1.94",
+                    "odds2": "1.69"
+                },
+                {
+                    "name": "Hendikep 0:1",
+                    "orig_market": "1,60 3,85 3,80",
+                    "odds1": "1.60",
+                    "oddsX": "3.85",
+                    "odds2": "3.80"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "2,51 1,41",
+                    "odds1": "2.51",
+                    "odds2": "1.41"
+                }
+            ]
+        },
+        {
+            "page": 10,
+            "date": "2025-07-02",
+            "day": "Szerda",
+            "time": "17:00",
+            "league": "Finn bajnokság",
+            "team1": "ilves",
+            "team2": "ktp",
+            "orig_team1": "Ilves",
+            "orig_team2": "KTP",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,14 6,00 9,50",
+                    "odds1": "1.14",
+                    "oddsX": "6.00",
+                    "odds2": "9.50"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "1,05 6,25",
+                    "odds1": "1.05",
+                    "odds2": "6.25"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,70 1,91",
+                    "odds1": "1.70",
+                    "odds2": "1.91"
+                },
+                {
+                    "name": "Hendikep 0:1",
+                    "orig_market": "1,50 4,20 4,05",
+                    "odds1": "1.50",
+                    "oddsX": "4.20",
+                    "odds2": "4.05"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "3,20 1,25",
+                    "odds1": "3.20",
+                    "odds2": "1.25"
+                },
+                {
+                    "name": "Gólszám 3,5 (H: kev., V: több)",
+                    "orig_market": "1,93 1,69",
+                    "odds1": "1.93",
+                    "odds2": "1.69"
+                }
+            ]
+        },
+        {
+            "page": 10,
+            "date": "2025-07-02",
+            "day": "Szerda",
+            "time": "17:00",
+            "league": "Finn bajnokság",
+            "team1": "inter turku",
+            "team2": "mariehamn",
+            "orig_team1": "Inter Turku",
+            "orig_team2": "Mariehamn",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,13 5,75 10,50",
+                    "odds1": "1.13",
+                    "oddsX": "5.75",
+                    "odds2": "10.50"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "1,04 6,75",
+                    "odds1": "1.04",
+                    "odds2": "6.75"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,94 1,68",
+                    "odds1": "1.94",
+                    "odds2": "1.68"
+                },
+                {
+                    "name": "Hendikep 0:1",
+                    "orig_market": "1,51 4,00 4,15",
+                    "odds1": "1.51",
+                    "oddsX": "4.00",
+                    "odds2": "4.15"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "2,69 1,35",
+                    "odds1": "2.69",
+                    "odds2": "1.35"
+                },
+                {
+                    "name": "Gólszám 3,5 (H: kev., V: több)",
+                    "orig_market": "1,70 1,92",
+                    "odds1": "1.70",
+                    "odds2": "1.92"
+                }
+            ]
+        },
+        {
+            "page": 11,
+            "date": "2025-07-02",
+            "day": "Szerda",
+            "time": "17:00",
+            "league": "Finn bajnokság",
+            "team1": "vaasa ps",
+            "team2": "haka",
+            "orig_team1": "Vaasa PS",
+            "orig_team2": "Haka",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,82 3,45 3,20",
+                    "odds1": "1.82",
+                    "oddsX": "3.45",
+                    "odds2": "3.20"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,22 1,20 1,54",
+                    "odds1": "1.22",
+                    "oddsX": "1.20",
+                    "odds2": "1.54"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "1,45 2,38",
+                    "odds1": "1.45",
+                    "odds2": "2.38"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,58 2,09",
+                    "odds1": "1.58",
+                    "odds2": "2.09"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "2,08 1,59",
+                    "odds1": "2.08",
+                    "odds2": "1.59"
+                }
+            ]
+        },
+        {
+            "page": 11,
+            "date": "2025-07-02",
+            "day": "Szerda",
+            "time": "18:00",
+            "league": "Eb, női, A csoport",
+            "team1": "izland",
+            "team2": "finnorszag",
+            "orig_team1": "Izland",
+            "orig_team2": "Finnország",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,67 3,60 4,25",
+                    "odds1": "1.67",
+                    "oddsX": "3.60",
+                    "odds2": "4.25"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,19 1,24 1,74",
+                    "odds1": "1.19",
+                    "oddsX": "1.24",
+                    "odds2": "1.74"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "1,32 2,82",
+                    "odds1": "1.32",
+                    "odds2": "2.82"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,88 1,73",
+                    "odds1": "1.88",
+                    "odds2": "1.73"
+                },
+                {
+                    "name": "Gólszám 1,5 (H: kev., V: több)",
+                    "orig_market": "3,05 1,28",
+                    "odds1": "3.05",
+                    "odds2": "1.28"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "1,71 1,91",
+                    "odds1": "1.71",
+                    "odds2": "1.91"
+                },
+                {
+                    "name": "Gólszám 3,5 (H: kev., V: több)",
+                    "orig_market": "1,26 3,15",
+                    "odds1": "1.26",
+                    "odds2": "3.15"
+                },
+                {
+                    "name": "Gólszám 4,5 (H: kev., V: több)",
+                    "orig_market": "1,08 5,25",
+                    "odds1": "1.08",
+                    "odds2": "5.25"
+                },
+                {
+                    "name": "Gólszám (0-1) 01",
+                    "orig_market": "2,93",
+                    "odds1": "2.93"
+                },
+                {
+                    "name": "Gólszám (2-3) 02",
+                    "orig_market": "1,91",
+                    "odds1": "1.91"
+                },
+                {
+                    "name": "Gólszám (4-5) 03",
+                    "orig_market": "4,25",
+                    "odds1": "4.25"
+                },
+                {
+                    "name": "Gólszám (6+) 04",
+                    "orig_market": "20,00",
+                    "odds1": "20.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Hazai és kevesebb) 01",
+                    "orig_market": "6,50",
+                    "odds1": "6.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "9,50",
+                    "odds1": "9.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Vendég és kevesebb) 03",
+                    "orig_market": "11,00",
+                    "odds1": "11.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Hazai és több) 04",
+                    "orig_market": "2,30",
+                    "odds1": "2.30"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Döntetlen és több) 05",
+                    "orig_market": "4,90",
+                    "odds1": "4.90"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Vendég és több) 06",
+                    "orig_market": "6,00",
+                    "odds1": "6.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Hazai és kevesebb) 01",
+                    "orig_market": "3,80",
+                    "odds1": "3.80"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "4,10",
+                    "odds1": "4.10"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Vendég és kevesebb) 03",
+                    "orig_market": "7,75",
+                    "odds1": "7.75"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Hazai és több) 04",
+                    "orig_market": "3,05",
+                    "odds1": "3.05"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Döntetlen és több) 05",
+                    "orig_market": "16,00",
+                    "odds1": "16.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Vendég és több) 06",
+                    "orig_market": "8,00",
+                    "odds1": "8.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Hazai és kevesebb) 01",
+                    "orig_market": "2,38",
+                    "odds1": "2.38"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "4,10",
+                    "odds1": "4.10"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Vendég és kevesebb) 03",
+                    "orig_market": "4,90",
+                    "odds1": "4.90"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Hazai és több) 04",
+                    "orig_market": "6,00",
+                    "odds1": "6.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Döntetlen és több) 05",
+                    "orig_market": "16,00",
+                    "odds1": "16.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Vendég és több) 06",
+                    "orig_market": "20,00",
+                    "odds1": "20.00"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Hazai és igen) 01",
+                    "orig_market": "4,20",
+                    "odds1": "4.20"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Hazai és nem) 02",
+                    "orig_market": "2,84",
+                    "odds1": "2.84"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Döntetlen és igen) 03",
+                    "orig_market": "4,95",
+                    "odds1": "4.95"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Döntetlen és nem) 04",
+                    "orig_market": "9,75",
+                    "odds1": "9.75"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Vendég és igen) 05",
+                    "orig_market": "9,00",
+                    "odds1": "9.00"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Vendég és nem) 06",
+                    "orig_market": "7,00",
+                    "odds1": "7.00"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Igen és több, mint 2,5) 01",
+                    "orig_market": "2,48",
+                    "odds1": "2.48"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Igen és kevesebb, mint 2,5) 02",
+                    "orig_market": "6,75",
+                    "odds1": "6.75"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Nem és több, mint 2,5) 03",
+                    "orig_market": "8,75",
+                    "odds1": "8.75"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Nem és kevesebb, mint 2,5) 04",
+                    "orig_market": "2,07",
+                    "odds1": "2.07"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "2,70",
+                    "player": "Hlin Eiriksdottir kezdőként szerez",
+                    "odds1": "2.70"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "3,50",
+                    "player": "Dagny Brynjarsdottir kezdőként szerez",
+                    "odds1": "3.50"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "4,00",
+                    "player": "Linda Sällström kezdőként szerez",
+                    "odds1": "4.00"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "4,00",
+                    "player": "Jutta Rantala kezdőként szerez",
+                    "odds1": "4.00"
+                },
+                {
+                    "name": "Az első 10 perc eredménye (0-9:59)",
+                    "orig_market": "6,00 1,13 10,50",
+                    "odds1": "6.00",
+                    "oddsX": "1.13",
+                    "odds2": "10.50"
+                },
+                {
+                    "name": "félidő - 1X2",
+                    "orig_market": "2,40 2,08 4,70",
+                    "odds1": "2.40",
+                    "oddsX": "2.08",
+                    "odds2": "4.70"
+                },
+                {
+                    "name": "Büntetőlap-szám 1,5 (H: kev., V: több)",
+                    "orig_market": "3,10 1,27",
+                    "odds1": "3.10",
+                    "odds2": "1.27"
+                },
+                {
+                    "name": "Büntetőlap-szám 2,5 (H: kev., V: több)",
+                    "orig_market": "1,80 1,80",
+                    "odds1": "1.80",
+                    "odds2": "1.80"
+                },
+                {
+                    "name": "Büntetőlap-szám 3,5 (H: kev., V: több)",
+                    "orig_market": "1,31 2,87",
+                    "odds1": "1.31",
+                    "odds2": "2.87"
+                },
+                {
+                    "name": "Büntetőlap-szám 4,5 (H: kev., V: több)",
+                    "orig_market": "1,11 4,85",
+                    "odds1": "1.11",
+                    "odds2": "4.85"
+                },
+                {
+                    "name": "Melyik csapat kap több büntetőlapot? (H: 1, D: ua., V: 2)",
+                    "orig_market": "3,75 3,15 1,76",
+                    "odds1": "3.75",
+                    "oddsX": "3.15",
+                    "odds2": "1.76"
+                },
+                {
+                    "name": "félidő - Büntetőlap-szám 0,5 (H: kev., V: több)",
+                    "orig_market": "2,15 1,55",
+                    "odds1": "2.15",
+                    "odds2": "1.55"
+                },
+                {
+                    "name": "félidő - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "2,52 1,40",
+                    "odds1": "2.52",
+                    "odds2": "1.40"
+                },
+                {
+                    "name": "Hazai csapat - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "3,65 1,19",
+                    "odds1": "3.65",
+                    "odds2": "1.19"
+                },
+                {
+                    "name": "Hazai csapat - Gólszám 1,5 (H: kev., V: több)",
+                    "orig_market": "1,68 1,94",
+                    "odds1": "1.68",
+                    "odds2": "1.94"
+                },
+                {
+                    "name": "Vendégcsapat - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "2,19 1,53",
+                    "odds1": "2.19",
+                    "odds2": "1.53"
+                },
+                {
+                    "name": "Félidő/végeredmény (Izland/Izland) 01",
+                    "orig_market": "2,60",
+                    "odds1": "2.60"
+                },
+                {
+                    "name": "Félidő/végeredmény (Izland/Döntetlen) 02",
+                    "orig_market": "14,50",
+                    "odds1": "14.50"
+                },
+                {
+                    "name": "Félidő/végeredmény (Izland/Finnország) 03",
+                    "orig_market": "45,00",
+                    "odds1": "45.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Izland) 04",
+                    "orig_market": "4,25",
+                    "odds1": "4.25"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Döntetlen) 05",
+                    "orig_market": "4,60",
+                    "odds1": "4.60"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Finnország) 06",
+                    "orig_market": "8,00",
+                    "odds1": "8.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Finnország/Izland) 07",
+                    "orig_market": "26,00",
+                    "odds1": "26.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Finnország/Döntetlen) 08",
+                    "orig_market": "16,00",
+                    "odds1": "16.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Finnország/Finnország) 09",
+                    "orig_market": "6,75",
+                    "odds1": "6.75"
+                }
+            ]
+        },
+        {
+            "page": 12,
+            "date": "2025-07-02",
+            "day": "Szerda",
+            "time": "21:00",
+            "league": "Eb, női, A csoport",
+            "team1": "svajc",
+            "team2": "norvegia",
+            "orig_team1": "Svájc",
+            "orig_team2": "Norvégia",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "3,70 3,45 1,82",
+                    "odds1": "3.70",
+                    "oddsX": "3.45",
+                    "odds2": "1.82"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,62 1,26 1,24",
+                    "odds1": "1.62",
+                    "oddsX": "1.26",
+                    "odds2": "1.24"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "2,46 1,42",
+                    "odds1": "2.46",
+                    "odds2": "1.42"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,72 1,89",
+                    "odds1": "1.72",
+                    "odds2": "1.89"
+                },
+                {
+                    "name": "Gólszám 1,5 (H: kev., V: több)",
+                    "orig_market": "3,35 1,23",
+                    "odds1": "3.35",
+                    "odds2": "1.23"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "1,82 1,79",
+                    "odds1": "1.82",
+                    "odds2": "1.79"
+                },
+                {
+                    "name": "Gólszám 3,5 (H: kev., V: több)",
+                    "orig_market": "1,31 2,87",
+                    "odds1": "1.31",
+                    "odds2": "2.87"
+                },
+                {
+                    "name": "Gólszám 4,5 (H: kev., V: több)",
+                    "orig_market": "1,11 4,85",
+                    "odds1": "1.11",
+                    "odds2": "4.85"
+                },
+                {
+                    "name": "Gólszám (0-1) 01",
+                    "orig_market": "3,25",
+                    "odds1": "3.25"
+                },
+                {
+                    "name": "Gólszám (2-3) 02",
+                    "orig_market": "1,92",
+                    "odds1": "1.92"
+                },
+                {
+                    "name": "Gólszám (4-5) 03",
+                    "orig_market": "3,85",
+                    "odds1": "3.85"
+                },
+                {
+                    "name": "Gólszám (6+) 04",
+                    "orig_market": "16,00",
+                    "odds1": "16.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Hazai és kevesebb) 01",
+                    "orig_market": "11,50",
+                    "odds1": "11.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "10,50",
+                    "odds1": "10.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Vendég és kevesebb) 03",
+                    "orig_market": "7,75",
+                    "odds1": "7.75"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Hazai és több) 04",
+                    "orig_market": "4,80",
+                    "odds1": "4.80"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Döntetlen és több) 05",
+                    "orig_market": "4,45",
+                    "odds1": "4.45"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Vendég és több) 06",
+                    "orig_market": "2,46",
+                    "odds1": "2.46"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Hazai és kevesebb) 01",
+                    "orig_market": "7,50",
+                    "odds1": "7.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "4,20",
+                    "odds1": "4.20"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Vendég és kevesebb) 03",
+                    "orig_market": "4,50",
+                    "odds1": "4.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Hazai és több) 04",
+                    "orig_market": "6,25",
+                    "odds1": "6.25"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Döntetlen és több) 05",
+                    "orig_market": "13,00",
+                    "odds1": "13.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Vendég és több) 06",
+                    "orig_market": "3,15",
+                    "odds1": "3.15"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Hazai és kevesebb) 01",
+                    "orig_market": "4,50",
+                    "odds1": "4.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "4,15",
+                    "odds1": "4.15"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Vendég és kevesebb) 03",
+                    "orig_market": "2,71",
+                    "odds1": "2.71"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Hazai és több) 04",
+                    "orig_market": "13,50",
+                    "odds1": "13.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Döntetlen és több) 05",
+                    "orig_market": "13,00",
+                    "odds1": "13.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Vendég és több) 06",
+                    "orig_market": "6,00",
+                    "odds1": "6.00"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Hazai és igen) 01",
+                    "orig_market": "7,25",
+                    "odds1": "7.25"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Hazai és nem) 02",
+                    "orig_market": "6,50",
+                    "odds1": "6.50"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Döntetlen és igen) 03",
+                    "orig_market": "4,45",
+                    "odds1": "4.45"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Döntetlen és nem) 04",
+                    "orig_market": "10,50",
+                    "odds1": "10.50"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Vendég és igen) 05",
+                    "orig_market": "4,15",
+                    "odds1": "4.15"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Vendég és nem) 06",
+                    "orig_market": "3,35",
+                    "odds1": "3.35"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Igen és több, mint 2,5) 01",
+                    "orig_market": "2,23",
+                    "odds1": "2.23"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Igen és kevesebb, mint 2,5) 02",
+                    "orig_market": "6,50",
+                    "odds1": "6.50"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Nem és több, mint 2,5) 03",
+                    "orig_market": "9,25",
+                    "odds1": "9.25"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Nem és kevesebb, mint 2,5) 04",
+                    "orig_market": "2,28",
+                    "odds1": "2.28"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "3,30",
+                    "player": "Ana-Maria Crnogorcevic kezdőként szerez",
+                    "odds1": "3.30"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "4,50",
+                    "player": "Alisha Lehmann kezdőként szerez",
+                    "odds1": "4.50"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "2,30",
+                    "player": "Ada Hegerberg kezdőként szerez",
+                    "odds1": "2.30"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "2,50",
+                    "player": "Caroline Graham Hansen kezdőként szerez",
+                    "odds1": "2.50"
+                },
+                {
+                    "name": "Az első 10 perc eredménye (0-9:59)",
+                    "orig_market": "9,00 1,14 6,25",
+                    "odds1": "9.00",
+                    "oddsX": "1.14",
+                    "odds2": "6.25"
+                },
+                {
+                    "name": "félidő - 1X2",
+                    "orig_market": "4,10 2,13 2,53",
+                    "odds1": "4.10",
+                    "oddsX": "2.13",
+                    "odds2": "2.53"
+                },
+                {
+                    "name": "Büntetőlap-szám 1,5 (H: kev., V: több)",
+                    "orig_market": "3,10 1,27",
+                    "odds1": "3.10",
+                    "odds2": "1.27"
+                },
+                {
+                    "name": "Büntetőlap-szám 2,5 (H: kev., V: több)",
+                    "orig_market": "1,80 1,80",
+                    "odds1": "1.80",
+                    "odds2": "1.80"
+                },
+                {
+                    "name": "Büntetőlap-szám 3,5 (H: kev., V: több)",
+                    "orig_market": "1,31 2,88",
+                    "odds1": "1.31",
+                    "odds2": "2.88"
+                },
+                {
+                    "name": "Büntetőlap-szám 4,5 (H: kev., V: több)",
+                    "orig_market": "1,11 4,85",
+                    "odds1": "1.11",
+                    "odds2": "4.85"
+                },
+                {
+                    "name": "Melyik csapat kap több büntetőlapot? (H: 1, D: ua., V: 2)",
+                    "orig_market": "2,22 3,05 2,69",
+                    "odds1": "2.22",
+                    "oddsX": "3.05",
+                    "odds2": "2.69"
+                },
+                {
+                    "name": "félidő - Büntetőlap-szám 0,5 (H: kev., V: több)",
+                    "orig_market": "2,15 1,55",
+                    "odds1": "2.15",
+                    "odds2": "1.55"
+                },
+                {
+                    "name": "félidő - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "2,66 1,36",
+                    "odds1": "2.66",
+                    "odds2": "1.36"
+                },
+                {
+                    "name": "Hazai csapat - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "2,51 1,40",
+                    "odds1": "2.51",
+                    "odds2": "1.40"
+                },
+                {
+                    "name": "Vendégcsapat - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "3,65 1,20",
+                    "odds1": "3.65",
+                    "odds2": "1.20"
+                },
+                {
+                    "name": "Vendégcsapat - Gólszám 1,5 (H: kev., V: több)",
+                    "orig_market": "1,67 1,95",
+                    "odds1": "1.67",
+                    "odds2": "1.95"
+                },
+                {
+                    "name": "Félidő/végeredmény (Svájc/Svájc) 01",
+                    "orig_market": "5,75",
+                    "odds1": "5.75"
+                },
+                {
+                    "name": "Félidő/végeredmény (Svájc/Döntetlen) 02",
+                    "orig_market": "14,00",
+                    "odds1": "14.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Svájc/Norvégia) 03",
+                    "orig_market": "25,00",
+                    "odds1": "25.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Svájc) 04",
+                    "orig_market": "7,50",
+                    "odds1": "7.50"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Döntetlen) 05",
+                    "orig_market": "4,65",
+                    "odds1": "4.65"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Norvégia) 06",
+                    "orig_market": "4,75",
+                    "odds1": "4.75"
+                },
+                {
+                    "name": "Félidő/végeredmény (Norvégia/Svájc) 07",
+                    "orig_market": "35,00",
+                    "odds1": "35.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Norvégia/Döntetlen) 08",
+                    "orig_market": "13,00",
+                    "odds1": "13.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Norvégia/Norvégia) 09",
+                    "orig_market": "2,86",
+                    "odds1": "2.86"
+                }
+            ]
+        },
+        {
+            "page": 13,
+            "date": "2025-07-02",
+            "day": "Szerda",
+            "time": "19:00",
+            "league": "Svéd 3., Déli csoport",
+            "team1": "eskilsminne",
+            "team2": "bk olympic",
+            "orig_team1": "Eskilsminne",
+            "orig_team2": "BK Olympic",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,73 3,80 3,20",
+                    "odds1": "1.73",
+                    "oddsX": "3.80",
+                    "odds2": "3.20"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,21 1,17 1,63",
+                    "odds1": "1.21",
+                    "oddsX": "1.17",
+                    "odds2": "1.63"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "1,40 2,54",
+                    "odds1": "1.40",
+                    "odds2": "2.54"
+                }
+            ]
+        },
+        {
+            "page": 13,
+            "date": "2025-07-02",
+            "day": "Szerda",
+            "time": "22:00",
+            "league": "Perui bajnokság",
+            "team1": "adc juan pablo ii",
+            "team2": "melgar",
+            "orig_team1": "ADC Juan Pablo II",
+            "orig_team2": "Melgar",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "3,35 3,15 1,87",
+                    "odds1": "3.35",
+                    "oddsX": "3.15",
+                    "odds2": "1.87"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,51 1,23 1,21",
+                    "odds1": "1.51",
+                    "oddsX": "1.23",
+                    "odds2": "1.21"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "2,38 1,45",
+                    "odds1": "2.38",
+                    "odds2": "1.45"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,72 1,89",
+                    "odds1": "1.72",
+                    "odds2": "1.89"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "1,81 1,80",
+                    "odds1": "1.81",
+                    "odds2": "1.80"
+                }
+            ]
+        },
+        {
+            "page": 13,
+            "date": "2025-07-02",
+            "day": "Szerda",
+            "time": "23:45",
+            "league": "Argentin Kupa",
+            "team1": "racing club",
+            "team2": "san martin sj",
+            "orig_team1": "Racing Club",
+            "orig_team2": "San Martin SJ",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,37 3,75 6,50",
+                    "odds1": "1.37",
+                    "oddsX": "3.75",
+                    "odds2": "6.50"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "1,13 4,50",
+                    "odds1": "1.13",
+                    "odds2": "4.50"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "2,18 1,54",
+                    "odds1": "2.18",
+                    "odds2": "1.54"
+                },
+                {
+                    "name": "Hendikep 0:1",
+                    "orig_market": "2,26 3,25 2,49",
+                    "odds1": "2.26",
+                    "oddsX": "3.25",
+                    "odds2": "2.49"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "1,71 1,91",
+                    "odds1": "1.71",
+                    "odds2": "1.91"
+                }
+            ]
+        },
+        {
+            "page": 13,
+            "date": "2025-07-03",
+            "day": "Csütörtök",
+            "time": "02:15",
+            "league": "Argentin Kupa",
+            "team1": "atl. platense",
+            "team2": "independiente de mendoza",
+            "orig_team1": "Atl. Platense",
+            "orig_team2": "Independiente de Mendoza",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "2,16 2,66 3,25",
+                    "odds1": "2.16",
+                    "oddsX": "2.66",
+                    "odds2": "3.25"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,23 1,31 1,39",
+                    "odds1": "1.23",
+                    "oddsX": "1.31",
+                    "odds2": "1.39"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "1,55 2,15",
+                    "odds1": "1.55",
+                    "odds2": "2.15"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "2,26 1,50",
+                    "odds1": "2.26",
+                    "odds2": "1.50"
+                },
+                {
+                    "name": "Gólszám 1,5 (H: kev., V: több)",
+                    "orig_market": "2,18 1,54",
+                    "odds1": "2.18",
+                    "odds2": "1.54"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "1,36 2,65",
+                    "odds1": "1.36",
+                    "odds2": "2.65"
+                }
+            ]
+        },
+        {
+            "page": 13,
+            "date": "2025-07-03",
+            "day": "Csütörtök",
+            "time": "01:00",
+            "league": "Gold Cup",
+            "team1": "usa",
+            "team2": "guatemala",
+            "orig_team1": "USA",
+            "orig_team2": "Guatemala",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,21 5,50 9,50",
+                    "odds1": "1.21",
+                    "oddsX": "5.50",
+                    "odds2": "9.50"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "1,07 5,50",
+                    "odds1": "1.07",
+                    "odds2": "5.50"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,97 1,66",
+                    "odds1": "1.97",
+                    "odds2": "1.66"
+                },
+                {
+                    "name": "Hendikep 0:1",
+                    "orig_market": "1,76 3,60 3,30",
+                    "odds1": "1.76",
+                    "oddsX": "3.60",
+                    "odds2": "3.30"
+                },
+                {
+                    "name": "Gólszám 1,5 (H: kev., V: több)",
+                    "orig_market": "4,30 1,14",
+                    "odds1": "4.30",
+                    "odds2": "1.14"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "2,23 1,51",
+                    "odds1": "2.23",
+                    "odds2": "1.51"
+                },
+                {
+                    "name": "Gólszám 3,5 (H: kev., V: több)",
+                    "orig_market": "1,49 2,28",
+                    "odds1": "1.49",
+                    "odds2": "2.28"
+                },
+                {
+                    "name": "Gólszám 4,5 (H: kev., V: több)",
+                    "orig_market": "1,19 3,70",
+                    "odds1": "1.19",
+                    "odds2": "3.70"
+                },
+                {
+                    "name": "Gólszám (0-1) 01",
+                    "orig_market": "4,35",
+                    "odds1": "4.35"
+                },
+                {
+                    "name": "Gólszám (2-3) 02",
+                    "orig_market": "2,02",
+                    "odds1": "2.02"
+                },
+                {
+                    "name": "Gólszám (4-5) 03",
+                    "orig_market": "3,15",
+                    "odds1": "3.15"
+                },
+                {
+                    "name": "Gólszám (6+) 04",
+                    "orig_market": "9,25",
+                    "odds1": "9.25"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Hazai és kevesebb) 01",
+                    "orig_market": "6,75",
+                    "odds1": "6.75"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "15,00",
+                    "odds1": "15.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Vendég és kevesebb) 03",
+                    "orig_market": "22,00",
+                    "odds1": "22.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Hazai és több) 04",
+                    "orig_market": "1,42",
+                    "odds1": "1.42"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Döntetlen és több) 05",
+                    "orig_market": "6,50",
+                    "odds1": "6.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Vendég és több) 06",
+                    "orig_market": "12,00",
+                    "odds1": "12.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Hazai és kevesebb) 01",
+                    "orig_market": "3,35",
+                    "odds1": "3.35"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "6,25",
+                    "odds1": "6.25"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Vendég és kevesebb) 03",
+                    "orig_market": "17,00",
+                    "odds1": "17.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Hazai és több) 04",
+                    "orig_market": "1,75",
+                    "odds1": "1.75"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Döntetlen és több) 05",
+                    "orig_market": "20,00",
+                    "odds1": "20.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Vendég és több) 06",
+                    "orig_market": "16,00",
+                    "odds1": "16.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Hazai és kevesebb) 01",
+                    "orig_market": "1,98",
+                    "odds1": "1.98"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "6,25",
+                    "odds1": "6.25"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Vendég és kevesebb) 03",
+                    "orig_market": "10,50",
+                    "odds1": "10.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Hazai és több) 04",
+                    "orig_market": "2,72",
+                    "odds1": "2.72"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Döntetlen és több) 05",
+                    "orig_market": "21,00",
+                    "odds1": "21.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Vendég és több) 06",
+                    "orig_market": "40,00",
+                    "odds1": "40.00"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Hazai és igen) 01",
+                    "orig_market": "2,83",
+                    "odds1": "2.83"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Hazai és nem) 02",
+                    "orig_market": "1,93",
+                    "odds1": "1.93"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Döntetlen és igen) 03",
+                    "orig_market": "7,00",
+                    "odds1": "7.00"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Döntetlen és nem) 04",
+                    "orig_market": "16,00",
+                    "odds1": "16.00"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Vendég és igen) 05",
+                    "orig_market": "17,00",
+                    "odds1": "17.00"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Vendég és nem) 06",
+                    "orig_market": "16,00",
+                    "odds1": "16.00"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Igen és több, mint 2,5) 01",
+                    "orig_market": "2,34",
+                    "odds1": "2.34"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Igen és kevesebb, mint 2,5) 02",
+                    "orig_market": "11,00",
+                    "odds1": "11.00"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Nem és több, mint 2,5) 03",
+                    "orig_market": "4,05",
+                    "odds1": "4.05"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Nem és kevesebb, mint 2,5) 04",
+                    "orig_market": "2,60",
+                    "odds1": "2.60"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "1,85",
+                    "player": "Patrick Agyemang kezdőként szerez",
+                    "odds1": "1.85"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "2,50",
+                    "player": "Malik Tillman kezdőként szerez",
+                    "odds1": "2.50"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "5,50",
+                    "player": "Rubio Rubin kezdőként szerez",
+                    "odds1": "5.50"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "7,50",
+                    "player": "Olger Escobar kezdőként szerez",
+                    "odds1": "7.50"
+                },
+                {
+                    "name": "félidő - 1X2",
+                    "orig_market": "1,62 2,51 7,50",
+                    "odds1": "1.62",
+                    "oddsX": "2.51",
+                    "odds2": "7.50"
+                },
+                {
+                    "name": "félidő - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "3,25 1,24",
+                    "odds1": "3.25",
+                    "odds2": "1.24"
+                },
+                {
+                    "name": "Hazai csapat - Gólszám 1,5 (H: kev., V: több)",
+                    "orig_market": "2,65 1,37",
+                    "odds1": "2.65",
+                    "odds2": "1.37"
+                },
+                {
+                    "name": "Vendégcsapat - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "1,81 1,80",
+                    "odds1": "1.81",
+                    "odds2": "1.80"
+                },
+                {
+                    "name": "Félidő/végeredmény (USA/USA) 01",
+                    "orig_market": "1,64",
+                    "odds1": "1.64"
+                },
+                {
+                    "name": "Félidő/végeredmény (USA/Döntetlen) 02",
+                    "orig_market": "20,00",
+                    "odds1": "20.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (USA/Guatemala) 03",
+                    "orig_market": "85,00",
+                    "odds1": "85.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/USA) 04",
+                    "orig_market": "3,70",
+                    "odds1": "3.70"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Döntetlen) 05",
+                    "orig_market": "7,00",
+                    "odds1": "7.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Guatemala) 06",
+                    "orig_market": "17,00",
+                    "odds1": "17.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Guatemala/USA) 07",
+                    "orig_market": "21,00",
+                    "odds1": "21.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Guatemala/Döntetlen) 08",
+                    "orig_market": "23,00",
+                    "odds1": "23.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Guatemala/Guatemala) 09",
+                    "orig_market": "15,00",
+                    "odds1": "15.00"
+                }
+            ]
+        },
+        {
+            "page": 14,
+            "date": "2025-07-03",
+            "day": "Csütörtök",
+            "time": "04:00",
+            "league": "Gold Cup",
+            "team1": "mexiko",
+            "team2": "honduras",
+            "orig_team1": "Mexikó",
+            "orig_team2": "Honduras",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,20 5,50 11,00",
+                    "odds1": "1.20",
+                    "oddsX": "5.50",
+                    "odds2": "11.00"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "1,06 6,00",
+                    "odds1": "1.06",
+                    "odds2": "6.00"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "2,33 1,47",
+                    "odds1": "2.33",
+                    "odds2": "1.47"
+                },
+                {
+                    "name": "Hendikep 0:1",
+                    "orig_market": "1,77 3,40 3,40",
+                    "odds1": "1.77",
+                    "oddsX": "3.40",
+                    "odds2": "3.40"
+                },
+                {
+                    "name": "Gólszám 1,5 (H: kev., V: több)",
+                    "orig_market": "3,55 1,21",
+                    "odds1": "3.55",
+                    "odds2": "1.21"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "1,92 1,69",
+                    "odds1": "1.92",
+                    "odds2": "1.69"
+                },
+                {
+                    "name": "Gólszám 3,5 (H: kev., V: több)",
+                    "orig_market": "1,35 2,70",
+                    "odds1": "1.35",
+                    "odds2": "2.70"
+                },
+                {
+                    "name": "Gólszám 4,5 (H: kev., V: több)",
+                    "orig_market": "1,13 4,50",
+                    "odds1": "1.13",
+                    "odds2": "4.50"
+                },
+                {
+                    "name": "Gólszám (0-1) 01",
+                    "orig_market": "3,50",
+                    "odds1": "3.50"
+                },
+                {
+                    "name": "Gólszám (2-3) 02",
+                    "orig_market": "1,93",
+                    "odds1": "1.93"
+                },
+                {
+                    "name": "Gólszám (4-5) 03",
+                    "orig_market": "3,65",
+                    "odds1": "3.65"
+                },
+                {
+                    "name": "Gólszám (6+) 04",
+                    "orig_market": "14,00",
+                    "odds1": "14.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Hazai és kevesebb) 01",
+                    "orig_market": "5,25",
+                    "odds1": "5.25"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "11,50",
+                    "odds1": "11.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Vendég és kevesebb) 03",
+                    "orig_market": "21,00",
+                    "odds1": "21.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Hazai és több) 04",
+                    "orig_market": "1,46",
+                    "odds1": "1.46"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Döntetlen és több) 05",
+                    "orig_market": "7,50",
+                    "odds1": "7.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Vendég és több) 06",
+                    "orig_market": "17,00",
+                    "odds1": "17.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Hazai és kevesebb) 01",
+                    "orig_market": "2,78",
+                    "odds1": "2.78"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "5,50",
+                    "odds1": "5.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Vendég és kevesebb) 03",
+                    "orig_market": "17,00",
+                    "odds1": "17.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Hazai és több) 04",
+                    "orig_market": "1,91",
+                    "odds1": "1.91"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Döntetlen és több) 05",
+                    "orig_market": "30,00",
+                    "odds1": "30.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Vendég és több) 06",
+                    "orig_market": "23,00",
+                    "odds1": "23.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Hazai és kevesebb) 01",
+                    "orig_market": "1,76",
+                    "odds1": "1.76"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "5,50",
+                    "odds1": "5.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Vendég és kevesebb) 03",
+                    "orig_market": "11,00",
+                    "odds1": "11.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Hazai és több) 04",
+                    "orig_market": "3,20",
+                    "odds1": "3.20"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Döntetlen és több) 05",
+                    "orig_market": "29,00",
+                    "odds1": "29.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Vendég és több) 06",
+                    "orig_market": "75,00",
+                    "odds1": "75.00"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Hazai és igen) 01",
+                    "orig_market": "3,40",
+                    "odds1": "3.40"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Hazai és nem) 02",
+                    "orig_market": "1,71",
+                    "odds1": "1.71"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Döntetlen és igen) 03",
+                    "orig_market": "7,75",
+                    "odds1": "7.75"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Döntetlen és nem) 04",
+                    "orig_market": "11,50",
+                    "odds1": "11.50"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Vendég és igen) 05",
+                    "orig_market": "24,00",
+                    "odds1": "24.00"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Vendég és nem) 06",
+                    "orig_market": "16,00",
+                    "odds1": "16.00"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Igen és több, mint 2,5) 01",
+                    "orig_market": "2,93",
+                    "odds1": "2.93"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Igen és kevesebb, mint 2,5) 02",
+                    "orig_market": "11,00",
+                    "odds1": "11.00"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Nem és több, mint 2,5) 03",
+                    "orig_market": "3,90",
+                    "odds1": "3.90"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Nem és kevesebb, mint 2,5) 04",
+                    "orig_market": "2,17",
+                    "odds1": "2.17"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "2,00",
+                    "player": "Raul Jimenez kezdőként szerez",
+                    "odds1": "2.00"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "2,10",
+                    "player": "Santiago Tomas Gimenez kezdőként szerez",
+                    "odds1": "2.10"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "5,50",
+                    "player": "Jorge Benguche kezdőként szerez",
+                    "odds1": "5.50"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "5,50",
+                    "player": "Quioto Romell kezdőként szerez",
+                    "odds1": "5.50"
+                },
+                {
+                    "name": "félidő - 1X2",
+                    "orig_market": "1,62 2,38 8,75",
+                    "odds1": "1.62",
+                    "oddsX": "2.38",
+                    "odds2": "8.75"
+                },
+                {
+                    "name": "félidő - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "2,93 1,30",
+                    "odds1": "2.93",
+                    "odds2": "1.30"
+                },
+                {
+                    "name": "Hazai csapat - Gólszám 1,5 (H: kev., V: több)",
+                    "orig_market": "2,41 1,44",
+                    "odds1": "2.41",
+                    "odds2": "1.44"
+                },
+                {
+                    "name": "Vendégcsapat - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "1,58 2,10",
+                    "odds1": "1.58",
+                    "odds2": "2.10"
+                },
+                {
+                    "name": "Félidő/végeredmény (Mexikó/Mexikó) 01",
+                    "orig_market": "1,62",
+                    "odds1": "1.62"
+                },
+                {
+                    "name": "Félidő/végeredmény (Mexikó/Döntetlen) 02",
+                    "orig_market": "22,00",
+                    "odds1": "22.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Mexikó/Honduras) 03 1",
+                    "orig_market": "00,00",
+                    "odds1": "00.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Mexikó) 04",
+                    "orig_market": "3,50",
+                    "odds1": "3.50"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Döntetlen) 05",
+                    "orig_market": "6,25",
+                    "odds1": "6.25"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Honduras) 06",
+                    "orig_market": "19,00",
+                    "odds1": "19.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Honduras/Mexikó) 07",
+                    "orig_market": "25,00",
+                    "odds1": "25.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Honduras/Döntetlen) 08",
+                    "orig_market": "26,00",
+                    "odds1": "26.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Honduras/Honduras) 09",
+                    "orig_market": "18,00",
+                    "odds1": "18.00"
+                }
+            ]
+        },
+        {
+            "page": 15,
+            "date": "2025-07-03",
+            "day": "Csütörtök",
+            "time": "02:00",
+            "league": "USL Championship",
+            "team1": "birmingham legion",
+            "team2": "charleston",
+            "orig_team1": "Birmingham Legion",
+            "orig_team2": "Charleston",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "3,85 3,85 1,58",
+                    "odds1": "3.85",
+                    "oddsX": "3.85",
+                    "odds2": "1.58"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,75 1,16 1,15",
+                    "odds1": "1.75",
+                    "oddsX": "1.16",
+                    "odds2": "1.15"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "3,05 1,28",
+                    "odds1": "3.05",
+                    "odds2": "1.28"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,58 2,09",
+                    "odds1": "1.58",
+                    "odds2": "2.09"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "2,28 1,49",
+                    "odds1": "2.28",
+                    "odds2": "1.49"
+                }
+            ]
+        },
+        {
+            "page": 16,
+            "date": "2025-07-03",
+            "day": "Csütörtök",
+            "time": "17:30",
+            "league": "Finn 2.",
+            "team1": "kapa",
+            "team2": "turku ps",
+            "orig_team1": "KaPa",
+            "orig_team2": "Turku PS",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "5,00 4,75 1,35",
+                    "odds1": "5.00",
+                    "oddsX": "4.75",
+                    "odds2": "1.35"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "4,10 1,16",
+                    "odds1": "4.10",
+                    "odds2": "1.16"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,36 2,67",
+                    "odds1": "1.36",
+                    "odds2": "2.67"
+                },
+                {
+                    "name": "Hendikep 1:0",
+                    "orig_market": "2,68 4,20 1,86",
+                    "odds1": "2.68",
+                    "oddsX": "4.20",
+                    "odds2": "1.86"
+                },
+                {
+                    "name": "Gólszám 3,5 (H: kev., V: több)",
+                    "orig_market": "2,21 1,52",
+                    "odds1": "2.21",
+                    "odds2": "1.52"
+                }
+            ]
+        },
+        {
+            "page": 16,
+            "date": "2025-07-03",
+            "day": "Csütörtök",
+            "time": "17:30",
+            "league": "Finn 2.",
+            "team1": "lahti",
+            "team2": "jippo",
+            "orig_team1": "Lahti",
+            "orig_team2": "JIPPO",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,58 3,45 4,40",
+                    "odds1": "1.58",
+                    "oddsX": "3.45",
+                    "odds2": "4.40"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,13 1,18 1,76",
+                    "odds1": "1.13",
+                    "oddsX": "1.18",
+                    "odds2": "1.76"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "1,24 3,30",
+                    "odds1": "1.24",
+                    "odds2": "3.30"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,89 1,72",
+                    "odds1": "1.89",
+                    "odds2": "1.72"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "1,79 1,81",
+                    "odds1": "1.79",
+                    "odds2": "1.81"
+                }
+            ]
+        },
+        {
+            "page": 16,
+            "date": "2025-07-03",
+            "day": "Csütörtök",
+            "time": "18:00",
+            "league": "Eb, női, B csoport",
+            "team1": "belgium",
+            "team2": "olaszorszag",
+            "orig_team1": "Belgium",
+            "orig_team2": "Olaszország",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "4,30 3,85 1,62",
+                    "odds1": "4.30",
+                    "oddsX": "3.85",
+                    "odds2": "1.62"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,79 1,22 1,19",
+                    "odds1": "1.79",
+                    "oddsX": "1.22",
+                    "odds2": "1.19"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "2,91 1,31",
+                    "odds1": "2.91",
+                    "odds2": "1.31"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,63 2,01",
+                    "odds1": "1.63",
+                    "odds2": "2.01"
+                },
+                {
+                    "name": "Gólszám 1,5 (H: kev., V: több)",
+                    "orig_market": "4,00 1,16",
+                    "odds1": "4.00",
+                    "odds2": "1.16"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "2,07 1,59",
+                    "odds1": "2.07",
+                    "odds2": "1.59"
+                },
+                {
+                    "name": "Gólszám 3,5 (H: kev., V: több)",
+                    "orig_market": "1,43 2,44",
+                    "odds1": "1.43",
+                    "odds2": "2.44"
+                },
+                {
+                    "name": "Gólszám 4,5 (H: kev., V: több)",
+                    "orig_market": "1,16 4,05",
+                    "odds1": "1.16",
+                    "odds2": "4.05"
+                },
+                {
+                    "name": "Gólszám (0-1) 01",
+                    "orig_market": "3,95",
+                    "odds1": "3.95"
+                },
+                {
+                    "name": "Gólszám (2-3) 02",
+                    "orig_market": "1,98",
+                    "odds1": "1.98"
+                },
+                {
+                    "name": "Gólszám (4-5) 03",
+                    "orig_market": "3,35",
+                    "odds1": "3.35"
+                },
+                {
+                    "name": "Gólszám (6+) 04",
+                    "orig_market": "11,00",
+                    "odds1": "11.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Hazai és kevesebb) 01",
+                    "orig_market": "14,50",
+                    "odds1": "14.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "14,00",
+                    "odds1": "14.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Vendég és kevesebb) 03",
+                    "orig_market": "8,75",
+                    "odds1": "8.75"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Hazai és több) 04",
+                    "orig_market": "5,25",
+                    "odds1": "5.25"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Döntetlen és több) 05",
+                    "orig_market": "4,60",
+                    "odds1": "4.60"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Vendég és több) 06",
+                    "orig_market": "2,04",
+                    "odds1": "2.04"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Hazai és kevesebb) 01",
+                    "orig_market": "9,75",
+                    "odds1": "9.75"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "4,95",
+                    "odds1": "4.95"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Vendég és kevesebb) 03",
+                    "orig_market": "4,65",
+                    "odds1": "4.65"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Hazai és több) 04",
+                    "orig_market": "6,75",
+                    "odds1": "6.75"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Döntetlen és több) 05",
+                    "orig_market": "12,00",
+                    "odds1": "12.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Vendég és több) 06",
+                    "orig_market": "2,53",
+                    "odds1": "2.53"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Hazai és kevesebb) 01",
+                    "orig_market": "5,50",
+                    "odds1": "5.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "4,95",
+                    "odds1": "4.95"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Vendég és kevesebb) 03",
+                    "orig_market": "2,64",
+                    "odds1": "2.64"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Hazai és több) 04",
+                    "orig_market": "14,00",
+                    "odds1": "14.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Döntetlen és több) 05",
+                    "orig_market": "12,00",
+                    "odds1": "12.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Vendég és több) 06",
+                    "orig_market": "4,30",
+                    "odds1": "4.30"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Hazai és igen) 01",
+                    "orig_market": "7,50",
+                    "odds1": "7.50"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Hazai és nem) 02",
+                    "orig_market": "8,25",
+                    "odds1": "8.25"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Döntetlen és igen) 03",
+                    "orig_market": "4,65",
+                    "odds1": "4.65"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Döntetlen és nem) 04",
+                    "orig_market": "14,00",
+                    "odds1": "14.00"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Vendég és igen) 05",
+                    "orig_market": "3,40",
+                    "odds1": "3.40"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Vendég és nem) 06",
+                    "orig_market": "3,15",
+                    "odds1": "3.15"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Igen és több, mint 2,5) 01",
+                    "orig_market": "2,01",
+                    "odds1": "2.01"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Igen és kevesebb, mint 2,5) 02",
+                    "orig_market": "7,25",
+                    "odds1": "7.25"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Nem és több, mint 2,5) 03",
+                    "orig_market": "7,75",
+                    "odds1": "7.75"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Nem és kevesebb, mint 2,5) 04",
+                    "orig_market": "2,61",
+                    "odds1": "2.61"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "3,00",
+                    "player": "Tessa Wullaert kezdőként szerez",
+                    "odds1": "3.00"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "3,50",
+                    "player": "Ella Van Kerkhoven kezdőként szerez",
+                    "odds1": "3.50"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "2,10",
+                    "player": "Christiana Girelli kezdőként szerez",
+                    "odds1": "2.10"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "2,50",
+                    "player": "Martina Piemonte kezdőként szerez",
+                    "odds1": "2.50"
+                },
+                {
+                    "name": "Az első 10 perc eredménye (0-9:59)",
+                    "orig_market": "9,50 1,16 5,50",
+                    "odds1": "9.50",
+                    "oddsX": "1.16",
+                    "odds2": "5.50"
+                },
+                {
+                    "name": "félidő - 1X2",
+                    "orig_market": "4,45 2,29 2,22",
+                    "odds1": "4.45",
+                    "oddsX": "2.29",
+                    "odds2": "2.22"
+                },
+                {
+                    "name": "Büntetőlap-szám 1,5 (H: kev., V: több)",
+                    "orig_market": "3,25 1,25",
+                    "odds1": "3.25",
+                    "odds2": "1.25"
+                },
+                {
+                    "name": "Büntetőlap-szám 2,5 (H: kev., V: több)",
+                    "orig_market": "1,87 1,74",
+                    "odds1": "1.87",
+                    "odds2": "1.74"
+                },
+                {
+                    "name": "Büntetőlap-szám 3,5 (H: kev., V: több)",
+                    "orig_market": "1,34 2,74",
+                    "odds1": "1.34",
+                    "odds2": "2.74"
+                },
+                {
+                    "name": "Melyik csapat kap több büntetőlapot? (H: 1, D: ua., V: 2)",
+                    "orig_market": "2,65 3,10 2,22",
+                    "odds1": "2.65",
+                    "oddsX": "3.10",
+                    "odds2": "2.22"
+                },
+                {
+                    "name": "félidő - Büntetőlap-szám 0,5 (H: kev., V: több)",
+                    "orig_market": "2,20 1,52",
+                    "odds1": "2.20",
+                    "odds2": "1.52"
+                },
+                {
+                    "name": "félidő - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "2,97 1,29",
+                    "odds1": "2.97",
+                    "odds2": "1.29"
+                },
+                {
+                    "name": "Hazai csapat - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "2,52 1,40",
+                    "odds1": "2.52",
+                    "odds2": "1.40"
+                },
+                {
+                    "name": "Vendégcsapat - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "4,45 1,13",
+                    "odds1": "4.45",
+                    "odds2": "1.13"
+                },
+                {
+                    "name": "Vendégcsapat - Gólszám 1,5 (H: kev., V: több)",
+                    "orig_market": "1,95 1,68",
+                    "odds1": "1.95",
+                    "odds2": "1.68"
+                },
+                {
+                    "name": "Félidő/végeredmény (Belgium/Belgium) 01",
+                    "orig_market": "6,75",
+                    "odds1": "6.75"
+                },
+                {
+                    "name": "Félidő/végeredmény (Belgium/Döntetlen) 02",
+                    "orig_market": "14,50",
+                    "odds1": "14.50"
+                },
+                {
+                    "name": "Félidő/végeredmény (Belgium/Olaszország) 03",
+                    "orig_market": "22,00",
+                    "odds1": "22.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Belgium) 04",
+                    "orig_market": "8,75",
+                    "odds1": "8.75"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Döntetlen) 05",
+                    "orig_market": "5,25",
+                    "odds1": "5.25"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Olaszország) 06",
+                    "orig_market": "4,50",
+                    "odds1": "4.50"
+                },
+                {
+                    "name": "Félidő/végeredmény (Olaszország/Belgium) 07",
+                    "orig_market": "40,00",
+                    "odds1": "40.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Olaszország/Döntetlen) 08",
+                    "orig_market": "13,50",
+                    "odds1": "13.50"
+                },
+                {
+                    "name": "Félidő/végeredmény (Olaszország/Olaszország) 09",
+                    "orig_market": "2,42",
+                    "odds1": "2.42"
+                }
+            ]
+        },
+        {
+            "page": 17,
+            "date": "2025-07-03",
+            "day": "Csütörtök",
+            "time": "21:00",
+            "league": "Eb, női, B csoport",
+            "team1": "spanyolorszag",
+            "team2": "portugalia",
+            "orig_team1": "Spanyolország",
+            "orig_team2": "Portugália",
+            "markets": [
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "2,19 1,53",
+                    "odds1": "2.19",
+                    "odds2": "1.53"
+                },
+                {
+                    "name": "Hendikep 0:2",
+                    "orig_market": "1,76 4,25 3,25",
+                    "odds1": "1.76",
+                    "oddsX": "4.25",
+                    "odds2": "3.25"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "3,30 1,24",
+                    "odds1": "3.30",
+                    "odds2": "1.24"
+                },
+                {
+                    "name": "Gólszám 3,5 (H: kev., V: több)",
+                    "orig_market": "1,99 1,65",
+                    "odds1": "1.99",
+                    "odds2": "1.65"
+                },
+                {
+                    "name": "Gólszám 4,5 (H: kev., V: több)",
+                    "orig_market": "1,44 2,42",
+                    "odds1": "1.44",
+                    "odds2": "2.42"
+                },
+                {
+                    "name": "Gólszám 5,5 (H: kev., V: több)",
+                    "orig_market": "1,19 3,75",
+                    "odds1": "1.19",
+                    "odds2": "3.75"
+                },
+                {
+                    "name": "Gólszám (0-1) 01",
+                    "orig_market": "7,75",
+                    "odds1": "7.75"
+                },
+                {
+                    "name": "Gólszám (2-3) 02",
+                    "orig_market": "2,44",
+                    "odds1": "2.44"
+                },
+                {
+                    "name": "Gólszám (4-5) 03",
+                    "orig_market": "2,56",
+                    "odds1": "2.56"
+                },
+                {
+                    "name": "Gólszám (6+) 04",
+                    "orig_market": "4,50",
+                    "odds1": "4.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Hazai és kevesebb) 01",
+                    "orig_market": "9,25",
+                    "odds1": "9.25"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "28,00",
+                    "odds1": "28.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Vendég és kevesebb) 03",
+                    "orig_market": "55,00",
+                    "odds1": "55.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Hazai és több) 04",
+                    "orig_market": "1,15",
+                    "odds1": "1.15"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Döntetlen és több) 05",
+                    "orig_market": "11,50",
+                    "odds1": "11.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 1,5 (Vendég és több) 06",
+                    "orig_market": "30,00",
+                    "odds1": "30.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Hazai és kevesebb) 01",
+                    "orig_market": "4,15",
+                    "odds1": "4.15"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "12,50",
+                    "odds1": "12.50"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Vendég és kevesebb) 03",
+                    "orig_market": "50,00",
+                    "odds1": "50.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Hazai és több) 04",
+                    "orig_market": "1,32",
+                    "odds1": "1.32"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Döntetlen és több) 05",
+                    "orig_market": "35,00",
+                    "odds1": "35.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Vendég és több) 06",
+                    "orig_market": "40,00",
+                    "odds1": "40.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Hazai és kevesebb) 01",
+                    "orig_market": "2,27",
+                    "odds1": "2.27"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "13,00",
+                    "odds1": "13.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Vendég és kevesebb) 03",
+                    "orig_market": "30,00",
+                    "odds1": "30.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Hazai és több) 04",
+                    "orig_market": "1,77",
+                    "odds1": "1.77"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Döntetlen és több) 05",
+                    "orig_market": "40,00",
+                    "odds1": "40.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 3,5 (Vendég és több) 06 1",
+                    "orig_market": "00,00",
+                    "odds1": "00.00"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Hazai és igen) 01",
+                    "orig_market": "2,60",
+                    "odds1": "2.60"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Hazai és nem) 02",
+                    "orig_market": "1,61",
+                    "odds1": "1.61"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Döntetlen és igen) 03",
+                    "orig_market": "14,00",
+                    "odds1": "14.00"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Döntetlen és nem) 04",
+                    "orig_market": "35,00",
+                    "odds1": "35.00"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Vendég és igen) 05",
+                    "orig_market": "45,00",
+                    "odds1": "45.00"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Vendég és nem) 06",
+                    "orig_market": "50,00",
+                    "odds1": "50.00"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Igen és több, mint 2,5) 01",
+                    "orig_market": "2,41",
+                    "odds1": "2.41"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Igen és kevesebb, mint 2,5) 02",
+                    "orig_market": "22,00",
+                    "odds1": "22.00"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Nem és több, mint 2,5) 03",
+                    "orig_market": "2,37",
+                    "odds1": "2.37"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Nem és kevesebb, mint 2,5) 04",
+                    "orig_market": "3,75",
+                    "odds1": "3.75"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "1,60",
+                    "player": "Esther Gonzalez kezdőként szerez",
+                    "odds1": "1.60"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "1,90",
+                    "player": "Mariona Caldentey kezdőként szerez",
+                    "odds1": "1.90"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "1,90",
+                    "player": "Claudia Pina kezdőként szerez",
+                    "odds1": "1.90"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "6,50",
+                    "player": "Diana Silva kezdőként szerez",
+                    "odds1": "6.50"
+                },
+                {
+                    "name": "kezdőként szerez gólt?",
+                    "orig_market": "7,00",
+                    "player": "Jessica Silva kezdőként szerez",
+                    "odds1": "7.00"
+                },
+                {
+                    "name": "Az első 10 perc eredménye (0-9:59)",
+                    "orig_market": "3,30 1,25 22,00",
+                    "odds1": "3.30",
+                    "oddsX": "1.25",
+                    "odds2": "22.00"
+                },
+                {
+                    "name": "félidő - 1X2",
+                    "orig_market": "1,33 3,50 14,00",
+                    "odds1": "1.33",
+                    "oddsX": "3.50",
+                    "odds2": "14.00"
+                },
+                {
+                    "name": "Büntetőlap-szám 1,5 (H: kev., V: több)",
+                    "orig_market": "2,91 1,31",
+                    "odds1": "2.91",
+                    "odds2": "1.31"
+                },
+                {
+                    "name": "Büntetőlap-szám 2,5 (H: kev., V: több)",
+                    "orig_market": "1,74 1,87",
+                    "odds1": "1.74",
+                    "odds2": "1.87"
+                },
+                {
+                    "name": "Büntetőlap-szám 3,5 (H: kev., V: több)",
+                    "orig_market": "1,29 3,00",
+                    "odds1": "1.29",
+                    "odds2": "3.00"
+                },
+                {
+                    "name": "Melyik csapat kap több büntetőlapot? (H: 1, D: ua., V: 2)",
+                    "orig_market": "7,00 3,55 1,38",
+                    "odds1": "7.00",
+                    "oddsX": "3.55",
+                    "odds2": "1.38"
+                },
+                {
+                    "name": "félidő - Büntetőlap-szám 0,5 (H: kev., V: több)",
+                    "orig_market": "2,11 1,57",
+                    "odds1": "2.11",
+                    "odds2": "1.57"
+                },
+                {
+                    "name": "félidő - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "4,30 1,14",
+                    "odds1": "4.30",
+                    "odds2": "1.14"
+                },
+                {
+                    "name": "félidő - Gólszám 1,5 (H: kev., V: több)",
+                    "orig_market": "1,88 1,73",
+                    "odds1": "1.88",
+                    "odds2": "1.73"
+                },
+                {
+                    "name": "Hazai csapat - Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "2,39 1,45",
+                    "odds1": "2.39",
+                    "odds2": "1.45"
+                },
+                {
+                    "name": "Vendégcsapat - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "1,57 2,12",
+                    "odds1": "1.57",
+                    "odds2": "2.12"
+                },
+                {
+                    "name": "Félidő/végeredmény (Spanyolország/Spanyolország) 01",
+                    "orig_market": "1,26",
+                    "odds1": "1.26"
+                },
+                {
+                    "name": "Félidő/végeredmény (Spanyolország/Döntetlen) 02",
+                    "orig_market": "35,00",
+                    "odds1": "35.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Spanyolország/Portugália) 03 1",
+                    "orig_market": "00,00",
+                    "odds1": "00.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Spanyolország) 04",
+                    "orig_market": "3,70",
+                    "odds1": "3.70"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Döntetlen) 05",
+                    "orig_market": "12,50",
+                    "odds1": "12.50"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Portugália) 06",
+                    "orig_market": "40,00",
+                    "odds1": "40.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Portugália/Spanyolország) 07",
+                    "orig_market": "23,00",
+                    "odds1": "23.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Portugália/Döntetlen) 08",
+                    "orig_market": "40,00",
+                    "odds1": "40.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Portugália/Portugália) 09",
+                    "orig_market": "35,00",
+                    "odds1": "35.00"
+                }
+            ]
+        },
+        {
+            "page": 18,
+            "date": "2025-07-03",
+            "day": "Csütörtök",
+            "time": "21:15",
+            "league": "Izlandi bajnokság",
+            "team1": "afturelding",
+            "team2": "breidablik",
+            "orig_team1": "Afturelding",
+            "orig_team2": "Breidablik",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "3,85 3,85 1,59",
+                    "odds1": "3.85",
+                    "oddsX": "3.85",
+                    "odds2": "1.59"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,71 1,17 1,16",
+                    "odds1": "1.71",
+                    "oddsX": "1.17",
+                    "odds2": "1.16"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "2,90 1,31",
+                    "odds1": "2.90",
+                    "odds2": "1.31"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,53 2,19",
+                    "odds1": "1.53",
+                    "odds2": "2.19"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "2,35 1,46",
+                    "odds1": "2.35",
+                    "odds2": "1.46"
+                }
+            ]
+        },
+        {
+            "page": 18,
+            "date": "2025-07-04",
+            "day": "Péntek",
+            "time": "00:45",
+            "league": "Argentin Kupa",
+            "team1": "instituto cordoba",
+            "team2": "ca huracan",
+            "orig_team1": "Instituto Cordoba",
+            "orig_team2": "CA Huracan",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "3,25 2,71 2,11",
+                    "odds1": "3.25",
+                    "oddsX": "2.71",
+                    "odds2": "2.11"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,41 1,30 1,22",
+                    "odds1": "1.41",
+                    "oddsX": "1.30",
+                    "odds2": "1.22"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "2,19 1,53",
+                    "odds1": "2.19",
+                    "odds2": "1.53"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "2,13 1,56",
+                    "odds1": "2.13",
+                    "odds2": "1.56"
+                },
+                {
+                    "name": "Gólszám 1,5 (H: kev., V: több)",
+                    "orig_market": "2,33 1,47",
+                    "odds1": "2.33",
+                    "odds2": "1.47"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "1,42 2,46",
+                    "odds1": "1.42",
+                    "odds2": "2.46"
+                }
+            ]
+        },
+        {
+            "page": 18,
+            "date": "2025-07-04",
+            "day": "Péntek",
+            "time": "01:30",
+            "league": "MLS",
+            "team1": "new york city fc",
+            "team2": "toronto fc",
+            "orig_team1": "New York City FC",
+            "orig_team2": "Toronto FC",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,46 4,20 5,25",
+                    "odds1": "1.46",
+                    "oddsX": "4.20",
+                    "odds2": "5.25"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,14 1,19 2,00",
+                    "odds1": "1.14",
+                    "oddsX": "1.19",
+                    "odds2": "2.00"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "1,21 3,50",
+                    "odds1": "1.21",
+                    "odds2": "3.50"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,73 1,88",
+                    "odds1": "1.73",
+                    "odds2": "1.88"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "2,06 1,60",
+                    "odds1": "2.06",
+                    "odds2": "1.60"
+                }
+            ]
+        },
+        {
+            "page": 18,
+            "date": "2025-07-04",
+            "day": "Péntek",
+            "time": "02:35",
+            "league": "Brazil 2.",
+            "team1": "atletico go",
+            "team2": "crb",
+            "orig_team1": "Atlético GO",
+            "orig_team2": "CRB",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,68 3,25 4,05",
+                    "odds1": "1.68",
+                    "oddsX": "3.25",
+                    "odds2": "4.05"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,16 1,22 1,63",
+                    "odds1": "1.16",
+                    "oddsX": "1.22",
+                    "odds2": "1.63"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "1,32 2,86",
+                    "odds1": "1.32",
+                    "odds2": "2.86"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,92 1,70",
+                    "odds1": "1.92",
+                    "odds2": "1.70"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "1,67 1,96",
+                    "odds1": "1.67",
+                    "odds2": "1.96"
+                }
+            ]
+        },
+        {
+            "page": 19,
+            "date": "2025-07-04",
+            "day": "Péntek",
+            "time": "17:00",
+            "league": "Finn bajnokság",
+            "team1": "ac oulu",
+            "team2": "kuopio ps",
+            "orig_team1": "AC Oulu",
+            "orig_team2": "Kuopio PS",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "3,65 3,60 1,67",
+                    "odds1": "3.65",
+                    "oddsX": "3.60",
+                    "odds2": "1.67"
+                }
+            ]
+        },
+        {
+            "page": 19,
+            "date": "2025-07-04",
+            "day": "Péntek",
+            "time": "17:30",
+            "league": "Finn 2.",
+            "team1": "japs",
+            "team2": "salpa",
+            "orig_team1": "JäPS",
+            "orig_team2": "SalPa",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,60 3,85 3,80",
+                    "odds1": "1.60",
+                    "oddsX": "3.85",
+                    "odds2": "3.80"
+                }
+            ]
+        },
+        {
+            "page": 19,
+            "date": "2025-07-04",
+            "day": "Péntek",
+            "time": "18:00",
+            "league": "Eb, női, C csoport",
+            "team1": "dania",
+            "team2": "svedorszag",
+            "orig_team1": "Dánia",
+            "orig_team2": "Svédország",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "5,50 4,10 1,46",
+                    "odds1": "5.50",
+                    "oddsX": "4.10",
+                    "odds2": "1.46"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "2,01 1,19 1,13",
+                    "odds1": "2.01",
+                    "oddsX": "1.19",
+                    "odds2": "1.13"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,80 1,80",
+                    "odds1": "1.80",
+                    "odds2": "1.80"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "1,96 1,67",
+                    "odds1": "1.96",
+                    "odds2": "1.67"
+                },
+                {
+                    "name": "félidő - 1X2",
+                    "orig_market": "5,50 2,30 2,03",
+                    "odds1": "5.50",
+                    "oddsX": "2.30",
+                    "odds2": "2.03"
+                }
+            ]
+        },
+        {
+            "page": 19,
+            "date": "2025-07-04",
+            "day": "Péntek",
+            "time": "21:00",
+            "league": "Eb, női, C csoport",
+            "team1": "nemetorszag",
+            "team2": "lengyelorszag",
+            "orig_team1": "Németország",
+            "orig_team2": "Lengyelország",
+            "markets": [
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "2,58 1,38",
+                    "odds1": "2.58",
+                    "odds2": "1.38"
+                },
+                {
+                    "name": "Hendikep 0:2",
+                    "orig_market": "1,63 4,30 3,75",
+                    "odds1": "1.63",
+                    "oddsX": "4.30",
+                    "odds2": "3.75"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "3,30 1,24",
+                    "odds1": "3.30",
+                    "odds2": "1.24"
+                },
+                {
+                    "name": "Gólszám 3,5 (H: kev., V: több)",
+                    "orig_market": "1,97 1,66",
+                    "odds1": "1.97",
+                    "odds2": "1.66"
+                },
+                {
+                    "name": "félidő - 1X2",
+                    "orig_market": "1,28 3,65 19,00",
+                    "odds1": "1.28",
+                    "oddsX": "3.65",
+                    "odds2": "19.00"
+                }
+            ]
+        },
+        {
+            "page": 19,
+            "date": "2025-07-04",
+            "day": "Péntek",
+            "time": "20:00",
+            "league": "Perui bajnokság",
+            "team1": "huancayo",
+            "team2": "utc de cajamarca",
+            "orig_team1": "Huancayo",
+            "orig_team2": "UTC de Cajamarca",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,33 4,20 6,25",
+                    "odds1": "1.33",
+                    "oddsX": "4.20",
+                    "odds2": "6.25"
+                },
+                {
+                    "name": "Hendikep 0:1",
+                    "orig_market": "2,05 3,55 2,62",
+                    "odds1": "2.05",
+                    "oddsX": "3.55",
+                    "odds2": "2.62"
+                }
+            ]
+        },
+        {
+            "page": 19,
+            "date": "2025-07-04",
+            "day": "Péntek",
+            "time": "22:15",
+            "league": "Perui bajnokság",
+            "team1": "los angeles",
+            "team2": "dep. tarma",
+            "orig_team1": "Los Chankas",
+            "orig_team2": "Dep. Tarma",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "2,25 3,15 2,56",
+                    "odds1": "2.25",
+                    "oddsX": "3.15",
+                    "odds2": "2.56"
+                }
+            ]
+        },
+        {
+            "page": 19,
+            "date": "2025-07-04",
+            "day": "Péntek",
+            "time": "20:45",
+            "league": "Ír bajnokság",
+            "team1": "derry city",
+            "team2": "waterford fc",
+            "orig_team1": "Derry City",
+            "orig_team2": "Waterford FC",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,45 3,70 5,25",
+                    "odds1": "1.45",
+                    "oddsX": "3.70",
+                    "odds2": "5.25"
+                }
+            ]
+        },
+        {
+            "page": 19,
+            "date": "2025-07-04",
+            "day": "Péntek",
+            "time": "20:45",
+            "league": "Ír bajnokság",
+            "team1": "drogheda utd.",
+            "team2": "galway utd.",
+            "orig_team1": "Drogheda Utd.",
+            "orig_team2": "Galway Utd.",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "2,54 3,00 2,36",
+                    "odds1": "2.54",
+                    "oddsX": "3.00",
+                    "odds2": "2.36"
+                }
+            ]
+        },
+        {
+            "page": 19,
+            "date": "2025-07-04",
+            "day": "Péntek",
+            "time": "20:45",
+            "league": "Ír bajnokság",
+            "team1": "shelbourne",
+            "team2": "cork city",
+            "orig_team1": "Shelbourne",
+            "orig_team2": "Cork City",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,46 3,60 5,25",
+                    "odds1": "1.46",
+                    "oddsX": "3.60",
+                    "odds2": "5.25"
+                }
+            ]
+        },
+        {
+            "page": 19,
+            "date": "2025-07-04",
+            "day": "Péntek",
+            "time": "20:45",
+            "league": "Ír bajnokság",
+            "team1": "st. patrick's",
+            "team2": "bohemians dublin",
+            "orig_team1": "St. Patrick's",
+            "orig_team2": "Bohemians Dublin",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "2,04 3,05 2,99",
+                    "odds1": "2.04",
+                    "oddsX": "3.05",
+                    "odds2": "2.99"
+                }
+            ]
+        },
+        {
+            "page": 19,
+            "date": "2025-07-04",
+            "day": "Péntek",
+            "time": "20:45",
+            "league": "Ír 1.",
+            "team1": "bray",
+            "team2": "wexford youths",
+            "orig_team1": "Bray",
+            "orig_team2": "Wexford Youths",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,86 3,40 3,15",
+                    "odds1": "1.86",
+                    "oddsX": "3.40",
+                    "odds2": "3.15"
+                }
+            ]
+        },
+        {
+            "page": 19,
+            "date": "2025-07-04",
+            "day": "Péntek",
+            "time": "20:45",
+            "league": "Ír 1.",
+            "team1": "cobh ramblers",
+            "team2": "athlone",
+            "orig_team1": "Cobh Ramblers",
+            "orig_team2": "Athlone",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,37 4,00 5,75",
+                    "odds1": "1.37",
+                    "oddsX": "4.00",
+                    "odds2": "5.75"
+                }
+            ]
+        },
+        {
+            "page": 19,
+            "date": "2025-07-04",
+            "day": "Péntek",
+            "time": "20:45",
+            "league": "Ír 1.",
+            "team1": "finn harps",
+            "team2": "longford town",
+            "orig_team1": "Finn Harps",
+            "orig_team2": "Longford Town",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "2,15 3,20 2,67",
+                    "odds1": "2.15",
+                    "oddsX": "3.20",
+                    "odds2": "2.67"
+                }
+            ]
+        },
+        {
+            "page": 19,
+            "date": "2025-07-04",
+            "day": "Péntek",
+            "time": "20:45",
+            "league": "Ír 1.",
+            "team1": "kerry",
+            "team2": "dundalk",
+            "orig_team1": "Kerry",
+            "orig_team2": "Dundalk",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "4,50 3,45 1,57",
+                    "odds1": "4.50",
+                    "oddsX": "3.45",
+                    "odds2": "1.57"
+                }
+            ]
+        },
+        {
+            "page": 19,
+            "date": "2025-07-04",
+            "day": "Péntek",
+            "time": "20:45",
+            "league": "Ír 1.",
+            "team1": "uc dublin",
+            "team2": "treaty utd.",
+            "orig_team1": "UC Dublin",
+            "orig_team2": "Treaty Utd.",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "2,20 3,20 2,62",
+                    "odds1": "2.20",
+                    "oddsX": "3.20",
+                    "odds2": "2.62"
+                }
+            ]
+        },
+        {
+            "page": 19,
+            "date": "2025-07-04",
+            "day": "Péntek",
+            "time": "23:30",
+            "league": "Paraguayi bajnokság",
+            "team1": "cd recoleta",
+            "team2": "sp. trinidense",
+            "orig_team1": "CD Recoleta",
+            "orig_team2": "Sp. Trinidense",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "3,05 3,00 2,03",
+                    "odds1": "3.05",
+                    "oddsX": "3.00",
+                    "odds2": "2.03"
+                }
+            ]
+        },
+        {
+            "page": 19,
+            "date": "2025-07-05",
+            "day": "Szombat",
+            "time": "00:00",
+            "league": "Brazil 2.",
+            "team1": "coritiba",
+            "team2": "volta redonda",
+            "orig_team1": "Coritiba",
+            "orig_team2": "Volta Redonda",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,62 2,98 5,00",
+                    "odds1": "1.62",
+                    "oddsX": "2.98",
+                    "odds2": "5.00"
+                }
+            ]
+        },
+        {
+            "page": 19,
+            "date": "2025-07-05",
+            "day": "Szombat",
+            "time": "02:00",
+            "league": "Ecuadori bajnokság",
+            "team1": "libertad loja",
+            "team2": "dep. cuenca",
+            "orig_team1": "Libertad Loja",
+            "orig_team2": "Dep. Cuenca",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "2,15 3,10 2,77",
+                    "odds1": "2.15",
+                    "oddsX": "3.10",
+                    "odds2": "2.77"
+                }
+            ]
+        },
+        {
+            "page": 19,
+            "date": "2025-07-05",
+            "day": "Szombat",
+            "time": "02:30",
+            "league": "MLS",
+            "team1": "dallas",
+            "team2": "minnesota",
+            "orig_team1": "Dallas",
+            "orig_team2": "Minnesota",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "2,66 3,50 2,23",
+                    "odds1": "2.66",
+                    "oddsX": "3.50",
+                    "odds2": "2.23"
+                }
+            ]
+        },
+        {
+            "page": 19,
+            "date": "2025-07-05",
+            "day": "Szombat",
+            "time": "03:30",
+            "league": "MLS",
+            "team1": "colorado rapids",
+            "team2": "kansas city",
+            "orig_team1": "Colorado Rapids",
+            "orig_team2": "Kansas City",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "1,73 3,90 3,65",
+                    "odds1": "1.73",
+                    "oddsX": "3.90",
+                    "odds2": "3.65"
+                }
+            ]
+        },
+        {
+            "page": 19,
+            "date": "2025-07-05",
+            "day": "Szombat",
+            "time": "04:30",
+            "league": "MLS",
+            "team1": "los angeles",
+            "team2": "vancouver",
+            "orig_team1": "Los Angeles Galaxy",
+            "orig_team2": "Vancouver",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "2,58 3,60 2,25",
+                    "odds1": "2.58",
+                    "oddsX": "3.60",
+                    "odds2": "2.25"
+                }
+            ]
+        },
+        {
+            "page": 20,
+            "date": "2025-07-05",
+            "day": "Szombat",
+            "time": "03:00",
+            "league": "Klubcsapat vb",
+            "team1": "palmeiras sp",
+            "team2": "chelsea",
+            "orig_team1": "Palmeiras SP",
+            "orig_team2": "Chelsea",
+            "markets": [
+                {
+                    "name": "Fő piac",
+                    "orig_market": "3,80 3,30 1,84",
+                    "odds1": "3.80",
+                    "oddsX": "3.30",
+                    "odds2": "1.84"
+                },
+                {
+                    "name": "Ki jut tovább?",
+                    "orig_market": "2,42 1,50",
+                    "odds1": "2.42",
+                    "odds2": "1.50"
+                },
+                {
+                    "name": "Kétesély (H: 1X, D: 12, V: X2)",
+                    "orig_market": "1,61 1,28 1,23",
+                    "odds1": "1.61",
+                    "oddsX": "1.28",
+                    "odds2": "1.23"
+                },
+                {
+                    "name": "Döntetlennél a tét visszajár",
+                    "orig_market": "2,49 1,41",
+                    "odds1": "2.49",
+                    "odds2": "1.41"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+                    "orig_market": "1,86 1,74",
+                    "odds1": "1.86",
+                    "odds2": "1.74"
+                },
+                {
+                    "name": "Gólszám 1,5 (H: kev., V: több)",
+                    "orig_market": "2,94 1,30",
+                    "odds1": "2.94",
+                    "odds2": "1.30"
+                },
+                {
+                    "name": "Gólszám 2,5 (H: kev., V: több)",
+                    "orig_market": "1,66 1,98",
+                    "odds1": "1.66",
+                    "odds2": "1.98"
+                },
+                {
+                    "name": "Gólszám 3,5 (H: kev., V: több)",
+                    "orig_market": "1,24 3,30",
+                    "odds1": "1.24",
+                    "odds2": "3.30"
+                },
+                {
+                    "name": "Gólszám (0-1) 01",
+                    "orig_market": "2,82",
+                    "odds1": "2.82"
+                },
+                {
+                    "name": "Gólszám (2-3) 02",
+                    "orig_market": "1,91",
+                    "odds1": "1.91"
+                },
+                {
+                    "name": "Gólszám (4-5) 03",
+                    "orig_market": "4,45",
+                    "odds1": "4.45"
+                },
+                {
+                    "name": "Gólszám (6+) 04",
+                    "orig_market": "22,00",
+                    "odds1": "22.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Hazai és kevesebb) 01",
+                    "orig_market": "7,00",
+                    "odds1": "7.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Döntetlen és kevesebb) 02",
+                    "orig_market": "3,75",
+                    "odds1": "3.75"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Vendég és kevesebb) 03",
+                    "orig_market": "4,05",
+                    "odds1": "4.05"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Hazai és több) 04",
+                    "orig_market": "7,00",
+                    "odds1": "7.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Döntetlen és több) 05",
+                    "orig_market": "15,00",
+                    "odds1": "15.00"
+                },
+                {
+                    "name": "1X2 + Gólszám 2,5 (Vendég és több) 06",
+                    "orig_market": "3,50",
+                    "odds1": "3.50"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Hazai és igen) 01",
+                    "orig_market": "8,25",
+                    "odds1": "8.25"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Hazai és nem) 02",
+                    "orig_market": "6,00",
+                    "odds1": "6.00"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Döntetlen és igen) 03",
+                    "orig_market": "4,55",
+                    "odds1": "4.55"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Döntetlen és nem) 04",
+                    "orig_market": "8,75",
+                    "odds1": "8.75"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Vendég és igen) 05",
+                    "orig_market": "4,65",
+                    "odds1": "4.65"
+                },
+                {
+                    "name": "1X2 + Mindkét csapat szerez gólt (Vendég és nem) 06",
+                    "orig_market": "3,15",
+                    "odds1": "3.15"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Igen és több, mint 2,5) 01",
+                    "orig_market": "2,51",
+                    "odds1": "2.51"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Igen és kevesebb, mint 2,5) 02",
+                    "orig_market": "6,25",
+                    "odds1": "6.25"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Nem és több, mint 2,5) 03",
+                    "orig_market": "10,00",
+                    "odds1": "10.00"
+                },
+                {
+                    "name": "Mindkét csapat szerez gólt + Gólszám 2,5 (Nem és kevesebb, mint 2,5) 04",
+                    "orig_market": "2,04",
+                    "odds1": "2.04"
+                },
+                {
+                    "name": "félidő - 1X2",
+                    "orig_market": "4,30 2,03 2,60",
+                    "odds1": "4.30",
+                    "oddsX": "2.03",
+                    "odds2": "2.60"
+                },
+                {
+                    "name": "félidő - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "2,46 1,42",
+                    "odds1": "2.46",
+                    "odds2": "1.42"
+                },
+                {
+                    "name": "Hazai csapat - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "2,30 1,48",
+                    "odds1": "2.30",
+                    "odds2": "1.48"
+                },
+                {
+                    "name": "Vendégcsapat - Gólszám 0,5 (H: kev., V: több)",
+                    "orig_market": "3,35 1,23",
+                    "odds1": "3.35",
+                    "odds2": "1.23"
+                },
+                {
+                    "name": "Félidő/végeredmény (Palmeiras SP/Palmeiras SP) 01",
+                    "orig_market": "6,00",
+                    "odds1": "6.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Palmeiras SP/Döntetlen) 02",
+                    "orig_market": "14,50",
+                    "odds1": "14.50"
+                },
+                {
+                    "name": "Félidő/végeredmény (Palmeiras SP/Chelsea) 03",
+                    "orig_market": "28,00",
+                    "odds1": "28.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Palmeiras SP) 04",
+                    "orig_market": "7,50",
+                    "odds1": "7.50"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Döntetlen) 05",
+                    "orig_market": "4,25",
+                    "odds1": "4.25"
+                },
+                {
+                    "name": "Félidő/végeredmény (Döntetlen/Chelsea) 06",
+                    "orig_market": "4,60",
+                    "odds1": "4.60"
+                },
+                {
+                    "name": "Félidő/végeredmény (Chelsea/Palmeiras SP) 07",
+                    "orig_market": "40,00",
+                    "odds1": "40.00"
+                },
+                {
+                    "name": "Félidő/végeredmény (Chelsea/Döntetlen) 08",
+                    "orig_market": "13,50",
+                    "odds1": "13.50"
+                },
+                {
+                    "name": "Félidő/végeredmény (Chelsea/Chelsea) 09",
+                    "orig_market": "2,92",
+                    "odds1": "2.92"
+                }
+            ]
+        }
+    ],
+    "summary_lookup": {},
+    "league_stats": {
+        "Norvég 3., 1. csoport": {
+            "matches": 1,
+            "markets": 3
+        },
+        "Finn bajnokság": {
+            "matches": 6,
+            "markets": 28
+        },
+        "Válogatott mérkőzés, női": {
+            "matches": 1,
+            "markets": 1
+        },
+        "Klubcsapat vb": {
+            "matches": 3,
+            "markets": 221
+        },
+        "Izlandi Kupa": {
+            "matches": 1,
+            "markets": 7
+        },
+        "Dél-koreai FA Kupa": {
+            "matches": 4,
+            "markets": 19
+        },
+        "Japán bajnokság": {
+            "matches": 1,
+            "markets": 5
+        },
+        "Eb, női, A csoport": {
+            "matches": 2,
+            "markets": 130
+        },
+        "Svéd 3., Déli csoport": {
+            "matches": 1,
+            "markets": 3
+        },
+        "Perui bajnokság": {
+            "matches": 3,
+            "markets": 8
+        },
+        "Argentin Kupa": {
+            "matches": 3,
+            "markets": 17
+        },
+        "Gold Cup": {
+            "matches": 2,
+            "markets": 114
+        },
+        "USL Championship": {
+            "matches": 1,
+            "markets": 5
+        },
+        "Finn 2.": {
+            "matches": 3,
+            "markets": 11
+        },
+        "Eb, női, B csoport": {
+            "matches": 2,
+            "markets": 127
+        },
+        "Izlandi bajnokság": {
+            "matches": 1,
+            "markets": 5
+        },
+        "MLS": {
+            "matches": 4,
+            "markets": 8
+        },
+        "Brazil 2.": {
+            "matches": 2,
+            "markets": 6
+        },
+        "Eb, női, C csoport": {
+            "matches": 2,
+            "markets": 10
+        },
+        "Ír bajnokság": {
+            "matches": 4,
+            "markets": 4
+        },
+        "Ír 1.": {
+            "matches": 5,
+            "markets": 5
+        },
+        "Paraguayi bajnokság": {
+            "matches": 1,
+            "markets": 1
+        },
+        "Ecuadori bajnokság": {
+            "matches": 1,
+            "markets": 1
+        }
+    },
+    "total_matches": 54,
+    "total_markets": 739
+}

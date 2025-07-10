@@ -1,0 +1,177 @@
+{
+  "detailed_matches": [
+    {
+      "match_id": "GjPhDdi4",
+      "url": "https://www.flashscore.com/match/football/GjPhDdi4/#/match-summary",
+      "home_team": "WIL 1",
+      "away_team": "1 GUA | Wilstermann - Guabira | Summary",
+      "date": "2025-07-10",
+      "time": "09:44",
+      "status": "Finished",
+      "score_home": 1,
+      "score_away": 1,
+      "events": [
+        {
+          "minute": "32",
+          "event_type": "Red Card",
+          "player": "Pe",
+          "team": "",
+          "description": "32'\n0 - 1\nPeredo G.\n(Melgar S.)",
+          "additional_info": ""
+        },
+        {
+          "minute": "36",
+          "event_type": "Event",
+          "player": "",
+          "team": "",
+          "description": "36'\nMontano J.\nSoto R.\n(Injury)",
+          "additional_info": ""
+        },
+        {
+          "minute": "43",
+          "event_type": "Event",
+          "player": "",
+          "team": "",
+          "description": "43'\n1 - 1\nCaceres A.\n(Machado C.)",
+          "additional_info": ""
+        },
+        {
+          "minute": "46",
+          "event_type": "Event",
+          "player": "",
+          "team": "",
+          "description": "46'\nRobles D.\nOlguin G.",
+          "additional_info": ""
+        },
+        {
+          "minute": "60",
+          "event_type": "Event",
+          "player": "",
+          "team": "",
+          "description": "60'\nBarron A.\nAndersen L.",
+          "additional_info": ""
+        },
+        {
+          "minute": "60",
+          "event_type": "Event",
+          "player": "",
+          "team": "",
+          "description": "60'\nAnez C.",
+          "additional_info": ""
+        },
+        {
+          "minute": "64",
+          "event_type": "Event",
+          "player": "",
+          "team": "",
+          "description": "64'\nMachado C.",
+          "additional_info": ""
+        },
+        {
+          "minute": "68",
+          "event_type": "Event",
+          "player": "",
+          "team": "",
+          "description": "68'\nGuillermo A.\nMontano J.",
+          "additional_info": ""
+        },
+        {
+          "minute": "68",
+          "event_type": "Event",
+          "player": "",
+          "team": "",
+          "description": "68'\nAncieta C.\nRodriguez L.",
+          "additional_info": ""
+        },
+        {
+          "minute": "69",
+          "event_type": "Event",
+          "player": "",
+          "team": "",
+          "description": "69'\nVillarroel M.\nMelgar S.",
+          "additional_info": ""
+        },
+        {
+          "minute": "72",
+          "event_type": "Event",
+          "player": "",
+          "team": "",
+          "description": "72'\nRafinha\nThiago Ribeiro",
+          "additional_info": ""
+        }
+      ],
+      "home_lineup": {
+        "formation": "",
+        "starting_eleven": [
+          "12\nSalinas\n6.9",
+          "25\nDos Santos\n7.1",
+          "6\nVillarroel\n6.7",
+          "5\nCastillo\n7.1",
+          "17\nRodriguez\n6.5",
+          "3\nChumacero\n7.4",
+          "15\nMachado\n8.0",
+          "28\nSoto\n6.1",
+          "7\nCaceres\n8.0",
+          "11\nTellez\n7.1",
+          "30\nAndersen\n6.1"
+        ],
+        "substitutes": [],
+        "coach": ""
+      },
+      "away_lineup": {
+        "formation": "",
+        "starting_eleven": [
+          "25\nCuellar\n7.2",
+          "97\nGil\n7.2",
+          "21\nPortillo\n6.9",
+          "32\nOlguin\n6.6",
+          "29\nMasskooni\n6.9",
+          "77\nThiago Ribeiro\n6.6",
+          "7\nPeredo\n7.7",
+          "17\nBarco\n7.3",
+          "6\nAnez\n6.9",
+          "28\nBaigorria\n6.3",
+          "11\nMelgar\n7.1"
+        ],
+        "substitutes": [],
+        "coach": ""
+      },
+      "statistics": {
+        "possession_home": 52,
+        "possession_away": 0,
+        "shots_home": 5,
+        "shots_away": 0,
+        "shots_on_target_home": 5,
+        "shots_on_target_away": 0,
+        "corners_home": 0,
+        "corners_away": 0,
+        "fouls_home": 5,
+        "fouls_away": 0,
+        "yellow_cards_home": 5,
+        "yellow_cards_away": 0,
+        "red_cards_home": 16,
+        "red_cards_away": 1
+      },
+      "player_stats": [],
+      "metadata": {
+        "timestamp": "2025-07-10T09:44:37.288276",
+        "scraper_version": "8.0",
+        "title": "WIL 1-1 GUA | Wilstermann - Guabira | Summary",
+        "url": "https://www.flashscore.com/match/football/GjPhDdi4/#/match-summary"
+      }
+    }
+  ],
+  "scraping_summary": {
+    "total_matches_attempted": 3,
+    "successful_matches": 1,
+    "failed_matches": 2,
+    "total_events_extracted": 11,
+    "start_time": "2025-07-10T09:43:00.678158",
+    "end_time": "2025-07-10T09:48:46.466091"
+  },
+  "metadata": {
+    "scraper_version": "8.0",
+    "database_enabled": true,
+    "debug_mode": true
+  }
+}

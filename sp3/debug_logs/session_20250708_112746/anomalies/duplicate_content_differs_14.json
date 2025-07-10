@@ -1,0 +1,13 @@
+{
+  "timestamp": "2025-07-08T11:27:58.673964",
+  "type": "duplicate_content_differs",
+  "severity": "medium",
+  "details": {
+    "match_id": "2025-06-13_gwangju_fc seoul_",
+    "file1": "Web__47sz__P__06-13_lines.json",
+    "file2": "Web__46sz__K__06-10_lines.json",
+    "markets1_count": 1,
+    "markets2_count": 1
+  },
+  "session_id": "20250708_112746"
+}

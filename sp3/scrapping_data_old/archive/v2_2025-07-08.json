@@ -1,0 +1,1862 @@
+{
+    "metadata": {
+        "source": "https://m.eredmenyek.com/",
+        "scrape_timestamp_utc": "2025-07-08T13:23:29.209337+00:00Z",
+        "date_for_matches": "2025-07-08"
+    },
+    "statistics": {
+        "total_matches": 200,
+        "friendly_matches": 123,
+        "matches_by_league": {
+            "BOLÍVIA: Division Profesional": 2,
+            "BRAZÍLIA: Campeonato Brasileiro B": 3,
+            "BRAZÍLIA: Copa Espirito Santo - Play Off": 2,
+            "BRAZÍLIA: Copa Paulista": 1,
+            "USA: USL League Two": 5,
+            "AFRIKA: COSAFA Championship U20": 2,
+            "LIBANON: Premier League - Felsőház": 2,
+            "TANZÁNIA: Ligi Kuu Bara - Osztályozó": 1,
+            "BRAZÍLIA: Serie C - Első szakasz": 2,
+            "BRAZÍLIA: Recopa Gaucho": 1,
+            "BRAZÍLIA: Rondoniense U20 - Play Off": 1,
+            "MOZAMBIK: Mocambola": 1,
+            "VILÁG: Barátságos mérkőzés": 121,
+            "BRAZÍLIA: Serie D": 1,
+            "VENEZUELA: Liga FUTVE - Clausura": 1,
+            "BRAZÍLIA: Amazonense 2 - Play Off": 1,
+            "ECUADOR: Liga Pro": 1,
+            "AUSZTRÁLIA ÉS ÓCEÁNIA: OFC Nemzetek Kupája - női": 2,
+            "INDONÉZIA: President Cup": 2,
+            "INDIA: Calcutta Premier Division": 2,
+            "AUSZTRÁLIA: Northern NSW State League": 1,
+            "VILÁG: Barátságos válogatott-mérkőzés - női": 1,
+            "ÁZSIA: EAFF E-1 Futball bajnokság": 1,
+            "VILÁG: Barátságos válogatott-mérkőzés": 1,
+            "EURÓPA: Bajnokok Ligája - Selejtező": 10,
+            "FINNORSZÁG: Ykkosliiga": 2,
+            "FINNORSZÁG: Kakkonen - A csoport": 2,
+            "EURÓPA: Konferencia Liga - Selejtező": 2,
+            "EURÓPA: Euro - női": 2,
+            "FINNORSZÁG: Kakkonen - B csoport": 2,
+            "IRAK: Iraki Kupa": 4,
+            "BRAZÍLIA: Brasileiro U20": 3,
+            "BRAZÍLIA: Brasileiro U17": 3,
+            "ARGENTÍNA: Primera C": 2,
+            "ÉSZAK-ÍRORSZÁG: Premiership - női": 1,
+            "VILÁG: FIFA Klub-vb - Play Off": 1,
+            "BRAZÍLIA: Piauiense U20": 4,
+            "BRAZÍLIA: Catarinense U20": 1,
+            "ECUADOR: Serie B": 1,
+            "BRAZÍLIA: Acreano U20": 1,
+            "PARAGUAY: Copa de Primera - Clausura": 1
+        }
+    },
+    "matches": {
+        "live": [
+            {
+                "league": "AFRIKA: COSAFA Championship U20",
+                "time_status": "24'",
+                "home_team": "Angola U20",
+                "away_team": "Zimbabwe U20",
+                "score": "1:0",
+                "match_status": "live",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/ne9SUE9s/"
+            },
+            {
+                "league": "AFRIKA: COSAFA Championship U20",
+                "time_status": "24'",
+                "home_team": "Namíbia U20",
+                "away_team": "Malawi U20",
+                "score": "0:0",
+                "match_status": "live",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/4z63zynK/"
+            },
+            {
+                "league": "LIBANON: Premier League - Felsőház",
+                "time_status": "24'",
+                "home_team": "Al Ahed",
+                "away_team": "Tadamon",
+                "score": "1:2",
+                "match_status": "live",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/AakA9PLr/"
+            },
+            {
+                "league": "TANZÁNIA: Ligi Kuu Bara - Osztályozó",
+                "time_status": "24'",
+                "home_team": "Fountain Gate",
+                "away_team": "Stand U.",
+                "score": "0:0",
+                "match_status": "live",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/KpgV0OmS/"
+            },
+            {
+                "league": "MOZAMBIK: Mocambola",
+                "time_status": "39'",
+                "home_team": "ENH Vilankulo",
+                "away_team": "UD Songo",
+                "score": "0:0",
+                "match_status": "live",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/UitEc8Hi/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "64'",
+                "home_team": "Cseljabinszk (Rus)",
+                "away_team": "Miassz (Rus)",
+                "score": "3:0",
+                "match_status": "live",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/bZC418M5/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "66'",
+                "home_team": "FC Köbenhavn (Den)",
+                "away_team": "Fredericia (Den)",
+                "score": "1:1",
+                "match_status": "live",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/v3qjDP46/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "66'",
+                "home_team": "Meppen (Ger)",
+                "away_team": "FC Emmen (Ned)",
+                "score": "3:2",
+                "match_status": "live",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/lGB80qXp/"
+            },
+            {
+                "league": "INDONÉZIA: President Cup",
+                "time_status": "Félidő",
+                "home_team": "Persib",
+                "away_team": "Dewa United",
+                "score": "0:0",
+                "match_status": "live",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/lbhUoiTG/"
+            }
+        ],
+        "finished": [
+            {
+                "league": "BOLÍVIA: Division Profesional",
+                "time_status": "00:00",
+                "home_team": "Bolivar",
+                "away_team": "Independiente",
+                "score": "4:0",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/KOVqFIMi/"
+            },
+            {
+                "league": "BRAZÍLIA: Campeonato Brasileiro B",
+                "time_status": "00:00",
+                "home_team": "Operario",
+                "away_team": "Chapecoense-SC",
+                "score": "1:2",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/SdZwibFt/"
+            },
+            {
+                "league": "BRAZÍLIA: Copa Espirito Santo - Play Off",
+                "time_status": "00:00",
+                "home_team": "Vilavelhense",
+                "away_team": "Vitoria ES",
+                "score": "0:3",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/n90AT2Q9/"
+            },
+            {
+                "league": "USA: USL League Two",
+                "time_status": "00:00",
+                "home_team": "NEFC",
+                "away_team": "Western Mass Pioneers",
+                "score": "1:3",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/QPfPitMa/"
+            },
+            {
+                "league": "BRAZÍLIA: Serie C - Első szakasz",
+                "time_status": "00:30",
+                "home_team": "Botafogo PB",
+                "away_team": "Sao Bernardo",
+                "score": "1:1",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/hQRaxHK8/"
+            },
+            {
+                "league": "BRAZÍLIA: Serie C - Első szakasz",
+                "time_status": "00:30",
+                "home_team": "Ponte Preta",
+                "away_team": "Tombense",
+                "score": "1:0",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/CxD1P9PM/"
+            },
+            {
+                "league": "BRAZÍLIA: Serie D",
+                "time_status": "01:00",
+                "home_team": "Treze",
+                "away_team": "Horizonte",
+                "score": "0:2",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/ppYpjW7C/"
+            },
+            {
+                "league": "USA: USL League Two",
+                "time_status": "01:00",
+                "home_team": "Kalamazoo FC",
+                "away_team": "Oakland County",
+                "score": "1:2",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/n1dNyUV1/"
+            },
+            {
+                "league": "VENEZUELA: Liga FUTVE - Clausura",
+                "time_status": "01:00",
+                "home_team": "La Guaira",
+                "away_team": "Monagas",
+                "score": "2:0",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/SjvubtYO/"
+            },
+            {
+                "league": "BRAZÍLIA: Amazonense 2 - Play Off",
+                "time_status": "01:30",
+                "home_team": "Operario Esporte Clube",
+                "away_team": "JC",
+                "score": "1:2b.u.",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/GrqBtf4D/"
+            },
+            {
+                "league": "USA: USL League Two",
+                "time_status": "01:30",
+                "home_team": "Southern Soccer Academy",
+                "away_team": "Montgomery United",
+                "score": "2:2",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/EXs3cGHs/"
+            },
+            {
+                "league": "BOLÍVIA: Division Profesional",
+                "time_status": "02:00",
+                "home_team": "Wilstermann",
+                "away_team": "Guabira",
+                "score": "1:1",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/GjPhDdi4/"
+            },
+            {
+                "league": "BRAZÍLIA: Campeonato Brasileiro B",
+                "time_status": "02:00",
+                "home_team": "America MG",
+                "away_team": "Athletic Club",
+                "score": "0:1",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/WlWfmGE5/"
+            },
+            {
+                "league": "ECUADOR: Liga Pro",
+                "time_status": "02:00",
+                "home_team": "Tecnico U.",
+                "away_team": "Orense",
+                "score": "1:2",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/veXET2Zi/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "02:00",
+                "home_team": "Minnesota (Usa)",
+                "away_team": "Holstein Kiel (Ger)",
+                "score": "0:0",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/fc6pWx2k/"
+            },
+            {
+                "league": "AUSZTRÁLIA ÉS ÓCEÁNIA: OFC Nemzetek Kupája - női",
+                "time_status": "06:00",
+                "home_team": "Vanuatu N",
+                "away_team": "Salamon-szigetek N",
+                "score": "1:2",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/QRNGEGL6/"
+            },
+            {
+                "league": "AUSZTRÁLIA ÉS ÓCEÁNIA: OFC Nemzetek Kupája - női",
+                "time_status": "09:00",
+                "home_team": "Fidzsi-szigetek N",
+                "away_team": "Tonga N",
+                "score": "3:0",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/buMOCfjJ/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "10:00",
+                "home_team": "Jeniszej (Rus)",
+                "away_team": "R. Volgográd (Rus)",
+                "score": "1:1",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/2DMekece/"
+            },
+            {
+                "league": "INDONÉZIA: President Cup",
+                "time_status": "10:30",
+                "home_team": "Liga 1 All-Stars",
+                "away_team": "Arema",
+                "score": "2:2",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/pjVTIhaU/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "11:00Törölve",
+                "home_team": "Artis Brno (Cze)",
+                "away_team": "1860 München (Ger)",
+                "score": "-:-",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/lvx2L4pS/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "11:00",
+                "home_team": "Hvidovre IF (Den)",
+                "away_team": "Køge (Den)",
+                "score": "4:2",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/dbQj0zw2/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "11:00",
+                "home_team": "Lille (Fra)",
+                "away_team": "Gent B (Bel)",
+                "score": "2:0",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/CMG9vuoA/"
+            },
+            {
+                "league": "INDIA: Calcutta Premier Division",
+                "time_status": "11:30Elhalasztva",
+                "home_team": "BSS Sporting",
+                "away_team": "East Bengal",
+                "score": "-:-",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/rP3QxiLb/"
+            },
+            {
+                "league": "INDIA: Calcutta Premier Division",
+                "time_status": "11:30Elhalasztva",
+                "home_team": "Kalighat",
+                "away_team": "Patha Chakra",
+                "score": "-:-",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/2RJRzVkB/"
+            },
+            {
+                "league": "AUSZTRÁLIA: Northern NSW State League",
+                "time_status": "12:00",
+                "home_team": "Thornton Redbacks",
+                "away_team": "West Wallsend",
+                "score": "1:4",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/boyB8lgC/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "12:00",
+                "home_team": "Rakow (Pol)",
+                "away_team": "Patro Eisden (Bel)",
+                "score": "2:1",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/Otzq8mtT/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "12:00",
+                "home_team": "Randers (Den)",
+                "away_team": "Hobro (Den)",
+                "score": "1:2",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/44ijHDel/"
+            },
+            {
+                "league": "VILÁG: Barátságos válogatott-mérkőzés - női",
+                "time_status": "12:00",
+                "home_team": "Ausztrália N",
+                "away_team": "Panama N",
+                "score": "3:2",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/EiUWzWCF/"
+            },
+            {
+                "league": "ÁZSIA: EAFF E-1 Futball bajnokság",
+                "time_status": "12:24",
+                "home_team": "Japán",
+                "away_team": "Hongkong",
+                "score": "6:1",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/6qQSyCWh/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "12:30",
+                "home_team": "Charleroi (Bel)",
+                "away_team": "Beveren (Bel)",
+                "score": "4:1",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/r7YwMHaL/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "14:00Törölve",
+                "home_team": "Goytre United (Wal)",
+                "away_team": "Aber Valley (Wal)",
+                "score": "-:-",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/WAJwBRnK/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "14:00Törölve",
+                "home_team": "Liberec (Cze)",
+                "away_team": "Rakow (Pol)",
+                "score": "-:-",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/25jnrGhR/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "14:00Törölve",
+                "home_team": "Münster (Ger)",
+                "away_team": "Gent (Bel)",
+                "score": "-:-",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/tWNkfzaf/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "14:00Törölve",
+                "home_team": "Roda (Ned)",
+                "away_team": "Lommel SK (Bel)",
+                "score": "-:-",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/ny7Ht5xg/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "14:00Törölve",
+                "home_team": "Würzburger FV (Ger)",
+                "away_team": "Erzgebirge Aue (Ger)",
+                "score": "-:-",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/ALjT1M3E/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "14:00Törölve",
+                "home_team": "Zlin (Cze)",
+                "away_team": "Metaliszt 1925 (Ukr)",
+                "score": "-:-",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/0balMSDE/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "18:30Törölve",
+                "home_team": "Ansbach (Ger)",
+                "away_team": "Feucht (Ger)",
+                "score": "-:-",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/EcBlnyqg/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45Törölve",
+                "home_team": "Morton (Sco)",
+                "away_team": "St. Mirren (Sco)",
+                "score": "-:-",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/dxmWQYm3/"
+            },
+            {
+                "league": "BRAZÍLIA: Piauiense U20",
+                "time_status": "23:00",
+                "home_team": "TEC U20",
+                "away_team": "Oeirense U20",
+                "score": "5:1",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/hGG6X5bf/"
+            },
+            {
+                "league": "PARAGUAY: Copa de Primera - Clausura",
+                "time_status": "23:30",
+                "home_team": "Ameliano",
+                "away_team": "Atl. Tembetary",
+                "score": "1:0",
+                "match_status": "fin",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/KWX6wxi2/"
+            }
+        ],
+        "scheduled": [
+            {
+                "league": "BRAZÍLIA: Copa Espirito Santo - Play Off",
+                "time_status": "00:00",
+                "home_team": "Serra",
+                "away_team": "Porto Vitoria",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/rFIrF3BG/"
+            },
+            {
+                "league": "BRAZÍLIA: Copa Paulista",
+                "time_status": "00:00",
+                "home_team": "Inter de Limeira",
+                "away_team": "Comercial",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/67Kk8nf5/"
+            },
+            {
+                "league": "USA: USL League Two",
+                "time_status": "00:00",
+                "home_team": "North Carolina FC U23",
+                "away_team": "Charlotte Independ. 2",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/KMW7XHZi/"
+            },
+            {
+                "league": "USA: USL League Two",
+                "time_status": "00:00",
+                "home_team": "St. Petersburg FC",
+                "away_team": "Fort Lauderdale",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/MilYkKjC/"
+            },
+            {
+                "league": "BRAZÍLIA: Campeonato Brasileiro B",
+                "time_status": "00:30",
+                "home_team": "Goias",
+                "away_team": "Criciuma",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/2ea5xa0m/"
+            },
+            {
+                "league": "BRAZÍLIA: Recopa Gaucho",
+                "time_status": "00:30",
+                "home_team": "Gremio",
+                "away_team": "EC Sao Jose",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/Q3Tp5jFi/"
+            },
+            {
+                "league": "BRAZÍLIA: Rondoniense U20 - Play Off",
+                "time_status": "00:30",
+                "home_team": "Genus U20",
+                "away_team": "Porto Velho U20",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/rVzH28JG/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "11:00",
+                "home_team": "Bohemians 1905 B (Cze)",
+                "away_team": "Pardubice B (Cze)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/CduZRQKb/"
+            },
+            {
+                "league": "VILÁG: Barátságos válogatott-mérkőzés",
+                "time_status": "13:35",
+                "home_team": "Kína U16",
+                "away_team": "Dél-Korea U16",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/hpdaa70l/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "14:00",
+                "home_team": "Cambridge Utd (Eng)",
+                "away_team": "Northampton (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/Od6ubUff/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "14:00",
+                "home_team": "Huddersfield (Eng)",
+                "away_team": "Barrow (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/tbnABCMU/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "14:00",
+                "home_team": "Viktoria Köln (Ger)",
+                "away_team": "Bonner SC (Ger)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/YZydAoNb/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "15:00",
+                "home_team": "Satu Mare (Rou)",
+                "away_team": "Videoton (Hun)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/U1mvnM34/"
+            },
+            {
+                "league": "LIBANON: Premier League - Felsőház",
+                "time_status": "15:30",
+                "home_team": "Nejmeh SC",
+                "away_team": "Al Ansar",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/IPhI73je/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "16:00",
+                "home_team": "Carlisle (Eng)",
+                "away_team": "Motherwell (Sco)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/zLqkwXD6/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "16:00",
+                "home_team": "Dinamo Moszkva (Rus)",
+                "away_team": "Akhmat Groznij (Rus)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/zJWtbnWj/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "16:00",
+                "home_team": "Obolon (Ukr)",
+                "away_team": "Kudrivka-Nyva (Ukr)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/ERnzqayB/"
+            },
+            {
+                "league": "EURÓPA: Bajnokok Ligája - Selejtező",
+                "time_status": "17:00",
+                "home_team": "Kuopio PS (Fin)",
+                "away_team": "Milsami (Mda)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/rLD30jrA/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "17:00",
+                "home_team": "Hapoel Petah Tikva (Isr)",
+                "away_team": "Ramat Hasharon (Isr)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/AecY27kC/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "17:00",
+                "home_team": "Plzen (Cze)",
+                "away_team": "Gornik Zabrze (Pol)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/GpIujnDc/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "17:00",
+                "home_team": "Rakow (Pol)",
+                "away_team": "Lommel SK (Bel)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/rRGF2R3j/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "17:00",
+                "home_team": "Zaglebie Lubin (Pol)",
+                "away_team": "Teplice (Cze)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/EFM6Exyp/"
+            },
+            {
+                "league": "FINNORSZÁG: Ykkosliiga",
+                "time_status": "17:30",
+                "home_team": "JIPPO",
+                "away_team": "JaPS",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/8xrr4ljI/"
+            },
+            {
+                "league": "FINNORSZÁG: Ykkosliiga",
+                "time_status": "17:30",
+                "home_team": "SJK Akatemia",
+                "away_team": "Lahti",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/C89Fotzi/"
+            },
+            {
+                "league": "FINNORSZÁG: Kakkonen - A csoport",
+                "time_status": "17:30",
+                "home_team": "HAPK",
+                "away_team": "Lahden Reipas",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/Asfmj6dn/"
+            },
+            {
+                "league": "FINNORSZÁG: Kakkonen - A csoport",
+                "time_status": "17:30",
+                "home_team": "Vaajakoski",
+                "away_team": "VJS",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/p2wxqkkJ/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "17:30",
+                "home_team": "Donaufeld Wien (Aut)",
+                "away_team": "Admira (Aut)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/jmUk0tdL/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "17:30",
+                "home_team": "Vojvodina (Srb)",
+                "away_team": "Videoton (Hun)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/2BFhaCPF/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "17:30",
+                "home_team": "Zeleznicar Pancevo (Srb)",
+                "away_team": "Kisvárda (Hun)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/AZ5ZE9uA/"
+            },
+            {
+                "league": "EURÓPA: Bajnokok Ligája - Selejtező",
+                "time_status": "18:00",
+                "home_team": "Iberia 1999 (Geo)",
+                "away_team": "Malmö (Swe)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/WvFv23JE/"
+            },
+            {
+                "league": "EURÓPA: Bajnokok Ligája - Selejtező",
+                "time_status": "18:00",
+                "home_team": "Noah (Arm)",
+                "away_team": "Buducnost (Mne)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/SpXsKddc/"
+            },
+            {
+                "league": "EURÓPA: Konferencia Liga - Selejtező",
+                "time_status": "18:00",
+                "home_team": "St Josephs (Gib)",
+                "away_team": "Cliftonville (Nir)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/C0FzpT8j/"
+            },
+            {
+                "league": "EURÓPA: Euro - női",
+                "time_status": "18:00",
+                "home_team": "Németország N",
+                "away_team": "Dánia N",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/dS71Wdvg/"
+            },
+            {
+                "league": "FINNORSZÁG: Kakkonen - B csoport",
+                "time_status": "18:00",
+                "home_team": "HPS",
+                "away_team": "Atlantis 2",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/roPGed95/"
+            },
+            {
+                "league": "FINNORSZÁG: Kakkonen - B csoport",
+                "time_status": "18:00",
+                "home_team": "TPV",
+                "away_team": "MuSa",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/xpIPgzvI/"
+            },
+            {
+                "league": "IRAK: Iraki Kupa",
+                "time_status": "18:00",
+                "home_team": "Al Quwa Al Jawiya",
+                "away_team": "Al Najaf",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/AcrUbx3D/"
+            },
+            {
+                "league": "IRAK: Iraki Kupa",
+                "time_status": "18:00",
+                "home_team": "Duhok",
+                "away_team": "Al Minaa",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/2iVFMueK/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "18:00",
+                "home_team": "Arda (Bul)",
+                "away_team": "Szeptemvri Szófia (Bul)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/hEXF9C7K/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "18:00",
+                "home_team": "Gloggnitz (Aut)",
+                "away_team": "Corvinul (Rou)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/MJ62MQg4/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "18:00",
+                "home_team": "Heracles (Ned)",
+                "away_team": "Emden (Ger)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/zLspaqVp/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "18:00",
+                "home_team": "Hertha BSC (Ger)",
+                "away_team": "Havelse (Ger)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/WlxUwI4T/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "18:00",
+                "home_team": "Rathenow (Ger)",
+                "away_team": "Luckenwalde (Ger)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/xzaClZyg/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "18:00",
+                "home_team": "Traiskirchen (Aut)",
+                "away_team": "Stripfing (Aut)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/trUc6Q05/"
+            },
+            {
+                "league": "EURÓPA: Bajnokok Ligája - Selejtező",
+                "time_status": "18:30",
+                "home_team": "Levadia (Est)",
+                "away_team": "RFS (Lat)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/dQObGEeM/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "18:30",
+                "home_team": "1860 München (Ger)",
+                "away_team": "Ried (Aut)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/UySQLKqA/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "18:30",
+                "home_team": "Kremser (Aut)",
+                "away_team": "First Wien (Aut)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/YV5OMoon/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "18:30",
+                "home_team": "Novi Pazar (Srb)",
+                "away_team": "Mladost (Srb)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/2gUtc8M8/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "18:30",
+                "home_team": "Strasswalchen (Aut)",
+                "away_team": "Friedburg (Aut)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/8dA6HK9E/"
+            },
+            {
+                "league": "EURÓPA: Bajnokok Ligája - Selejtező",
+                "time_status": "19:00",
+                "home_team": "O. Ljubljana (Slo)",
+                "away_team": "Kajrat Almati (Kaz)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/4STeRJnQ/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "19:00",
+                "home_team": "Aschaffenburg (Ger)",
+                "away_team": "RW Walldorf (Ger)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/SvAAGeNr/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "19:00",
+                "home_team": "Cork City (Irl)",
+                "away_team": "Celtic (Sco)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/S01LQCho/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "19:00",
+                "home_team": "Eugendorf (Aut)",
+                "away_team": "Kuchl (Aut)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/zsVVNwV8/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "19:00",
+                "home_team": "RKSV Heer (Ned)",
+                "away_team": "Maastricht (Ned)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/KWgY5mLE/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "19:00",
+                "home_team": "Vitesse (Ned)",
+                "away_team": "Kaizer Chiefs (Rsa)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/OSAF9syJ/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "19:00",
+                "home_team": "Volkermarkt (Aut)",
+                "away_team": "St. Andra Lav (Aut)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/EZIufMZ9/"
+            },
+            {
+                "league": "EURÓPA: Konferencia Liga - Selejtező",
+                "time_status": "19:30",
+                "home_team": "Floriana (Mlt)",
+                "away_team": "Haverfordwest (Wal)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/vBkRNrie/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "19:30",
+                "home_team": "Bulle (Sui)",
+                "away_team": "Sion II (Sui)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/UgXGsdnA/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "19:30",
+                "home_team": "Katwijk (Ned)",
+                "away_team": "FC Volendam (Ned)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/SzYSShD6/"
+            },
+            {
+                "league": "EURÓPA: Bajnokok Ligája - Selejtező",
+                "time_status": "20:00",
+                "home_team": "Drita (Kos)",
+                "away_team": "Differdange (Lux)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/hIoziwBD/"
+            },
+            {
+                "league": "EURÓPA: Bajnokok Ligája - Selejtező",
+                "time_status": "20:00",
+                "home_team": "TNS (Wal)",
+                "away_team": "Shkendija (Mkd)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/AZTqtMde/"
+            },
+            {
+                "league": "EURÓPA: Bajnokok Ligája - Selejtező",
+                "time_status": "20:00",
+                "home_team": "Vikingur (Fai)",
+                "away_team": "Lincoln (Gib)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/lfdp9KQs/"
+            },
+            {
+                "league": "BRAZÍLIA: Brasileiro U20",
+                "time_status": "20:00",
+                "home_team": "Fortaleza U20",
+                "away_team": "Internacional U20",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/K4R7SdLa/"
+            },
+            {
+                "league": "BRAZÍLIA: Brasileiro U20",
+                "time_status": "20:00",
+                "home_team": "Juventude U20",
+                "away_team": "Bahia U20",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/SAlZrI5t/"
+            },
+            {
+                "league": "BRAZÍLIA: Brasileiro U20",
+                "time_status": "20:00",
+                "home_team": "Santos U20",
+                "away_team": "RB Bragantino U20",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/hWnpzlN8/"
+            },
+            {
+                "league": "BRAZÍLIA: Brasileiro U17",
+                "time_status": "20:00",
+                "home_team": "Bragantino U17",
+                "away_team": "Atletico-MG U17",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/S28iCFIk/"
+            },
+            {
+                "league": "BRAZÍLIA: Brasileiro U17",
+                "time_status": "20:00",
+                "home_team": "Corinthians U17",
+                "away_team": "Internacional U17",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/8CGaAgm2/"
+            },
+            {
+                "league": "BRAZÍLIA: Brasileiro U17",
+                "time_status": "20:00",
+                "home_team": "Gremio U17",
+                "away_team": "Vasco U17",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/063oYdu9/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:00",
+                "home_team": "Alfreton (Eng)",
+                "away_team": "Barnsley (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/WURMUj8K/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:00",
+                "home_team": "Bamber Bridge (Eng)",
+                "away_team": "Preston (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/byIIFXre/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:00",
+                "home_team": "Builth W. (Wal)",
+                "away_team": "Caersws (Wal)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/SUOM3fCl/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:00",
+                "home_team": "Chesterfield (Eng)",
+                "away_team": "Burton (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/zufdzEyA/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:00",
+                "home_team": "Clachnacuddin (Sco)",
+                "away_team": "Ross County (Sco)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/WpUV01f4/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:00",
+                "home_team": "Grimsby Borough (Eng)",
+                "away_team": "Grimsby (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/tpomItl3/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:00",
+                "home_team": "Mansfield (Eng)",
+                "away_team": "Retford (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/pfXKE5Ca/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:00",
+                "home_team": "QPR U21 (Eng)",
+                "away_team": "Oxford City (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/txmPUrY1/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:00",
+                "home_team": "Quick Boys (Ned)",
+                "away_team": "HVV Hollandia (Ned)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/2FHYQKb6/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:15",
+                "home_team": "Bangor FC (Nir)",
+                "away_team": "Knockbreda (Nir)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/YVuTNHA4/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:15",
+                "home_team": "Crowborough (Eng)",
+                "away_team": "Varndeanians (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/zHPsIY3D/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:15",
+                "home_team": "Mold Alexandra (Wal)",
+                "away_team": "Llanuwchllyn (Wal)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/pAaFCnVF/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:15",
+                "home_team": "Slovan Bratislava (Svk)",
+                "away_team": "Wisla Krakow (Pol)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/KtkVngdn/"
+            },
+            {
+                "league": "ARGENTÍNA: Primera C",
+                "time_status": "20:30",
+                "home_team": "Atlas",
+                "away_team": "Victoriano A.",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/MgH20Dq1/"
+            },
+            {
+                "league": "ARGENTÍNA: Primera C",
+                "time_status": "20:30",
+                "home_team": "Claypole",
+                "away_team": "Puerto Nuevo",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/2B7vAQGc/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Airdrieonians (Sco)",
+                "away_team": "St. Mirren (Sco)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/Uwe881Dd/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Ammanford (Wal)",
+                "away_team": "Morriston Town (Wal)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/IHhLJiad/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Ashford Town (Eng)",
+                "away_team": "Farnborough (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/M9wXfrWP/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Ballymena (Nir)",
+                "away_team": "Queens Univ. (Nir)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/6wV6rRV7/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Boreham Wood (Eng)",
+                "away_team": "Watford (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/hhjFLGcm/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Connah's Q. (Wal)",
+                "away_team": "Newtown (Wal)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/nNT9PZFd/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Dover (Eng)",
+                "away_team": "Gillingham FC (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/pUBfmZU7/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "East Fife (Sco)",
+                "away_team": "Dunfermline (Sco)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/bsySlDFU/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Ellesmere Port (Eng)",
+                "away_team": "Llandudno (Wal)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/6JYbtaID/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Exmouth Town (Eng)",
+                "away_team": "Plymouth Parkway (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/A5W7XXkI/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "FC United (Eng)",
+                "away_team": "Salford (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/04IgOnPi/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Flackwell (Eng)",
+                "away_team": "Maidenhead (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/EXHDwt8k/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Garforth (Eng)",
+                "away_team": "York (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/CUvFb5YF/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Guilsfield (Wal)",
+                "away_team": "Aberystwyth (Wal)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/8dCDMFgf/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Guiseley (Eng)",
+                "away_team": "Harrogate (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/vLp7FbnR/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Hebburn Town (Eng)",
+                "away_team": "Gateshead (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/UkiXei5K/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Leamington (Eng)",
+                "away_team": "Walsall (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/AHl8xsbd/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Lisburn Distillery (Nir)",
+                "away_team": "Portadown (Nir)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/vyBRRSW8/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Longridge Town (Eng)",
+                "away_team": "Morecambe (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/29ELEywJ/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Met. Police (Eng)",
+                "away_team": "Camberley (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/8tfBpFGi/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Newcastle Town (Eng)",
+                "away_team": "Crewe (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/hYamn3wH/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Nuneaton (Eng)",
+                "away_team": "Brackley Town (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/O8CCdVZ2/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Penrhyncoch (Wal)",
+                "away_team": "Rhayader (Wal)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/bLP4nvPN/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Stamford (Eng)",
+                "away_team": "Peterborough (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/2cvkJuKr/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "St. Johnstone (Sco)",
+                "away_team": "Falkirk (Sco)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/MDDwehvR/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:30",
+                "home_team": "Whitehill Welfare (Sco)",
+                "away_team": "Berwick (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/lE0dntgc/"
+            },
+            {
+                "league": "ÉSZAK-ÍRORSZÁG: Premiership - női",
+                "time_status": "20:45",
+                "home_team": "Cliftonville N",
+                "away_team": "Glentoran N",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/tnnaIhaE/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Avro (Eng)",
+                "away_team": "Radcliffe (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/A3BHsgVh/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Barnet (Eng)",
+                "away_team": "Crystal Palace U21 (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/WxWBvUZj/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Basingstoke (Eng)",
+                "away_team": "Kingstonian (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/lWoIe5Yh/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Brentwood (Eng)",
+                "away_team": "Chelmsford (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/SAro2awg/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Broadfields United (Eng)",
+                "away_team": "Romania (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/4lBewP0k/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Bromley (Eng)",
+                "away_team": "Tottenham U21 (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/Gz1JmX4N/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Broxburn Athletic (Sco)",
+                "away_team": "Stirling (Sco)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/2snZ4fo1/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Canvey Island (Eng)",
+                "away_team": "Braintree (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/E9JIl7PN/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Darlaston Town (Eng)",
+                "away_team": "Coventry Sphinx (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/UREsIzUq/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Deeping (Eng)",
+                "away_team": "Peterborough Sports (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/lpDV1Yt1/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Dungannon (Nir)",
+                "away_team": "Warrenpoint (Nir)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/Cp9oa9dc/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Glebe (Eng)",
+                "away_team": "Whyteleafe (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/ANDP5zvA/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Gloucester (Eng)",
+                "away_team": "Fairford (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/pIs86JmL/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Grantham (Eng)",
+                "away_team": "Lincoln Utd. (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/ED98vxcK/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Haringey (Eng)",
+                "away_team": "Hendon (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/Msq9o2Ba/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Hornchurch (Eng)",
+                "away_team": "Sittingbourne (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/r5P4sJ55/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Horsham FC (Eng)",
+                "away_team": "Chichester (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/O84eYNcS/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Kelty Hearts (Sco)",
+                "away_team": "Clyde (Sco)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/CIfA81iA/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Maidstone (Eng)",
+                "away_team": "Chatham (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/Qiw9Vx16/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Oxford Sunnyside FC (Nir)",
+                "away_team": "Armagh (Nir)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/KYS8pvrC/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Punjab (Eng)",
+                "away_team": "Ebbsfleet (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/SArgldRF/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Quorn (Eng)",
+                "away_team": "Tamworth (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/Wp4O3jL6/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Sheppey United (Eng)",
+                "away_team": "Folkestone (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/pWvHJIS0/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Sholing (Eng)",
+                "away_team": "AFC Totton (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/d4Tmo2gC/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Slough (Eng)",
+                "away_team": "Southall FC (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/KYMCFPKH/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Spartans (Sco)",
+                "away_team": "Hearts B (Sco)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/UVGnw06s/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Taunton (Eng)",
+                "away_team": "Bath (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/zg5wQFTj/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Thornbury (Eng)",
+                "away_team": "Weston-super-Mare (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/dEpE33N0/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Three Bridges (Eng)",
+                "away_team": "Crawley (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/Yc4BAcgo/"
+            },
+            {
+                "league": "VILÁG: Barátságos mérkőzés",
+                "time_status": "20:45",
+                "home_team": "Tonbridge (Eng)",
+                "away_team": "Welling (Eng)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/O4xixXWg/"
+            },
+            {
+                "league": "EURÓPA: Bajnokok Ligája - Selejtező",
+                "time_status": "21:00",
+                "home_team": "KF Egnatia (Alb)",
+                "away_team": "Breidablik (Ice)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/WxEzKyu0/"
+            },
+            {
+                "league": "EURÓPA: Bajnokok Ligája - Selejtező",
+                "time_status": "21:00",
+                "home_team": "Virtus (San)",
+                "away_team": "Zrinjski (Bih)",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/tjSNE1KH/"
+            },
+            {
+                "league": "EURÓPA: Euro - női",
+                "time_status": "21:00",
+                "home_team": "Lengyelország N",
+                "away_team": "Svédország N",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/00EhYI9t/"
+            },
+            {
+                "league": "VILÁG: FIFA Klub-vb - Play Off",
+                "time_status": "21:00",
+                "home_team": "Fluminense",
+                "away_team": "Chelsea",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/reEVCHGk/"
+            },
+            {
+                "league": "BRAZÍLIA: Piauiense U20",
+                "time_status": "21:00",
+                "home_team": "Tiradentes-PI U20",
+                "away_team": "Caicara U20",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/EV4FVqT6/"
+            },
+            {
+                "league": "BRAZÍLIA: Catarinense U20",
+                "time_status": "21:30",
+                "home_team": "Concordia U20",
+                "away_team": "Figueirense U20",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/EBhwufGO/"
+            },
+            {
+                "league": "IRAK: Iraki Kupa",
+                "time_status": "21:30",
+                "home_team": "Al Shorta",
+                "away_team": "Al Talaba",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/MyCnHJIs/"
+            },
+            {
+                "league": "IRAK: Iraki Kupa",
+                "time_status": "21:30",
+                "home_team": "Zakho",
+                "away_team": "Newroz",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/GbkL0bY0/"
+            },
+            {
+                "league": "ECUADOR: Serie B",
+                "time_status": "22:30",
+                "home_team": "Gualaceo",
+                "away_team": "Cumbaya",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/zLDOJWW9/"
+            },
+            {
+                "league": "BRAZÍLIA: Piauiense U20",
+                "time_status": "23:00",
+                "home_team": "AE Altos U20",
+                "away_team": "Comercial PI U20",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/Me8NTNcJ/"
+            },
+            {
+                "league": "BRAZÍLIA: Piauiense U20",
+                "time_status": "23:00",
+                "home_team": "Parnahyba U20",
+                "away_team": "Ferroviario-PI U20",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/AJauJR0b/"
+            },
+            {
+                "league": "BRAZÍLIA: Acreano U20",
+                "time_status": "23:00",
+                "home_team": "Rio Branco AC U20",
+                "away_team": "Nauas EC U20",
+                "score": "-:-",
+                "match_status": "sched",
+                "detail_page_url": "https://m.eredmenyek.com/merkozes/0Ot8Q2Pr/"
+            }
+        ]
+    }
+}

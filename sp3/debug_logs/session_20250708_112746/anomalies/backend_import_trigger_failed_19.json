@@ -1,0 +1,10 @@
+{
+  "timestamp": "2025-07-08T11:27:58.734926",
+  "type": "backend_import_trigger_failed",
+  "severity": "high",
+  "details": {
+    "returncode": 1,
+    "stderr": "Error response from daemon: No such container: sp3-backend-1\n"
+  },
+  "session_id": "20250708_112746"
+}

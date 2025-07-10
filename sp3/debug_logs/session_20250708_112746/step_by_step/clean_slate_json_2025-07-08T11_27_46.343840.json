@@ -1,0 +1,18 @@
+{
+  "timestamp": "2025-07-08T11:27:46.343840",
+  "step": "clean_slate_json",
+  "description": "Removed 8 JSON files",
+  "data": {
+    "removed_files": [
+      "jsons/Web__47sz__P__06-13_lines.json",
+      "jsons/Web__50sz__K__06-24_lines.json",
+      "jsons/Web__46sz__K__06-10_lines.json",
+      "jsons/Web__48sz__K__06-17_lines.json",
+      "jsons/Web__51sz__P__06-27_lines.json",
+      "jsons/Web__53sz__P__2025_07-04_lines.json",
+      "jsons/Web__49sz__P__06-20_lines.json",
+      "jsons/Web__52sz__K__07-01_lines.json"
+    ]
+  },
+  "session_id": "20250708_112746"
+}

@@ -1,0 +1,1068 @@
+{
+  "summary": {
+    "json_matches": 1276,
+    "db_matches": 1276,
+    "common_matches": 1276,
+    "only_in_json": 0,
+    "only_in_db": 0,
+    "data_coverage_percent": 100.0
+  },
+  "differences": {
+    "field_differences": {
+      "competition": 50,
+      "time": 39
+    },
+    "market_differences": 49,
+    "perfect_matches": 0
+  },
+  "sample_differences": [
+    {
+      "match_id": "2025-06-22_san telmo_chacarita juniors_Argentin 2., B csoport",
+      "field_differences": {
+        "competition": {
+          "json": null,
+          "db": "Argentin 2., B csoport"
+        }
+      },
+      "market_comparison": {
+        "json_count": 1,
+        "db_count": 3,
+        "json_markets": [
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          }
+        ],
+        "db_markets": [
+          {
+            "type": "Fő piac",
+            "selection": "odds1",
+            "odds": 2.97,
+            "handicap": ""
+          },
+          {
+            "type": "Fő piac",
+            "selection": "odds2",
+            "odds": 2.17,
+            "handicap": ""
+          },
+          {
+            "type": "Fő piac",
+            "selection": "oddsX",
+            "odds": 2.84,
+            "handicap": ""
+          }
+        ],
+        "identical": false,
+        "only_in_json": [
+          "{'type': '', 'selection': '', 'odds': None, 'handicap': ''}"
+        ],
+        "only_in_db": [
+          "{'type': 'Fő piac', 'selection': 'odds2', 'odds': 2.17, 'handicap': ''}",
+          "{'type': 'Fő piac', 'selection': 'odds1', 'odds': 2.97, 'handicap': ''}",
+          "{'type': 'Fő piac', 'selection': 'oddsX', 'odds': 2.84, 'handicap': ''}"
+        ]
+      }
+    },
+    {
+      "match_id": "2025-06-18_u21szlovenia_u21csehorszag_U21 Eb",
+      "field_differences": {
+        "competition": {
+          "json": null,
+          "db": "U21 Eb"
+        },
+        "time": {
+          "json": "21:00",
+          "db": "21:0"
+        }
+      },
+      "market_comparison": {
+        "json_count": 16,
+        "db_count": 34,
+        "json_markets": [
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          }
+        ],
+        "db_markets": [
+          {
+            "type": "Döntetlennél a tét visszajár",
+            "selection": "odds1",
+            "odds": 1.78,
+            "handicap": ""
+          },
+          {
+            "type": "Döntetlennél a tét visszajár",
+            "selection": "odds2",
+            "odds": 1.82,
+            "handicap": ""
+          },
+          {
+            "type": "Fő piac",
+            "selection": "odds1",
+            "odds": 2.25,
+            "handicap": ""
+          },
+          {
+            "type": "Fő piac",
+            "selection": "odds2",
+            "odds": 2.64,
+            "handicap": ""
+          },
+          {
+            "type": "Fő piac",
+            "selection": "oddsX",
+            "odds": 3.5,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám (0-1) 01",
+            "selection": "odds1",
+            "odds": 3.8,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám (2-3) 02",
+            "selection": "odds1",
+            "odds": 1.96,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám (4-5) 03",
+            "selection": "odds1",
+            "odds": 3.4,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám (6+) 04",
+            "selection": "odds1",
+            "odds": 11.5,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám 1,5 (H: kev., V: több)",
+            "selection": "odds1",
+            "odds": 3.85,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám 1,5 (H: kev., V: több)",
+            "selection": "odds2",
+            "odds": 1.18,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám 2,5 (H: kev., V: több)",
+            "selection": "odds1",
+            "odds": 2.01,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám 2,5 (H: kev., V: több)",
+            "selection": "odds2",
+            "odds": 1.63,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám 3,5 (H: kev., V: több)",
+            "selection": "odds1",
+            "odds": 1.4,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám 3,5 (H: kev., V: több)",
+            "selection": "odds2",
+            "odds": 2.52,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám 4,5 (H: kev., V: több)",
+            "selection": "odds1",
+            "odds": 1.15,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám 4,5 (H: kev., V: több)",
+            "selection": "odds2",
+            "odds": 4.2,
+            "handicap": ""
+          },
+          {
+            "type": "Hendikep 0:1",
+            "selection": "odds1",
+            "odds": 4.6,
+            "handicap": ""
+          },
+          {
+            "type": "Hendikep 0:1",
+            "selection": "odds2",
+            "odds": 1.44,
+            "handicap": ""
+          },
+          {
+            "type": "Hendikep 0:1",
+            "selection": "oddsX",
+            "odds": 4.15,
+            "handicap": ""
+          },
+          {
+            "type": "Hendikep 0:2",
+            "selection": "odds1",
+            "odds": 10.0,
+            "handicap": ""
+          },
+          {
+            "type": "Hendikep 0:2",
+            "selection": "odds2",
+            "odds": 1.13,
+            "handicap": ""
+          },
+          {
+            "type": "Hendikep 0:2",
+            "selection": "oddsX",
+            "odds": 6.0,
+            "handicap": ""
+          },
+          {
+            "type": "Hendikep 1:0",
+            "selection": "odds1",
+            "odds": 1.42,
+            "handicap": ""
+          },
+          {
+            "type": "Hendikep 1:0",
+            "selection": "odds2",
+            "odds": 4.8,
+            "handicap": ""
+          },
+          {
+            "type": "Hendikep 1:0",
+            "selection": "oddsX",
+            "odds": 4.2,
+            "handicap": ""
+          },
+          {
+            "type": "Kétesély (H: 1X, D: 12, V: X2)",
+            "selection": "odds1",
+            "odds": 1.39,
+            "handicap": ""
+          },
+          {
+            "type": "Kétesély (H: 1X, D: 12, V: X2)",
+            "selection": "odds2",
+            "odds": 1.41,
+            "handicap": ""
+          },
+          {
+            "type": "Kétesély (H: 1X, D: 12, V: X2)",
+            "selection": "oddsX",
+            "odds": 1.26,
+            "handicap": ""
+          },
+          {
+            "type": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+            "selection": "odds1",
+            "odds": 1.57,
+            "handicap": ""
+          },
+          {
+            "type": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+            "selection": "odds2",
+            "odds": 2.11,
+            "handicap": ""
+          },
+          {
+            "type": "félidő - 1X2",
+            "selection": "odds1",
+            "odds": 2.91,
+            "handicap": ""
+          },
+          {
+            "type": "félidő - 1X2",
+            "selection": "odds2",
+            "odds": 2.97,
+            "handicap": ""
+          },
+          {
+            "type": "félidő - 1X2",
+            "selection": "oddsX",
+            "odds": 2.13,
+            "handicap": ""
+          }
+        ],
+        "identical": false,
+        "only_in_json": [
+          "{'type': '', 'selection': '', 'odds': None, 'handicap': ''}"
+        ],
+        "only_in_db": [
+          "{'type': 'Gólszám 4,5 (H: kev., V: több)', 'selection': 'odds1', 'odds': 1.15, 'handicap': ''}",
+          "{'type': 'Döntetlennél a tét visszajár', 'selection': 'odds1', 'odds': 1.78, 'handicap': ''}",
+          "{'type': 'Hendikep 1:0', 'selection': 'odds2', 'odds': 4.8, 'handicap': ''}",
+          "{'type': 'Gólszám 2,5 (H: kev., V: több)', 'selection': 'odds1', 'odds': 2.01, 'handicap': ''}",
+          "{'type': 'Döntetlennél a tét visszajár', 'selection': 'odds2', 'odds': 1.82, 'handicap': ''}",
+          "{'type': 'Hendikep 0:2', 'selection': 'odds1', 'odds': 10.0, 'handicap': ''}",
+          "{'type': 'Fő piac', 'selection': 'odds2', 'odds': 2.64, 'handicap': ''}",
+          "{'type': 'Gólszám (0-1) 01', 'selection': 'odds1', 'odds': 3.8, 'handicap': ''}",
+          "{'type': 'Mindkét csapat szerez gólt (H: Igen, V: Nem)', 'selection': 'odds1', 'odds': 1.57, 'handicap': ''}",
+          "{'type': 'Hendikep 0:1', 'selection': 'oddsX', 'odds': 4.15, 'handicap': ''}",
+          "{'type': 'Gólszám 4,5 (H: kev., V: több)', 'selection': 'odds2', 'odds': 4.2, 'handicap': ''}",
+          "{'type': 'Gólszám 3,5 (H: kev., V: több)', 'selection': 'odds1', 'odds': 1.4, 'handicap': ''}",
+          "{'type': 'Gólszám 1,5 (H: kev., V: több)', 'selection': 'odds2', 'odds': 1.18, 'handicap': ''}",
+          "{'type': 'Fő piac', 'selection': 'oddsX', 'odds': 3.5, 'handicap': ''}",
+          "{'type': 'Gólszám (2-3) 02', 'selection': 'odds1', 'odds': 1.96, 'handicap': ''}",
+          "{'type': 'Kétesély (H: 1X, D: 12, V: X2)', 'selection': 'oddsX', 'odds': 1.26, 'handicap': ''}",
+          "{'type': 'félidő - 1X2', 'selection': 'odds2', 'odds': 2.97, 'handicap': ''}",
+          "{'type': 'Gólszám 3,5 (H: kev., V: több)', 'selection': 'odds2', 'odds': 2.52, 'handicap': ''}",
+          "{'type': 'Kétesély (H: 1X, D: 12, V: X2)', 'selection': 'odds2', 'odds': 1.41, 'handicap': ''}",
+          "{'type': 'Mindkét csapat szerez gólt (H: Igen, V: Nem)', 'selection': 'odds2', 'odds': 2.11, 'handicap': ''}",
+          "{'type': 'félidő - 1X2', 'selection': 'odds1', 'odds': 2.91, 'handicap': ''}",
+          "{'type': 'félidő - 1X2', 'selection': 'oddsX', 'odds': 2.13, 'handicap': ''}",
+          "{'type': 'Gólszám (6+) 04', 'selection': 'odds1', 'odds': 11.5, 'handicap': ''}",
+          "{'type': 'Hendikep 0:2', 'selection': 'odds2', 'odds': 1.13, 'handicap': ''}",
+          "{'type': 'Hendikep 0:1', 'selection': 'odds2', 'odds': 1.44, 'handicap': ''}",
+          "{'type': 'Hendikep 1:0', 'selection': 'oddsX', 'odds': 4.2, 'handicap': ''}",
+          "{'type': 'Gólszám (4-5) 03', 'selection': 'odds1', 'odds': 3.4, 'handicap': ''}",
+          "{'type': 'Hendikep 1:0', 'selection': 'odds1', 'odds': 1.42, 'handicap': ''}",
+          "{'type': 'Fő piac', 'selection': 'odds1', 'odds': 2.25, 'handicap': ''}",
+          "{'type': 'Kétesély (H: 1X, D: 12, V: X2)', 'selection': 'odds1', 'odds': 1.39, 'handicap': ''}",
+          "{'type': 'Gólszám 2,5 (H: kev., V: több)', 'selection': 'odds2', 'odds': 1.63, 'handicap': ''}",
+          "{'type': 'Hendikep 0:1', 'selection': 'odds1', 'odds': 4.6, 'handicap': ''}",
+          "{'type': 'Gólszám 1,5 (H: kev., V: több)', 'selection': 'odds1', 'odds': 3.85, 'handicap': ''}",
+          "{'type': 'Hendikep 0:2', 'selection': 'oddsX', 'odds': 6.0, 'handicap': ''}"
+        ]
+      }
+    },
+    {
+      "match_id": "2025-06-17_boca juniors_benfica_Klubcsapat vb",
+      "field_differences": {
+        "competition": {
+          "json": null,
+          "db": "Klubcsapat vb"
+        },
+        "time": {
+          "json": "00:00",
+          "db": "0:0"
+        }
+      },
+      "market_comparison": {
+        "json_count": 30,
+        "db_count": 52,
+        "json_markets": [
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          },
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          }
+        ],
+        "db_markets": [
+          {
+            "type": "1X2 + Gólszám 2,5 (Döntetlen és kevesebb) 02",
+            "selection": "odds1",
+            "odds": 4.45,
+            "handicap": ""
+          },
+          {
+            "type": "1X2 + Gólszám 2,5 (Döntetlen és több) 05",
+            "selection": "odds1",
+            "odds": 15.0,
+            "handicap": ""
+          },
+          {
+            "type": "1X2 + Gólszám 2,5 (Hazai és kevesebb) 01",
+            "selection": "odds1",
+            "odds": 8.5,
+            "handicap": ""
+          },
+          {
+            "type": "1X2 + Gólszám 2,5 (Hazai és több) 04",
+            "selection": "odds1",
+            "odds": 7.75,
+            "handicap": ""
+          },
+          {
+            "type": "1X2 + Gólszám 2,5 (Vendég és kevesebb) 03",
+            "selection": "odds1",
+            "odds": 3.95,
+            "handicap": ""
+          },
+          {
+            "type": "1X2 + Gólszám 2,5 (Vendég és több) 06",
+            "selection": "odds1",
+            "odds": 2.79,
+            "handicap": ""
+          },
+          {
+            "type": "1X2 + Mindkét csapat szerez gólt (Döntetlen és igen) 03",
+            "selection": "odds1",
+            "odds": 4.95,
+            "handicap": ""
+          },
+          {
+            "type": "1X2 + Mindkét csapat szerez gólt (Döntetlen és nem) 04",
+            "selection": "odds1",
+            "odds": 11.0,
+            "handicap": ""
+          },
+          {
+            "type": "1X2 + Mindkét csapat szerez gólt (Hazai és igen) 01",
+            "selection": "odds1",
+            "odds": 8.75,
+            "handicap": ""
+          },
+          {
+            "type": "1X2 + Mindkét csapat szerez gólt (Hazai és nem) 02",
+            "selection": "odds1",
+            "odds": 7.5,
+            "handicap": ""
+          },
+          {
+            "type": "1X2 + Mindkét csapat szerez gólt (Vendég és igen) 05",
+            "selection": "odds1",
+            "odds": 3.85,
+            "handicap": ""
+          },
+          {
+            "type": "1X2 + Mindkét csapat szerez gólt (Vendég és nem) 06",
+            "selection": "odds1",
+            "odds": 2.85,
+            "handicap": ""
+          },
+          {
+            "type": "Az első 10 perc eredménye (0-9:59)",
+            "selection": "odds1",
+            "odds": 10.0,
+            "handicap": ""
+          },
+          {
+            "type": "Az első 10 perc eredménye (0-9:59)",
+            "selection": "odds2",
+            "odds": 5.75,
+            "handicap": ""
+          },
+          {
+            "type": "Az első 10 perc eredménye (0-9:59)",
+            "selection": "oddsX",
+            "odds": 1.14,
+            "handicap": ""
+          },
+          {
+            "type": "Döntetlennél a tét visszajár",
+            "selection": "odds1",
+            "odds": 2.96,
+            "handicap": ""
+          },
+          {
+            "type": "Döntetlennél a tét visszajár",
+            "selection": "odds2",
+            "odds": 1.29,
+            "handicap": ""
+          },
+          {
+            "type": "Fő piac",
+            "selection": "odds1",
+            "odds": 4.45,
+            "handicap": ""
+          },
+          {
+            "type": "Fő piac",
+            "selection": "odds2",
+            "odds": 1.62,
+            "handicap": ""
+          },
+          {
+            "type": "Fő piac",
+            "selection": "oddsX",
+            "odds": 3.75,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám (0-1) 01",
+            "selection": "odds1",
+            "odds": 3.25,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám (2-3) 02",
+            "selection": "odds1",
+            "odds": 1.92,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám (4-5) 03",
+            "selection": "odds1",
+            "odds": 3.9,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám (6+) 04",
+            "selection": "odds1",
+            "odds": 16.0,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám 1,5 (H: kev., V: több)",
+            "selection": "odds1",
+            "odds": 3.3,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám 1,5 (H: kev., V: több)",
+            "selection": "odds2",
+            "odds": 1.24,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám 2,5 (H: kev., V: több)",
+            "selection": "odds1",
+            "odds": 1.82,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám 2,5 (H: kev., V: több)",
+            "selection": "odds2",
+            "odds": 1.79,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám 3,5 (H: kev., V: több)",
+            "selection": "odds1",
+            "odds": 1.31,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám 3,5 (H: kev., V: több)",
+            "selection": "odds2",
+            "odds": 2.89,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám 4,5 (H: kev., V: több)",
+            "selection": "odds1",
+            "odds": 1.11,
+            "handicap": ""
+          },
+          {
+            "type": "Gólszám 4,5 (H: kev., V: több)",
+            "selection": "odds2",
+            "odds": 4.85,
+            "handicap": ""
+          },
+          {
+            "type": "Hendikep 0:1",
+            "selection": "odds1",
+            "odds": 10.5,
+            "handicap": ""
+          },
+          {
+            "type": "Hendikep 0:1",
+            "selection": "odds2",
+            "odds": 1.19,
+            "handicap": ""
+          },
+          {
+            "type": "Hendikep 0:1",
+            "selection": "oddsX",
+            "odds": 5.5,
+            "handicap": ""
+          },
+          {
+            "type": "Hendikep 1:0",
+            "selection": "odds1",
+            "odds": 1.99,
+            "handicap": ""
+          },
+          {
+            "type": "Hendikep 1:0",
+            "selection": "odds2",
+            "odds": 3.0,
+            "handicap": ""
+          },
+          {
+            "type": "Hendikep 1:0",
+            "selection": "oddsX",
+            "odds": 3.6,
+            "handicap": ""
+          },
+          {
+            "type": "Hendikep 2:0",
+            "selection": "odds1",
+            "odds": 1.33,
+            "handicap": ""
+          },
+          {
+            "type": "Hendikep 2:0",
+            "selection": "odds2",
+            "odds": 6.25,
+            "handicap": ""
+          },
+          {
+            "type": "Hendikep 2:0",
+            "selection": "oddsX",
+            "odds": 4.95,
+            "handicap": ""
+          },
+          {
+            "type": "Kétesély (H: 1X, D: 12, V: X2)",
+            "selection": "odds1",
+            "odds": 1.79,
+            "handicap": ""
+          },
+          {
+            "type": "Kétesély (H: 1X, D: 12, V: X2)",
+            "selection": "odds2",
+            "odds": 1.18,
+            "handicap": ""
+          },
+          {
+            "type": "Kétesély (H: 1X, D: 12, V: X2)",
+            "selection": "oddsX",
+            "odds": 1.23,
+            "handicap": ""
+          },
+          {
+            "type": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+            "selection": "odds1",
+            "odds": 1.81,
+            "handicap": ""
+          },
+          {
+            "type": "Mindkét csapat szerez gólt (H: Igen, V: Nem)",
+            "selection": "odds2",
+            "odds": 1.8,
+            "handicap": ""
+          },
+          {
+            "type": "félidő - 1X2",
+            "selection": "odds1",
+            "odds": 4.75,
+            "handicap": ""
+          },
+          {
+            "type": "félidő - 1X2",
+            "selection": "odds1",
+            "odds": 4.0,
+            "handicap": ""
+          },
+          {
+            "type": "félidő - 1X2",
+            "selection": "odds2",
+            "odds": 2.29,
+            "handicap": ""
+          },
+          {
+            "type": "félidő - 1X2",
+            "selection": "odds2",
+            "odds": 2.04,
+            "handicap": ""
+          },
+          {
+            "type": "félidő - 1X2",
+            "selection": "oddsX",
+            "odds": 2.16,
+            "handicap": ""
+          },
+          {
+            "type": "félidő - 1X2",
+            "selection": "oddsX",
+            "odds": 2.45,
+            "handicap": ""
+          }
+        ],
+        "identical": false,
+        "only_in_json": [
+          "{'type': '', 'selection': '', 'odds': None, 'handicap': ''}"
+        ],
+        "only_in_db": [
+          "{'type': 'Mindkét csapat szerez gólt (H: Igen, V: Nem)', 'selection': 'odds2', 'odds': 1.8, 'handicap': ''}",
+          "{'type': '1X2 + Gólszám 2,5 (Döntetlen és kevesebb) 02', 'selection': 'odds1', 'odds': 4.45, 'handicap': ''}",
+          "{'type': 'Gólszám (6+) 04', 'selection': 'odds1', 'odds': 16.0, 'handicap': ''}",
+          "{'type': 'Hendikep 1:0', 'selection': 'odds1', 'odds': 1.99, 'handicap': ''}",
+          "{'type': 'félidő - 1X2', 'selection': 'odds2', 'odds': 2.04, 'handicap': ''}",
+          "{'type': '1X2 + Mindkét csapat szerez gólt (Vendég és igen) 05', 'selection': 'odds1', 'odds': 3.85, 'handicap': ''}",
+          "{'type': 'Gólszám 1,5 (H: kev., V: több)', 'selection': 'odds2', 'odds': 1.24, 'handicap': ''}",
+          "{'type': 'Kétesély (H: 1X, D: 12, V: X2)', 'selection': 'odds1', 'odds': 1.79, 'handicap': ''}",
+          "{'type': 'Hendikep 0:1', 'selection': 'oddsX', 'odds': 5.5, 'handicap': ''}",
+          "{'type': 'Hendikep 0:1', 'selection': 'odds1', 'odds': 10.5, 'handicap': ''}",
+          "{'type': 'Fő piac', 'selection': 'oddsX', 'odds': 3.75, 'handicap': ''}",
+          "{'type': '1X2 + Mindkét csapat szerez gólt (Döntetlen és igen) 03', 'selection': 'odds1', 'odds': 4.95, 'handicap': ''}",
+          "{'type': 'Gólszám 4,5 (H: kev., V: több)', 'selection': 'odds2', 'odds': 4.85, 'handicap': ''}",
+          "{'type': '1X2 + Gólszám 2,5 (Hazai és kevesebb) 01', 'selection': 'odds1', 'odds': 8.5, 'handicap': ''}",
+          "{'type': 'félidő - 1X2', 'selection': 'odds1', 'odds': 4.0, 'handicap': ''}",
+          "{'type': 'Hendikep 2:0', 'selection': 'odds2', 'odds': 6.25, 'handicap': ''}",
+          "{'type': 'Gólszám 4,5 (H: kev., V: több)', 'selection': 'odds1', 'odds': 1.11, 'handicap': ''}",
+          "{'type': 'Fő piac', 'selection': 'odds2', 'odds': 1.62, 'handicap': ''}",
+          "{'type': 'Gólszám (0-1) 01', 'selection': 'odds1', 'odds': 3.25, 'handicap': ''}",
+          "{'type': 'Döntetlennél a tét visszajár', 'selection': 'odds1', 'odds': 2.96, 'handicap': ''}",
+          "{'type': 'Fő piac', 'selection': 'odds1', 'odds': 4.45, 'handicap': ''}",
+          "{'type': 'Mindkét csapat szerez gólt (H: Igen, V: Nem)', 'selection': 'odds1', 'odds': 1.81, 'handicap': ''}",
+          "{'type': 'Gólszám (2-3) 02', 'selection': 'odds1', 'odds': 1.92, 'handicap': ''}",
+          "{'type': 'Hendikep 0:1', 'selection': 'odds2', 'odds': 1.19, 'handicap': ''}",
+          "{'type': 'Kétesély (H: 1X, D: 12, V: X2)', 'selection': 'odds2', 'odds': 1.18, 'handicap': ''}",
+          "{'type': '1X2 + Gólszám 2,5 (Vendég és több) 06', 'selection': 'odds1', 'odds': 2.79, 'handicap': ''}",
+          "{'type': 'Gólszám 3,5 (H: kev., V: több)', 'selection': 'odds2', 'odds': 2.89, 'handicap': ''}",
+          "{'type': 'Gólszám (4-5) 03', 'selection': 'odds1', 'odds': 3.9, 'handicap': ''}",
+          "{'type': 'félidő - 1X2', 'selection': 'odds1', 'odds': 4.75, 'handicap': ''}",
+          "{'type': '1X2 + Mindkét csapat szerez gólt (Vendég és nem) 06', 'selection': 'odds1', 'odds': 2.85, 'handicap': ''}",
+          "{'type': '1X2 + Gólszám 2,5 (Vendég és kevesebb) 03', 'selection': 'odds1', 'odds': 3.95, 'handicap': ''}",
+          "{'type': 'Kétesély (H: 1X, D: 12, V: X2)', 'selection': 'oddsX', 'odds': 1.23, 'handicap': ''}",
+          "{'type': 'Az első 10 perc eredménye (0-9:59)', 'selection': 'odds2', 'odds': 5.75, 'handicap': ''}",
+          "{'type': '1X2 + Gólszám 2,5 (Döntetlen és több) 05', 'selection': 'odds1', 'odds': 15.0, 'handicap': ''}",
+          "{'type': 'Gólszám 1,5 (H: kev., V: több)', 'selection': 'odds1', 'odds': 3.3, 'handicap': ''}",
+          "{'type': 'Az első 10 perc eredménye (0-9:59)', 'selection': 'oddsX', 'odds': 1.14, 'handicap': ''}",
+          "{'type': 'Döntetlennél a tét visszajár', 'selection': 'odds2', 'odds': 1.29, 'handicap': ''}",
+          "{'type': 'Gólszám 2,5 (H: kev., V: több)', 'selection': 'odds2', 'odds': 1.79, 'handicap': ''}",
+          "{'type': 'Hendikep 2:0', 'selection': 'odds1', 'odds': 1.33, 'handicap': ''}",
+          "{'type': '1X2 + Gólszám 2,5 (Hazai és több) 04', 'selection': 'odds1', 'odds': 7.75, 'handicap': ''}",
+          "{'type': 'Hendikep 1:0', 'selection': 'oddsX', 'odds': 3.6, 'handicap': ''}",
+          "{'type': 'félidő - 1X2', 'selection': 'oddsX', 'odds': 2.45, 'handicap': ''}",
+          "{'type': 'Gólszám 2,5 (H: kev., V: több)', 'selection': 'odds1', 'odds': 1.82, 'handicap': ''}",
+          "{'type': '1X2 + Mindkét csapat szerez gólt (Döntetlen és nem) 04', 'selection': 'odds1', 'odds': 11.0, 'handicap': ''}",
+          "{'type': 'Az első 10 perc eredménye (0-9:59)', 'selection': 'odds1', 'odds': 10.0, 'handicap': ''}",
+          "{'type': 'Hendikep 2:0', 'selection': 'oddsX', 'odds': 4.95, 'handicap': ''}",
+          "{'type': '1X2 + Mindkét csapat szerez gólt (Hazai és igen) 01', 'selection': 'odds1', 'odds': 8.75, 'handicap': ''}",
+          "{'type': 'Hendikep 1:0', 'selection': 'odds2', 'odds': 3.0, 'handicap': ''}",
+          "{'type': 'félidő - 1X2', 'selection': 'odds2', 'odds': 2.29, 'handicap': ''}",
+          "{'type': 'félidő - 1X2', 'selection': 'oddsX', 'odds': 2.16, 'handicap': ''}",
+          "{'type': '1X2 + Mindkét csapat szerez gólt (Hazai és nem) 02', 'selection': 'odds1', 'odds': 7.5, 'handicap': ''}",
+          "{'type': 'Gólszám 3,5 (H: kev., V: több)', 'selection': 'odds1', 'odds': 1.31, 'handicap': ''}"
+        ]
+      }
+    },
+    {
+      "match_id": "2025-06-25_yokohama fm_fc tokyo_Japán bajnokság",
+      "field_differences": {
+        "competition": {
+          "json": null,
+          "db": "Japán bajnokság"
+        }
+      },
+      "market_comparison": {
+        "json_count": 1,
+        "db_count": 3,
+        "json_markets": [
+          {
+            "type": "",
+            "selection": "",
+            "odds": null,
+            "handicap": ""
+          }
+        ],
+        "db_markets": [
+          {
+            "type": "Fő piac",
+            "selection": "odds1",
+            "odds": 2.07,
+            "handicap": ""
+          },
+          {
+            "type": "Fő piac",
+            "selection": "odds2",
+            "odds": 2.89,
+            "handicap": ""
+          },
+          {
+            "type": "Fő piac",
+            "selection": "oddsX",
+            "odds": 3.55,
+            "handicap": ""
+          }
+        ],
+        "identical": false,
+        "only_in_json": [
+          "{'type': '', 'selection': '', 'odds': None, 'handicap': ''}"
+        ],
+        "only_in_db": [
+          "{'type': 'Fő piac', 'selection': 'odds1', 'odds': 2.07, 'handicap': ''}",
+          "{'type': 'Fő piac', 'selection': 'oddsX', 'odds': 3.55, 'handicap': ''}",
+          "{'type': 'Fő piac', 'selection': 'odds2', 'odds': 2.89, 'handicap': ''}"
+        ]
+      }
+    },
+    {
+      "match_id": "2025-06-10_hollandia_malta cody gakpo_vb-selejtező, G csoport",
+      "field_differences": {
+        "competition": {
+          "json": null,
+          "db": "vb-selejtező, G csoport"
+        }
+      },
+      "market_comparison": {
+        "json_count": 0,
+        "db_count": 0,
+        "json_markets": [],
+        "db_markets": [],
+        "identical": true
+      }
+    }
+  ]
+}

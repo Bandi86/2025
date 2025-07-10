@@ -1,0 +1,52 @@
+{
+  "title": "",
+  "url": "https://www.eredmenyek.com/fodbold/bolivia/division-profesional/bolivar-vs-independiente/fVLU1Wtb/",
+  "body_text_length": 86,
+  "elements_with_classes": {},
+  "common_selectors": {
+    "[class*='team']": {
+      "count": 0,
+      "sample_text": []
+    },
+    "[class*='score']": {
+      "count": 0,
+      "sample_text": []
+    },
+    "[class*='match']": {
+      "count": 0,
+      "sample_text": []
+    },
+    "[class*='event']": {
+      "count": 0,
+      "sample_text": []
+    },
+    "[class*='stat']": {
+      "count": 0,
+      "sample_text": []
+    },
+    "[class*='lineup']": {
+      "count": 0,
+      "sample_text": []
+    },
+    "h1": {
+      "count": 0,
+      "sample_text": []
+    },
+    "h2": {
+      "count": 0,
+      "sample_text": []
+    },
+    "h3": {
+      "count": 0,
+      "sample_text": []
+    },
+    ".title": {
+      "count": 0,
+      "sample_text": []
+    },
+    ".header": {
+      "count": 0,
+      "sample_text": []
+    }
+  }
+}

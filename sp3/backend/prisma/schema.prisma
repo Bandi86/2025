@@ -41,7 +41,8 @@ model Competition {
 // Csapatok
 model Team {
   id               String  @id @default(cuid())
-  name             String // "Manchester United"
+  name             String // "Manchester United" (gépelve, kisbetűs, ékezet nélkül)
+  fullName         String // "Manchester United FC" vagy "Manchester United" (ékezetes, teljes név)
   shortName        String? // "Man Utd"
   alternativeNames Json? // ["MUFC", "Manchester United FC"]
   city             String?
@@ -166,14 +167,25 @@ model Market {
   matchId   String
   name      String
   origName  String?
-  odds1     Float?
-  oddsX     Float?
-  odds2     Float?
   match     Match    @relation("MatchMarkets", fields: [matchId], references: [id])
+  odds      Odds[] // Új kapcsolat: minden piacnak több odds-a lehet
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@map("markets")
+}
+
+// Odds (egy piac egy vagy több odds típussal)
+model Odds {
+  id        String   @id @default(cuid())
+  marketId  String
+  type      String // pl. "odds1", "oddsX", "odds2", "over_25", "btts_yes" stb.
+  value     Float
+  market    Market   @relation(fields: [marketId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("odds")
 }
 
 // ========================================
@@ -204,3 +216,8 @@ enum DataSource {
   WEB_SCRAPING // Web scraping
   CSV_IMPORT // CSV feltöltés
 }
+
+// Későbbi bővítéshez előkészítés (pl. statisztika, játékosok, események)
+// model Player { ... }
+// model MatchEvent { ... }
+// model MatchStats { ... }

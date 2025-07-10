@@ -1,0 +1,119 @@
+{
+  "file": "Web__47sz__P__06-13_lines.txt",
+  "line_count": 3087,
+  "potential_matches": 1132,
+  "potential_odds": 3058,
+  "structure_patterns": {
+    "contains_numbers": 29,
+    "contains_time": 3029
+  },
+  "issues": [],
+  "sample_lines": {
+    "match_lines": [
+      {
+        "line_number": 139,
+        "content": "02:014: P 12:00 13019 Panama - Kongói Köztársaság 1,70 3,50 3,60",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 140,
+        "content": "02:015: P 12:00 13020 Panama - Kongói Köztársaság Kétesély (H: 1X, D: 12, V: X2) 1,18 1,19 1,65",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 141,
+        "content": "02:016: P 12:00 13021 Panama - Kongói Köztársaság Döntetlennél a tét visszajár 1,34 2,76",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 142,
+        "content": "02:017: P 12:00 13022 Panama - Kongói Köztársaság Mindkét csapat szerez gólt (H: Igen, V: Nem) 1,60 2,06",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 143,
+        "content": "02:018: P 12:00 13036 Panama - Kongói Köztársaság Gólszám 2,5 (H: kev., V: több) 2,13 1,56",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 145,
+        "content": "02:020: P 14:00 08559 Dánia - Szaúd-Arábia 1,54 3,55 4,60",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 146,
+        "content": "02:021: P 14:00 08560 Dánia - Szaúd-Arábia Kétesély (H: 1X, D: 12, V: X2) 1,12 1,17 1,80",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 147,
+        "content": "02:022: P 14:00 08561 Dánia - Szaúd-Arábia Döntetlennél a tét visszajár 1,22 3,45",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 148,
+        "content": "02:023: P 14:00 08562 Dánia - Szaúd-Arábia Mindkét csapat szerez gólt (H: Igen, V: Nem) 1,72 1,89",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 149,
+        "content": "02:024: P 14:00 08569 Dánia - Szaúd-Arábia Gólszám 2,5 (H: kev., V: több) 2,02 1,62",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      }
+    ],
+    "odds_lines": [
+      {
+        "line_number": 2,
+        "content": "=== OLDAL 1 ===",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 3,
+        "content": "01:001: XXiv. évfolyam 47. szám",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 4,
+        "content": "01:002: 2025. június 13.",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 5,
+        "content": "01:003: a szerencsejáték zrt. ingyenes kiadványa",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 6,
+        "content": "01:004: m e g j e l e n i k k e d d e n é s p é n t e k e n",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 7,
+        "content": "01:005: KÖZEL 3 MILLIÁRDOT NYERHET A SZOMBATI ÖTÖSSEL!",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 8,
+        "content": "01:006: vÁRHATó főNYEREMéNY",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 9,
+        "content": "01:007: A 24. HéTEN",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 10,
+        "content": "01:008: 2 966",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 11,
+        "content": "01:009: MILLIó fORINT",
+        "pattern": "(\\d+\\.?\\d*)"
+      }
+    ],
+    "empty_lines": 29,
+    "unrecognized_lines": []
+  }
+}

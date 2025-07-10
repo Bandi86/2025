@@ -80,6 +80,7 @@ export interface UpdateMatchDto {
 
 export interface CreateTeamDto {
   name: string;
+  fullName?: string;
   shortName?: string;
   alternativeNames?: string[]; // Will be stored as JSON
   city?: string;
@@ -129,6 +130,7 @@ export interface MatchFilters {
   status?: MatchStatus;
   dateFrom?: string; // ISO date
   dateTo?: string; // ISO date
+  date?: string; // Single date filter (YYYY-MM-DD)
   round?: number;
   matchday?: number;
 
@@ -223,6 +225,7 @@ export interface MatchResponse {
     createdAt: string;
     updatedAt: string;
   }>;
+  timeZone?: string;
 }
 
 export interface TeamResponse {

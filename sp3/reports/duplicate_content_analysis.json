@@ -1,0 +1,16 @@
+{
+  "total_duplicates": 257,
+  "identical_content": 0,
+  "different_content": 257,
+  "content_differences": {
+    "source_file": 257,
+    "page": 253,
+    "markets": 195,
+    "league": 34,
+    "time": 5
+  },
+  "market_analysis": {
+    "identical_markets": 257,
+    "different_markets": 0
+  }
+}

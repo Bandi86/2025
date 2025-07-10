@@ -1,0 +1,254 @@
+{
+  "summary": {
+    "total_matches": 1499,
+    "unique_match_ids": 1276,
+    "duplicates_count": 223,
+    "valuable_duplicates_count": 0
+  },
+  "count_distribution": {
+    "2": 223
+  },
+  "valuable_duplicates": [],
+  "temporal_analysis_sample": {
+    "2025-06-13_gangwon_jeonbuk_Dél-koreai bajnokság": {
+      "total_sources": 2,
+      "sources": [
+        "Web__46sz__K__06-10_lines.json",
+        "Web__47sz__P__06-13_lines.json"
+      ],
+      "progression": [
+        {
+          "from_source": "Web__46sz__K__06-10_lines.json",
+          "to_source": "Web__47sz__P__06-13_lines.json",
+          "comparison": {
+            "markets1_count": 1,
+            "markets2_count": 1,
+            "common_markets": 1,
+            "only_in_first": 0,
+            "only_in_second": 0,
+            "identical": true,
+            "odds_differences": [],
+            "new_markets_in_second": [],
+            "removed_markets": []
+          }
+        }
+      ]
+    },
+    "2025-06-13_gwangju_fc seoul_Dél-koreai bajnokság": {
+      "total_sources": 2,
+      "sources": [
+        "Web__46sz__K__06-10_lines.json",
+        "Web__47sz__P__06-13_lines.json"
+      ],
+      "progression": [
+        {
+          "from_source": "Web__46sz__K__06-10_lines.json",
+          "to_source": "Web__47sz__P__06-13_lines.json",
+          "comparison": {
+            "markets1_count": 1,
+            "markets2_count": 1,
+            "common_markets": 1,
+            "only_in_first": 0,
+            "only_in_second": 0,
+            "identical": true,
+            "odds_differences": [],
+            "new_markets_in_second": [],
+            "removed_markets": []
+          }
+        }
+      ]
+    },
+    "2025-06-13_dalian yingbo_meizhou hakka_Kínai bajnokság": {
+      "total_sources": 2,
+      "sources": [
+        "Web__46sz__K__06-10_lines.json",
+        "Web__47sz__P__06-13_lines.json"
+      ],
+      "progression": [
+        {
+          "from_source": "Web__46sz__K__06-10_lines.json",
+          "to_source": "Web__47sz__P__06-13_lines.json",
+          "comparison": {
+            "markets1_count": 5,
+            "markets2_count": 1,
+            "common_markets": 1,
+            "only_in_first": 0,
+            "only_in_second": 0,
+            "identical": true,
+            "odds_differences": [],
+            "new_markets_in_second": [],
+            "removed_markets": []
+          }
+        }
+      ]
+    },
+    "2025-06-13_wuhan three towns_qingdao hainiu_Kínai bajnokság": {
+      "total_sources": 2,
+      "sources": [
+        "Web__46sz__K__06-10_lines.json",
+        "Web__47sz__P__06-13_lines.json"
+      ],
+      "progression": [
+        {
+          "from_source": "Web__46sz__K__06-10_lines.json",
+          "to_source": "Web__47sz__P__06-13_lines.json",
+          "comparison": {
+            "markets1_count": 5,
+            "markets2_count": 1,
+            "common_markets": 1,
+            "only_in_first": 0,
+            "only_in_second": 0,
+            "identical": true,
+            "odds_differences": [],
+            "new_markets_in_second": [],
+            "removed_markets": []
+          }
+        }
+      ]
+    },
+    "2025-06-13_orebro_sandviken_Svéd 2.": {
+      "total_sources": 2,
+      "sources": [
+        "Web__46sz__K__06-10_lines.json",
+        "Web__47sz__P__06-13_lines.json"
+      ],
+      "progression": [
+        {
+          "from_source": "Web__46sz__K__06-10_lines.json",
+          "to_source": "Web__47sz__P__06-13_lines.json",
+          "comparison": {
+            "markets1_count": 1,
+            "markets2_count": 1,
+            "common_markets": 1,
+            "only_in_first": 0,
+            "only_in_second": 0,
+            "identical": true,
+            "odds_differences": [],
+            "new_markets_in_second": [],
+            "removed_markets": []
+          }
+        }
+      ]
+    },
+    "2025-06-13_cork city_bohemians dublin_Ír bajnokság": {
+      "total_sources": 2,
+      "sources": [
+        "Web__46sz__K__06-10_lines.json",
+        "Web__47sz__P__06-13_lines.json"
+      ],
+      "progression": [
+        {
+          "from_source": "Web__46sz__K__06-10_lines.json",
+          "to_source": "Web__47sz__P__06-13_lines.json",
+          "comparison": {
+            "markets1_count": 1,
+            "markets2_count": 1,
+            "common_markets": 1,
+            "only_in_first": 0,
+            "only_in_second": 0,
+            "identical": true,
+            "odds_differences": [],
+            "new_markets_in_second": [],
+            "removed_markets": []
+          }
+        }
+      ]
+    },
+    "2025-06-13_derry city_galway utd._Ír bajnokság": {
+      "total_sources": 2,
+      "sources": [
+        "Web__46sz__K__06-10_lines.json",
+        "Web__47sz__P__06-13_lines.json"
+      ],
+      "progression": [
+        {
+          "from_source": "Web__46sz__K__06-10_lines.json",
+          "to_source": "Web__47sz__P__06-13_lines.json",
+          "comparison": {
+            "markets1_count": 1,
+            "markets2_count": 1,
+            "common_markets": 1,
+            "only_in_first": 0,
+            "only_in_second": 0,
+            "identical": true,
+            "odds_differences": [],
+            "new_markets_in_second": [],
+            "removed_markets": []
+          }
+        }
+      ]
+    },
+    "2025-06-13_shelbourne_shamrock rovers_Ír bajnokság": {
+      "total_sources": 2,
+      "sources": [
+        "Web__46sz__K__06-10_lines.json",
+        "Web__47sz__P__06-13_lines.json"
+      ],
+      "progression": [
+        {
+          "from_source": "Web__46sz__K__06-10_lines.json",
+          "to_source": "Web__47sz__P__06-13_lines.json",
+          "comparison": {
+            "markets1_count": 1,
+            "markets2_count": 1,
+            "common_markets": 1,
+            "only_in_first": 0,
+            "only_in_second": 0,
+            "identical": true,
+            "odds_differences": [],
+            "new_markets_in_second": [],
+            "removed_markets": []
+          }
+        }
+      ]
+    },
+    "2025-06-13_st. patrick's_drogheda utd._Ír bajnokság": {
+      "total_sources": 2,
+      "sources": [
+        "Web__46sz__K__06-10_lines.json",
+        "Web__47sz__P__06-13_lines.json"
+      ],
+      "progression": [
+        {
+          "from_source": "Web__46sz__K__06-10_lines.json",
+          "to_source": "Web__47sz__P__06-13_lines.json",
+          "comparison": {
+            "markets1_count": 1,
+            "markets2_count": 1,
+            "common_markets": 1,
+            "only_in_first": 0,
+            "only_in_second": 0,
+            "identical": true,
+            "odds_differences": [],
+            "new_markets_in_second": [],
+            "removed_markets": []
+          }
+        }
+      ]
+    },
+    "2025-06-13_athlone_kerry_Ír 1.": {
+      "total_sources": 2,
+      "sources": [
+        "Web__46sz__K__06-10_lines.json",
+        "Web__47sz__P__06-13_lines.json"
+      ],
+      "progression": [
+        {
+          "from_source": "Web__46sz__K__06-10_lines.json",
+          "to_source": "Web__47sz__P__06-13_lines.json",
+          "comparison": {
+            "markets1_count": 1,
+            "markets2_count": 1,
+            "common_markets": 1,
+            "only_in_first": 0,
+            "only_in_second": 0,
+            "identical": true,
+            "odds_differences": [],
+            "new_markets_in_second": [],
+            "removed_markets": []
+          }
+        }
+      ]
+    }
+  }
+}

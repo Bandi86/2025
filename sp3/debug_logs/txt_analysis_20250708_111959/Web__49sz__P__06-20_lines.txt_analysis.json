@@ -1,0 +1,119 @@
+{
+  "file": "Web__49sz__P__06-20_lines.txt",
+  "line_count": 2821,
+  "potential_matches": 1114,
+  "potential_odds": 2792,
+  "structure_patterns": {
+    "contains_numbers": 29,
+    "contains_time": 2763
+  },
+  "issues": [],
+  "sample_lines": {
+    "match_lines": [
+      {
+        "line_number": 122,
+        "content": "02:014: P 13:35 13157 Shandong Taishan - Chengdu Rongcheng 2,44 3,75 2,11",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 124,
+        "content": "02:016: P 18:00 04391 Benfica - Auckland City 15,00 25,00",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 125,
+        "content": "02:017: P 18:00 02545 Benfica - Auckland City Hendikep 0:7 2,52 6,00 1,83",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 126,
+        "content": "02:018: P 18:00 02571 Benfica - Auckland City Hendikep 0:6 1,84 5,75 2,55",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 127,
+        "content": "02:019: P 18:00 04402 Benfica - Auckland City Gólszám 5,5 (H: kev., V: több) 2,98 1,29",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 128,
+        "content": "02:020: P 18:00 04403 Benfica - Auckland City Gólszám 6,5 (H: kev., V: több) 2,07 1,59",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 129,
+        "content": "02:021: P 18:00 04404 Benfica - Auckland City Gólszám 7,5 (H: kev., V: több) 1,59 2,09",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 130,
+        "content": "02:022: P 18:00 04405 Benfica - Auckland City Gólszám 8,5 (H: kev., V: több) 1,32 2,86",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 131,
+        "content": "02:023: P 18:00 04406 Benfica - Auckland City Gólszám (0-1) 01 70,00",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 132,
+        "content": "02:024: P 18:00 04406 Benfica - Auckland City Gólszám (2-3) 02 10,00",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      }
+    ],
+    "odds_lines": [
+      {
+        "line_number": 2,
+        "content": "=== OLDAL 1 ===",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 3,
+        "content": "01:001: XXiv. évfolyam 49. szám",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 4,
+        "content": "01:002: 2025. június 20.",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 5,
+        "content": "01:003: a szerencsejáték zrt. ingyenes kiadványa",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 6,
+        "content": "01:004: m e g j e l e n i k k e d d e n é s p é n t e k e n",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 7,
+        "content": "01:005: A SZOMBATI ÖTÖSSEL 3 MILLIÁRD 200 MILLIÓT NYERHET!",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 8,
+        "content": "01:006: vÁRHATÓ főNYEREMéNY SkANDINÁv LOTTÓ - 25. HéT NAPI MÁZLI - 25. HéT",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 9,
+        "content": "01:007: A 25. HéTEN",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 10,
+        "content": "01:008: ELSő (GéPI) SORSOLÁS sorsolás 1. sOrsOlÁs 2. sOrsOlÁs",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 11,
+        "content": "01:009: 3200 2 8 17 21 23 28 30 napja: éV éV NAPjA sziMBÓluM éV éV NAPjA sziMBÓluM",
+        "pattern": "(\\d+\\.?\\d*)"
+      }
+    ],
+    "empty_lines": 29,
+    "unrecognized_lines": []
+  }
+}

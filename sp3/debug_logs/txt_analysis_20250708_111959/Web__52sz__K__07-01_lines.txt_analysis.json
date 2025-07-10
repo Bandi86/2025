@@ -1,0 +1,119 @@
+{
+  "file": "Web__52sz__K__07-01_lines.txt",
+  "line_count": 2839,
+  "potential_matches": 1160,
+  "potential_odds": 2810,
+  "structure_patterns": {
+    "contains_numbers": 29,
+    "contains_time": 2781
+  },
+  "issues": [],
+  "sample_lines": {
+    "match_lines": [
+      {
+        "line_number": 122,
+        "content": "02:014: K 16:00 12470 Brann Bergen 2 - Pors Grenland 1,83 3,95 2,87",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 123,
+        "content": "02:015: K 16:00 12471 Brann Bergen 2 - Pors Grenland Kétesély (H: 1X, D: 12, V: X2) 1,25 1,16 1,56",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 124,
+        "content": "02:016: K 16:00 12472 Brann Bergen 2 - Pors Grenland Döntetlennél a tét visszajár 1,48 2,30",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 126,
+        "content": "02:018: K 17:00 03122 Kuopio PS - Gnistan 1,51 3,70 4,60",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 127,
+        "content": "02:019: K 17:00 03123 Kuopio PS - Gnistan Kétesély (H: 1X, D: 12, V: X2) 1,13 1,17 1,79",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 128,
+        "content": "02:020: K 17:00 03124 Kuopio PS - Gnistan Döntetlennél a tét visszajár 1,23 3,35",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 129,
+        "content": "02:021: K 17:00 03125 Kuopio PS - Gnistan Mindkét csapat szerez gólt (H: Igen, V: Nem) 1,67 1,96",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 130,
+        "content": "02:022: K 17:00 03173 Kuopio PS - Gnistan Gólszám 2,5 (H: kev., V: több) 2,11 1,57",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 132,
+        "content": "02:024: K 18:00 05887 Észtország - Koszovó 3,45 3,20 1,83",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 134,
+        "content": "02:026: K 21:00 21856 Real Madrid - Juventus 1,65 3,90 5,25",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      }
+    ],
+    "odds_lines": [
+      {
+        "line_number": 2,
+        "content": "=== OLDAL 1 ===",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 3,
+        "content": "01:001: XXiv. évfolyam 52. szám",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 4,
+        "content": "01:002: 2025. július 1.",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 5,
+        "content": "01:003: a szerencsejáték zrt. ingyenes kiadványa",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 6,
+        "content": "01:004: m e g j e l e n i k k e d d e n é s p é n t e k e n",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 7,
+        "content": "01:005: KEDDEN REAL MADRID – JUVENtUS KLUB-VB NYOLCADDÖNtŐ A tIPPMIXEN!",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 8,
+        "content": "01:006: ÖtÖSLOttó - 26. hét hAtOSLOttó - 26. hét NAPI MázLI - 26. hét",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 9,
+        "content": "01:007: 18 56 61 63 75 4 16 18 30 43 44 Sorsolás 1. SORSOLÁS 2. SORSOLÁS",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 10,
+        "content": "01:008: húzáSI SORREND húzáSI SORREND napja: ÉV ÉV NAPJA SZIMBÓLUM ÉV ÉV NAPJA SZIMBÓLUM",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 11,
+        "content": "01:009: 61 56 18 63 75 18 43 4 30 44 16 2025.06.29. 23 3.7. 1 Nap 35 3.26. 20 Bögre",
+        "pattern": "(\\d+\\.?\\d*)"
+      }
+    ],
+    "empty_lines": 29,
+    "unrecognized_lines": []
+  }
+}

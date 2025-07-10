@@ -1,0 +1,119 @@
+{
+  "file": "Web__51sz__P__06-27_lines.txt",
+  "line_count": 2989,
+  "potential_matches": 1118,
+  "potential_odds": 2960,
+  "structure_patterns": {
+    "contains_numbers": 29,
+    "contains_time": 2931
+  },
+  "issues": [],
+  "sample_lines": {
+    "match_lines": [
+      {
+        "line_number": 117,
+        "content": "02:014: P 12:30 05336 Daejeon Citizen - Jeju 2,04 3,30 3,15",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 118,
+        "content": "02:015: P 12:30 05498 Gimcheon Sangmu - Jeonbuk 2,78 3,30 2,25",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 120,
+        "content": "02:017: P 15:30 11151 Lengyelország - Ukrajna 1,11 5,75 13,50",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 121,
+        "content": "02:018: P 15:30 11152 Lengyelország - Ukrajna Kétesély (H: 1X, D: 12, V: X2) 1,02 1,04 2,80",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 122,
+        "content": "02:019: P 15:30 11153 Lengyelország - Ukrajna Döntetlennél a tét visszajár 1,02 7,75",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 123,
+        "content": "02:020: P 15:30 11154 Lengyelország - Ukrajna Mindkét csapat szerez gólt (H: Igen, V: Nem) 2,24 1,51",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 124,
+        "content": "02:021: P 15:30 11190 Lengyelország - Ukrajna Hendikep 0:1 1,41 4,20 5,00",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 125,
+        "content": "02:022: P 15:30 11193 Lengyelország - Ukrajna Gólszám 2,5 (H: kev., V: több) 2,62 1,37",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 126,
+        "content": "02:023: P 19:00 11362 Szerbia - Izland 3,80 3,40 1,69",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      },
+      {
+        "line_number": 127,
+        "content": "02:024: P 19:00 11363 Szerbia - Izland Kétesély (H: 1X, D: 12, V: X2) 1,66 1,19 1,16",
+        "pattern": "(\\d{1,2}:\\d{2})\\s+([^-]+)\\s*-\\s*([^0-9]+)"
+      }
+    ],
+    "odds_lines": [
+      {
+        "line_number": 2,
+        "content": "=== OLDAL 1 ===",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 3,
+        "content": "01:001: XXiv. évfolyam 51. szám",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 4,
+        "content": "01:002: 2025. június 27.",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 5,
+        "content": "01:003: a szerencsejáték zrt. ingyenes kiadványa",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 6,
+        "content": "01:004: m e g j e l e n i k k e d d e n é s p é n t e k e n",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 7,
+        "content": "01:005: SZOMBATON BENFICA - CHELSEA KLUB-VB MÉRKŐZÉS A TIPPMIXEN!",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 8,
+        "content": "01:006: VáRHATó FŐNyEREMÉNy SKANdINáV LOTTó - 26. HÉT NAPI MáZLI - 26. HÉT",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 9,
+        "content": "01:007: A 26. HÉTEN",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 10,
+        "content": "01:008: ELSŐ (GÉPI) SORSOLáS sorsolás 1. sOrsOLÁs 2. sOrsOLÁs",
+        "pattern": "(\\d+\\.?\\d*)"
+      },
+      {
+        "line_number": 11,
+        "content": "01:009: 3360 4 7 10 20 21 24 28 napja: éV éV nAPjA sziMBÓLuM éV éV nAPjA sziMBÓLuM",
+        "pattern": "(\\d+\\.?\\d*)"
+      }
+    ],
+    "empty_lines": 29,
+    "unrecognized_lines": []
+  }
+}

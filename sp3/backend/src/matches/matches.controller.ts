@@ -103,6 +103,12 @@ export class MatchesController {
     description: 'Filter to date (ISO string)',
   })
   @ApiQuery({
+    name: 'date',
+    required: false,
+    type: String,
+    description: 'Filter by specific date (YYYY-MM-DD)',
+  })
+  @ApiQuery({
     name: 'round',
     required: false,
     type: Number,

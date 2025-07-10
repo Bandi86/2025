@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/home/bandi/Documents/code/2025/sp3/.venv/bin/python
 """
 PDF soronkénti dump: minden oldal, minden sor sorszámmal kiírása.
 Kimenet automatikusan a txts mappába kerül.

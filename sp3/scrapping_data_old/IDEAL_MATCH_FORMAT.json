@@ -1,0 +1,403 @@
+{
+  "header_info": {
+    "main_title": "BOL 4-0 IND | Bolivar - Independiente",
+    "league_round": "Bolivia Division Profesional - 13. forduló",
+    "full_league_name": "Bolivia Division Profesional",
+    "round_number": "13. forduló",
+    "final_score": "4-0",
+    "home_team": "Bolivar",
+    "away_team": "Independiente",
+    "date": "08.07.2025",
+    "time": "18:00",
+    "date_time_hungarian": "2025. július 8., 18:00"
+  },
+  "extra_info": {
+    "referee": "Carlos Mendoza",
+    "venue": "Estadio Hernando Siles",
+    "capacity": "41143",
+    "attendance": "35000"
+  },
+  "summary": [
+    {
+      "time": "11'",
+      "type": "yellow_card",
+      "description": "Sárga lap",
+      "player": "Paz L.",
+      "team": "BOL",
+      "details": {
+        "type": "yellow_card",
+        "reason": "Szabálytalanság"
+      }
+    },
+    {
+      "time": "21'",
+      "type": "substitution",
+      "description": "Csere",
+      "player": "Justiniano L.",
+      "player_out": "Catano D.",
+      "team": "BOL",
+      "details": {
+        "type": "substitution",
+        "player_in": "Justiniano L.",
+        "player_out": "Catano D."
+      }
+    },
+    {
+      "time": "34'",
+      "type": "goal",
+      "description": "Gól",
+      "player": "Romero D.",
+      "team": "BOL",
+      "details": {
+        "type": "goal",
+        "scorer": "Romero D.",
+        "assist": "Paz L."
+      }
+    },
+    {
+      "time": "44'",
+      "type": "yellow_card",
+      "description": "Sárga lap",
+      "player": "Chajtur M.",
+      "team": "IND",
+      "details": {
+        "type": "yellow_card",
+        "reason": "Szabálytalanság"
+      }
+    },
+    {
+      "time": "45+2'",
+      "type": "red_card",
+      "description": "Piros lap",
+      "player": "Mercado A.",
+      "team": "IND",
+      "details": {
+        "type": "red_card",
+        "reason": "Második sárga lap"
+      }
+    },
+    {
+      "time": "45+4'",
+      "type": "goal",
+      "description": "Gól",
+      "player": "Catano D.",
+      "team": "BOL",
+      "details": {
+        "type": "goal",
+        "scorer": "Catano D.",
+        "assist": "Torren M."
+      }
+    },
+    {
+      "time": "46'",
+      "type": "substitution",
+      "description": "Csere",
+      "player": "Arteaga N.",
+      "player_out": "Mercado A.",
+      "team": "IND",
+      "details": {
+        "type": "substitution",
+        "player_in": "Arteaga N.",
+        "player_out": "Mercado A."
+      }
+    },
+    {
+      "time": "59'",
+      "type": "goal",
+      "description": "Gól",
+      "player": "Paz L.",
+      "team": "BOL",
+      "details": {
+        "type": "goal",
+        "scorer": "Paz L.",
+        "assist": "Sagredo J."
+      }
+    },
+    {
+      "time": "72'",
+      "type": "goal",
+      "description": "Gól",
+      "player": "Velasquez J.",
+      "team": "BOL",
+      "details": {
+        "type": "goal",
+        "scorer": "Velasquez J.",
+        "assist": "Rivero E."
+      }
+    }
+  ],
+  "statistics": {
+    "Labdabirtoklás": {
+      "home": "68%",
+      "away": "32%"
+    },
+    "Összes lövés": {
+      "home": "27",
+      "away": "6"
+    },
+    "Kapura lövések": {
+      "home": "10",
+      "away": "0"
+    },
+    "Nagy esélyek": {
+      "home": "3",
+      "away": "0"
+    },
+    "Szögletek": {
+      "home": "9",
+      "away": "2"
+    },
+    "Sárga lapok": {
+      "home": "2",
+      "away": "3"
+    },
+    "Piros lapok": {
+      "home": "0",
+      "away": "2"
+    },
+    "Kapu mellé lövések": {
+      "home": "12",
+      "away": "5"
+    },
+    "Blokkolt lövések": {
+      "home": "5",
+      "away": "1"
+    },
+    "Tizenhatoson belüli lövések": {
+      "home": "15",
+      "away": "4"
+    },
+    "Tizenhatoson kívüli lövések": {
+      "home": "12",
+      "away": "2"
+    },
+    "Kapufák": {
+      "home": "1",
+      "away": "0"
+    },
+    "Fejesgólok": {
+      "home": "1",
+      "away": "0"
+    },
+    "Ellenfél kapuja előtti labdaérintések": {
+      "home": "28",
+      "away": "9"
+    },
+    "Pontos keresztlabdák": {
+      "home": "0",
+      "away": "0"
+    },
+    "Lesek": {
+      "home": "0",
+      "away": "4"
+    },
+    "Szabadrúgások": {
+      "home": "22",
+      "away": "7"
+    },
+    "Bedobások": {
+      "home": "18",
+      "away": "17"
+    },
+    "Szabálytalanságok": {
+      "home": "7",
+      "away": "22"
+    },
+    "Megnyert párharcok": {
+      "home": "44",
+      "away": "25"
+    },
+    "Tisztázások": {
+      "home": "4",
+      "away": "19"
+    },
+    "Labdaszerzések": {
+      "home": "5",
+      "away": "6"
+    },
+    "Lövéshez vezető hibák": {
+      "home": "0",
+      "away": "0"
+    },
+    "Gólhoz vezető hibák": {
+      "home": "0",
+      "away": "0"
+    },
+    "Védések": {
+      "home": "0",
+      "away": "6"
+    }
+  },
+  "lineups": {
+    "home_team": [
+      {
+        "name": "Lampe C.",
+        "number": "1",
+        "position": "Kapus"
+      },
+      {
+        "name": "Sagredo J.",
+        "number": "2",
+        "position": "Védő"
+      },
+      {
+        "name": "Torren M.",
+        "number": "3",
+        "position": "Védő"
+      },
+      {
+        "name": "Sagredo J.",
+        "number": "4",
+        "position": "Védő"
+      },
+      {
+        "name": "Paz L.",
+        "number": "8",
+        "position": "Középpályás"
+      },
+      {
+        "name": "Catano D.",
+        "number": "10",
+        "position": "Támadó középpályás"
+      },
+      {
+        "name": "Velasquez J.",
+        "number": "21",
+        "position": "Szélső"
+      },
+      {
+        "name": "Justiniano L.",
+        "number": "23",
+        "position": "Középpályás"
+      },
+      {
+        "name": "Saavedra E.",
+        "number": "26",
+        "position": "Védő"
+      },
+      {
+        "name": "Rivero E.",
+        "number": "35",
+        "position": "Szélső"
+      },
+      {
+        "name": "Romero D.",
+        "number": "77",
+        "position": "Támadó"
+      }
+    ],
+    "away_team": [
+      {
+        "name": "Morales J.",
+        "number": "1",
+        "position": "Kapus"
+      },
+      {
+        "name": "Avila R.",
+        "number": "2",
+        "position": "Védő"
+      },
+      {
+        "name": "Soleto W.",
+        "number": "3",
+        "position": "Védő"
+      },
+      {
+        "name": "Velasquez E.",
+        "number": "4",
+        "position": "Védő"
+      },
+      {
+        "name": "Rivera A.",
+        "number": "6",
+        "position": "Középpályás"
+      },
+      {
+        "name": "Cardozo R.",
+        "number": "7",
+        "position": "Szélső"
+      },
+      {
+        "name": "Villalba D.",
+        "number": "9",
+        "position": "Támadó"
+      },
+      {
+        "name": "Thomaz",
+        "number": "10",
+        "position": "Támadó középpályás"
+      },
+      {
+        "name": "Mercado A.",
+        "number": "20",
+        "position": "Középpályás"
+      },
+      {
+        "name": "Arteaga N.",
+        "number": "21",
+        "position": "Szélső"
+      },
+      {
+        "name": "Castellon D.",
+        "number": "25",
+        "position": "Védő"
+      }
+    ],
+    "substitutes": {
+      "home": [
+        {
+          "name": "Lanzillotta F.",
+          "number": "33",
+          "position": "Kapus"
+        },
+        {
+          "name": "Ayhuana A.",
+          "number": "20",
+          "position": "Védő"
+        },
+        {
+          "name": "Mamani Y.",
+          "number": "34",
+          "position": "Középpályás"
+        },
+        {
+          "name": "Mena F.",
+          "number": "7",
+          "position": "Szélső"
+        },
+        {
+          "name": "Mendez B.",
+          "number": "28",
+          "position": "Támadó"
+        }
+      ],
+      "away": [
+        {
+          "name": "Grass P.",
+          "number": "39",
+          "position": "Kapus"
+        },
+        {
+          "name": "Cristaldo G.",
+          "number": "19",
+          "position": "Védő"
+        },
+        {
+          "name": "Martinez Y.",
+          "number": "16",
+          "position": "Középpályás"
+        },
+        {
+          "name": "Rivera E.",
+          "number": "17",
+          "position": "Szélső"
+        },
+        {
+          "name": "Ubah B.",
+          "number": "91",
+          "position": "Támadó"
+        }
+      ]
+    }
+  }
+}

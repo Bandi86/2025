@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-07-08T11:27:58.633817",
+  "type": "json_missing_competition",
+  "severity": "high",
+  "details": {
+    "file": "Web__46sz__K__06-10_lines.json",
+    "count": 250,
+    "total_matches": 250,
+    "percentage": 100.0
+  },
+  "session_id": "20250708_112746"
+}

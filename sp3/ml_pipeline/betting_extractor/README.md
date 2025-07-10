@@ -1,107 +1,108 @@
-# Betting Data Extractor
+# Betting Extractor - Projekt Struktúra
 
-Ez a mappa tartalmazza a jól működő betting adatkinyerő rendszert. A pipeline PDF fájlokból strukturált JSON-t készít, ahol minden meccshez az összes piac (főpiac, félidő piacok, stb.) egy objektumban van csoportosítva.
+## Fő Fájlok
 
-## Jellemzők
+- `extract_matches.py` - Fő extraction script meccsek feldolgozásához
+- `pdf_to_lines.py` - PDF fájlok szöveggé konvertálása
 
-- **Robusztus csapatnév felismerés**: `"Palmeiras SP"` → `"palmeiras sp"`
-- **Intelligens piac csoportosítás**: `"1. félidő"`, `"2. félidő"` → egy meccs alatt
-- **Strukturált kimenet**: Minden meccshez összes piac egy JSON objektumban
-- **Adatmegőrzés**: Eredeti csapatnevek és piacnevek megőrződnek `orig_*` mezőkben
+## Mappák
 
-## Fájlok
+### 📁 `debug/`
 
-### `pdf_to_lines.py`
+Debug és hibaelhárító scriptek:
 
-PDF fájlokat soronkénti szöveggé alakít.
+- `debug_*.py` fájlok különböző részfeladatok debugolásához
 
-**Használat:**
+### 📁 `tests/`
+
+Test fájlok és tesztelési segédanyagok:
+
+- `test_*.txt` - Teszt input fájlok
+- `test_*.json` - Teszt output fájlok
+
+### 📁 `scripts/`
+
+Segéd scriptek és automatizálási eszközök:
+
+- `auto_watcher.py` - Automatikus fájl figyelő
+- `batch_process.py` - Batch feldolgozási script
+- `check_duplicates.py` - Duplikátum ellenőrző
+- `group_markets.py` - Piacok csoportosítása
+- `process_*.py` - PDF feldolgozási scriptek
+- `*.sh` - Shell scriptek
+- `*.service` - Systemd service fájlok
+
+### 📁 `docs/`
+
+Dokumentáció és README fájlok:
+
+- `*.md` fájlok projektdokumentációval
+
+### 📁 `inputs/`
+
+#### 📁 `pdfs/`
+
+Input PDF fájlok
+
+#### 📁 `txts/`
+
+PDF-ből konvertált szöveges fájlok
+
+#### 📁 `jsons/`
+
+**Végső JSON kimenetek** - Itt találhatóak a feldolgozott meccsadatok JSON formátumban.
+
+- Minden PDF fájlhoz egy JSON fájl készül
+- Formátum: `{PDF_név}_lines.json`
+- **Ez a mappa tartalmazza a végső adatokat, amelyeket az API használ**
+
+### 📁 `outputs/`
+
+**Egyéb kimenetek** - Egyéb típusú kimeneteknek (nem JSON)
+
+#### 📁 `outputs/archive/`
+
+Régi output fájlok archívuma
+
+### 📁 `logs/`
+
+Log fájlok és hibanapló
+
+#### 📁 `logs/archive/`
+
+Régi log fájlok archívuma
+
+### 📁 `archive/`
+
+Egyéb archivált fájlok
+
+### 📁 `__pycache__/`
+
+Python cache fájlok (automatikusan generált)
+
+## Használat
+
+### Alap használat
 
 ```bash
-python3 pdf_to_lines.py <pdf_file> [output_lines.txt]
+python extract_matches.py input.txt output.json
 ```
 
-### `extract_matches.py`
-
-A soronkénti szövegből strukturált JSON meccsadatokat készít.
-
-**Használat:**
+### PDF feldolgozás
 
 ```bash
-python3 extract_matches.py [input_lines.txt] [output_matches.json]
+python pdf_to_lines.py input.pdf output.txt
 ```
 
-### `group_markets.py`
-
-A nyers meccs-piac rekordokat csoportosítja, minden meccshez több piacot rendel.
-
-**Javított logika (2025-07-01):**
-
-- Intelligens csapatnév felismerés különböző formátumokból
-- Piac indikátorok felismerése (`1. félidő`, `2. félidő`, stb.)
-- Normalizált csapatnevek (`palmeiras sp`, `botafogo rj`)
-
-**Használat:**
+### Batch feldolgozás
 
 ```bash
-python3 group_markets.py [input_matches.json] [output_grouped.json]
+python scripts/batch_process.py
 ```
 
-## Teljes folyamat (több PDF esetén)
+## Státusz
 
-```bash
-python3 pdf_to_lines.py pdf1.pdf pdf1_lines.txt
-python3 extract_matches.py pdf1_lines.txt pdf1_matches.json
-python3 group_markets.py pdf1_matches.json pdf1_grouped.json
-
-python3 pdf_to_lines.py pdf2.pdf pdf2_lines.txt
-python3 extract_matches.py pdf2_lines.txt pdf2_matches.json
-python3 group_markets.py pdf2_matches.json pdf2_grouped.json
-```
-
-## Kimenet példa
-
-```json
-{
-  "page": 7,
-  "date": "2025-06-28",
-  "day": "Szombat",
-  "time": "18:00",
-  "league": "Klubcsapat vb",
-  "team1": "palmeiras sp",
-  "team2": "botafogo rj",
-  "orig_team1": "Palmeiras SP",
-  "orig_team2": "Botafogo RJ",
-  "markets": [
-    {
-      "name": "Fő piac",
-      "odds1": "2.10",
-      "oddsX": "2.96",
-      "odds2": "3.40",
-      "orig_team1": "Palmeiras SP",
-      "orig_team2": "Botafogo RJ",
-      "orig_market": ""
-    },
-    {
-      "name": "1. félidő",
-      "odds1": "2.99",
-      "oddsX": "1.90",
-      "odds2": "4.00",
-      "orig_team1": "Palmeiras SP - Botafogo RJ 1. félidő",
-      "orig_team2": "1X2",
-      "orig_market": "1. félidő"
-    },
-    {
-      "name": "2. félidő",
-      "odds1": "2.60",
-      "oddsX": "2.14",
-      "odds2": "3.35",
-      "orig_team1": "Palmeiras SP - Botafogo RJ 2. félidő",
-      "orig_team2": "1X2",
-      "orig_market": "2. félidő"
-    }
-  ]
-}
-```
-
-Így minden PDF-hez külön JSON lesz, minden meccshez összes piac egy objektumban.
+✅ Hajnali meccsek bug javítva
+✅ Frontend refaktorálva
+✅ Docker környezet működik
+✅ Projekt rendrakás kész

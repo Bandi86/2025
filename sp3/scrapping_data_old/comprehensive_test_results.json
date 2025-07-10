@@ -1,0 +1,485 @@
+{
+  "working_urls": [
+    {
+      "url": "https://www.eredmenyek.com",
+      "title": "Klub-vb 2025, élő focieredmények, legfrissebb eredmények | Eredmenyek.com",
+      "body_length": 8131,
+      "status": "working"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/",
+      "title": "Division Profesional 2025 live scores, results, Football Bolivia - Flashscore",
+      "body_length": 6021,
+      "status": "working"
+    },
+    {
+      "url": "https://www.livescore.com/football/bolivia/division-profesional/",
+      "title": "Live Football Scores and Sport Results | LiveScore",
+      "body_length": 2217,
+      "status": "working"
+    },
+    {
+      "url": "https://www.bbc.com/sport/football",
+      "title": "Football - latest news today, results & video highlights - BBC Sport",
+      "body_length": 13939,
+      "status": "working"
+    },
+    {
+      "url": "https://www.espn.com/soccer/",
+      "title": "Soccer on ESPN - Scores, Stats and Highlights",
+      "body_length": 5400,
+      "status": "working"
+    }
+  ],
+  "bolivia_content": [
+    {
+      "url": "https://www.flashscore.com/football/bolivia/",
+      "text": "BOLIVIA",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/",
+      "text": "SUMMARY",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/news/",
+      "text": "NEWS",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/results/",
+      "text": "RESULTS",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/fixtures/",
+      "text": "FIXTURES",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/standings/",
+      "text": "STANDINGS",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/archive/",
+      "text": "ARCHIVE",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/",
+      "text": "Division Profesional",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/#",
+      "text": "Standings",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/fixtures/",
+      "text": "Show more matches",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/",
+      "text": "Division Profesional",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/#",
+      "text": "Standings",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/results/",
+      "text": "Show more matches",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/results/",
+      "text": "",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/fixtures/",
+      "text": "",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/#/2LBZzj8b/table",
+      "text": "STANDINGS",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/#/2LBZzj8b/form",
+      "text": "FORM",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/#/2LBZzj8b/over_under",
+      "text": "OVER/UNDER",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/#/2LBZzj8b/ht_ft",
+      "text": "HT/FT",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/#/2LBZzj8b/top_scorers",
+      "text": "TOP SCORERS",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/#/2LBZzj8b/table/overall",
+      "text": "OVERALL",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/#/2LBZzj8b/table/home",
+      "text": "HOME",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/#/2LBZzj8b/table/away",
+      "text": "AWAY",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/",
+      "text": "Division Profesional",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/nacional-b/",
+      "text": "Nacional B",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/copa-pacena/",
+      "text": "Copa Pacena",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/torneo-amistoso-de-verano/",
+      "text": "Torneo Amistoso de Verano",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/",
+      "text": "Bolivia",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/",
+      "text": "",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/#[legal-age]",
+      "text": "",
+      "type": "bolivia_link"
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/#[legal-age]",
+      "text": "",
+      "type": "bolivia_link"
+    }
+  ],
+  "scraping_results": [
+    {
+      "url": "https://www.eredmenyek.com/fodbold/bolivia/division-profesional/bolivar-vs-independiente/fVLU1Wtb/",
+      "title": "",
+      "teams": [],
+      "scores": [],
+      "times": [],
+      "dates": [],
+      "leagues": [],
+      "all_text_sample": "Hiba: A kívánt oldal nem jeleníthető meg. Kérjük, később próbálja újra!\nEredmenyek.com",
+      "scraping_metadata": {
+        "timestamp": "2025-07-10T09:33:17.132463",
+        "method": "flexible_scraper"
+      }
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/",
+      "title": "Bolivian League - Bolivia Football Live Scores, Livescore",
+      "teams": [
+        "Football Bolivian League - Bolivia Live Scores",
+        "Division Profesional - Relegation\nDraw",
+        "Division Profesional - Super final\nDraw",
+        "Division Profesional - Clausura\nStandings",
+        "Division Profesional - Relegation\nDraw",
+        "Division Profesional - Clausura\nStandings",
+        "com - Bolivian League",
+        "Bolivian League - Bolivia",
+        "Tour de France\nFOOTBALL SCORES\nFlamengo RJ - Sao Paulo\nVasco",
+        "Botafogo RJ\nSantos - Palmeiras\nMirassol",
+        "Fluminense\nPalmeiras - Mirassol\nSantos",
+        "Flamengo RJ\nBotafogo RJ - Vitoria\nFluminense",
+        "Cruzeiro\nInter Miami - Nashville SC\nSporting Kansas City",
+        "Seattle Sounders\nLIVE SCORES\nFritz - Alcaraz\nSinner",
+        "Djokovic\nChelsea - PSG\nEngland",
+        "Argentina - Brazil\nTurkey",
+        "USA\nSerbia - Italy\nIran",
+        "Bolivar",
+        "Independiente",
+        "Oriente Petrolero",
+        "Always Ready",
+        "The Strongest",
+        "Independiente",
+        "The Strongest",
+        "Always Ready",
+        "Bolivar",
+        "Oriente Petrolero",
+        "Oriente Petrolero",
+        "Bolivar",
+        "The Strongest",
+        "Independiente",
+        "Bolivar",
+        "Independiente",
+        "Always Ready",
+        "Oriente Petrolero",
+        "The Strongest",
+        "Bolivar",
+        "Oriente Petrolero",
+        "Bolivar",
+        "The Strongest",
+        "Independiente",
+        "Always Ready",
+        "The Strongest",
+        "Oriente Petrolero",
+        "Always Ready",
+        "Bolivar",
+        "Independiente",
+        "Bolivar",
+        "The Strongest",
+        "Oriente Petrolero",
+        "Always Ready",
+        "Bolivar",
+        "Always Ready",
+        "The Strongest",
+        "Oriente Petrolero",
+        "Independiente",
+        "Bolivar",
+        "Bolivar",
+        "Bolivar",
+        "Always Ready",
+        "Bolivar",
+        "Always Ready",
+        "Always Ready",
+        "Bolivar",
+        "Always Ready",
+        "Bolivar",
+        "Oriente Petrolero",
+        "Bolivar",
+        "Independiente"
+      ],
+      "scores": [
+        "02-00",
+        "00-00",
+        "21-00",
+        "01-30",
+        "23-30",
+        "21-00",
+        "02-00",
+        "23-30",
+        "02-00",
+        "23-30",
+        "21-00",
+        "01-30",
+        "23-15",
+        "21-00",
+        "23-30",
+        "21-00",
+        "01-30",
+        "23-15",
+        "21-00",
+        "02-00",
+        "20-00",
+        "22-00",
+        "22-30",
+        "20-00",
+        "20-00",
+        "20-00",
+        "00-00",
+        "00-00",
+        "22-30",
+        "20-00",
+        "20-00",
+        "01-30",
+        "01-30",
+        "00-00",
+        "20-00",
+        "01-00",
+        "00-00",
+        "00-00",
+        "20-00",
+        "01-00",
+        "01-00",
+        "22-30",
+        "20-00",
+        "00-00",
+        "21-00",
+        "23-30",
+        "02-30",
+        "00-00",
+        "02-30",
+        "00-00",
+        "21-00",
+        "02-30",
+        "00-00",
+        "21-00",
+        "02-30",
+        "00-00",
+        "21-00",
+        "02-30",
+        "00-00",
+        "02-00",
+        "23-30",
+        "21-00",
+        "23-00",
+        "22-30",
+        "01-00",
+        "01-00",
+        "20-00",
+        "01-00",
+        "01-00",
+        "22-30",
+        "20-00",
+        "23-00",
+        "20-00",
+        "01-00",
+        "20-00",
+        "01-30",
+        "23-30",
+        "00-30",
+        "22-30",
+        "01-00",
+        "22-30",
+        "20-00",
+        "00-00",
+        "2006-25",
+        "2006-25"
+      ],
+      "times": [],
+      "dates": [],
+      "leagues": [
+        "Bolivia Division Profesional"
+      ],
+      "all_text_sample": "Football Bolivian League - Bolivia Live Scores, Results\nAdvertisement\nSCORES\nNEWS\nLOGIN\nFAVORITES\nFOOTBALL\nTENNIS\nBASKETBALL\nHOCKEY\nGOLF\nVOLLEYBALL\nBASEBALL\nSNOOKER\nFIFA CLUB WORLD CUP\nEVERY GAME FREE ON DAZN\nAdvertisement\nAdvertisement\nAdvertisement\nFOOTBALL\nBOLIVIA\nLATEST SCORES\nSCHEDULED\nBOLIVIA\n: \nDivision Profesional\nStandings\n08.07. 02:00\nWilstermann\nGuabira\n1\n1\n08.07. 00:00\nBolivar\nIndependiente\n2\n4\n0\n07.07. 21:00\nAcademia del Balompie\n2\nNacional Potosi\n2\n2\n07.07. 01:30\nBlooming\nReal Oruro\n4\n2\n06.07. 23:30\nGV San Jose\nOriente Petrolero\n5\n1\n06.07. 21:00\nAlways Ready\nThe Strongest\n7\n2\n06.07. 02:00\nUniversitario de Vinto\nAurora\n1\n2\n05.07. 23:30\nTomayapo\nSA Bulo Bulo\n1\n1\n01.07. 02:00\nGuabira\nIndependiente\n1\n1\n30.06. 23:30\nReal Oruro\nWilstermann\n3\n1\n30.06. 21:00\nAcademia del Balompie\nBlooming\n1\n1\n30.06. 01:30\nThe Strongest\nUniversitario de Vinto\n3\n2\n29.06. 23:15\nAurora\nAlways Ready\n1\n1\n29.06. 21:00\nNacional Potosi\n2\nBolivar\n1\n1\n28.06. 23:30\nOriente Petrolero\nTomayapo\n2\n1\n28.06. 21:00",
+      "scraping_metadata": {
+        "timestamp": "2025-07-10T09:33:29.337004",
+        "method": "flexible_scraper"
+      }
+    },
+    {
+      "url": "https://www.flashscore.com/football/bolivia/division-profesional/",
+      "title": "Division Profesional 2025 live scores, results, Football Bolivia - Flashscore",
+      "teams": [
+        "Promotion - Copa Libertadores",
+        "Promotion - Copa Libertadores",
+        "Promotion - Copa Sudamericana",
+        "Tour de France\nFOOTBALL SCORES\nFlamengo RJ - Sao Paulo\nVasco",
+        "Botafogo RJ\nSantos - Palmeiras\nMirassol",
+        "Fluminense\nPalmeiras - Mirassol\nSantos",
+        "Flamengo RJ\nBotafogo RJ - Vitoria\nFluminense",
+        "Cruzeiro\nInter Miami - Nashville SC\nSporting Kansas City",
+        "Seattle Sounders\nLIVE SCORES\nFritz - Alcaraz\nSinner",
+        "Djokovic\nChelsea - PSG\nEngland",
+        "Argentina - Brazil\nTurkey",
+        "USA\nSerbia - Italy\nIran",
+        "Always Ready",
+        "Independiente",
+        "The Strongest",
+        "Bolivar",
+        "Oriente Petrolero",
+        "Bolivar",
+        "Oriente Petrolero",
+        "Bolivar",
+        "Independiente",
+        "Oriente Petrolero",
+        "Always Ready",
+        "The Strongest",
+        "Independiente",
+        "The Strongest",
+        "Always Ready",
+        "The Strongest",
+        "Bolivar",
+        "Oriente Petrolero",
+        "Independiente"
+      ],
+      "scores": [
+        "01-00",
+        "21-00",
+        "23-30",
+        "21-00",
+        "23-15",
+        "01-30",
+        "00-00",
+        "02-30",
+        "21-00",
+        "23-30",
+        "02-00",
+        "00-00",
+        "21-00",
+        "01-30",
+        "23-30",
+        "21-00",
+        "02-00",
+        "23-30",
+        "02-00",
+        "23-30",
+        "21-00",
+        "01-30",
+        "44-15",
+        "36-26",
+        "29-20",
+        "33-16",
+        "21-21",
+        "21-25",
+        "18-25",
+        "15-17",
+        "12-18",
+        "15-21",
+        "20-30",
+        "13-13",
+        "17-22",
+        "17-25",
+        "9-29",
+        "25-22",
+        "3-14",
+        "2006-25",
+        "25-4",
+        "25-7",
+        "17-2",
+        "18-6",
+        "21-6",
+        "30-10",
+        "22-5",
+        "25-8",
+        "29-20",
+        "3-14",
+        "2006-25"
+      ],
+      "times": [],
+      "dates": [],
+      "leagues": [
+        "Bolivia Division Profesional"
+      ],
+      "all_text_sample": "Division Profesional 2025 scores, live results, standings\nSCORES\nNEWS\nLOGIN\nFAVORITES\nFOOTBALL\nTENNIS\nBASKETBALL\nHOCKEY\nGOLF\nVOLLEYBALL\nBASEBALL\nSNOOKER\nFIFA CLUB WORLD CUP\nEVERY GAME FREE ON DAZN\nAdvertisement\nAdvertisement\nAD\nFOOTBALL\nBOLIVIA\nDivision Profesional\n2025\nSUMMARY\nNEWS\nRESULTS\nFIXTURES\nSTANDINGS\nARCHIVE\nScheduled\nBOLIVIA\n: \nDivision Profesional\nStandings\nROUND 14\n12.07. 01:00\nGuabira\nAlways Ready\n-\n-\n12.07. 21:00\nIndependiente\nUniversitario de Vinto\n-\n-\n12.07. 23:30\nThe Strongest\nTomayapo\n-\n-\n13.07. 21:00\nSA Bulo Bulo\nBolivar\n-\n-\n13.07. 23:15\nGV San Jose\nWilstermann\n-\n-\n14.07. 01:30\nOriente Petrolero\nAcademia del Balompie\n-\n-\n15.07. 00:00\nNacional Potosi\nReal Oruro\n-\n-\n15.07. 02:30\nAurora\nBlooming\n-\n-\nROUND 15\n19.07. 21:00\nAcademia del Balompie\nAurora\n-\n-\n19.07. 23:30\nBolivar\nOriente Petrolero\n-\n-\nShow more matches\nLatest Scores\nBOLIVIA\n: \nDivision Profesional\nStandings\nROUND 13\n08.07. 02:00\nWilstermann\nGuabira\n1\n1\n08.07. 00:00\nBolivar\nIndependiente\n2\n4\n0\n07.07. 21:00\nAca",
+      "scraping_metadata": {
+        "timestamp": "2025-07-10T09:33:40.512400",
+        "method": "flexible_scraper"
+      }
+    }
+  ],
+  "test_metadata": {
+    "timestamp": "2025-07-10T09:33:40.822694",
+    "total_urls_tested": 5,
+    "bolivia_links_found": 31,
+    "successful_scrapes": 3
+  }
+}

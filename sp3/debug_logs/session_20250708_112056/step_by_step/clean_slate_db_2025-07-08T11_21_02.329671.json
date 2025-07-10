@@ -1,0 +1,11 @@
+{
+  "timestamp": "2025-07-08T11:21:02.329671",
+  "step": "clean_slate_db",
+  "description": "Database tables cleared",
+  "data": {
+    "matches_removed": 1726,
+    "markets_removed": 9550,
+    "odds_removed": 19148
+  },
+  "session_id": "20250708_112056"
+}

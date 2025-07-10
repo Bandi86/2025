@@ -1,0 +1,192 @@
+{
+    "header_info": {
+        "main_title": "Eredmenyek.com asks for your consent to use your personal data to:",
+        "league_round": "Eredmenyek.com asks for your consent to use your personal data to:",
+        "date_time_hungarian": "",
+        "date": "",
+        "time": "",
+        "final_score": "",
+        "home_team": "",
+        "away_team": ""
+    },
+    "summary": [
+        {
+            "time": "11'",
+            "type": "unknown",
+            "description": "Ismeretlen esemény",
+            "player": "Paz L. [BOL]",
+            "raw_text": "11'Paz L. [BOL]21'Justiniano L. (Catano D.) () [BOL]44'Chajtur M. [IND]45+2'Mercado A. [IND]45+4'Catano D. [BOL]"
+        },
+        {
+            "time": "11'",
+            "type": "unknown",
+            "description": "Ismeretlen esemény",
+            "player": "Paz L. [BOL]",
+            "raw_text": "11'Paz L. [BOL]"
+        },
+        {
+            "time": "21'",
+            "type": "unknown",
+            "description": "Ismeretlen esemény",
+            "player": "Justiniano L. (Catano D.) () [BOL]",
+            "raw_text": "21'Justiniano L. (Catano D.) () [BOL]"
+        },
+        {
+            "time": "44'",
+            "type": "unknown",
+            "description": "Ismeretlen esemény",
+            "player": "Chajtur M. [IND]",
+            "raw_text": "44'Chajtur M. [IND]"
+        },
+        {
+            "time": "45'",
+            "type": "unknown",
+            "description": "Ismeretlen esemény",
+            "player": "Mercado A. [IND]",
+            "raw_text": "45+2'Mercado A. [IND]"
+        },
+        {
+            "time": "45'",
+            "type": "unknown",
+            "description": "Ismeretlen esemény",
+            "player": "Catano D. [BOL]",
+            "raw_text": "45+4'Catano D. [BOL]"
+        },
+        {
+            "time": "46'",
+            "type": "substitution",
+            "description": "Csere",
+            "player": "Arteaga N.",
+            "raw_text": "46'Arteaga N.(Mercado A.)[IND]46'Cristaldo G.(Navarro D.)[IND]59'Villalba D.(Chajtur M.)[IND]72'Romero D. (Büntető) [BOL]73'Ubah B.(Cardozo R.)[IND]73'Pato Rodriguez(Catano D.)[BOL]73'Vaca Moreno E.(Saavedra E.)[BOL]79'Rivera E.(Thomaz)[IND]84'Rivera A. [IND]86'Mena F.(Rivero E.)[BOL]86'Ayhuana A.(Justiniano L.)[BOL]87'Ayhuana A. [BOL]90+2'Aguilera D. [IND]90+4'Romero D. (Büntető) [BOL]90+5'Rivera E. [IND]90+7'Sabja L.(Velasquez J.)[BOL]"
+        },
+        {
+            "time": "46'",
+            "type": "substitution",
+            "description": "Csere",
+            "player": "Arteaga N.",
+            "raw_text": "46'Arteaga N.(Mercado A.)[IND]"
+        },
+        {
+            "time": "46'",
+            "type": "substitution",
+            "description": "Csere",
+            "player": "Cristaldo G.",
+            "raw_text": "46'Cristaldo G.(Navarro D.)[IND]"
+        },
+        {
+            "time": "59'",
+            "type": "substitution",
+            "description": "Csere",
+            "player": "Villalba D.",
+            "raw_text": "59'Villalba D.(Chajtur M.)[IND]"
+        },
+        {
+            "time": "72'",
+            "type": "unknown",
+            "description": "Ismeretlen esemény",
+            "player": "Romero D. (Büntető) [BOL]",
+            "raw_text": "72'Romero D. (Büntető) [BOL]"
+        },
+        {
+            "time": "73'",
+            "type": "substitution",
+            "description": "Csere",
+            "player": "Ubah B.",
+            "raw_text": "73'Ubah B.(Cardozo R.)[IND]"
+        },
+        {
+            "time": "73'",
+            "type": "substitution",
+            "description": "Csere",
+            "player": "Pato Rodriguez",
+            "raw_text": "73'Pato Rodriguez(Catano D.)[BOL]"
+        },
+        {
+            "time": "73'",
+            "type": "substitution",
+            "description": "Csere",
+            "player": "Vaca Moreno E.",
+            "raw_text": "73'Vaca Moreno E.(Saavedra E.)[BOL]"
+        },
+        {
+            "time": "79'",
+            "type": "substitution",
+            "description": "Csere",
+            "player": "Rivera E.",
+            "raw_text": "79'Rivera E.(Thomaz)[IND]"
+        },
+        {
+            "time": "84'",
+            "type": "unknown",
+            "description": "Ismeretlen esemény",
+            "player": "Rivera A. [IND]",
+            "raw_text": "84'Rivera A. [IND]"
+        },
+        {
+            "time": "86'",
+            "type": "substitution",
+            "description": "Csere",
+            "player": "Mena F.",
+            "raw_text": "86'Mena F.(Rivero E.)[BOL]"
+        },
+        {
+            "time": "86'",
+            "type": "substitution",
+            "description": "Csere",
+            "player": "Ayhuana A.",
+            "raw_text": "86'Ayhuana A.(Justiniano L.)[BOL]"
+        },
+        {
+            "time": "87'",
+            "type": "unknown",
+            "description": "Ismeretlen esemény",
+            "player": "Ayhuana A. [BOL]",
+            "raw_text": "87'Ayhuana A. [BOL]"
+        },
+        {
+            "time": "90'",
+            "type": "unknown",
+            "description": "Ismeretlen esemény",
+            "player": "Aguilera D. [IND]",
+            "raw_text": "90+2'Aguilera D. [IND]"
+        },
+        {
+            "time": "90'",
+            "type": "unknown",
+            "description": "Ismeretlen esemény",
+            "player": "Romero D. (Büntető) [BOL]",
+            "raw_text": "90+4'Romero D. (Büntető) [BOL]"
+        },
+        {
+            "time": "90'",
+            "type": "unknown",
+            "description": "Ismeretlen esemény",
+            "player": "Rivera E. [IND]",
+            "raw_text": "90+5'Rivera E. [IND]"
+        },
+        {
+            "time": "90'",
+            "type": "substitution",
+            "description": "Csere",
+            "player": "Sabja L.",
+            "raw_text": "90+7'Sabja L.(Velasquez J.)[BOL]"
+        }
+    ],
+    "statistics": {},
+    "lineups": {
+        "home_team": [],
+        "away_team": [],
+        "substitutes": {
+            "home": [],
+            "away": []
+        }
+    },
+    "odds": {},
+    "h2h_data": {},
+    "debug_info": {
+        "page_title": "BOL 4-0 IND | Bolivar - Independiente",
+        "url": "https://m.eredmenyek.com/merkozes/KOVqFIMi/",
+        "title_selector_used": "h1",
+        "events_found": 23
+    }
+}

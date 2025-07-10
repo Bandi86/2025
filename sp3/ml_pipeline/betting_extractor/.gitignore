@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+.tox
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git
+.mypy_cache
+.pytest_cache
+.hypothesis
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project specific
+outputs/*.json
+!outputs/*fixed*.json
+logs/*.log
+logs/*.txt
+pdfs/*.pdf
+txts/*.txt
+jsons/*.json
+
+# Archive folders
+archive/
+logs/archive/
+outputs/archive/
+
+# Temporary files
+*.tmp
+*.temp
+test_*.json
+test_*.txt

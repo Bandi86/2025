@@ -1,0 +1,634 @@
+{
+    "header_info": {
+        "main_title": "BOL 4-0 IND | Bolivar - Independiente",
+        "league_round": "Bolivar-Independiente",
+        "date_time_hungarian": "2025. július 8., 00:00",
+        "date": "08.07.2025",
+        "time": "00:00",
+        "final_score": "4-0",
+        "home_team": "Bolivar",
+        "away_team": "Independiente"
+    },
+    "summary": [
+        {
+            "time": "11'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "details": {
+                "player": "Paz L.",
+                "details": "Ismeretlen típus"
+            },
+            "raw_text": "11'Paz L. [BOL]",
+            "player": "Paz L."
+        },
+        {
+            "time": "21'",
+            "type": "substitution",
+            "description": "Csere",
+            "details": {
+                "raw": "21'Justiniano L. (Catano D.) () [BOL]"
+            },
+            "raw_text": "21'Justiniano L. (Catano D.) () [BOL]"
+        },
+        {
+            "time": "44'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "details": {
+                "player": "Chajtur M.",
+                "details": "Ismeretlen típus"
+            },
+            "raw_text": "44'Chajtur M. [IND]",
+            "player": "Chajtur M."
+        },
+        {
+            "time": "45'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "details": {
+                "player": "2'Mercado A.",
+                "details": "Ismeretlen típus"
+            },
+            "raw_text": "45+2'Mercado A. [IND]",
+            "player": "2'Mercado A."
+        },
+        {
+            "time": "45'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "details": {
+                "player": "4'Catano D.",
+                "details": "Ismeretlen típus"
+            },
+            "raw_text": "45+4'Catano D. [BOL]",
+            "player": "4'Catano D."
+        },
+        {
+            "time": "46'",
+            "type": "substitution",
+            "description": "Csere",
+            "details": {
+                "time": "46'",
+                "player_in": "Arteaga N.",
+                "player_out": "Mercado A.",
+                "team": "IND",
+                "type": "substitution"
+            },
+            "raw_text": "46'Arteaga N.(Mercado A.)[IND]",
+            "player": "Arteaga N.",
+            "player_out": "Mercado A."
+        },
+        {
+            "time": "46'",
+            "type": "substitution",
+            "description": "Csere",
+            "details": {
+                "time": "46'",
+                "player_in": "Cristaldo G.",
+                "player_out": "Navarro D.",
+                "team": "IND",
+                "type": "substitution"
+            },
+            "raw_text": "46'Cristaldo G.(Navarro D.)[IND]",
+            "player": "Cristaldo G.",
+            "player_out": "Navarro D."
+        },
+        {
+            "time": "59'",
+            "type": "substitution",
+            "description": "Csere",
+            "details": {
+                "time": "59'",
+                "player_in": "Villalba D.",
+                "player_out": "Chajtur M.",
+                "team": "IND",
+                "type": "substitution"
+            },
+            "raw_text": "59'Villalba D.(Chajtur M.)[IND]",
+            "player": "Villalba D.",
+            "player_out": "Chajtur M."
+        },
+        {
+            "time": "72'",
+            "type": "penalty_goal",
+            "description": "Tizenegyesgól",
+            "details": {
+                "time": "72'",
+                "player": "Romero D.",
+                "team": "BOL",
+                "type": "penalty"
+            },
+            "raw_text": "72'Romero D. (Büntető) [BOL]",
+            "player": "Romero D."
+        },
+        {
+            "time": "73'",
+            "type": "substitution",
+            "description": "Csere",
+            "details": {
+                "time": "73'",
+                "player_in": "Ubah B.",
+                "player_out": "Cardozo R.",
+                "team": "IND",
+                "type": "substitution"
+            },
+            "raw_text": "73'Ubah B.(Cardozo R.)[IND]",
+            "player": "Ubah B.",
+            "player_out": "Cardozo R."
+        },
+        {
+            "time": "73'",
+            "type": "substitution",
+            "description": "Csere",
+            "details": {
+                "time": "73'",
+                "player_in": "Pato Rodriguez",
+                "player_out": "Catano D.",
+                "team": "BOL",
+                "type": "substitution"
+            },
+            "raw_text": "73'Pato Rodriguez(Catano D.)[BOL]",
+            "player": "Pato Rodriguez",
+            "player_out": "Catano D."
+        },
+        {
+            "time": "73'",
+            "type": "substitution",
+            "description": "Csere",
+            "details": {
+                "time": "73'",
+                "player_in": "Vaca Moreno E.",
+                "player_out": "Saavedra E.",
+                "team": "BOL",
+                "type": "substitution"
+            },
+            "raw_text": "73'Vaca Moreno E.(Saavedra E.)[BOL]",
+            "player": "Vaca Moreno E.",
+            "player_out": "Saavedra E."
+        },
+        {
+            "time": "79'",
+            "type": "substitution",
+            "description": "Csere",
+            "details": {
+                "time": "79'",
+                "player_in": "Rivera E.",
+                "player_out": "Thomaz",
+                "team": "IND",
+                "type": "substitution"
+            },
+            "raw_text": "79'Rivera E.(Thomaz)[IND]",
+            "player": "Rivera E.",
+            "player_out": "Thomaz"
+        },
+        {
+            "time": "84'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "details": {
+                "player": "Rivera A.",
+                "details": "Ismeretlen típus"
+            },
+            "raw_text": "84'Rivera A. [IND]",
+            "player": "Rivera A."
+        },
+        {
+            "time": "86'",
+            "type": "substitution",
+            "description": "Csere",
+            "details": {
+                "time": "86'",
+                "player_in": "Mena F.",
+                "player_out": "Rivero E.",
+                "team": "BOL",
+                "type": "substitution"
+            },
+            "raw_text": "86'Mena F.(Rivero E.)[BOL]",
+            "player": "Mena F.",
+            "player_out": "Rivero E."
+        },
+        {
+            "time": "86'",
+            "type": "substitution",
+            "description": "Csere",
+            "details": {
+                "time": "86'",
+                "player_in": "Ayhuana A.",
+                "player_out": "Justiniano L.",
+                "team": "BOL",
+                "type": "substitution"
+            },
+            "raw_text": "86'Ayhuana A.(Justiniano L.)[BOL]",
+            "player": "Ayhuana A.",
+            "player_out": "Justiniano L."
+        },
+        {
+            "time": "87'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "details": {
+                "player": "Ayhuana A.",
+                "details": "Ismeretlen típus"
+            },
+            "raw_text": "87'Ayhuana A. [BOL]",
+            "player": "Ayhuana A."
+        },
+        {
+            "time": "90'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "details": {
+                "player": "2'Aguilera D.",
+                "details": "Ismeretlen típus"
+            },
+            "raw_text": "90+2'Aguilera D. [IND]",
+            "player": "2'Aguilera D."
+        },
+        {
+            "time": "90'",
+            "type": "penalty_goal",
+            "description": "Tizenegyesgól",
+            "details": {
+                "time": "90+",
+                "player": "4'Romero D.",
+                "team": "BOL",
+                "type": "penalty"
+            },
+            "raw_text": "90+4'Romero D. (Büntető) [BOL]",
+            "player": "4'Romero D."
+        },
+        {
+            "time": "90'",
+            "type": "card_or_event",
+            "description": "Kártya/Esemény",
+            "details": {
+                "player": "5'Rivera E.",
+                "details": "Ismeretlen típus"
+            },
+            "raw_text": "90+5'Rivera E. [IND]",
+            "player": "5'Rivera E."
+        },
+        {
+            "time": "90'",
+            "type": "substitution",
+            "description": "Csere",
+            "details": {
+                "time": "90+",
+                "player_in": "7'Sabja L.",
+                "player_out": "Velasquez J.",
+                "team": "BOL",
+                "type": "substitution"
+            },
+            "raw_text": "90+7'Sabja L.(Velasquez J.)[BOL]",
+            "player": "7'Sabja L.",
+            "player_out": "Velasquez J."
+        }
+    ],
+    "statistics": {
+        "3.00": {
+            "home": "0.49",
+            "away": ""
+        },
+        "68%": {
+            "home": "32%",
+            "away": ""
+        },
+        "27": {
+            "home": "6",
+            "away": ""
+        },
+        "10": {
+            "home": "0",
+            "away": ""
+        },
+        "3": {
+            "home": "0",
+            "away": ""
+        },
+        "9": {
+            "home": "2",
+            "away": ""
+        },
+        "86% (367/428)": {
+            "home": "69% (145/210)",
+            "away": ""
+        },
+        "2": {
+            "home": "3",
+            "away": ""
+        },
+        "0": {
+            "home": "6",
+            "away": ""
+        },
+        "2.55": {
+            "home": "0.00",
+            "away": ""
+        },
+        "12": {
+            "home": "2",
+            "away": ""
+        },
+        "5": {
+            "home": "6",
+            "away": ""
+        },
+        "15": {
+            "home": "4",
+            "away": ""
+        },
+        "1": {
+            "home": "0",
+            "away": ""
+        },
+        "28": {
+            "home": "9",
+            "away": ""
+        },
+        "22": {
+            "home": "7",
+            "away": ""
+        },
+        "72% (44/61)": {
+            "home": "37% (17/46)",
+            "away": ""
+        },
+        "83% (90/109)": {
+            "home": "60% (48/80)",
+            "away": ""
+        },
+        "35% (7/20)": {
+            "home": "67% (2/3)",
+            "away": ""
+        },
+        "1.17": {
+            "home": "0.56",
+            "away": ""
+        },
+        "18": {
+            "home": "17",
+            "away": ""
+        },
+        "7": {
+            "home": "22",
+            "away": ""
+        },
+        "70% (7/10)": {
+            "home": "62% (8/13)",
+            "away": ""
+        },
+        "44": {
+            "home": "25",
+            "away": ""
+        },
+        "4": {
+            "home": "19",
+            "away": ""
+        },
+        "0.00": {
+            "home": "-1.45",
+            "away": ""
+        }
+    },
+    "lineups": {
+        "home_team": [
+            {
+                "name": "10Catano D.",
+                "number": "10",
+                "position": null
+            },
+            {
+                "name": "23Justiniano L.",
+                "number": "23",
+                "position": null
+            },
+            {
+                "name": "1Lampe C. (K)",
+                "number": "1",
+                "position": null
+            },
+            {
+                "name": "8Paz L.",
+                "number": "8",
+                "position": null
+            },
+            {
+                "name": "35Rivero E.",
+                "number": "35",
+                "position": null
+            },
+            {
+                "name": "77Romero D.",
+                "number": "77",
+                "position": null
+            },
+            {
+                "name": "26Saavedra E.",
+                "number": "26",
+                "position": null
+            },
+            {
+                "name": "2Sagredo J.",
+                "number": "2",
+                "position": null
+            },
+            {
+                "name": "4Sagredo J.",
+                "number": "4",
+                "position": null
+            },
+            {
+                "name": "3Torren M.",
+                "number": "3",
+                "position": null
+            },
+            {
+                "name": "21Velasquez J.",
+                "number": "21",
+                "position": null
+            }
+        ],
+        "away_team": [
+            {
+                "name": "33Lanzillotta F. (K)",
+                "number": "33",
+                "position": null
+            },
+            {
+                "name": "20Ayhuana A.",
+                "number": "20",
+                "position": null
+            },
+            {
+                "name": "34Mamani Y.",
+                "number": "34",
+                "position": null
+            },
+            {
+                "name": "7Mena F.",
+                "number": "7",
+                "position": null
+            },
+            {
+                "name": "28Mendez B.",
+                "number": "28",
+                "position": null
+            },
+            {
+                "name": "17Pato Rodriguez",
+                "number": "17",
+                "position": null
+            },
+            {
+                "name": "32Ramirez R.",
+                "number": "32",
+                "position": null
+            },
+            {
+                "name": "18Sabja L.",
+                "number": "18",
+                "position": null
+            },
+            {
+                "name": "6Vaca Moreno E.",
+                "number": "6",
+                "position": null
+            },
+            {
+                "name": "29Velasquez J.",
+                "number": "29",
+                "position": null
+            },
+            {
+                "name": "94Aguilera D.",
+                "number": "94",
+                "position": null
+            },
+            {
+                "name": "2Avila R.",
+                "number": "2",
+                "position": null
+            },
+            {
+                "name": "7Cardozo R.",
+                "number": "7",
+                "position": null
+            },
+            {
+                "name": "25Castellon D.",
+                "number": "25",
+                "position": null
+            },
+            {
+                "name": "40Chajtur M.",
+                "number": "40",
+                "position": null
+            },
+            {
+                "name": "20Mercado A.",
+                "number": "20",
+                "position": null
+            },
+            {
+                "name": "1Morales J. (K)",
+                "number": "1",
+                "position": null
+            },
+            {
+                "name": "27Navarro D.",
+                "number": "27",
+                "position": null
+            },
+            {
+                "name": "6Rivera A.",
+                "number": "6",
+                "position": null
+            },
+            {
+                "name": "3Soleto W.",
+                "number": "3",
+                "position": null
+            },
+            {
+                "name": "10Thomaz",
+                "number": "10",
+                "position": null
+            },
+            {
+                "name": "23Arauz E. (K)",
+                "number": "23",
+                "position": null
+            },
+            {
+                "name": "21Arteaga N.",
+                "number": "21",
+                "position": null
+            },
+            {
+                "name": "19Cristaldo G.",
+                "number": "19",
+                "position": null
+            },
+            {
+                "name": "39Grass P.",
+                "number": "39",
+                "position": null
+            },
+            {
+                "name": "16Martinez Y.",
+                "number": "16",
+                "position": null
+            },
+            {
+                "name": "17Rivera E.",
+                "number": "17",
+                "position": null
+            },
+            {
+                "name": "91Ubah B.",
+                "number": "91",
+                "position": null
+            },
+            {
+                "name": "24Vedia C.",
+                "number": "24",
+                "position": null
+            },
+            {
+                "name": "4Velasquez E.",
+                "number": "4",
+                "position": null
+            },
+            {
+                "name": "9Villalba D.",
+                "number": "9",
+                "position": null
+            },
+            {
+                "name": "93Willie",
+                "number": "93",
+                "position": null
+            }
+        ],
+        "substitutes": {
+            "home": [],
+            "away": []
+        }
+    },
+    "debug_info": {
+        "events_extracted": 21,
+        "page_title": "BOL 4-0 IND | Bolivar - Independiente",
+        "url": "https://m.eredmenyek.com/merkozes/KOVqFIMi/",
+        "title_info_parsed": {
+            "score": "4-0",
+            "home_team": "Bolivar",
+            "away_team": "Independiente",
+            "competition": ""
+        },
+        "datetime_found": true,
+        "main_content_found": true,
+        "statistics_count": 26,
+        "lineups_home_count": 11,
+        "lineups_away_count": 32
+    }
+}

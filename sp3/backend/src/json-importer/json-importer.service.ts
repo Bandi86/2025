@@ -200,7 +200,7 @@ export class JsonImporterService {
     });
     if (!team1) {
       team1 = await this.prisma.team.create({
-        data: { name: match.team1, country: 'Unknown' },
+        data: { name: match.team1, fullName: match.team1, country: 'Unknown' },
       });
     }
     let team2 = await this.prisma.team.findFirst({
@@ -208,7 +208,7 @@ export class JsonImporterService {
     });
     if (!team2) {
       team2 = await this.prisma.team.create({
-        data: { name: match.team2, country: 'Unknown' },
+        data: { name: match.team2, fullName: match.team2, country: 'Unknown' },
       });
     }
 
@@ -224,10 +224,36 @@ export class JsonImporterService {
     });
 
     if (!matchRecord) {
+      // Dátum létrehozása és validálása (de nem blokkoljuk az importot)
+      const matchDate = new Date(`${match.date}T${match.time}`);
+      const today = new Date();
+      const maxFutureDate = new Date(today);
+      maxFutureDate.setDate(maxFutureDate.getDate() + 6);
+      const minPastDate = new Date(today);
+      minPastDate.setDate(minPastDate.getDate() - 30); // 30 napnál régebbi meccsek is gyanúsak
+
+      // Gyanús dátumok logolása (de importálás folytatása)
+      if (matchDate > maxFutureDate) {
+        this.logger.warn(
+          `🔍 GYANÚS: Túl távoli jövőbeli meccs: ${match.team1} vs ${match.team2} (${match.date}) - ${Math.ceil((matchDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))} nap előre`,
+        );
+      }
+      if (matchDate < minPastDate) {
+        this.logger.warn(
+          `🔍 GYANÚS: Túl régi meccs: ${match.team1} vs ${match.team2} (${match.date}) - ${Math.ceil((today.getTime() - matchDate.getTime()) / (1000 * 60 * 60 * 24))} nap régi`,
+        );
+      }
+      if (isNaN(matchDate.getTime())) {
+        this.logger.error(
+          `❌ ÉRVÉNYTELEN DÁTUM: ${match.team1} vs ${match.team2} (${match.date}T${match.time})`,
+        );
+        return; // Csak az érvénytelen dátumokat hagyjuk ki
+      }
+
       matchRecord = await this.prisma.match.create({
         data: {
           id: matchId,
-          date: new Date(`${match.date}T${match.time}`),
+          date: matchDate,
           homeTeamId: team1.id,
           awayTeamId: team2.id,
           competitionId: competition.id,
@@ -238,20 +264,13 @@ export class JsonImporterService {
       });
     }
 
-    // 4. Marketek törlése és újraimportálása
-    await this.prisma.market.deleteMany({ where: { matchId: matchRecord.id } });
-    for (const market of match.markets) {
-      await this.prisma.market.create({
-        data: {
-          matchId: matchRecord.id,
-          name: market.name,
-          origName: market.orig_market,
-          odds1: market.odds1 ? parseFloat(market.odds1) : null,
-          oddsX: market.oddsX ? parseFloat(market.oddsX) : null,
-          odds2: market.odds2 ? parseFloat(market.odds2) : null,
-        },
-      });
-    }
+    // 4. Intelligens market merge (csak akkor frissítünk, ha jobb verzió érkezett)
+    await this.intelligentMarketMerge(
+      matchRecord.id,
+      match.markets,
+      match.team1,
+      match.team2,
+    );
   }
 
   /**
@@ -334,5 +353,126 @@ export class JsonImporterService {
       jsonDirectory: this.JSON_DIR,
       processedDirectory: this.PROCESSED_DIR,
     };
+  }
+
+  /**
+   * Intelligens market merge - csak akkor frissít, ha jobb verzió érkezett
+   */
+  private async intelligentMarketMerge(
+    matchId: string,
+    newMarkets: any[],
+    team1: string,
+    team2: string,
+  ): Promise<void> {
+    // Meglévő markets lekérése
+    const existingMarkets = await this.prisma.market.findMany({
+      where: { matchId },
+      include: { odds: true },
+    });
+
+    const existingMarketsCount = existingMarkets.length;
+    const newMarketsCount = newMarkets.length;
+    const existingOddsCount = existingMarkets.reduce(
+      (sum, m) => sum + m.odds.length,
+      0,
+    );
+    const newOddsCount = newMarkets.reduce(
+      (sum, m) =>
+        sum + (m.odds1 ? 1 : 0) + (m.oddsX ? 1 : 0) + (m.odds2 ? 1 : 0),
+      0,
+    );
+
+    this.logger.log(
+      `🔄 Market merge decision for ${team1} vs ${team2}: ${existingMarketsCount} → ${newMarketsCount} markets, ${existingOddsCount} → ${newOddsCount} odds`,
+    );
+
+    // Merge döntési logika
+    let shouldUpdate = false;
+    let reason = '';
+
+    if (existingMarketsCount === 0) {
+      // Új meccs - mindig importáljuk
+      shouldUpdate = true;
+      reason = 'új meccs';
+    } else if (newMarketsCount > existingMarketsCount) {
+      // Több piac érkezett - frissítés
+      shouldUpdate = true;
+      reason = `több piac (${existingMarketsCount} → ${newMarketsCount})`;
+    } else if (
+      newMarketsCount === existingMarketsCount &&
+      newOddsCount > existingOddsCount
+    ) {
+      // Azonos piacszám, de több odds - frissítés
+      shouldUpdate = true;
+      reason = `több odds (${existingOddsCount} → ${newOddsCount})`;
+    } else {
+      // Nem frissítünk - megtartjuk a jobbat
+      shouldUpdate = false;
+      reason = `megtartás (jelenlegi: ${existingMarketsCount} piac, ${existingOddsCount} odds >= új: ${newMarketsCount} piac, ${newOddsCount} odds)`;
+    }
+
+    if (shouldUpdate) {
+      this.logger.log(`✅ Market frissítés: ${reason}`);
+
+      // Régi markets törlése
+      const marketIds = existingMarkets.map((m) => m.id);
+      if (marketIds.length > 0) {
+        await this.prisma.odds.deleteMany({
+          where: { marketId: { in: marketIds } },
+        });
+        await this.prisma.market.deleteMany({ where: { matchId } });
+      }
+
+      // Új markets létrehozása
+      await this.createMarkets(matchId, newMarkets);
+    } else {
+      this.logger.log(`⏭️ Market megtartás: ${reason}`);
+    }
+  }
+
+  /**
+   * Markets létrehozása
+   */
+  private async createMarkets(matchId: string, markets: any[]): Promise<void> {
+    for (const market of markets) {
+      const createdMarket = await this.prisma.market.create({
+        data: {
+          matchId: matchId,
+          name: market.name,
+          origName: market.orig_market,
+        },
+      });
+
+      // Odds rekordok létrehozása a markethez
+      if (market.odds1) {
+        await this.prisma.odds.create({
+          data: {
+            marketId: createdMarket.id,
+            type: 'odds1',
+            value: parseFloat(market.odds1),
+          },
+        });
+      }
+
+      if (market.oddsX) {
+        await this.prisma.odds.create({
+          data: {
+            marketId: createdMarket.id,
+            type: 'oddsX',
+            value: parseFloat(market.oddsX),
+          },
+        });
+      }
+
+      if (market.odds2) {
+        await this.prisma.odds.create({
+          data: {
+            marketId: createdMarket.id,
+            type: 'odds2',
+            value: parseFloat(market.odds2),
+          },
+        });
+      }
+    }
   }
 }

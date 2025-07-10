@@ -21,6 +21,7 @@ export class TeamsService {
       const team = await this.prisma.team.create({
         data: {
           name: createTeamDto.name,
+          fullName: createTeamDto.fullName || createTeamDto.name,
           shortName: createTeamDto.shortName,
           alternativeNames: createTeamDto.alternativeNames || [],
           city: createTeamDto.city,

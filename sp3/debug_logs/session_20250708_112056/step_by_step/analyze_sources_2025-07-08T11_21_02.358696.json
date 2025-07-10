@@ -1,0 +1,48 @@
+{
+  "timestamp": "2025-07-08T11:21:02.358696",
+  "step": "analyze_sources",
+  "description": "Source files analyzed",
+  "data": {
+    "pdf_files": [
+      "Web__52sz__K__07-01.pdf",
+      "Web__51sz__P__06-27.pdf",
+      "Web__47sz__P__06-13.pdf",
+      "Web__53sz__P__2025_07-04.pdf",
+      "Web__49sz__P__06-20.pdf",
+      "Web__50sz__K__06-24.pdf",
+      "Web__48sz__K__06-17.pdf",
+      "Web__46sz__K__06-10.pdf"
+    ],
+    "txt_files": [
+      "Web__51sz__P__06-27_lines.txt",
+      "Web__47sz__P__06-13_lines.txt",
+      "Web__46sz__K__06-10_lines.txt",
+      "Web__50sz__K__06-24_lines.txt",
+      "Web__49sz__P__06-20_lines.txt",
+      "Web__52sz__K__07-01_lines.txt",
+      "Web__53sz__P__2025_07-04_lines.txt",
+      "Web__48sz__K__06-17_lines.txt"
+    ],
+    "txt_stats": {
+      "Web__51sz__P__06-27_lines.txt": 2989,
+      "Web__47sz__P__06-13_lines.txt": 3087,
+      "Web__46sz__K__06-10_lines.txt": 3049,
+      "Web__50sz__K__06-24_lines.txt": 3063,
+      "Web__49sz__P__06-20_lines.txt": 2821,
+      "Web__52sz__K__07-01_lines.txt": 2839,
+      "Web__53sz__P__2025_07-04_lines.txt": 2558,
+      "Web__48sz__K__06-17_lines.txt": 3143
+    },
+    "txt_match_estimates": {
+      "Web__51sz__P__06-27_lines.txt": 1219,
+      "Web__47sz__P__06-13_lines.txt": 1278,
+      "Web__46sz__K__06-10_lines.txt": 1271,
+      "Web__50sz__K__06-24_lines.txt": 1300,
+      "Web__49sz__P__06-20_lines.txt": 1246,
+      "Web__52sz__K__07-01_lines.txt": 1317,
+      "Web__53sz__P__2025_07-04_lines.txt": 1310,
+      "Web__48sz__K__06-17_lines.txt": 1314
+    }
+  },
+  "session_id": "20250708_112056"
+}

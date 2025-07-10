@@ -52,6 +52,7 @@ async function main() {
     prisma.team.create({
       data: {
         name: 'Manchester United',
+        fullName: 'Manchester United',
         shortName: 'Man Utd',
         alternativeNames: ['MUFC', 'Manchester United FC'],
         city: 'Manchester',
@@ -63,6 +64,7 @@ async function main() {
     prisma.team.create({
       data: {
         name: 'Arsenal',
+        fullName: 'Arsenal',
         shortName: 'Arsenal',
         alternativeNames: ['Arsenal FC', 'The Gunners'],
         city: 'London',
@@ -74,6 +76,7 @@ async function main() {
     prisma.team.create({
       data: {
         name: 'Liverpool',
+        fullName: 'Liverpool',
         shortName: 'Liverpool',
         alternativeNames: ['Liverpool FC', 'LFC'],
         city: 'Liverpool',
@@ -85,6 +88,7 @@ async function main() {
     prisma.team.create({
       data: {
         name: 'Manchester City',
+        fullName: 'Manchester City',
         shortName: 'Man City',
         alternativeNames: ['MCFC', 'City'],
         city: 'Manchester',
@@ -97,6 +101,7 @@ async function main() {
     prisma.team.create({
       data: {
         name: 'Bayern Munich',
+        fullName: 'Bayern Munich',
         shortName: 'Bayern',
         alternativeNames: ['FC Bayern München', 'FCB'],
         city: 'Munich',
@@ -108,6 +113,7 @@ async function main() {
     prisma.team.create({
       data: {
         name: 'Borussia Dortmund',
+        fullName: 'Borussia Dortmund',
         shortName: 'Dortmund',
         alternativeNames: ['BVB', 'Borussia Dortmund'],
         city: 'Dortmund',

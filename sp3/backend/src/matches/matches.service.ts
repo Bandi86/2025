@@ -92,13 +92,24 @@ export class MatchesService {
       where.status = filterOptions.status;
     }
 
-    if (filterOptions.dateFrom || filterOptions.dateTo) {
+    if (filterOptions.dateFrom || filterOptions.dateTo || filterOptions.date) {
       where.date = {};
-      if (filterOptions.dateFrom) {
-        where.date.gte = new Date(filterOptions.dateFrom);
-      }
-      if (filterOptions.dateTo) {
-        where.date.lte = new Date(filterOptions.dateTo);
+
+      if (filterOptions.date) {
+        // Handle single date filter - filter for matches on a specific date
+        const startOfDay = new Date(filterOptions.date + 'T00:00:00.000Z');
+        const endOfDay = new Date(filterOptions.date + 'T23:59:59.999Z');
+
+        where.date.gte = startOfDay;
+        where.date.lte = endOfDay;
+      } else {
+        // Handle date range filters
+        if (filterOptions.dateFrom) {
+          where.date.gte = new Date(filterOptions.dateFrom + 'T00:00:00.000Z');
+        }
+        if (filterOptions.dateTo) {
+          where.date.lte = new Date(filterOptions.dateTo + 'T23:59:59.999Z');
+        }
       }
     }
 
@@ -120,7 +131,11 @@ export class MatchesService {
         homeTeam: true,
         awayTeam: true,
         competition: true,
-        markets: true, // oddsok
+        markets: {
+          include: {
+            odds: true,
+          },
+        },
       },
       orderBy: {
         [sortBy]: sortOrder,
@@ -151,7 +166,11 @@ export class MatchesService {
         homeTeam: true,
         awayTeam: true,
         competition: true,
-        markets: true, // oddsok
+        markets: {
+          include: {
+            odds: true,
+          },
+        },
       },
     });
 
@@ -323,12 +342,12 @@ export class MatchesService {
       date: match.date.toISOString(),
       homeTeam: {
         id: match.homeTeam.id,
-        name: match.homeTeam.name,
+        name: match.homeTeam.fullName || match.homeTeam.name,
         shortName: match.homeTeam.shortName,
       },
       awayTeam: {
         id: match.awayTeam.id,
-        name: match.awayTeam.name,
+        name: match.awayTeam.fullName || match.awayTeam.name,
         shortName: match.awayTeam.shortName,
       },
       competition: {
@@ -352,12 +371,13 @@ export class MatchesService {
         id: m.id,
         name: m.name,
         origName: m.origName,
-        odds1: m.odds1,
-        oddsX: m.oddsX,
-        odds2: m.odds2,
+        odds1: m.odds?.find((o: any) => o.type === 'odds1')?.value ?? null,
+        oddsX: m.odds?.find((o: any) => o.type === 'oddsX')?.value ?? null,
+        odds2: m.odds?.find((o: any) => o.type === 'odds2')?.value ?? null,
         createdAt: m.createdAt.toISOString(),
         updatedAt: m.updatedAt.toISOString(),
       })),
+      timeZone: match.timeZone || 'UTC',
     };
   }
 
@@ -389,6 +409,7 @@ export class MatchesService {
       team = await this.prisma.team.create({
         data: {
           name: teamName,
+          fullName: teamName,
           country: 'Unknown', // Will need to be updated manually
         },
       });
@@ -448,7 +469,11 @@ export class MatchesService {
         homeTeam: true,
         awayTeam: true,
         competition: true,
-        markets: true,
+        markets: {
+          include: {
+            odds: true,
+          },
+        },
       },
       orderBy: {
         date: 'asc',

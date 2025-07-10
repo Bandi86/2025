@@ -1,0 +1,43 @@
+{
+  "timestamp": "2025-07-08T11:34:39.576530",
+  "health_score": 100.0,
+  "status": "🟢 EGÉSZSÉGES",
+  "script_results": {
+    "quick_db_validation.py": {
+      "success": true,
+      "stdout": "🔍 ADATBÁZIS VALIDÁCIÓ\n==================================================\n📊 Alapvető statisztikák:\n  - Meccsek: 1276\n  - Csapatok: 899\n  - Bajnokságok: 120\n  - Piacok: 6769\n  - Esélyek: 13182\n\n🔍 Minta adatok:\nQuery error: ERROR:  column m.home_team_id does not exist\nLINE 4:         JOIN teams ht ON m.home_team_id = ht.id\n                                 ^\n\nElső 5 meccs:\nNone\n\n🔍 Integritási ellenőrzések:\nQuery error: ERROR:  column m.home_team_id does not exist\nLINE 3: ... NOT EXISTS (SELECT 1 FROM teams ht WHERE ht.id = m.home_tea...\n                                                             ^\n\n  - Árva meccsek (hibás referenciák): None\nQuery error: ERROR:  column mk.match_id does not exist\nLINE 3: ... NOT EXISTS (SELECT 1 FROM matches m WHERE m.id = mk.match_i...\n                                                             ^\nHINT:  Perhaps you meant to reference the column \"mk.matchId\".\n\n  - Árva piacok: None\nQuery error: ERROR:  column o.market_id does not exist\nLINE 3: ...OT EXISTS (SELECT 1 FROM markets mk WHERE mk.id = o.market_i...\n                                                             ^\nHINT:  Perhaps you meant to reference the column \"o.marketId\".\n\n  - Árva esélyek: None\n\n✅ Validáció befejezve!\n",
+      "stderr": "",
+      "returncode": 0
+    },
+    "compare_json_vs_db.py": {
+      "success": true,
+      "stdout": "=== JSON vs DATABASE ÖSSZEHASONLÍTÁS ===\n\nJSON fájlokból betöltve: 1276 egyedi meccs\nDuplikátumok átugorva: 223\nDatabase-ből betöltve: 1276 meccs\nJSON-ban: 1276 meccs\nDatabase-ben: 1276 meccs\nKözös meccsek: 1276\nCsak JSON-ban: 0\nCsak database-ben: 0\n\n=== RÉSZLETES ÖSSZEHASONLÍTÁS ===\nTökéletesen egyező meccsek: 0\nKülönbséggel rendelkező meccsek: 50\n\nMező különbségek:\n  competition: 50 esetben\n  time: 39 esetben\n\nPiaci különbségek: 49 esetben\n\n=== PÉLDA KÜLÖNBSÉGEK ===\n\n1. Meccs: 2025-06-22_san telmo_chacarita juniors_Argentin 2., B csoport\n  Mező különbségek:\n    competition: JSON='None' vs DB='Argentin 2., B csoport'\n  Piac különbségek:\n    JSON: 1 piac\n    DB: 3 piac\n    Csak JSON-ban: 1 piac\n    Csak DB-ben: 3 piac\n\n2. Meccs: 2025-06-18_u21szlovenia_u21csehorszag_U21 Eb\n  Mező különbségek:\n    competition: JSON='None' vs DB='U21 Eb'\n    time: JSON='21:00' vs DB='21:0'\n  Piac különbségek:\n    JSON: 16 piac\n    DB: 34 piac\n    Csak JSON-ban: 1 piac\n    Csak DB-ben: 34 piac\n\n3. Meccs: 2025-06-17_boca juniors_benfica_Klubcsapat vb\n  Mező különbségek:\n    competition: JSON='None' vs DB='Klubcsapat vb'\n    time: JSON='00:00' vs DB='0:0'\n  Piac különbségek:\n    JSON: 30 piac\n    DB: 52 piac\n    Csak JSON-ban: 1 piac\n    Csak DB-ben: 52 piac\n\n=== ÖSSZEGZÉS ===\nAdatok lefedettség: 100.0% (JSON meccsek a DB-ben)\n\nRészletes eredmények mentve: reports/json_vs_db_comparison.json\n",
+      "stderr": "",
+      "returncode": 0
+    },
+    "analyze_weekly_duplicates.py": {
+      "success": true,
+      "stdout": "=== HETEKEN BELÜLI DUPLIKÁTUMOK ÉS FRISSÍTETT PIACOK ELEMZÉSE ===\n\nÖsszes meccs betöltve: 1499\nEgyedi meccs ID-k: 1276\nEgyetlen forrásból: 1053\nTöbb forrásból: 223\n\n=== DUPLIKÁTUM STATISZTIKÁK ===\nDuplikátum eloszlás:\n  2 forrásból: 223 meccs\n\n=== IDŐBELI PROGRESSZIÓ ELEMZÉSE ===\nÉrtékes duplikátumok (új piaccal vagy odds változással): 0\n\n=== AJÁNLÁSOK ===\n✅ Minden duplikátum azonos tartalommal rendelkezik.\nA jelenlegi 'ignore duplicate' logika megfelelő.\n\nRészletes eredmények mentve: reports/weekly_duplicates_analysis.json\n",
+      "stderr": "",
+      "returncode": 0
+    }
+  },
+  "successful_scripts": 3,
+  "total_scripts": 3,
+  "reports_summary": {
+    "json_vs_db": {
+      "json_matches": 1276,
+      "db_matches": 1276,
+      "common_matches": 1276,
+      "only_in_json": 0,
+      "only_in_db": 0,
+      "data_coverage_percent": 100.0
+    },
+    "weekly_duplicates": {
+      "total_matches": 1499,
+      "unique_match_ids": 1276,
+      "duplicates_count": 223,
+      "valuable_duplicates_count": 0
+    }
+  }
+}

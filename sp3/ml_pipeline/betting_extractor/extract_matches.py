@@ -1,3 +1,4 @@
+#!/home/bandi/Documents/code/2025/sp3/.venv/bin/python
 import re
 import json
 import sys
@@ -167,6 +168,36 @@ def parse_line(line):
 def clean_league_name(name):
     return name.replace("", "").strip()
 
+def build_date_lookup(txt_path):
+    """Előre beolvassa az összes speciális dátumot és a soraikkal együtt eltárolja."""
+    date_lookup = {}
+    with open(txt_path, encoding="utf-8") as f:
+        for line_num, line in enumerate(f, 1):
+            original_line = line.strip()
+            # Időbélyeg eltávolítása
+            line = re.sub(r'^\d{2}:\d{3,4}:\s*', '', original_line)
+            # Speciális nap+dátum sor felismerése
+            m_day_date = re.match(r"(Hétfő|Kedd|Szerda|Csütörtök|Péntek|Szombat|Vasárnap)\s*\((\d{4})\.\s*(január|február|március|április|május|június|július|augusztus|szeptember|október|november|december)\s*(\d{1,2})\.\)", line)
+            if m_day_date:
+                day_name, y, mon, d = m_day_date.groups()
+                y, d = int(y), int(d)
+                months = ["január", "február", "március", "április", "május", "június", "július", "augusztus", "szeptember", "október", "november", "december"]
+                month_idx = months.index(mon) + 1
+                date_obj = datetime(y, month_idx, d)
+                day_name_to_short = {"Hétfő": "H", "Kedd": "K", "Szerda": "Sze", "Csütörtök": "Cs", "Péntek": "P", "Szombat": "Szo", "Vasárnap": "V"}
+                day_short = day_name_to_short[day_name]
+                date_lookup[line_num] = (date_obj, day_short)
+                print(f"Speciális dátum betöltve sor {line_num}: {day_name} ({date_obj.strftime('%Y-%m-%d')}) = {day_short}")
+    return date_lookup
+
+def find_applicable_date(line_num, date_lookup):
+    """Megkeresi a legközelebbi speciális dátumot az adott sorhoz."""
+    # Visszafelé keres a legközelebbi speciális dátumot
+    for lookup_line_num in sorted(date_lookup.keys(), reverse=True):
+        if lookup_line_num <= line_num:
+            return date_lookup[lookup_line_num]
+    return None, None
+
 # --- ÚJ: összefoglaló sorok feldolgozása ---
 def build_summary_lookup(txt_path):
     lookup = {}
@@ -193,6 +224,10 @@ def main(input_file, output_file):
     current_page = None
     match_map = {}
 
+    # --- ÚJ: dátum lookup betöltése ---
+    date_lookup = build_date_lookup(input_file)
+    print(f"Talált speciális dátumok: {len(date_lookup)}")
+
     # --- ÚJ: összefoglaló lookup betöltése ---
     summary_lookup = build_summary_lookup(input_file)
 
@@ -207,7 +242,7 @@ def main(input_file, output_file):
     current_day_short = None
 
     with open(input_file, encoding="utf-8") as f:
-        for line in f:
+        for line_num, line in enumerate(f, 1):
             line = line.strip()
             line = re.sub(r'^\d{2}:\d{3,4}:\s*', '', line)
 
@@ -226,7 +261,7 @@ def main(input_file, output_file):
                 continue
 
             # Ha nem labdarúgás sport, reseteljük a ligát
-            if re.match(r"(Kosárlabda|Amerikai foci|Jégkorong|Tenisz|Futsal|Kézilabda|Röplabda|Baseball|Motorsport|Rögbi),", line):
+            if re.search(r"(Kosárlabda|Amerikai foci|Jégkorong|Tenisz|Futsal|Kézilabda|Röplabda|Baseball|Motorsport|Rögbi),", line):
                 current_league = None
                 continue
 
@@ -243,6 +278,7 @@ def main(input_file, output_file):
                 continue
 
             # Speciális nap+dátum sor felismerése pl. "Hétfő (2025. június 30.)"
+            # PRIORITÁS: Ez mindig felülírja a current_date-t, függetlenül attól, hogy volt-e már beállítva
             m_day_date = re.match(r"(Hétfő|Kedd|Szerda|Csütörtök|Péntek|Szombat|Vasárnap)\s*\((\d{4})\.\s*(január|február|március|április|május|június|július|augusztus|szeptember|október|november|december)\s*(\d{1,2})\.\)", line)
             if m_day_date:
                 day_name, y, mon, d = m_day_date.groups()
@@ -255,59 +291,60 @@ def main(input_file, output_file):
                 day_name_to_short = {"Hétfő": "H", "Kedd": "K", "Szerda": "Sze", "Csütörtök": "Cs", "Péntek": "P", "Szombat": "Szo", "Vasárnap": "V"}
                 current_day_short = day_name_to_short[day_name]
 
-                print(f"Speciális dátum sor felismerve: {day_name} ({y}-{month_idx:02d}-{d:02d}), current_day_short={current_day_short}")
+                print(f"Speciális dátum sor felismerve: {day_name} ({y}-{month_idx:02d}-{d:02d}), current_day_short={current_day_short} - DÁTUM RESET!")
                 continue
 
             # Napváltó sor felismerése (pl. "P 01:30 ...")
             # DE: Csak akkor használjuk ha már van érvényes current_date speciális dátumsorból!
-            m_match = re.match(r"^(H|K|Sze|Cs|P|Szo|V) (\d{2}:\d{2})", line)
-            if m_match and current_date is not None:
-                day_short = m_match.group(1)
-                napok_sorrend = ["H", "K", "Sze", "Cs", "P", "Szo", "V"]
-
-                # EGYSZERŰ LOGIKA: Ha a speciális dátum sor már beállította a napot, használjuk azt
-                # Napváltás CSAK akkor, ha a speciális dátumsor megváltoztatta
-                if current_day_short != day_short:
-                    print(f"NAPVÁLTÁS LETILTVA: {current_day_short} -> {day_short}, current_date marad: {current_date.strftime('%Y-%m-%d')}")
-                    # NEM változtatjuk meg a dátumot! A speciális dátumsorok irányítanak.
-                    current_day_short = day_short
-                # ...existing code...
+            # MEGJEGYZÉS: A napváltás kezelését lentebb tesszük, a parsed eredmény alapján
             parsed = parse_line(line)
-            if parsed and current_page and current_league and current_date:
+            if parsed and current_page and current_league:
                 day, time, team1, team2, market_name, odds, orig_market, player = parsed
-
-                # Napváltás ellenőrzése és dátum frissítése
-                if current_day_short is None:
-                    current_day_short = day
-                    # Az alapdátum hétfőjének megkeresése
-                    napok_sorrend = ["H", "K", "Sze", "Cs", "P", "Szo", "V"]
-                    days_to_monday = current_date.weekday()
-                    week_start = current_date - timedelta(days=days_to_monday)
-
-                    # A kért nap kiszámítása az aktuális héten belül
-                    target_weekday = napok_sorrend.index(day)
-                    current_date = week_start + timedelta(days=target_weekday)
-
-                elif current_day_short != day:
-                    # Napváltás: az aktuális hét közepén maradunk
-                    napok_sorrend = ["H", "K", "Sze", "Cs", "P", "Szo", "V"]
-                    days_to_monday = current_date.weekday()
-                    week_start = current_date - timedelta(days=days_to_monday)
-
-                    target_weekday = napok_sorrend.index(day)
-                    new_date = week_start + timedelta(days=target_weekday)
-
-                    current_date = new_date
-                    current_day_short = day
 
                 t1n = normalize_team(team1)
                 t2n = normalize_team(team2)
                 league_clean = clean_league_name(current_league)
                 time_norm = normalize_time(time)
-                date_iso = current_date.strftime("%Y-%m-%d")
-                # A day mezőt mindig a dátum alapján generáljuk
+
+                # ÚJ: Ellenőrizzük, hogy van-e közeli speciális dátum
+                lookup_date, lookup_day_short = find_applicable_date(line_num, date_lookup)
+                if lookup_date:
+                    print(f"Sor {line_num}: Közeli speciális dátum találva: {lookup_date.strftime('%Y-%m-%d')} ({lookup_day_short})")
+                    match_date = lookup_date
+                    # Napváltás kezelése a speciális dátumtól
+                    if lookup_day_short != day:
+                        # Számoljuk ki a napok közötti különbséget
+                        days_map = {"H": 0, "K": 1, "Sze": 2, "Cs": 3, "P": 4, "Szo": 5, "V": 6}
+                        if day in days_map and lookup_day_short in days_map:
+                            diff = days_map[day] - days_map[lookup_day_short]
+                            if diff < 0:
+                                diff += 7  # Következő hét
+                            match_date = lookup_date + timedelta(days=diff)
+                            print(f"  Napváltás: {lookup_day_short} -> {day} = +{diff} nap -> {match_date.strftime('%Y-%m-%d')}")
+                        else:
+                            match_date = lookup_date
+                    else:
+                        match_date = lookup_date
+                elif current_date:
+                    # Fallback: korábbi logika
+                    match_date = current_date
+                    # Napváltás ellenőrzése és dátum frissítése
+                    if current_day_short is None:
+                        current_day_short = day
+                    elif current_day_short != day:
+                        # Napváltás: egyszerűen léptetjük a dátumot a következő napra
+                        current_date = current_date + timedelta(days=1)
+                        current_day_short = day
+                        print(f"Napváltás: {day} -> {current_date.strftime('%Y-%m-%d')}")
+                    match_date = current_date
+                else:
+                    # Nincs dátum info, kihagyjuk
+                    continue
+
+                date_iso = match_date.strftime("%Y-%m-%d")
+                # A day mezőt mindig a korrekt dátum alapján generáljuk
                 days = ["Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat", "Vasárnap"]
-                day_full = days[current_date.weekday()]
+                day_full = days[match_date.weekday()]
 
                 # Kulcsképzés: minden mezőt normalizálunk
                 key = (date_iso, time_norm, league_clean, t1n, t2n)
@@ -332,15 +369,48 @@ def main(input_file, output_file):
                 market = {"name": market_name, "orig_market": orig_market}
                 if player:
                     market["player"] = player
-                if len(odds) == 3:
-                    market["odds1"] = odds[0]
-                    market["oddsX"] = odds[1]
-                    market["odds2"] = odds[2]
-                elif len(odds) == 2:
-                    market["odds1"] = odds[0]
-                    market["odds2"] = odds[1]
-                elif len(odds) == 1:
-                    market["odds1"] = odds[0]
+
+                # --- Fő piac odds validáció és speciális eset kezelése ---
+                if market_name.lower() in ["fő piac", "1x2", "1x2"]:
+                    if len(odds) == 3:
+                        try:
+                            odds_floats = [float(o) for o in odds]
+                        except Exception:
+                            print(f"[WARN] Nem konvertálható odds: {odds} ({orig_market})")
+                            continue
+                        if all(1.01 <= o <= 100.0 for o in odds_floats):
+                            market["odds1"] = odds[0]
+                            market["oddsX"] = odds[1]
+                            market["odds2"] = odds[2]
+                        else:
+                            print(f"[WARN] Irreális odds érték(ek) Fő piacnál: {odds} ({orig_market})")
+                            continue
+                    elif len(odds) == 2:
+                        # Speciális eset: csak X és 2 van, 1 nincs (pl. nagyon esélytelen hazai)
+                        try:
+                            odds_floats = [float(o) for o in odds]
+                        except Exception:
+                            print(f"[WARN] Nem konvertálható odds: {odds} ({orig_market})")
+                            continue
+                        if all(1.01 <= o <= 100.0 for o in odds_floats):
+                            market["oddsX"] = odds[0]
+                            market["odds2"] = odds[1]
+                        else:
+                            print(f"[WARN] Irreális odds érték(ek) Fő piacnál (2 odds): {odds} ({orig_market})")
+                            continue
+                    else:
+                        print(f"[WARN] Hibás odds szám Fő piacnál: {odds} ({orig_market})")
+                        continue
+                else:
+                    if len(odds) == 3:
+                        market["odds1"] = odds[0]
+                        market["oddsX"] = odds[1]
+                        market["odds2"] = odds[2]
+                    elif len(odds) == 2:
+                        market["odds1"] = odds[0]
+                        market["odds2"] = odds[1]
+                    elif len(odds) == 1:
+                        market["odds1"] = odds[0]
 
                 if market not in match_map[key]["markets"]:
                     match_map[key]["markets"].append(market)

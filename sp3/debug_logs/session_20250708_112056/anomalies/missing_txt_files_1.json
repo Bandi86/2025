@@ -1,0 +1,18 @@
+{
+  "timestamp": "2025-07-08T11:21:02.359019",
+  "type": "missing_txt_files",
+  "severity": "medium",
+  "details": {
+    "pdf_without_txt": [
+      "Web__51sz__P__06-27",
+      "Web__46sz__K__06-10",
+      "Web__53sz__P__2025_07-04",
+      "Web__47sz__P__06-13",
+      "Web__52sz__K__07-01",
+      "Web__49sz__P__06-20",
+      "Web__48sz__K__06-17",
+      "Web__50sz__K__06-24"
+    ]
+  },
+  "session_id": "20250708_112056"
+}

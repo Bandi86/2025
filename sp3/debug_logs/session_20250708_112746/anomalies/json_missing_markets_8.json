@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-07-08T11:27:58.640553",
+  "type": "json_missing_markets",
+  "severity": "medium",
+  "details": {
+    "file": "Web__48sz__K__06-17_lines.json",
+    "count": 1,
+    "total_matches": 140,
+    "percentage": 0.71
+  },
+  "session_id": "20250708_112746"
+}
