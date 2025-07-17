@@ -1,0 +1,1 @@
+flashscore repo link: https://github.com/gustavofariaa/FlashscoreScraping
