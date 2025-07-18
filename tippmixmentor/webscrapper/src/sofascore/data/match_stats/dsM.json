@@ -1,0 +1,29 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Football",
+      "item": "https://www.sofascore.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "England",
+      "item": "https://www.sofascore.com/football/england"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Premier League",
+      "item": "https://www.sofascore.com/tournament/football/england/premier-league/17"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Wolverhampton - West Ham United"
+    }
+  ]
+}

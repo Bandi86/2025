@@ -1,68 +1,82 @@
-# Python virtual environments
-**/.venv
-**/__pycache__
-**/.pytest_cache
-**/.coverage
-**/.mypy_cache
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.pnpm-debug.log
 
-# Python generated files
-webscrapper/src/__pycache__
-webscrapper/FlashscoreScrapping
-pdfconverter/pdfs
-pdfconverter/jsons
-pdfconverter/txts
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+requirements-combined.txt
 
-# Environment variables and secrets
-**/.env
-**/.env.*
-!**/.env.example
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Docker configuration (optional)
-# docker-compose.yml
+# IDE
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+*.sublime-workspace
+*.sublime-project
+.DS_Store
+
+# Next.js
+.next/
+out/
+
+# NestJS
+dist/
+
+# Docker
+.docker/
+
+# Database
+*.sqlite
+*.db
 
 # Logs
-**/logs
-**/*.log
-
-# Database files
-**/*.sqlite
-**/*.db
-
-# IDE files
-**/.idea
-**/.vscode
-**/*.sublime-workspace
-
-# OS files
-**/.DS_Store
-**/Thumbs.db
-
-# Temporary files
-**/tmp
-**/temp
-**/.tmp
-**/.temp
-
-# Node.js
-**/node_modules
-**/npm-debug.log*
-**/yarn-debug.log*
-**/yarn-error.log*
-**/pnpm-debug.log*
-
-# Build outputs
-**/dist
-**/build
-**/.next
-**/out
+logs/
+*.log
 
 # Cache
-**/.cache
-**/.eslintcache
-**/.parcel-cache
+.cache/
+.eslintcache
+.stylelintcache
 
-# Local configuration files that might contain secrets
-**/config.local.js
-**/settings.local.json
+# Misc
+.DS_Store
+Thumbs.db
 
+.vscode
 .kiro
