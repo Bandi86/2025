@@ -80,3 +80,18 @@ Thumbs.db
 
 .vscode
 .kiro
+
+#webscrapper
+webscrapper/src/sofascore/jsons
+webscrapper/src/sofascore/data
+
+#pdfconverter
+pdfconverter/pdfs
+pdfconverter/jsons
+pdfconverter/src/txts
+
+merge_json_data
+
+# betmentors
+betmentors/data
+betmentors/processed

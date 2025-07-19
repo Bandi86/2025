@@ -1,21 +1,26 @@
 # Multi-stage build for NestJS
-FROM node:20-alpine AS base
-
-# Install pnpm
+FROM node:20 AS base
 RUN npm install -g pnpm
 
+
+
 # Development stage
-FROM base AS development
+FROM node:20 AS development
+RUN npm install -g pnpm
 WORKDIR /usr/src/app
 
 # Copy package files
 COPY package.json pnpm-lock.yaml ./
+COPY wait-for-it.sh ./
 
 # Install all dependencies (including dev dependencies)
 RUN pnpm install --frozen-lockfile
 
 # Copy source code
 COPY . .
+
+# Set permissions for development (WARNING: Not for production)
+RUN chmod -R 777 /usr/src/app
 
 # Generate Prisma client
 RUN pnpm prisma generate
@@ -27,11 +32,13 @@ EXPOSE 3001
 CMD ["pnpm", "run", "start:dev"]
 
 # Production build stage
-FROM base AS build
+FROM node:20 AS build
+RUN npm install -g pnpm
 WORKDIR /usr/src/app
 
 # Copy package files
 COPY package.json pnpm-lock.yaml ./
+COPY wait-for-it.sh ./
 
 # Install all dependencies
 RUN pnpm install --frozen-lockfile
@@ -39,12 +46,16 @@ RUN pnpm install --frozen-lockfile
 # Copy source code
 COPY . .
 
+# Set permissions for build (WARNING: Not for production)
+RUN chmod -R 777 /usr/src/app
+
 # Generate Prisma client and build
 RUN pnpm prisma generate
 RUN pnpm run build
 
 # Production stage
-FROM base AS production
+FROM node:20 AS production
+RUN npm install -g pnpm
 WORKDIR /usr/src/app
 
 # Copy package files

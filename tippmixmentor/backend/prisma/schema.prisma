@@ -10,6 +10,164 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Core Models
+
+model Sport {
+  id          Int          @id @default(autoincrement())
+  name        String       @unique // e.g., "Soccer", "Basketball"
+  tournaments Tournament[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model Tournament {
+  id        Int      @id @default(autoincrement())
+  nameHu    String   @unique
+  nameEn    String?
+  country   String?
+  logoUrl   String?
+  sport     Sport    @relation(fields: [sportId], references: [id])
+  sportId   Int
+  matches   Match[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Team {
+  id          Int           @id @default(autoincrement())
+  name        String        @unique
+  country     String?
+  logoUrl     String?
+  homeMatches Match[]       @relation("HomeMatches")
+  awayMatches Match[]       @relation("AwayMatches")
+  players     Player[]
+  lineups     MatchLineup[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model Player {
+  id          Int          @id @default(autoincrement())
+  name        String
+  dateOfBirth DateTime?
+  nationality String?
+  position    String? // e.g., "Forward", "Midfielder", "Defender", "Goalkeeper"
+  team        Team?        @relation(fields: [teamId], references: [id])
+  teamId      Int?
+  matchEvents MatchEvent[]
+  lineups     MatchLineup[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model Match {
+  id             String          @id
+  date           DateTime
+  status         String // e.g., "scheduled", "live", "finished", "postponed"
+  stadium        String?
+  referee        String?
+  homeTeam       Team            @relation("HomeMatches", fields: [homeTeamId], references: [id])
+  homeTeamId     Int
+  awayTeam       Team            @relation("AwayMatches", fields: [awayTeamId], references: [id])
+  awayTeamId     Int
+  tournament     Tournament      @relation(fields: [tournamentId], references: [id])
+  tournamentId   Int
+  bettingMarkets BettingMarket[]
+  result         Result?
+  dataSource     DataSource?
+  events         MatchEvent[]
+  lineups        MatchLineup[]
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+}
+
+// Match Details
+
+model Result {
+  id           Int      @id @default(autoincrement())
+  match        Match    @relation(fields: [matchId], references: [id])
+  matchId      String   @unique
+  homeScore    Int?
+  awayScore    Int?
+  homeScoreHT  Int? // Halftime score
+  awayScoreHT  Int? // Halftime score
+  // Add other result details like penalties if needed
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model MatchEvent {
+  id          Int      @id @default(autoincrement())
+  match       Match    @relation(fields: [matchId], references: [id])
+  matchId     String
+  minute      Int      // Minute of the event
+  type        String   // "Goal", "YellowCard", "RedCard", "Substitution"
+  description String?
+  player      Player?  @relation(fields: [playerId], references: [id])
+  playerId    Int?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model MatchLineup {
+  id          Int      @id @default(autoincrement())
+  match       Match    @relation(fields: [matchId], references: [id])
+  matchId     String
+  team        Team     @relation(fields: [teamId], references: [id])
+  teamId      Int
+  player      Player   @relation(fields: [playerId], references: [id])
+  playerId    Int
+  isStarting  Boolean  // True if in starting lineup, false if substitute
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([matchId, playerId]) // A player can only be in one lineup per match
+}
+
+
+// Betting Information
+
+model BettingMarket {
+  id          Int      @id @default(autoincrement())
+  name        String   // e.g., "Fő piac", "Hendikep 0:1"
+  origMarket  String?
+  match       Match    @relation(fields: [matchId], references: [id])
+  matchId     String
+  odds        Odds[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([matchId, name])
+}
+
+model Odds {
+  id              Int           @id @default(autoincrement())
+  bettingMarket   BettingMarket @relation(fields: [bettingMarketId], references: [id])
+  bettingMarketId Int
+  provider        String        @default("Tippmix") // e.g., "Tippmix", "Bet365"
+  odds1           Float?
+  oddsX           Float?
+  odds2           Float?
+  // Can be extended with more odds types
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  @@unique([bettingMarketId, provider])
+}
+
+// Data Provenance & Users
+
+model DataSource {
+  id             Int      @id @default(autoincrement())
+  match          Match    @relation(fields: [matchId], references: [id])
+  matchId        String   @unique
+  tippmixFound   Boolean
+  sofascoreId    Int?
+  sofascoreFound Boolean
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
 model User {
   id        Int      @id @default(autoincrement())
   email     String   @unique

@@ -10,20 +10,23 @@ services:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - NODE_ENV=development
+      - PORT=3001
     ports:
       - "3001:3001"
     volumes:
       - ./backend:/usr/src/app
-      - /usr/src/app/node_modules
       - ./pdfconverter:/usr/src/pdfconverter
       - ./webscrapper:/usr/src/webscrapper
       - ./betmentors:/usr/src/betmentors
+      - ./merge_json_data:/usr/src/app/merge_json_data
     networks:
       - betting_mentor_network
     depends_on:
       - postgres
       - redis
+    command: ./wait-for-it.sh postgres:5432 -- bash -c "pnpm prisma db push --accept-data-loss && pnpm run start:dev"
     restart: unless-stopped
+    mem_limit: 2g
 
   # Frontend Service (Next.js)
   frontend:

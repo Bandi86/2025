@@ -1,0 +1,26 @@
+{
+    "name": "automated-flashscore-scraper",
+    "version": "1.0.0",
+    "description": "Automatizált Flashscore scraper háttérben futó adatgyűjtéshez",
+    "type": "module",
+    "scripts": {
+        "start": "node src/index.js",
+        "dev": "node --watch src/index.js",
+        "test": "node test-scraper.js",
+        "cli": "node src/cli.js",
+        "status": "node src/cli.js status",
+        "config": "node src/cli.js config",
+        "stats": "node src/cli.js stats",
+        "clean": "node src/cli.js clean",
+        "discover": "node src/cli.js discover",
+        "comprehensive": "node src/cli.js comprehensive",
+        "ml-dataset": "node src/cli.js ml-dataset"
+    },
+    "dependencies": {
+        "puppeteer": "^24.2.0",
+        "cron": "^3.1.7",
+        "winston": "^3.11.0",
+        "fs-extra": "^11.2.0"
+    },
+    "license": "MIT"
+}
