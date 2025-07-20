@@ -68,7 +68,12 @@ export class AutomatedScraper {
     
     for (const league of leagues) {
       try {
-        await this.scrapeLeague(country, league);
+        const selectedSeason = countryConfig.seasons[league];
+        if (selectedSeason) {
+          await this.scrapeLeague(country, league, selectedSeason);
+        } else {
+          logger.warn(`Nincs szezon kiválasztva ${country}/${league} ligához. Kihagyás.`);
+        }
         
         // Ligák közötti szünet
         if (leagues.indexOf(league) < leagues.length - 1) {
@@ -88,20 +93,12 @@ export class AutomatedScraper {
    * @param {string} country - Ország neve
    * @param {string} league - Liga neve
    */
-  async scrapeLeague(country, league) {
-    logger.info(`⚽ Liga scraping kezdése: ${country}/${league}`);
+  async scrapeLeague(country, league, season) {
+    logger.info(`⚽ Liga scraping kezdése: ${country}/${league} (${season})`);
     
     try {
       // Meccs ID-k lekérése
-      const matchIds = await getMatchIdList(this.browser, country, league);
-      
-      if (matchIds.length === 0) {
-        logger.warn(`Nem találhatók meccsek: ${country}/${league}`);
-        return;
-      }
-      
-      // Meglévő adatok betöltése (inkrementális scraping)
-      const season = '2024-2025';
+      const { matchIds } = await getMatchIdList(this.browser, country, league);
       const filename = `${league}_matches`;
       const existingData = await loadExistingData(country, league, season, filename);
       

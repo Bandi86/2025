@@ -84,6 +84,7 @@ Thumbs.db
 #webscrapper
 webscrapper/src/sofascore/jsons
 webscrapper/src/sofascore/data
+webscrapper/src/automated-flashscore-scraper/scraped_data
 
 #pdfconverter
 pdfconverter/pdfs
@@ -95,3 +96,5 @@ merge_json_data
 # betmentors
 betmentors/data
 betmentors/processed
+
+monitoring

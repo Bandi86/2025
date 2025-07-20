@@ -1,0 +1,102 @@
+[
+  {
+    "name": "germany",
+    "displayName": "Germany",
+    "url": "https://www.flashscore.com/football/germany/"
+  },
+  {
+    "name": "bundesliga",
+    "displayName": "Bundesliga - Relegation",
+    "url": "https://www.flashscore.com/football/germany/bundesliga/"
+  },
+  {
+    "name": "2-bundesliga",
+    "displayName": "2. Bundesliga - Relegation",
+    "url": "https://www.flashscore.com/football/germany/2-bundesliga/"
+  },
+  {
+    "name": "3-liga",
+    "displayName": "3. Liga",
+    "url": "https://www.flashscore.com/football/germany/3-liga/"
+  },
+  {
+    "name": "regionalliga-north",
+    "displayName": "Regionalliga North",
+    "url": "https://www.flashscore.com/football/germany/regionalliga-north/"
+  },
+  {
+    "name": "regionalliga-nordost",
+    "displayName": "Regionalliga Nordost",
+    "url": "https://www.flashscore.com/football/germany/regionalliga-nordost/"
+  },
+  {
+    "name": "regionalliga-west",
+    "displayName": "Regionalliga West",
+    "url": "https://www.flashscore.com/football/germany/regionalliga-west/"
+  },
+  {
+    "name": "regionalliga-sudwest",
+    "displayName": "Regionalliga Sudwest",
+    "url": "https://www.flashscore.com/football/germany/regionalliga-sudwest/"
+  },
+  {
+    "name": "regionalliga-bayern",
+    "displayName": "Regionalliga Bayern - Relegation",
+    "url": "https://www.flashscore.com/football/germany/regionalliga-bayern/"
+  },
+  {
+    "name": "regionalliga-play-offs",
+    "displayName": "Regionalliga Play Offs",
+    "url": "https://www.flashscore.com/football/germany/regionalliga-play-offs/"
+  },
+  {
+    "name": "oberliga-nofv-nord",
+    "displayName": "Oberliga NOFV-Nord",
+    "url": "https://www.flashscore.com/football/germany/oberliga-nofv-nord/"
+  },
+  {
+    "name": "oberliga-nofv-sud",
+    "displayName": "Oberliga NOFV- Sud",
+    "url": "https://www.flashscore.com/football/germany/oberliga-nofv-sud/"
+  },
+  {
+    "name": "oberliga-nofv-relegation",
+    "displayName": "Oberliga NOFV - Relegation",
+    "url": "https://www.flashscore.com/football/germany/oberliga-nofv-relegation/"
+  },
+  {
+    "name": "oberliga-schleswig-holstein",
+    "displayName": "Oberliga Schleswig-Holstein",
+    "url": "https://www.flashscore.com/football/germany/oberliga-schleswig-holstein/"
+  },
+  {
+    "name": "oberliga-hamburg",
+    "displayName": "Oberliga Hamburg",
+    "url": "https://www.flashscore.com/football/germany/oberliga-hamburg/"
+  },
+  {
+    "name": "oberliga-bremen",
+    "displayName": "Oberliga Bremen",
+    "url": "https://www.flashscore.com/football/germany/oberliga-bremen/"
+  },
+  {
+    "name": "oberliga-niedersachsen",
+    "displayName": "Oberliga Niedersachsen",
+    "url": "https://www.flashscore.com/football/germany/oberliga-niedersachsen/"
+  },
+  {
+    "name": "oberliga-westfalen",
+    "displayName": "Oberliga Westfalen",
+    "url": "https://www.flashscore.com/football/germany/oberliga-westfalen/"
+  },
+  {
+    "name": "oberliga-hessen",
+    "displayName": "Oberliga Hessen - Relegation",
+    "url": "https://www.flashscore.com/football/germany/oberliga-hessen/"
+  },
+  {
+    "name": "oberliga-rheinland-pfalz-saar",
+    "displayName": "Oberliga Rheinland-Pfalz/Saar",
+    "url": "https://www.flashscore.com/football/germany/oberliga-rheinland-pfalz-saar/"
+  }
+]

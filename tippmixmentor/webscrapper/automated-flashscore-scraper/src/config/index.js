@@ -20,11 +20,35 @@ export const CONFIG = {
   // Cron beállítások (opcionális automatikus futtatáshoz)
   CRON_SCHEDULE: '0 2 * * *', // Minden nap hajnali 2-kor
   
-  // Célországok és ligák - TESZT: Csak egy kisebb ország
+  // Célországok és ligák
   TARGET_LEAGUES: [
+    {
+      country: 'hungary',
+      leagues: ['nb-i-2024-2025', 'nb-i-2023-2024']
+    },
     {
       country: 'czech-republic',
       leagues: ['fortuna-liga-2024-2025']
+    },
+    {
+      country: 'spain',
+      leagues: ['laliga-2023-2024', 'laliga-2024-2025']
+    },
+    {
+      country: 'germany',
+      leagues: ['bundesliga-2022-2023', 'bundesliga-2023-2024', 'bundesliga-2024-2025']
+    },
+    {
+      country: 'france',
+      leagues: ['ligue-1-2023-2024', 'ligue-1-2024-2025']
+    },
+    {
+      country: 'italy',
+      leagues: ['serie-a-2023-2024', 'serie-a-2024-2025']
+    },
+    {
+      country: 'england',
+      leagues: ['premier-league-2023-2024', 'premier-league-2024-2025']
     }
   ]
 };

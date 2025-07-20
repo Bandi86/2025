@@ -2,6 +2,7 @@ import { CONFIG } from '../config/index.js';
 import { logger } from '../utils/logger.js';
 import { delay, randomDelay } from '../utils/delay.js';
 import { openPageAndNavigate, waitForSelectorSafe, waitAndClick } from './browser.js';
+import { analyzeHtmlStructure, findAllSelectors } from '../utils/debugTools.js';
 
 /**
  * Liga meccs ID-k lekérése
@@ -16,6 +17,9 @@ export const getMatchIdList = async (browser, country, league) => {
   try {
     const page = await openPageAndNavigate(browser, leagueUrl);
     
+    // Get current season from URL
+    const currentSeason = page.url().match(/\/([0-9]{4}-[0-9]{4})\/results/)?.[1] || '2024-2025';
+
     // "Show more" gombok kattintása az összes meccs betöltéséhez
     let clickCount = 0;
     while (clickCount < 50) { // Maximum 50 kattintás a végtelen ciklus elkerülésére
@@ -30,22 +34,106 @@ export const getMatchIdList = async (browser, country, league) => {
       }
     }
     
-    // Meccsek várakozása
-    await waitForSelectorSafe(page, '.event__match.event__match--static.event__match--twoLine');
+    // Meccsek várakozása - frissített selectorok
+    const matchSelectors = [
+      '.event__match.event__match--static.event__match--twoLine',
+      '.event__match--static',
+      '.event__match',
+      '[id^="g_1_"]'
+    ];
+    
+    let selectorFound = false;
+    for (const selector of matchSelectors) {
+      const found = await waitForSelectorSafe(page, selector, 5000);
+      if (found) {
+        logger.info(`Meccs selector találva: ${selector}`);
+        selectorFound = true;
+        break;
+      }
+    }
+    
+    if (!selectorFound) {
+      logger.warn(`Nem találhatók meccs selectorok: ${country}/${league}`);
+      
+      // Debug eszközök használata a HTML struktúra elemzéséhez
+      await page.screenshot({ path: `debug_${country}_${league}.png` });
+      logger.info(`Debug képernyőkép mentve: debug_${country}_${league}.png`);
+      
+      // HTML struktúra elemzése
+      await analyzeHtmlStructure(page, 'body', `${country}_${league}_structure`);
+      
+      // Meccs és esemény selectorok keresése
+      await findAllSelectors(page, 'match', `${country}_${league}_match_selectors`);
+      await findAllSelectors(page, 'event', `${country}_${league}_event_selectors`);
+      
+      logger.info(`HTML struktúra elemzés befejezve: ${country}/${league}`);
+    }
     
     const matchIdList = await page.evaluate(() => {
-      return Array.from(document.querySelectorAll('.event__match.event__match--static.event__match--twoLine')).map((element) => {
-        return element?.id?.replace('g_1_', '');
+      // Több selector próbálása
+      const selectors = [
+        '.event__match.event__match--static.event__match--twoLine',
+        '.event__match--static',
+        '.event__match',
+        '[id^="g_1_"]'
+      ];
+      
+      let elements = [];
+      for (const selector of selectors) {
+        elements = Array.from(document.querySelectorAll(selector));
+        if (elements.length > 0) {
+          console.log(`Selector találva: ${selector} (${elements.length} db)`);
+          break;
+        }
+      }
+      
+      return elements.map((element) => {
+        const id = element?.id;
+        if (id && id.startsWith('g_1_')) {
+          return id.replace('g_1_', '');
+        }
+        return null;
       }).filter(id => id && id.length > 0);
     });
     
     await page.close();
     
     logger.info(`${matchIdList.length} meccs ID lekérve: ${country}/${league}`);
-    return matchIdList;
+    return { matchIds: matchIdList, season: currentSeason };
     
   } catch (error) {
     logger.error(`Hiba a meccs ID-k lekérésekor: ${country}/${league}`, error);
+    return { matchIds: [], season: '2024-2025' };
+  }
+};
+
+/**
+ * Elérhető szezonok lekérése egy ligához
+ * @param {Object} browser - Puppeteer browser példány
+ * @param {string} country - Ország neve
+ * @param {string} league - Liga neve
+ */
+export const getAvailableSeasons = async (browser, country, league) => {
+  const leagueUrl = `${CONFIG.BASE_URL}/football/${country}/${league}/results`;
+  logger.info(`Szezonok lekérése: ${leagueUrl}`);
+
+  try {
+    const page = await openPageAndNavigate(browser, leagueUrl);
+
+    // Várjuk meg a szezonválasztó elemet
+    await waitForSelectorSafe(page, '.team-season-selector');
+
+    const seasons = await page.evaluate(() => {
+      const seasonElements = document.querySelectorAll('.team-season-selector a');
+      return Array.from(seasonElements).map(el => el.textContent.trim());
+    });
+
+    await page.close();
+    logger.info(`${seasons.length} szezon lekérve: ${country}/${league}`);
+    return seasons;
+
+  } catch (error) {
+    logger.error(`Hiba a szezonok lekérésekor: ${country}/${league}`, error);
     return [];
   }
 };

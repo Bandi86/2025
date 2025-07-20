@@ -22,25 +22,137 @@ export class ComprehensiveScraper extends AutomatedScraper {
     logger.info('🌍 Összes elérhető ország felfedezése...');
     
     try {
-      const page = await openPageAndNavigate(this.browser, `${CONFIG.BASE_URL}/football/`);
+      // Próbáljunk több különböző URL-t
+      const urls = [
+        `${CONFIG.BASE_URL}/football/`,
+        `${CONFIG.BASE_URL}/`,
+        `${CONFIG.BASE_URL}/football/europe/`,
+        `${CONFIG.BASE_URL}/football/world/`
+      ];
       
-      // Várjuk meg az országok listáját
-      await waitForSelectorSafe(page, '.leagues__country');
+      let countries = [];
       
-      const countries = await page.evaluate(() => {
-        const countryElements = document.querySelectorAll('.leagues__country');
-        return Array.from(countryElements).map(element => {
-          const link = element.querySelector('a');
-          const name = link?.getAttribute('href')?.split('/')[2]; // /football/country/
-          const displayName = element.textContent.trim();
-          return { name, displayName, url: link?.href };
-        }).filter(country => country.name && country.name !== 'world');
-      });
+      for (const url of urls) {
+        logger.info(`🔍 Próbálkozás: ${url}`);
+        
+        try {
+          const page = await openPageAndNavigate(this.browser, url);
+          
+          // Várjuk meg, hogy az oldal betöltődjön
+          await new Promise(resolve => setTimeout(resolve, 5000));
+          
+          // Próbáljunk meg screenshot-ot készíteni debug céljából
+          try {
+            await page.screenshot({ path: 'debug_flashscore.png', fullPage: false });
+            logger.info('📸 Debug screenshot készítve: debug_flashscore.png');
+          } catch (screenshotError) {
+            logger.debug('Screenshot hiba:', screenshotError.message);
+          }
+          
+          // Keressük meg az összes linket, ami football-hoz kapcsolódik
+          countries = await page.evaluate(() => {
+            const results = [];
+            
+            // Keressük meg az összes linket
+            const allLinks = document.querySelectorAll('a');
+            
+            allLinks.forEach(link => {
+              const href = link.getAttribute('href');
+              const text = link.textContent?.trim();
+              
+              if (href && text) {
+                // Ellenőrizzük, hogy football URL-e
+                if (href.includes('/football/') && !href.includes('#') && !href.includes('?')) {
+                  const pathParts = href.split('/');
+                  
+                  // Keressük meg a football index-et
+                  const footballIndex = pathParts.indexOf('football');
+                  if (footballIndex >= 0 && footballIndex + 1 < pathParts.length) {
+                    const countryName = pathParts[footballIndex + 1];
+                    
+                    // Szűrjük ki a nem ország neveket
+                    const excludeList = [
+                      'live', 'results', 'fixtures', 'standings', 'archive', 
+                      'world', 'europe', 'asia', 'africa', 'america', 'oceania',
+                      'champions-league', 'europa-league', 'world-cup', 'euro',
+                      'my-leagues', 'favourites', 'news', 'transfers'
+                    ];
+                    
+                    if (countryName && 
+                        countryName.length > 1 && 
+                        !excludeList.includes(countryName) &&
+                        !countryName.includes('-cup') &&
+                        !countryName.includes('-league') &&
+                        text.length > 2 && text.length < 50) {
+                      
+                      results.push({
+                        name: countryName,
+                        displayName: text,
+                        url: href.startsWith('http') ? href : `https://www.flashscore.com${href}`
+                      });
+                    }
+                  }
+                }
+              }
+            });
+            
+            // Távolítsuk el a duplikátumokat és rendezzük ABC sorrendbe
+            const unique = results.filter((country, index, self) => 
+              index === self.findIndex(c => c.name === country.name)
+            );
+            
+            return unique.sort((a, b) => a.displayName.localeCompare(b.displayName));
+          });
+          
+          await page.close();
+          
+          if (countries.length > 0) {
+            logger.info(`✅ ${countries.length} ország találva a ${url} oldalon`);
+            break;
+          }
+          
+        } catch (pageError) {
+          logger.debug(`Hiba a ${url} oldal feldolgozásakor:`, pageError.message);
+          continue;
+        }
+      }
       
-      await page.close();
+      // Ha még mindig nincs eredmény, használjunk egy előre definiált listát
+      if (countries.length === 0) {
+        logger.info('🔧 Előre definiált országlista használata...');
+        countries = [
+          { name: 'hungary', displayName: 'Magyarország', url: `${CONFIG.BASE_URL}/football/hungary/` },
+          { name: 'england', displayName: 'Anglia', url: `${CONFIG.BASE_URL}/football/england/` },
+          { name: 'spain', displayName: 'Spanyolország', url: `${CONFIG.BASE_URL}/football/spain/` },
+          { name: 'germany', displayName: 'Németország', url: `${CONFIG.BASE_URL}/football/germany/` },
+          { name: 'italy', displayName: 'Olaszország', url: `${CONFIG.BASE_URL}/football/italy/` },
+          { name: 'france', displayName: 'Franciaország', url: `${CONFIG.BASE_URL}/football/france/` },
+          { name: 'portugal', displayName: 'Portugália', url: `${CONFIG.BASE_URL}/football/portugal/` },
+          { name: 'netherlands', displayName: 'Hollandia', url: `${CONFIG.BASE_URL}/football/netherlands/` },
+          { name: 'belgium', displayName: 'Belgium', url: `${CONFIG.BASE_URL}/football/belgium/` },
+          { name: 'czech-republic', displayName: 'Csehország', url: `${CONFIG.BASE_URL}/football/czech-republic/` },
+          { name: 'poland', displayName: 'Lengyelország', url: `${CONFIG.BASE_URL}/football/poland/` },
+          { name: 'austria', displayName: 'Ausztria', url: `${CONFIG.BASE_URL}/football/austria/` },
+          { name: 'switzerland', displayName: 'Svájc', url: `${CONFIG.BASE_URL}/football/switzerland/` },
+          { name: 'croatia', displayName: 'Horvátország', url: `${CONFIG.BASE_URL}/football/croatia/` },
+          { name: 'serbia', displayName: 'Szerbia', url: `${CONFIG.BASE_URL}/football/serbia/` },
+          { name: 'romania', displayName: 'Románia', url: `${CONFIG.BASE_URL}/football/romania/` },
+          { name: 'slovakia', displayName: 'Szlovákia', url: `${CONFIG.BASE_URL}/football/slovakia/` },
+          { name: 'slovenia', displayName: 'Szlovénia', url: `${CONFIG.BASE_URL}/football/slovenia/` },
+          { name: 'brazil', displayName: 'Brazília', url: `${CONFIG.BASE_URL}/football/brazil/` },
+          { name: 'argentina', displayName: 'Argentína', url: `${CONFIG.BASE_URL}/football/argentina/` },
+          { name: 'usa', displayName: 'USA', url: `${CONFIG.BASE_URL}/football/usa/` },
+          { name: 'mexico', displayName: 'Mexikó', url: `${CONFIG.BASE_URL}/football/mexico/` }
+        ];
+      }
       
       this.allCountries = countries;
       logger.info(`✅ ${countries.length} ország felfedezve`);
+      
+      // Log some examples for debugging
+      if (countries.length > 0) {
+        logger.info(`Első 10 ország: ${countries.slice(0, 10).map(c => c.displayName).join(', ')}`);
+      }
       
       return countries;
     } catch (error) {
@@ -58,32 +170,172 @@ export class ComprehensiveScraper extends AutomatedScraper {
     try {
       const page = await openPageAndNavigate(this.browser, `${CONFIG.BASE_URL}/football/${countryName}/`);
       
-      await waitForSelectorSafe(page, '.leagues__item');
+      // Várjuk meg, hogy az oldal betöltődjön
+      await new Promise(resolve => setTimeout(resolve, 3000));
       
-      const leagues = await page.evaluate(() => {
-        const leagueElements = document.querySelectorAll('.leagues__item a');
-        return Array.from(leagueElements).map(link => {
-          const href = link.getAttribute('href');
-          const parts = href.split('/');
-          const leagueName = parts[parts.length - 1];
-          const displayName = link.textContent.trim();
+      // Próbáljunk különböző selectorokat a ligákhoz
+      const selectors = [
+        '.leagues__item a',
+        '.league-item a',
+        'a[href*="/football/"]',
+        '.sidebar a',
+        '.menu a'
+      ];
+      
+      let leagues = [];
+      
+      for (const selector of selectors) {
+        try {
+          await page.waitForSelector(selector, { timeout: 2000 });
           
-          return {
-            name: leagueName,
-            displayName,
-            url: href,
-            country: parts[2] // /football/country/league
-          };
-        }).filter(league => 
-          league.name && 
-          !league.name.includes('archive') &&
-          (league.name.includes('2024-2025') || league.name.includes('2025'))
-        );
-      });
+          leagues = await page.evaluate((sel, countryName) => {
+            const elements = document.querySelectorAll(sel);
+            const results = [];
+            
+            elements.forEach(link => {
+              const href = link.getAttribute('href');
+              const text = link.textContent?.trim();
+              
+              if (href && text && href.includes('/football/') && href.includes(countryName)) {
+                const parts = href.split('/');
+                const footballIndex = parts.indexOf('football');
+                
+                if (footballIndex >= 0 && footballIndex + 2 < parts.length) {
+                  const countryPart = parts[footballIndex + 1];
+                  const leagueName = parts[footballIndex + 2];
+                  
+                  // Csak akkor adjuk hozzá, ha ez valóban egy liga
+                  if (countryPart === countryName && 
+                      leagueName && 
+                      leagueName.length > 3 &&
+                      !leagueName.includes('archive') &&
+                      !leagueName.includes('results') &&
+                      !leagueName.includes('fixtures') &&
+                      !leagueName.includes('standings') &&
+                      text.length > 3 && text.length < 100) {
+                    
+                    results.push({
+                      name: leagueName,
+                      displayName: text,
+                      url: href.startsWith('http') ? href : `https://www.flashscore.com${href}`,
+                      country: countryPart
+                    });
+                  }
+                }
+              }
+            });
+            
+            // Távolítsuk el a duplikátumokat
+            const unique = results.filter((league, index, self) => 
+              index === self.findIndex(l => l.name === league.name)
+            );
+            
+            return unique;
+          }, selector, countryName);
+          
+          if (leagues.length > 0) {
+            logger.info(`✅ Ligák találva a '${selector}' selector használatával`);
+            break;
+          }
+        } catch (selectorError) {
+          logger.debug(`Selector '${selector}' nem található, próbálkozás a következővel...`);
+          continue;
+        }
+      }
+      
+      // Ha még mindig nincs eredmény, próbáljunk egy általános megközelítést
+      if (leagues.length === 0) {
+        logger.info(`🔍 Általános keresés indítása: ${countryName}`);
+        leagues = await page.evaluate((country) => {
+          const allLinks = document.querySelectorAll('a');
+          const results = [];
+          
+          allLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            const text = link.textContent?.trim();
+            
+            if (href && text && href.includes(`/football/${country}/`)) {
+              const parts = href.split('/');
+              const footballIndex = parts.indexOf('football');
+              
+              if (footballIndex >= 0 && footballIndex + 2 < parts.length) {
+                const leagueName = parts[footballIndex + 2];
+                
+                if (leagueName && 
+                    leagueName.length > 3 &&
+                    !['results', 'fixtures', 'standings', 'archive', 'live'].includes(leagueName) &&
+                    text.length > 3 && text.length < 100) {
+                  
+                  results.push({
+                    name: leagueName,
+                    displayName: text,
+                    url: href.startsWith('http') ? href : `https://www.flashscore.com${href}`,
+                    country: country
+                  });
+                }
+              }
+            }
+          });
+          
+          // Távolítsuk el a duplikátumokat és rendezzük ABC sorrendbe
+          const unique = results.filter((league, index, self) => 
+            index === self.findIndex(l => l.name === league.name)
+          );
+          
+          return unique.sort((a, b) => a.displayName.localeCompare(b.displayName));
+        }, countryName);
+      }
+      
+      // Ha még mindig nincs eredmény, használjunk előre definiált ligákat a főbb országokhoz
+      if (leagues.length === 0) {
+        const predefinedLeagues = {
+          'hungary': [
+            { name: 'nb-i-2024-2025', displayName: 'NB I 2024/2025', country: 'hungary' },
+            { name: 'nb-ii-2024-2025', displayName: 'NB II 2024/2025', country: 'hungary' }
+          ],
+          'england': [
+            { name: 'premier-league-2024-2025', displayName: 'Premier League 2024/2025', country: 'england' },
+            { name: 'championship-2024-2025', displayName: 'Championship 2024/2025', country: 'england' }
+          ],
+          'spain': [
+            { name: 'laliga-2024-2025', displayName: 'La Liga 2024/2025', country: 'spain' },
+            { name: 'segunda-division-2024-2025', displayName: 'Segunda División 2024/2025', country: 'spain' }
+          ],
+          'germany': [
+            { name: 'bundesliga-2024-2025', displayName: 'Bundesliga 2024/2025', country: 'germany' },
+            { name: '2-bundesliga-2024-2025', displayName: '2. Bundesliga 2024/2025', country: 'germany' }
+          ],
+          'italy': [
+            { name: 'serie-a-2024-2025', displayName: 'Serie A 2024/2025', country: 'italy' },
+            { name: 'serie-b-2024-2025', displayName: 'Serie B 2024/2025', country: 'italy' }
+          ],
+          'france': [
+            { name: 'ligue-1-2024-2025', displayName: 'Ligue 1 2024/2025', country: 'france' },
+            { name: 'ligue-2-2024-2025', displayName: 'Ligue 2 2024/2025', country: 'france' }
+          ],
+          'czech-republic': [
+            { name: 'fortuna-liga-2024-2025', displayName: 'Fortuna Liga 2024/2025', country: 'czech-republic' }
+          ]
+        };
+        
+        if (predefinedLeagues[countryName]) {
+          leagues = predefinedLeagues[countryName].map(league => ({
+            ...league,
+            url: `${CONFIG.BASE_URL}/football/${countryName}/${league.name}/`
+          }));
+          logger.info(`🔧 Előre definiált ligák használata: ${countryName}`);
+        }
+      }
       
       await page.close();
       
       logger.info(`✅ ${leagues.length} liga találva: ${countryName}`);
+      
+      // Log some examples for debugging
+      if (leagues.length > 0) {
+        logger.info(`Ligák: ${leagues.map(l => l.displayName).join(', ')}`);
+      }
+      
       return leagues;
       
     } catch (error) {

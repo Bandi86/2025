@@ -1,0 +1,35 @@
+# BettingMentor Cron Jobs Configuration
+# Copy these lines to your crontab using: crontab -e
+# 
+# Format: minute hour day month weekday command
+# 
+# Note: Replace /path/to/project with the actual path to your project directory
+
+# Morning Data Collection (6:00 AM daily)
+# Runs tippmixpro scrapper and initial merge
+0 6 * * * cd /path/to/project && ./merge_json_data/daily_data_pipeline.sh >> logs/cron_morning.log 2>&1
+
+# Evening Results Collection (10:00 PM daily)  
+# Runs results scrapper and updates merged data with results
+0 22 * * * cd /path/to/project && ./merge_json_data/evening_results_pipeline.sh >> logs/cron_evening.log 2>&1
+
+# Monitoring Check (every 2 hours during business hours)
+# Runs monitoring script to check system health
+0 8,10,12,14,16,18,20 * * * cd /path/to/project && python3 monitoring/monitor_data_pipeline.py >> logs/cron_monitoring.log 2>&1
+
+# Database Sync (every 4 hours)
+# Ensures all merged data is synced to database
+0 2,6,10,14,18,22 * * * cd /path/to/project && curl -s -X POST http://localhost:3001/data-ingestion/ingest-all -H "Content-Type: application/json" -d '{"directoryPath": "/usr/src/app/merge_json_data/merged_data"}' >> logs/cron_db_sync.log 2>&1
+
+# Weekly Cleanup (Sunday 3:00 AM)
+# Cleans up old log files and temporary data
+0 3 * * 0 cd /path/to/project && find logs/ -name "*.log" -mtime +7 -delete && find monitoring/reports/ -name "*.md" -mtime +7 -delete
+
+# Example installation commands:
+# 1. Edit the paths above to match your project location
+# 2. Run: crontab -e
+# 3. Copy and paste the cron lines (without the # comments)
+# 4. Save and exit
+# 
+# To view current cron jobs: crontab -l
+# To remove all cron jobs: crontab -r

@@ -47,17 +47,17 @@ model Team {
 }
 
 model Player {
-  id          Int          @id @default(autoincrement())
+  id          Int           @id @default(autoincrement())
   name        String
   dateOfBirth DateTime?
   nationality String?
   position    String? // e.g., "Forward", "Midfielder", "Defender", "Goalkeeper"
-  team        Team?        @relation(fields: [teamId], references: [id])
+  team        Team?         @relation(fields: [teamId], references: [id])
   teamId      Int?
   matchEvents MatchEvent[]
   lineups     MatchLineup[]
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
 }
 
 model Match {
@@ -84,24 +84,24 @@ model Match {
 // Match Details
 
 model Result {
-  id           Int      @id @default(autoincrement())
-  match        Match    @relation(fields: [matchId], references: [id])
-  matchId      String   @unique
-  homeScore    Int?
-  awayScore    Int?
-  homeScoreHT  Int? // Halftime score
-  awayScoreHT  Int? // Halftime score
+  id          Int      @id @default(autoincrement())
+  match       Match    @relation(fields: [matchId], references: [id])
+  matchId     String   @unique
+  homeScore   Int?
+  awayScore   Int?
+  homeScoreHT Int? // Halftime score
+  awayScoreHT Int? // Halftime score
   // Add other result details like penalties if needed
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 model MatchEvent {
   id          Int      @id @default(autoincrement())
   match       Match    @relation(fields: [matchId], references: [id])
   matchId     String
-  minute      Int      // Minute of the event
-  type        String   // "Goal", "YellowCard", "RedCard", "Substitution"
+  minute      Int // Minute of the event
+  type        String // "Goal", "YellowCard", "RedCard", "Substitution"
   description String?
   player      Player?  @relation(fields: [playerId], references: [id])
   playerId    Int?
@@ -110,32 +110,31 @@ model MatchEvent {
 }
 
 model MatchLineup {
-  id          Int      @id @default(autoincrement())
-  match       Match    @relation(fields: [matchId], references: [id])
-  matchId     String
-  team        Team     @relation(fields: [teamId], references: [id])
-  teamId      Int
-  player      Player   @relation(fields: [playerId], references: [id])
-  playerId    Int
-  isStarting  Boolean  // True if in starting lineup, false if substitute
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id         Int      @id @default(autoincrement())
+  match      Match    @relation(fields: [matchId], references: [id])
+  matchId    String
+  team       Team     @relation(fields: [teamId], references: [id])
+  teamId     Int
+  player     Player   @relation(fields: [playerId], references: [id])
+  playerId   Int
+  isStarting Boolean // True if in starting lineup, false if substitute
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 
   @@unique([matchId, playerId]) // A player can only be in one lineup per match
 }
 
-
 // Betting Information
 
 model BettingMarket {
-  id          Int      @id @default(autoincrement())
-  name        String   // e.g., "Fő piac", "Hendikep 0:1"
-  origMarket  String?
-  match       Match    @relation(fields: [matchId], references: [id])
-  matchId     String
-  odds        Odds[]
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id         Int      @id @default(autoincrement())
+  name       String // e.g., "Fő piac", "Hendikep 0:1"
+  origMarket String?
+  match      Match    @relation(fields: [matchId], references: [id])
+  matchId    String
+  odds       Odds[]
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 
   @@unique([matchId, name])
 }
@@ -158,20 +157,23 @@ model Odds {
 // Data Provenance & Users
 
 model DataSource {
-  id             Int      @id @default(autoincrement())
-  match          Match    @relation(fields: [matchId], references: [id])
-  matchId        String   @unique
-  tippmixFound   Boolean
-  sofascoreId    Int?
-  sofascoreFound Boolean
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  id              Int      @id @default(autoincrement())
+  match           Match    @relation(fields: [matchId], references: [id])
+  matchId         String   @unique
+  tippmixFound    Boolean  @default(false)
+  sofascoreId     Int?
+  sofascoreFound  Boolean  @default(false)
+  tippmixproLink  String?
+  tippmixproFound Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 }
 
 model User {
   id        Int      @id @default(autoincrement())
   email     String   @unique
   name      String?
+  password  String   // Add this line
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

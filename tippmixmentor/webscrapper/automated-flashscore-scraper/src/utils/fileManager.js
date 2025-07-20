@@ -9,7 +9,7 @@ import { logger } from './logger.js';
  * @param {string} league - Liga neve
  * @param {string} season - Szezon neve
  */
-export const createOutputPath = (country, league, season = '2024-2025') => {
+export const createOutputPath = (country, league, season) => {
   const outputPath = path.join(
     CONFIG.OUTPUT_BASE_PATH,
     country,

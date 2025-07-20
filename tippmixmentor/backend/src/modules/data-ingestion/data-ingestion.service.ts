@@ -5,25 +5,31 @@ import * as path from 'path';
 
 interface MergedMatchData {
     metadata: {
-        generated_at: string;
+        generated_at?: string;
+        created_at?: string;
         date: string;
-        source_files: {
+        source_files?: {
             sofascore?: string;
             tippmix?: string;
         };
+        sources: string[];
+        last_updated?: string;
     };
     matches: MatchData[];
 }
 
 interface MatchData {
     id: string;
-    date: string;
-    time: string;
+    date?: string;
+    time?: string;
+    match_time?: string;
     status: string;
-    tournament: {
+    tournament?: {
         name_hu: string;
         name_en?: string;
     };
+    tournament_hu?: string;
+    tournament_en?: string;
     teams: {
         home: {
             name: string;
@@ -32,19 +38,28 @@ interface MatchData {
             name: string;
         };
     };
-    betting_markets: BettingMarketData[];
-    data_sources: {
-        tippmix: {
+    betting_markets?: BettingMarketData[];
+    odds?: any;
+    data_sources?: {
+        tippmix?: {
             found: boolean;
         };
-        sofascore: {
+        sofascore?: {
             id?: number;
             found: boolean;
         };
+        tippmixpro?: {
+            link: string;
+            link_text: string;
+            raw_data: string;
+            scraped_at: string;
+        };
     };
     result?: {
-        home_score: number | null;
-        away_score: number | null;
+        home_score?: number | null;
+        away_score?: number | null;
+        home?: number | null;
+        away?: number | null;
     };
 }
 
@@ -114,7 +129,7 @@ export class DataIngestionService {
         try {
             this.logger.debug(`Processing match ID: ${matchData.id}`);
             // Ensure tournament exists
-            const tournament = await this.ensureTournamentExists(matchData.tournament, sportId);
+            const tournament = await this.ensureTournamentExists(matchData, sportId);
             this.logger.debug(`Ensured tournament ${tournament.nameHu} with ID: ${tournament.id}`);
 
             // Ensure teams exist
@@ -158,15 +173,19 @@ export class DataIngestionService {
         });
     }
 
-    private async ensureTournamentExists(tournamentData: MatchData['tournament'], sportId: number) {
+    private async ensureTournamentExists(matchData: MatchData, sportId: number) {
+        // Handle both old and new tournament data formats
+        const tournamentNameHu = matchData.tournament?.name_hu || matchData.tournament_hu || 'Unknown Tournament';
+        const tournamentNameEn = matchData.tournament?.name_en || matchData.tournament_en;
+
         return await this.prisma.tournament.upsert({
-            where: { nameHu: tournamentData.name_hu },
+            where: { nameHu: tournamentNameHu },
             update: {
-                nameEn: tournamentData.name_en,
+                nameEn: tournamentNameEn,
             },
             create: {
-                nameHu: tournamentData.name_hu,
-                nameEn: tournamentData.name_en,
+                nameHu: tournamentNameHu,
+                nameEn: tournamentNameEn,
                 sportId,
             },
         });
@@ -181,7 +200,22 @@ export class DataIngestionService {
     }
 
     private async upsertMatch(matchData: MatchData, tournamentId: number, homeTeamId: number, awayTeamId: number) {
-        const matchDateTime = new Date(`${matchData.date}T${matchData.time}:00.000Z`);
+        // Handle different date/time formats
+        let matchDateTime: Date;
+        
+        if (matchData.date && matchData.time) {
+            // Old format: separate date and time fields
+            matchDateTime = new Date(`${matchData.date}T${matchData.time}:00.000Z`);
+        } else if (matchData.match_time) {
+            // New format: match_time field (e.g., "11:00")
+            // Use metadata date from the file
+            const dateFromId = matchData.id.split(':')[0]; // Extract date from ID (e.g., "20250720")
+            const formattedDate = `${dateFromId.substring(0,4)}-${dateFromId.substring(4,6)}-${dateFromId.substring(6,8)}`;
+            matchDateTime = new Date(`${formattedDate}T${matchData.match_time}:00.000Z`);
+        } else {
+            // Fallback: use current date
+            matchDateTime = new Date();
+        }
 
         return await this.prisma.match.upsert({
             where: { id: matchData.id },
@@ -203,7 +237,12 @@ export class DataIngestionService {
         });
     }
 
-    private async processBettingMarkets(bettingMarkets: BettingMarketData[], matchId: string) {
+    private async processBettingMarkets(bettingMarkets: BettingMarketData[] | undefined, matchId: string) {
+        if (!bettingMarkets || bettingMarkets.length === 0) {
+            this.logger.debug(`No betting markets to process for match ${matchId}`);
+            return;
+        }
+        
         this.logger.debug(`Starting to process ${bettingMarkets.length} betting markets for match ${matchId}`);
         for (const marketData of bettingMarkets) {
             this.logger.debug(`Upserting betting market: ${marketData.name} for match ${matchId}`);
@@ -254,20 +293,37 @@ export class DataIngestionService {
         this.logger.debug(`Finished processing betting markets for match ${matchId}`);
     }
 
-    private async processDataSources(dataSources: MatchData['data_sources'], matchId: string) {
+    private async processDataSources(dataSources: MatchData['data_sources'] | undefined, matchId: string) {
+        if (!dataSources) {
+            this.logger.debug(`No data sources to process for match ${matchId}`);
+            return;
+        }
+
         this.logger.debug(`Processing data sources for match ${matchId}`);
+        
+        // Handle different data source formats
+        const tippmixFound = dataSources.tippmix?.found || false;
+        const sofascoreId = dataSources.sofascore?.id || null;
+        const sofascoreFound = dataSources.sofascore?.found || false;
+        const tippmixproLink = dataSources.tippmixpro?.link || null;
+        const tippmixproFound = !!dataSources.tippmixpro;
+
         await this.prisma.dataSource.upsert({
             where: { matchId },
             update: {
-                tippmixFound: dataSources.tippmix.found,
-                sofascoreId: dataSources.sofascore.id,
-                sofascoreFound: dataSources.sofascore.found,
+                tippmixFound,
+                sofascoreId,
+                sofascoreFound,
+                tippmixproLink,
+                tippmixproFound,
             },
             create: {
                 matchId,
-                tippmixFound: dataSources.tippmix.found,
-                sofascoreId: dataSources.sofascore.id,
-                sofascoreFound: dataSources.sofascore.found,
+                tippmixFound,
+                sofascoreId,
+                sofascoreFound,
+                tippmixproLink,
+                tippmixproFound,
             },
         });
         this.logger.debug(`Finished processing data sources for match ${matchId}`);
