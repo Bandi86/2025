@@ -26,10 +26,11 @@ async function testScraper() {
     
     // Teszt: Magyar NB I meccs ID-k lekérése (csak az első 5)
     logger.info('🔍 Magyar NB I meccs ID-k tesztelése...');
-    const matchIds = await getMatchIdList(browser, 'hungary', 'nb-i-2024-2025');
+    const testLeagueUrl = `${CONFIG.BASE_URL}/football/hungary/nb-i-2024-2025/results`;
+    const { matchIds, season: currentSeason } = await getMatchIdList(browser, testLeagueUrl);
     
     if (matchIds.length > 0) {
-      logger.info(`✅ ${matchIds.length} meccs ID lekérve`);
+      logger.info(`✅ ${matchIds.length} meccs ID lekérve a ${currentSeason} szezonból.`);
       
       // Teszt: Első meccs adatainak lekérése
       const firstMatchId = matchIds[0];
@@ -50,8 +51,14 @@ async function testScraper() {
         const { saveDataToFile } = await import('./src/utils/fileManager.js');
         const testData = { [firstMatchId]: matchData };
         
-        await saveDataToFile(testData, 'hungary', 'nb-i-2024-2025', '2024-2025', 'test_match');
-        logger.info('💾 Teszt fájl mentve: scraped_data/hungary/nb-i-2024-2025/2024-2025/test_match.json');
+        // Use base league name and season name for saving
+        const countryName = 'hungary';
+        const leagueName = 'nb-i'; // Base league name
+        const seasonName = currentSeason; // Use the actual season found
+        const filename = `test_match`;
+
+        await saveDataToFile(testData, countryName, leagueName, seasonName, filename);
+        logger.info(`💾 Teszt fájl mentve: scraped_data/${countryName}/${leagueName}/${seasonName}/${filename}.json`);
       } else {
         logger.error('❌ Meccs adatok lekérése sikertelen');
       }

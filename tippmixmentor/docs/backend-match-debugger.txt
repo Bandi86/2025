@@ -1,0 +1,1 @@
+esetleg a backend mappaba letre lehetne hozni egy uj modult ami egy ilyen megfigyelo modul lenne, ami arra szolgalna hogy a meccseket ellenorizze hogy nincs e hiba egy ellenorzo botra gondoltam. ami kepes szurni az esetleg rosszul bevitt adatot, es kepes osszesiteni hogy hol hianyik az odds a vegeredmeny hogy nyomon lehessen kovetni tisztan az adatbazis adatokat. 

@@ -208,10 +208,9 @@ export class DataIngestionService {
             matchDateTime = new Date(`${matchData.date}T${matchData.time}:00.000Z`);
         } else if (matchData.match_time) {
             // New format: match_time field (e.g., "11:00")
-            // Use metadata date from the file
-            const dateFromId = matchData.id.split(':')[0]; // Extract date from ID (e.g., "20250720")
-            const formattedDate = `${dateFromId.substring(0,4)}-${dateFromId.substring(4,6)}-${dateFromId.substring(6,8)}`;
-            matchDateTime = new Date(`${formattedDate}T${matchData.match_time}:00.000Z`);
+            // Use date from the ID (already in YYYY-MM-DD format)
+            const dateFromId = matchData.id.split(':')[0]; // Extract date from ID (e.g., "2025-07-21")
+            matchDateTime = new Date(`${dateFromId}T${matchData.match_time}:00.000Z`);
         } else {
             // Fallback: use current date
             matchDateTime = new Date();

@@ -1,0 +1,2327 @@
+{
+  "44RKa9ke": {
+    "date": "25.05.2025 17:00",
+    "status": "FINISHED",
+    "home": {
+      "name": "Bournemouth",
+      "image": "https://static.flashscore.com/res/image/data/2Pb55xWg-tCGtX12c.png"
+    },
+    "away": {
+      "name": "Leicester",
+      "image": "https://static.flashscore.com/res/image/data/Em1CYqYg-UNZg5BP0.png"
+    },
+    "result": {
+      "home": "2",
+      "away": "0"
+    },
+    "information": [
+      {
+        "category": "Referee",
+        "value": "Smith L. (Eng)"
+      },
+      {
+        "category": "Venue",
+        "value": "Vitality Stadium (Bournemouth)"
+      },
+      {
+        "category": "Capacity",
+        "value": "11 307"
+      },
+      {
+        "category": "Attendance",
+        "value": "11 238"
+      }
+    ],
+    "statistics": [
+      {
+        "category": "Expected Goals (xG)",
+        "homeValue": "1.79",
+        "awayValue": "0.27"
+      },
+      {
+        "category": "Ball Possession",
+        "homeValue": "63%",
+        "awayValue": "37%"
+      },
+      {
+        "category": "Total shots",
+        "homeValue": "20",
+        "awayValue": "3"
+      },
+      {
+        "category": "Shots on target",
+        "homeValue": "7",
+        "awayValue": "0"
+      },
+      {
+        "category": "Big Chances",
+        "homeValue": "6",
+        "awayValue": "0"
+      },
+      {
+        "category": "Corner Kicks",
+        "homeValue": "6",
+        "awayValue": "1"
+      },
+      {
+        "category": "Passes",
+        "homeValue": "82%",
+        "awayValue": "74%"
+      },
+      {
+        "category": "Yellow Cards",
+        "homeValue": "0",
+        "awayValue": "2"
+      },
+      {
+        "category": "Expected Goals (xG)",
+        "homeValue": "1.79",
+        "awayValue": "0.27"
+      },
+      {
+        "category": "xG on target (xGOT)",
+        "homeValue": "2.35",
+        "awayValue": "0.00"
+      },
+      {
+        "category": "Total shots",
+        "homeValue": "20",
+        "awayValue": "3"
+      },
+      {
+        "category": "Shots on target",
+        "homeValue": "7",
+        "awayValue": "0"
+      },
+      {
+        "category": "Shots off target",
+        "homeValue": "7",
+        "awayValue": "3"
+      },
+      {
+        "category": "Blocked Shots",
+        "homeValue": "6",
+        "awayValue": "0"
+      },
+      {
+        "category": "Shots inside the Box",
+        "homeValue": "10",
+        "awayValue": "2"
+      },
+      {
+        "category": "Shots outside the Box",
+        "homeValue": "10",
+        "awayValue": "1"
+      },
+      {
+        "category": "Hit the Woodwork",
+        "homeValue": "0",
+        "awayValue": "0"
+      },
+      {
+        "category": "Big Chances",
+        "homeValue": "6",
+        "awayValue": "0"
+      },
+      {
+        "category": "Corner Kicks",
+        "homeValue": "6",
+        "awayValue": "1"
+      },
+      {
+        "category": "Touches in opposition box",
+        "homeValue": "53",
+        "awayValue": "13"
+      },
+      {
+        "category": "Accurate through passes",
+        "homeValue": "1",
+        "awayValue": "0"
+      },
+      {
+        "category": "Offsides",
+        "homeValue": "2",
+        "awayValue": "2"
+      },
+      {
+        "category": "Free Kicks",
+        "homeValue": "16",
+        "awayValue": "19"
+      },
+      {
+        "category": "Passes",
+        "homeValue": "82%",
+        "awayValue": "74%"
+      },
+      {
+        "category": "Long passes",
+        "homeValue": "33%",
+        "awayValue": "31%"
+      },
+      {
+        "category": "Passes in final third",
+        "homeValue": "74%",
+        "awayValue": "59%"
+      },
+      {
+        "category": "Crosses",
+        "homeValue": "32%",
+        "awayValue": "25%"
+      },
+      {
+        "category": "Expected assists (xA)",
+        "homeValue": "1.92",
+        "awayValue": "0.43"
+      },
+      {
+        "category": "Throw-ins",
+        "homeValue": "23",
+        "awayValue": "9"
+      },
+      {
+        "category": "Fouls",
+        "homeValue": "19",
+        "awayValue": "16"
+      },
+      {
+        "category": "Tackles",
+        "homeValue": "67%",
+        "awayValue": "65%"
+      },
+      {
+        "category": "Duels won",
+        "homeValue": "64",
+        "awayValue": "54"
+      },
+      {
+        "category": "Clearances",
+        "homeValue": "9",
+        "awayValue": "29"
+      },
+      {
+        "category": "Interceptions",
+        "homeValue": "8",
+        "awayValue": "6"
+      },
+      {
+        "category": "Errors leading to shot",
+        "homeValue": "0",
+        "awayValue": "0"
+      },
+      {
+        "category": "Errors leading to goal",
+        "homeValue": "0",
+        "awayValue": "1"
+      },
+      {
+        "category": "Goalkeeper Saves",
+        "homeValue": "0",
+        "awayValue": "5"
+      },
+      {
+        "category": "xGOT faced",
+        "homeValue": "0.00",
+        "awayValue": "2.35"
+      },
+      {
+        "category": "Goals prevented",
+        "homeValue": "0.00",
+        "awayValue": "0.35"
+      }
+    ]
+  },
+  "QJFTcmK7": {
+    "date": "25.05.2025 17:00",
+    "status": "FINISHED",
+    "home": {
+      "name": "Fulham",
+      "image": "https://static.flashscore.com/res/image/data/naaAVOzB-ImMEe0UF.png"
+    },
+    "away": {
+      "name": "Manchester City",
+      "image": "https://static.flashscore.com/res/image/data/UXcqj7HG-lQuhqN8N.png"
+    },
+    "result": {
+      "home": "0",
+      "away": "2"
+    },
+    "information": [
+      {
+        "category": "Referee",
+        "value": "Madley A. (Eng)"
+      },
+      {
+        "category": "Venue",
+        "value": "Craven Cottage (London)"
+      },
+      {
+        "category": "Capacity",
+        "value": "29 589"
+      },
+      {
+        "category": "Attendance",
+        "value": "27 671"
+      }
+    ],
+    "statistics": [
+      {
+        "category": "Expected Goals (xG)",
+        "homeValue": "1.74",
+        "awayValue": "2.84"
+      },
+      {
+        "category": "Ball Possession",
+        "homeValue": "47%",
+        "awayValue": "53%"
+      },
+      {
+        "category": "Total shots",
+        "homeValue": "13",
+        "awayValue": "20"
+      },
+      {
+        "category": "Shots on target",
+        "homeValue": "3",
+        "awayValue": "5"
+      },
+      {
+        "category": "Big Chances",
+        "homeValue": "5",
+        "awayValue": "2"
+      },
+      {
+        "category": "Corner Kicks",
+        "homeValue": "1",
+        "awayValue": "6"
+      },
+      {
+        "category": "Passes",
+        "homeValue": "84%",
+        "awayValue": "86%"
+      },
+      {
+        "category": "Expected Goals (xG)",
+        "homeValue": "1.74",
+        "awayValue": "2.84"
+      },
+      {
+        "category": "xG on target (xGOT)",
+        "homeValue": "1.29",
+        "awayValue": "2.55"
+      },
+      {
+        "category": "Total shots",
+        "homeValue": "13",
+        "awayValue": "20"
+      },
+      {
+        "category": "Shots on target",
+        "homeValue": "3",
+        "awayValue": "5"
+      },
+      {
+        "category": "Shots off target",
+        "homeValue": "6",
+        "awayValue": "7"
+      },
+      {
+        "category": "Blocked Shots",
+        "homeValue": "4",
+        "awayValue": "8"
+      },
+      {
+        "category": "Shots inside the Box",
+        "homeValue": "11",
+        "awayValue": "16"
+      },
+      {
+        "category": "Shots outside the Box",
+        "homeValue": "2",
+        "awayValue": "4"
+      },
+      {
+        "category": "Hit the Woodwork",
+        "homeValue": "0",
+        "awayValue": "0"
+      },
+      {
+        "category": "Big Chances",
+        "homeValue": "5",
+        "awayValue": "2"
+      },
+      {
+        "category": "Corner Kicks",
+        "homeValue": "1",
+        "awayValue": "6"
+      },
+      {
+        "category": "Touches in opposition box",
+        "homeValue": "32",
+        "awayValue": "46"
+      },
+      {
+        "category": "Accurate through passes",
+        "homeValue": "1",
+        "awayValue": "0"
+      },
+      {
+        "category": "Offsides",
+        "homeValue": "2",
+        "awayValue": "0"
+      },
+      {
+        "category": "Free Kicks",
+        "homeValue": "5",
+        "awayValue": "11"
+      },
+      {
+        "category": "Passes",
+        "homeValue": "84%",
+        "awayValue": "86%"
+      },
+      {
+        "category": "Long passes",
+        "homeValue": "53%",
+        "awayValue": "61%"
+      },
+      {
+        "category": "Passes in final third",
+        "homeValue": "64%",
+        "awayValue": "71%"
+      },
+      {
+        "category": "Crosses",
+        "homeValue": "46%",
+        "awayValue": "17%"
+      },
+      {
+        "category": "Expected assists (xA)",
+        "homeValue": "0.58",
+        "awayValue": "1.15"
+      },
+      {
+        "category": "Throw-ins",
+        "homeValue": "16",
+        "awayValue": "17"
+      },
+      {
+        "category": "Fouls",
+        "homeValue": "11",
+        "awayValue": "5"
+      },
+      {
+        "category": "Tackles",
+        "homeValue": "47%",
+        "awayValue": "64%"
+      },
+      {
+        "category": "Duels won",
+        "homeValue": "40",
+        "awayValue": "41"
+      },
+      {
+        "category": "Clearances",
+        "homeValue": "29",
+        "awayValue": "14"
+      },
+      {
+        "category": "Interceptions",
+        "homeValue": "11",
+        "awayValue": "13"
+      },
+      {
+        "category": "Errors leading to shot",
+        "homeValue": "0",
+        "awayValue": "1"
+      },
+      {
+        "category": "Errors leading to goal",
+        "homeValue": "0",
+        "awayValue": "0"
+      },
+      {
+        "category": "Goalkeeper Saves",
+        "homeValue": "3",
+        "awayValue": "3"
+      },
+      {
+        "category": "xGOT faced",
+        "homeValue": "2.55",
+        "awayValue": "1.29"
+      },
+      {
+        "category": "Goals prevented",
+        "homeValue": "0.55",
+        "awayValue": "1.29"
+      }
+    ]
+  },
+  "hQ7FLjCE": {
+    "date": "25.05.2025 17:00",
+    "status": "FINISHED",
+    "home": {
+      "name": "Ipswich",
+      "image": "https://static.flashscore.com/res/image/data/zm5vbmDa-jXzj6iAf.png"
+    },
+    "away": {
+      "name": "West Ham",
+      "image": "https://static.flashscore.com/res/image/data/Qo3RdMjl-Q9DJHs4l.png"
+    },
+    "result": {
+      "home": "1",
+      "away": "3"
+    },
+    "information": [
+      {
+        "category": "Referee",
+        "value": "Robinson T. (Eng)"
+      },
+      {
+        "category": "Venue",
+        "value": "Portman Road (Ipswich)"
+      },
+      {
+        "category": "Capacity",
+        "value": "30 017"
+      },
+      {
+        "category": "Attendance",
+        "value": "29 771"
+      }
+    ],
+    "statistics": [
+      {
+        "category": "Expected Goals (xG)",
+        "homeValue": "0.79",
+        "awayValue": "1.01"
+      },
+      {
+        "category": "Ball Possession",
+        "homeValue": "41%",
+        "awayValue": "59%"
+      },
+      {
+        "category": "Total shots",
+        "homeValue": "14",
+        "awayValue": "10"
+      },
+      {
+        "category": "Shots on target",
+        "homeValue": "4",
+        "awayValue": "6"
+      },
+      {
+        "category": "Big Chances",
+        "homeValue": "1",
+        "awayValue": "1"
+      },
+      {
+        "category": "Corner Kicks",
+        "homeValue": "4",
+        "awayValue": "0"
+      },
+      {
+        "category": "Passes",
+        "homeValue": "84%",
+        "awayValue": "87%"
+      },
+      {
+        "category": "Yellow Cards",
+        "homeValue": "1",
+        "awayValue": "1"
+      },
+      {
+        "category": "Expected Goals (xG)",
+        "homeValue": "0.79",
+        "awayValue": "1.01"
+      },
+      {
+        "category": "xG on target (xGOT)",
+        "homeValue": "0.25",
+        "awayValue": "1.82"
+      },
+      {
+        "category": "Total shots",
+        "homeValue": "14",
+        "awayValue": "10"
+      },
+      {
+        "category": "Shots on target",
+        "homeValue": "4",
+        "awayValue": "6"
+      },
+      {
+        "category": "Shots off target",
+        "homeValue": "5",
+        "awayValue": "1"
+      },
+      {
+        "category": "Blocked Shots",
+        "homeValue": "5",
+        "awayValue": "3"
+      },
+      {
+        "category": "Shots inside the Box",
+        "homeValue": "10",
+        "awayValue": "7"
+      },
+      {
+        "category": "Shots outside the Box",
+        "homeValue": "4",
+        "awayValue": "3"
+      },
+      {
+        "category": "Hit the Woodwork",
+        "homeValue": "0",
+        "awayValue": "0"
+      },
+      {
+        "category": "Big Chances",
+        "homeValue": "1",
+        "awayValue": "1"
+      },
+      {
+        "category": "Corner Kicks",
+        "homeValue": "4",
+        "awayValue": "0"
+      },
+      {
+        "category": "Touches in opposition box",
+        "homeValue": "32",
+        "awayValue": "16"
+      },
+      {
+        "category": "Accurate through passes",
+        "homeValue": "0",
+        "awayValue": "0"
+      },
+      {
+        "category": "Offsides",
+        "homeValue": "2",
+        "awayValue": "1"
+      },
+      {
+        "category": "Free Kicks",
+        "homeValue": "9",
+        "awayValue": "10"
+      },
+      {
+        "category": "Passes",
+        "homeValue": "84%",
+        "awayValue": "87%"
+      },
+      {
+        "category": "Long passes",
+        "homeValue": "56%",
+        "awayValue": "39%"
+      },
+      {
+        "category": "Passes in final third",
+        "homeValue": "79%",
+        "awayValue": "70%"
+      },
+      {
+        "category": "Crosses",
+        "homeValue": "14%",
+        "awayValue": "22%"
+      },
+      {
+        "category": "Expected assists (xA)",
+        "homeValue": "0.55",
+        "awayValue": "0.59"
+      },
+      {
+        "category": "Throw-ins",
+        "homeValue": "17",
+        "awayValue": "18"
+      },
+      {
+        "category": "Fouls",
+        "homeValue": "10",
+        "awayValue": "9"
+      },
+      {
+        "category": "Tackles",
+        "homeValue": "67%",
+        "awayValue": "40%"
+      },
+      {
+        "category": "Duels won",
+        "homeValue": "42",
+        "awayValue": "56"
+      },
+      {
+        "category": "Clearances",
+        "homeValue": "25",
+        "awayValue": "34"
+      },
+      {
+        "category": "Interceptions",
+        "homeValue": "10",
+        "awayValue": "9"
+      },
+      {
+        "category": "Errors leading to shot",
+        "homeValue": "0",
+        "awayValue": "1"
+      },
+      {
+        "category": "Errors leading to goal",
+        "homeValue": "1",
+        "awayValue": "0"
+      },
+      {
+        "category": "Goalkeeper Saves",
+        "homeValue": "3",
+        "awayValue": "3"
+      },
+      {
+        "category": "xGOT faced",
+        "homeValue": "1.82",
+        "awayValue": "0.25"
+      },
+      {
+        "category": "Goals prevented",
+        "homeValue": "-1.18",
+        "awayValue": "-0.75"
+      }
+    ]
+  },
+  "lh1OJUtR": {
+    "date": "25.05.2025 17:00",
+    "status": "FINISHED",
+    "home": {
+      "name": "Liverpool",
+      "image": "https://static.flashscore.com/res/image/data/Gr0cGteM-KCp4zq5F.png"
+    },
+    "away": {
+      "name": "Crystal Palace",
+      "image": "https://static.flashscore.com/res/image/data/AFNlsDzS-pzMOQXRe.png"
+    },
+    "result": {
+      "home": "1",
+      "away": "1"
+    },
+    "information": [
+      {
+        "category": "Referee",
+        "value": "England D. (Eng)"
+      },
+      {
+        "category": "Venue",
+        "value": "Anfield (Liverpool)"
+      },
+      {
+        "category": "Capacity",
+        "value": "61 276"
+      },
+      {
+        "category": "Attendance",
+        "value": "60 382"
+      }
+    ],
+    "statistics": [
+      {
+        "category": "Expected Goals (xG)",
+        "homeValue": "2.17",
+        "awayValue": "1.75"
+      },
+      {
+        "category": "Ball Possession",
+        "homeValue": "69%",
+        "awayValue": "31%"
+      },
+      {
+        "category": "Total shots",
+        "homeValue": "14",
+        "awayValue": "8"
+      },
+      {
+        "category": "Shots on target",
+        "homeValue": "3",
+        "awayValue": "5"
+      },
+      {
+        "category": "Big Chances",
+        "homeValue": "4",
+        "awayValue": "2"
+      },
+      {
+        "category": "Corner Kicks",
+        "homeValue": "11",
+        "awayValue": "0"
+      },
+      {
+        "category": "Passes",
+        "homeValue": "87%",
+        "awayValue": "71%"
+      },
+      {
+        "category": "Yellow Cards",
+        "homeValue": "2",
+        "awayValue": "0"
+      },
+      {
+        "category": "Red Cards",
+        "homeValue": "1",
+        "awayValue": "0"
+      },
+      {
+        "category": "Expected Goals (xG)",
+        "homeValue": "2.17",
+        "awayValue": "1.75"
+      },
+      {
+        "category": "xG on target (xGOT)",
+        "homeValue": "1.46",
+        "awayValue": "2.48"
+      },
+      {
+        "category": "Total shots",
+        "homeValue": "14",
+        "awayValue": "8"
+      },
+      {
+        "category": "Shots on target",
+        "homeValue": "3",
+        "awayValue": "5"
+      },
+      {
+        "category": "Shots off target",
+        "homeValue": "7",
+        "awayValue": "2"
+      },
+      {
+        "category": "Blocked Shots",
+        "homeValue": "4",
+        "awayValue": "1"
+      },
+      {
+        "category": "Shots inside the Box",
+        "homeValue": "12",
+        "awayValue": "6"
+      },
+      {
+        "category": "Shots outside the Box",
+        "homeValue": "2",
+        "awayValue": "2"
+      },
+      {
+        "category": "Hit the Woodwork",
+        "homeValue": "1",
+        "awayValue": "1"
+      },
+      {
+        "category": "Big Chances",
+        "homeValue": "4",
+        "awayValue": "2"
+      },
+      {
+        "category": "Corner Kicks",
+        "homeValue": "11",
+        "awayValue": "0"
+      },
+      {
+        "category": "Touches in opposition box",
+        "homeValue": "34",
+        "awayValue": "15"
+      },
+      {
+        "category": "Accurate through passes",
+        "homeValue": "2",
+        "awayValue": "0"
+      },
+      {
+        "category": "Offsides",
+        "homeValue": "1",
+        "awayValue": "2"
+      },
+      {
+        "category": "Free Kicks",
+        "homeValue": "10",
+        "awayValue": "7"
+      },
+      {
+        "category": "Passes",
+        "homeValue": "87%",
+        "awayValue": "71%"
+      },
+      {
+        "category": "Long passes",
+        "homeValue": "54%",
+        "awayValue": "34%"
+      },
+      {
+        "category": "Passes in final third",
+        "homeValue": "74%",
+        "awayValue": "49%"
+      },
+      {
+        "category": "Crosses",
+        "homeValue": "15%",
+        "awayValue": "33%"
+      },
+      {
+        "category": "Expected assists (xA)",
+        "homeValue": "1.53",
+        "awayValue": "0.81"
+      },
+      {
+        "category": "Throw-ins",
+        "homeValue": "16",
+        "awayValue": "10"
+      },
+      {
+        "category": "Fouls",
+        "homeValue": "7",
+        "awayValue": "10"
+      },
+      {
+        "category": "Tackles",
+        "homeValue": "58%",
+        "awayValue": "53%"
+      },
+      {
+        "category": "Duels won",
+        "homeValue": "48",
+        "awayValue": "43"
+      },
+      {
+        "category": "Clearances",
+        "homeValue": "17",
+        "awayValue": "51"
+      },
+      {
+        "category": "Interceptions",
+        "homeValue": "11",
+        "awayValue": "16"
+      },
+      {
+        "category": "Errors leading to shot",
+        "homeValue": "0",
+        "awayValue": "0"
+      },
+      {
+        "category": "Errors leading to goal",
+        "homeValue": "0",
+        "awayValue": "0"
+      },
+      {
+        "category": "Goalkeeper Saves",
+        "homeValue": "4",
+        "awayValue": "2"
+      },
+      {
+        "category": "xGOT faced",
+        "homeValue": "2.48",
+        "awayValue": "1.46"
+      },
+      {
+        "category": "Goals prevented",
+        "homeValue": "1.48",
+        "awayValue": "0.46"
+      }
+    ]
+  },
+  "pOnfE84l": {
+    "date": "25.05.2025 17:00",
+    "status": "FINISHED",
+    "home": {
+      "name": "Manchester Utd",
+      "image": "https://static.flashscore.com/res/image/data/nwSRlyWg-h2pPXz3k.png"
+    },
+    "away": {
+      "name": "Aston Villa",
+      "image": "https://static.flashscore.com/res/image/data/QsnteKXg-jwz95gs0.png"
+    },
+    "result": {
+      "home": "2",
+      "away": "0"
+    },
+    "information": [
+      {
+        "category": "Referee",
+        "value": "Bramall T. (Eng)"
+      },
+      {
+        "category": "Venue",
+        "value": "Old Trafford (Manchester)"
+      },
+      {
+        "category": "Capacity",
+        "value": "75 635"
+      },
+      {
+        "category": "Attendance",
+        "value": "73 839"
+      }
+    ],
+    "statistics": [
+      {
+        "category": "Expected Goals (xG)",
+        "homeValue": "2.86",
+        "awayValue": "0.40"
+      },
+      {
+        "category": "Ball Possession",
+        "homeValue": "67%",
+        "awayValue": "33%"
+      },
+      {
+        "category": "Total shots",
+        "homeValue": "24",
+        "awayValue": "6"
+      },
+      {
+        "category": "Shots on target",
+        "homeValue": "10",
+        "awayValue": "1"
+      },
+      {
+        "category": "Big Chances",
+        "homeValue": "4",
+        "awayValue": "0"
+      },
+      {
+        "category": "Corner Kicks",
+        "homeValue": "4",
+        "awayValue": "3"
+      },
+      {
+        "category": "Passes",
+        "homeValue": "88%",
+        "awayValue": "73%"
+      },
+      {
+        "category": "Yellow Cards",
+        "homeValue": "2",
+        "awayValue": "2"
+      },
+      {
+        "category": "Red Cards",
+        "homeValue": "0",
+        "awayValue": "1"
+      },
+      {
+        "category": "Expected Goals (xG)",
+        "homeValue": "2.86",
+        "awayValue": "0.40"
+      },
+      {
+        "category": "xG on target (xGOT)",
+        "homeValue": "3.11",
+        "awayValue": "0.04"
+      },
+      {
+        "category": "Total shots",
+        "homeValue": "24",
+        "awayValue": "6"
+      },
+      {
+        "category": "Shots on target",
+        "homeValue": "10",
+        "awayValue": "1"
+      },
+      {
+        "category": "Shots off target",
+        "homeValue": "13",
+        "awayValue": "2"
+      },
+      {
+        "category": "Blocked Shots",
+        "homeValue": "1",
+        "awayValue": "3"
+      },
+      {
+        "category": "Shots inside the Box",
+        "homeValue": "13",
+        "awayValue": "4"
+      },
+      {
+        "category": "Shots outside the Box",
+        "homeValue": "12",
+        "awayValue": "2"
+      },
+      {
+        "category": "Hit the Woodwork",
+        "homeValue": "1",
+        "awayValue": "0"
+      },
+      {
+        "category": "Headed Goals",
+        "homeValue": "1",
+        "awayValue": "0"
+      },
+      {
+        "category": "Big Chances",
+        "homeValue": "4",
+        "awayValue": "0"
+      },
+      {
+        "category": "Corner Kicks",
+        "homeValue": "4",
+        "awayValue": "3"
+      },
+      {
+        "category": "Touches in opposition box",
+        "homeValue": "51",
+        "awayValue": "18"
+      },
+      {
+        "category": "Accurate through passes",
+        "homeValue": "3",
+        "awayValue": "0"
+      },
+      {
+        "category": "Offsides",
+        "homeValue": "5",
+        "awayValue": "3"
+      },
+      {
+        "category": "Free Kicks",
+        "homeValue": "10",
+        "awayValue": "10"
+      },
+      {
+        "category": "Passes",
+        "homeValue": "88%",
+        "awayValue": "73%"
+      },
+      {
+        "category": "Long passes",
+        "homeValue": "68%",
+        "awayValue": "31%"
+      },
+      {
+        "category": "Passes in final third",
+        "homeValue": "82%",
+        "awayValue": "60%"
+      },
+      {
+        "category": "Crosses",
+        "homeValue": "33%",
+        "awayValue": "0%"
+      },
+      {
+        "category": "Expected assists (xA)",
+        "homeValue": "1.93",
+        "awayValue": "0.27"
+      },
+      {
+        "category": "Throw-ins",
+        "homeValue": "12",
+        "awayValue": "8"
+      },
+      {
+        "category": "Fouls",
+        "homeValue": "10",
+        "awayValue": "10"
+      },
+      {
+        "category": "Tackles",
+        "homeValue": "79%",
+        "awayValue": "44%"
+      },
+      {
+        "category": "Duels won",
+        "homeValue": "47",
+        "awayValue": "39"
+      },
+      {
+        "category": "Clearances",
+        "homeValue": "21",
+        "awayValue": "20"
+      },
+      {
+        "category": "Interceptions",
+        "homeValue": "7",
+        "awayValue": "5"
+      },
+      {
+        "category": "Errors leading to shot",
+        "homeValue": "1",
+        "awayValue": "1"
+      },
+      {
+        "category": "Errors leading to goal",
+        "homeValue": "0",
+        "awayValue": "0"
+      },
+      {
+        "category": "Goalkeeper Saves",
+        "homeValue": "1",
+        "awayValue": "8"
+      },
+      {
+        "category": "xGOT faced",
+        "homeValue": "0.04",
+        "awayValue": "3.11"
+      },
+      {
+        "category": "Goals prevented",
+        "homeValue": "0.04",
+        "awayValue": "1.11"
+      }
+    ]
+  },
+  "4Q2eCnZ0": {
+    "date": "25.05.2025 17:00",
+    "status": "FINISHED",
+    "home": {
+      "name": "Newcastle",
+      "image": "https://static.flashscore.com/res/image/data/fojwJwZA-ImMEe0UF.png"
+    },
+    "away": {
+      "name": "Everton",
+      "image": "https://static.flashscore.com/res/image/data/EwJqZUZA-bRmKmISE.png"
+    },
+    "result": {
+      "home": "0",
+      "away": "1"
+    },
+    "information": [
+      {
+        "category": "Referee",
+        "value": "Harrington T. (Eng)"
+      },
+      {
+        "category": "Venue",
+        "value": "St. James' Park (Newcastle)"
+      },
+      {
+        "category": "Capacity",
+        "value": "52 305"
+      },
+      {
+        "category": "Attendance",
+        "value": "52 221"
+      }
+    ],
+    "statistics": [
+      {
+        "category": "Expected Goals (xG)",
+        "homeValue": "1.27",
+        "awayValue": "0.90"
+      },
+      {
+        "category": "Ball Possession",
+        "homeValue": "66%",
+        "awayValue": "34%"
+      },
+      {
+        "category": "Total shots",
+        "homeValue": "17",
+        "awayValue": "14"
+      },
+      {
+        "category": "Shots on target",
+        "homeValue": "6",
+        "awayValue": "6"
+      },
+      {
+        "category": "Big Chances",
+        "homeValue": "1",
+        "awayValue": "1"
+      },
+      {
+        "category": "Corner Kicks",
+        "homeValue": "12",
+        "awayValue": "3"
+      },
+      {
+        "category": "Passes",
+        "homeValue": "87%",
+        "awayValue": "78%"
+      },
+      {
+        "category": "Yellow Cards",
+        "homeValue": "1",
+        "awayValue": "4"
+      },
+      {
+        "category": "Expected Goals (xG)",
+        "homeValue": "1.27",
+        "awayValue": "0.90"
+      },
+      {
+        "category": "xG on target (xGOT)",
+        "homeValue": "2.15",
+        "awayValue": "1.08"
+      },
+      {
+        "category": "Total shots",
+        "homeValue": "17",
+        "awayValue": "14"
+      },
+      {
+        "category": "Shots on target",
+        "homeValue": "6",
+        "awayValue": "6"
+      },
+      {
+        "category": "Shots off target",
+        "homeValue": "7",
+        "awayValue": "6"
+      },
+      {
+        "category": "Blocked Shots",
+        "homeValue": "4",
+        "awayValue": "2"
+      },
+      {
+        "category": "Shots inside the Box",
+        "homeValue": "10",
+        "awayValue": "9"
+      },
+      {
+        "category": "Shots outside the Box",
+        "homeValue": "7",
+        "awayValue": "5"
+      },
+      {
+        "category": "Hit the Woodwork",
+        "homeValue": "0",
+        "awayValue": "0"
+      },
+      {
+        "category": "Headed Goals",
+        "homeValue": "0",
+        "awayValue": "1"
+      },
+      {
+        "category": "Big Chances",
+        "homeValue": "1",
+        "awayValue": "1"
+      },
+      {
+        "category": "Corner Kicks",
+        "homeValue": "12",
+        "awayValue": "3"
+      },
+      {
+        "category": "Touches in opposition box",
+        "homeValue": "28",
+        "awayValue": "13"
+      },
+      {
+        "category": "Accurate through passes",
+        "homeValue": "0",
+        "awayValue": "0"
+      },
+      {
+        "category": "Offsides",
+        "homeValue": "0",
+        "awayValue": "0"
+      },
+      {
+        "category": "Free Kicks",
+        "homeValue": "9",
+        "awayValue": "12"
+      },
+      {
+        "category": "Passes",
+        "homeValue": "87%",
+        "awayValue": "78%"
+      },
+      {
+        "category": "Long passes",
+        "homeValue": "47%",
+        "awayValue": "44%"
+      },
+      {
+        "category": "Passes in final third",
+        "homeValue": "76%",
+        "awayValue": "55%"
+      },
+      {
+        "category": "Crosses",
+        "homeValue": "31%",
+        "awayValue": "27%"
+      },
+      {
+        "category": "Expected assists (xA)",
+        "homeValue": "0.87",
+        "awayValue": "0.29"
+      },
+      {
+        "category": "Throw-ins",
+        "homeValue": "22",
+        "awayValue": "16"
+      },
+      {
+        "category": "Fouls",
+        "homeValue": "12",
+        "awayValue": "9"
+      },
+      {
+        "category": "Tackles",
+        "homeValue": "80%",
+        "awayValue": "67%"
+      },
+      {
+        "category": "Duels won",
+        "homeValue": "41",
+        "awayValue": "50"
+      },
+      {
+        "category": "Clearances",
+        "homeValue": "22",
+        "awayValue": "25"
+      },
+      {
+        "category": "Interceptions",
+        "homeValue": "1",
+        "awayValue": "12"
+      },
+      {
+        "category": "Errors leading to shot",
+        "homeValue": "2",
+        "awayValue": "0"
+      },
+      {
+        "category": "Errors leading to goal",
+        "homeValue": "0",
+        "awayValue": "0"
+      },
+      {
+        "category": "Goalkeeper Saves",
+        "homeValue": "5",
+        "awayValue": "6"
+      },
+      {
+        "category": "xGOT faced",
+        "homeValue": "1.08",
+        "awayValue": "2.15"
+      },
+      {
+        "category": "Goals prevented",
+        "homeValue": "0.04",
+        "awayValue": "2.15"
+      }
+    ]
+  },
+  "Cj63AQ3D": {
+    "date": "25.05.2025 17:00",
+    "status": "FINISHED",
+    "home": {
+      "name": "Nottingham",
+      "image": "https://static.flashscore.com/res/image/data/GCLLkTzB-ImKwLTtA.png"
+    },
+    "away": {
+      "name": "Chelsea",
+      "image": "https://static.flashscore.com/res/image/data/GMmvDEdM-IROrZEJb.png"
+    },
+    "result": {
+      "home": "0",
+      "away": "1"
+    },
+    "information": [
+      {
+        "category": "Referee",
+        "value": "Taylor A. (Eng)"
+      },
+      {
+        "category": "Venue",
+        "value": "City Ground (Nottingham)"
+      },
+      {
+        "category": "Capacity",
+        "value": "30 404"
+      },
+      {
+        "category": "Attendance",
+        "value": "30 263"
+      }
+    ],
+    "statistics": [
+      {
+        "category": "Expected Goals (xG)",
+        "homeValue": "1.35",
+        "awayValue": "1.07"
+      },
+      {
+        "category": "Ball Possession",
+        "homeValue": "52%",
+        "awayValue": "48%"
+      },
+      {
+        "category": "Total shots",
+        "homeValue": "10",
+        "awayValue": "6"
+      },
+      {
+        "category": "Shots on target",
+        "homeValue": "2",
+        "awayValue": "2"
+      },
+      {
+        "category": "Big Chances",
+        "homeValue": "2",
+        "awayValue": "3"
+      },
+      {
+        "category": "Corner Kicks",
+        "homeValue": "7",
+        "awayValue": "4"
+      },
+      {
+        "category": "Passes",
+        "homeValue": "84%",
+        "awayValue": "80%"
+      },
+      {
+        "category": "Yellow Cards",
+        "homeValue": "2",
+        "awayValue": "2"
+      },
+      {
+        "category": "Expected Goals (xG)",
+        "homeValue": "1.35",
+        "awayValue": "1.07"
+      },
+      {
+        "category": "xG on target (xGOT)",
+        "homeValue": "0.14",
+        "awayValue": "1.09"
+      },
+      {
+        "category": "Total shots",
+        "homeValue": "10",
+        "awayValue": "6"
+      },
+      {
+        "category": "Shots on target",
+        "homeValue": "2",
+        "awayValue": "2"
+      },
+      {
+        "category": "Shots off target",
+        "homeValue": "4",
+        "awayValue": "2"
+      },
+      {
+        "category": "Blocked Shots",
+        "homeValue": "4",
+        "awayValue": "2"
+      },
+      {
+        "category": "Shots inside the Box",
+        "homeValue": "8",
+        "awayValue": "4"
+      },
+      {
+        "category": "Shots outside the Box",
+        "homeValue": "2",
+        "awayValue": "2"
+      },
+      {
+        "category": "Hit the Woodwork",
+        "homeValue": "0",
+        "awayValue": "0"
+      },
+      {
+        "category": "Big Chances",
+        "homeValue": "2",
+        "awayValue": "3"
+      },
+      {
+        "category": "Corner Kicks",
+        "homeValue": "7",
+        "awayValue": "4"
+      },
+      {
+        "category": "Touches in opposition box",
+        "homeValue": "28",
+        "awayValue": "9"
+      },
+      {
+        "category": "Accurate through passes",
+        "homeValue": "1",
+        "awayValue": "0"
+      },
+      {
+        "category": "Offsides",
+        "homeValue": "5",
+        "awayValue": "1"
+      },
+      {
+        "category": "Free Kicks",
+        "homeValue": "11",
+        "awayValue": "10"
+      },
+      {
+        "category": "Passes",
+        "homeValue": "84%",
+        "awayValue": "80%"
+      },
+      {
+        "category": "Long passes",
+        "homeValue": "46%",
+        "awayValue": "25%"
+      },
+      {
+        "category": "Passes in final third",
+        "homeValue": "70%",
+        "awayValue": "64%"
+      },
+      {
+        "category": "Crosses",
+        "homeValue": "21%",
+        "awayValue": "8%"
+      },
+      {
+        "category": "Expected assists (xA)",
+        "homeValue": "0.85",
+        "awayValue": "0.65"
+      },
+      {
+        "category": "Throw-ins",
+        "homeValue": "25",
+        "awayValue": "17"
+      },
+      {
+        "category": "Fouls",
+        "homeValue": "10",
+        "awayValue": "11"
+      },
+      {
+        "category": "Tackles",
+        "homeValue": "64%",
+        "awayValue": "63%"
+      },
+      {
+        "category": "Duels won",
+        "homeValue": "36",
+        "awayValue": "38"
+      },
+      {
+        "category": "Clearances",
+        "homeValue": "22",
+        "awayValue": "36"
+      },
+      {
+        "category": "Interceptions",
+        "homeValue": "4",
+        "awayValue": "4"
+      },
+      {
+        "category": "Errors leading to shot",
+        "homeValue": "0",
+        "awayValue": "1"
+      },
+      {
+        "category": "Errors leading to goal",
+        "homeValue": "1",
+        "awayValue": "0"
+      },
+      {
+        "category": "Goalkeeper Saves",
+        "homeValue": "1",
+        "awayValue": "2"
+      },
+      {
+        "category": "xGOT faced",
+        "homeValue": "1.09",
+        "awayValue": "0.14"
+      },
+      {
+        "category": "Goals prevented",
+        "homeValue": "0.09",
+        "awayValue": "0.14"
+      }
+    ]
+  },
+  "hnqjYTeK": {
+    "date": "25.05.2025 17:00",
+    "status": "FINISHED",
+    "home": {
+      "name": "Southampton",
+      "image": "https://static.flashscore.com/res/image/data/fmA9gnyB-raLYxovi.png"
+    },
+    "away": {
+      "name": "Arsenal",
+      "image": "https://static.flashscore.com/res/image/data/pfchdCg5-vcNAdtF9.png"
+    },
+    "result": {
+      "home": "1",
+      "away": "2"
+    },
+    "information": [
+      {
+        "category": "Referee",
+        "value": "Bond D. (Eng)"
+      },
+      {
+        "category": "Venue",
+        "value": "St. Mary's Stadium (Southampton)"
+      },
+      {
+        "category": "Capacity",
+        "value": "32 384"
+      },
+      {
+        "category": "Attendance",
+        "value": "31 289"
+      }
+    ],
+    "statistics": [
+      {
+        "category": "Expected Goals (xG)",
+        "homeValue": "0.63",
+        "awayValue": "2.20"
+      },
+      {
+        "category": "Ball Possession",
+        "homeValue": "39%",
+        "awayValue": "61%"
+      },
+      {
+        "category": "Total shots",
+        "homeValue": "7",
+        "awayValue": "23"
+      },
+      {
+        "category": "Shots on target",
+        "homeValue": "2",
+        "awayValue": "8"
+      },
+      {
+        "category": "Big Chances",
+        "homeValue": "0",
+        "awayValue": "3"
+      },
+      {
+        "category": "Corner Kicks",
+        "homeValue": "5",
+        "awayValue": "8"
+      },
+      {
+        "category": "Passes",
+        "homeValue": "81%",
+        "awayValue": "91%"
+      },
+      {
+        "category": "Expected Goals (xG)",
+        "homeValue": "0.63",
+        "awayValue": "2.20"
+      },
+      {
+        "category": "xG on target (xGOT)",
+        "homeValue": "1.11",
+        "awayValue": "1.48"
+      },
+      {
+        "category": "Total shots",
+        "homeValue": "7",
+        "awayValue": "23"
+      },
+      {
+        "category": "Shots on target",
+        "homeValue": "2",
+        "awayValue": "8"
+      },
+      {
+        "category": "Shots off target",
+        "homeValue": "2",
+        "awayValue": "5"
+      },
+      {
+        "category": "Blocked Shots",
+        "homeValue": "3",
+        "awayValue": "10"
+      },
+      {
+        "category": "Shots inside the Box",
+        "homeValue": "5",
+        "awayValue": "16"
+      },
+      {
+        "category": "Shots outside the Box",
+        "homeValue": "2",
+        "awayValue": "7"
+      },
+      {
+        "category": "Hit the Woodwork",
+        "homeValue": "0",
+        "awayValue": "0"
+      },
+      {
+        "category": "Headed Goals",
+        "homeValue": "1",
+        "awayValue": "0"
+      },
+      {
+        "category": "Big Chances",
+        "homeValue": "0",
+        "awayValue": "3"
+      },
+      {
+        "category": "Corner Kicks",
+        "homeValue": "5",
+        "awayValue": "8"
+      },
+      {
+        "category": "Touches in opposition box",
+        "homeValue": "17",
+        "awayValue": "38"
+      },
+      {
+        "category": "Accurate through passes",
+        "homeValue": "0",
+        "awayValue": "1"
+      },
+      {
+        "category": "Offsides",
+        "homeValue": "1",
+        "awayValue": "0"
+      },
+      {
+        "category": "Free Kicks",
+        "homeValue": "8",
+        "awayValue": "7"
+      },
+      {
+        "category": "Passes",
+        "homeValue": "81%",
+        "awayValue": "91%"
+      },
+      {
+        "category": "Long passes",
+        "homeValue": "37%",
+        "awayValue": "64%"
+      },
+      {
+        "category": "Passes in final third",
+        "homeValue": "58%",
+        "awayValue": "88%"
+      },
+      {
+        "category": "Crosses",
+        "homeValue": "27%",
+        "awayValue": "21%"
+      },
+      {
+        "category": "Expected assists (xA)",
+        "homeValue": "0.52",
+        "awayValue": "2.05"
+      },
+      {
+        "category": "Throw-ins",
+        "homeValue": "12",
+        "awayValue": "14"
+      },
+      {
+        "category": "Fouls",
+        "homeValue": "7",
+        "awayValue": "8"
+      },
+      {
+        "category": "Tackles",
+        "homeValue": "44%",
+        "awayValue": "22%"
+      },
+      {
+        "category": "Duels won",
+        "homeValue": "51",
+        "awayValue": "48"
+      },
+      {
+        "category": "Clearances",
+        "homeValue": "28",
+        "awayValue": "23"
+      },
+      {
+        "category": "Interceptions",
+        "homeValue": "5",
+        "awayValue": "2"
+      },
+      {
+        "category": "Errors leading to shot",
+        "homeValue": "0",
+        "awayValue": "1"
+      },
+      {
+        "category": "Errors leading to goal",
+        "homeValue": "0",
+        "awayValue": "0"
+      },
+      {
+        "category": "Goalkeeper Saves",
+        "homeValue": "6",
+        "awayValue": "1"
+      },
+      {
+        "category": "xGOT faced",
+        "homeValue": "1.48",
+        "awayValue": "1.11"
+      },
+      {
+        "category": "Goals prevented",
+        "homeValue": "-0.52",
+        "awayValue": "0.11"
+      }
+    ]
+  },
+  "OUZLS7Js": {
+    "date": "25.05.2025 17:00",
+    "status": "FINISHED",
+    "home": {
+      "name": "Tottenham",
+      "image": "https://static.flashscore.com/res/image/data/ARC62UAr-Ig5FKJZ5.png"
+    },
+    "away": {
+      "name": "Brighton",
+      "image": "https://static.flashscore.com/res/image/data/40juIezB-b92lfEJC.png"
+    },
+    "result": {
+      "home": "1",
+      "away": "4"
+    },
+    "information": [
+      {
+        "category": "Referee",
+        "value": "Jones R. (Eng)"
+      },
+      {
+        "category": "Venue",
+        "value": "Tottenham Hotspur Stadium (London)"
+      },
+      {
+        "category": "Capacity",
+        "value": "62 850"
+      },
+      {
+        "category": "Attendance",
+        "value": "61 449"
+      }
+    ],
+    "statistics": [
+      {
+        "category": "Expected Goals (xG)",
+        "homeValue": "1.95",
+        "awayValue": "2.27"
+      },
+      {
+        "category": "Ball Possession",
+        "homeValue": "32%",
+        "awayValue": "68%"
+      },
+      {
+        "category": "Total shots",
+        "homeValue": "4",
+        "awayValue": "24"
+      },
+      {
+        "category": "Shots on target",
+        "homeValue": "2",
+        "awayValue": "9"
+      },
+      {
+        "category": "Big Chances",
+        "homeValue": "3",
+        "awayValue": "4"
+      },
+      {
+        "category": "Corner Kicks",
+        "homeValue": "2",
+        "awayValue": "11"
+      },
+      {
+        "category": "Passes",
+        "homeValue": "77%",
+        "awayValue": "90%"
+      },
+      {
+        "category": "Yellow Cards",
+        "homeValue": "3",
+        "awayValue": "1"
+      },
+      {
+        "category": "Expected Goals (xG)",
+        "homeValue": "1.95",
+        "awayValue": "2.27"
+      },
+      {
+        "category": "xG on target (xGOT)",
+        "homeValue": "1.55",
+        "awayValue": "4.05"
+      },
+      {
+        "category": "Total shots",
+        "homeValue": "4",
+        "awayValue": "24"
+      },
+      {
+        "category": "Shots on target",
+        "homeValue": "2",
+        "awayValue": "9"
+      },
+      {
+        "category": "Shots off target",
+        "homeValue": "1",
+        "awayValue": "7"
+      },
+      {
+        "category": "Blocked Shots",
+        "homeValue": "1",
+        "awayValue": "8"
+      },
+      {
+        "category": "Shots inside the Box",
+        "homeValue": "4",
+        "awayValue": "18"
+      },
+      {
+        "category": "Shots outside the Box",
+        "homeValue": "0",
+        "awayValue": "5"
+      },
+      {
+        "category": "Hit the Woodwork",
+        "homeValue": "0",
+        "awayValue": "1"
+      },
+      {
+        "category": "Big Chances",
+        "homeValue": "3",
+        "awayValue": "4"
+      },
+      {
+        "category": "Corner Kicks",
+        "homeValue": "2",
+        "awayValue": "11"
+      },
+      {
+        "category": "Touches in opposition box",
+        "homeValue": "10",
+        "awayValue": "46"
+      },
+      {
+        "category": "Accurate through passes",
+        "homeValue": "0",
+        "awayValue": "1"
+      },
+      {
+        "category": "Offsides",
+        "homeValue": "1",
+        "awayValue": "2"
+      },
+      {
+        "category": "Free Kicks",
+        "homeValue": "8",
+        "awayValue": "13"
+      },
+      {
+        "category": "Passes",
+        "homeValue": "77%",
+        "awayValue": "90%"
+      },
+      {
+        "category": "Long passes",
+        "homeValue": "39%",
+        "awayValue": "59%"
+      },
+      {
+        "category": "Passes in final third",
+        "homeValue": "40%",
+        "awayValue": "81%"
+      },
+      {
+        "category": "Crosses",
+        "homeValue": "0%",
+        "awayValue": "36%"
+      },
+      {
+        "category": "Expected assists (xA)",
+        "homeValue": "0.25",
+        "awayValue": "1.37"
+      },
+      {
+        "category": "Throw-ins",
+        "homeValue": "21",
+        "awayValue": "10"
+      },
+      {
+        "category": "Fouls",
+        "homeValue": "13",
+        "awayValue": "8"
+      },
+      {
+        "category": "Tackles",
+        "homeValue": "50%",
+        "awayValue": "79%"
+      },
+      {
+        "category": "Duels won",
+        "homeValue": "33",
+        "awayValue": "54"
+      },
+      {
+        "category": "Clearances",
+        "homeValue": "39",
+        "awayValue": "7"
+      },
+      {
+        "category": "Interceptions",
+        "homeValue": "9",
+        "awayValue": "7"
+      },
+      {
+        "category": "Errors leading to shot",
+        "homeValue": "1",
+        "awayValue": "0"
+      },
+      {
+        "category": "Errors leading to goal",
+        "homeValue": "0",
+        "awayValue": "0"
+      },
+      {
+        "category": "Goalkeeper Saves",
+        "homeValue": "5",
+        "awayValue": "1"
+      },
+      {
+        "category": "xGOT faced",
+        "homeValue": "4.05",
+        "awayValue": "1.55"
+      },
+      {
+        "category": "Goals prevented",
+        "homeValue": "-0.04",
+        "awayValue": "0.55"
+      }
+    ]
+  },
+  "4vrUQolf": {
+    "date": "25.05.2025 17:00",
+    "status": "FINISHED",
+    "home": {
+      "name": "Wolves",
+      "image": "https://static.flashscore.com/res/image/data/Iwsrq5xS-CjV6Eptm.png"
+    },
+    "away": {
+      "name": "Brentford",
+      "image": "https://static.flashscore.com/res/image/data/bBj3NWfM-r9Mudk7j.png"
+    },
+    "result": {
+      "home": "1",
+      "away": "1"
+    },
+    "information": [
+      {
+        "category": "Referee",
+        "value": "Pawson C. (Eng)"
+      },
+      {
+        "category": "Venue",
+        "value": "Molineux Stadium (Wolverhampton)"
+      },
+      {
+        "category": "Capacity",
+        "value": "31 750"
+      },
+      {
+        "category": "Attendance",
+        "value": "31 382"
+      }
+    ],
+    "statistics": [
+      {
+        "category": "Expected Goals (xG)",
+        "homeValue": "1.12",
+        "awayValue": "1.43"
+      },
+      {
+        "category": "Ball Possession",
+        "homeValue": "48%",
+        "awayValue": "52%"
+      },
+      {
+        "category": "Total shots",
+        "homeValue": "18",
+        "awayValue": "13"
+      },
+      {
+        "category": "Shots on target",
+        "homeValue": "6",
+        "awayValue": "7"
+      },
+      {
+        "category": "Big Chances",
+        "homeValue": "1",
+        "awayValue": "3"
+      },
+      {
+        "category": "Corner Kicks",
+        "homeValue": "8",
+        "awayValue": "3"
+      },
+      {
+        "category": "Passes",
+        "homeValue": "81%",
+        "awayValue": "84%"
+      },
+      {
+        "category": "Yellow Cards",
+        "homeValue": "2",
+        "awayValue": "1"
+      },
+      {
+        "category": "Expected Goals (xG)",
+        "homeValue": "1.12",
+        "awayValue": "1.43"
+      },
+      {
+        "category": "xG on target (xGOT)",
+        "homeValue": "0.78",
+        "awayValue": "2.11"
+      },
+      {
+        "category": "Total shots",
+        "homeValue": "18",
+        "awayValue": "13"
+      },
+      {
+        "category": "Shots on target",
+        "homeValue": "6",
+        "awayValue": "7"
+      },
+      {
+        "category": "Shots off target",
+        "homeValue": "8",
+        "awayValue": "5"
+      },
+      {
+        "category": "Blocked Shots",
+        "homeValue": "4",
+        "awayValue": "1"
+      },
+      {
+        "category": "Shots inside the Box",
+        "homeValue": "8",
+        "awayValue": "11"
+      },
+      {
+        "category": "Shots outside the Box",
+        "homeValue": "10",
+        "awayValue": "2"
+      },
+      {
+        "category": "Hit the Woodwork",
+        "homeValue": "0",
+        "awayValue": "1"
+      },
+      {
+        "category": "Big Chances",
+        "homeValue": "1",
+        "awayValue": "3"
+      },
+      {
+        "category": "Corner Kicks",
+        "homeValue": "8",
+        "awayValue": "3"
+      },
+      {
+        "category": "Touches in opposition box",
+        "homeValue": "34",
+        "awayValue": "27"
+      },
+      {
+        "category": "Accurate through passes",
+        "homeValue": "1",
+        "awayValue": "0"
+      },
+      {
+        "category": "Offsides",
+        "homeValue": "3",
+        "awayValue": "1"
+      },
+      {
+        "category": "Free Kicks",
+        "homeValue": "9",
+        "awayValue": "7"
+      },
+      {
+        "category": "Passes",
+        "homeValue": "81%",
+        "awayValue": "84%"
+      },
+      {
+        "category": "Long passes",
+        "homeValue": "42%",
+        "awayValue": "52%"
+      },
+      {
+        "category": "Passes in final third",
+        "homeValue": "76%",
+        "awayValue": "63%"
+      },
+      {
+        "category": "Crosses",
+        "homeValue": "19%",
+        "awayValue": "31%"
+      },
+      {
+        "category": "Expected assists (xA)",
+        "homeValue": "0.74",
+        "awayValue": "0.62"
+      },
+      {
+        "category": "Throw-ins",
+        "homeValue": "23",
+        "awayValue": "19"
+      },
+      {
+        "category": "Fouls",
+        "homeValue": "7",
+        "awayValue": "9"
+      },
+      {
+        "category": "Tackles",
+        "homeValue": "64%",
+        "awayValue": "59%"
+      },
+      {
+        "category": "Duels won",
+        "homeValue": "66",
+        "awayValue": "45"
+      },
+      {
+        "category": "Clearances",
+        "homeValue": "23",
+        "awayValue": "21"
+      },
+      {
+        "category": "Interceptions",
+        "homeValue": "5",
+        "awayValue": "6"
+      },
+      {
+        "category": "Errors leading to shot",
+        "homeValue": "1",
+        "awayValue": "1"
+      },
+      {
+        "category": "Errors leading to goal",
+        "homeValue": "1",
+        "awayValue": "0"
+      },
+      {
+        "category": "Goalkeeper Saves",
+        "homeValue": "6",
+        "awayValue": "5"
+      },
+      {
+        "category": "xGOT faced",
+        "homeValue": "2.11",
+        "awayValue": "0.78"
+      },
+      {
+        "category": "Goals prevented",
+        "homeValue": "1.11",
+        "awayValue": "-0.22"
+      }
+    ]
+  }
+}

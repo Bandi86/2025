@@ -410,13 +410,17 @@ export class ComprehensiveScraper extends AutomatedScraper {
     // Minden liga scraping-je
     for (const league of leagues) {
       try {
-        await this.scrapeLeague(country.name, league.name);
+        // Extract season name from league.url for consistent logging and file naming
+        const seasonMatch = league.url.match(/\/([0-9]{4}-[0-9]{4})\/results/);
+        const seasonName = seasonMatch ? seasonMatch[1] : 'unknown-season';
+
+        await this.scrapeLeague(country.name, league.name, seasonName, league.url);
         
         // Ligák közötti szünet
         await delay(CONFIG.DELAY_BETWEEN_LEAGUES, `Szünet ligák között`);
         
         // Felfedezett ligák nyilvántartása
-        this.discoveredLeagues.add(`${country.name}/${league.name}`);
+        this.discoveredLeagues.add(`${country.name}/${league.name}/${seasonName}`);
         
       } catch (error) {
         logger.error(`Hiba liga scraping során: ${country.name}/${league.name}`, error);
@@ -448,11 +452,12 @@ export class ComprehensiveScraper extends AutomatedScraper {
     const leaguesByCountry = {};
     
     for (const leagueKey of this.discoveredLeagues) {
-      const [country, league] = leagueKey.split('/');
+      const [country, league, season] = leagueKey.split('/');
       if (!leaguesByCountry[country]) {
         leaguesByCountry[country] = [];
       }
-      leaguesByCountry[country].push(league);
+      // Add season to the league entry
+      leaguesByCountry[country].push(`${league}-${season}`);
     }
 
     const configExport = Object.entries(leaguesByCountry).map(([country, leagues]) => ({

@@ -8,7 +8,7 @@ import json
 import logging
 import os
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import List, Dict, Optional
 from urllib.parse import urljoin
 
@@ -38,6 +38,10 @@ class TippmixProScraper:
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
         options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36')
+        options.add_argument('--disable-gpu')
+        options.add_argument('--window-size=1920,1080')
+        options.add_argument('--disable-blink-features=AutomationControlled')
+        options.add_experimental_option('excludeSwitches', ['enable-automation'])
         
         driver = webdriver.Chrome(options=options)
         return driver
@@ -53,7 +57,7 @@ class TippmixProScraper:
         if not date:
             date = datetime.now().strftime('%Y-%m-%d')
         
-        url = f"{self.base_url}/hu/fogadas/i/elo-naptar/labdarugas/1/{date}"
+        url = f"{self.base_url}/hu/fogadas/i/elo-naptar/osszes/0/{date}"
         logger.info(f"Scraping matches from: {url}")
         
         try:
@@ -90,8 +94,8 @@ class TippmixProScraper:
             
             return matches
             
-        except TimeoutException:
-            logger.error(f"Timeout while loading page or elements on {url}. Saving page source and attempting screenshot OCR.")
+        except TimeoutException as e:
+            logger.error(f"Timeout while loading page or elements on {url}: {e}. Saving page source and attempting screenshot OCR.")
             html_filename = f"timeout_page_source_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html"
             html_filepath = os.path.join(os.path.dirname(__file__), "screenshots", html_filename)
             os.makedirs(os.path.dirname(html_filepath), exist_ok=True)
@@ -110,7 +114,7 @@ class TippmixProScraper:
                     logger.warning("OCR extraction failed or found no matches.")
             return []
         except Exception as e:
-            logger.error(f"Error during scraping: {e}")
+            logger.error(f"An unexpected error occurred during scraping: {e}")
             return []
 
     def _handle_cookie_consent(self):
@@ -134,67 +138,49 @@ class TippmixProScraper:
                     return
                 except TimeoutException:
                     continue
+        except TimeoutException:
+            logger.debug("Cookie consent button not found within timeout.")
+        except NoSuchElementException:
+            logger.debug("Cookie consent button element not found.")
         except Exception as e:
-            logger.debug(f"No cookie consent dialog found or error handling it: {e}")
+            logger.debug(f"An unexpected error occurred while handling cookie consent: {e}")
 
     def _click_load_more_button(self):
-        """Repeatedly clicks the 'load more' button until it is no longer present or clickable or no new content loads."""
-        load_more_selector = (By.CSS_SELECTOR, "button.OM-LiveCalendar__ShowMore")
+        """Repeatedly clicks the 'load more' button until it is no longer present."""
+        load_more_xpath = "//button[contains(@class, 'ShowMore') or contains(@class, 'LoadMore') or contains(text(), 'Több') or contains(text(), 'More')]"
         
-        max_scroll_attempts = 100 # Increased limit to prevent infinite loops
-        scroll_attempt = 0
+        max_attempts = 50 # Increased maximum attempts
+        attempt = 0
         
-        while scroll_attempt < max_scroll_attempts:
+        while attempt < max_attempts:
             try:
-                initial_match_count = len(self.driver.find_elements(By.CSS_SELECTOR, 'div.OM-LiveCalendar__Item'))
-                logger.info(f"Initial match count for attempt {scroll_attempt + 1}: {initial_match_count}")
-            except Exception as e:
-                logger.warning(f"Could not get initial match count: {e}")
-                initial_match_count = 0
-
-            try:
-                # Scroll to the bottom of the page to ensure the button is in view
+                # Scroll to bottom first to make sure the button is in the viewport if it exists
                 self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-                time.sleep(2) # Give more time for the scroll to complete
+                time.sleep(1) # Give a moment for scroll to complete
 
-                # Scroll to the bottom of the page to ensure the button is in view
-                self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-                time.sleep(2) # Give more time for the scroll to complete
-
-                # Wait for the button to be present and clickable
-                load_more_button = WebDriverWait(self.driver, 20).until(
-                    EC.element_to_be_clickable(load_more_selector)
-                )
+                # Try to find the button. If not found, NoSuchElementException is raised.
+                load_more_button = self.driver.find_element(By.XPATH, load_more_xpath)
+                logger.info(f"Found load more button on attempt {attempt + 1}.")
                 
-                # Scroll the button into view if it's not already
-                self.driver.execute_script("arguments[0].scrollIntoView(true);", load_more_button)
-                time.sleep(1) # Give time for the scroll to complete
-
-                # Click the button using JavaScript to avoid interception issues
+                # Click the button using JavaScript
                 self.driver.execute_script("arguments[0].click();", load_more_button)
-                logger.info(f"Clicked 'load more' button (Scroll attempt {scroll_attempt + 1}/{max_scroll_attempts})")
+                logger.info(f"Clicked 'load more' button (Attempt {attempt + 1}/{max_attempts})")
                 
-                # Give more time for new content to load after click
-                time.sleep(7) # Increased sleep time to allow more content to load
-                
-                # Give more time for new content to load after click
-                time.sleep(7) # Increased sleep time to allow more content to load
+                time.sleep(3) # Wait for new content to load
+                attempt += 1
 
-                new_match_count = len(self.driver.find_elements(By.CSS_SELECTOR, 'div.OM-LiveCalendar__Item'))
-                logger.info(f"New match count for attempt {scroll_attempt + 1}: {new_match_count}")
-
-                if new_match_count == initial_match_count:
-                    logger.info("No new matches loaded after click. Assuming all matches are loaded.")
-                    break # Exit loop if no new content is loaded
-                
-                scroll_attempt += 1
-
-            except TimeoutException:
-                logger.info("Load more button not found or not clickable after waiting. Assuming all matches are loaded.")
-                break  # Exit the loop if the button is not found
+            except NoSuchElementException:
+                logger.info("Load more button not found. Assuming all matches are loaded.")
+                break # Exit the while loop
+            except (ElementClickInterceptedException, StaleElementReferenceException) as e:
+                logger.warning(f"Handled Selenium exception during load more button interaction: {e}. Retrying...")
+                time.sleep(2) # Wait a bit before retrying
+                attempt += 1
             except Exception as e:
-                logger.error(f"An unexpected error occurred while trying to click 'load more': {e}")
+                logger.error(f"An unexpected error occurred during load more button interaction: {e}")
                 break
+        
+        logger.info("Finished attempting to load more matches.")
 
     def take_screenshot(self, filename: str = "screenshot.png") -> Optional[str]:
         """Takes a screenshot of the current page and saves it to a file."""
@@ -333,45 +319,94 @@ class TippmixProScraper:
         logger.info(f"Saved {len(matches)} matches to {filepath}")
         return filepath
 
-    def scrape_match_odds(self, match_url: str) -> Dict:
+    def scrape_match_odds(self, match_url: str, max_retries: int = 3) -> Dict:
         """
-        Scrape pre-match odds from a specific match URL.
+        Scrape pre-match odds from a specific match URL with retry mechanism.
         Args:
             match_url: The URL of the match page.
+            max_retries: Maximum number of retry attempts.
         Returns:
             A dictionary containing pre-match odds.
         """
         logger.info(f"Scraping pre-match odds from: {match_url}")
-        try:
-            self.driver.get(match_url)
-            self._handle_cookie_consent()
+        
+        for attempt in range(max_retries):
+            try:
+                # Add delay between requests to avoid rate limiting
+                if attempt > 0:
+                    delay = 2 ** attempt  # Exponential backoff
+                    logger.info(f"Retry attempt {attempt + 1}/{max_retries} after {delay}s delay")
+                    time.sleep(delay)
+                
+                self.driver.get(match_url)
+                self._handle_cookie_consent()
 
-            logger.info("Waiting for the sports iframe to be present...")
-            WebDriverWait(self.driver, 30).until(
-                EC.frame_to_be_available_and_switch_to_it((By.ID, "SportsIframe"))
-            )
-            logger.info("Switched to sports iframe.")
+                logger.info("Waiting for the sports iframe to be present...")
+                WebDriverWait(self.driver, 45).until(
+                    EC.frame_to_be_available_and_switch_to_it((By.ID, "SportsIframe"))
+                )
+                logger.info("Switched to sports iframe.")
 
-            logger.info("Waiting for odds container to load inside the iframe...")
-            # This CSS selector might need adjustment based on actual page structure
-            WebDriverWait(self.driver, 30).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, 'div.OM-EventView'))
-            )
-            logger.info("Odds container loaded inside the iframe.")
+                logger.info("Waiting for odds container to load inside the iframe...")
+                
+                # Try multiple selectors for the odds container
+                odds_selectors = [
+                    'div.OM-EventView',
+                    'div.OM-EventView-Container',
+                    'div[class*="EventView"]',
+                    'div.OM-MarketGroup',
+                    'div[class*="Market"]'
+                ]
+                
+                odds_container = None
+                for selector in odds_selectors:
+                    try:
+                        odds_container = WebDriverWait(self.driver, 15).until(
+                            EC.presence_of_element_located((By.CSS_SELECTOR, selector))
+                        )
+                        logger.info(f"Found odds container using selector: {selector}")
+                        break
+                    except TimeoutException:
+                        continue
+                
+                if not odds_container:
+                    raise TimeoutException("No odds container found with any selector")
 
-            soup = BeautifulSoup(self.driver.page_source, 'html.parser')
-            odds = self._parse_pre_match_odds(soup)
+                logger.info("Odds container loaded inside the iframe.")
 
-            self.driver.switch_to.default_content()
-            return odds
+                # Wait a bit more for dynamic content to load
+                time.sleep(3)
 
-        except TimeoutException:
-            logger.error(f"Timeout while loading match page {match_url} or elements.")
-            self.take_screenshot(f"match_page_timeout_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
-            return {}
-        except Exception as e:
-            logger.error(f"Error scraping match odds from {match_url}: {e}")
-            return {}
+                soup = BeautifulSoup(self.driver.page_source, 'html.parser')
+                odds = self._parse_pre_match_odds(soup)
+
+                self.driver.switch_to.default_content()
+                
+                if odds:
+                    logger.info(f"Successfully scraped odds with {len(odds)} markets")
+                    return odds
+                else:
+                    logger.warning("No odds found in parsed content")
+                    if attempt == max_retries - 1:
+                        return {}
+
+            except TimeoutException as e:
+                logger.error(f"Timeout while loading match page {match_url} (attempt {attempt + 1}/{max_retries}): {e}")
+                if attempt == max_retries - 1:
+                    self.take_screenshot(f"match_page_timeout_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
+                    return {}
+            except Exception as e:
+                logger.error(f"Error scraping match odds from {match_url} (attempt {attempt + 1}/{max_retries}): {e}")
+                if attempt == max_retries - 1:
+                    return {}
+            finally:
+                # Always switch back to default content
+                try:
+                    self.driver.switch_to.default_content()
+                except:
+                    pass
+        
+        return {}
 
     def _parse_pre_match_odds(self, soup: BeautifulSoup) -> Dict:
         """
@@ -413,36 +448,26 @@ def main():
     """Main function to run the scraper"""
     scraper = TippmixProScraper()
     
-    # Scrape today's matches
-    today_str = datetime.now().strftime('%Y-%m-%d')
-    matches = scraper.scrape_matches(date=today_str)
-    
-    if matches:
-        # Save to JSON with date in the filename
-        filename = f"tippmix_matches_{today_str.replace('-','')}.json"
-        filepath = scraper.save_to_json(matches, filename=filename)
-        print(f"Successfully scraped and saved {len(matches)} matches to {filename}")
-
-        # Load the saved matches to iterate and scrape individual odds
-        with open(filepath, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-            all_matches = data['matches']
-
-        updated_matches = []
-        for match in all_matches:
-            if match.get('link'):
-                odds = scraper.scrape_match_odds(match['link'])
-                match['odds'] = odds
-            updated_matches.append(match)
+    try:
+        # Scrape today's matches
+        today_str = datetime.now().strftime('%Y-%m-%d')
+        matches = scraper.scrape_matches(date=today_str)
         
-        # Save the updated matches back to the JSON file
-        scraper.save_to_json(updated_matches, filename=filename)
-        print(f"Successfully updated {len(updated_matches)} matches with pre-match odds in {filename}")
+        if matches:
+            # Save to JSON with date in the filename
+            filename = f"tippmix_matches_{today_str.replace('-','')}.json"
+            scraper.save_to_json(matches, filename=filename)
+            print(f"Successfully scraped and saved {len(matches)} matches to {filename}")
 
-    else:
-        print("No matches found or error occurred during scraping")
+        else:
+            print("No matches found or error occurred during scraping")
 
-    scraper._close_driver()
+    except KeyboardInterrupt:
+        print("\nScraping interrupted by user")
+    except Exception as e:
+        print(f"Unexpected error during scraping: {e}")
+    finally:
+        scraper._close_driver()
 
 if __name__ == "__main__":
     main()

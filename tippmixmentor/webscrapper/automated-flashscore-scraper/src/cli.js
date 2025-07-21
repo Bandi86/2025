@@ -8,6 +8,7 @@ import {cacheManager} from './utils/cacheManager.js';
 import fs from 'fs-extra';
 import path from 'path';
 import inquirer from 'inquirer';
+import { selectSeason } from './cli/prompts/season/index.js';
 
 /**
  * CLI parancsok kezelése
@@ -289,553 +290,225 @@ class CLI {
         console.log('🎯 Intelligens Liga Kiválasztás');
         console.log('===============================\n');
 
-        try { // Ellenőrizzük a már letöltött adatokat
-            console.log('📊 Meglévő adatok ellenőrzése...');
-            const existingData = await this.checkExistingData();
+        try {
+            const { createBrowser } = await import('./scraper/browser.js');
+            const browser = await createBrowser();
 
-            // Import the discovery class
+            const { CountryDiscovery } = await import('./scraper/countryDiscovery.js');
+            const discovery = new CountryDiscovery(browser);
+
+            let countries = await cacheManager.loadCountriesFromCache();
+            if (!countries) {
+                countries = await discovery.discoverAvailableCountries();
+                await cacheManager.saveCountriesToCache(countries);
+            }
+
+            if (countries.length === 0) {
+                logger.error('Nem találhatók elérhető országok.');
+                await browser.close();
+                return;
+            }
+
+            const { selectedCountries } = await inquirer.prompt([
+                {
+                    type: 'checkbox',
+                    name: 'selectedCountries',
+                    message: 'Válaszd ki a kívánt országokat:',
+                    choices: countries.map(c => ({ name: `${c.flag} ${c.displayName}`, value: c })),
+                    validate: answer => answer.length > 0 ? true : 'Legalább egy országot válassz ki!'
+                }
+            ]);
+
+            const finalSelection = [];
+            for (const country of selectedCountries) {
+                let leagues = await cacheManager.loadLeaguesFromCache(country.name);
+                if (!leagues) {
+                    leagues = await discovery.discoverCountryLeagues(country.name);
+                    if (leagues && leagues.length > 0) {
+                        await cacheManager.saveLeaguesToCache(country.name, leagues);
+                    }
+                }
+
+                if (leagues && leagues.length > 0) {
+                    const { selectedLeagueNames } = await inquirer.prompt([
+                        {
+                            type: 'checkbox',
+                            name: 'selectedLeagueNames',
+                            message: `Válaszd ki a ligákat (${country.displayName}):`,
+                            choices: leagues.map(l => ({ name: l.displayName, value: l.name }))
+                        }
+                    ]);
+
+                    for (const selectedLeagueName of selectedLeagueNames) {
+                        const leagueObject = leagues.find(l => l.name === selectedLeagueName);
+                        if (leagueObject) {
+                            // NEW: Select season for each chosen league
+                            const season = await selectSeason(browser, leagueObject.url); // Pass league URL to get seasons
+                            finalSelection.push({ 
+                                country: country.name, 
+                                leagueName: leagueObject.name, // Base league name
+                                leagueDisplayName: leagueObject.displayName, // For logging/display
+                                seasonName: season.name, // e.g., "2024-2025"
+                                seasonUrl: season.url // Full URL for the season
+                            });
+                        }
+                    }
+                }
+    }
+
+    await browser.close();
+
+    if (finalSelection.length > 0) {
+        console.log('\nKiválasztott ligák és szezonok:');
+        finalSelection.forEach(item => {
+            console.log(`- ${item.country.toUpperCase()}: ${item.leagueDisplayName} (${item.seasonName})`);
+        });
+
+        const { shouldStart } = await inquirer.prompt([
+            {
+                type: 'confirm',
+                name: 'shouldStart',
+                message: 'Indulhat a scraping a kiválasztott ligákkal és szezonokkal?',
+                default: true
+            }
+        ]);
+
+        if (shouldStart) {
+            await this.startCustomScraping(finalSelection);
+        }
+    } else {
+        console.log('Nincs kiválasztott liga vagy szezon. Kilépés.');
+    }
+
+        } catch (error) {
+            logger.error('Hiba az interaktív kiválasztás során:', error);
+        }
+    }
+
+    /**
+   * Egyedi scraping indítása a kiválasztott országokkal/ligákkal
+   */
+    async startCustomScraping(selection) {
+        console.log('🚀 Egyedi scraping indítása...\n');
+
+        try {
+            // The selection now contains country, leagueName, seasonName, seasonUrl
+            // We need to adapt AutomatedScraper to handle this new structure.
+            // For now, let's just pass it as a new TARGET_LEAGUES structure.
+            const customConfig = {
+                TARGET_LEAGUES: selection.map(item => ({
+                    country: item.country,
+                    leagueName: item.leagueName,
+                    seasonName: item.seasonName,
+                    seasonUrl: item.seasonUrl
+                }))
+            };
+
+            const customScraper = new AutomatedScraper();
+
+            // Temporarily override CONFIG for this scraping run
+            const originalTargetLeagues = CONFIG.TARGET_LEAGUES;
+            CONFIG.TARGET_LEAGUES = customConfig.TARGET_LEAGUES;
+
+            await customScraper.start();
+
+            // Restore original CONFIG
+            CONFIG.TARGET_LEAGUES = originalTargetLeagues;
+
+            console.log('\n✅ Egyedi scraping befejezve!');
+
+        } catch (error) {
+            console.error('❌ Hiba az egyedi scraping során:', error.message);
+        }
+    }
+
+    /**
+   * Liga felfedezés indítása
+   */
+    async startDiscovery() {
+        console.log('🔍 Liga felfedezés indítása...\n');
+
+        try { // Import the new CountryDiscovery class
             const {CountryDiscovery} = await import ('./scraper/countryDiscovery.js');
             const {createBrowser} = await import ('./scraper/browser.js');
 
             const browser = await createBrowser();
             const discovery = new CountryDiscovery(browser);
 
-            // Országok betöltése cache-ből vagy felfedezése
-            console.log('🔍 Elérhető országok keresése...');
-            let countries = await cacheManager.loadCountriesFromCache();
+            // Discover available countries
+            const countries = await discovery.discoverAvailableCountries();
 
-            // Ha nincs cache vagy elavult, akkor felfedezzük az országokat
-            if (! countries) {
-                console.log('🔍 Országok felfedezése és cache-elése...');
-                countries = await discovery.discoverAvailableCountries();
-                await cacheManager.saveCountriesToCache(countries);
-            }
-
-            if (countries.length === 0) {
-                console.log('❌ Nem találhatók elérhető országok.');
-                await browser.close();
-                return;
-            }
-
-            // Csoportosítás régiók szerint
-            const countryGroups = {};
-            countries.forEach(country => {
-                const region = country.region || 'Egyéb';
-                if (! countryGroups[region]) {
-                    countryGroups[region] = [];
-                }
-                countryGroups[region].push(country);
-            });
-
-            // Országok megjelenítése információkkal
             console.log(`\n✅ ${
                 countries.length
-            } ország felfedezve:\n`);
-            Object.entries(countryGroups).forEach(([region, regionCountries]) => {
-                console.log(`📍 ${region}:`);
-                regionCountries.forEach(country => {
-                    const existing = existingData[country.name];
-                    let status = '';
-
-                    if (existing && existing.leagues.length > 0) {
-                        const daysSinceUpdate = existing.lastUpdated ? Math.floor((new Date() - existing.lastUpdated) / (1000 * 60 * 60 * 24)) : null;
-
-                        status = ` 📁 ${
-                            existing.leagues.length
-                        } liga, ${
-                            existing.totalMatches
-                        } meccs`;
-                        if (daysSinceUpdate !== null) {
-                            if (daysSinceUpdate === 0) {
-                                status += ` 🟢 ma frissítve`;
-                            } else if (daysSinceUpdate <= 7) {
-                                status += ` 🟡 ${daysSinceUpdate} napja frissítve`;
-                            } else {
-                                status += ` 🔴 ${daysSinceUpdate} napja frissítve`;
-                            }
-                        }
-                    } else {
-                        status = ' 🆕 új';
-                    }
-
-                    console.log(`   ${
-                        country.flag
-                    } ${
-                        country.displayName
-                    }${status}`);
-                });
-                console.log('');
+            } ország felfedezve:`);
+            countries.forEach(country => {
+                console.log(`  🏴 ${
+                    country.displayName
+                } (${
+                    country.name
+                })`);
             });
 
-            // Szűrési opciók
-            logger.info('Prompting for filter option...');
-            const {filterOption} = await inquirer.prompt([{
-                    type: 'list',
-                    name: 'filterOption',
-                    message: 'Hogyan szeretnéd szűrni az országokat?',
-                    choices: [
-                        {
-                            name: '🌟 Összes ország megjelenítése',
-                            value: 'all'
-                        }, {
-                            name: '🆕 Csak új országok (még nincs adat)',
-                            value: 'new'
-                        }, {
-                            name: '🔄 Régen frissített országok (7+ nap)',
-                            value: 'old'
-                        }, {
-                            name: '📍 Régió szerint szűrés',
-                            value: 'region'
-                        }
-                    ]
-                }]);
-            logger.info(`Filter option selected: ${filterOption}`);
+            // Optionally discover leagues for the first few countries
+            if (countries.length > 0) {
+                console.log('\n🏆 Liga felfedezés az első országban...');
+                const firstCountry = countries[0];
+                const leagues = await discovery.discoverCountryLeagues(firstCountry.name);
 
-            let filteredCountries = countries;
-
-            if (filterOption === 'new') {
-                filteredCountries = countries.filter(country => ! existingData[country.name] || existingData[country.name].leagues.length === 0);
-                console.log(`\n🆕 ${
-                    filteredCountries.length
-                } új ország található.\n`);
-            } else if (filterOption === 'old') {
-                filteredCountries = countries.filter(country => {
-                        const existing = existingData[country.name];
-                        if (! existing || ! existing.lastUpdated) 
-                            return false;
-                            const daysSinceUpdate = Math.floor((new Date() - existing.lastUpdated) / (1000 * 60 * 60 * 24));
-                            return daysSinceUpdate >= 7;
-                        }
-                    );
-                    console.log(`\n🔄 ${
-                        filteredCountries.length
-                    } régen frissített ország található.\n`);
-                } else if (filterOption === 'region') {
-                    logger.info('Prompting for selected region...');
-                const {selectedRegion} = await inquirer.prompt([{
-                            type: 'list',
-                            name: 'selectedRegion',
-                            message: 'Válaszd ki a régiót:',
-                            choices: Object.keys(countryGroups).map(region => ({name: `📍 ${region} (${
-                                    countryGroups[region].length
-                                } ország)`, value: region}))
-                        }]);
-                logger.info(`Selected region: ${selectedRegion}`);
-                    filteredCountries = countryGroups[selectedRegion];
-                    console.log(`\n📍 ${
-                        filteredCountries.length
-                    } ország a ${selectedRegion} régióban.\n`);
-                }
-
-                if (filteredCountries.length === 0) {
-                    console.log('❌ Nincs ország a kiválasztott szűrés alapján.');
-                    await browser.close();
-                    return;
-                }
-
-                // Országok kiválasztása intelligens információkkal
-                const countryChoices = filteredCountries.map(country => {
-                    const existing = existingData[country.name];
-                    let name = `${
-                        country.flag
-                    } ${
-                        country.displayName
-                    }`;
-
-                    if (existing && existing.leagues.length > 0) {
-                        const daysSinceUpdate = existing.lastUpdated ? Math.floor((new Date() - existing.lastUpdated) / (1000 * 60 * 60 * 24)) : null;
-
-                        name += ` (${
-                            existing.leagues.length
-                        } liga, ${
-                            existing.totalMatches
-                        } meccs`;
-                        if (daysSinceUpdate !== null) {
-                            if (daysSinceUpdate === 0) {
-                                name += `, ma frissítve)`;
-                            } else {
-                                name += `, ${daysSinceUpdate} napja frissítve)`;
-                            }
-                        } else {
-                            name += ')';
-                        }
-                    } else {
-                        name += ' 🆕';
-                    }
-
-                    return {name: name, value: country, short: country.displayName};
-                });
-
-                logger.info('Prompting for selected countries...');
-                const {selectedCountries} = await inquirer.prompt([{
-                        type: 'checkbox',
-                        name: 'selectedCountries',
-                        message: 'Válaszd ki a kívánt országokat:',
-                        choices: countryChoices,
-                        pageSize: 15,
-                        validate: (answer) => {
-                            if (answer.length < 1) {
-                                return 'Legalább egy országot ki kell választanod!';
-                            }
-                            return true;
-                        }
-                    }]);
-                logger.info(`Selected ${selectedCountries.length} countries.`);
-
-                console.log(`\n✅ ${
-                    selectedCountries.length
-                } ország kiválasztva.\n`);
-
-                // Ligák felfedezése és kiválasztása
-                const finalSelection = [];
-
-                for (const country of selectedCountries) {
-                    console.log(`🏆 ${
-                        country.displayName
-                    } ligáinak felfedezése...`);
-
-                    logger.info(`Attempting to load leagues from cache for ${country.displayName}...`);
-                    let leagues = await cacheManager.loadLeaguesFromCache(country.name);
-
-                    // Ha nincs cache vagy elavult, akkor felfedezzük a ligákat
-                    if (! leagues) {
-                        logger.info(`Cache miss or outdated for ${country.displayName}. Discovering leagues...`);
-                        leagues = await discovery.discoverCountryLeagues(country.name);
-
-                        // Csak akkor mentjük a cache-be, ha találtunk ligákat
-                        if (leagues && leagues.length > 0) {
-                            await cacheManager.saveLeaguesToCache(country.name, leagues);
-                            logger.info(`Leagues discovered and saved to cache for ${country.displayName}.`);
-                        }
-                    } else {
-                        logger.info(`Leagues loaded from cache for ${country.displayName}.`);
-                    }
-
-                    if (leagues.length === 0) {
-                        console.log(`❌ Nem találhatók ligák ${
-                            country.displayName
-                        } országban.\n`);
-                        continue;
-                    }
-
-                    // Ligák információkkal való kiegészítése
-                    const existingCountryData = existingData[country.name];
-                    const leaguesWithInfo = leagues.map(league => {
-                        const existingLeague = existingCountryData ?. leagues.find(l => l.name === league.name || l.name.includes(league.name) || league.name.includes(l.name));
-
-                        return {
-                            ...league,
-                            existing: existingLeague || null
-                        };
-                    });
-
-                    // Szűrési opciók ligákhoz
-                    const newLeagues = leaguesWithInfo.filter(l => !l.existing);
-                    const oldLeagues = leaguesWithInfo.filter(l => l.existing);
-
-                    let leagueChoices = [{
-                            name: `🌟 ÖSSZES LIGA (${
-                                leagues.length
-                            } db)`,
-                            value: 'ALL',
-                            short: 'Összes liga'
-                        }];
-
-                    if (newLeagues.length > 0) {
-                        leagueChoices.push({name: `🆕 ÚJ LIGÁK (${
-                                newLeagues.length
-                            } db)`, value: 'NEW', short: 'Új ligák'});
-                    }
-
-                    if (oldLeagues.length > 0) {
-                        leagueChoices.push({name: `🔄 MEGLÉVŐ LIGÁK (${
-                                oldLeagues.length
-                            } db)`, value: 'EXISTING', short: 'Meglévő ligák'});
-                    }
-
-                    leagueChoices.push(new inquirer.Separator('--- Egyedi ligák ---'));
-
-                    leagueChoices.push(... leaguesWithInfo.map(league => {
-                        let name = `⚽ ${
-                            league.displayName
-                        }`;
-                        if (league.existing) {
-                            const daysSinceUpdate = league.existing.lastUpdated ? Math.floor((new Date() - league.existing.lastUpdated) / (1000 * 60 * 60 * 24)) : null;
-
-                            name += ` (${
-                                league.existing.matches
-                            } meccs`;
-                            if (daysSinceUpdate !== null) {
-                                if (daysSinceUpdate === 0) {
-                                    name += `, ma frissítve)`;
-                                } else {
-                                    name += `, ${daysSinceUpdate} napja frissítve)`;
-                                }
-                            } else {
-                                name += ')';
-                            }
-                        } else {
-                            name += ' 🆕';
-                        }
-
-                        return {name: name, value: league, short: league.displayName};
-                    }));
-
-                    logger.info(`Prompting for leagues in ${country.displayName}...`);
-                    const {selectedLeagues} = await inquirer.prompt([{
-                            type: 'checkbox',
-                            name: 'selectedLeagues',
-                            message: `Válaszd ki a ligákat ${
-                                country.displayName
-                            } országból:`,
-                            choices: leagueChoices,
-                            pageSize: 20
-                        }]);
-
-                    // Kiválasztás feldolgozása
-                    let leaguesToAdd = [];
-
-                    if (selectedLeagues.includes('ALL')) {
-                        leaguesToAdd = leagues;
-                    } else if (selectedLeagues.includes('NEW')) {
-                        leaguesToAdd = newLeagues;
-                    } else if (selectedLeagues.includes('EXISTING')) {
-                        leaguesToAdd = oldLeagues;
-                    } else {
-                        leaguesToAdd = selectedLeagues.filter(l => typeof l === 'object');
-                    }
-
-                    if (leaguesToAdd.length > 0) {
-                        // Szezon kiválasztás
-                        const {getAvailableSeasons} = await import ('./scraper/matchScraper.js');
-                        const seasonsForLeague = {};
-
-                        for (const league of leaguesToAdd) {
-                            console.log(`
-⏳ Szezonok lekérése ${country.displayName} - ${league.displayName} ligához...`);
-                            const availableSeasons = await getAvailableSeasons(browser, country.name, league.name);
-
-                            if (availableSeasons.length === 0) {
-                                console.log(`❌ Nincs elérhető szezon ${league.displayName} ligához.`);
-                                continue;
-                            }
-
-                            const seasonChoices = availableSeasons.map(s => ({name: s, value: s}));
-                            const {selectedSeason} = await inquirer.prompt([{
-                                    type: 'list',
-                                    name: 'selectedSeason',
-                                    message: `Válaszd ki a szezont ${league.displayName} ligához:`, 
-                                    choices: seasonChoices,
-                                    default: seasonChoices[0].value
-                                }]);
-                            seasonsForLeague[league.name] = selectedSeason;
-                        }
-
-                        finalSelection.push({country: country, leagues: leaguesToAdd, seasons: seasonsForLeague, mode: 'selected'});
-                        console.log(`✅ ${
-                            country.displayName
-                        }: ${
-                            leaguesToAdd.length
-                        } liga kiválasztva\n`);
-                    } else {
-                        console.log(`⚠️ ${
-                            country.displayName
-                        }: Nincs liga kiválasztva\n`);
-                    }
-                }
-
-                await browser.close();
-
-                if (finalSelection.length === 0) {
-                    console.log('❌ Nincs kiválasztott liga. Kilépés.');
-                    return;
-                }
-
-                // Végső összefoglaló
-                console.log('📋 VÉGSŐ KIVÁLASZTÁS:');
-                console.log('=====================');
-                let totalLeagues = 0;
-                let newLeaguesCount = 0;
-
-                finalSelection.forEach(selection => {
-                        console.log(`${
-                            selection.country.flag
-                        } ${
-                            selection.country.displayName
-                        }:`);
-                        selection.leagues.forEach(league => {
-                                const isNew = !league.existing;
-                                const icon = isNew ? '🆕' : '🔄';
-                                const season = selection.seasons[league.name];
-                                console.log(`   ${icon} ${
-                                    league.displayName
-                                } (Szezon: ${season})`);
-                                if (isNew) 
-                                    newLeaguesCount++;
-                                }
-                            );
-                            totalLeagues += selection.leagues.length;
-                        }
-                    );
-
-                    console.log(`\n📊 Összesen: ${
-                        finalSelection.length
-                    } ország, ${totalLeagues} liga`);
-                    console.log(`🆕 Új ligák: ${newLeaguesCount}`);
-                    console.log(`🔄 Frissítendő ligák: ${
-                        totalLeagues - newLeaguesCount
-                    }\n`);
-
-                    // Megerősítés és indítás
-                        logger.info('Prompting to start scraping...');
-                        const {shouldStart} = await inquirer.prompt([{
-                            type: 'confirm',
-                            name: 'shouldStart',
-                            message: 'Elindítsuk a scraping-et ezekkel a beállításokkal?',
-                            default: true
-                        }]);
-
-                    if(shouldStart) {
-                        await this.startCustomScraping(finalSelection);
-                    } else {
-                        console.log('❌ Scraping megszakítva.');
-                    }
-
-                } catch (error) {
-                    console.error('❌ Hiba az interaktív kiválasztás során:', error.message);
-                }
-            }
-
-            /**
-   * Egyedi scraping indítása a kiválasztott országokkal/ligákkal
-   */
-            async startCustomScraping(selection) {
-                console.log('🚀 Egyedi scraping indítása...\n');
-
-                try { // Create a custom scraper configuration
-                    const customConfig = {
-                        TARGET_LEAGUES: []
-                    };
-
-                    // Convert selection to config format
-                    selection.forEach(item => {
-                        const leagueNames = item.leagues.map(league => league.name);
-                        const seasons = item.seasons;
-                        customConfig.TARGET_LEAGUES.push({country: item.country.name, leagues: leagueNames, seasons: seasons});
-                    });
-
-                    // Create a custom scraper with the new configuration
-                    const customScraper = new AutomatedScraper();
-
-                    // Override the config temporarily
-                    const originalConfig = {
-                        ...CONFIG
-                    };
-                    Object.assign(CONFIG, {
-                        ...CONFIG,
-                        ... customConfig
-                    });
-
-                    // Start scraping
-                    await customScraper.start();
-
-                    // Restore original config
-                    Object.assign(CONFIG, originalConfig);
-
-                    console.log('\n✅ Egyedi scraping befejezve!');
-
-                } catch (error) {
-                    console.error('❌ Hiba az egyedi scraping során:', error.message);
-                }
-            }
-
-            /**
-   * Liga felfedezés indítása
-   */
-            async startDiscovery() {
-                console.log('🔍 Liga felfedezés indítása...\n');
-
-                try { // Import the new CountryDiscovery class
-                    const {CountryDiscovery} = await import ('./scraper/countryDiscovery.js');
-                    const {createBrowser} = await import ('./scraper/browser.js');
-
-                    const browser = await createBrowser();
-                    const discovery = new CountryDiscovery(browser);
-
-                    // Discover available countries
-                    const countries = await discovery.discoverAvailableCountries();
-
+                if (leagues.length > 0) {
                     console.log(`\n✅ ${
-                        countries.length
-                    } ország felfedezve:`);
-                    countries.forEach(country => {
-                        console.log(`  🏴 ${
-                            country.displayName
+                        leagues.length
+                    } liga találva ${
+                        firstCountry.displayName
+                    } országban:`);
+                    leagues.forEach(league => {
+                        console.log(`  ⚽ ${
+                            league.displayName
                         } (${
-                            country.name
+                            league.name
                         })`);
                     });
-
-                    // Optionally discover leagues for the first few countries
-                    if (countries.length > 0) {
-                        console.log('\n🏆 Liga felfedezés az első országban...');
-                        const firstCountry = countries[0];
-                        const leagues = await discovery.discoverCountryLeagues(firstCountry.name);
-
-                        if (leagues.length > 0) {
-                            console.log(`\n✅ ${
-                                leagues.length
-                            } liga találva ${
-                                firstCountry.displayName
-                            } országban:`);
-                            leagues.forEach(league => {
-                                console.log(`  ⚽ ${
-                                    league.displayName
-                                } (${
-                                    league.name
-                                })`);
-                            });
-                        }
-                    }
-
-                    await browser.close();
-                } catch (error) {
-                    console.error('❌ Hiba a felfedezés során:', error.message);
                 }
             }
 
-            /**
+            await browser.close();
+        } catch (error) {
+            console.error('❌ Hiba a felfedezés során:', error.message);
+        }
+    }
+
+    /**
    * Átfogó scraping indítása
    */
-            async startComprehensive() {
-                console.log('🌟 ÁTFOGÓ SCRAPING indítása - Minden elérhető adat...\n');
-                console.log('⚠️  FIGYELEM: Ez több órát is igénybe vehet!');
-                console.log('⚠️  A folyamat lassan halad az IP védelem miatt.\n');
+    async startComprehensive() {
+        console.log('🌟 ÁTFOGÓ SCRAPING indítása - Minden elérhető adat...\n');
+        console.log('⚠️  FIGYELEM: Ez több órát is igénybe vehet!');
+        console.log('⚠️  A folyamat lassan halad az IP védelem miatt.\n');
 
-                const comprehensiveScraper = new ComprehensiveScraper();
-                await comprehensiveScraper.startComprehensiveScraping();
-            }
+        const comprehensiveScraper = new ComprehensiveScraper();
+        await comprehensiveScraper.startComprehensiveScraping();
+    }
 
-            /**
+    /**
    * ML datasetek generálása
    */
-            async generateMLDatasets() {
-                console.log('🤖 ML datasetek generálása...\n');
+    async generateMLDatasets() {
+        console.log('🤖 ML datasetek generálása...\n');
 
-                try {
-                    const {MLDataProcessor} = await import ('./utils/mlDataProcessor.js');
-                    await MLDataProcessor.generateAllMLDatasets();
-                    console.log('\n✅ ML datasetek sikeresen generálva!');
-                    console.log('📁 Keresés: scraped_data/*/*/*_ml_dataset.csv');
-                } catch (error) {
-                    console.error('❌ Hiba az ML datasetek generálása során:', error.message);
-                }
-            }
+        try {
+            const {MLDataProcessor} = await import ('./utils/mlDataProcessor.js');
+            await MLDataProcessor.generateAllMLDatasets();
+            console.log('\n✅ ML datasetek sikeresen generálva!');
+            console.log('📁 Keresés: scraped_data/*/*/*_ml_dataset.csv');
+        } catch (error) {
+            console.error('❌ Hiba az ML datasetek generálása során:', error.message);
+        }
+    }
 
-            /**
+    /**
    * Cache frissítése
    */
-            async refreshCache() {
+    async refreshCache() {
         console.log('🔄 Cache frissítése...');
 
         try {
@@ -851,7 +524,7 @@ class CLI {
         }
     }
 
-            async showCacheStatus() {
+    async showCacheStatus() {
         console.log('📋 CACHE ÁLLAPOT');
         console.log('===============');
 
@@ -893,32 +566,32 @@ class CLI {
   /**
    * Súgó megjelenítése
    */
-            showHelp() {
-                console.log('🎯 BettingMentor Automatizált Flashscore Scraper');
-                console.log('================================================\n');
+    showHelp() {
+        console.log('🎯 BettingMentor Automatizált Flashscore Scraper');
+        console.log('================================================\n');
 
-                console.log('HASZNÁLAT:');
-                console.log('  node src/cli.js <parancs>\n');
+        console.log('HASZNÁLAT:');
+        console.log('  node src/cli.js <parancs>\n');
 
-                console.log('PARANCSOK:');
-                console.log('  start         🚀 Scraping indítása (konfigurált ligák)');
-                console.log('  select        🎯 Interaktív ország/liga kiválasztás');
-                console.log('  comprehensive 🌟 MINDEN elérhető adat letöltése');
-                console.log('  discover      🔍 Elérhető országok/ligák felfedezése');
-                console.log('  ml-dataset    🤖 ML datasetek generálása (JSON→CSV)');
-                console.log('  refresh-cache 🔄 Országok és ligák cache frissítése');
-                console.log('  cache-status  📋 Cache állapot megjelenítése');
-                console.log('  status        📊 Aktuális státusz');
-                console.log('  config        ⚙️  Konfiguráció megjelenítése');
-                console.log('  stats         📈 Adatgyűjtési statisztikák');
-                console.log('  clean         🧹 Összes adat törlése');
-                console.log('  help          ❓ Ez a súgó\n');
+        console.log('PARANCSOK:');
+        console.log('  start         🚀 Scraping indítása (konfigurált ligák)');
+        console.log('  select        🎯 Interaktív ország/liga kiválasztás');
+        console.log('  comprehensive 🌟 MINDEN elérhető adat letöltése');
+        console.log('  discover      🔍 Elérhető országok/ligák felfedezése');
+        console.log('  ml-dataset    🤖 ML datasetek generálása (JSON→CSV)');
+        console.log('  refresh-cache 🔄 Országok és ligák cache frissítése');
+        console.log('  cache-status  📋 Cache állapot megjelenítése');
+        console.log('  status        📊 Aktuális státusz');
+        console.log('  config        ⚙️  Konfiguráció megjelenítése');
+        console.log('  stats         📈 Adatgyűjtési statisztikák');
+        console.log('  clean         🧹 Összes adat törlése');
+        console.log('  help          ❓ Ez a súgó\n');
 
-                console.log('PÉLDÁK:');
-                console.log('  node src/cli.js start');
-                console.log('  node src/cli.js select');
-                console.log('  node src/cli.js refresh-cache\n');
-            }
+        console.log('PÉLDÁK:');
+        console.log('  node src/cli.js start');
+        console.log('  node src/cli.js select');
+        console.log('  node src/cli.js refresh-cache\n');
+    }
 
   /**
    * Adatstatisztikák számítása

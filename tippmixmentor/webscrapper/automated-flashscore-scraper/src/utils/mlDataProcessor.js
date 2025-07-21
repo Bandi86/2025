@@ -124,31 +124,52 @@ export class MLDataProcessor {
   /**
    * ML dataset generálása egy ligából
    */
-  static async generateMLDataset(country, league, season = '2024-2025') {
+  static async generateMLDataset(country, leagueName) { // Removed season parameter
     try {
-      const jsonPath = path.join('./scraped_data', country, league, season);
-      const files = await fs.readdir(jsonPath);
+      const leaguePath = path.join('./scraped_data', country, leagueName);
       
+      if (!await fs.pathExists(leaguePath)) {
+        logger.warn(`A liga mappa nem található: ${leaguePath}`);
+        return;
+      }
+
+      const seasons = await fs.readdir(leaguePath);
       let allMLData = [];
-      
-      for (const file of files) {
-        if (file.endsWith('.json')) {
-          const filePath = path.join(jsonPath, file);
-          const jsonData = await fs.readJson(filePath);
-          const mlData = this.convertToMLFormat(jsonData);
-          allMLData = allMLData.concat(mlData);
+      let hasData = false;
+
+      for (const season of seasons) {
+        const seasonPath = path.join(leaguePath, season);
+        const files = await fs.readdir(seasonPath);
+        
+        for (const file of files) {
+          if (file.endsWith('.json')) {
+            const filePath = path.join(seasonPath, file);
+            try {
+              const jsonData = await fs.readJson(filePath);
+              const mlData = this.convertToMLFormat(jsonData);
+              allMLData = allMLData.concat(mlData);
+              hasData = true;
+            } catch (jsonError) {
+              logger.error(`Hiba a JSON fájl olvasásakor: ${filePath}`, jsonError);
+            }
+          }
         }
       }
       
-      // CSV mentése
-      const csvPath = path.join(jsonPath, `${league}_ml_dataset.csv`);
-      await this.saveAsCSV(allMLData, csvPath);
-      
-      logger.info(`ML dataset generálva: ${csvPath} (${allMLData.length} meccs)`);
-      return csvPath;
+      if (hasData) {
+        // CSV mentése
+        const csvPath = path.join(leaguePath, `${leagueName}_ml_dataset.csv`);
+        await this.saveAsCSV(allMLData, csvPath);
+        
+        logger.info(`ML dataset generálva: ${csvPath} (${allMLData.length} meccs)`);
+        return csvPath;
+      } else {
+        logger.warn(`Nincs feldolgozható JSON adat a(z) ${leaguePath} mappában.`);
+        return null;
+      }
       
     } catch (error) {
-      logger.error('Hiba az ML dataset generálása során:', error);
+      logger.error(`Hiba az ML dataset generálása során (${country}/${leagueName}):`, error);
       throw error;
     }
   }
@@ -198,6 +219,7 @@ export class MLDataProcessor {
       
       for (const league of leagues) {
         try {
+          // Pass only country and leagueName, as generateMLDataset now iterates seasons
           await this.generateMLDataset(country, league);
         } catch (error) {
           logger.error(`Hiba ML dataset generálása során: ${country}/${league}`, error);

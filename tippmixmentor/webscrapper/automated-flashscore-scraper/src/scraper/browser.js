@@ -90,10 +90,18 @@ export const waitForSelectorSafe = async (page, selector, timeout = CONFIG.TIMEO
 export const waitAndClick = async (page, selector) => {
   try {
     await page.waitForSelector(selector, { timeout: CONFIG.TIMEOUT });
+    // Add scrollIntoView and a small delay before clicking
+    await page.evaluate((sel) => {
+      const element = document.querySelector(sel);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+      }
+    }, selector);
+    await delay(500); // Small delay after scrolling
     await page.click(selector);
     return true;
   } catch (error) {
-    logger.debug(`Kattintás sikertelen: ${selector}`);
+    logger.debug(`Kattintás sikertelen: ${selector} (Error: ${error.message})`);
     return false;
   }
 };

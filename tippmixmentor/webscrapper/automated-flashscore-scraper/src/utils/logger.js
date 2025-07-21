@@ -2,6 +2,7 @@ import winston from 'winston';
 import { CONFIG } from '../config/index.js';
 import fs from 'fs-extra';
 import path from 'path';
+import chalk from 'chalk';
 
 // Log könyvtár létrehozása
 const logDir = path.dirname(CONFIG.LOG_FILE);
@@ -25,10 +26,21 @@ export const logger = winston.createLogger({
     }),
     new winston.transports.Console({
       format: winston.format.combine(
-        winston.format.colorize(),
-        winston.format.simple(),
         winston.format.printf(({ timestamp, level, message, ...meta }) => {
-          return `${timestamp} [${level}]: ${message} ${Object.keys(meta).length ? JSON.stringify(meta, null, 2) : ''}`;
+          const levelUpper = level.toUpperCase();
+          let levelColor;
+          switch (levelUpper) {
+            case 'ERROR': levelColor = chalk.red.bold(levelUpper); break;
+            case 'WARN': levelColor = chalk.yellow.bold(levelUpper); break;
+            case 'INFO': levelColor = chalk.green.bold(levelUpper); break;
+            case 'DEBUG': levelColor = chalk.blue.bold(levelUpper); break;
+            default: levelColor = chalk.white(levelUpper);
+          }
+
+          const coloredTimestamp = chalk.gray(timestamp);
+          const coloredMessage = level === 'info' ? chalk.bold(message) : message;
+
+          return `${coloredTimestamp} [${levelColor}]: ${coloredMessage} ${Object.keys(meta).length ? JSON.stringify(meta, null, 2) : ''}`;
         })
       )
     })

@@ -25,7 +25,6 @@ export const createOutputPath = (country, league, season) => {
  * @param {Object} data - Mentendő adatok
  * @param {string} country - Ország
  * @param {string} league - Liga
- * @param {string} season - Szezon
  * @param {string} filename - Fájl név
  */
 export const saveDataToFile = async (data, country, league, season, filename) => {
@@ -43,12 +42,12 @@ export const saveDataToFile = async (data, country, league, season, filename) =>
       await fs.writeFile(filePath, csvContent);
     }
     
-    logger.info(`Adatok mentve: ${filePath}`, { 
-      country, 
-      league, 
-      season, 
+    logger.info(`Adatok mentve: ${filePath}`, {
+      country,
+      league,
+      season,
       filename,
-      recordCount: Object.keys(data).length 
+      recordCount: Object.keys(data).length
     });
     
     return filePath;
@@ -62,11 +61,10 @@ export const saveDataToFile = async (data, country, league, season, filename) =>
  * Ellenőrzi, hogy a fájl már létezik-e
  * @param {string} country - Ország
  * @param {string} league - Liga  
- * @param {string} season - Szezon
  * @param {string} filename - Fájl név
  */
-export const fileExists = async (country, league, season, filename) => {
-  const outputPath = createOutputPath(country, league, season);
+export const fileExists = async (country, league, filename) => {
+  const outputPath = createOutputPath(country, league);
   const filePath = path.join(outputPath, `${filename}.${CONFIG.FILE_FORMAT}`);
   return await fs.pathExists(filePath);
 };
@@ -75,12 +73,11 @@ export const fileExists = async (country, league, season, filename) => {
  * Meglévő adatok betöltése (inkrementális scraping-hez)
  * @param {string} country - Ország
  * @param {string} league - Liga
- * @param {string} season - Szezon  
  * @param {string} filename - Fájl név
  */
-export const loadExistingData = async (country, league, season, filename) => {
+export const loadExistingData = async (country, leagueName, seasonName, filename) => { // Added seasonName
   try {
-    const outputPath = createOutputPath(country, league, season);
+    const outputPath = createOutputPath(country, leagueName, seasonName); // Pass seasonName
     const filePath = path.join(outputPath, `${filename}.${CONFIG.FILE_FORMAT}`);
     
     if (await fs.pathExists(filePath)) {

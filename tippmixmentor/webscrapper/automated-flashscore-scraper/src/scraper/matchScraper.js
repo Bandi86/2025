@@ -10,100 +10,152 @@ import { analyzeHtmlStructure, findAllSelectors } from '../utils/debugTools.js';
  * @param {string} country - Ország neve
  * @param {string} league - Liga neve
  */
-export const getMatchIdList = async (browser, country, league) => {
-  const leagueUrl = `${CONFIG.BASE_URL}/football/${country}/${league}/results`;
-  logger.info(`Meccs ID-k lekérése: ${leagueUrl}`);
+export const getMatchIdList = async (browser, seasonUrl) => {
+  logger.info(`Meccs ID-k lekérése: ${seasonUrl}`);
   
   try {
-    const page = await openPageAndNavigate(browser, leagueUrl);
+    const page = await openPageAndNavigate(browser, seasonUrl);
     
-    // Get current season from URL
-    const currentSeason = page.url().match(/\/([0-9]{4}-[0-9]{4})\/results/)?.[1] || '2024-2025';
+    await delay(3000, 'Initial page load wait');
 
-    // "Show more" gombok kattintása az összes meccs betöltéséhez
-    let clickCount = 0;
-    while (clickCount < 50) { // Maximum 50 kattintás a végtelen ciklus elkerülésére
-      const clicked = await waitAndClick(page, 'a.event__more.event__more--static');
-      if (!clicked) break;
-      
-      clickCount++;
-      await randomDelay(1000, 3000, 'Show more button delay');
-      
-      if (clickCount % 10 === 0) {
-        logger.info(`${clickCount} "Show more" gomb megnyomva`);
-      }
-    }
+    const currentSeason = seasonUrl.match(/\/(\d{4}-\d{4})\/results/)?.[1] || 'unknown-season';
+
     
-    // Meccsek várakozása - frissített selectorok
-    const matchSelectors = [
-      '.event__match.event__match--static.event__match--twoLine',
-      '.event__match--static',
-      '.event__match',
-      '[id^="g_1_"]'
-    ];
+
     
-    let selectorFound = false;
-    for (const selector of matchSelectors) {
-      const found = await waitForSelectorSafe(page, selector, 5000);
-      if (found) {
-        logger.info(`Meccs selector találva: ${selector}`);
-        selectorFound = true;
+
+    while (attempts < maxAttempts) {
+      const initialMatchCount = await page.evaluate((selector) => {
+        return document.querySelectorAll(selector).length;
+      }, matchElementSelector);
+
+      const clicked = await waitAndClick(page, showMoreSelector);
+      if (!clicked) {
+        logger.debug('"Show more" button not found or no more matches to load.');
         break;
       }
-    }
-    
-    if (!selectorFound) {
-      logger.warn(`Nem találhatók meccs selectorok: ${country}/${league}`);
       
-      // Debug eszközök használata a HTML struktúra elemzéséhez
-      await page.screenshot({ path: `debug_${country}_${league}.png` });
-      logger.info(`Debug képernyőkép mentve: debug_${country}_${league}.png`);
-      
-      // HTML struktúra elemzése
-      await analyzeHtmlStructure(page, 'body', `${country}_${league}_structure`);
-      
-      // Meccs és esemény selectorok keresése
-      await findAllSelectors(page, 'match', `${country}_${league}_match_selectors`);
-      await findAllSelectors(page, 'event', `${country}_${league}_event_selectors`);
-      
-      logger.info(`HTML struktúra elemzés befejezve: ${country}/${league}`);
-    }
-    
-    const matchIdList = await page.evaluate(() => {
-      // Több selector próbálása
-      const selectors = [
-        '.event__match.event__match--static.event__match--twoLine',
-        '.event__match--static',
-        '.event__match',
-        '[id^="g_1_"]'
-      ];
-      
-      let elements = [];
-      for (const selector of selectors) {
-        elements = Array.from(document.querySelectorAll(selector));
-        if (elements.length > 0) {
-          console.log(`Selector találva: ${selector} (${elements.length} db)`);
+      // Wait for a network response that indicates new data is loaded
+      // This is a more reliable way to detect content loading than DOM changes
+      let responseReceived = false;
+      try {
+        const responsePromise = page.waitForResponse(response => 
+          response.url().includes('/x/feed/d_match_') && response.status() === 200,
+          { timeout: CONFIG.TIMEOUT }
+        );
+        await Promise.race([
+          responsePromise,
+          delay(CONFIG.TIMEOUT / 2) // Don't wait too long for response if it's not coming
+        ]);
+        responseReceived = true;
+      } catch (e) {
+        logger.debug(`No relevant network response received within timeout: ${e.message}`);
+      }
+
+      // Even if no response, wait a bit for DOM to update
+      await randomDelay(1000, 2000, 'Waiting for DOM update after click'); 
+
+      const currentMatchCount = await page.evaluate((selector) => {
+        return document.querySelectorAll(selector).length;
+      }, matchElementSelector);
+
+      if (currentMatchCount === initialMatchCount) {
+        noNewMatchesCount++;
+        logger.debug(`No new matches loaded. Consecutive attempts without new matches: ${noNewMatchesCount}`);
+        if (noNewMatchesCount >= maxNoNewMatchesAttempts) {
+          logger.info('Stopped clicking "Show more" button after multiple attempts with no new matches.');
           break;
         }
+      } else {
+        noNewMatchesCount = 0; // Reset counter if new matches were loaded
+        logger.debug(`Matches increased from ${initialMatchCount} -> ${currentMatchCount}`);
+      }
+
+      attempts++;
+      if (attempts % 10 === 0) {
+        logger.info(`${attempts} "Show more" gomb megnyomva`);
+      }
+    }
+
+    if (attempts >= maxAttempts) {
+      logger.warn(`Elérte a maximális próbálkozási számot (${maxAttempts}) a "Show more" gombra. Lehet, hogy nem minden meccs lett betöltve.`);
+    }
+    
+
+    while (attempts < maxAttempts) {
+      const initialMatchCount = await page.evaluate((selector) => {
+        return document.querySelectorAll(selector).length;
+      }, matchElementSelector);
+
+      const clicked = await waitAndClick(page, showMoreSelector);
+      if (!clicked) {
+        logger.debug('"Show more" button not found or no more matches to load.');
+        break;
       }
       
-      return elements.map((element) => {
-        const id = element?.id;
-        if (id && id.startsWith('g_1_')) {
-          return id.replace('g_1_', '');
+      // Wait for a network response that indicates new data is loaded
+      // This is a more reliable way to detect content loading than DOM changes
+      let responseReceived = false;
+      try {
+        const responsePromise = page.waitForResponse(response => 
+          response.url().includes('/x/feed/d_match_') && response.status() === 200,
+          { timeout: CONFIG.TIMEOUT }
+        );
+        await Promise.race([
+          responsePromise,
+          delay(CONFIG.TIMEOUT / 2) // Don't wait too long for response if it's not coming
+        ]);
+        responseReceived = true;
+      } catch (e) {
+        logger.debug(`No relevant network response received within timeout: ${e.message}`);
+      }
+
+      // Even if no response, wait a bit for DOM to update
+      await randomDelay(1000, 2000, 'Waiting for DOM update after click'); 
+
+      const currentMatchCount = await page.evaluate((selector) => {
+        return document.querySelectorAll(selector).length;
+      }, matchElementSelector);
+
+      if (currentMatchCount === initialMatchCount) {
+        noNewMatchesCount++;
+        logger.debug(`No new matches loaded. Consecutive attempts without new matches: ${noNewMatchesCount}`);
+        if (noNewMatchesCount >= maxNoNewMatchesAttempts) {
+          logger.info('Stopped clicking "Show more" button after multiple attempts with no new matches.');
+          break;
         }
-        return null;
-      }).filter(id => id && id.length > 0);
-    });
+      } else {
+        noNewMatchesCount = 0; // Reset counter if new matches were loaded
+        logger.debug(`Matches increased from ${initialMatchCount} -> ${currentMatchCount}`);
+      }
+
+      attempts++;
+      if (attempts % 10 === 0) {
+        logger.info(`${attempts} "Show more" gomb megnyomva`);
+      }
+    }
+
+    if (attempts >= maxAttempts) {
+      logger.warn(`Elérte a maximális próbálkozási számot (${maxAttempts}) a "Show more" gombra. Lehet, hogy nem minden meccs lett betöltve.`);
+    }
+
+    const matchSelector = '.event__match--static[id^="g_1_"]';
+    await waitForSelectorSafe(page, matchSelector, 5000);
+    
+    const matchIdList = await page.evaluate((selector) => {
+      return Array.from(document.querySelectorAll(selector)).map((element) => 
+        element.id.replace('g_1_', '')
+      );
+    }, matchSelector);
     
     await page.close();
     
-    logger.info(`${matchIdList.length} meccs ID lekérve: ${country}/${league}`);
+    logger.info(`${matchIdList.length} meccs ID lekérve a ${seasonUrl} oldalról.`);
     return { matchIds: matchIdList, season: currentSeason };
     
   } catch (error) {
-    logger.error(`Hiba a meccs ID-k lekérésekor: ${country}/${league}`, error);
-    return { matchIds: [], season: '2024-2025' };
+    logger.error(`Hiba a meccs ID-k lekérésekor: ${seasonUrl}`, error);
+    return { matchIds: [], season: 'unknown-season' };
   }
 };
 
@@ -113,27 +165,35 @@ export const getMatchIdList = async (browser, country, league) => {
  * @param {string} country - Ország neve
  * @param {string} league - Liga neve
  */
-export const getAvailableSeasons = async (browser, country, league) => {
-  const leagueUrl = `${CONFIG.BASE_URL}/football/${country}/${league}/results`;
+export const getAvailableSeasons = async (browser, leagueUrl) => {
   logger.info(`Szezonok lekérése: ${leagueUrl}`);
 
   try {
     const page = await openPageAndNavigate(browser, leagueUrl);
 
     // Várjuk meg a szezonválasztó elemet
-    await waitForSelectorSafe(page, '.team-season-selector');
+    // Flashscore uses a specific structure for season archives, usually under a /archive path
+    // We need to navigate to the archive page first if not already there.
+    if (!page.url().includes('/archive')) {
+      await page.goto(`${leagueUrl}archive`, { waitUntil: 'domcontentloaded' });
+    }
+
+    await waitForSelectorSafe(page, 'div.archive__season > a', CONFIG.TIMEOUT);
 
     const seasons = await page.evaluate(() => {
-      const seasonElements = document.querySelectorAll('.team-season-selector a');
-      return Array.from(seasonElements).map(el => el.textContent.trim());
+      const seasonElements = document.querySelectorAll('div.archive__season > a');
+      return Array.from(seasonElements).map(el => ({
+        name: el.innerText.trim(),
+        url: el.href // The href attribute already contains the full URL for the season
+      }));
     });
 
     await page.close();
-    logger.info(`${seasons.length} szezon lekérve: ${country}/${league}`);
+    logger.info(`${seasons.length} szezon lekérve a ${leagueUrl} ligához.`);
     return seasons;
 
   } catch (error) {
-    logger.error(`Hiba a szezonok lekérésekor: ${country}/${league}`, error);
+    logger.error(`Hiba a szezonok lekérésekor a ${leagueUrl} ligához:`, error);
     return [];
   }
 };
