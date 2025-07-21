@@ -1,1 +1,29 @@
-esetleg a backend mappaba letre lehetne hozni egy uj modult ami egy ilyen megfigyelo modul lenne, ami arra szolgalna hogy a meccseket ellenorizze hogy nincs e hiba egy ellenorzo botra gondoltam. ami kepes szurni az esetleg rosszul bevitt adatot, es kepes osszesiteni hogy hol hianyik az odds a vegeredmeny hogy nyomon lehessen kovetni tisztan az adatbazis adatokat. 
+esetleg a backend mappaba letre lehetne hozni egy uj modult ami egy ilyen megfigyelo modul lenne, ami arra szolgalna hogy a meccseket ellenorizze hogy nincs e hiba egy ellenorzo botra gondoltam. ami kepes szurni az esetleg rosszul bevitt adatot, es kepes osszesiteni hogy hol hianyik az odds a vegeredmeny hogy nyomon lehessen kovetni tisztan az adatbazis adatokat.
+
+
+Analyze existing db-debugger module structure
+Design core database monitoring interfaces and types
+Implement real-time query monitoring with execution time tracking
+Add query plan analysis and performance bottleneck identification
+Create connection pool monitoring service
+Implement transaction state tracking
+Add deadlock detection capabilities
+Create automated query optimization suggestions engine
+Implement configurable slow query logging
+Add database schema validation
+Create index usage analysis
+Implement memory consumption tracking
+Design web-based dashboard API endpoints
+Create database metrics visualization endpoints
+Add support for multiple database engines (PostgreSQL, MySQL, MongoDB)
+Implement SQL query formatting and syntax highlighting
+Add database migration tracking
+Create automated backup verification
+Implement real-time alerts system
+Add custom performance rules engine
+Create REST API integration endpoints
+Add webhook support for external monitoring tools
+Create comprehensive dashboard frontend components
+Add configuration management
+Implement comprehensive testing
+Add documentation and usage examples

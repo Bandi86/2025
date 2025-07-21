@@ -80,6 +80,7 @@ Thumbs.db
 
 .vscode
 .kiro
+.kilocode
 
 #webscrapper
 webscrapper/src/sofascore/jsons
