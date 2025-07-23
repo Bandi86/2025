@@ -5,4 +5,6 @@ temp
 models/
 */models/
 **/models/
-
+.venv
+.vscode
+.env
