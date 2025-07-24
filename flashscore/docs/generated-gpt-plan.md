@@ -1,7 +1,3 @@
-Természetesen! Itt van az általad megadott szöveg szépen formázva, részletezve, tagoltan egy `README.md` vagy technikai dokumentáció formátumában, Markdown nyelven:
-
----
-
 # ⚽ Flashscore Intelligent Scraper System
 
 A proposal for building a modular, intelligent scraping system to collect football data from [Flashscore.com](https://www.flashscore.com), including historical, live, and upcoming matches.

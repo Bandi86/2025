@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/app.js",
+    "test": "jest",
+    "test:models": "jest src/storage/models/__tests__",
+    "test:setup": "node test-setup.js",
+    "dev": "NODE_ENV=development node src/app.js"
   },
   "keywords": [],
   "author": "",
@@ -14,10 +18,18 @@
     "axios": "^1.10.0",
     "bull": "^4.16.5",
     "cheerio": "^1.1.2",
+    "dotenv": "^17.2.0",
     "fetch": "^1.1.0",
     "node": "^20.19.4",
     "node-cron": "^4.2.1",
     "playwright": "^1.54.1",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "uuid": "^11.1.0",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "chai": "^5.2.1",
+    "jest": "^30.0.5",
+    "mocha": "^11.7.1"
   }
 }
