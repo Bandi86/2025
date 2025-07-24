@@ -1,68 +1,67 @@
 // Type definitions for the Flashscore scraper
 
-export interface ScrapingOptions {
-  country: string | null;
-  league: string | null;
-  headless: boolean | 'shell';
-  fileType: 'json' | 'csv' | null;
-}
+// Re-export all core types and interfaces
+export * from './core.js';
+export * from './browser.js';
+export * from './cache.js';
+export * from './errors.js';
+export * from './export.js';
+export * from './logging.js';
 
-export interface Country {
-  id: string;
-  name: string;
-  url: string;
-}
+// Re-export validation types with explicit naming to avoid conflicts
+export type {
+  IValidator,
+  IValidationRule,
+  ISchemaValidator,
+  ValidationResult as ValidationResultType,
+  FieldValidationResult,
+  ValidationError as ValidationErrorType,
+  ValidationWarning,
+  ValidationErrorCode,
+  ValidationWarningCode,
+  ValidationSchema,
+  ValidationRule,
+  CustomValidator,
+  ValidationFieldType,
+  MatchDataValidationSchema,
+  ScrapingOptionsValidationSchema,
+  ValidationUtils,
+  ValidationConfig,
+  ValidationEvent,
+  ValidationEventType,
+  IValidationEventListener
+} from './validation.js';
 
-export interface League {
-  id: string;
-  name: string;
-  url: string;
-}
+// Re-export scraping types with explicit naming to avoid conflicts
+export type {
+  IScrapingService,
+  IMatchScrapingService,
+  ICountryScrapingService,
+  ILeagueScrapingService,
+  ISeasonScrapingService,
+  IBaseScrapingService,
+  ScrapingServiceConfig,
+  SelectorMap,
+  SelectorDefinition,
+  TimeoutConfig,
+  RetryConfig,
+  ValidationRuleSet,
+  ScrapingContext,
+  ScrapingResult,
+  ScrapingMetadata as ScrapingMetadataType,
+  PerformanceMetrics,
+  ScrapingEvent,
+  ScrapingEventType,
+  IScrapingEventListener,
+  IScrapingUtils,
+  ISelectorManager,
+  SelectorValidationResult,
+  IRateLimiter,
+  RateLimitConfig,
+  RateLimitStats
+} from './scraping.js';
 
-export interface Season {
-  id: string;
-  name: string;
-  url: string;
-}
-
-export interface Team {
-  name: string;
-  image?: string;
-}
-
-export interface MatchResult {
-  home: string;
-  away: string;
-  regulationTime?: string;
-  penalties?: string;
-}
-
-export interface MatchInformation {
-  category: string;
-  value: string;
-}
-
-export interface MatchStatistic {
-  category: string;
-  homeValue: string;
-  awayValue: string;
-}
-
-export interface MatchData {
-  stage: string;
-  date: string;
-  status: string;
-  home: Team;
-  away: Team;
-  result: MatchResult;
-  information: MatchInformation[];
-  statistics: MatchStatistic[];
-}
-
-export interface MatchDataCollection {
-  [matchId: string]: MatchData;
-}
-
+// Legacy interfaces for backward compatibility
 export interface ProgressBarOptions {
   total: number;
   format?: string;
@@ -75,3 +74,6 @@ export interface FileWriteOptions {
   fileName: string;
   outputPath: string;
 }
+
+// Import types for re-export
+import { MatchDataCollection } from './core.js';

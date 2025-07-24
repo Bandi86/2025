@@ -1,16 +1,16 @@
 import inquirer from 'inquirer';
+import { Browser } from 'playwright';
+import { getListOfLeagues } from '../../../scraper/services/leagues/index.ts';
+import { start, stop } from '../../loader/index.ts';
+import { League } from '../../../types/index.ts';
 
-import { getListOfLeagues } from '../../../scraper/services/leagues/index.js';
-
-import { start, stop } from '../../loader/index.js';
-
-export const selectLeague = async (browser, countryId) => {
+export const selectLeague = async (countryId: string, browser?: Browser): Promise<League> => {
   start();
-  const leagues = await getListOfLeagues(browser, countryId);
+  const leagues: League[] = await getListOfLeagues(browser, countryId);
   stop();
-  const options = leagues.map((element) => element.name);
+  const options: string[] = leagues.map((element: League) => element.name);
 
-  const { choice } = await inquirer.prompt([
+  const { choice }: { choice: string } = await inquirer.prompt([
     {
       type: 'list',
       name: 'choice',
@@ -24,5 +24,10 @@ export const selectLeague = async (browser, countryId) => {
     process.exit(1);
   }
 
-  return leagues.find((league) => league.name === choice);
+  const selectedLeague: League | undefined = leagues.find((league: League) => league.name === choice);
+  if (!selectedLeague) {
+    throw new Error(`League not found: ${choice}`);
+  }
+
+  return selectedLeague;
 };

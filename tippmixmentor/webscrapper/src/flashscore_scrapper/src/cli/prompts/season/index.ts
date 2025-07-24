@@ -1,16 +1,16 @@
 import inquirer from 'inquirer';
+import { Browser } from 'playwright';
+import { getListOfSeasons } from '../../../scraper/services/seasons/index.ts';
+import { start, stop } from '../../loader/index.ts';
+import { Season } from '../../../types/index.ts';
 
-import { getListOfSeasons } from '../../../scraper/services/seasons/index.js';
-
-import { start, stop } from '../../loader/index.js';
-
-export const selectSeason = async (browser, leagueUrl) => {
+export const selectSeason = async (countryId: string, leagueId: string, browser?: Browser): Promise<Season> => {
   start();
-  const seasons = await getListOfSeasons(browser, leagueUrl);
+  const seasons: Season[] = await getListOfSeasons(browser, countryId, leagueId);
   stop();
-  const options = seasons.map((season) => season.name);
+  const options: string[] = seasons.map((season: Season) => season.name);
 
-  const { choice } = await inquirer.prompt([
+  const { choice }: { choice: string } = await inquirer.prompt([
     {
       type: 'list',
       name: 'choice',
@@ -24,5 +24,10 @@ export const selectSeason = async (browser, leagueUrl) => {
     process.exit(1);
   }
 
-  return seasons.find((season) => season.name === choice);
+  const selectedSeason: Season | undefined = seasons.find((season: Season) => season.name === choice);
+  if (!selectedSeason) {
+    throw new Error(`Season not found: ${choice}`);
+  }
+
+  return selectedSeason;
 };

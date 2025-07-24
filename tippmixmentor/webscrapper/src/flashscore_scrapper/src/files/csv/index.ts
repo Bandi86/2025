@@ -1,9 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 import jsonexport from 'jsonexport';
+import { MatchData, MatchInformation, MatchStatistic } from '../../types/index.ts';
 
-export const writeCsvToFile = (data: any, outputPath: string, fileName: string) => {
-  const filePath = path.join(outputPath, `${fileName}.csv`);
+export const writeCsvToFile = (data: Record<string, MatchData>, outputPath: string, fileName: string): void => {
+  const filePath: string = path.join(outputPath, `${fileName}.csv`);
 
   const csvData = convertDataToCsv(data);
 
@@ -19,17 +20,17 @@ export const writeCsvToFile = (data: any, outputPath: string, fileName: string) 
   });
 };
 
-const convertDataToCsv = (data: any) =>
-  Object.keys(data).map((matchId) => {
+const convertDataToCsv = (data: Record<string, MatchData>): any[] =>
+  Object.keys(data).map((matchId: string) => {
     const { stage, date, status, home, away, result, information, statistics } = data[matchId];
-    const informationObject = {};
-    const statisticsObject = {};
+    const informationObject: Record<string, string> = {};
+    const statisticsObject: Record<string, { home: string; away: string }> = {};
 
-    information.forEach((info) => {
+    information.forEach((info: MatchInformation) => {
       informationObject[info.category.toLowerCase().replace(/ /g, '_')] = info.value;
     });
 
-    statistics.forEach((stat) => {
+    statistics.forEach((stat: MatchStatistic) => {
       statisticsObject[stat.category.toLowerCase().replace(/ /g, '_')] = {
         home: stat.homeValue,
         away: stat.awayValue,

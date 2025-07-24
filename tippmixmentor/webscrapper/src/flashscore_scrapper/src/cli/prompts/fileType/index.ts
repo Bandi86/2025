@@ -1,8 +1,8 @@
 import inquirer from 'inquirer';
 
-export const selectFileType = async () => {
-  const options = ['json', 'csv'];
-  const { choice } = await inquirer.prompt([
+export const selectFileType = async (): Promise<'json' | 'csv'> => {
+  const options: ('json' | 'csv')[] = ['json', 'csv'];
+  const { choice }: { choice: string } = await inquirer.prompt([
     {
       type: 'list',
       name: 'choice',
@@ -16,5 +16,10 @@ export const selectFileType = async () => {
     process.exit(1);
   }
 
-  return options.find((element) => element === choice);
+  const selectedFileType: 'json' | 'csv' | undefined = options.find((element: 'json' | 'csv') => element === choice);
+  if (!selectedFileType) {
+    throw new Error(`Invalid file type: ${choice}`);
+  }
+
+  return selectedFileType;
 };

@@ -1,23 +1,35 @@
-import { parseArguments } from './cli/arguments/index.js';
-import { selectFileType } from './cli/prompts/fileType/index.js';
-import { selectCountry } from './cli/prompts/countries/index.js';
-import { selectLeague } from './cli/prompts/leagues/index.js';
-import { selectSeason } from './cli/prompts/season/index.js';
-import { scraper } from './app.js';
+import { parseArguments } from './cli/arguments/index.ts';
+import { selectFileType } from './cli/prompts/fileType/index.ts';
+import { selectCountry } from './cli/prompts/countries/index.ts';
+import { selectLeague } from './cli/prompts/leagues/index.ts';
+import { selectSeason } from './cli/prompts/season/index.ts';
+import { scraper } from './app.ts';
+import { ScrapingOptions } from './types/index.ts';
 
-const runCli = async () => {
-  const options = parseArguments();
+interface ScraperOptions {
+  country: string;
+  league: string;
+  season?: string;
+  fileType: string;
+  headless: boolean;
+}
+
+const runCli = async (): Promise<void> => {
+  const options: ScrapingOptions = parseArguments();
 
   if (!options.country) {
-    options.country = await selectCountry();
+    const selectedCountry = await selectCountry();
+    options.country = selectedCountry.name;
   }
 
   if (!options.league) {
-    options.league = await selectLeague(options.country);
+    const selectedLeague = await selectLeague(options.country);
+    options.league = selectedLeague.name;
   }
 
   if (!options.season) {
- options.season = await selectSeason(options.country, options.league);
+    const selectedSeason = await selectSeason(options.country, options.league);
+    options.season = selectedSeason.name;
   }
 
   if (!options.fileType) {
@@ -27,7 +39,20 @@ const runCli = async () => {
   // Assuming headless is true by default unless 'no-headless' is passed
   options.headless = options.headless !== false;
 
-  await scraper(options);
+  // Ensure all required fields are present before calling scraper
+  if (!options.country || !options.league || !options.fileType) {
+    throw new Error('Missing required options: country, league, and fileType are required');
+  }
+
+  const scraperOptions: ScraperOptions = {
+    country: options.country,
+    league: options.league,
+    season: options.season || undefined,
+    fileType: options.fileType,
+    headless: options.headless as boolean,
+  };
+
+  await scraper(scraperOptions);
 };
 
 runCli();

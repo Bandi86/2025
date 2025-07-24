@@ -1,7 +1,7 @@
 import cliProgress from 'cli-progress';
 
-export const initializeProgressbar = (total) => {
-  const progressbar = new cliProgress.SingleBar({
+export const initializeProgressbar = (total: number): cliProgress.SingleBar => {
+  const progressbar: cliProgress.SingleBar = new cliProgress.SingleBar({
     format: 'Progress: {bar} | {percentage}% | {value}/{total} matches',
     barCompleteChar: '\u2588',
     barIncompleteChar: '\u2591',

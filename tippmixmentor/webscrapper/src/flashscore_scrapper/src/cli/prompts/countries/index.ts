@@ -1,17 +1,17 @@
 import inquirer from 'inquirer';
+import { Browser } from 'playwright';
+import { getListOfCountries } from '../../../scraper/services/countries/index.ts';
+import { start, stop } from '../../loader/index.ts';
+import { Country } from '../../../types/index.ts';
 
-import { getListOfCountries } from '../../../scraper/services/countries/index.js';
-
-import { start, stop } from '../../loader/index.js';
-
-export const selectCountry = async (browser) => {
+export const selectCountry = async (browser?: Browser): Promise<Country> => {
   start();
-  const countries = await getListOfCountries(browser);
+  const countries: Country[] = await getListOfCountries(browser);
   stop();
 
-  const options = countries.map((element) => element.name);
+  const options: string[] = countries.map((element: Country) => element.name);
 
-  const { choice } = await inquirer.prompt([
+  const { choice }: { choice: string } = await inquirer.prompt([
     {
       type: 'list',
       name: 'choice',
@@ -25,5 +25,10 @@ export const selectCountry = async (browser) => {
     process.exit(1);
   }
 
-  return countries.find((country) => country.name === choice);
+  const selectedCountry: Country | undefined = countries.find((country: Country) => country.name === choice);
+  if (!selectedCountry) {
+    throw new Error(`Country not found: ${choice}`);
+  }
+
+  return selectedCountry;
 };

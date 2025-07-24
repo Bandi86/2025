@@ -1,9 +1,10 @@
 import fs from 'fs';
 import path from 'path';
+import { MatchData } from '../../types/index.ts';
 
-export const writeJsonToFile = (data, outputPath, fileName) => {
-  const filePath = path.join(outputPath, `${fileName}.json`);
-  const fileContent = JSON.stringify(data, null, 2);
+export const writeJsonToFile = (data: Record<string, MatchData>, outputPath: string, fileName: string): void => {
+  const filePath: string = path.join(outputPath, `${fileName}.json`);
+  const fileContent: string = JSON.stringify(data, null, 2);
 
   try {
     fs.mkdirSync(path.dirname(filePath), { recursive: true });
