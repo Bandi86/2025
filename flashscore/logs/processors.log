@@ -1,0 +1,20 @@
+{"jobId":"job_test_123","level":"info","message":"Job progress updated Testing progress","progress":50,"timestamp":"2025-07-23T21:55:13.102Z"}
+{"dataType":"historical","jobId":"job_test_123","level":"info","message":"Starting job processing","taskType":"historical-data","timestamp":"2025-07-23T21:55:13.115Z"}
+{"dataType":"live","jobId":"job_test_123","level":"info","message":"Starting job processing","taskType":"live-matches","timestamp":"2025-07-23T21:55:13.108Z"}
+{"dataType":"discovery","jobId":"job_test_123","level":"info","message":"Starting job processing","taskType":"league-discovery","timestamp":"2025-07-23T21:55:13.128Z"}
+{"dataType":"upcoming","jobId":"job_test_123","level":"info","message":"Starting job processing","taskType":"upcoming-fixtures","timestamp":"2025-07-23T21:55:13.123Z"}
+{"jobId":"job_test_123","level":"info","message":"Job progress updated Initializing historical data collection","progress":10,"timestamp":"2025-07-23T21:55:13.115Z"}
+{"error":"this.databaseService.getLeaguesForHistoricalUpdate is not a function","level":"error","message":"Failed to get leagues for processing","timestamp":"2025-07-23T21:55:13.118Z"}
+{"jobId":"job_test_123","level":"info","message":"Job progress updated Found 0 leagues to process","progress":20,"timestamp":"2025-07-23T21:55:13.119Z"}
+{"jobId":"job_test_123","level":"info","message":"Job processing completed","result":{"errors":0,"itemsProcessed":0,"success":true},"taskType":"historical-data","timestamp":"2025-07-23T21:55:13.120Z"}
+{"jobId":"job_test_123","level":"info","message":"Job progress updated Initializing live match collection","progress":10,"timestamp":"2025-07-23T21:55:13.109Z"}
+{"jobId":"job_test_123","level":"info","message":"Job progress updated Found 0 live matches","progress":20,"timestamp":"2025-07-23T21:55:13.111Z"}
+{"jobId":"job_test_123","level":"info","message":"Job processing completed","result":{"errors":0,"itemsProcessed":0,"success":true},"taskType":"live-matches","timestamp":"2025-07-23T21:55:13.111Z"}
+{"jobId":"job_test_123","level":"info","message":"Job progress updated Initializing league discovery","progress":10,"timestamp":"2025-07-23T21:55:13.129Z"}
+{"error":"this.databaseService.getCountriesForDiscovery is not a function","level":"error","message":"Failed to get countries for processing","timestamp":"2025-07-23T21:55:13.130Z"}
+{"jobId":"job_test_123","level":"info","message":"Job progress updated Found 0 countries to process","progress":20,"timestamp":"2025-07-23T21:55:13.131Z"}
+{"jobId":"job_test_123","level":"info","message":"Job processing completed","result":{"errors":0,"itemsProcessed":0,"success":true},"taskType":"league-discovery","timestamp":"2025-07-23T21:55:13.131Z"}
+{"jobId":"job_test_123","level":"info","message":"Job progress updated Initializing upcoming fixtures collection","progress":10,"timestamp":"2025-07-23T21:55:13.124Z"}
+{"error":"this.databaseService.getActiveLeagues is not a function","level":"error","message":"Failed to get leagues for fixtures processing","timestamp":"2025-07-23T21:55:13.125Z"}
+{"jobId":"job_test_123","level":"info","message":"Job progress updated Found 0 leagues to process","progress":20,"timestamp":"2025-07-23T21:55:13.125Z"}
+{"jobId":"job_test_123","level":"info","message":"Job processing completed","result":{"errors":0,"itemsProcessed":0,"success":true},"taskType":"upcoming-fixtures","timestamp":"2025-07-23T21:55:13.126Z"}
