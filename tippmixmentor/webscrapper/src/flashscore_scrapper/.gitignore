@@ -1,0 +1,12 @@
+node_modules
+.env
+dist
+build
+.kirougerc
+.DS_Store
+.vscode
+.idea
+.git
+data
+.kiro
+plan
