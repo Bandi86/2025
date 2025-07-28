@@ -9,6 +9,7 @@ A BettingMentor célja egy modern, AI-alapú sportfogadási rendszer kiépítés
 ## 🧠 Inspiráció – Mi az a Mixlabor és miért követendő példa?
 
 A mixlabor egy fejlett sportfogadási AI rendszer, amely:
+
 - Több mint **5 millió adatpontot** dolgoz fel,
 - **XGBoost** és **deep learning** modelleket kombinál,
 - Hetente **újra tanulja** az adatokat,
@@ -24,6 +25,7 @@ A mixlabor egy fejlett sportfogadási AI rendszer, amely:
 A projekt több különálló, de együttműködő modulból épül fel:
 
 ### 1. Frontend
+
 - **Technológia**: Next.js (legfrissebb verzió)
 - **UI könyvtár**: shadcn/ui
 - **Feladat**:
@@ -31,12 +33,14 @@ A projekt több különálló, de együttműködő modulból épül fel:
   - Vizualizálja a botok predikcióit.
 
 ### 2. Backend
+
 - **Technológia**: NestJS (legfrissebb), Prisma ORM
 - **Adatbázis**: PostgreSQL
 - **Gyorsítótár és pub/sub**: Redis
 - **Architektúra**: mikroservice alapú, API Gateway-en keresztül
 
 ### 3. BettingMentor AI modul
+
 - **Nyelv**: Python
 - **Modellek**: XGBoost + deep learning ensemble modellek
 - **Funkciók**:
@@ -44,15 +48,18 @@ A projekt több különálló, de együttműködő modulból épül fel:
   - Botok specializálása (pl. döntetlen, gólt lő mindkét csapat, kombinációk, szögletek, sárgalapok)
 
 ### 4. PDF Converter modul
+
 - **Feladat**: PDF fájlok konvertálása szöveggé, majd JSON formátumba,
 - **Technológia**: Python
 - **Output**: PostgreSQL-be menthető JSON struktúra
 
 ### 5. Web Search modul
+
 - **Feladat**: Aktuális hírek, sérülések, lineup-ok keresése a neten
 - **Technológia**: Python + webkereső interfész (pl. Google vagy DuckDuckGo scraping)
 
 ### 6. Data Scraping modul
+
 - **Cél**: Adatok gyűjtése sportoldalakról, például Flashscore, Wikipedia stb.
 - **Modulok**:
   - `flashscoreScraper`: bajnokságok adatainak lekérése JSON/CSV formában
@@ -64,19 +71,23 @@ A projekt több különálló, de együttműködő modulból épül fel:
 ## ⚙️ Fő célok és funkciók
 
 ### 1. Web Scraping
+
 - Több forrásból (Flashscore, Wikipedia, stb.)
 - JSON/CSV output
 - Automatizált futtatás időzítve (pl. reggelente)
 
 ### 2. PDF → Text → JSON konverzió
+
 - PDF fájlok automatikus feldolgozása
 - Mentés PostgreSQL adatbázisba
 
 ### 3. Adat-összefésülés
+
 - A scrappelt és konvertált JSON fájlok egységesítése
 - Teljes, struktúrált adatcsomag előállítása meccsekkel és oddsokkal
 
 ### 4. Model tanítás (BettingMentor)
+
 - Történelmi adatgyűjtés és tanítás
 - Különféle botok:
   - Kombinációs tippek
@@ -85,10 +96,12 @@ A projekt több különálló, de együttműködő modulból épül fel:
   - Szöglet- és sárgalap-fókusz
 
 ### 5. Frontend megjelenítés
+
 - Napi ajánlatok, korábbi eredmények
 - Tippek vizualizálása, különféle szűrési lehetőségek
 
 ### 6. Backend mikroservice API
+
 - REST/GraphQL endpointok
 - Redis-alapú pub/sub
 - Docker-kompatibilitás, skálázhatóság
@@ -124,6 +137,7 @@ A teljes rendszer **Dockerrel** konténerizáltan működik. Az egyes komponense
 ## 📌 Összefoglalás
 
 A BettingMentor célja egy olyan intelligens, önfejlesztő sportfogadási rendszer létrehozása, amely:
+
 - Valós adatokon alapul,
 - Modern AI eszközöket használ,
 - Átlátható és bővíthető architektúrával rendelkezik,

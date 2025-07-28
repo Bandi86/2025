@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "scrape:tipplap": "node src/tipplap_scrapper/index.js"
+    "scrape:tipplap": "node index.js"
   },
   "dependencies": {
     "puppeteer": "^22.10.0"

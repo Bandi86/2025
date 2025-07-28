@@ -49,7 +49,7 @@ describe('PagePool', () => {
       return Promise.resolve(page);
     });
 
-    mockLogger = new Logger('test') as jest.Mocked<Logger>;
+    mockLogger = new Logger('test', {} as any, {} as any) as jest.Mocked<Logger>;
 
     pagePool = new PagePool(mockBrowserManager, {
       minPages: 2,
@@ -71,7 +71,7 @@ describe('PagePool', () => {
 
       const page = await pagePool.acquire();
 
-      expect(page).toBe(mockPages[0]);
+      expect(page).toEqual(mockPages[0]);
       expect(pagePool.availableCount()).toBeLessThan(2);
     });
 
@@ -79,7 +79,7 @@ describe('PagePool', () => {
       // Acquire all available pages
       await pagePool.acquire();
       await pagePool.acquire();
-      
+
       const page = await pagePool.acquire();
 
       expect(page).toBeDefined();
@@ -97,10 +97,10 @@ describe('PagePool', () => {
 
       // Try to acquire another page (should wait)
       const acquirePromise = pagePool.acquire();
-      
+
       // Release a page to make one available
       setTimeout(() => pagePool.release(pages[0]), 100);
-      
+
       const page = await acquirePromise;
       expect(page).toBeDefined();
     });

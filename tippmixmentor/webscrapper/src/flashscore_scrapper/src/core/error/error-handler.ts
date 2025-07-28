@@ -2,10 +2,10 @@
  * ErrorHandler - Centralized error handling with categorization and logging
  */
 
-import { 
-  IErrorHandler, 
-  ErrorContext, 
-  RetryOptions, 
+import {
+  IErrorHandler,
+  ErrorContext,
+  RetryOptions,
   BaseScrapingError,
   NetworkError,
   ScrapingError,
@@ -48,13 +48,13 @@ export class ErrorHandler implements IErrorHandler {
   async handle(error: Error, context: ErrorContext): Promise<void> {
     const errorType = this.classify(error);
     const scrapingError = this.wrapError(error, errorType, context);
-    
+
     // Update metrics
     this.updateMetrics(scrapingError);
-    
+
     // Log the error with context
     await this.logError(scrapingError);
-    
+
     // Execute recovery actions if available
     await this.executeRecoveryActions(scrapingError);
   }
@@ -105,7 +105,7 @@ export class ErrorHandler implements IErrorHandler {
   shouldRetry(error: Error, attempt: number): boolean {
     const errorType = this.classify(error);
     const strategy = this.getRetryStrategyForErrorType(errorType);
-    
+
     if (attempt >= strategy.maxAttempts) {
       return false;
     }
@@ -167,7 +167,7 @@ export class ErrorHandler implements IErrorHandler {
       'ECONNREFUSED', 'ENOTFOUND', 'ETIMEDOUT', 'ECONNRESET',
       'timeout', 'network', 'fetch', 'request failed', 'connection'
     ];
-    
+
     const errorMessage = error.message.toLowerCase();
     return networkKeywords.some(keyword => errorMessage.includes(keyword)) ||
            error.name === 'TimeoutError' ||
@@ -179,7 +179,7 @@ export class ErrorHandler implements IErrorHandler {
       'selector', 'element not found', 'page not loaded', 'navigation',
       'waiting for selector', 'element handle', 'page closed'
     ];
-    
+
     const errorMessage = error.message.toLowerCase();
     return scrapingKeywords.some(keyword => errorMessage.includes(keyword)) ||
            error.name === 'PlaywrightError';
@@ -190,7 +190,7 @@ export class ErrorHandler implements IErrorHandler {
       'validation', 'invalid', 'required field', 'type mismatch',
       'schema', 'format error'
     ];
-    
+
     const errorMessage = error.message.toLowerCase();
     return validationKeywords.some(keyword => errorMessage.includes(keyword)) ||
            error.name === 'ValidationError';
@@ -201,7 +201,7 @@ export class ErrorHandler implements IErrorHandler {
       'configuration', 'config', 'environment', 'missing variable',
       'invalid setting', 'setup error'
     ];
-    
+
     const errorMessage = error.message.toLowerCase();
     return configKeywords.some(keyword => errorMessage.includes(keyword)) ||
            error.name === 'ConfigurationError';
@@ -212,17 +212,19 @@ export class ErrorHandler implements IErrorHandler {
       return error;
     }
 
+    const errorMessage = context.message || error.message;
+
     switch (type) {
       case ErrorType.NETWORK:
-        return new NetworkError(error.message, context);
+        return new NetworkError(errorMessage, context);
       case ErrorType.SCRAPING:
-        return new ScrapingError(error.message, context);
+        return new ScrapingError(errorMessage, context);
       case ErrorType.VALIDATION:
-        return new DataValidationError(error.message, context);
+        return new DataValidationError(errorMessage, context);
       case ErrorType.CONFIGURATION:
-        return new ConfigurationError(error.message, context);
+        return new ConfigurationError(errorMessage, context);
       default:
-        return new SystemError(error.message, context);
+        return new SystemError(errorMessage, context);
     }
   }
 

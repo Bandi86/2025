@@ -37,7 +37,7 @@ describe('RetryManager', () => {
         if (attempts < 3) {
           throw new Error(`Attempt ${attempts} failed`);
         }
-        return 'success';
+        return Promise.resolve('success');
       });
 
       const startTime = Date.now();
@@ -92,7 +92,7 @@ describe('RetryManager', () => {
         if (attempts < 3) {
           throw new Error(`Attempt ${attempts} failed`);
         }
-        return 'success';
+        return Promise.resolve('success');
       });
 
       const onRetry = jest.fn();
@@ -111,7 +111,7 @@ describe('RetryManager', () => {
     });
 
     it('should handle timeout correctly', async () => {
-      mockOperation.mockImplementation(() => 
+      mockOperation.mockImplementation(() =>
         new Promise(resolve => setTimeout(resolve, 200))
       );
 
@@ -128,7 +128,7 @@ describe('RetryManager', () => {
   describe('createRetryWrapper', () => {
     it('should create a retry wrapper function', async () => {
       const originalFunction = jest.fn().mockResolvedValue('wrapped success');
-      
+
       const wrappedFunction = retryManager.createRetryWrapper(originalFunction, {
         maxAttempts: 2,
         baseDelay: 10,
@@ -149,9 +149,9 @@ describe('RetryManager', () => {
         if (attempts < 2) {
           throw new Error('Wrapped function failed');
         }
-        return 'wrapped success';
+        return Promise.resolve('wrapped success');
       });
-      
+
       const wrappedFunction = retryManager.createRetryWrapper(originalFunction, {
         maxAttempts: 2,
         baseDelay: 10,
@@ -216,13 +216,13 @@ describe('RetryManager', () => {
     it('should calculate exponential backoff with jitter', async () => {
       let attempts = 0;
       const delays: number[] = [];
-      
+
       mockOperation.mockImplementation(() => {
         attempts++;
         if (attempts < 4) {
           throw new Error(`Attempt ${attempts} failed`);
         }
-        return 'success';
+        return Promise.resolve('success');
       });
 
       const onRetry = jest.fn().mockImplementation((error, attempt) => {
@@ -241,7 +241,7 @@ describe('RetryManager', () => {
 
       // Verify exponential backoff pattern
       expect(delays).toHaveLength(3);
-      
+
       // Each delay should be roughly double the previous (with jitter)
       if (delays.length >= 2) {
         const delay1 = delays[1] - delays[0];
@@ -257,7 +257,7 @@ describe('RetryManager', () => {
         if (attempts < 3) {
           throw new Error(`Attempt ${attempts} failed`);
         }
-        return 'success';
+        return Promise.resolve('success');
       });
 
       const startTime = Date.now();

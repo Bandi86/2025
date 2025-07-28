@@ -43,25 +43,25 @@ describe('BrowserManager', () => {
     } as any;
 
     mockContext = {
-      newPage: jest.fn().mockResolvedValue(mockPage),
+      newPage: jest.fn(() => Promise.resolve(mockPage)),
       close: jest.fn(),
       pages: jest.fn().mockReturnValue([mockPage])
     } as any;
 
     mockBrowser = {
       isConnected: jest.fn().mockReturnValue(true),
-      newContext: jest.fn().mockResolvedValue(mockContext),
-      newPage: jest.fn().mockResolvedValue(mockPage),
+      newContext: jest.fn(() => Promise.resolve(mockContext)),
+      newPage: jest.fn(() => Promise.resolve(mockPage)),
       close: jest.fn(),
       on: jest.fn(),
       contexts: jest.fn().mockReturnValue([mockContext])
     } as any;
 
-    mockLogger = new Logger('test') as jest.Mocked<Logger>;
+    mockLogger = new Logger('test', {} as any, {} as any) as jest.Mocked<Logger>;
 
     // Mock chromium.launch
     const { chromium } = require('playwright');
-    (chromium.launch as jest.Mock).mockResolvedValue(mockBrowser);
+    (chromium.launch as jest.Mock<Promise<Browser>>).mockResolvedValue(mockBrowser);
 
     browserManager = new BrowserManager({}, mockLogger);
   });
@@ -91,7 +91,7 @@ describe('BrowserManager', () => {
     it('should handle launch errors', async () => {
       const error = new Error('Launch failed');
       const { chromium } = require('playwright');
-      (chromium.launch as jest.Mock).mockRejectedValueOnce(error);
+      (chromium.launch as jest.Mock<Promise<Browser>>).mockRejectedValueOnce(error);
 
       await expect(browserManager.launch()).rejects.toThrow('Launch failed');
       expect(mockLogger.error).toHaveBeenCalledWith('Failed to launch browser:', error);
@@ -254,7 +254,7 @@ describe('BrowserManager', () => {
     it('should handle restart errors', async () => {
       const error = new Error('Restart failed');
       const { chromium } = require('playwright');
-      (chromium.launch as jest.Mock).mockRejectedValueOnce(error);
+      (chromium.launch as jest.Mock<Promise<Browser>>).mockRejectedValueOnce(error);
 
       await expect(browserManager.restart()).rejects.toThrow('Restart failed');
       expect(mockLogger.error).toHaveBeenCalledWith('Failed to restart browser:', error);

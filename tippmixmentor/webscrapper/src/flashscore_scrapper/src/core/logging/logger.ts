@@ -35,13 +35,19 @@ export class Logger implements ILogger {
       error: {
         name: error.name,
         message: error.message,
-        stack: error.stack
+        stack: error.stack // Include stack trace for better debugging
       }
     } : meta;
-    
+
     this.log(LogLevel.ERROR, message, errorMeta);
   }
 
+  /**
+   * Logs a message at a specified level with associated metadata.
+   * @param level - The log level (e.g., LogLevel.INFO, LogLevel.ERROR).
+   * @param message - The main log message.
+   * @param meta - Additional metadata to include with the log entry.
+   */
   log(level: LogLevel, message: string, meta: LogMetadata = {}): void {
     const combinedMeta = {
       ...this.defaultMeta,

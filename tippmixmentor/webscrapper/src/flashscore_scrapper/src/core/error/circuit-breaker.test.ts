@@ -7,7 +7,7 @@ import { CircuitBreaker, CircuitBreakerState } from './circuit-breaker.js';
 
 describe('CircuitBreaker', () => {
   let circuitBreaker: CircuitBreaker;
-  let mockOperation: jest.Mock;
+  let mockOperation: jest.MockedFunction<() => Promise<unknown>>;
 
   beforeEach(() => {
     circuitBreaker = new CircuitBreaker({
@@ -15,7 +15,7 @@ describe('CircuitBreaker', () => {
       resetTimeout: 1000,
       monitoringPeriod: 500
     });
-    mockOperation = jest.fn();
+    mockOperation = jest.fn() as jest.MockedFunction<() => Promise<unknown>>;
   });
 
   describe('initial state', () => {
@@ -32,9 +32,9 @@ describe('CircuitBreaker', () => {
 
   describe('successful operations', () => {
     it('should execute successful operations normally', async () => {
-      mockOperation.mockResolvedValue('success');
+      mockOperation.mockResolvedValueOnce('success');
 
-      const result = await circuitBreaker.execute(mockOperation);
+      const result = await circuitBreaker.execute(mockOperation as () => Promise<unknown>);
 
       expect(result).toBe('success');
       expect(circuitBreaker.getState()).toBe(CircuitBreakerState.CLOSED);
@@ -43,21 +43,23 @@ describe('CircuitBreaker', () => {
 
     it('should reset failure count on success', async () => {
       // Cause some failures first
-      mockOperation.mockRejectedValue(new Error('failure'));
-      
+      for (let i = 0; i < 3; i++) {
+        mockOperation.mockImplementationOnce(() => Promise.reject(new Error('failure')));
+      }
+
       try {
-        await circuitBreaker.execute(mockOperation);
+        await circuitBreaker.execute(mockOperation as () => Promise<unknown>);
       } catch {}
-      
+
       try {
-        await circuitBreaker.execute(mockOperation);
+        await circuitBreaker.execute(mockOperation as () => Promise<unknown>);
       } catch {}
 
       expect(circuitBreaker.getStats().failureCount).toBe(2);
 
       // Now succeed
-      mockOperation.mockResolvedValue('success');
-      await circuitBreaker.execute(mockOperation);
+      mockOperation.mockImplementationOnce(() => Promise.resolve('success'));
+      await circuitBreaker.execute(mockOperation as () => Promise<unknown>);
 
       expect(circuitBreaker.getStats().failureCount).toBe(0);
       expect(circuitBreaker.getStats().successCount).toBe(1);
@@ -66,10 +68,12 @@ describe('CircuitBreaker', () => {
 
   describe('failure handling', () => {
     it('should track failures correctly', async () => {
-      mockOperation.mockRejectedValue(new Error('failure'));
+      for (let i = 0; i < 3; i++) {
+        mockOperation.mockImplementationOnce(() => Promise.reject(new Error('failure')));
+      }
 
       try {
-        await circuitBreaker.execute(mockOperation);
+        await circuitBreaker.execute(mockOperation as () => Promise<unknown>);
       } catch {}
 
       const stats = circuitBreaker.getStats();
@@ -78,12 +82,15 @@ describe('CircuitBreaker', () => {
     });
 
     it('should open circuit after failure threshold', async () => {
-      mockOperation.mockRejectedValue(new Error('failure'));
+      // Use mockImplementation to simulate multiple failures
+      for (let i = 0; i < 3; i++) {
+        mockOperation.mockImplementationOnce(() => Promise.reject(new Error('failure')));
+      }
 
       // Cause failures up to threshold
       for (let i = 0; i < 3; i++) {
         try {
-          await circuitBreaker.execute(mockOperation);
+          await circuitBreaker.execute(mockOperation as () => Promise<unknown>);
         } catch {}
       }
 
@@ -95,7 +102,7 @@ describe('CircuitBreaker', () => {
       // Trip the circuit breaker
       circuitBreaker.trip();
 
-      await expect(circuitBreaker.execute(mockOperation))
+      await expect(circuitBreaker.execute(mockOperation as () => Promise<unknown>))
         .rejects.toThrow('Circuit breaker is OPEN - operation not allowed');
 
       expect(mockOperation).not.toHaveBeenCalled();
@@ -105,11 +112,14 @@ describe('CircuitBreaker', () => {
   describe('half-open state and recovery', () => {
     it('should transition to half-open after reset timeout', async () => {
       // Trip the circuit breaker
-      mockOperation.mockRejectedValue(new Error('failure'));
-      
+      // Use mockImplementation to simulate multiple failures
+      for (let i = 0; i < 3; i++) {
+        mockOperation.mockImplementationOnce(() => Promise.reject(new Error('failure')));
+      }
+
       for (let i = 0; i < 3; i++) {
         try {
-          await circuitBreaker.execute(mockOperation);
+          await circuitBreaker.execute(mockOperation as () => Promise<unknown>);
         } catch {}
       }
 
@@ -117,10 +127,10 @@ describe('CircuitBreaker', () => {
 
       // Wait for reset timeout (simulate by manually setting time)
       const originalNow = Date.now;
-      Date.now = jest.fn().mockReturnValue(originalNow() + 2000);
+      Date.now = jest.fn(() => originalNow() + 2000);
 
-      mockOperation.mockResolvedValue('success');
-      const result = await circuitBreaker.execute(mockOperation);
+      mockOperation.mockImplementationOnce(() => Promise.resolve('success'));
+      const result = await circuitBreaker.execute(mockOperation as () => Promise<unknown>);
 
       expect(result).toBe('success');
       expect(circuitBreaker.getState()).toBe(CircuitBreakerState.CLOSED);
@@ -132,13 +142,13 @@ describe('CircuitBreaker', () => {
     it('should close circuit on successful operation in half-open state', async () => {
       // Manually set to half-open state
       circuitBreaker.trip();
-      
+
       // Simulate reset timeout passed
       const originalNow = Date.now;
-      Date.now = jest.fn().mockReturnValue(originalNow() + 2000);
+      Date.now = jest.fn(() => originalNow() + 2000);
 
-      mockOperation.mockResolvedValue('recovery success');
-      const result = await circuitBreaker.execute(mockOperation);
+      mockOperation.mockImplementationOnce(() => Promise.resolve('recovery success'));
+      const result = await circuitBreaker.execute(mockOperation as () => Promise<unknown>);
 
       expect(result).toBe('recovery success');
       expect(circuitBreaker.getState()).toBe(CircuitBreakerState.CLOSED);
@@ -149,21 +159,24 @@ describe('CircuitBreaker', () => {
 
     it('should reopen circuit on failure in half-open state', async () => {
       // Trip the circuit breaker
-      mockOperation.mockRejectedValue(new Error('failure'));
-      
+      // Use mockImplementation to simulate multiple failures
+      for (let i = 0; i < 3; i++) {
+        mockOperation.mockImplementationOnce(() => Promise.reject(new Error('failure')));
+      }
+
       for (let i = 0; i < 3; i++) {
         try {
-          await circuitBreaker.execute(mockOperation);
+          await circuitBreaker.execute(mockOperation as () => Promise<unknown>);
         } catch {}
       }
 
       // Simulate reset timeout passed
       const originalNow = Date.now;
-      Date.now = jest.fn().mockReturnValue(originalNow() + 2000);
+      Date.now = jest.fn(() => originalNow() + 2000);
 
       // Fail again in half-open state
       try {
-        await circuitBreaker.execute(mockOperation);
+        await circuitBreaker.execute(mockOperation as () => Promise<unknown>);
       } catch {}
 
       expect(circuitBreaker.getState()).toBe(CircuitBreakerState.OPEN);
@@ -182,7 +195,7 @@ describe('CircuitBreaker', () => {
       // Reset manually
       circuitBreaker.reset();
       expect(circuitBreaker.getState()).toBe(CircuitBreakerState.CLOSED);
-      
+
       const stats = circuitBreaker.getStats();
       expect(stats.failureCount).toBe(0);
       expect(stats.successCount).toBe(0);
@@ -198,13 +211,15 @@ describe('CircuitBreaker', () => {
 
   describe('statistics', () => {
     it('should provide accurate statistics', async () => {
-      mockOperation.mockResolvedValue('success');
-      await circuitBreaker.execute(mockOperation);
-      await circuitBreaker.execute(mockOperation);
+      mockOperation.mockImplementationOnce(() => Promise.resolve('success'));
+      await circuitBreaker.execute(mockOperation as () => Promise<unknown>);
+      await circuitBreaker.execute(mockOperation as () => Promise<unknown>);
 
-      mockOperation.mockRejectedValue(new Error('failure'));
+      for (let i = 0; i < 5; i++) {
+        mockOperation.mockImplementationOnce(() => Promise.reject(new Error('failure')));
+      }
       try {
-        await circuitBreaker.execute(mockOperation);
+        await circuitBreaker.execute(mockOperation as () => Promise<unknown>);
       } catch {}
 
       const stats = circuitBreaker.getStats();
@@ -224,12 +239,15 @@ describe('CircuitBreaker', () => {
       });
 
       // Should require 5 failures to open
-      mockOperation.mockRejectedValue(new Error('failure'));
-      
+      // Use mockImplementation to simulate multiple failures
+      for (let i = 0; i < 5; i++) {
+        mockOperation.mockImplementationOnce(() => Promise.reject(new Error('failure')));
+      }
+
       const executeFailures = async (count: number) => {
         for (let i = 0; i < count; i++) {
           try {
-            await customBreaker.execute(mockOperation);
+            await customBreaker.execute(mockOperation as () => Promise<unknown>);
           } catch {}
         }
       };
@@ -243,8 +261,12 @@ describe('CircuitBreaker', () => {
     });
 
     it('should use default configuration when not provided', () => {
-      const defaultBreaker = new CircuitBreaker({});
-      
+      const defaultBreaker = new CircuitBreaker({
+        failureThreshold: 5,
+        resetTimeout: 60000,
+        monitoringPeriod: 10000
+      });
+
       // Should use default failure threshold of 5
       expect(defaultBreaker.getState()).toBe(CircuitBreakerState.CLOSED);
     });

@@ -4,13 +4,13 @@
 
 import { Browser, Page, BrowserContext, chromium, firefox, webkit } from 'playwright';
 import { EventEmitter } from 'events';
-import { 
-  IBrowserManager, 
-  BrowserHealth, 
-  BrowserMetrics, 
-  BrowserEvent, 
+import {
+  IBrowserManager,
+  BrowserHealth,
+  BrowserMetrics,
+  BrowserEvent,
   BrowserEventType,
-  BrowserContextOptions 
+  BrowserContextOptions
 } from '../../types/browser.js';
 import { BrowserOptions } from '../../types/core.js';
 import { createLogger } from '../logging/default-logger.js';
@@ -31,7 +31,7 @@ export class BrowserManager extends EventEmitter implements IBrowserManager {
     logger?: ILogger
   ) {
     super();
-    
+
     this.logger = logger || createLogger('BrowserManager');
     this.defaultOptions = {
       headless: true,
@@ -70,22 +70,29 @@ export class BrowserManager extends EventEmitter implements IBrowserManager {
   }
 
   /**
-   * Launch a new browser instance with enhanced configuration
+   * Launches a new browser instance or returns the existing one if already launched and connected.
+   * Handles concurrent launch attempts and cleans up disconnected browser instances.
+   * @param options - Optional browser launch options to override defaults.
+   * @returns A Promise that resolves to the Playwright Browser instance.
+   * @throws If the browser fails to launch.
    */
   async launch(options?: BrowserOptions): Promise<Browser> {
+    // Prevent concurrent launch attempts
     if (this.isLaunching) {
-      this.logger.warn('Browser launch already in progress, waiting...');
-      await this.waitForLaunch();
+      this.logger.warn('Browser launch already in progress. Waiting for existing launch to complete...');
+      await this.waitForLaunchCompletion();
       return this.browser!;
     }
 
+    // Clean up disconnected browser instances before attempting a new launch
     if (this.browser && !this.browser.isConnected()) {
-      this.logger.warn('Existing browser is disconnected, cleaning up...');
+      this.logger.warn('Existing browser instance is disconnected. Cleaning up before new launch...');
       await this.cleanup();
     }
 
-    if (this.browser) {
-      this.logger.debug('Browser already launched and connected');
+    // Return existing browser if already launched and connected
+    if (this.browser && this.browser.isConnected()) {
+      this.logger.debug('Browser already launched and connected. Reusing existing instance.');
       return this.browser;
     }
 
@@ -93,23 +100,27 @@ export class BrowserManager extends EventEmitter implements IBrowserManager {
     const launchOptions = { ...this.defaultOptions, ...options };
 
     try {
-      this.logger.info('Launching browser with options:', launchOptions);
-      
+      this.logger.info('Attempting to launch browser with options:', launchOptions);
+
+      // Launch the Chromium browser
       this.browser = await chromium.launch({
         headless: launchOptions.headless,
         args: launchOptions.args,
         timeout: launchOptions.timeout
       });
 
+      // Set up event handlers for the newly launched browser
       this.setupBrowserEventHandlers();
+      // Emit a LAUNCHED event
       this.emitEvent(BrowserEventType.LAUNCHED, { options: launchOptions });
-      
-      this.logger.info('Browser launched successfully');
+
+      this.logger.info('Browser launched successfully.');
       return this.browser;
 
     } catch (error) {
-      this.logger.error('Failed to launch browser:', error);
+      this.logger.error('Failed to launch browser:', error as Error);
       this.metrics.errorsEncountered++;
+      // Emit an ERROR event if launch fails
       this.emitEvent(BrowserEventType.ERROR, { error });
       throw error;
     } finally {
@@ -122,7 +133,7 @@ export class BrowserManager extends EventEmitter implements IBrowserManager {
    */
   async createPage(browser?: Browser): Promise<Page> {
     const targetBrowser = browser || this.browser;
-    
+
     if (!targetBrowser) {
       throw new Error('No browser instance available. Call launch() first.');
     }
@@ -130,18 +141,18 @@ export class BrowserManager extends EventEmitter implements IBrowserManager {
     try {
       const context = await this.createContext(targetBrowser);
       const page = await context.newPage();
-      
+
       // Set up page-level configurations
       await this.configurePage(page);
-      
+
       this.metrics.pagesCreated++;
       this.emitEvent(BrowserEventType.PAGE_CREATED, { pageId: this.getPageId(page) });
-      
+
       this.logger.debug(`Page created. Total pages: ${this.metrics.pagesCreated}`);
       return page;
 
     } catch (error) {
-      this.logger.error('Failed to create page:', error);
+      this.logger.error('Failed to create page:', error as Error);
       this.metrics.errorsEncountered++;
       throw error;
     }
@@ -152,7 +163,7 @@ export class BrowserManager extends EventEmitter implements IBrowserManager {
    */
   async createContext(browser: Browser, options?: BrowserContextOptions): Promise<BrowserContext> {
     const userAgent = this.getNextUserAgent();
-    
+
     const contextOptions = {
       userAgent,
       viewport: this.defaultOptions.viewport,
@@ -204,7 +215,7 @@ export class BrowserManager extends EventEmitter implements IBrowserManager {
    */
   async closeBrowser(browser?: Browser): Promise<void> {
     const targetBrowser = browser || this.browser;
-    
+
     if (!targetBrowser) {
       return;
     }
@@ -226,7 +237,7 @@ export class BrowserManager extends EventEmitter implements IBrowserManager {
    */
   async restart(): Promise<Browser> {
     this.logger.info('Restarting browser...');
-    
+
     try {
       await this.cleanup();
       const browser = await this.launch();
@@ -244,7 +255,7 @@ export class BrowserManager extends EventEmitter implements IBrowserManager {
    */
   async isHealthy(browser?: Browser): Promise<boolean> {
     const targetBrowser = browser || this.browser;
-    
+
     if (!targetBrowser) {
       return false;
     }
@@ -258,7 +269,7 @@ export class BrowserManager extends EventEmitter implements IBrowserManager {
       // Try to create and close a test page
       const testPage = await targetBrowser.newPage();
       await testPage.close();
-      
+
       return true;
     } catch (error) {
       this.logger.warn('Browser health check failed', { error: (error as Error).message });
@@ -278,7 +289,7 @@ export class BrowserManager extends EventEmitter implements IBrowserManager {
    */
   async getHealth(): Promise<BrowserHealth> {
     const browser = this.browser;
-    
+
     if (!browser) {
       return {
         isResponsive: false,
@@ -324,16 +335,22 @@ export class BrowserManager extends EventEmitter implements IBrowserManager {
 
   // Private methods
 
-  private async waitForLaunch(): Promise<void> {
+  /**
+   * Waits for the browser launch process to complete.
+   * This is used to prevent multiple concurrent launch attempts.
+   */
+  private async waitForLaunchCompletion(): Promise<void> {
     return new Promise((resolve) => {
-      const checkLaunch = () => {
-        if (!this.isLaunching && this.browser) {
+      const checkLaunchStatus = () => {
+        // If the browser is no longer launching or is successfully launched, resolve the promise.
+        if (!this.isLaunching && this.browser && this.browser.isConnected()) {
           resolve();
         } else {
-          setTimeout(checkLaunch, 100);
+          // Otherwise, check again after a short delay.
+          setTimeout(checkLaunchStatus, 100);
         }
       };
-      checkLaunch();
+      checkLaunchStatus();
     });
   }
 
@@ -349,7 +366,7 @@ export class BrowserManager extends EventEmitter implements IBrowserManager {
   private async configurePage(page: Page): Promise<void> {
     // Set default timeout
     page.setDefaultTimeout(this.defaultOptions.timeout);
-    
+
     // Set viewport if specified
     if (this.defaultOptions.viewport) {
       await page.setViewportSize(this.defaultOptions.viewport);

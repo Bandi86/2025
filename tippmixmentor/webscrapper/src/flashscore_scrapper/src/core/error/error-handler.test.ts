@@ -4,13 +4,13 @@
 
 import { describe, it, expect, beforeEach, jest } from '@jest/globals';
 import { ErrorHandler } from './error-handler.js';
-import { 
-  NetworkError, 
-  ScrapingError, 
-  DataValidationError, 
+import {
+  NetworkError,
+  ScrapingError,
+  DataValidationError,
   SystemError,
   ConfigurationError,
-  ErrorContext 
+  ErrorContext
 } from '../../types/errors.js';
 import { ErrorType } from '../../types/core.js';
 
@@ -26,9 +26,9 @@ describe('ErrorHandler', () => {
       warn: jest.fn(),
       debug: jest.fn()
     };
-    
+
     errorHandler = new ErrorHandler(mockLogger);
-    
+
     mockContext = {
       operation: 'test-operation',
       url: 'https://example.com',
@@ -123,11 +123,11 @@ describe('ErrorHandler', () => {
     it('should calculate exponential backoff correctly', () => {
       const baseDelay = 1000;
       const backoffFactor = 2;
-      
+
       const delay1 = errorHandler.getRetryDelay(1, baseDelay, backoffFactor);
       const delay2 = errorHandler.getRetryDelay(2, baseDelay, backoffFactor);
       const delay3 = errorHandler.getRetryDelay(3, baseDelay, backoffFactor);
-      
+
       expect(delay1).toBeGreaterThanOrEqual(baseDelay);
       expect(delay2).toBeGreaterThanOrEqual(baseDelay * 2);
       expect(delay3).toBeGreaterThanOrEqual(baseDelay * 4);
@@ -139,10 +139,10 @@ describe('ErrorHandler', () => {
     });
 
     it('should include jitter in delay calculation', () => {
-      const delays = Array.from({ length: 10 }, () => 
+      const delays = Array.from({ length: 10 }, () =>
         errorHandler.getRetryDelay(1, 1000, 2)
       );
-      
+
       // All delays should be different due to jitter
       const uniqueDelays = new Set(delays);
       expect(uniqueDelays.size).toBeGreaterThan(1);
@@ -152,9 +152,9 @@ describe('ErrorHandler', () => {
   describe('handle', () => {
     it('should handle and log errors correctly', async () => {
       const error = new Error('Test error');
-      
+
       await errorHandler.handle(error, mockContext);
-      
+
       expect(mockLogger.error).toHaveBeenCalledWith(
         'Error occurred during scraping operation',
         expect.objectContaining({
@@ -167,9 +167,9 @@ describe('ErrorHandler', () => {
 
     it('should update metrics when handling errors', async () => {
       const error = new NetworkError('Network error', mockContext);
-      
+
       await errorHandler.handle(error, mockContext);
-      
+
       const metrics = errorHandler.getMetrics();
       expect(metrics.totalErrors).toBe(1);
       expect(metrics.errorsByType[ErrorType.NETWORK]).toBe(1);
@@ -177,11 +177,11 @@ describe('ErrorHandler', () => {
 
     it('should handle errors without logger gracefully', async () => {
       const errorHandlerNoLogger = new ErrorHandler();
-      const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
-      
+      const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
       const error = new Error('Test error');
       await errorHandlerNoLogger.handle(error, mockContext);
-      
+
       expect(consoleSpy).toHaveBeenCalled();
       consoleSpy.mockRestore();
     });
@@ -190,7 +190,7 @@ describe('ErrorHandler', () => {
   describe('retry', () => {
     it('should retry failed operations', async () => {
       let attempts = 0;
-      const operation = jest.fn().mockImplementation(() => {
+      const operation = jest.fn<(...args: any[]) => Promise<any>>().mockImplementation(() => {
         attempts++;
         if (attempts < 3) {
           throw new Error('Temporary failure');
@@ -210,7 +210,7 @@ describe('ErrorHandler', () => {
     });
 
     it('should throw error after max attempts', async () => {
-      const operation = jest.fn().mockRejectedValue(new Error('Persistent failure'));
+      const operation = jest.fn<(...args: any[]) => Promise<any>>().mockRejectedValue(new Error('Persistent failure'));
 
       await expect(errorHandler.retry(operation, {
         maxAttempts: 2,
@@ -227,10 +227,10 @@ describe('ErrorHandler', () => {
     it('should track error metrics correctly', async () => {
       const networkError = new NetworkError('Network error', mockContext);
       const scrapingError = new ScrapingError('Scraping error', mockContext);
-      
+
       await errorHandler.handle(networkError, mockContext);
       await errorHandler.handle(scrapingError, mockContext);
-      
+
       const metrics = errorHandler.getMetrics();
       expect(metrics.totalErrors).toBe(2);
       expect(metrics.errorsByType[ErrorType.NETWORK]).toBe(1);
@@ -240,11 +240,11 @@ describe('ErrorHandler', () => {
     it('should reset metrics correctly', async () => {
       const error = new Error('Test error');
       await errorHandler.handle(error, mockContext);
-      
+
       expect(errorHandler.getMetrics().totalErrors).toBe(1);
-      
+
       errorHandler.resetMetrics();
-      
+
       expect(errorHandler.getMetrics().totalErrors).toBe(0);
     });
   });
