@@ -1,0 +1,28 @@
+import { Module } from '@nestjs/common';
+import { HttpModule } from '@nestjs/axios';
+import { ConfigModule } from '@nestjs/config';
+import { RedisModule } from '../common/redis/redis.module';
+import { LoggingModule } from '../common/logging/logging.module';
+import { MonitoringModule } from '../common/monitoring/monitoring.module';
+import { JwtModule } from '@nestjs/jwt';
+import { GatewayController } from './gateway.controller';
+import { GatewayService } from './gateway.service';
+import { WebsocketGateway } from './websocket.gateway';
+
+@Module({
+  imports: [
+    HttpModule,
+    ConfigModule,
+    RedisModule,
+    LoggingModule,
+    MonitoringModule,
+    JwtModule.register({
+      secret: process.env.JWT_SECRET || 'your-secret-key',
+      signOptions: { expiresIn: '1h' },
+    }),
+  ],
+  controllers: [GatewayController],
+  providers: [GatewayService, WebsocketGateway],
+  exports: [GatewayService, WebsocketGateway],
+})
+export class GatewayModule {} 
