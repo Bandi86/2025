@@ -34,6 +34,12 @@ model User {
   notifications     Notification[]
   refreshTokens     RefreshToken[]
   userPreferences   UserPreferences?
+  posts             Post[]
+  comments          Comment[]
+  likes             Like[]
+  followers         UserFollow[] @relation("UserFollowers")
+  following         UserFollow[] @relation("UserFollowing")
+  userProfile       UserProfile?
 
   @@map("users")
 }
@@ -198,6 +204,7 @@ model Match {
   plays           Play[]
   lineups         Lineup[]
   playerStats     PlayerStats[]
+  posts           Post[]
 
   @@map("matches")
 }
@@ -352,25 +359,28 @@ model Lineup {
 // =============================================================================
 
 model Prediction {
-  id              String          @id @default(cuid())
-  matchId         String
-  userId          String?
-  modelVersion    String
-  homeWinProb     Float
-  drawProb        Float
-  awayWinProb     Float
-  predictedScore  String?         // "2-1" format
-  confidence      Float
-  features        Json            // Model features used
-  predictionType  PredictionType  @default(MATCH_RESULT)
-  isCorrect       Boolean?
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  id                      String          @id @default(cuid())
+  matchId                 String
+  userId                  String?
+  modelVersion            String
+  homeWinProb             Float
+  drawProb                Float
+  awayWinProb             Float
+  predictedScore          String?         // "2-1" format
+  confidence              Float
+  features                Json            // Model features used
+  predictionType          PredictionType  @default(MATCH_RESULT)
+  insight                 String?         // AI-generated match insight
+  bettingRecommendations  Json?           // AI-generated betting recommendations
+  isCorrect               Boolean?
+  createdAt               DateTime        @default(now())
+  updatedAt               DateTime        @updatedAt
 
   // Relations
-  match           Match           @relation(fields: [matchId], references: [id])
-  user            User?           @relation(fields: [userId], references: [id])
-  analytics       PredictionAnalytics?
+  match                   Match           @relation(fields: [matchId], references: [id])
+  user                    User?           @relation(fields: [userId], references: [id])
+  analytics               PredictionAnalytics?
+  posts                   Post[]
 
   @@map("predictions")
 }
@@ -497,6 +507,55 @@ model PerformanceMetrics {
 }
 
 // =============================================================================
+// Model Monitoring & A/B Testing
+// =============================================================================
+
+model ModelVersion {
+  id          String   @id @default(cuid())
+  version     String   @unique
+  name        String
+  description String?
+  metadata    Json?    // Model metadata (features, hyperparameters, etc.)
+  status      String   @default("active") // "active", "inactive", "deprecated"
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("model_versions")
+}
+
+model ABTest {
+  id           String   @id @default(cuid())
+  testId       String   @unique
+  name         String
+  description  String?
+  modelA       String   // Model version A
+  modelB       String   // Model version B
+  trafficSplit Int      // Percentage for model B (0-100)
+  startDate    DateTime
+  endDate      DateTime
+  metrics      String[] // Metrics to track
+  status       String   @default("active") // "active", "paused", "completed"
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("ab_tests")
+}
+
+model ModelDriftAlert {
+  id          String   @id @default(cuid())
+  modelVersion String
+  driftType   String   // "accuracy_drop", "confidence_drop", "prediction_bias"
+  severity    String   // "low", "medium", "high", "critical"
+  message     String
+  metrics     Json?    // Current vs baseline metrics
+  isResolved  Boolean  @default(false)
+  resolvedAt  DateTime?
+  createdAt   DateTime @default(now())
+
+  @@map("model_drift_alerts")
+}
+
+// =============================================================================
 // Notifications
 // =============================================================================
 
@@ -515,6 +574,169 @@ model Notification {
   user        User             @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("notifications")
+}
+
+// =============================================================================
+// Social Media Features
+// =============================================================================
+
+model Post {
+  id          String   @id @default(cuid())
+  userId      String
+  content     String   @db.Text
+  type        PostType @default(GENERAL)
+  matchId     String?  // For match-related posts
+  predictionId String? // For prediction-related posts
+  imageUrl    String?  // Optional image attachment
+  isPublic    Boolean  @default(true)
+  isEdited    Boolean  @default(false)
+  editedAt    DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  match       Match?   @relation(fields: [matchId], references: [id])
+  prediction  Prediction? @relation(fields: [predictionId], references: [id])
+  comments    Comment[]
+  likes       Like[]
+  hashtags    PostHashtag[]
+
+  @@map("posts")
+}
+
+model Comment {
+  id          String   @id @default(cuid())
+  postId      String
+  userId      String
+  content     String   @db.Text
+  parentId    String?  // For nested comments (replies)
+  isEdited    Boolean  @default(false)
+  editedAt    DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  post        Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  parent      Comment? @relation("CommentReplies", fields: [parentId], references: [id])
+  replies     Comment[] @relation("CommentReplies")
+  likes       Like[]
+
+  @@map("comments")
+}
+
+model Like {
+  id          String   @id @default(cuid())
+  userId      String
+  postId      String?
+  commentId   String?
+  createdAt   DateTime @default(now())
+
+  // Relations
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  post        Post?    @relation(fields: [postId], references: [id], onDelete: Cascade)
+  comment     Comment? @relation(fields: [commentId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, postId])
+  @@unique([userId, commentId])
+  @@map("likes")
+}
+
+model UserFollow {
+  id          String   @id @default(cuid())
+  followerId  String
+  followingId String
+  createdAt   DateTime @default(now())
+
+  // Relations
+  follower    User     @relation("UserFollowers", fields: [followerId], references: [id], onDelete: Cascade)
+  following   User     @relation("UserFollowing", fields: [followingId], references: [id], onDelete: Cascade)
+
+  @@unique([followerId, followingId])
+  @@map("user_follows")
+}
+
+model UserProfile {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  bio             String?  @db.Text
+  location        String?
+  website         String?
+  socialLinks     Json?    // {twitter: string, instagram: string, etc.}
+  favoriteTeam   String?
+  favoritePlayer  String?
+  predictionAccuracy Float? // Overall prediction accuracy
+  totalPredictions Int     @default(0)
+  followersCount  Int      @default(0)
+  followingCount  Int      @default(0)
+  postsCount      Int      @default(0)
+  achievements    String[] // Array of achievement IDs
+  badges          String[] // Array of badge IDs
+  isVerified      Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_profiles")
+}
+
+model Hashtag {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  postsCount  Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  posts       PostHashtag[]
+
+  @@map("hashtags")
+}
+
+model PostHashtag {
+  id          String   @id @default(cuid())
+  postId      String
+  hashtagId   String
+  createdAt   DateTime @default(now())
+
+  // Relations
+  post        Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  hashtag     Hashtag  @relation(fields: [hashtagId], references: [id], onDelete: Cascade)
+
+  @@unique([postId, hashtagId])
+  @@map("post_hashtags")
+}
+
+model Achievement {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String
+  icon        String?
+  points      Int      @default(0)
+  criteria    Json     // Achievement criteria
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("achievements")
+}
+
+model Badge {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String
+  icon        String?
+  color       String?
+  rarity      BadgeRarity @default(COMMON)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("badges")
 }
 
 // =============================================================================
@@ -575,4 +797,22 @@ enum NotificationType {
   SYSTEM_UPDATE
   ACHIEVEMENT
   GENERAL
+}
+
+enum PostType {
+  GENERAL
+  PREDICTION
+  MATCH_COMMENTARY
+  ANALYSIS
+  NEWS
+  QUESTION
+  POLL
+}
+
+enum BadgeRarity {
+  COMMON
+  UNCOMMON
+  RARE
+  EPIC
+  LEGENDARY
 } 

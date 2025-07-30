@@ -183,7 +183,7 @@ main() {
     
     cd ..
     
-    # Set up ML service
+    # Set up ML service (Docker-based)
     log "🤖 Setting up ML service..."
     cd prediction_model
     
@@ -193,27 +193,13 @@ main() {
         exit 1
     fi
     
-    # Create virtual environment if it doesn't exist
-    if [ ! -d "venv" ]; then
-        log "🐍 Creating Python virtual environment..."
-        if python3 -m venv venv; then
-            success "Python virtual environment created"
-        else
-            error "Failed to create Python virtual environment"
-            exit 1
-        fi
-    else
-        log "✅ Python virtual environment already exists"
-    fi
-    
-    # Activate virtual environment and install dependencies
-    log "📦 Installing ML service dependencies..."
-    if source venv/bin/activate && pip install -r requirements.txt; then
-        success "ML service dependencies installed"
-    else
-        error "Failed to install ML service dependencies"
+    # Check if Dockerfile exists
+    if [ ! -f "Dockerfile" ]; then
+        error "Dockerfile not found in prediction_model directory"
         exit 1
     fi
+    
+    log "✅ ML service will be set up via Docker"
     
     cd ..
     

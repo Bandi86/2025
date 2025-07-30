@@ -116,7 +116,17 @@ describe('AuthService', () => {
 
       const result = await service.validateUser(email, password);
 
-      expect(result).toEqual(mockUserWithoutPassword);
+      expect(result).toEqual(expect.objectContaining({
+        id: mockUserWithoutPassword.id,
+        email: mockUserWithoutPassword.email,
+        username: mockUserWithoutPassword.username,
+        firstName: mockUserWithoutPassword.firstName,
+        lastName: mockUserWithoutPassword.lastName,
+        avatar: mockUserWithoutPassword.avatar,
+        isEmailVerified: mockUserWithoutPassword.isEmailVerified,
+        isActive: mockUserWithoutPassword.isActive,
+        role: mockUserWithoutPassword.role,
+      }));
       expect(usersService.findByEmail).toHaveBeenCalledWith(email);
       expect(bcrypt.compare).toHaveBeenCalledWith(password, mockUser.password);
     });

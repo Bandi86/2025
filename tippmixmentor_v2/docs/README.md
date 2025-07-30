@@ -137,7 +137,7 @@ curl http://localhost:3000/api/auth/login
 - **Documentation**: Swagger
 
 ### **Frontend**
-- **Framework**: Next.js 14
+- **Framework**: Next.js 15
 - **UI Library**: shadcn/ui + Tailwind CSS
 - **State Management**: Zustand
 - **Data Fetching**: TanStack Query

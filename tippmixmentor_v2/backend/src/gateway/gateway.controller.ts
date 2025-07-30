@@ -25,7 +25,7 @@ import { LoggingInterceptor } from '../common/interceptors/logging.interceptor';
 import { GlobalExceptionFilter } from '../common/filters/exception.filter';
 import { JwtAuthGuard } from '../modules/auth/guards/jwt-auth.guard';
 
-@Controller()
+@Controller('gateway')
 @UseInterceptors(LoggingInterceptor)
 @UseFilters(GlobalExceptionFilter)
 export class GatewayController {
@@ -45,7 +45,7 @@ export class GatewayController {
     return this.monitoringService.getPerformanceMetrics();
   }
 
-  @Get('gateway/test')
+  @Get('test')
   async testGateway() {
     return {
       message: 'Gateway is working!',
@@ -54,8 +54,12 @@ export class GatewayController {
     };
   }
 
-  @Get('api/v1/*')
-  async handleGetRequest(
+  // Temporarily disabled gateway routing to test auth routes
+  /*
+  // Only route external service requests, not internal module routes
+  // Exclude auth, users, matches, predictions, analytics, notifications, social routes
+  @Get('api/v1/external/*')
+  async handleExternalGetRequest(
     @Req() req: Request,
     @Res() res: Response,
     @Query() query: any,
@@ -65,8 +69,8 @@ export class GatewayController {
     return this.gatewayService.routeRequest(req, res, 'GET');
   }
 
-  @Post('api/v1/*')
-  async handlePostRequest(
+  @Post('api/v1/external/*')
+  async handleExternalPostRequest(
     @Req() req: Request,
     @Res() res: Response,
     @Body() body: any,
@@ -75,8 +79,8 @@ export class GatewayController {
     return this.gatewayService.routeRequest(req, res, 'POST');
   }
 
-  @Put('api/v1/*')
-  async handlePutRequest(
+  @Put('api/v1/external/*')
+  async handleExternalPutRequest(
     @Req() req: Request,
     @Res() res: Response,
     @Body() body: any,
@@ -85,8 +89,8 @@ export class GatewayController {
     return this.gatewayService.routeRequest(req, res, 'PUT');
   }
 
-  @Patch('api/v1/*')
-  async handlePatchRequest(
+  @Patch('api/v1/external/*')
+  async handleExternalPatchRequest(
     @Req() req: Request,
     @Res() res: Response,
     @Body() body: any,
@@ -95,8 +99,8 @@ export class GatewayController {
     return this.gatewayService.routeRequest(req, res, 'PATCH');
   }
 
-  @Delete('api/v1/*')
-  async handleDeleteRequest(
+  @Delete('api/v1/external/*')
+  async handleExternalDeleteRequest(
     @Req() req: Request,
     @Res() res: Response,
     @Headers() headers: any,
@@ -104,31 +108,12 @@ export class GatewayController {
     return this.gatewayService.routeRequest(req, res, 'DELETE');
   }
 
-  @All('api/v1/*')
-  async handleAllRequests(
+  @All('api/v1/external/*')
+  async handleAllExternalRequests(
     @Req() req: Request,
     @Res() res: Response,
   ) {
     return this.gatewayService.routeRequest(req, res, req.method);
   }
-
-  // Catch-all route for unmatched paths
-  @All('*')
-  async handleUnmatchedRoutes(
-    @Req() req: Request,
-    @Res() res: Response,
-  ) {
-    this.loggingService.warn('Unmatched route accessed', 'GATEWAY', {
-      method: req.method,
-      url: req.url,
-      ip: req.ip,
-    });
-
-    return res.status(HttpStatus.NOT_FOUND).json({
-      statusCode: HttpStatus.NOT_FOUND,
-      message: 'Route not found',
-      path: req.url,
-      timestamp: new Date().toISOString(),
-    });
-  }
+  */
 } 

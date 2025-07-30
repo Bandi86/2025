@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { PrismaService } from '../../common/database/prisma.service';
 import { CreateMatchDto } from './dto/create-match.dto';
 import { UpdateMatchDto } from './dto/update-match.dto';
@@ -189,6 +189,11 @@ export class MatchesService {
   }
 
   async create(createMatchDto: CreateMatchDto) {
+    // Validate that home and away teams are different
+    if (createMatchDto.homeTeamId === createMatchDto.awayTeamId) {
+      throw new BadRequestException('Home and away teams cannot be the same');
+    }
+
     return this.prisma.match.create({
       data: {
         homeTeamId: createMatchDto.homeTeamId,
@@ -506,8 +511,7 @@ export class MatchesService {
           select: {
             id: true,
             username: true,
-            firstName: true,
-            lastName: true,
+            avatar: true,
           },
         },
       },
@@ -522,11 +526,6 @@ export class MatchesService {
         team: true,
         player: true,
       },
-      orderBy: [
-        { teamId: 'asc' },
-        { isSubstitute: 'asc' },
-        { position: 'asc' },
-      ],
     });
   }
 
@@ -534,16 +533,105 @@ export class MatchesService {
     return this.prisma.playerStats.findMany({
       where: { matchId },
       include: {
-        player: {
-          include: {
-            team: true,
-          },
-        },
+        player: true,
       },
-      orderBy: [
-        { goals: 'desc' },
-        { assists: 'desc' },
-      ],
+    });
+  }
+
+  // Additional methods for testing
+  async findUpcomingMatches(limit: number = 10) {
+    return this.prisma.match.findMany({
+      where: {
+        matchDate: {
+          gt: new Date(),
+        },
+        isFinished: false,
+      },
+      include: {
+        homeTeam: true,
+        awayTeam: true,
+        league: true,
+        venue: true,
+      },
+      orderBy: { matchDate: 'asc' },
+      take: limit,
+    });
+  }
+
+  async findRecentMatches(limit: number = 10) {
+    return this.prisma.match.findMany({
+      where: {
+        isFinished: true,
+      },
+      include: {
+        homeTeam: true,
+        awayTeam: true,
+        league: true,
+        venue: true,
+      },
+      orderBy: { matchDate: 'desc' },
+      take: limit,
+    });
+  }
+
+  async findMatchesByTeam(teamId: string, limit: number = 10) {
+    return this.prisma.match.findMany({
+      where: {
+        OR: [
+          { homeTeamId: teamId },
+          { awayTeamId: teamId },
+        ],
+      },
+      include: {
+        homeTeam: true,
+        awayTeam: true,
+        league: true,
+        venue: true,
+      },
+      orderBy: { matchDate: 'desc' },
+      take: limit,
+    });
+  }
+
+  async findMatchesByLeague(leagueId: string, limit: number = 10) {
+    return this.prisma.match.findMany({
+      where: {
+        leagueId,
+      },
+      include: {
+        homeTeam: true,
+        awayTeam: true,
+        league: true,
+        venue: true,
+      },
+      orderBy: { matchDate: 'desc' },
+      take: limit,
+    });
+  }
+
+  async updateMatchScore(matchId: string, homeScore: number, awayScore: number) {
+    await this.findOne(matchId);
+    
+    return this.prisma.match.update({
+      where: { id: matchId },
+      data: {
+        homeScore,
+        awayScore,
+        isFinished: true,
+        status: 'FINISHED',
+      },
+      include: {
+        homeTeam: true,
+        awayTeam: true,
+        league: true,
+        venue: true,
+      },
+    });
+  }
+
+  async createMatchStats(createStatDto: any) {
+    return this.prisma.matchStats.create({
+      data: createStatDto,
     });
   }
 } 

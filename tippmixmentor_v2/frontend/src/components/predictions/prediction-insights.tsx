@@ -281,7 +281,7 @@ export function PredictionInsights({ prediction, matchData, onBetRecommendation 
                   <h4 className="font-medium mb-2">Key Factors:</h4>
                   <div className="space-y-1">
                     {Object.entries(prediction.model_info.feature_importance.match_result || {})
-                      .sort(([,a], [,b]) => b - a)
+                      .sort(([,a], [,b]) => (b as number) - (a as number))
                       .slice(0, 5)
                       .map(([feature, importance]) => (
                         <div key={feature} className="flex justify-between text-sm">
@@ -289,7 +289,7 @@ export function PredictionInsights({ prediction, matchData, onBetRecommendation 
                             {feature.replace(/_/g, ' ')}
                           </span>
                           <span className="font-medium">
-                            {(importance * 100).toFixed(1)}%
+                            {((importance as number) * 100).toFixed(1)}%
                           </span>
                         </div>
                       ))}

@@ -16,8 +16,8 @@ export class RedisService {
     return await this.redis.set(key, value);
   }
 
-  async del(key: string): Promise<number> {
-    return await this.redis.del(key);
+  async del(...keys: string[]): Promise<number> {
+    return await this.redis.del(...keys);
   }
 
   async exists(key: string): Promise<number> {
@@ -99,11 +99,31 @@ export class RedisService {
     return await this.redis.flushall();
   }
 
+  async keys(pattern: string): Promise<string[]> {
+    return await this.redis.keys(pattern);
+  }
+
+  async info(section?: string): Promise<string> {
+    return await this.redis.info(section);
+  }
+
   async ping(): Promise<'PONG'> {
     return await this.redis.ping();
   }
 
   async quit(): Promise<'OK'> {
     return await this.redis.quit();
+  }
+
+  async incr(key: string): Promise<number> {
+    return await this.redis.incr(key);
+  }
+
+  async ltrim(key: string, start: number, stop: number): Promise<'OK'> {
+    return await this.redis.ltrim(key, start, stop);
+  }
+
+  async setex(key: string, ttl: number, value: string): Promise<'OK'> {
+    return await this.redis.setex(key, ttl, value);
   }
 } 

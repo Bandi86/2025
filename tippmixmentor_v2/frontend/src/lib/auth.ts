@@ -135,39 +135,39 @@ class ApiClient {
 
   // Auth endpoints
   async login(data: LoginRequest): Promise<AuthResponse> {
-    return this.request<AuthResponse>('/auth/login', {
+    return this.request<AuthResponse>('/api/v1/auth/login', {
       method: 'POST',
       body: JSON.stringify(data),
     });
   }
 
   async register(data: RegisterRequest): Promise<AuthResponse> {
-    return this.request<AuthResponse>('/auth/register', {
+    return this.request<AuthResponse>('/api/v1/auth/register', {
       method: 'POST',
       body: JSON.stringify(data),
     });
   }
 
   async refreshToken(data: RefreshTokenRequest): Promise<AuthTokens> {
-    return this.request<AuthTokens>('/auth/refresh', {
+    return this.request<AuthTokens>('/api/v1/auth/refresh', {
       method: 'POST',
       body: JSON.stringify(data),
     });
   }
 
   async logout(): Promise<{ message: string }> {
-    return this.request<{ message: string }>('/auth/logout', {
+    return this.request<{ message: string }>('/api/v1/auth/logout', {
       method: 'POST',
     });
   }
 
   // User endpoints
   async getProfile(): Promise<User> {
-    return this.request<User>('/users/profile');
+    return this.request<User>('/api/v1/users/profile');
   }
 
   async updateProfile(data: Partial<User>): Promise<User> {
-    return this.request<User>('/users/profile', {
+    return this.request<User>('/api/v1/users/profile', {
       method: 'PUT',
       body: JSON.stringify(data),
     });
