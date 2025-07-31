@@ -102,6 +102,43 @@ services:
       timeout: 10s
       retries: 3
 
+  # Agent OS Service
+  agent-os:
+    build:
+      context: ./agent-os
+      dockerfile: Dockerfile
+    container_name: tippmixmentor_agent_os
+    environment:
+      PYTHONPATH: /app
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/tippmixmentor
+      REDIS_URL: redis://redis:6379
+      BACKEND_URL: http://backend:3001
+      ML_SERVICE_URL: http://ml-service:8000
+      FRONTEND_URL: http://frontend:3000
+      DEBUG: "true"
+      LOG_LEVEL: INFO
+      ENABLE_METRICS: "true"
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./agent-os:/app
+      - agent_os_data:/app/data
+      - agent_os_logs:/app/logs
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      ml-service:
+        condition: service_healthy
+    networks:
+      - tippmixmentor_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
 
 
   # Frontend Application
@@ -189,6 +226,10 @@ volumes:
   ml_models:
     driver: local
   frontend_node_modules:
+    driver: local
+  agent_os_data:
+    driver: local
+  agent_os_logs:
     driver: local
 
   prometheus_data:

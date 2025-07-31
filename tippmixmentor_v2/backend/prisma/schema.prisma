@@ -740,6 +740,130 @@ model Badge {
 }
 
 // =============================================================================
+// Agent Management
+// =============================================================================
+
+model Agent {
+  id              String      @id @default(cuid())
+  name            String
+  agentType       AgentType
+  status          AgentStatus @default(INACTIVE)
+  config          Json?       // Agent configuration
+  metadata        Json?       // Additional metadata
+  version         String      @default("1.0.0")
+  isActive        Boolean     @default(true)
+  lastHeartbeat   DateTime?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  // Relations
+  tasks           AgentTask[]
+  events          AgentEvent[]
+  insights        AgentInsight[]
+  workflows       AgentWorkflow[]
+  performance     AgentPerformance?
+
+  @@map("agents")
+}
+
+model AgentTask {
+  id          String      @id @default(cuid())
+  agentId     String
+  taskType    String
+  status      TaskStatus  @default(PENDING)
+  priority    TaskPriority @default(NORMAL)
+  inputData   Json?
+  outputData  Json?
+  error       String?
+  startedAt   DateTime?
+  completedAt DateTime?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  // Relations
+  agent       Agent       @relation(fields: [agentId], references: [id], onDelete: Cascade)
+
+  @@map("agent_tasks")
+}
+
+model AgentEvent {
+  id          String      @id @default(cuid())
+  agentId     String
+  eventType   String
+  eventData   Json?
+  severity    EventSeverity @default(INFO)
+  timestamp   DateTime    @default(now())
+
+  // Relations
+  agent       Agent       @relation(fields: [agentId], references: [id], onDelete: Cascade)
+
+  @@map("agent_events")
+}
+
+model AgentInsight {
+  id          String   @id @default(cuid())
+  agentId     String
+  insightType String
+  content     String   @db.Text
+  confidence  Float?
+  metadata    Json?
+  createdAt   DateTime @default(now())
+
+  // Relations
+  agent       Agent    @relation(fields: [agentId], references: [id], onDelete: Cascade)
+
+  @@map("agent_insights")
+}
+
+model AgentWorkflow {
+  id          String      @id @default(cuid())
+  agentId     String
+  name        String
+  description String?
+  steps       Json        // Workflow steps configuration
+  status      WorkflowStatus @default(ACTIVE)
+  isActive    Boolean     @default(true)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  // Relations
+  agent       Agent       @relation(fields: [agentId], references: [id], onDelete: Cascade)
+
+  @@map("agent_workflows")
+}
+
+model AgentPerformance {
+  id                    String   @id @default(cuid())
+  agentId               String   @unique
+  totalTasks            Int      @default(0)
+  completedTasks        Int      @default(0)
+  failedTasks           Int      @default(0)
+  averageResponseTime   Float    @default(0)
+  successRate           Float    @default(0)
+  uptime                Float    @default(0)
+  lastActivity          DateTime @default(now())
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+
+  // Relations
+  agent                 Agent    @relation(fields: [agentId], references: [id], onDelete: Cascade)
+
+  @@map("agent_performance")
+}
+
+model AgentIntegration {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  type        String   // "prediction", "analytics", "monitoring", etc.
+  config      Json     // Integration configuration
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("agent_integrations")
+}
+
+// =============================================================================
 // Enums
 // =============================================================================
 
@@ -815,4 +939,53 @@ enum BadgeRarity {
   RARE
   EPIC
   LEGENDARY
+}
+
+// Agent Management Enums
+enum AgentType {
+  PREDICTION
+  ANALYTICS
+  MONITORING
+  INSIGHT
+  WORKFLOW
+  CUSTOM
+}
+
+enum AgentStatus {
+  ACTIVE
+  INACTIVE
+  PAUSED
+  ERROR
+  STARTING
+  STOPPING
+}
+
+enum TaskStatus {
+  PENDING
+  RUNNING
+  COMPLETED
+  FAILED
+  CANCELLED
+}
+
+enum TaskPriority {
+  LOW
+  NORMAL
+  HIGH
+  CRITICAL
+}
+
+enum EventSeverity {
+  DEBUG
+  INFO
+  WARNING
+  ERROR
+  CRITICAL
+}
+
+enum WorkflowStatus {
+  ACTIVE
+  PAUSED
+  COMPLETED
+  FAILED
 } 

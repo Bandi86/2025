@@ -10,6 +10,8 @@ import {
 import { Server, Socket } from 'socket.io';
 import { Logger } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import { AgentsService } from '../modules/agents/agents.service';
+import { AgentEventsService, EventSeverity } from '../modules/agents/agent-events.service';
 
 @WebSocketGateway({
   cors: {
@@ -24,8 +26,13 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
 
   private readonly logger = new Logger(WebsocketGateway.name);
   private connectedUsers = new Map<string, Socket>();
+  private agentSubscriptions = new Map<string, Set<string>>(); // agentId -> Set of userIds
 
-  constructor(private readonly jwtService: JwtService) {}
+  constructor(
+    private readonly jwtService: JwtService,
+    private readonly agentsService: AgentsService,
+    private readonly agentEventsService: AgentEventsService,
+  ) {}
 
   async handleConnection(client: Socket) {
     try {
@@ -215,5 +222,194 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
 
   isUserOnline(userId: string): boolean {
     return this.connectedUsers.has(userId);
+  }
+
+  // =============================================================================
+  // Agent Event Methods
+  // =============================================================================
+
+  @SubscribeMessage('joinAgent')
+  handleJoinAgent(
+    @ConnectedSocket() client: Socket,
+    @MessageBody() agentId: string,
+  ) {
+    const userId = client.data.userId;
+    if (!userId) {
+      client.emit('error', { message: 'Authentication required' });
+      return;
+    }
+
+    client.join(`agent:${agentId}`);
+    
+    // Track user subscription to agent
+    if (!this.agentSubscriptions.has(agentId)) {
+      this.agentSubscriptions.set(agentId, new Set());
+    }
+    this.agentSubscriptions.get(agentId)!.add(userId);
+
+    this.logger.log(`User ${userId} joined agent ${agentId}`);
+    
+    client.emit('joinedAgent', {
+      agentId,
+      timestamp: new Date().toISOString(),
+    });
+  }
+
+  @SubscribeMessage('leaveAgent')
+  handleLeaveAgent(
+    @ConnectedSocket() client: Socket,
+    @MessageBody() agentId: string,
+  ) {
+    const userId = client.data.userId;
+    if (!userId) {
+      client.emit('error', { message: 'Authentication required' });
+      return;
+    }
+
+    client.leave(`agent:${agentId}`);
+    
+    // Remove user subscription to agent
+    const subscriptions = this.agentSubscriptions.get(agentId);
+    if (subscriptions) {
+      subscriptions.delete(userId);
+      if (subscriptions.size === 0) {
+        this.agentSubscriptions.delete(agentId);
+      }
+    }
+
+    this.logger.log(`User ${userId} left agent ${agentId}`);
+    
+    client.emit('leftAgent', {
+      agentId,
+      timestamp: new Date().toISOString(),
+    });
+  }
+
+  @SubscribeMessage('agentCommand')
+  async handleAgentCommand(
+    @ConnectedSocket() client: Socket,
+    @MessageBody() data: { agentId: string; command: string; payload?: any },
+  ) {
+    const userId = client.data.userId;
+    if (!userId) {
+      client.emit('error', { message: 'Authentication required' });
+      return;
+    }
+
+    try {
+      const { agentId, command, payload } = data;
+      
+      // Log the command event
+      await this.agentEventsService.create({
+        agentId,
+        eventType: 'command_received',
+        eventData: { command, payload, userId },
+        severity: EventSeverity.INFO,
+      });
+
+      // Handle different commands
+      switch (command) {
+        case 'start':
+          await this.agentsService.startAgent(agentId);
+          break;
+        case 'stop':
+          await this.agentsService.stopAgent(agentId);
+          break;
+        case 'status':
+          const status = await this.agentsService.getAgentStatus(agentId);
+          client.emit('agentStatus', { agentId, status });
+          break;
+        case 'health':
+          const health = await this.agentsService.getAgentHealth(agentId);
+          client.emit('agentHealth', { agentId, health });
+          break;
+        default:
+          client.emit('error', { message: `Unknown command: ${command}` });
+          return;
+      }
+
+      client.emit('commandExecuted', {
+        agentId,
+        command,
+        timestamp: new Date().toISOString(),
+      });
+    } catch (error) {
+      this.logger.error('Agent command error:', error);
+      client.emit('error', { message: 'Failed to execute agent command' });
+    }
+  }
+
+  // =============================================================================
+  // Agent Event Broadcasting Methods
+  // =============================================================================
+
+  emitAgentEvent(agentId: string, event: any) {
+    this.server.to(`agent:${agentId}`).emit('agentEvent', {
+      agentId,
+      event,
+      timestamp: new Date().toISOString(),
+    });
+  }
+
+  emitAgentStatusUpdate(agentId: string, status: any) {
+    this.server.to(`agent:${agentId}`).emit('agentStatusUpdate', {
+      agentId,
+      status,
+      timestamp: new Date().toISOString(),
+    });
+  }
+
+  emitAgentTaskUpdate(agentId: string, task: any) {
+    this.server.to(`agent:${agentId}`).emit('agentTaskUpdate', {
+      agentId,
+      task,
+      timestamp: new Date().toISOString(),
+    });
+  }
+
+  emitAgentInsight(agentId: string, insight: any) {
+    this.server.to(`agent:${agentId}`).emit('agentInsight', {
+      agentId,
+      insight,
+      timestamp: new Date().toISOString(),
+    });
+  }
+
+  emitAgentPerformanceUpdate(agentId: string, performance: any) {
+    this.server.to(`agent:${agentId}`).emit('agentPerformanceUpdate', {
+      agentId,
+      performance,
+      timestamp: new Date().toISOString(),
+    });
+  }
+
+  emitAgentError(agentId: string, error: any) {
+    this.server.to(`agent:${agentId}`).emit('agentError', {
+      agentId,
+      error,
+      timestamp: new Date().toISOString(),
+    });
+  }
+
+  // =============================================================================
+  // Agent Management Methods
+  // =============================================================================
+
+  getAgentSubscribers(agentId: string): string[] {
+    const subscriptions = this.agentSubscriptions.get(agentId);
+    return subscriptions ? Array.from(subscriptions) : [];
+  }
+
+  getAgentSubscriptionsCount(agentId: string): number {
+    const subscriptions = this.agentSubscriptions.get(agentId);
+    return subscriptions ? subscriptions.size : 0;
+  }
+
+  getAllAgentSubscriptions(): Record<string, string[]> {
+    const result: Record<string, string[]> = {};
+    for (const [agentId, subscriptions] of this.agentSubscriptions) {
+      result[agentId] = Array.from(subscriptions);
+    }
+    return result;
   }
 } 

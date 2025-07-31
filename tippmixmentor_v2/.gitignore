@@ -292,3 +292,9 @@ test-results.xml
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Kaggle
+kaggle.json
+
+# Api
+api/football_data_org/.env

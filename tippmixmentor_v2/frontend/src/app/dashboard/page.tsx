@@ -2,6 +2,7 @@
 
 import { ProtectedRoute } from '@/components/auth/protected-route';
 import { HealthStatus } from '@/components/ui/health-status';
+import { AgentInsights } from '@/components/predictions/agent-insights';
 import { useAuth } from '@/hooks/use-auth';
 import Link from 'next/link';
 
@@ -20,8 +21,14 @@ function DashboardContent() {
             </div>
             <div className="flex items-center space-x-4">
               <Link
-                href="/social"
+                href="/agents"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium"
+              >
+                Agent Management
+              </Link>
+              <Link
+                href="/social"
+                className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium"
               >
                 Social Feed
               </Link>
@@ -120,6 +127,19 @@ function DashboardContent() {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* AI Agent Insights Section */}
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="text-lg font-semibold text-gray-900">
+                AI Agent Insights
+              </h3>
+              <div className="text-sm text-gray-500">
+                Real-time intelligent recommendations
+              </div>
+            </div>
+            <AgentInsights />
           </div>
         </div>
       </main>

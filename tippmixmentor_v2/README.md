@@ -19,6 +19,13 @@ A comprehensive football prediction system that combines modern web technologies
 - **API Documentation**: Swagger/OpenAPI documentation
 - **Comprehensive Testing**: Unit and integration tests
 
+### Agent OS Features
+- **Intelligent Agents**: AI-powered agents for predictions and analysis
+- **Task Management**: Automated task processing and queuing
+- **Workflow Automation**: Multi-step workflow orchestration
+- **Memory & Learning**: Persistent agent memory and learning capabilities
+- **Real-time Monitoring**: Comprehensive metrics and health monitoring
+
 ### Frontend Features
 - **Next.js 14**: App Router with Server and Client Components
 - **TypeScript**: Full type safety across the application
@@ -44,6 +51,13 @@ backend/
 │   └── config/             # Configuration files
 ├── prisma/                 # Database schema and migrations
 └── test/                   # Test files
+
+agent-os/
+├── main.py                 # FastAPI application
+├── core/                   # Core system components
+├── agents/                 # Agent implementations
+├── routers/                # API endpoints
+└── requirements.txt        # Python dependencies
 ```
 
 ### Frontend Architecture
@@ -186,8 +200,14 @@ npm run dev
 # Start all services
 docker-compose up -d
 
+# Start specific service
+docker-compose up -d agent-os
+
 # View logs
 docker-compose logs -f
+
+# View Agent OS logs
+docker-compose logs -f agent-os
 
 # Stop services
 docker-compose down
@@ -195,9 +215,12 @@ docker-compose down
 
 ## 📊 API Documentation
 
-Once the backend is running, visit:
-- **Swagger UI**: http://localhost:3001/api
-- **API Health**: http://localhost:3001/health
+Once the services are running, visit:
+- **Backend Swagger UI**: http://localhost:3001/api
+- **Backend Health**: http://localhost:3001/health
+- **Agent OS Swagger UI**: http://localhost:8001/docs
+- **Agent OS Health**: http://localhost:8001/health
+- **ML Service Health**: http://localhost:8000/health
 
 ## 🔧 Environment Variables
 
@@ -224,6 +247,17 @@ NODE_ENV=development
 ```env
 NEXT_PUBLIC_API_URL="http://localhost:3001"
 NEXT_PUBLIC_APP_URL="http://localhost:3000"
+NEXT_PUBLIC_AGENT_OS_URL="http://localhost:8001"
+```
+
+### Agent OS (env.example)
+```env
+DATABASE_URL="postgresql://postgres:postgres@postgres:5432/tippmixmentor"
+REDIS_URL="redis://redis:6379"
+BACKEND_URL="http://backend:3001"
+ML_SERVICE_URL="http://ml-service:8000"
+DEBUG=true
+LOG_LEVEL=INFO
 ```
 
 ## 🛡️ Security Best Practices
@@ -281,6 +315,18 @@ For support and questions:
 - Check the documentation
 
 ## 🔄 Changelog
+
+### v2.1.0 - Agent OS Integration
+- ✅ Intelligent Agent Operating System
+- ✅ Prediction agents with ML integration
+- ✅ Automated task management and queuing
+- ✅ Workflow automation and orchestration
+- ✅ Agent memory and learning capabilities
+- ✅ Real-time monitoring and metrics
+- ✅ Comprehensive API documentation
+- ✅ Docker containerization
+- ✅ Health checks and monitoring
+- ✅ Integration with existing services
 
 ### v2.0.0 - Authentication System
 - ✅ Complete JWT authentication system

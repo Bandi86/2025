@@ -31,8 +31,6 @@ export class SocialGateway implements OnGatewayConnection, OnGatewayDisconnect {
   private readonly logger = new Logger(SocialGateway.name);
   private connectedUsers = new Map<string, AuthenticatedSocket>();
 
-  constructor() {}
-
   async handleConnection(client: AuthenticatedSocket) {
     try {
       // Extract user info from handshake auth

@@ -8,6 +8,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { GatewayController } from './gateway.controller';
 import { GatewayService } from './gateway.service';
 import { WebsocketGateway } from './websocket.gateway';
+import { AgentsModule } from '../modules/agents/agents.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { WebsocketGateway } from './websocket.gateway';
     RedisModule,
     LoggingModule,
     MonitoringModule,
+    AgentsModule,
     JwtModule.register({
       secret: process.env.JWT_SECRET || 'your-secret-key',
       signOptions: { expiresIn: '1h' },

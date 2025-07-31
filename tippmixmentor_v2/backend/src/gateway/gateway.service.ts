@@ -80,6 +80,13 @@ export class GatewayService {
         timeout: 5000,
         retries: 3,
       },
+      {
+        name: 'agents',
+        url: this.configService.get('AGENTS_SERVICE_URL', 'http://localhost:3001'),
+        healthCheck: '/health',
+        timeout: 5000,
+        retries: 3,
+      },
     ];
 
     serviceConfigs.forEach(config => {
@@ -202,7 +209,14 @@ export class GatewayService {
 
   private getServiceFromPath(path: string): string {
     const segments = path.split('/').filter(Boolean);
-    return segments[0] || 'auth';
+    const service = segments[0] || 'auth';
+    
+    // Map specific agent-related paths to the agents service
+    if (service === 'agents' || path.includes('/agents/')) {
+      return 'agents';
+    }
+    
+    return service;
   }
 
   private async forwardRequest(req: Request, method: string, serviceName: string): Promise<AxiosResponse> {
