@@ -31,9 +31,9 @@ RUN npm cache clean --force
 # Expose port
 EXPOSE 3001
 
-# Health check
+# Health check - using a simple endpoint that exists
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost:3001/api/v1/health || exit 1
+  CMD curl -s -o /dev/null -w "%{http_code}" http://localhost:3001/api/v1/auth/login -X POST -H "Content-Type: application/json" -d '{}' | grep -E "(200|400)" || exit 1
 
 # Start the application
 CMD ["node", "dist/src/main.js"] 

@@ -12,6 +12,16 @@ export function useHealthStatus() {
   });
 }
 
+// Debug hook to test authentication
+export function useTestAuth() {
+  return useQuery({
+    queryKey: ['test-auth'],
+    queryFn: () => apiClient.testAuth(),
+    retry: 1,
+    enabled: false, // Don't run automatically
+  });
+}
+
 export function usePerformanceMetrics() {
   return useQuery({
     queryKey: ['metrics'],
@@ -206,6 +216,226 @@ export function useLiveMatchData(matchId: string) {
   });
 }
 
+// Enhanced prediction hooks
+export function useMatchPrediction(matchId: string) {
+  return useQuery({
+    queryKey: ['match-prediction', matchId],
+    queryFn: () => apiClient.getMatchPrediction(matchId),
+    staleTime: 2 * 60 * 1000, // 2 minutes
+    retry: 2,
+    enabled: !!matchId,
+  });
+}
+
+export function useAIInsights(matchId: string) {
+  return useQuery({
+    queryKey: ['ai-insights', matchId],
+    queryFn: () => apiClient.getAIInsights(matchId),
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    retry: 2,
+    enabled: !!matchId,
+  });
+}
+
+export function useAgentPrediction(matchId: string, agentId?: string) {
+  return useQuery({
+    queryKey: ['agent-prediction', matchId, agentId],
+    queryFn: () => apiClient.getAgentPrediction(matchId, agentId),
+    staleTime: 2 * 60 * 1000, // 2 minutes
+    retry: 2,
+    enabled: !!matchId,
+  });
+}
+
+export function useEnhancedInsights(matchId: string, insightType: string = 'comprehensive') {
+  return useQuery({
+    queryKey: ['enhanced-insights', matchId, insightType],
+    queryFn: () => apiClient.getEnhancedInsights(matchId, insightType),
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    retry: 2,
+    enabled: !!matchId,
+  });
+}
+
+export function useTeamAnalysis(teamId: string, analysisType: string = 'comprehensive') {
+  return useQuery({
+    queryKey: ['team-analysis', teamId, analysisType],
+    queryFn: () => apiClient.getTeamAnalysis(teamId, analysisType),
+    staleTime: 10 * 60 * 1000, // 10 minutes
+    retry: 2,
+    enabled: !!teamId,
+  });
+}
+
+export function usePredictionTrends(timePeriod: string = '7d', trendType: string = 'general') {
+  return useQuery({
+    queryKey: ['prediction-trends', timePeriod, trendType],
+    queryFn: () => apiClient.getPredictionTrends(timePeriod, trendType),
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    retry: 2,
+  });
+}
+
+export function useUserPredictions(userId: string, limit?: number) {
+  return useQuery({
+    queryKey: ['user-predictions', userId, limit],
+    queryFn: () => apiClient.getUserPredictions(userId, limit),
+    staleTime: 2 * 60 * 1000, // 2 minutes
+    retry: 2,
+    enabled: !!userId,
+  });
+}
+
+// Agents hooks
+export function useAgents() {
+  return useQuery({
+    queryKey: ['agents'],
+    queryFn: () => apiClient.getAgents(),
+    staleTime: 1 * 60 * 1000, // 1 minute
+    retry: 2,
+  });
+}
+
+export function useAgent(agentId: string) {
+  return useQuery({
+    queryKey: ['agent', agentId],
+    queryFn: () => apiClient.getAgent(agentId),
+    staleTime: 30 * 1000, // 30 seconds
+    retry: 2,
+    enabled: !!agentId,
+  });
+}
+
+export function useCreateAgent() {
+  const queryClient = useQueryClient();
+  
+  return useMutation({
+    mutationFn: (agentData: any) => apiClient.createAgent(agentData),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['agents'] });
+    },
+  });
+}
+
+export function useUpdateAgent() {
+  const queryClient = useQueryClient();
+  
+  return useMutation({
+    mutationFn: ({ agentId, agentData }: { agentId: string; agentData: any }) => 
+      apiClient.updateAgent(agentId, agentData),
+    onSuccess: (_, { agentId }) => {
+      queryClient.invalidateQueries({ queryKey: ['agents'] });
+      queryClient.invalidateQueries({ queryKey: ['agent', agentId] });
+    },
+  });
+}
+
+export function useDeleteAgent() {
+  const queryClient = useQueryClient();
+  
+  return useMutation({
+    mutationFn: (agentId: string) => apiClient.deleteAgent(agentId),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['agents'] });
+    },
+  });
+}
+
+export function useStartAgent() {
+  const queryClient = useQueryClient();
+  
+  return useMutation({
+    mutationFn: (agentId: string) => apiClient.startAgent(agentId),
+    onSuccess: (_, agentId) => {
+      queryClient.invalidateQueries({ queryKey: ['agents'] });
+      queryClient.invalidateQueries({ queryKey: ['agent', agentId] });
+    },
+  });
+}
+
+export function useStopAgent() {
+  const queryClient = useQueryClient();
+  
+  return useMutation({
+    mutationFn: (agentId: string) => apiClient.stopAgent(agentId),
+    onSuccess: (_, agentId) => {
+      queryClient.invalidateQueries({ queryKey: ['agents'] });
+      queryClient.invalidateQueries({ queryKey: ['agent', agentId] });
+    },
+  });
+}
+
+export function useAgentStatus(agentId: string) {
+  return useQuery({
+    queryKey: ['agent-status', agentId],
+    queryFn: () => apiClient.getAgentStatus(agentId),
+    staleTime: 10 * 1000, // 10 seconds
+    refetchInterval: 30 * 1000, // Refetch every 30 seconds
+    retry: 2,
+    enabled: !!agentId,
+  });
+}
+
+export function useAgentHealth(agentId: string) {
+  return useQuery({
+    queryKey: ['agent-health', agentId],
+    queryFn: () => apiClient.getAgentHealth(agentId),
+    staleTime: 30 * 1000, // 30 seconds
+    refetchInterval: 60 * 1000, // Refetch every minute
+    retry: 2,
+    enabled: !!agentId,
+  });
+}
+
+export function useAgentTasks(agentId: string, limit?: number, offset?: number) {
+  return useQuery({
+    queryKey: ['agent-tasks', agentId, limit, offset],
+    queryFn: () => apiClient.getAgentTasks(agentId, limit, offset),
+    staleTime: 1 * 60 * 1000, // 1 minute
+    retry: 2,
+    enabled: !!agentId,
+  });
+}
+
+export function useAgentInsights(agentId: string, limit?: number, offset?: number) {
+  return useQuery({
+    queryKey: ['agent-insights', agentId, limit, offset],
+    queryFn: () => apiClient.getAgentInsights(agentId, limit, offset),
+    staleTime: 2 * 60 * 1000, // 2 minutes
+    retry: 2,
+    enabled: !!agentId,
+  });
+}
+
+export function useAgentEvents(agentId: string, limit?: number, offset?: number) {
+  return useQuery({
+    queryKey: ['agent-events', agentId, limit, offset],
+    queryFn: () => apiClient.getAgentEvents(agentId, limit, offset),
+    staleTime: 30 * 1000, // 30 seconds
+    retry: 2,
+    enabled: !!agentId,
+  });
+}
+
+export function useAgentPerformance(agentId: string) {
+  return useQuery({
+    queryKey: ['agent-performance', agentId],
+    queryFn: () => apiClient.getAgentPerformance(agentId),
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    retry: 2,
+    enabled: !!agentId,
+  });
+}
+
+export function useIntegrations() {
+  return useQuery({
+    queryKey: ['integrations'],
+    queryFn: () => apiClient.getIntegrations(),
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    retry: 2,
+  });
+}
+
 // Notification hooks
 export function useNotifications() {
   return useQuery({
@@ -237,4 +467,65 @@ export function useIsAnyQueryLoading() {
 export function useHasAnyQueryError() {
   // This is a simplified version - in a real app you might want to track specific queries
   return false;
+}
+
+// Simple API hook for social components
+export function useApi() {
+  const api = {
+    get: async <T>(url: string): Promise<{ data: T }> => {
+      const response = await fetch(`/api${url}`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+        },
+      });
+      if (!response.ok) {
+        throw new Error('API request failed');
+      }
+      const data = await response.json();
+      return { data };
+    },
+    post: async <T>(url: string, body?: any): Promise<{ data: T }> => {
+      const response = await fetch(`/api${url}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+        },
+        body: body ? JSON.stringify(body) : undefined,
+      });
+      if (!response.ok) {
+        throw new Error('API request failed');
+      }
+      const data = await response.json();
+      return { data };
+    },
+    put: async <T>(url: string, body?: any): Promise<{ data: T }> => {
+      const response = await fetch(`/api${url}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+        },
+        body: body ? JSON.stringify(body) : undefined,
+      });
+      if (!response.ok) {
+        throw new Error('API request failed');
+      }
+      const data = await response.json();
+      return { data };
+    },
+    delete: async (url: string): Promise<void> => {
+      const response = await fetch(`/api${url}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+        },
+      });
+      if (!response.ok) {
+        throw new Error('API request failed');
+      }
+    },
+  };
+
+  return { api };
 } 

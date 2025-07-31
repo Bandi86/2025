@@ -179,6 +179,15 @@ Integrate matplotlib or seaborn for loss/accuracy plots
 
 ---
 
+## Future Features
+
+- logging modul használata, ami kiírja a konzolra és fájlba is a haladást (epoch, loss, accuracy)
+- tqdm vagy rich.progress használata a vizuális feedbackhez
+- Mentés checkpoints formájában (pl. minden 1-5 epoch után .pt, .pkl fájlba)
+- tensorboard támogatás (vizuális dashboard)
+- Debug és dry-run mód
+- Erőforrás-mérés (psutil, tracemalloc)
+
 ## New Features latest
 
 ## Agents for every model
@@ -220,10 +229,10 @@ Add new model to the project
 
 ### 📝 New Data Source
 
-- Football Data Org
-- Kaggle
-- ESPN
-- Other
+- Football Data Org API (10 calls/minute)
+- Kaggle search another datasets
+- ESPN data source is already integrated
+
 
 ## 📝 Summary
 

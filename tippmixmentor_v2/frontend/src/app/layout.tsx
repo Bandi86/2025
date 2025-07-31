@@ -3,15 +3,16 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { Providers } from '@/components/providers'
 import { Toaster } from '@/components/ui/toaster'
+import { ErrorBoundary } from '@/components/ui/error-boundary'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'TippMixMentor v2 - Football Prediction System',
-  description: 'A comprehensive football prediction system that combines modern web technologies with machine learning to provide accurate match predictions and betting insights.',
-  keywords: ['football', 'predictions', 'betting', 'sports', 'analytics', 'machine learning'],
+  title: 'TippMixMentor - Football Prediction System',
+  description: 'Advanced football prediction system with AI insights and real-time analytics',
+  keywords: ['football', 'predictions', 'AI', 'analytics', 'betting', 'sports'],
   authors: [{ name: 'TippMixMentor Team' }],
-  creator: 'TippMixMentor Team',
+  creator: 'TippMixMentor',
   publisher: 'TippMixMentor',
   formatDetection: {
     email: false,
@@ -23,14 +24,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: '/',
-    title: 'TippMixMentor v2 - Football Prediction System',
-    description: 'A comprehensive football prediction system that combines modern web technologies with machine learning to provide accurate match predictions and betting insights.',
-    siteName: 'TippMixMentor v2',
+    title: 'TippMixMentor - Football Prediction System',
+    description: 'Advanced football prediction system with AI insights and real-time analytics',
+    siteName: 'TippMixMentor',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'TippMixMentor v2 - Football Prediction System',
-    description: 'A comprehensive football prediction system that combines modern web technologies with machine learning to provide accurate match predictions and betting insights.',
+    title: 'TippMixMentor - Football Prediction System',
+    description: 'Advanced football prediction system with AI insights and real-time analytics',
   },
   robots: {
     index: true,
@@ -43,6 +44,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+  },
 }
 
 export default function RootLayout({
@@ -53,10 +57,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <Providers>
-          {children}
-          <Toaster />
-        </Providers>
+        <ErrorBoundary>
+          <Providers>
+            {children}
+            <Toaster />
+          </Providers>
+        </ErrorBoundary>
       </body>
     </html>
   )

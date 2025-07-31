@@ -42,7 +42,7 @@ interface AgentCardProps {
   onStart?: (agentId: string) => void;
   onStop?: (agentId: string) => void;
   onConfigure?: (agentId: string) => void;
-  onViewDetails?: (agentId: string) => void;
+  onViewDetails?: (agent: Agent) => void;
   className?: string;
 }
 
@@ -226,7 +226,7 @@ export function AgentCard({
           <Button
             variant="ghost"
             size="sm"
-            onClick={() => onViewDetails?.(agent.id)}
+                            onClick={() => onViewDetails?.(agent)}
             className="flex items-center space-x-1"
           >
             <Activity className="w-4 h-4" />

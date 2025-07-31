@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { PrismaService } from '../../common/database/prisma.service';
 import { LoggingService } from '../../common/logging/logging.service';
-import { MonitoringService } from '../../common/monitoring/monitoring.service';
+
 
 export enum WorkflowStatus {
   ACTIVE = 'ACTIVE',
@@ -35,7 +35,6 @@ export class AgentWorkflowsService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly logging: LoggingService,
-    private readonly monitoring: MonitoringService,
   ) {}
 
   async create(createWorkflowDto: CreateAgentWorkflowDto): Promise<AgentWorkflowResponseDto> {

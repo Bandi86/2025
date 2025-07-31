@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { PrismaService } from '../../common/database/prisma.service';
 import { LoggingService } from '../../common/logging/logging.service';
-import { MonitoringService } from '../../common/monitoring/monitoring.service';
+
 
 export enum EventSeverity {
   DEBUG = 'DEBUG',
@@ -32,7 +32,6 @@ export class AgentEventsService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly logging: LoggingService,
-    private readonly monitoring: MonitoringService,
   ) {}
 
   async create(createEventDto: CreateAgentEventDto): Promise<AgentEventResponseDto> {

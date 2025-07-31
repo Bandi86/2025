@@ -66,13 +66,7 @@ export class GatewayService {
         timeout: 5000,
         retries: 3,
       },
-      {
-        name: 'analytics',
-        url: this.configService.get('ANALYTICS_SERVICE_URL', 'http://localhost:3001'),
-        healthCheck: '/health',
-        timeout: 5000,
-        retries: 3,
-      },
+
       {
         name: 'notifications',
         url: this.configService.get('NOTIFICATIONS_SERVICE_URL', 'http://localhost:3001'),
@@ -357,9 +351,6 @@ export class GatewayService {
     }
     if (path.includes('/predictions')) {
       return 2 * 60 * 1000; // 2 minutes for predictions
-    }
-    if (path.includes('/analytics')) {
-      return 10 * 60 * 1000; // 10 minutes for analytics
     }
     
     return 1 * 60 * 1000; // 1 minute default

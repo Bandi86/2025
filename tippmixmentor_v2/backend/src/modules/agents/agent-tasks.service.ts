@@ -3,7 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import { PrismaService } from '../../common/database/prisma.service';
 import { RedisService } from '../../common/redis/redis.service';
 import { LoggingService } from '../../common/logging/logging.service';
-import { MonitoringService } from '../../common/monitoring/monitoring.service';
+
 import { CreateAgentTaskDto, TaskStatus, TaskPriority } from './dto/agent-task.dto';
 import { AgentTaskResponseDto } from './dto/agent-task.dto';
 import axios from 'axios';
@@ -16,7 +16,6 @@ export class AgentTasksService {
     private readonly prisma: PrismaService,
     private readonly redis: RedisService,
     private readonly logging: LoggingService,
-    private readonly monitoring: MonitoringService,
     private readonly configService: ConfigService,
   ) {
     this.agentOsUrl = this.configService.get('AGENT_OS_URL', 'http://localhost:8000');

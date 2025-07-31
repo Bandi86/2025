@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { PrismaService } from '../../common/database/prisma.service';
 import { LoggingService } from '../../common/logging/logging.service';
-import { MonitoringService } from '../../common/monitoring/monitoring.service';
+
 
 export interface CreateAgentInsightDto {
   agentId: string;
@@ -26,7 +26,6 @@ export class AgentInsightsService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly logging: LoggingService,
-    private readonly monitoring: MonitoringService,
   ) {}
 
   async create(createInsightDto: CreateAgentInsightDto): Promise<AgentInsightResponseDto> {

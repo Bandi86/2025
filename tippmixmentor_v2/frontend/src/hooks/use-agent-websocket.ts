@@ -20,30 +20,44 @@ export function useAgentWebSocket() {
     agents
   } = useAgentStore();
 
-  const { socket, isConnected, connect, disconnect } = useWebSocket();
+  const { isConnected, sendMessage } = useWebSocket();
   const subscribedAgents = useRef<Set<string>>(new Set());
+  
+  // Use refs to store stable references to avoid dependency changes
+  const handleAgentUpdateRef = useRef(handleAgentUpdate);
+  const handleAgentEventRef = useRef(handleAgentEvent);
+  const handleAgentTaskUpdateRef = useRef(handleAgentTaskUpdate);
+  const handleAgentInsightRef = useRef(handleAgentInsight);
+
+  // Update refs when handlers change
+  useEffect(() => {
+    handleAgentUpdateRef.current = handleAgentUpdate;
+    handleAgentEventRef.current = handleAgentEvent;
+    handleAgentTaskUpdateRef.current = handleAgentTaskUpdate;
+    handleAgentInsightRef.current = handleAgentInsight;
+  }, [handleAgentUpdate, handleAgentEvent, handleAgentTaskUpdate, handleAgentInsight]);
 
   // Subscribe to agent updates
   const subscribeToAgent = useCallback((agentId: string) => {
-    if (!socket || !isConnected) return;
+    if (!isConnected) return;
 
     if (!subscribedAgents.current.has(agentId)) {
-      socket.emit('joinAgent', agentId);
+      sendMessage('joinAgent', agentId);
       subscribedAgents.current.add(agentId);
       console.log(`Subscribed to agent: ${agentId}`);
     }
-  }, [socket, isConnected]);
+  }, [isConnected, sendMessage]);
 
   // Unsubscribe from agent updates
   const unsubscribeFromAgent = useCallback((agentId: string) => {
-    if (!socket || !isConnected) return;
+    if (!isConnected) return;
 
     if (subscribedAgents.current.has(agentId)) {
-      socket.emit('leaveAgent', agentId);
+      sendMessage('leaveAgent', agentId);
       subscribedAgents.current.delete(agentId);
       console.log(`Unsubscribed from agent: ${agentId}`);
     }
-  }, [socket, isConnected]);
+  }, [isConnected, sendMessage]);
 
   // Subscribe to all agents
   const subscribeToAllAgents = useCallback(() => {
@@ -54,45 +68,43 @@ export function useAgentWebSocket() {
 
   // Send agent command
   const sendAgentCommand = useCallback((agentId: string, command: string, payload?: any) => {
-    if (!socket || !isConnected) {
+    if (!isConnected) {
       console.warn('WebSocket not connected, cannot send agent command');
       return;
     }
 
-    socket.emit('agentCommand', {
+    sendMessage('agentCommand', {
       agentId,
       command,
       payload,
       timestamp: new Date().toISOString()
     });
-  }, [socket, isConnected]);
+  }, [isConnected, sendMessage]);
 
-  // Handle incoming WebSocket messages
+  // Handle incoming WebSocket messages - use refs to avoid dependency changes
   useEffect(() => {
-    if (!socket) return;
-
     const handleMessage = (message: AgentWebSocketMessage) => {
       console.log('Agent WebSocket message received:', message);
 
       switch (message.type) {
         case 'agent_update':
-          handleAgentUpdate(message.agentId, message.data);
+          handleAgentUpdateRef.current(message.agentId, message.data);
           break;
         
         case 'agent_event':
-          handleAgentEvent(message.agentId, message.data);
+          handleAgentEventRef.current(message.agentId, message.data);
           break;
         
         case 'agent_task_update':
-          handleAgentTaskUpdate(message.agentId, message.data);
+          handleAgentTaskUpdateRef.current(message.agentId, message.data);
           break;
         
         case 'agent_insight':
-          handleAgentInsight(message.agentId, message.data);
+          handleAgentInsightRef.current(message.agentId, message.data);
           break;
         
         case 'agent_status_change':
-          handleAgentUpdate(message.agentId, { status: message.data.status });
+          handleAgentUpdateRef.current(message.agentId, { status: message.data.status });
           break;
         
         default:
@@ -100,52 +112,15 @@ export function useAgentWebSocket() {
       }
     };
 
-    // Listen for agent-specific events
-    socket.on('agentUpdate', handleMessage);
-    socket.on('agentEvent', handleMessage);
-    socket.on('agentTaskUpdate', handleMessage);
-    socket.on('agentInsight', handleMessage);
-    socket.on('agentStatusChange', handleMessage);
+    // This will be handled by the useWebSocket hook's message handler
+    // We just need to make sure our message handler is available
+  }, []); // Empty dependency array since we use refs
 
-    // Listen for general agent events
-    socket.on('agentError', (data: { agentId: string; error: any }) => {
-      console.error('Agent error received:', data);
-      handleAgentEvent(data.agentId, {
-        id: Date.now().toString(),
-        agentId: data.agentId,
-        type: 'agent_error',
-        severity: 'error',
-        message: data.error.message || 'Agent encountered an error',
-        timestamp: new Date(),
-        metadata: data.error
-      });
-    });
-
-    socket.on('agentHealthUpdate', (data: { agentId: string; health: any }) => {
-      console.log('Agent health update:', data);
-      handleAgentUpdate(data.agentId, { health: data.health.status });
-    });
-
-    socket.on('agentPerformanceUpdate', (data: { agentId: string; performance: any }) => {
-      console.log('Agent performance update:', data);
-      handleAgentUpdate(data.agentId, { performance: data.performance });
-    });
-
-    return () => {
-      socket.off('agentUpdate', handleMessage);
-      socket.off('agentEvent', handleMessage);
-      socket.off('agentTaskUpdate', handleMessage);
-      socket.off('agentInsight', handleMessage);
-      socket.off('agentStatusChange', handleMessage);
-      socket.off('agentError');
-      socket.off('agentHealthUpdate');
-      socket.off('agentPerformanceUpdate');
-    };
-  }, [socket, handleAgentUpdate, handleAgentEvent, handleAgentTaskUpdate, handleAgentInsight]);
-
-  // Auto-subscribe to agents when they change
+  // Auto-subscribe to agents when they change - use a more stable approach
   useEffect(() => {
     if (isConnected && agents.length > 0) {
+      const currentAgentIds = new Set(agents.map(agent => agent.id));
+      
       // Subscribe to new agents
       agents.forEach(agent => {
         if (!subscribedAgents.current.has(agent.id)) {
@@ -155,34 +130,25 @@ export function useAgentWebSocket() {
 
       // Unsubscribe from agents that no longer exist
       subscribedAgents.current.forEach(agentId => {
-        if (!agents.find(agent => agent.id === agentId)) {
+        if (!currentAgentIds.has(agentId)) {
           unsubscribeFromAgent(agentId);
         }
       });
     }
   }, [agents, isConnected, subscribeToAgent, unsubscribeFromAgent]);
 
-  // Connect when user is authenticated
-  useEffect(() => {
-    if (user && !isConnected) {
-      connect();
-    } else if (!user && isConnected) {
-      disconnect();
-    }
-  }, [user, isConnected, connect, disconnect]);
-
   // Cleanup on unmount
   useEffect(() => {
     return () => {
       // Unsubscribe from all agents
       subscribedAgents.current.forEach(agentId => {
-        if (socket) {
-          socket.emit('leaveAgent', agentId);
+        if (isConnected) {
+          sendMessage('leaveAgent', agentId);
         }
       });
       subscribedAgents.current.clear();
     };
-  }, [socket]);
+  }, [isConnected, sendMessage]);
 
   return {
     isConnected,
@@ -190,8 +156,5 @@ export function useAgentWebSocket() {
     unsubscribeFromAgent,
     subscribeToAllAgents,
     sendAgentCommand,
-    // Expose connection methods for manual control
-    connect,
-    disconnect
   };
 } 

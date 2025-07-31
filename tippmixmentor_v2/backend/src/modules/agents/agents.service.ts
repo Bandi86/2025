@@ -3,7 +3,6 @@ import { ConfigService } from '@nestjs/config';
 import { PrismaService } from '../../common/database/prisma.service';
 import { RedisService } from '../../common/redis/redis.service';
 import { LoggingService } from '../../common/logging/logging.service';
-import { MonitoringService } from '../../common/monitoring/monitoring.service';
 import { CreateAgentDto, AgentType } from './dto/create-agent.dto';
 import { UpdateAgentDto } from './dto/update-agent.dto';
 import { AgentResponseDto, AgentStatus } from './dto/agent-response.dto';
@@ -17,7 +16,6 @@ export class AgentsService {
     private readonly prisma: PrismaService,
     private readonly redis: RedisService,
     private readonly logging: LoggingService,
-    private readonly monitoring: MonitoringService,
     private readonly configService: ConfigService,
   ) {
     this.agentOsUrl = this.configService.get('AGENT_OS_URL', 'http://localhost:8000');

@@ -7,6 +7,7 @@ export interface User {
   firstName?: string;
   lastName?: string;
   role: 'USER' | 'ADMIN' | 'MODERATOR';
+  avatar?: string;
 }
 
 export interface AuthTokens {
@@ -133,7 +134,7 @@ class ApiClient {
     return response.json();
   }
 
-  // Auth endpoints
+  // Auth endpoints - Fixed API paths
   async login(data: LoginRequest): Promise<AuthResponse> {
     return this.request<AuthResponse>('/api/v1/auth/login', {
       method: 'POST',

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { AuthService, User, AuthTokens } from '@/lib/auth';
+import { AuthService, User, AuthTokens, getAccessToken, isTokenExpired } from '@/lib/auth';
 
 interface AuthState {
   user: User | null;
@@ -23,6 +23,7 @@ interface AuthActions {
   clearError: () => void;
   setUser: (user: User | null) => void;
   initialize: () => void;
+  debug: () => void;
 }
 
 type AuthStore = AuthState & AuthActions;
@@ -130,6 +131,17 @@ export const useAuthStore = create<AuthStore>()(
         set({
           user,
           isAuthenticated: !!user,
+        });
+      },
+
+      debug: () => {
+        const user = AuthService.getCurrentUser();
+        const token = getAccessToken();
+        console.log('[Auth Debug]', {
+          user,
+          isAuthenticated: !!user,
+          hasToken: !!token,
+          tokenExpired: token ? isTokenExpired(token) : 'no token',
         });
       },
     }),

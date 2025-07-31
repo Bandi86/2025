@@ -9,11 +9,10 @@ import { AgentPerformanceService } from './agent-performance.service';
 import { AgentIntegrationService } from './agent-integration.service';
 import { PrismaService } from '../../common/database/prisma.service';
 import { RedisModule } from '../../common/redis/redis.module';
-import { LoggingService } from '../../common/logging/logging.service';
-import { MonitoringService } from '../../common/monitoring/monitoring.service';
+import { LoggingModule } from '../../common/logging/logging.module';
 
 @Module({
-  imports: [RedisModule],
+  imports: [RedisModule, LoggingModule],
   controllers: [AgentsController],
   providers: [
     AgentsService,
@@ -23,9 +22,6 @@ import { MonitoringService } from '../../common/monitoring/monitoring.service';
     AgentWorkflowsService,
     AgentPerformanceService,
     AgentIntegrationService,
-    PrismaService,
-    LoggingService,
-    MonitoringService,
   ],
   exports: [
     AgentsService,

@@ -58,6 +58,23 @@ export class ApiClient {
 
     if (token && !isTokenExpired(token)) {
       headers.Authorization = `Bearer ${token}`;
+      if (process.env.NODE_ENV === 'development') {
+        console.log('[API] Adding auth token:', { 
+          hasToken: !!token, 
+          tokenExpired: isTokenExpired(token),
+          url,
+          method: options.method || 'GET'
+        });
+      }
+    } else {
+      if (process.env.NODE_ENV === 'development') {
+        console.log('[API] No auth token:', { 
+          hasToken: !!token, 
+          tokenExpired: token ? isTokenExpired(token) : 'no token',
+          url,
+          method: options.method || 'GET'
+        });
+      }
     }
 
     const config: RequestInit = {
@@ -84,7 +101,24 @@ export class ApiClient {
         this.logRequest(url, config, response, responseTime);
 
         if (!response.ok) {
-          const errorData = await response.json().catch(() => ({}));
+          let errorData = {};
+          try {
+            const responseText = await response.text();
+            errorData = responseText ? JSON.parse(responseText) : {};
+            if (process.env.NODE_ENV === 'development') {
+              console.log('[API] Error response:', {
+                status: response.status,
+                statusText: response.statusText,
+                url,
+                responseText,
+                parsedError: errorData
+              });
+            }
+          } catch (parseError) {
+            console.warn('[API] Failed to parse error response as JSON:', parseError);
+            errorData = {};
+          }
+          
           const apiError: ApiError = {
             message: errorData.message || `HTTP error! status: ${response.status}`,
             status: response.status,
@@ -133,13 +167,22 @@ export class ApiClient {
         status: response.status,
         responseTime: `${responseTime}ms`,
         timestamp: new Date().toISOString(),
+        headers: Object.fromEntries(response.headers.entries()),
+        hasAuth: !!(config.headers as Record<string, string>)?.Authorization,
       });
     }
   }
 
   private logError(error: ApiError, attempt: number) {
     if (process.env.NODE_ENV === 'development') {
-      console.error(`[API Error] Attempt ${attempt}/${this.retryAttempts}:`, error);
+      console.error(`[API Error] Attempt ${attempt}/${this.retryAttempts}:`, {
+        message: error.message,
+        status: error.status,
+        code: error.code,
+        details: error.details,
+        timestamp: error.timestamp,
+        fullError: error
+      });
     }
   }
 
@@ -150,6 +193,11 @@ export class ApiClient {
   // Health check endpoint
   async getHealth(): Promise<HealthStatus> {
     return this.request<HealthStatus>('/health');
+  }
+
+  // Debug endpoint to test authentication
+  async testAuth(): Promise<any> {
+    return this.request('/users/profile');
   }
 
   // Performance metrics endpoint
@@ -218,6 +266,51 @@ export class ApiClient {
     return this.request('/predictions/accuracy');
   }
 
+  // Enhanced prediction endpoints
+  async getMatchPrediction(matchId: string): Promise<any> {
+    return this.request(`/predictions/match/${matchId}`);
+  }
+
+  async getAIInsights(matchId: string): Promise<any> {
+    return this.request(`/predictions/match/${matchId}/ai-insights`);
+  }
+
+  async getAgentPrediction(matchId: string, agentId?: string): Promise<any> {
+    const queryString = agentId ? `?agentId=${agentId}` : '';
+    return this.request(`/predictions/match/${matchId}/agent-prediction${queryString}`);
+  }
+
+  async getEnhancedInsights(matchId: string, insightType: string = 'comprehensive'): Promise<any> {
+    return this.request(`/predictions/match/${matchId}/enhanced-insights?insightType=${insightType}`);
+  }
+
+  async getTeamAnalysis(teamId: string, analysisType: string = 'comprehensive'): Promise<any> {
+    return this.request(`/predictions/team/${teamId}/analysis?analysisType=${analysisType}`);
+  }
+
+  async getPredictionTrends(timePeriod: string = '7d', trendType: string = 'general'): Promise<any> {
+    return this.request(`/predictions/trends?timePeriod=${timePeriod}&trendType=${trendType}`);
+  }
+
+  async getUserPredictions(userId: string, limit?: number): Promise<any> {
+    const queryString = limit ? `?limit=${limit}` : '';
+    return this.request(`/predictions/user/${userId}${queryString}`);
+  }
+
+  async storePrediction(predictionData: any): Promise<any> {
+    return this.request('/predictions/store', {
+      method: 'POST',
+      body: JSON.stringify(predictionData),
+    });
+  }
+
+  async updatePredictionResult(predictionId: string, isCorrect: boolean): Promise<any> {
+    return this.request(`/predictions/${predictionId}/result`, {
+      method: 'PUT',
+      body: JSON.stringify({ isCorrect }),
+    });
+  }
+
   // Match endpoints
   async getMatches(params?: Record<string, any>): Promise<any> {
     const queryString = params ? `?${new URLSearchParams(params).toString()}` : '';
@@ -269,11 +362,92 @@ export class ApiClient {
 
   // Live data endpoints
   async getLiveMatches(): Promise<any> {
-    return this.request('/live-data/matches');
+    return this.request('/live-data/matches/live');
   }
 
   async getLiveMatchData(matchId: string): Promise<any> {
-    return this.request(`/live-data/matches/${matchId}`);
+    return this.request(`/live-data/match/${matchId}`);
+  }
+
+  // Agents endpoints
+  async getAgents(): Promise<any> {
+    return this.request('/agents');
+  }
+
+  async getAgent(agentId: string): Promise<any> {
+    return this.request(`/agents/${agentId}`);
+  }
+
+  async createAgent(agentData: any): Promise<any> {
+    return this.request('/agents', {
+      method: 'POST',
+      body: JSON.stringify(agentData),
+    });
+  }
+
+  async updateAgent(agentId: string, agentData: any): Promise<any> {
+    return this.request(`/agents/${agentId}`, {
+      method: 'PATCH',
+      body: JSON.stringify(agentData),
+    });
+  }
+
+  async deleteAgent(agentId: string): Promise<any> {
+    return this.request(`/agents/${agentId}`, {
+      method: 'DELETE',
+    });
+  }
+
+  async startAgent(agentId: string): Promise<any> {
+    return this.request(`/agents/${agentId}/start`, {
+      method: 'POST',
+    });
+  }
+
+  async stopAgent(agentId: string): Promise<any> {
+    return this.request(`/agents/${agentId}/stop`, {
+      method: 'POST',
+    });
+  }
+
+  async getAgentStatus(agentId: string): Promise<any> {
+    return this.request(`/agents/${agentId}/status`);
+  }
+
+  async getAgentHealth(agentId: string): Promise<any> {
+    return this.request(`/agents/${agentId}/health`);
+  }
+
+  async getAgentTasks(agentId: string, limit?: number, offset?: number): Promise<any> {
+    const params = new URLSearchParams();
+    if (limit) params.append('limit', limit.toString());
+    if (offset) params.append('offset', offset.toString());
+    const queryString = params.toString() ? `?${params.toString()}` : '';
+    return this.request(`/agents/${agentId}/tasks${queryString}`);
+  }
+
+  async getAgentInsights(agentId: string, limit?: number, offset?: number): Promise<any> {
+    const params = new URLSearchParams();
+    if (limit) params.append('limit', limit.toString());
+    if (offset) params.append('offset', offset.toString());
+    const queryString = params.toString() ? `?${params.toString()}` : '';
+    return this.request(`/agents/${agentId}/insights${queryString}`);
+  }
+
+  async getAgentEvents(agentId: string, limit?: number, offset?: number): Promise<any> {
+    const params = new URLSearchParams();
+    if (limit) params.append('limit', limit.toString());
+    if (offset) params.append('offset', offset.toString());
+    const queryString = params.toString() ? `?${params.toString()}` : '';
+    return this.request(`/agents/${agentId}/events${queryString}`);
+  }
+
+  async getAgentPerformance(agentId: string): Promise<any> {
+    return this.request(`/agents/${agentId}/performance`);
+  }
+
+  async getIntegrations(): Promise<any> {
+    return this.request('/agents/integrations');
   }
 
   // Notification endpoints
@@ -288,8 +462,19 @@ export class ApiClient {
   }
 }
 
-// Create singleton instance
-export const apiClient = new ApiClient();
+  // Create singleton instance
+  export const apiClient = new ApiClient();
+
+  // Debug function to log current state
+  export const debugApiClient = () => {
+    const token = getAccessToken();
+    console.log('[API Client Debug]', {
+      baseUrl: apiClient['baseUrl'],
+      hasToken: !!token,
+      tokenExpired: token ? isTokenExpired(token) : 'no token',
+      tokenPreview: token ? `${token.substring(0, 20)}...` : 'none',
+    });
+  };
 
 // Export for use in components
 export default apiClient; 

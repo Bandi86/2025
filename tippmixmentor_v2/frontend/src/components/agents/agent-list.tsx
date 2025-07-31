@@ -13,7 +13,7 @@ interface AgentListProps {
   onStart?: (agentId: string) => void;
   onStop?: (agentId: string) => void;
   onConfigure?: (agentId: string) => void;
-  onViewDetails?: (agentId: string) => void;
+  onViewDetails?: (agent: Agent) => void;
   onCreateAgent?: () => void;
   isLoading?: boolean;
 }

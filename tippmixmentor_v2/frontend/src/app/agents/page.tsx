@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { ProtectedRoute } from '@/components/auth/protected-route';
+import { DashboardLayout } from '@/components/dashboard/dashboard-layout';
 import { AgentList } from '@/components/agents/agent-list';
 import { AgentDetails } from '@/components/agents/agent-details';
 import { AgentInsights } from '@/components/predictions/agent-insights';
@@ -11,6 +12,7 @@ import { useAgentWebSocket } from '@/hooks/use-agent-websocket';
 import { Agent } from '@/components/agents/agent-card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { 
   Brain, 
   Plus, 
@@ -18,7 +20,8 @@ import {
   WifiOff, 
   Activity,
   TrendingUp,
-  AlertTriangle
+  AlertTriangle,
+  Users
 } from 'lucide-react';
 
 function AgentsContent() {
@@ -135,7 +138,7 @@ function AgentsContent() {
     if (isConnected && agents.length > 0) {
       subscribeToAllAgents();
     }
-  }, [isConnected, agents.length, subscribeToAllAgents]);
+  }, [isConnected, agents.length]); // Remove subscribeToAllAgents from dependencies
 
   const handleViewDetails = (agent: Agent) => {
     setSelectedAgent(agent);
@@ -181,112 +184,160 @@ function AgentsContent() {
   const systemStatus = getSystemStatus();
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="space-y-6">
       {/* Header */}
-      <nav className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900">Agent Management</h1>
+          <p className="text-gray-600 mt-1">
+            Manage and monitor your AI agents for football predictions
+          </p>
+        </div>
+        <div className="flex items-center space-x-4">
+          <Button onClick={handleCreateAgent} className="flex items-center space-x-2">
+            <Plus className="w-4 h-4" />
+            <span>Create Agent</span>
+          </Button>
+        </div>
+      </div>
+
+      {/* System Status Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <Card>
+          <CardContent className="p-4">
+            <div className="flex items-center space-x-2">
+              <div className="p-2 bg-blue-100 rounded-lg">
+                <Users className="w-5 h-5 text-blue-600" />
+              </div>
+              <div>
+                <p className="text-sm text-gray-600">Total Agents</p>
+                <p className="text-2xl font-bold">{systemStatus.totalAgents}</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="p-4">
+            <div className="flex items-center space-x-2">
+              <div className="p-2 bg-green-100 rounded-lg">
+                <Activity className="w-5 h-5 text-green-600" />
+              </div>
+              <div>
+                <p className="text-sm text-gray-600">Active Agents</p>
+                <p className="text-2xl font-bold">{systemStatus.activeAgents}</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="p-4">
+            <div className="flex items-center space-x-2">
+              <div className="p-2 bg-emerald-100 rounded-lg">
+                <TrendingUp className="w-5 h-5 text-emerald-600" />
+              </div>
+              <div>
+                <p className="text-sm text-gray-600">Health</p>
+                <p className="text-2xl font-bold">{systemStatus.healthPercentage}%</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="p-4">
+            <div className="flex items-center space-x-2">
+              <div className="p-2 bg-red-100 rounded-lg">
+                <AlertTriangle className="w-5 h-5 text-red-600" />
+              </div>
+              <div>
+                <p className="text-sm text-gray-600">Errors</p>
+                <p className="text-2xl font-bold">{systemStatus.errorAgents}</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Connection Status */}
+      <Card>
+        <CardContent className="p-4">
+          <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2">
-                <Brain className="w-6 h-6 text-blue-600" />
-                <h1 className="text-xl font-semibold text-gray-900">
-                  Agent Management
-                </h1>
-              </div>
-              
-              {/* System Status */}
-              <div className="flex items-center space-x-4">
-                <div className="flex items-center space-x-2">
-                  {isConnected ? (
-                    <Wifi className="w-4 h-4 text-green-500" />
-                  ) : (
-                    <WifiOff className="w-4 h-4 text-red-500" />
-                  )}
-                  <span className="text-sm text-gray-600">
-                    {isConnected ? 'Connected' : 'Disconnected'}
-                  </span>
-                </div>
-                
-                <div className="flex items-center space-x-2">
-                  <Activity className="w-4 h-4 text-blue-500" />
-                  <span className="text-sm text-gray-600">
-                    {systemStatus.activeAgents}/{systemStatus.totalAgents} Active
-                  </span>
-                </div>
-                
-                <div className="flex items-center space-x-2">
-                  <TrendingUp className="w-4 h-4 text-green-500" />
-                  <span className="text-sm text-gray-600">
-                    {systemStatus.healthPercentage}% Healthy
-                  </span>
-                </div>
-                
-                {systemStatus.errorAgents > 0 && (
-                  <div className="flex items-center space-x-2">
-                    <AlertTriangle className="w-4 h-4 text-red-500" />
-                    <span className="text-sm text-red-600">
-                      {systemStatus.errorAgents} Errors
-                    </span>
-                  </div>
+                {isConnected ? (
+                  <Wifi className="w-4 h-4 text-green-500" />
+                ) : (
+                  <WifiOff className="w-4 h-4 text-red-500" />
                 )}
+                <span className="text-sm font-medium">
+                  {isConnected ? 'Connected' : 'Disconnected'}
+                </span>
               </div>
             </div>
-            
-            <div className="flex items-center space-x-4">
-              <Button onClick={handleCreateAgent} className="flex items-center space-x-2">
-                <Plus className="w-4 h-4" />
-                <span>Create Agent</span>
-              </Button>
-            </div>
+            <Badge variant={isConnected ? "default" : "destructive"}>
+              {isConnected ? 'Online' : 'Offline'}
+            </Badge>
           </div>
-        </div>
-      </nav>
+        </CardContent>
+      </Card>
+
+      {/* Error Display */}
+      {error && (
+        <Card className="border-red-200 bg-red-50">
+          <CardContent className="p-4">
+            <div className="flex items-center space-x-2">
+              <AlertTriangle className="w-5 h-5 text-red-500" />
+              <span className="text-red-800 font-medium">Error:</span>
+              <span className="text-red-700">{error}</span>
+            </div>
+          </CardContent>
+        </Card>
+      )}
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <div className="px-4 py-6 sm:px-0">
-          {error && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-              <div className="flex items-center space-x-2">
-                <AlertTriangle className="w-5 h-5 text-red-500" />
-                <span className="text-red-800 font-medium">Error:</span>
-                <span className="text-red-700">{error}</span>
-              </div>
-            </div>
-          )}
-
-          {view === 'list' ? (
-            <div className="space-y-6">
-              {/* Agent Monitor */}
-              <AgentMonitor />
-              
-              {/* Agent List */}
-              <AgentList
-                agents={agents}
-                onStart={startAgent}
-                onStop={stopAgent}
-                onConfigure={handleConfigure}
-                onViewDetails={handleViewDetails}
-                onCreateAgent={handleCreateAgent}
-                isLoading={isLoading}
-              />
-              
-              {/* Agent Insights */}
-              <div className="mt-8">
-                <AgentInsights />
-              </div>
-            </div>
-          ) : (
-            <AgentDetails
-              agent={selectedAgent!}
-              onBack={handleBackToList}
-              onStart={startAgent}
-              onStop={stopAgent}
-              onConfigure={handleConfigure}
-            />
-          )}
+      {view === 'list' ? (
+        <div className="space-y-6">
+          {/* Agent Monitor */}
+          <AgentMonitor />
+          
+          {/* Agent List */}
+          <AgentList
+            agents={agents}
+            onStart={startAgent}
+            onStop={stopAgent}
+            onConfigure={handleConfigure}
+            onViewDetails={handleViewDetails}
+            onCreateAgent={handleCreateAgent}
+            isLoading={isLoading}
+          />
+          
+          {/* Agent Insights */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <Brain className="w-5 h-5" />
+                <span>Agent Insights</span>
+              </CardTitle>
+              <CardDescription>
+                AI agent performance and recommendations
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <AgentInsights />
+            </CardContent>
+          </Card>
         </div>
-      </main>
+      ) : (
+        <AgentDetails
+          agent={selectedAgent!}
+          onBack={handleBackToList}
+          onStart={startAgent}
+          onStop={stopAgent}
+          onConfigure={handleConfigure}
+        />
+      )}
     </div>
   );
 }
@@ -294,7 +345,9 @@ function AgentsContent() {
 export default function AgentsPage() {
   return (
     <ProtectedRoute>
-      <AgentsContent />
+      <DashboardLayout>
+        <AgentsContent />
+      </DashboardLayout>
     </ProtectedRoute>
   );
 } 

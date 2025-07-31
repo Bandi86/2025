@@ -17,6 +17,7 @@ export const useAuth = () => {
     clearError,
     setUser,
     initialize,
+    debug,
   } = useAuthStore();
 
   // Initialize auth state on mount
@@ -53,6 +54,7 @@ export const useAuth = () => {
     logout,
     refreshToken,
     clearError,
+    debug,
 
     // Utilities
     isAdmin: user?.role === 'ADMIN',

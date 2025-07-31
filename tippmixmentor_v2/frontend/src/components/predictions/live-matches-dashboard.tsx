@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -97,12 +97,12 @@ export function LiveMatchesDashboard({ onMatchSelect }: LiveMatchesDashboardProp
     fetchLiveMatches();
   }, []);
 
-  // Subscribe to live matches updates
+  // Subscribe to live matches updates when connected
   useEffect(() => {
     if (isConnected) {
       getLiveMatches();
     }
-  }, [isConnected, getLiveMatches]);
+  }, [isConnected]); // Remove getLiveMatches from dependencies
 
   const fetchLiveMatches = async () => {
     try {
@@ -123,7 +123,7 @@ export function LiveMatchesDashboard({ onMatchSelect }: LiveMatchesDashboardProp
     }
   };
 
-  const handleMatchSelect = (matchId: string) => {
+  const handleMatchSelect = useCallback((matchId: string) => {
     if (selectedMatchId) {
       unsubscribeFromMatch(selectedMatchId);
     }
@@ -131,7 +131,7 @@ export function LiveMatchesDashboard({ onMatchSelect }: LiveMatchesDashboardProp
     setSelectedMatchId(matchId);
     subscribeToMatch(matchId);
     onMatchSelect?.(matchId);
-  };
+  }, [selectedMatchId, unsubscribeFromMatch, subscribeToMatch, onMatchSelect]);
 
   const getStatusColor = (status: string) => {
     switch (status.toLowerCase()) {
@@ -167,213 +167,144 @@ export function LiveMatchesDashboard({ onMatchSelect }: LiveMatchesDashboardProp
 
   return (
     <div className="space-y-6">
-      {/* Header */}
-      <Card className="border-l-4 border-l-green-500">
+      {/* Connection Status */}
+      <Card>
         <CardHeader>
-          <div className="flex items-center justify-between">
-            <div>
-              <CardTitle className="flex items-center gap-2">
-                <Activity className="h-5 w-5 text-green-600" />
-                Live Matches Dashboard
-              </CardTitle>
-              <CardDescription>
-                Real-time match updates and live statistics
-              </CardDescription>
+          <CardTitle className="flex items-center gap-2">
+            <Activity className="h-5 w-5" />
+            Live Matches Dashboard
+            <div className="flex items-center gap-2 ml-auto">
+              {isConnected ? (
+                <Badge variant="default" className="bg-green-100 text-green-800">
+                  <Wifi className="h-3 w-3 mr-1" />
+                  Connected
+                </Badge>
+              ) : isConnecting ? (
+                <Badge variant="secondary">
+                  <Activity className="h-3 w-3 mr-1 animate-spin" />
+                  Connecting...
+                </Badge>
+              ) : (
+                <Badge variant="destructive">
+                  <WifiOff className="h-3 w-3 mr-1" />
+                  Disconnected
+                </Badge>
+              )}
             </div>
-            <div className="flex items-center gap-2">
-              <div className={`p-2 rounded-full ${isConnected ? 'text-green-600 bg-green-100' : 'text-red-600 bg-red-100'}`}>
-                {isConnected ? <Wifi className="h-4 w-4" /> : <WifiOff className="h-4 w-4" />}
-              </div>
-              <Badge variant={isConnected ? "default" : "secondary"}>
-                {isConnected ? 'Connected' : 'Disconnected'}
-              </Badge>
-            </div>
-          </div>
+          </CardTitle>
+          <CardDescription>
+            Real-time football match data and live updates
+          </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="flex items-center justify-between text-sm text-gray-600">
-            <span>{liveMatches.length} live matches</span>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={fetchLiveMatches}
-              disabled={loading}
-            >
-              Refresh
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-
-      {error && (
-        <Card className="border-l-4 border-l-red-500">
-          <CardContent className="pt-6">
-            <div className="flex items-center gap-2 text-red-600">
-              <AlertTriangle className="h-4 w-4" />
-              {error}
+          {wsError && (
+            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-md">
+              <p className="text-red-700 text-sm">
+                WebSocket connection error: {wsError.message}
+              </p>
             </div>
-          </CardContent>
-        </Card>
-      )}
-
-      {wsError && (
-        <Card className="border-l-4 border-l-yellow-500">
-          <CardContent className="pt-6">
-            <div className="flex items-center gap-2 text-yellow-600">
-              <AlertTriangle className="h-4 w-4" />
-              WebSocket connection error: {wsError.message}
-            </div>
-          </CardContent>
-        </Card>
-      )}
-
-      {/* Live Matches Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Live Matches List */}
-        <div className="space-y-4">
-          <h3 className="text-lg font-semibold flex items-center gap-2">
-            <Activity className="h-5 w-5" />
-            Live Matches
-          </h3>
+          )}
           
+          {error && (
+            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-md">
+              <p className="text-red-700 text-sm">{error}</p>
+            </div>
+          )}
+
           {loading ? (
-            <div className="text-center py-8 text-gray-500">Loading live matches...</div>
+            <div className="flex items-center justify-center py-8">
+              <div className="text-center">
+                <Activity className="h-8 w-8 animate-spin mx-auto mb-2 text-blue-600" />
+                <p className="text-gray-600">Loading live matches...</p>
+              </div>
+            </div>
           ) : liveMatches.length === 0 ? (
-            <div className="text-center py-8 text-gray-500">No live matches available</div>
+            <div className="text-center py-8">
+              <Clock className="h-12 w-12 mx-auto mb-4 text-gray-400" />
+              <h3 className="text-lg font-medium text-gray-900 mb-2">No Live Matches</h3>
+              <p className="text-gray-600">There are currently no live matches available.</p>
+            </div>
           ) : (
-            <div className="space-y-3">
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {liveMatches.map((match) => (
-                <Card 
-                  key={match.match_id}
-                  className={`cursor-pointer transition-all hover:shadow-md ${
-                    selectedMatchId === match.match_id ? 'ring-2 ring-blue-500' : ''
-                  }`}
-                  onClick={() => handleMatchSelect(match.match_id)}
-                >
-                  <CardContent className="p-4">
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-2">
-                        <div className={`p-1 rounded-full ${getStatusColor(match.live_data.status)}`}>
-                          {getStatusIcon(match.live_data.status)}
+                <Card key={match.match_id} className="hover:shadow-md transition-shadow">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center justify-between">
+                      <Badge className={getStatusColor(match.live_data.status)}>
+                        {getStatusIcon(match.live_data.status)}
+                        <span className="ml-1">{match.live_data.status}</span>
+                      </Badge>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => handleMatchSelect(match.match_id)}
+                        className="h-6 px-2"
+                      >
+                        <Eye className="h-3 w-3" />
+                      </Button>
+                    </div>
+                    <CardTitle className="text-lg">
+                      {match.match_info.home_team} vs {match.match_info.away_team}
+                    </CardTitle>
+                    <CardDescription>
+                      {match.match_info.league} • {match.match_info.venue}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <div className="space-y-3">
+                      {/* Score */}
+                      <div className="text-center">
+                        <div className="text-2xl font-bold">
+                          {match.live_data.score.home} - {match.live_data.score.away}
                         </div>
-                        <Badge variant="outline">{match.live_data.status}</Badge>
+                        <div className="text-sm text-gray-500">
+                          {match.live_data.time}
+                        </div>
                       </div>
-                      <div className="text-sm text-gray-500">
-                        {new Date(match.timestamp).toLocaleTimeString()}
-                      </div>
-                    </div>
 
-                    <div className="text-center mb-3">
-                      <div className="text-2xl font-bold">
-                        {match.live_data.score.home} - {match.live_data.score.away}
+                      {/* Match Stats */}
+                      <div className="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                          <div className="font-medium text-gray-700">Possession</div>
+                          <div className="flex items-center gap-2">
+                            <Progress value={match.live_data.possession.home} className="flex-1" />
+                            <span className="text-xs">{match.live_data.possession.home}%</span>
+                          </div>
+                          <div className="flex items-center gap-2 mt-1">
+                            <Progress value={match.live_data.possession.away} className="flex-1" />
+                            <span className="text-xs">{match.live_data.possession.away}%</span>
+                          </div>
+                        </div>
+                        <div>
+                          <div className="font-medium text-gray-700">Shots</div>
+                          <div className="text-center">
+                            <span className="font-semibold">{match.live_data.shots.home}</span>
+                            <span className="text-gray-400 mx-1">-</span>
+                            <span className="font-semibold">{match.live_data.shots.away}</span>
+                          </div>
+                        </div>
                       </div>
-                      <div className="text-sm text-gray-600">
-                        {match.match_info.home_team} vs {match.match_info.away_team}
-                      </div>
-                    </div>
 
-                    <div className="grid grid-cols-3 gap-2 text-xs">
-                      <div className="text-center">
-                        <div className="font-medium">{match.live_data.possession.home}%</div>
-                        <div className="text-gray-500">Home</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="font-medium">{match.live_data.shots.home + match.live_data.shots.away}</div>
-                        <div className="text-gray-500">Shots</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="font-medium">{match.live_data.possession.away}%</div>
-                        <div className="text-gray-500">Away</div>
-                      </div>
-                    </div>
-
-                    {match.weather && (
-                      <div className="mt-2 pt-2 border-t text-xs text-gray-500">
-                        <div className="flex items-center justify-between">
+                      {/* Weather Info */}
+                      <div className="border-t pt-3">
+                        <div className="flex items-center justify-between text-xs text-gray-600">
                           <span>{match.weather.city}</span>
                           <span>{match.weather.temperature}°C</span>
+                          <span>{match.weather.description}</span>
                         </div>
                       </div>
-                    )}
+                    </div>
                   </CardContent>
                 </Card>
               ))}
             </div>
           )}
-        </div>
+        </CardContent>
+      </Card>
 
-        {/* Selected Match Details */}
-        <div className="space-y-4">
-          <h3 className="text-lg font-semibold flex items-center gap-2">
-            <Eye className="h-5 w-5" />
-            Match Details
-          </h3>
-
-          {selectedMatchId ? (
-            <RealTimeMLInsights 
-              matchId={selectedMatchId}
-              onPredictionUpdate={(prediction) => {
-                console.log('ML Prediction updated:', prediction);
-              }}
-              onLiveDataUpdate={(liveData) => {
-                console.log('Live data updated:', liveData);
-              }}
-            />
-          ) : (
-            <Card>
-              <CardContent className="pt-6">
-                <div className="text-center text-gray-500">
-                  Select a match to view detailed analysis and ML insights
-                </div>
-              </CardContent>
-            </Card>
-          )}
-        </div>
-      </div>
-
-      {/* Live Statistics Summary */}
-      {liveMatches.length > 0 && (
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <BarChart3 className="h-5 w-5" />
-              Live Statistics Summary
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-blue-600">
-                  {liveMatches.length}
-                </div>
-                <div className="text-sm text-gray-600">Live Matches</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-green-600">
-                  {liveMatches.filter(m => m.live_data.status === 'live').length}
-                </div>
-                <div className="text-sm text-gray-600">In Progress</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-orange-600">
-                  {liveMatches.reduce((total, match) => 
-                    total + match.live_data.score.home + match.live_data.score.away, 0
-                  )}
-                </div>
-                <div className="text-sm text-gray-600">Total Goals</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-purple-600">
-                  {liveMatches.reduce((total, match) => 
-                    total + match.live_data.cards.home.yellow + match.live_data.cards.away.yellow +
-                    match.live_data.cards.home.red + match.live_data.cards.away.red, 0
-                  )}
-                </div>
-                <div className="text-sm text-gray-600">Total Cards</div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+      {/* Real-time ML Insights */}
+      {selectedMatchId && (
+        <RealTimeMLInsights matchId={selectedMatchId} />
       )}
     </div>
   );

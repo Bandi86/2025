@@ -1,252 +1,145 @@
 'use client';
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './card';
-import { Badge } from './badge';
-import { Button } from './button';
-import { RefreshCw, Activity, Database, Server, Brain } from 'lucide-react';
-import { useHealthStatus, usePerformanceMetrics } from '@/hooks/use-api';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Wifi, WifiOff, Activity, AlertTriangle, CheckCircle, RefreshCw } from 'lucide-react';
+import { useWebSocketContext } from '@/components/providers';
+import { useAuth } from '@/hooks/use-auth';
+import { getAccessToken } from '@/lib/auth';
+import { useState, useEffect } from 'react';
 
-interface HealthStatusProps {
-  showMetrics?: boolean;
-  autoRefresh?: boolean;
-  refreshInterval?: number;
-}
+export function HealthStatus() {
+  const { isConnected, isConnecting, error } = useWebSocketContext();
+  const { user, isAuthenticated } = useAuth();
+  const [debugInfo, setDebugInfo] = useState<string>('');
+  const [clientInfo, setClientInfo] = useState<{
+    hasToken: boolean;
+    lastUpdate: string;
+  }>({
+    hasToken: false,
+    lastUpdate: '',
+  });
 
-export function HealthStatus({ 
-  showMetrics = true, 
-  autoRefresh = false, 
-  refreshInterval = 30000 
-}: HealthStatusProps) {
-  const { 
-    data: health, 
-    isLoading: healthLoading, 
-    error: healthError, 
-    refetch: refetchHealth 
-  } = useHealthStatus();
+  // Handle client-side only values to prevent hydration mismatch
+  useEffect(() => {
+    setClientInfo({
+      hasToken: !!getAccessToken(),
+      lastUpdate: new Date().toLocaleTimeString(),
+    });
+  }, []);
 
-  const { 
-    data: metrics, 
-    isLoading: metricsLoading, 
-    error: metricsError 
-  } = usePerformanceMetrics();
+  // Update the last update time every second
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setClientInfo(prev => ({
+        ...prev,
+        lastUpdate: new Date().toLocaleTimeString(),
+      }));
+    }, 1000);
 
-  const loading = healthLoading || (showMetrics && metricsLoading);
-  const error = healthError || (showMetrics && metricsError);
+    return () => clearInterval(interval);
+  }, []);
 
-  const getStatusColor = (status: 'healthy' | 'unhealthy') => {
-    return status === 'healthy' ? 'bg-green-500' : 'bg-red-500';
+  const getStatusIcon = () => {
+    if (isConnecting) {
+      return <Activity className="h-4 w-4 animate-spin" />;
+    }
+    if (isConnected) {
+      return <CheckCircle className="h-4 w-4" />;
+    }
+    if (error) {
+      return <AlertTriangle className="h-4 w-4" />;
+    }
+    return <WifiOff className="h-4 w-4" />;
   };
 
-  const getStatusIcon = (status: 'healthy' | 'unhealthy') => {
-    return status === 'healthy' ? '🟢' : '🔴';
+  const getStatusColor = () => {
+    if (isConnecting) {
+      return 'bg-yellow-100 text-yellow-800';
+    }
+    if (isConnected) {
+      return 'bg-green-100 text-green-800';
+    }
+    if (error) {
+      return 'bg-red-100 text-red-800';
+    }
+    return 'bg-gray-100 text-gray-800';
   };
 
-  const formatUptime = (seconds: number) => {
-    const days = Math.floor(seconds / 86400);
-    const hours = Math.floor((seconds % 86400) / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    
-    if (days > 0) return `${days}d ${hours}h ${minutes}m`;
-    if (hours > 0) return `${hours}h ${minutes}m`;
-    return `${minutes}m`;
+  const getStatusText = () => {
+    if (isConnecting) {
+      return 'Connecting...';
+    }
+    if (isConnected) {
+      return 'Connected';
+    }
+    if (error) {
+      return 'Error';
+    }
+    return 'Disconnected';
   };
 
-  const formatResponseTime = (ms: number) => {
-    if (ms < 1000) return `${ms}ms`;
-    return `${(ms / 1000).toFixed(2)}s`;
+  const handleDebug = () => {
+    const accessToken = getAccessToken();
+    const debug = {
+      isAuthenticated,
+      hasUser: !!user,
+      hasToken: !!accessToken,
+      tokenLength: accessToken?.length || 0,
+      wsUrl: process.env.NEXT_PUBLIC_WS_URL || 'http://localhost:3001',
+      timestamp: new Date().toISOString(),
+      clientInfo,
+    };
+    setDebugInfo(JSON.stringify(debug, null, 2));
   };
-
-  if (loading && !health) {
-    return (
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Activity className="h-5 w-5" />
-            System Health
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex items-center justify-center py-8">
-            <RefreshCw className="h-6 w-6 animate-spin text-muted-foreground" />
-            <span className="ml-2 text-muted-foreground">Checking system health...</span>
-          </div>
-        </CardContent>
-      </Card>
-    );
-  }
-
-  if (error) {
-    return (
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Activity className="h-5 w-5" />
-            System Health
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex items-center justify-center py-8">
-            <div className="text-center">
-              <div className="text-red-500 mb-2">⚠️ Connection Error</div>
-              <div className="text-sm text-muted-foreground mb-4">
-                {error instanceof Error ? error.message : 'Failed to fetch health data'}
-              </div>
-              <Button onClick={() => refetchHealth()} size="sm">
-                <RefreshCw className="h-4 w-4 mr-2" />
-                Retry
-              </Button>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-    );
-  }
 
   return (
-    <Card>
+    <Card className="w-full max-w-md">
       <CardHeader>
-        <div className="flex items-center justify-between">
-          <div>
-            <CardTitle className="flex items-center gap-2">
-              <Activity className="h-5 w-5" />
-              System Health
-            </CardTitle>
-            <CardDescription>
-              Backend services status and performance metrics
-            </CardDescription>
-          </div>
-          <div className="flex items-center gap-2">
-            <Button 
-              onClick={() => refetchHealth()} 
-              size="sm" 
-              variant="outline"
-              disabled={healthLoading}
-            >
-              <RefreshCw className={`h-4 w-4 ${healthLoading ? 'animate-spin' : ''}`} />
-            </Button>
-          </div>
-        </div>
+        <CardTitle className="flex items-center gap-2">
+          <Wifi className="h-5 w-5" />
+          WebSocket Status
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={handleDebug}
+            className="ml-auto h-6 w-6 p-0"
+          >
+            <RefreshCw className="h-3 w-3" />
+          </Button>
+        </CardTitle>
+        <CardDescription>
+          Real-time connection status
+        </CardDescription>
       </CardHeader>
-      <CardContent className="space-y-6">
-        {/* Overall Status */}
-        {health && (
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <span className="text-lg">{getStatusIcon(health.status)}</span>
-                <span className="font-medium">Overall Status</span>
-              </div>
-              <Badge 
-                variant={health.status === 'healthy' ? 'default' : 'destructive'}
-                className="text-sm"
-              >
-                {health.status.toUpperCase()}
-              </Badge>
-            </div>
-
-            {/* Service Status */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="flex items-center gap-3 p-3 border rounded-lg">
-                <Database className="h-5 w-5 text-blue-500" />
-                <div>
-                  <div className="font-medium text-sm">Database</div>
-                  <div className="flex items-center gap-2">
-                    <div className={`w-2 h-2 rounded-full ${getStatusColor(health.services.database)}`} />
-                    <span className="text-xs text-muted-foreground">
-                      {health.services.database}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 p-3 border rounded-lg">
-                <Server className="h-5 w-5 text-green-500" />
-                <div>
-                  <div className="font-medium text-sm">Redis Cache</div>
-                  <div className="flex items-center gap-2">
-                    <div className={`w-2 h-2 rounded-full ${getStatusColor(health.services.redis)}`} />
-                    <span className="text-xs text-muted-foreground">
-                      {health.services.redis}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 p-3 border rounded-lg">
-                <Brain className="h-5 w-5 text-purple-500" />
-                <div>
-                  <div className="font-medium text-sm">ML Service</div>
-                  <div className="flex items-center gap-2">
-                    <div className={`w-2 h-2 rounded-full ${getStatusColor(health.services.ml_service)}`} />
-                    <span className="text-xs text-muted-foreground">
-                      {health.services.ml_service}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* System Info */}
-            <div className="grid grid-cols-2 gap-4 text-sm">
-              <div>
-                <span className="text-muted-foreground">Uptime:</span>
-                <span className="ml-2 font-medium">{formatUptime(health.uptime)}</span>
-              </div>
-              <div>
-                <span className="text-muted-foreground">Version:</span>
-                <span className="ml-2 font-medium">{health.version}</span>
-              </div>
-            </div>
+      <CardContent>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            {getStatusIcon()}
+            <span className="font-medium">{getStatusText()}</span>
+          </div>
+          <Badge className={getStatusColor()}>
+            {isConnected ? 'ONLINE' : isConnecting ? 'CONNECTING' : 'OFFLINE'}
+          </Badge>
+        </div>
+        
+        {error && (
+          <div className="mt-3 p-2 bg-red-50 border border-red-200 rounded text-sm text-red-700">
+            <strong>Error:</strong> {error.message}
           </div>
         )}
+        
+        <div className="mt-3 text-xs text-gray-500">
+          <div>Auth: {isAuthenticated ? 'Yes' : 'No'}</div>
+          <div>User: {user ? 'Yes' : 'No'}</div>
+          <div>Token: {clientInfo.hasToken ? 'Yes' : 'No'}</div>
+          <div>Last update: {clientInfo.lastUpdate || 'Loading...'}</div>
+        </div>
 
-        {/* Performance Metrics */}
-        {showMetrics && metrics && (
-          <div className="space-y-4">
-            <h4 className="font-medium text-sm">Performance Metrics</h4>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              <div className="text-center p-3 border rounded-lg">
-                <div className="text-2xl font-bold text-blue-600">
-                  {formatResponseTime(metrics.responseTime)}
-                </div>
-                <div className="text-xs text-muted-foreground">Response Time</div>
-              </div>
-
-              <div className="text-center p-3 border rounded-lg">
-                <div className="text-2xl font-bold text-green-600">
-                  {metrics.requestsPerSecond.toFixed(1)}
-                </div>
-                <div className="text-xs text-muted-foreground">Requests/sec</div>
-              </div>
-
-              <div className="text-center p-3 border rounded-lg">
-                <div className="text-2xl font-bold text-orange-600">
-                  {(metrics.errorRate * 100).toFixed(1)}%
-                </div>
-                <div className="text-xs text-muted-foreground">Error Rate</div>
-              </div>
-
-              <div className="text-center p-3 border rounded-lg">
-                <div className="text-2xl font-bold text-purple-600">
-                  {metrics.activeConnections}
-                </div>
-                <div className="text-xs text-muted-foreground">Active Connections</div>
-              </div>
-
-              <div className="text-center p-3 border rounded-lg">
-                <div className="text-2xl font-bold text-indigo-600">
-                  {(metrics.memoryUsage / 1024 / 1024).toFixed(1)}MB
-                </div>
-                <div className="text-xs text-muted-foreground">Memory Usage</div>
-              </div>
-
-              <div className="text-center p-3 border rounded-lg">
-                <div className="text-2xl font-bold text-red-600">
-                  {(metrics.cpuUsage * 100).toFixed(1)}%
-                </div>
-                <div className="text-xs text-muted-foreground">CPU Usage</div>
-              </div>
-            </div>
+        {debugInfo && (
+          <div className="mt-3 p-2 bg-gray-50 border border-gray-200 rounded text-xs">
+            <pre className="whitespace-pre-wrap">{debugInfo}</pre>
           </div>
         )}
       </CardContent>
