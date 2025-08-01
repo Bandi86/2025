@@ -2,6 +2,9 @@
 
 import { ProtectedRoute } from '@/components/auth/protected-route';
 import { DashboardLayout } from '@/components/dashboard/dashboard-layout';
+import { usePredictions } from '@/hooks/use-dashboard-data';
+import { apiClient } from '@/lib/api-client';
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
@@ -18,22 +21,62 @@ import {
 } from 'lucide-react';
 
 export default function AnalyticsPage() {
-  // Mock data for analytics
+  const { predictions } = usePredictions(60000);
+  const [analyticsData, setAnalyticsData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchAnalytics = async () => {
+      try {
+        const response = await apiClient.getAnalytics();
+        setAnalyticsData(response);
+      } catch (error) {
+        console.error('Error fetching analytics:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAnalytics();
+  }, []);
+
+  // Calculate real performance metrics from predictions data
+  const totalPredictions = predictions.length;
+  const correctPredictions = predictions.filter(p => p.status === 'won').length;
+  const accuracy = totalPredictions > 0 ? (correctPredictions / totalPredictions) * 100 : 0;
+  const userEngagement = 92.1; // This would need user data
+  const systemUptime = 99.9; // This would need system monitoring data
+
   const performanceMetrics = [
-    { name: 'Prediction Accuracy', value: 78.5, change: '+2.3%', trend: 'up' },
-    { name: 'Total Predictions', value: 1247, change: '+15%', trend: 'up' },
-    { name: 'User Engagement', value: 92.1, change: '+5.2%', trend: 'up' },
-    { name: 'System Uptime', value: 99.9, change: '+0.1%', trend: 'up' },
+    { name: 'Prediction Accuracy', value: accuracy.toFixed(1), change: '+2.3%', trend: 'up' },
+    { name: 'Total Predictions', value: totalPredictions, change: '+15%', trend: 'up' },
+    { name: 'User Engagement', value: userEngagement, change: '+5.2%', trend: 'up' },
+    { name: 'System Uptime', value: systemUptime, change: '+0.1%', trend: 'up' },
   ];
 
-  const topLeagues = [
-    { name: 'Premier League', predictions: 342, accuracy: 82.1 },
-    { name: 'La Liga', predictions: 298, accuracy: 79.3 },
-    { name: 'Bundesliga', predictions: 267, accuracy: 76.8 },
-    { name: 'Serie A', predictions: 234, accuracy: 74.2 },
-    { name: 'Ligue 1', predictions: 189, accuracy: 71.5 },
-  ];
+  // Calculate league performance from predictions
+  const leagueStats = predictions.reduce((acc: any, pred) => {
+    const league = pred.league || 'Unknown';
+    if (!acc[league]) {
+      acc[league] = { predictions: 0, correct: 0 };
+    }
+    acc[league].predictions++;
+    if (pred.status === 'won') {
+      acc[league].correct++;
+    }
+    return acc;
+  }, {});
 
+  const topLeagues = Object.entries(leagueStats)
+    .map(([name, stats]: [string, any]) => ({
+      name,
+      predictions: stats.predictions,
+      accuracy: stats.predictions > 0 ? (stats.correct / stats.predictions) * 100 : 0
+    }))
+    .sort((a, b) => b.accuracy - a.accuracy)
+    .slice(0, 5);
+
+  // Mock recent trends (this would need historical data)
   const recentTrends = [
     { period: 'Last 7 days', accuracy: 81.2, predictions: 89 },
     { period: 'Last 30 days', accuracy: 78.5, predictions: 342 },
@@ -66,7 +109,9 @@ export default function AnalyticsPage() {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm text-gray-600">{metric.name}</p>
-                      <p className="text-2xl font-bold">{metric.value}{metric.name.includes('Accuracy') || metric.name.includes('Uptime') ? '%' : ''}</p>
+                      <p className="text-2xl font-bold">
+                        {loading ? '...' : metric.value}{metric.name.includes('Accuracy') || metric.name.includes('Uptime') ? '%' : ''}
+                      </p>
                     </div>
                     <div className={`flex items-center space-x-1 ${
                       metric.trend === 'up' ? 'text-green-600' : 'text-red-600'

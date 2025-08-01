@@ -23,7 +23,7 @@ export const useAuth = () => {
   // Initialize auth state on mount
   useEffect(() => {
     initialize();
-  }, [initialize]);
+  }, []); // Remove initialize from dependencies to prevent infinite loop
 
   // Auto-refresh token when it's about to expire
   useEffect(() => {
@@ -39,7 +39,7 @@ export const useAuth = () => {
     // Check every 5 minutes
     const interval = setInterval(checkTokenExpiry, 5 * 60 * 1000);
     return () => clearInterval(interval);
-  }, [isAuthenticated, refreshToken]);
+  }, [isAuthenticated]); // Remove refreshToken from dependencies to prevent infinite loop
 
   return {
     // State

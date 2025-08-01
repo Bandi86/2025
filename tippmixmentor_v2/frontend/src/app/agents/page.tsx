@@ -7,7 +7,7 @@ import { AgentList } from '@/components/agents/agent-list';
 import { AgentDetails } from '@/components/agents/agent-details';
 import { AgentInsights } from '@/components/predictions/agent-insights';
 import { AgentMonitor } from '@/components/agents/agent-monitor';
-import { useAgentStore } from '@/stores/agent-store';
+import { useAgentStatus } from '@/hooks/use-dashboard-data';
 import { useAgentWebSocket } from '@/hooks/use-agent-websocket';
 import { Agent } from '@/components/agents/agent-card';
 import { Button } from '@/components/ui/button';
@@ -28,156 +28,58 @@ function AgentsContent() {
   const [view, setView] = useState<'list' | 'details'>('list');
   const [selectedAgent, setSelectedAgent] = useState<Agent | null>(null);
   
-  const {
-    agents,
-    isLoading,
-    error,
-    startAgent,
-    stopAgent,
-    createAgent,
-    deleteAgent,
-    setSelectedAgent: setStoreSelectedAgent
-  } = useAgentStore();
+  const { agents, loading, error } = useAgentStatus(30000);
 
   const { isConnected, subscribeToAllAgents } = useAgentWebSocket();
 
-  // Load mock agents on mount
-  useEffect(() => {
-    if (agents.length === 0) {
-      const mockAgents: Agent[] = [
-        {
-          id: 'agent-1',
-          name: 'Market Analysis Agent',
-          description: 'Analyzes market trends and betting patterns',
-          type: 'market_analysis',
-          status: 'active',
-          health: 'healthy',
-          performance: {
-            accuracy: 87,
-            responseTime: 245,
-            tasksCompleted: 156,
-            tasksFailed: 3
-          },
-          lastActive: new Date(Date.now() - 300000),
-          createdAt: new Date(Date.now() - 86400000 * 7)
-        },
-        {
-          id: 'agent-2',
-          name: 'Risk Assessment Agent',
-          description: 'Evaluates risk levels and volatility',
-          type: 'risk_assessment',
-          status: 'active',
-          health: 'healthy',
-          performance: {
-            accuracy: 92,
-            responseTime: 189,
-            tasksCompleted: 89,
-            tasksFailed: 1
-          },
-          lastActive: new Date(Date.now() - 600000),
-          createdAt: new Date(Date.now() - 86400000 * 5)
-        },
-        {
-          id: 'agent-3',
-          name: 'Value Detection Agent',
-          description: 'Identifies undervalued betting opportunities',
-          type: 'value_detection',
-          status: 'inactive',
-          health: 'warning',
-          performance: {
-            accuracy: 78,
-            responseTime: 312,
-            tasksCompleted: 67,
-            tasksFailed: 8
-          },
-          lastActive: new Date(Date.now() - 3600000),
-          createdAt: new Date(Date.now() - 86400000 * 3)
-        },
-        {
-          id: 'agent-4',
-          name: 'Prediction Optimization Agent',
-          description: 'Optimizes prediction models and algorithms',
-          type: 'prediction_optimization',
-          status: 'active',
-          health: 'healthy',
-          performance: {
-            accuracy: 85,
-            responseTime: 156,
-            tasksCompleted: 234,
-            tasksFailed: 5
-          },
-          lastActive: new Date(Date.now() - 120000),
-          createdAt: new Date(Date.now() - 86400000 * 10)
-        },
-        {
-          id: 'agent-5',
-          name: 'Strategy Optimization Agent',
-          description: 'Optimizes betting strategies and bankroll management',
-          type: 'strategy_optimization',
-          status: 'error',
-          health: 'critical',
-          performance: {
-            accuracy: 0,
-            responseTime: 0,
-            tasksCompleted: 0,
-            tasksFailed: 12
-          },
-          lastActive: new Date(Date.now() - 7200000),
-          createdAt: new Date(Date.now() - 86400000 * 2)
-        }
-      ];
-
-      mockAgents.forEach(agent => {
-        useAgentStore.getState().addAgent(agent);
-      });
-    }
-  }, [agents.length]);
-
-  // Subscribe to all agents when WebSocket connects
-  useEffect(() => {
-    if (isConnected && agents.length > 0) {
-      subscribeToAllAgents();
-    }
-  }, [isConnected, agents.length]); // Remove subscribeToAllAgents from dependencies
+  // Convert dashboard agent data to Agent format
+  const convertedAgents: Agent[] = agents.map(agent => ({
+    id: agent.id,
+    name: agent.name,
+    description: `${agent.type} agent for football predictions`,
+    type: agent.type,
+    status: agent.status === 'online' ? 'active' : agent.status === 'busy' ? 'active' : 'inactive',
+    health: agent.status === 'online' ? 'healthy' : agent.status === 'error' ? 'error' : 'warning',
+    performance: {
+      accuracy: agent.accuracy,
+      responseTime: agent.performance?.avgResponseTime || 0,
+      tasksCompleted: agent.predictionsMade,
+      tasksFailed: Math.floor(agent.predictionsMade * (1 - agent.accuracy / 100))
+    },
+    lastActive: new Date(agent.lastActivity),
+    createdAt: new Date(Date.now() - 86400000 * 7) // Mock creation date
+  }));
 
   const handleViewDetails = (agent: Agent) => {
     setSelectedAgent(agent);
-    setStoreSelectedAgent(agent);
     setView('details');
   };
 
   const handleBackToList = () => {
     setSelectedAgent(null);
-    setStoreSelectedAgent(null);
     setView('list');
   };
 
   const handleCreateAgent = () => {
-    // In a real app, this would open a modal or navigate to a create form
-    createAgent({
-      name: 'New Agent',
-      description: 'A new AI agent',
-      type: 'prediction'
-    });
+    console.log('Create agent clicked');
+    // This would open a modal or navigate to create agent page
   };
 
   const handleConfigure = (agentId: string) => {
-    // In a real app, this would open a configuration modal
     console.log('Configure agent:', agentId);
+    // This would open configuration modal
   };
 
   const getSystemStatus = () => {
-    const activeAgents = agents.filter(a => a.status === 'active').length;
-    const totalAgents = agents.length;
-    const healthyAgents = agents.filter(a => a.health === 'healthy').length;
-    const errorAgents = agents.filter(a => a.status === 'error').length;
+    const activeAgents = convertedAgents.filter(agent => agent.status === 'active').length;
+    const totalAgents = convertedAgents.length;
+    const healthyAgents = convertedAgents.filter(agent => agent.health === 'healthy').length;
 
     return {
-      activeAgents,
-      totalAgents,
-      healthyAgents,
-      errorAgents,
-      healthPercentage: totalAgents > 0 ? Math.round((healthyAgents / totalAgents) * 100) : 0
+      active: activeAgents,
+      total: totalAgents,
+      healthy: healthyAgents,
+      connection: isConnected ? 'connected' : 'disconnected'
     };
   };
 
@@ -211,7 +113,7 @@ function AgentsContent() {
               </div>
               <div>
                 <p className="text-sm text-gray-600">Total Agents</p>
-                <p className="text-2xl font-bold">{systemStatus.totalAgents}</p>
+                <p className="text-2xl font-bold">{systemStatus.total}</p>
               </div>
             </div>
           </CardContent>
@@ -225,7 +127,7 @@ function AgentsContent() {
               </div>
               <div>
                 <p className="text-sm text-gray-600">Active Agents</p>
-                <p className="text-2xl font-bold">{systemStatus.activeAgents}</p>
+                <p className="text-2xl font-bold">{systemStatus.active}</p>
               </div>
             </div>
           </CardContent>
@@ -239,7 +141,7 @@ function AgentsContent() {
               </div>
               <div>
                 <p className="text-sm text-gray-600">Health</p>
-                <p className="text-2xl font-bold">{systemStatus.healthPercentage}%</p>
+                <p className="text-2xl font-bold">{systemStatus.healthy}%</p>
               </div>
             </div>
           </CardContent>
@@ -304,13 +206,13 @@ function AgentsContent() {
           
           {/* Agent List */}
           <AgentList
-            agents={agents}
-            onStart={startAgent}
-            onStop={stopAgent}
+            agents={convertedAgents}
+            onStart={() => console.log('Start agent')}
+            onStop={() => console.log('Stop agent')}
             onConfigure={handleConfigure}
             onViewDetails={handleViewDetails}
             onCreateAgent={handleCreateAgent}
-            isLoading={isLoading}
+            isLoading={loading}
           />
           
           {/* Agent Insights */}
@@ -333,8 +235,8 @@ function AgentsContent() {
         <AgentDetails
           agent={selectedAgent!}
           onBack={handleBackToList}
-          onStart={startAgent}
-          onStop={stopAgent}
+          onStart={() => console.log('Start agent')}
+          onStop={() => console.log('Stop agent')}
           onConfigure={handleConfigure}
         />
       )}

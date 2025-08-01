@@ -50,7 +50,7 @@ async def list_tasks(
             query += f" AND task_type = ${param_count}"
             params.append(task_type)
             
-        query += " ORDER BY created_at DESC"
+        query += " ORDER BY \"createdAt\" DESC"
         query += f" LIMIT ${param_count + 1} OFFSET ${param_count + 2}"
         params.extend([limit, offset])
         
@@ -65,9 +65,9 @@ async def list_tasks(
                 "input_data": task["input_data"],
                 "output_data": task["output_data"],
                 "error_message": task["error_message"],
-                "created_at": task["created_at"].isoformat(),
-                "started_at": task["started_at"].isoformat() if task["started_at"] else None,
-                "completed_at": task["completed_at"].isoformat() if task["completed_at"] else None
+                "created_at": task["createdAt"].isoformat(),
+                "started_at": task["startedAt"].isoformat() if task["startedAt"] else None,
+                "completed_at": task["completedAt"].isoformat() if task["completedAt"] else None
             }
             for task in tasks
         ]
@@ -93,9 +93,9 @@ async def get_task(task_id: str) -> Dict[str, Any]:
             "input_data": task["input_data"],
             "output_data": task["output_data"],
             "error_message": task["error_message"],
-            "created_at": task["created_at"].isoformat(),
-            "started_at": task["started_at"].isoformat() if task["started_at"] else None,
-            "completed_at": task["completed_at"].isoformat() if task["completed_at"] else None
+            "created_at": task["createdAt"].isoformat(),
+            "started_at": task["startedAt"].isoformat() if task["startedAt"] else None,
+            "completed_at": task["completedAt"].isoformat() if task["completedAt"] else None
         }
         
     except HTTPException:

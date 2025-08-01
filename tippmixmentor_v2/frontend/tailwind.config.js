@@ -26,6 +26,11 @@ module.exports = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          blue: '#2563EB',
+          green: '#10B981',
+          orange: '#F59E0B',
+          success: '#059669',
+          warning: '#DC2626',
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -51,6 +56,13 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        neutral: {
+          background: '#FFFFFF',
+          surface: '#F8FAFC',
+          border: '#E2E8F0',
+          textPrimary: '#1E293B',
+          textSecondary: '#64748B',
+        }
       },
       borderRadius: {
         lg: "var(--radius)",

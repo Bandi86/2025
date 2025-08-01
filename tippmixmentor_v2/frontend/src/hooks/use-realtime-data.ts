@@ -1,277 +1,136 @@
-import { useEffect, useRef, useCallback } from 'react';
-import { useQueryClient } from '@tanstack/react-query';
-import { useWebSocket } from './use-websocket';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { apiClient } from '@/lib/api-client';
 import { useApiError } from './use-api-error';
 
-interface RealtimeMatchData {
-  matchId: string;
-  homeScore: number;
-  awayScore: number;
-  minute: number;
-  status: 'scheduled' | 'live' | 'finished' | 'cancelled';
-  events: Array<{
-    type: 'goal' | 'card' | 'substitution' | 'other';
-    minute: number;
-    description: string;
-  }>;
-}
-
-interface RealtimePredictionUpdate {
-  predictionId: string;
-  confidence: number;
-  status: 'pending' | 'correct' | 'incorrect';
-  updatedAt: string;
-}
-
-interface RealtimeAgentUpdate {
-  agentId: string;
-  status: 'online' | 'offline' | 'busy' | 'error';
-  lastActivity: string;
-  currentTask?: string;
-  performance: {
-    accuracy: number;
-    predictionsMade: number;
-    successRate: number;
-  };
-}
-
+// Real-time data hooks
 export function useRealtimeMatches() {
-  const queryClient = useQueryClient();
   const { handleError } = useApiError();
-  const subscribedMatches = useRef<Set<string>>(new Set());
+  
+  return useQuery({
+    queryKey: ['realtime-matches'],
+    queryFn: () => apiClient.getLiveMatches(),
+    staleTime: 5 * 1000, // 5 seconds
+    refetchInterval: 10 * 1000, // Refetch every 10 seconds
+    retry: 2,
+    onError: (error: unknown) => handleError(error, 'useRealtimeMatches'),
+  } as any);
+}
 
-  const { isConnected, sendMessage, lastMessage } = useWebSocket({
-    onMessage: (message) => {
-      if (message.type === 'matchUpdate') {
-        const matchData: RealtimeMatchData = message.data;
-        
-        // Update the specific match in the cache
-        queryClient.setQueryData(['live-match-data', matchData.matchId], matchData);
-        
-        // Invalidate live matches list to trigger refetch
-        queryClient.invalidateQueries({ queryKey: ['live-matches'] });
-      }
-    },
-    onError: (error) => {
-      handleError(error, 'useRealtimeMatches');
-    },
-  });
-
-  const subscribeToMatch = useCallback((matchId: string) => {
-    if (isConnected && !subscribedMatches.current.has(matchId)) {
-      sendMessage('subscribeToMatch', { matchId });
-      subscribedMatches.current.add(matchId);
-    }
-  }, [isConnected, sendMessage]);
-
-  const unsubscribeFromMatch = useCallback((matchId: string) => {
-    if (isConnected && subscribedMatches.current.has(matchId)) {
-      sendMessage('unsubscribeFromMatch', { matchId });
-      subscribedMatches.current.delete(matchId);
-    }
-  }, [isConnected, sendMessage]);
-
-  const subscribeToAllMatches = useCallback(() => {
-    if (isConnected) {
-      sendMessage('subscribeToAllMatches', {});
-    }
-  }, [isConnected, sendMessage]);
-
-  return {
-    isConnected,
-    subscribeToMatch,
-    unsubscribeFromMatch,
-    subscribeToAllMatches,
-    lastMessage,
-  };
+export function useRealtimeMatchData(matchId: string) {
+  const { handleError } = useApiError();
+  
+  return useQuery({
+    queryKey: ['realtime-match-data', matchId],
+    queryFn: () => apiClient.getLiveMatchData(matchId),
+    staleTime: 2 * 1000, // 2 seconds
+    refetchInterval: 5 * 1000, // Refetch every 5 seconds
+    retry: 2,
+    enabled: !!matchId,
+    onError: (error: unknown) => handleError(error, 'useRealtimeMatchData'),
+  } as any);
 }
 
 export function useRealtimePredictions() {
-  const queryClient = useQueryClient();
   const { handleError } = useApiError();
-
-  const { isConnected, sendMessage, lastMessage } = useWebSocket({
-    onMessage: (message) => {
-      if (message.type === 'predictionUpdate') {
-        const predictionUpdate: RealtimePredictionUpdate = message.data;
-        
-        // Update the specific prediction in the cache
-        queryClient.setQueryData(['prediction', predictionUpdate.predictionId], (old: any) => ({
-          ...old,
-          ...predictionUpdate,
-        }));
-        
-        // Invalidate predictions list to trigger refetch
-        queryClient.invalidateQueries({ queryKey: ['predictions'] });
-        queryClient.invalidateQueries({ queryKey: ['prediction-stats'] });
-      }
-    },
-    onError: (error) => {
-      handleError(error, 'useRealtimePredictions');
-    },
-  });
-
-  const subscribeToPrediction = useCallback((predictionId: string) => {
-    if (isConnected) {
-      sendMessage('subscribeToPrediction', { predictionId });
-    }
-  }, [isConnected, sendMessage]);
-
-  const subscribeToUserPredictions = useCallback((userId: string) => {
-    if (isConnected) {
-      sendMessage('subscribeToUserPredictions', { userId });
-    }
-  }, [isConnected, sendMessage]);
-
-  return {
-    isConnected,
-    subscribeToPrediction,
-    subscribeToUserPredictions,
-    lastMessage,
-  };
+  
+  return useQuery({
+    queryKey: ['realtime-predictions'],
+    queryFn: () => apiClient.getPredictions(),
+    staleTime: 10 * 1000, // 10 seconds
+    refetchInterval: 30 * 1000, // Refetch every 30 seconds
+    retry: 2,
+    onError: (error: unknown) => handleError(error, 'useRealtimePredictions'),
+  } as any);
 }
 
-export function useRealtimeAgents() {
-  const queryClient = useQueryClient();
+export function useRealtimeAgentStatus() {
   const { handleError } = useApiError();
-  const subscribedAgents = useRef<Set<string>>(new Set());
+  
+  return useQuery({
+    queryKey: ['realtime-agent-status'],
+    queryFn: () => apiClient.getAgents(),
+    staleTime: 5 * 1000, // 5 seconds
+    refetchInterval: 15 * 1000, // Refetch every 15 seconds
+    retry: 2,
+    onError: (error: unknown) => handleError(error, 'useRealtimeAgentStatus'),
+  } as any);
+}
 
-  const { isConnected, sendMessage, lastMessage } = useWebSocket({
-    onMessage: (message) => {
-      if (message.type === 'agentUpdate') {
-        const agentUpdate: RealtimeAgentUpdate = message.data;
-        
-        // Update the specific agent in the cache
-        queryClient.setQueryData(['agent', agentUpdate.agentId], (old: any) => ({
-          ...old,
-          ...agentUpdate,
-        }));
-        
-        // Invalidate agents list to trigger refetch
-        queryClient.invalidateQueries({ queryKey: ['agents'] });
-      }
-    },
-    onError: (error) => {
-      handleError(error, 'useRealtimeAgents');
-    },
-  });
+export function useRealtimeHealthStatus() {
+  const { handleError } = useApiError();
+  
+  return useQuery({
+    queryKey: ['realtime-health'],
+    queryFn: () => apiClient.getHealth(),
+    staleTime: 10 * 1000, // 10 seconds
+    refetchInterval: 30 * 1000, // Refetch every 30 seconds
+    retry: 2,
+    onError: (error: unknown) => handleError(error, 'useRealtimeHealthStatus'),
+  } as any);
+}
 
-  const subscribeToAgent = useCallback((agentId: string) => {
-    if (isConnected && !subscribedAgents.current.has(agentId)) {
-      sendMessage('subscribeToAgent', { agentId });
-      subscribedAgents.current.add(agentId);
-    }
-  }, [isConnected, sendMessage]);
-
-  const unsubscribeFromAgent = useCallback((agentId: string) => {
-    if (isConnected && subscribedAgents.current.has(agentId)) {
-      sendMessage('unsubscribeFromAgent', { agentId });
-      subscribedAgents.current.delete(agentId);
-    }
-  }, [isConnected, sendMessage]);
-
-  const subscribeToAllAgents = useCallback(() => {
-    if (isConnected) {
-      sendMessage('subscribeToAllAgents', {});
-    }
-  }, [isConnected, sendMessage]);
-
-  const sendAgentCommand = useCallback((agentId: string, command: string, data?: any) => {
-    if (isConnected) {
-      sendMessage('agentCommand', { agentId, command, data });
-    }
-  }, [isConnected, sendMessage]);
-
-  return {
-    isConnected,
-    subscribeToAgent,
-    unsubscribeFromAgent,
-    subscribeToAllAgents,
-    sendAgentCommand,
-    lastMessage,
-  };
+export function useRealtimePerformanceMetrics() {
+  const { handleError } = useApiError();
+  
+  return useQuery({
+    queryKey: ['realtime-performance'],
+    queryFn: () => apiClient.getMetrics(),
+    staleTime: 5 * 1000, // 5 seconds
+    refetchInterval: 15 * 1000, // Refetch every 15 seconds
+    retry: 2,
+    onError: (error: unknown) => handleError(error, 'useRealtimePerformanceMetrics'),
+  } as any);
 }
 
 export function useRealtimeNotifications() {
-  const queryClient = useQueryClient();
   const { handleError } = useApiError();
-
-  const { isConnected, sendMessage, lastMessage } = useWebSocket({
-    onMessage: (message) => {
-      if (message.type === 'notification') {
-        // Invalidate notifications to trigger refetch
-        queryClient.invalidateQueries({ queryKey: ['notifications'] });
-      }
-    },
-    onError: (error) => {
-      handleError(error, 'useRealtimeNotifications');
-    },
-  });
-
-  const subscribeToNotifications = useCallback((userId: string) => {
-    if (isConnected) {
-      sendMessage('subscribeToNotifications', { userId });
-    }
-  }, [isConnected, sendMessage]);
-
-  return {
-    isConnected,
-    subscribeToNotifications,
-    lastMessage,
-  };
+  
+  return useQuery({
+    queryKey: ['realtime-notifications'],
+    queryFn: () => apiClient.getNotifications(),
+    staleTime: 10 * 1000, // 10 seconds
+    refetchInterval: 30 * 1000, // Refetch every 30 seconds
+    retry: 2,
+    onError: (error: unknown) => handleError(error, 'useRealtimeNotifications'),
+  } as any);
 }
 
-export function useRealtimeAnalytics() {
+// Real-time mutations
+export function useMarkNotificationAsReadRealtime() {
   const queryClient = useQueryClient();
   const { handleError } = useApiError();
-
-  const { isConnected, sendMessage, lastMessage } = useWebSocket({
-    onMessage: (message) => {
-      if (message.type === 'analyticsUpdate') {
-        // Invalidate analytics queries to trigger refetch
-        queryClient.invalidateQueries({ queryKey: ['analytics'] });
-        queryClient.invalidateQueries({ queryKey: ['user-performance'] });
-        queryClient.invalidateQueries({ queryKey: ['model-performance'] });
-      }
+  
+  return useMutation({
+    mutationFn: (notificationId: string) => apiClient.markNotificationAsRead(notificationId),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['realtime-notifications'] });
     },
-    onError: (error) => {
-      handleError(error, 'useRealtimeAnalytics');
-    },
+    onError: (error: unknown) => handleError(error, 'useMarkNotificationAsReadRealtime'),
   });
-
-  const subscribeToAnalytics = useCallback(() => {
-    if (isConnected) {
-      sendMessage('subscribeToAnalytics', {});
-    }
-  }, [isConnected, sendMessage]);
-
-  return {
-    isConnected,
-    subscribeToAnalytics,
-    lastMessage,
-  };
 }
 
-// Combined real-time hook for dashboard
-export function useRealtimeDashboard() {
-  const matches = useRealtimeMatches();
-  const predictions = useRealtimePredictions();
-  const agents = useRealtimeAgents();
-  const notifications = useRealtimeNotifications();
-  const analytics = useRealtimeAnalytics();
+export function useStartAgentRealtime() {
+  const queryClient = useQueryClient();
+  const { handleError } = useApiError();
+  
+  return useMutation({
+    mutationFn: (agentId: string) => apiClient.startAgent(agentId),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['realtime-agent-status'] });
+    },
+    onError: (error: unknown) => handleError(error, 'useStartAgentRealtime'),
+  });
+}
 
-  const isConnected = matches.isConnected && 
-                     predictions.isConnected && 
-                     agents.isConnected && 
-                     notifications.isConnected && 
-                     analytics.isConnected;
-
-  return {
-    isConnected,
-    matches,
-    predictions,
-    agents,
-    notifications,
-    analytics,
-  };
+export function useStopAgentRealtime() {
+  const queryClient = useQueryClient();
+  const { handleError } = useApiError();
+  
+  return useMutation({
+    mutationFn: (agentId: string) => apiClient.stopAgent(agentId),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['realtime-agent-status'] });
+    },
+    onError: (error: unknown) => handleError(error, 'useStopAgentRealtime'),
+  });
 } 

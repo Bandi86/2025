@@ -36,48 +36,55 @@ export class GatewayService {
   }
 
   private initializeServices() {
-    // Define service configurations
+    // Define service configurations for monolithic application
+    // All services run in the same application, so we use the main health endpoint
     const serviceConfigs: ServiceConfig[] = [
       {
         name: 'auth',
         url: this.configService.get('AUTH_SERVICE_URL', 'http://localhost:3001'),
-        healthCheck: '/health',
+        healthCheck: '/api/v1/health',
         timeout: 5000,
         retries: 3,
       },
       {
         name: 'users',
         url: this.configService.get('USERS_SERVICE_URL', 'http://localhost:3001'),
-        healthCheck: '/health',
+        healthCheck: '/api/v1/health',
         timeout: 5000,
         retries: 3,
       },
       {
         name: 'matches',
         url: this.configService.get('MATCHES_SERVICE_URL', 'http://localhost:3001'),
-        healthCheck: '/health',
+        healthCheck: '/api/v1/health',
         timeout: 5000,
         retries: 3,
       },
       {
         name: 'predictions',
         url: this.configService.get('PREDICTIONS_SERVICE_URL', 'http://localhost:3001'),
-        healthCheck: '/health',
+        healthCheck: '/api/v1/health',
         timeout: 5000,
         retries: 3,
       },
-
       {
         name: 'notifications',
         url: this.configService.get('NOTIFICATIONS_SERVICE_URL', 'http://localhost:3001'),
-        healthCheck: '/health',
+        healthCheck: '/api/v1/health',
         timeout: 5000,
         retries: 3,
       },
       {
         name: 'agents',
         url: this.configService.get('AGENTS_SERVICE_URL', 'http://localhost:3001'),
-        healthCheck: '/health',
+        healthCheck: '/api/v1/health',
+        timeout: 5000,
+        retries: 3,
+      },
+      {
+        name: 'football-data',
+        url: this.configService.get('FOOTBALL_DATA_SERVICE_URL', 'http://localhost:3001'),
+        healthCheck: '/api/v1/health',
         timeout: 5000,
         retries: 3,
       },
@@ -97,34 +104,42 @@ export class GatewayService {
   }
 
   private async checkAllServicesHealth() {
-    for (const [serviceName, config] of this.services) {
-      try {
-        const response = await axios.get(`${config.url}${config.healthCheck}`, {
-          timeout: config.timeout,
-        });
+    // For monolithic application, all services are healthy if the application is running
+    // We only need to check the main health endpoint once
+    try {
+      const response = await axios.get('http://localhost:3001/api/v1/health', {
+        timeout: 5000,
+      });
 
-        if (response.status === 200) {
+      if (response.status === 200) {
+        // Mark all services as healthy
+        for (const [serviceName] of this.services) {
           this.serviceHealth.set(serviceName, {
             status: 'healthy',
             lastCheck: Date.now(),
           });
-        } else {
+        }
+      } else {
+        // Mark all services as unhealthy
+        for (const [serviceName] of this.services) {
           this.serviceHealth.set(serviceName, {
             status: 'unhealthy',
             lastCheck: Date.now(),
           });
         }
-      } catch (error) {
+      }
+    } catch (error) {
+      // Mark all services as unhealthy
+      for (const [serviceName] of this.services) {
         this.serviceHealth.set(serviceName, {
           status: 'unhealthy',
           lastCheck: Date.now(),
         });
-
-        this.loggingService.warn(`Service health check failed`, 'GATEWAY', {
-          service: serviceName,
-          error: (error as Error).message,
-        });
       }
+
+      this.loggingService.warn(`Service health check failed`, 'GATEWAY', {
+        error: (error as Error).message,
+      });
     }
   }
 

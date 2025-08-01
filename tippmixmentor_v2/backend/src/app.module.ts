@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { HttpModule } from '@nestjs/axios';
+import { ScheduleModule } from '@nestjs/schedule';
 
 // Database
 import { DatabaseModule } from './common/database/database.module';
@@ -12,6 +13,7 @@ import { PrismaService } from './common/database/prisma.service';
 import { RedisModule } from './common/redis/redis.module';
 import { LoggingModule } from './common/logging/logging.module';
 import { MonitoringModule } from './common/monitoring/monitoring.module';
+import { EventsModule } from './common/events/events.module';
 
 // Feature modules
 import { AuthModule } from './modules/auth/auth.module';
@@ -22,6 +24,9 @@ import { SocialModule } from './modules/social_disabled/social.module';
 import { PredictionsModule } from './modules/predictions/predictions.module';
 import { NotificationsModule } from './modules/notifications/notifications.module';
 import { AgentsModule } from './modules/agents/agents.module';
+import { FootballDataModule } from './modules/football-data/football-data.module';
+import { RealtimeModule } from './modules/realtime/realtime.module';
+import { AnalyticsModule } from './modules/analytics/analytics.module';
 
 // Gateway
 import { GatewayModule } from './gateway/gateway.module';
@@ -45,6 +50,9 @@ import { PerformanceController } from './performance.controller';
       maxRedirects: 5,
     }),
 
+    // Scheduling
+    ScheduleModule.forRoot(),
+
     // Database
     DatabaseModule,
 
@@ -52,6 +60,7 @@ import { PerformanceController } from './performance.controller';
     RedisModule,
     LoggingModule,
     MonitoringModule,
+    EventsModule,
 
     // JWT
     JwtModule.register({
@@ -71,6 +80,9 @@ import { PerformanceController } from './performance.controller';
     PredictionsModule,
     NotificationsModule,
     AgentsModule,
+    FootballDataModule,
+    RealtimeModule,
+    AnalyticsModule,
 
     // Gateway
     GatewayModule,

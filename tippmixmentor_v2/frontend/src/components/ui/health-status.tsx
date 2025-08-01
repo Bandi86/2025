@@ -87,7 +87,7 @@ export function HealthStatus() {
       hasUser: !!user,
       hasToken: !!accessToken,
       tokenLength: accessToken?.length || 0,
-      wsUrl: process.env.NEXT_PUBLIC_WS_URL || 'http://localhost:3001',
+              wsUrl: process.env.NEXT_PUBLIC_WS_URL || 'http://localhost:3001',
       timestamp: new Date().toISOString(),
       clientInfo,
     };

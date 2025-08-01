@@ -38,8 +38,8 @@ export interface RefreshTokenRequest {
   refreshToken: string;
 }
 
-// API Base URL
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+// API Base URL - Use Next.js API routes for client-side requests
+const API_BASE_URL = typeof window !== 'undefined' ? '' : (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001');
 
 // Token storage keys
 const ACCESS_TOKEN_KEY = 'access_token';
@@ -94,6 +94,30 @@ export const getUserFromToken = (token: string): User | null => {
   }
 };
 
+const hasMessage = (data: any): data is { message: string } => typeof data === 'object' && data !== null && 'message' in data && typeof data.message === 'string';
+
+export async function login(email: string, password: string): Promise<AuthResponse> {
+  try {
+    const response = await fetch(`${API_BASE_URL}/auth/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(hasMessage(errorData) ? errorData.message : `HTTP error! status: ${response.status}`);
+    }
+
+    return response.json();
+  } catch (error) {
+    console.error('Login error:', error);
+    throw error;
+  }
+}
+
 // API client
 class ApiClient {
   private baseURL: string;
@@ -128,36 +152,40 @@ class ApiClient {
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
-      throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
+      throw new Error(hasMessage(errorData) ? errorData.message : `HTTP error! status: ${response.status}`);
     }
 
     return response.json();
   }
 
-  // Auth endpoints - Fixed API paths
+  // Auth endpoints - Use Next.js API routes for client-side requests
   async login(data: LoginRequest): Promise<AuthResponse> {
-    return this.request<AuthResponse>('/api/v1/auth/login', {
+    const endpoint = typeof window !== 'undefined' ? '/api/auth/login' : '/api/v1/auth/login';
+    return this.request<AuthResponse>(endpoint, {
       method: 'POST',
       body: JSON.stringify(data),
     });
   }
 
   async register(data: RegisterRequest): Promise<AuthResponse> {
-    return this.request<AuthResponse>('/api/v1/auth/register', {
+    const endpoint = typeof window !== 'undefined' ? '/api/auth/register' : '/api/v1/auth/register';
+    return this.request<AuthResponse>(endpoint, {
       method: 'POST',
       body: JSON.stringify(data),
     });
   }
 
   async refreshToken(data: RefreshTokenRequest): Promise<AuthTokens> {
-    return this.request<AuthTokens>('/api/v1/auth/refresh', {
+    const endpoint = typeof window !== 'undefined' ? '/api/auth/refresh' : '/api/v1/auth/refresh';
+    return this.request<AuthTokens>(endpoint, {
       method: 'POST',
       body: JSON.stringify(data),
     });
   }
 
   async logout(): Promise<{ message: string }> {
-    return this.request<{ message: string }>('/api/v1/auth/logout', {
+    const endpoint = typeof window !== 'undefined' ? '/api/auth/logout' : '/api/v1/auth/logout';
+    return this.request<{ message: string }>(endpoint, {
       method: 'POST',
     });
   }

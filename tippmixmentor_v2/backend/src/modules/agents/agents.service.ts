@@ -333,4 +333,70 @@ export class AgentsService {
       updatedAt: agent.updatedAt,
     };
   }
+
+  async getAllAgents(): Promise<AgentResponseDto[]> {
+    try {
+      const agents = await this.prisma.agent.findMany({
+        where: {
+          isActive: true,
+        },
+        include: {
+          performance: true,
+        },
+      });
+
+      return agents.map(agent => this.mapToResponseDto(agent));
+    } catch (error) {
+      this.logging.error('Failed to fetch all agents', error);
+      throw new BadRequestException('Failed to fetch all agents');
+    }
+  }
+
+  async getAgentPerformance(agentId: string): Promise<any> {
+    try {
+      const performance = await this.prisma.agentPerformance.findFirst({
+        where: { agentId },
+        orderBy: { createdAt: 'desc' },
+      });
+
+      if (!performance) {
+        return {
+          accuracy: 0,
+          predictionsMade: 0,
+          successRate: 0,
+          lastActivity: null,
+        };
+      }
+
+      return {
+        accuracy: performance.successRate || 0,
+        predictionsMade: performance.totalTasks || 0,
+        successRate: performance.successRate || 0,
+        lastActivity: performance.lastActivity,
+      };
+    } catch (error) {
+      this.logging.error(`Failed to fetch agent ${agentId} performance`, error);
+      return {
+        accuracy: 0,
+        predictionsMade: 0,
+        successRate: 0,
+        lastActivity: null,
+      };
+    }
+  }
+
+  async getAgentInsights(agentId: string): Promise<any[]> {
+    try {
+      const insights = await this.prisma.agentInsight.findMany({
+        where: { agentId },
+        orderBy: { createdAt: 'desc' },
+        take: 5,
+      });
+
+      return insights;
+    } catch (error) {
+      this.logging.error(`Failed to fetch agent ${agentId} insights`, error);
+      return [];
+    }
+  }
 } 

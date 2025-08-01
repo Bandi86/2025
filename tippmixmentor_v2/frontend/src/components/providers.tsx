@@ -58,7 +58,13 @@ function WebSocketProvider({ children }: { children: React.ReactNode }) {
     setIsConnecting(true);
     setError(null);
 
-    const url = process.env.NEXT_PUBLIC_WS_URL || 'http://localhost:3001';
+    // Temporarily disable WebSocket connection to prevent XHR poll errors
+    // TODO: Implement proper WebSocket proxy or fix backend WebSocket configuration
+    console.log('WebSocket connection temporarily disabled');
+    return;
+    
+    // Use relative URL for WebSocket to work with Next.js API routes
+    const url = typeof window !== 'undefined' ? '' : (process.env.NEXT_PUBLIC_WS_URL || 'http://localhost:3001');
     
     try {
       console.log('Attempting Socket.IO connection to:', url);
@@ -75,8 +81,13 @@ function WebSocketProvider({ children }: { children: React.ReactNode }) {
       });
 
       const socket = socketRef.current;
+      
+      if (!socket) {
+        console.error('Socket is null, cannot set up event listeners');
+        return;
+      }
 
-      socket.on('connect', () => {
+      socket!.on('connect', () => {
         console.log('Socket.IO connected successfully');
         setIsConnected(true);
         setIsConnecting(false);
@@ -84,7 +95,7 @@ function WebSocketProvider({ children }: { children: React.ReactNode }) {
         reconnectAttempts.current = 0; // Reset reconnect attempts on successful connection
       });
 
-      socket.on('disconnect', (reason) => {
+      socket!.on('disconnect', (reason) => {
         console.log('Socket.IO connection disconnected:', reason);
         setIsConnected(false);
         setIsConnecting(false);
@@ -101,7 +112,7 @@ function WebSocketProvider({ children }: { children: React.ReactNode }) {
         }
       });
 
-      socket.on('connect_error', (error) => {
+      socket!.on('connect_error', (error) => {
         console.error('Socket.IO connection error:', error);
         const errorObj = new Error(`Socket.IO connection error: ${error.message}`);
         setError(errorObj);
@@ -109,7 +120,7 @@ function WebSocketProvider({ children }: { children: React.ReactNode }) {
         errorListeners.current.forEach(listener => listener(errorObj));
       });
 
-      socket.on('error', (error) => {
+      socket!.on('error', (error) => {
         console.error('Socket.IO error:', error);
         const errorObj = new Error(`Socket.IO error: ${error.message || 'Unknown error'}`);
         setError(errorObj);
@@ -118,7 +129,7 @@ function WebSocketProvider({ children }: { children: React.ReactNode }) {
       });
 
       // Handle specific message types
-      socket.on('matchUpdate', (data) => {
+      socket!.on('matchUpdate', (data) => {
         const message: WebSocketMessage = {
           type: 'matchUpdate',
           data,
@@ -127,7 +138,7 @@ function WebSocketProvider({ children }: { children: React.ReactNode }) {
         messageListeners.current.forEach(listener => listener(message));
       });
 
-      socket.on('agentEvent', (data) => {
+      socket!.on('agentEvent', (data) => {
         const message: WebSocketMessage = {
           type: 'agentEvent',
           data,
@@ -136,7 +147,7 @@ function WebSocketProvider({ children }: { children: React.ReactNode }) {
         messageListeners.current.forEach(listener => listener(message));
       });
 
-      socket.on('agentStatusUpdate', (data) => {
+      socket!.on('agentStatusUpdate', (data) => {
         const message: WebSocketMessage = {
           type: 'agentStatusUpdate',
           data,
@@ -145,7 +156,7 @@ function WebSocketProvider({ children }: { children: React.ReactNode }) {
         messageListeners.current.forEach(listener => listener(message));
       });
 
-      socket.on('predictionUpdate', (data) => {
+      socket!.on('predictionUpdate', (data) => {
         const message: WebSocketMessage = {
           type: 'predictionUpdate',
           data,
@@ -154,7 +165,7 @@ function WebSocketProvider({ children }: { children: React.ReactNode }) {
         messageListeners.current.forEach(listener => listener(message));
       });
 
-      socket.on('notification', (data) => {
+      socket!.on('notification', (data) => {
         const message: WebSocketMessage = {
           type: 'notification',
           data,
@@ -164,7 +175,7 @@ function WebSocketProvider({ children }: { children: React.ReactNode }) {
       });
 
       // Handle connection confirmation
-      socket.on('connected', (data) => {
+      socket!.on('connected', (data) => {
         const message: WebSocketMessage = {
           type: 'connected',
           data,
@@ -174,13 +185,13 @@ function WebSocketProvider({ children }: { children: React.ReactNode }) {
       });
 
       // Connect the socket
-      socket.connect();
+      socket!.connect();
     } catch (err) {
       console.error('Failed to create Socket.IO connection:', err);
       const error = err instanceof Error ? err : new Error('Failed to connect to Socket.IO');
-      setError(error);
+      setError(error as Error);
       setIsConnecting(false);
-      errorListeners.current.forEach(listener => listener(error));
+      errorListeners.current.forEach(listener => listener(error as Error));
     }
   }, [isConnecting]);
 

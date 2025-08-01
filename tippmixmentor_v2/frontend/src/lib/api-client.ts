@@ -37,7 +37,9 @@ export class ApiClient {
   private retryAttempts: number;
 
   constructor(baseUrl?: string) {
-    this.baseUrl = baseUrl || process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+    // Use relative URLs for client-side requests (browser), absolute URLs for server-side
+    // Next.js rewrite rule proxies /api/* to the backend
+    this.baseUrl = baseUrl || (typeof window !== 'undefined' ? '' : (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'));
     this.requestTimeout = 10000; // 10 seconds
     this.retryAttempts = 3;
   }
@@ -46,7 +48,12 @@ export class ApiClient {
     endpoint: string,
     options: RequestInit = {}
   ): Promise<T> {
-    const url = `${this.baseUrl}/api/v1${endpoint}`;
+    // For client-side, use relative URL (Next.js rewrite will handle it)
+    // For server-side, use full URL
+    const url = typeof window !== 'undefined' 
+      ? `/api/v1${endpoint}` 
+      : `${this.baseUrl}/api/v1${endpoint}`;
+    
     const startTime = Date.now();
 
     // Add auth header if token exists
@@ -119,11 +126,12 @@ export class ApiClient {
             errorData = {};
           }
           
+          const hasMessage = (data: any): data is { message: string } => typeof data === 'object' && data !== null && 'message' in data && typeof data.message === 'string';
           const apiError: ApiError = {
-            message: errorData.message || `HTTP error! status: ${response.status}`,
+            message: hasMessage(errorData) ? errorData.message : `HTTP error! status: ${response.status}`,
             status: response.status,
-            code: errorData.code,
-            details: errorData.details,
+            code: (errorData as any).code,
+            details: (errorData as any).details,
             timestamp: new Date().toISOString(),
           };
 
@@ -245,6 +253,40 @@ export class ApiClient {
     });
   }
 
+  // ESPN Football endpoints
+  async getESPNLiveMatches(): Promise<any> {
+    return this.request('/espn-football/live-matches');
+  }
+
+  async getESPNScoreboard(leagueCode: string): Promise<any> {
+    return this.request(`/espn-football/scoreboard/${leagueCode}`);
+  }
+
+  async getESPNStandings(leagueCode: string): Promise<any> {
+    return this.request(`/espn-football/standings/${leagueCode}`);
+  }
+
+  async getESPNTeams(leagueCode: string): Promise<any> {
+    return this.request(`/espn-football/teams/${leagueCode}`);
+  }
+
+  async getESPNSupportedLeagues(): Promise<any> {
+    return this.request('/espn-football/leagues');
+  }
+
+  // Live data endpoints
+  async getLiveMatches(): Promise<any> {
+    return this.request('/live-data/matches/live');
+  }
+
+  async getLiveMatchData(matchId: string): Promise<any> {
+    return this.request(`/live-data/match/${matchId}`);
+  }
+
+  async getUpcomingMatches(limit: number = 10): Promise<any> {
+    return this.request(`/live-data/matches/upcoming?limit=${limit}`);
+  }
+
   // Prediction endpoints
   async getPredictions(params?: Record<string, any>): Promise<any> {
     const queryString = params ? `?${new URLSearchParams(params).toString()}` : '';
@@ -323,7 +365,7 @@ export class ApiClient {
 
   // Analytics endpoints
   async getAnalytics(): Promise<any> {
-    return this.request('/analytics');
+    return this.request('/analytics/predictions');
   }
 
   async getUserPerformance(): Promise<any> {
@@ -358,15 +400,6 @@ export class ApiClient {
       method: 'POST',
       body: JSON.stringify({ match_ids: matchIds }),
     });
-  }
-
-  // Live data endpoints
-  async getLiveMatches(): Promise<any> {
-    return this.request('/live-data/matches/live');
-  }
-
-  async getLiveMatchData(matchId: string): Promise<any> {
-    return this.request(`/live-data/match/${matchId}`);
   }
 
   // Agents endpoints
@@ -462,19 +495,19 @@ export class ApiClient {
   }
 }
 
-  // Create singleton instance
-  export const apiClient = new ApiClient();
+// Create singleton instance
+export const apiClient = new ApiClient();
 
-  // Debug function to log current state
-  export const debugApiClient = () => {
-    const token = getAccessToken();
-    console.log('[API Client Debug]', {
-      baseUrl: apiClient['baseUrl'],
-      hasToken: !!token,
-      tokenExpired: token ? isTokenExpired(token) : 'no token',
-      tokenPreview: token ? `${token.substring(0, 20)}...` : 'none',
-    });
-  };
+// Debug function to log current state
+export const debugApiClient = () => {
+  const token = getAccessToken();
+  console.log('[API Client Debug]', {
+    baseUrl: apiClient['baseUrl'],
+    hasToken: !!token,
+    tokenExpired: token ? isTokenExpired(token) : 'no token',
+    tokenPreview: token ? `${token.substring(0, 20)}...` : 'none',
+  });
+};
 
 // Export for use in components
 export default apiClient; 

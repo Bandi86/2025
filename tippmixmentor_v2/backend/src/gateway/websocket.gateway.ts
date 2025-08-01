@@ -8,10 +8,14 @@ import {
   ConnectedSocket,
 } from '@nestjs/websockets';
 import { Server, Socket } from 'socket.io';
-import { Logger } from '@nestjs/common';
+import { Logger, OnModuleInit } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import { OnEvent } from '@nestjs/event-emitter';
 import { AgentsService } from '../modules/agents/agents.service';
 import { AgentEventsService, EventSeverity } from '../modules/agents/agent-events.service';
+import { ApiFootballService } from '../modules/football-data/api-football.service';
+import { UnifiedFootballService } from '../modules/football-data/unified-football.service';
+
 
 @WebSocketGateway({
   cors: {
@@ -20,7 +24,7 @@ import { AgentEventsService, EventSeverity } from '../modules/agents/agent-event
   },
   namespace: '/',
 })
-export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnect {
+export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnect, OnModuleInit {
   @WebSocketServer()
   server: Server;
 
@@ -32,6 +36,8 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
     private readonly jwtService: JwtService,
     private readonly agentsService: AgentsService,
     private readonly agentEventsService: AgentEventsService,
+    private readonly apiFootballService: ApiFootballService,
+    private readonly unifiedFootballService: UnifiedFootballService,
   ) {}
 
   async handleConnection(client: Socket) {
@@ -71,6 +77,116 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
       this.connectedUsers.delete(userId);
       this.logger.log(`User ${userId} disconnected`);
     }
+  }
+
+  onModuleInit() {
+    this.logger.log('WebSocket Gateway initialized');
+  }
+
+  // =============================================================================
+  // EVENT LISTENERS - Listen to events from EventEmitterService
+  // =============================================================================
+
+  @OnEvent('live.match.update')
+  handleLiveMatchUpdate(payload: { matchId: string; matchData: any }) {
+    this.server.to(`match:${payload.matchId}`).emit('liveMatchUpdate', payload.matchData);
+  }
+
+  @OnEvent('live.score.update')
+  handleScoreUpdate(payload: { matchId: string; homeScore: number; awayScore: number; minute?: number }) {
+    this.server.to(`match:${payload.matchId}`).emit('scoreUpdate', {
+      matchId: payload.matchId,
+      homeScore: payload.homeScore,
+      awayScore: payload.awayScore,
+      minute: payload.minute,
+    });
+  }
+
+  @OnEvent('live.match.event')
+  handleMatchEvent(payload: { matchId: string; event: any }) {
+    this.server.to(`match:${payload.matchId}`).emit('matchEvent', {
+      matchId: payload.matchId,
+      event: payload.event,
+    });
+  }
+
+  @OnEvent('live.matches.update')
+  handleLiveMatchesUpdate(payload: { matches: any[] }) {
+    this.server.emit('liveMatchesUpdate', payload.matches);
+  }
+
+  @OnEvent('league.standings.update')
+  handleLeagueStandingsUpdate(payload: { leagueId: string; standings: any }) {
+    this.server.to(`league:${payload.leagueId}`).emit('leagueStandingsUpdate', {
+      leagueId: payload.leagueId,
+      standings: payload.standings,
+    });
+  }
+
+  @OnEvent('prediction.update')
+  handlePredictionUpdate(payload: { userId: string; prediction: any }) {
+    this.server.to(`user:${payload.userId}`).emit('predictionUpdate', payload.prediction);
+  }
+
+  @OnEvent('agent.event')
+  handleAgentEvent(payload: { agentId: string; event: any }) {
+    this.server.to(`agent:${payload.agentId}`).emit('agentEvent', {
+      agentId: payload.agentId,
+      event: payload.event,
+    });
+  }
+
+  @OnEvent('agent.status.update')
+  handleAgentStatusUpdate(payload: { agentId: string; status: any }) {
+    this.server.to(`agent:${payload.agentId}`).emit('agentStatusUpdate', {
+      agentId: payload.agentId,
+      status: payload.status,
+    });
+  }
+
+  @OnEvent('agent.task.update')
+  handleAgentTaskUpdate(payload: { agentId: string; task: any }) {
+    this.server.to(`agent:${payload.agentId}`).emit('agentTaskUpdate', {
+      agentId: payload.agentId,
+      task: payload.task,
+    });
+  }
+
+  @OnEvent('agent.insight')
+  handleAgentInsight(payload: { agentId: string; insight: any }) {
+    this.server.to(`agent:${payload.agentId}`).emit('agentInsight', {
+      agentId: payload.agentId,
+      insight: payload.insight,
+    });
+  }
+
+  @OnEvent('agent.performance.update')
+  handleAgentPerformanceUpdate(payload: { agentId: string; performance: any }) {
+    this.server.to(`agent:${payload.agentId}`).emit('agentPerformanceUpdate', {
+      agentId: payload.agentId,
+      performance: payload.performance,
+    });
+  }
+
+  @OnEvent('agent.error')
+  handleAgentError(payload: { agentId: string; error: any }) {
+    this.server.to(`agent:${payload.agentId}`).emit('agentError', {
+      agentId: payload.agentId,
+      error: payload.error,
+    });
+  }
+
+  @OnEvent('notification.new')
+  handleNotification(payload: { userId: string; notification: any }) {
+    this.server.to(`user:${payload.userId}`).emit('notification', payload.notification);
+  }
+
+  @OnEvent('user.presence')
+  handleUserPresence(payload: { userId: string; isOnline: boolean }) {
+    this.server.emit('userPresence', {
+      userId: payload.userId,
+      isOnline: payload.isOnline,
+    });
   }
 
   @SubscribeMessage('joinMatch')
@@ -165,30 +281,6 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
     this.server.to(`match:${matchId}`).emit('matchUpdate', {
       matchId,
       data,
-      timestamp: new Date().toISOString(),
-    });
-  }
-
-  emitScoreUpdate(matchId: string, homeScore: number, awayScore: number) {
-    this.server.to(`match:${matchId}`).emit('scoreUpdate', {
-      matchId,
-      homeScore,
-      awayScore,
-      timestamp: new Date().toISOString(),
-    });
-  }
-
-  emitMatchEvent(matchId: string, event: any) {
-    this.server.to(`match:${matchId}`).emit('matchEvent', {
-      matchId,
-      event,
-      timestamp: new Date().toISOString(),
-    });
-  }
-
-  emitPredictionUpdate(userId: string, prediction: any) {
-    this.server.to(`user:${userId}`).emit('predictionUpdate', {
-      prediction,
       timestamp: new Date().toISOString(),
     });
   }
@@ -389,6 +481,175 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
       error,
       timestamp: new Date().toISOString(),
     });
+  }
+
+  // =============================================================================
+  // REAL-TIME FOOTBALL DATA HANDLERS
+  // =============================================================================
+
+  @SubscribeMessage('subscribeToLiveMatches')
+  async handleSubscribeToLiveMatches(@ConnectedSocket() client: Socket) {
+    const userId = client.data.userId;
+    if (!userId) {
+      client.emit('error', { message: 'Authentication required' });
+      return;
+    }
+
+    client.join('live-matches');
+    this.logger.log(`User ${userId} subscribed to live matches`);
+    
+    // Live matches will be sent via events from RealtimeDataService
+    client.emit('subscribedToLiveMatches', {
+      timestamp: new Date().toISOString(),
+    });
+  }
+
+  @SubscribeMessage('unsubscribeFromLiveMatches')
+  handleUnsubscribeFromLiveMatches(@ConnectedSocket() client: Socket) {
+    const userId = client.data.userId;
+    if (!userId) {
+      client.emit('error', { message: 'Authentication required' });
+      return;
+    }
+
+    client.leave('live-matches');
+    this.logger.log(`User ${userId} unsubscribed from live matches`);
+  }
+
+  @SubscribeMessage('subscribeToLeagueUpdates')
+  async handleSubscribeToLeagueUpdates(
+    @ConnectedSocket() client: Socket,
+    @MessageBody() leagueId: string,
+  ) {
+    const userId = client.data.userId;
+    if (!userId) {
+      client.emit('error', { message: 'Authentication required' });
+      return;
+    }
+
+    client.join(`league:${leagueId}`);
+    this.logger.log(`User ${userId} subscribed to league ${leagueId} updates`);
+    
+          // Send current league data
+      try {
+        const leagueData = await this.unifiedFootballService.getUnifiedStandings(leagueId);
+        client.emit('leagueUpdate', {
+          leagueId,
+          data: leagueData,
+          timestamp: new Date().toISOString(),
+        });
+      } catch (error) {
+        this.logger.error(`Error fetching league ${leagueId} data:`, error.message);
+      }
+  }
+
+  @SubscribeMessage('unsubscribeFromLeagueUpdates')
+  handleUnsubscribeFromLeagueUpdates(
+    @ConnectedSocket() client: Socket,
+    @MessageBody() leagueId: string,
+  ) {
+    const userId = client.data.userId;
+    if (!userId) {
+      client.emit('error', { message: 'Authentication required' });
+      return;
+    }
+
+    client.leave(`league:${leagueId}`);
+    this.logger.log(`User ${userId} unsubscribed from league ${leagueId} updates`);
+  }
+
+  @SubscribeMessage('subscribeToPredictionUpdates')
+  handleSubscribeToPredictionUpdates(@ConnectedSocket() client: Socket) {
+    const userId = client.data.userId;
+    if (!userId) {
+      client.emit('error', { message: 'Authentication required' });
+      return;
+    }
+
+    client.join(`predictions:${userId}`);
+    this.logger.log(`User ${userId} subscribed to prediction updates`);
+  }
+
+  @SubscribeMessage('unsubscribeFromPredictionUpdates')
+  handleUnsubscribeFromPredictionUpdates(@ConnectedSocket() client: Socket) {
+    const userId = client.data.userId;
+    if (!userId) {
+      client.emit('error', { message: 'Authentication required' });
+      return;
+    }
+
+    client.leave(`predictions:${userId}`);
+    this.logger.log(`User ${userId} unsubscribed from prediction updates`);
+  }
+
+  // =============================================================================
+  // REAL-TIME FOOTBALL DATA EMITTERS
+  // =============================================================================
+
+  emitLiveMatchUpdate(matchId: string, matchData: any) {
+    this.server.to(`match:${matchId}`).emit('liveMatchUpdate', {
+      matchId,
+      data: matchData,
+      timestamp: new Date().toISOString(),
+    });
+  }
+
+  emitScoreUpdate(matchId: string, homeScore: number, awayScore: number, minute?: number) {
+    this.server.to(`match:${matchId}`).emit('scoreUpdate', {
+      matchId,
+      homeScore,
+      awayScore,
+      minute,
+      timestamp: new Date().toISOString(),
+    });
+  }
+
+  emitMatchEvent(matchId: string, event: any) {
+    this.server.to(`match:${matchId}`).emit('matchEvent', {
+      matchId,
+      event,
+      timestamp: new Date().toISOString(),
+    });
+  }
+
+  emitLeagueStandingsUpdate(leagueId: string, standings: any) {
+    this.server.to(`league:${leagueId}`).emit('leagueStandingsUpdate', {
+      leagueId,
+      standings,
+      timestamp: new Date().toISOString(),
+    });
+  }
+
+  emitPredictionUpdate(userId: string, prediction: any) {
+    this.server.to(`predictions:${userId}`).emit('predictionUpdate', {
+      prediction,
+      timestamp: new Date().toISOString(),
+    });
+  }
+
+  emitLiveMatchesUpdate(matches: any[]) {
+    this.server.to('live-matches').emit('liveMatchesUpdate', {
+      matches,
+      timestamp: new Date().toISOString(),
+    });
+  }
+
+  // =============================================================================
+  // REAL-TIME DATA BROADCASTING METHODS
+  // =============================================================================
+
+  // This method is no longer needed as live matches are handled via events
+  // async broadcastLiveMatchUpdates() {
+  //   // Live matches are now broadcast via events from RealtimeDataService
+  // }
+
+  async broadcastLeagueUpdates(leagueId: string) {
+    try {
+      const standings = await this.unifiedFootballService.getUnifiedStandings(leagueId);
+      this.emitLeagueStandingsUpdate(leagueId, standings);
+    } catch (error) {
+      this.logger.error(`Error broadcasting league ${leagueId} updates:`, error.message);
+    }
   }
 
   // =============================================================================

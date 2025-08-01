@@ -22,6 +22,7 @@
 - ✅ **Performance Services COMPLETED** (PerformanceCacheService, PerformanceMonitorService)
 - ✅ **Performance Controller COMPLETED** (API endpoints for monitoring and optimization)
 - ✅ **Agents Module COMPLETED** (Agent management with Agent OS integration)
+- ✅ **API-Football Integration COMPLETED** (Multi-source football data with smart merging)
 
 ## 📋 **Priority Tasks (Next 2 Weeks)**
 
@@ -90,6 +91,30 @@ GET    /agents/:id/workflows      # List workflows
 GET    /agents/:id/performance    # Get performance metrics
 POST   /agents/integrations       # Create integration
 GET    /agents/integrations       # List integrations
+```
+
+**Football Data API Endpoints:**
+```
+# API-Football Integration
+GET    /api-football/leagues      # Get available leagues
+GET    /api-football/leagues/:id  # Get specific league
+GET    /api-football/teams        # Get teams for league
+GET    /api-football/teams/:id    # Get specific team
+GET    /api-football/matches      # Get matches for league
+GET    /api-football/matches/live # Get live matches
+GET    /api-football/matches/:id  # Get specific match
+GET    /api-football/standings    # Get standings for league
+GET    /api-football/scorers      # Get top scorers
+POST   /api-football/sync/:leagueId/:season # Sync league data
+GET    /api-football/rate-limit   # Get rate limit status
+GET    /api-football/status       # Get service status
+
+# Unified Football Data
+GET    /unified-football/matches  # Get unified matches
+GET    /unified-football/standings # Get unified standings
+GET    /unified-football/scorers  # Get unified scorers
+GET    /unified-football/quality-report # Get data quality report
+GET    /unified-football/status   # Get unified service status
 ```
 
 **WebSocket Events:**

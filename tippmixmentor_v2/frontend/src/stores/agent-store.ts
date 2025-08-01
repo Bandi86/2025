@@ -261,7 +261,7 @@ export const useAgentStore = create<AgentState>()(
         const newAgent: Agent = {
           id: Date.now().toString(),
           name: agentData.name || 'New Agent',
-          description: agentData.description,
+          description: agentData.description || 'No description provided',
           type: agentData.type || 'prediction',
           status: 'inactive',
           health: 'healthy',

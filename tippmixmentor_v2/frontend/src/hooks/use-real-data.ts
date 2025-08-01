@@ -11,8 +11,8 @@ export function usePredictions(params?: Record<string, any>) {
     queryFn: () => apiClient.getPredictions(params),
     staleTime: 2 * 60 * 1000, // 2 minutes
     retry: 2,
-    onError: (error) => handleError(error, 'usePredictions'),
-  });
+    onError: (error: unknown) => handleError(error, 'usePredictions'),
+  } as any);
 }
 
 export function useCreatePrediction() {
@@ -43,8 +43,8 @@ export function usePredictionStats() {
     queryFn: () => apiClient.getPredictionStats(),
     staleTime: 5 * 60 * 1000, // 5 minutes
     retry: 2,
-    onError: (error) => handleError(error, 'usePredictionStats'),
-  });
+    onError: (error: unknown) => handleError(error, 'usePredictionStats'),
+  } as any);
 }
 
 // Matches hooks
@@ -56,8 +56,8 @@ export function useMatches(params?: Record<string, any>) {
     queryFn: () => apiClient.getMatches(params),
     staleTime: 1 * 60 * 1000, // 1 minute
     retry: 2,
-    onError: (error) => handleError(error, 'useMatches'),
-  });
+    onError: (error: unknown) => handleError(error, 'useMatches'),
+  } as any);
 }
 
 export function useMatch(matchId: string) {
@@ -69,8 +69,8 @@ export function useMatch(matchId: string) {
     staleTime: 30 * 1000, // 30 seconds
     retry: 2,
     enabled: !!matchId,
-    onError: (error) => handleError(error, 'useMatch'),
-  });
+    onError: (error: unknown) => handleError(error, 'useMatch'),
+  } as any);
 }
 
 // Live matches hooks
@@ -83,8 +83,8 @@ export function useLiveMatches() {
     staleTime: 10 * 1000, // 10 seconds
     refetchInterval: 30 * 1000, // Refetch every 30 seconds
     retry: 2,
-    onError: (error) => handleError(error, 'useLiveMatches'),
-  });
+    onError: (error: unknown) => handleError(error, 'useLiveMatches'),
+  } as any);
 }
 
 export function useLiveMatchData(matchId: string) {
@@ -97,8 +97,8 @@ export function useLiveMatchData(matchId: string) {
     refetchInterval: 10 * 1000, // Refetch every 10 seconds
     retry: 2,
     enabled: !!matchId,
-    onError: (error) => handleError(error, 'useLiveMatchData'),
-  });
+    onError: (error: unknown) => handleError(error, 'useLiveMatchData'),
+  } as any);
 }
 
 // Analytics hooks
@@ -110,8 +110,8 @@ export function useAnalytics() {
     queryFn: () => apiClient.getAnalytics(),
     staleTime: 5 * 60 * 1000, // 5 minutes
     retry: 2,
-    onError: (error) => handleError(error, 'useAnalytics'),
-  });
+    onError: (error: unknown) => handleError(error, 'useAnalytics'),
+  } as any);
 }
 
 export function useUserPerformance() {
@@ -122,8 +122,8 @@ export function useUserPerformance() {
     queryFn: () => apiClient.getUserPerformance(),
     staleTime: 10 * 60 * 1000, // 10 minutes
     retry: 2,
-    onError: (error) => handleError(error, 'useUserPerformance'),
-  });
+    onError: (error: unknown) => handleError(error, 'useUserPerformance'),
+  } as any);
 }
 
 export function useModelPerformance() {
@@ -134,8 +134,8 @@ export function useModelPerformance() {
     queryFn: () => apiClient.getModelPerformance(),
     staleTime: 5 * 60 * 1000, // 5 minutes
     retry: 2,
-    onError: (error) => handleError(error, 'useModelPerformance'),
-  });
+    onError: (error: unknown) => handleError(error, 'useModelPerformance'),
+  } as any);
 }
 
 // ML Service hooks
@@ -148,8 +148,8 @@ export function useMLServiceStatus() {
     staleTime: 30 * 1000, // 30 seconds
     refetchInterval: 60 * 1000, // Refetch every minute
     retry: 2,
-    onError: (error) => handleError(error, 'useMLServiceStatus'),
-  });
+    onError: (error: unknown) => handleError(error, 'useMLServiceStatus'),
+  } as any);
 }
 
 export function useModelInfo() {
@@ -160,8 +160,8 @@ export function useModelInfo() {
     queryFn: () => apiClient.getModelInfo(),
     staleTime: 5 * 60 * 1000, // 5 minutes
     retry: 2,
-    onError: (error) => handleError(error, 'useModelInfo'),
-  });
+    onError: (error: unknown) => handleError(error, 'useModelInfo'),
+  } as any);
 }
 
 export function useTrainModels() {
@@ -188,8 +188,8 @@ export function useAgents() {
     staleTime: 30 * 1000, // 30 seconds
     refetchInterval: 60 * 1000, // Refetch every minute
     retry: 2,
-    onError: (error) => handleError(error, 'useAgents'),
-  });
+    onError: (error: unknown) => handleError(error, 'useAgents'),
+  } as any);
 }
 
 export function useAgent(agentId: string) {
@@ -202,8 +202,8 @@ export function useAgent(agentId: string) {
     refetchInterval: 30 * 1000, // Refetch every 30 seconds
     retry: 2,
     enabled: !!agentId,
-    onError: (error) => handleError(error, 'useAgent'),
-  });
+    onError: (error: unknown) => handleError(error, 'useAgent'),
+  } as any);
 }
 
 export function useCreateAgent() {
@@ -283,9 +283,9 @@ export function useHealthStatus() {
     queryFn: () => apiClient.getHealth(),
     staleTime: 30 * 1000, // 30 seconds
     refetchInterval: 60 * 1000, // Refetch every minute
-    retry: 3,
-    onError: (error) => handleError(error, 'useHealthStatus'),
-  });
+    retry: 2,
+    onError: (error: unknown) => handleError(error, 'useHealthStatus'),
+  } as any);
 }
 
 export function usePerformanceMetrics() {
@@ -294,11 +294,11 @@ export function usePerformanceMetrics() {
   return useQuery({
     queryKey: ['performance-metrics'],
     queryFn: () => apiClient.getMetrics(),
-    staleTime: 10 * 1000, // 10 seconds
+    staleTime: 60 * 1000, // 1 minute
     refetchInterval: 30 * 1000, // Refetch every 30 seconds
     retry: 2,
-    onError: (error) => handleError(error, 'usePerformanceMetrics'),
-  });
+    onError: (error: unknown) => handleError(error, 'usePerformanceMetrics'),
+  } as any);
 }
 
 // Notifications hooks
@@ -308,11 +308,11 @@ export function useNotifications() {
   return useQuery({
     queryKey: ['notifications'],
     queryFn: () => apiClient.getNotifications(),
-    staleTime: 30 * 1000, // 30 seconds
+    staleTime: 60 * 1000, // 1 minute
     refetchInterval: 60 * 1000, // Refetch every minute
     retry: 2,
-    onError: (error) => handleError(error, 'useNotifications'),
-  });
+    onError: (error: unknown) => handleError(error, 'useNotifications'),
+  } as any);
 }
 
 export function useMarkNotificationAsRead() {
@@ -324,6 +324,6 @@ export function useMarkNotificationAsRead() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['notifications'] });
     },
-    onError: (error) => handleError(error, 'useMarkNotificationAsRead'),
+    onError: (error: unknown) => handleError(error, 'useMarkNotificationAsRead'),
   });
 } 

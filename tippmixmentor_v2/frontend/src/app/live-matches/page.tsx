@@ -5,8 +5,16 @@ import { DashboardLayout } from '@/components/dashboard/dashboard-layout';
 import { LiveMatchesDashboard } from '@/components/predictions/live-matches-dashboard';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Activity, Clock, TrendingUp } from 'lucide-react';
+import { useDashboardData } from '@/hooks/use-dashboard-data';
 
 export default function LiveMatchesPage() {
+  const { liveMatches, predictions, loading, error } = useDashboardData(30000);
+
+  // Calculate real stats
+  const liveMatchesCount = liveMatches.filter(m => m.status === 'live').length;
+  const upcomingMatchesCount = liveMatches.filter(m => m.status === 'scheduled').length;
+  const predictionsCount = predictions.length;
+
   return (
     <ProtectedRoute>
       <DashboardLayout>
@@ -37,7 +45,9 @@ export default function LiveMatchesPage() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-600">Live Matches</p>
-                    <p className="text-2xl font-bold">12</p>
+                    <p className="text-2xl font-bold">
+                      {loading ? '...' : liveMatchesCount}
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -51,7 +61,9 @@ export default function LiveMatchesPage() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-600">Upcoming</p>
-                    <p className="text-2xl font-bold">8</p>
+                    <p className="text-2xl font-bold">
+                      {loading ? '...' : upcomingMatchesCount}
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -65,7 +77,9 @@ export default function LiveMatchesPage() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-600">Predictions</p>
-                    <p className="text-2xl font-bold">156</p>
+                    <p className="text-2xl font-bold">
+                      {loading ? '...' : predictionsCount}
+                    </p>
                   </div>
                 </div>
               </CardContent>
