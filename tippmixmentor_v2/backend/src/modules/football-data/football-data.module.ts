@@ -15,6 +15,8 @@ import { FootballDataSyncService } from './football-data-sync.service';
 // import { FootballDataWebSocketGateway } from './football-data-websocket.gateway';
 import { OddsAnalysisController } from './odds-analysis.controller';
 import { OddsAnalysisService } from './odds-analysis.service';
+import { LiveSummaryController } from './live-summary.controller';
+import { LiveSummaryService } from './live-summary.service';
 import { RedisModule } from '../../common/redis/redis.module';
 import { DatabaseModule } from '../../common/database/database.module';
 
@@ -36,6 +38,7 @@ import { DatabaseModule } from '../../common/database/database.module';
     UnifiedFootballController,
     FootballDataSyncController,
     OddsAnalysisController,
+    LiveSummaryController,
   ],
   providers: [
     FootballDataService, 
@@ -44,6 +47,7 @@ import { DatabaseModule } from '../../common/database/database.module';
     UnifiedFootballService,
     FootballDataSyncService,
     OddsAnalysisService,
+    LiveSummaryService,
   ],
   exports: [
     FootballDataService, 
@@ -52,6 +56,7 @@ import { DatabaseModule } from '../../common/database/database.module';
     UnifiedFootballService,
     FootballDataSyncService,
     OddsAnalysisService,
+    LiveSummaryService,
   ],
 })
 export class FootballDataModule {} 

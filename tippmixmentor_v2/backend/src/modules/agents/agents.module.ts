@@ -7,12 +7,16 @@ import { AgentInsightsService } from './agent-insights.service';
 import { AgentWorkflowsService } from './agent-workflows.service';
 import { AgentPerformanceService } from './agent-performance.service';
 import { AgentIntegrationService } from './agent-integration.service';
-import { PrismaService } from '../../common/database/prisma.service';
+import { DatabaseModule } from '../../common/database/database.module';
 import { RedisModule } from '../../common/redis/redis.module';
 import { LoggingModule } from '../../common/logging/logging.module';
 
 @Module({
-  imports: [RedisModule, LoggingModule],
+  imports: [
+    DatabaseModule, // Fixed: Import DatabaseModule to provide PrismaService
+    RedisModule, 
+    LoggingModule
+  ],
   controllers: [AgentsController],
   providers: [
     AgentsService,

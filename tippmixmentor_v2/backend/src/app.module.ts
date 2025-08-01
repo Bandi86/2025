@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { HttpModule } from '@nestjs/axios';
 import { ScheduleModule } from '@nestjs/schedule';
+import { validationSchema } from './config/validation.schema';
 
 // Database
 import { DatabaseModule } from './common/database/database.module';
@@ -36,12 +37,27 @@ import { HealthController } from './health.controller';
 import { MetricsController } from './metrics.controller';
 import { PerformanceController } from './performance.controller';
 
+// New controllers for enhanced features
+import { LiveSummaryController } from './modules/football-data/live-summary.controller';
+import { MatchDetailController } from './modules/football-data/match-detail.controller';
+import { UserPreferencesController } from './modules/users/user-preferences.controller';
+
+// New services for enhanced features
+import { LiveSummaryService } from './modules/football-data/live-summary.service';
+import { MatchDetailService } from './modules/football-data/match-detail.service';
+import { UserPreferencesService } from './modules/users/user-preferences.service';
+
 @Module({
   imports: [
-    // Configuration
+    // Configuration with validation
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: '.env',
+      validationSchema,
+      validationOptions: {
+        allowUnknown: true,
+        abortEarly: false,
+      },
     }),
 
     // HTTP client
@@ -62,10 +78,30 @@ import { PerformanceController } from './performance.controller';
     MonitoringModule,
     EventsModule,
 
-    // JWT
-    JwtModule.register({
-      secret: process.env.JWT_SECRET || 'your-secret-key',
-      signOptions: { expiresIn: '1h' },
+    // JWT - Fixed security issue: Use async configuration with required secret
+    JwtModule.registerAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => {
+        const jwtSecret = configService.get<string>('JWT_SECRET');
+        if (!jwtSecret) {
+          throw new Error('JWT_SECRET environment variable is required');
+        }
+        
+        return {
+          secret: jwtSecret,
+          signOptions: { 
+            expiresIn: configService.get('JWT_EXPIRES_IN', '1h'),
+            issuer: 'tippmixmentor-api',
+            audience: 'tippmixmentor-client',
+          },
+          verifyOptions: {
+            issuer: 'tippmixmentor-api',
+            audience: 'tippmixmentor-client',
+            clockTolerance: 30, // 30 seconds clock skew tolerance
+          },
+        };
+      },
+      inject: [ConfigService],
     }),
 
     // Passport
@@ -91,8 +127,18 @@ import { PerformanceController } from './performance.controller';
     HealthController,
     MetricsController,
     PerformanceController,
+    // New controllers for enhanced features
+    LiveSummaryController,
+    MatchDetailController,
+    UserPreferencesController,
   ],
-  providers: [PrismaService],
+  providers: [
+    PrismaService,
+    // New services for enhanced features
+    LiveSummaryService,
+    MatchDetailService,
+    UserPreferencesService,
+  ],
   exports: [PrismaService],
 })
 export class AppModule {} 

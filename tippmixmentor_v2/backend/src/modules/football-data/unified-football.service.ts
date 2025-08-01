@@ -62,36 +62,23 @@ export class UnifiedFootballService {
 
   async getUnifiedMatches(competition: string, limit: number = 20): Promise<UnifiedMatch[]> {
     try {
-      const [footballDataMatches, apiFootballMatches, espnMatches] = await Promise.allSettled([
-        this.footballDataService.getMatches(competition, 'FINISHED', limit),
+      this.logger.log(`Starting unified matches request for competition: ${competition}`);
+      
+      // Only call ESPN service directly since FootballDataService goes to ML service
+      const [apiFootballMatches, espnMatches] = await Promise.allSettled([
         this.getApiFootballMatchesForCompetition(competition, limit),
         this.getESPNMatchesForCompetition(competition, limit),
       ]);
 
-      const matches: UnifiedMatch[] = [];
+      this.logger.log(`API Football status: ${apiFootballMatches.status}`);
+      this.logger.log(`ESPN status: ${espnMatches.status}`);
 
-      // Process Football-Data.org matches
-      if (footballDataMatches.status === 'fulfilled') {
-        const fdMatches = footballDataMatches.value.matches || [];
-        for (const match of fdMatches) {
-          matches.push({
-            id: `fd_${match.id}`,
-            homeTeam: match.homeTeam.name,
-            awayTeam: match.awayTeam.name,
-            homeScore: match.score.fullTime.home,
-            awayScore: match.score.fullTime.away,
-            status: match.status,
-            date: match.utcDate,
-            league: competition,
-            source: 'football-data',
-            confidence: 0.8,
-          });
-        }
-      }
+      const matches: UnifiedMatch[] = [];
 
       // Process API-Football matches
       if (apiFootballMatches.status === 'fulfilled') {
         const afMatches = apiFootballMatches.value.response || [];
+        this.logger.log(`API Football matches found: ${afMatches.length}`);
         for (const match of afMatches) {
           matches.push({
             id: `af_${match.fixture.id}`,
@@ -101,56 +88,63 @@ export class UnifiedFootballService {
             awayScore: match.goals.away,
             status: this.mapApiFootballStatus(match.fixture.status.short),
             date: match.fixture.date,
-            league: match.league.name,
+            league: competition,
             source: 'api-football',
             confidence: 0.9,
           });
         }
+      } else {
+        this.logger.error(`API Football failed: ${apiFootballMatches.reason}`);
       }
 
-      // Process ESPN matches
+      // Process ESPN matches - Fixed to handle ESPN data structure
       if (espnMatches.status === 'fulfilled') {
-        const espnEvents = espnMatches.value.events || [];
-        for (const event of espnEvents) {
-          const competition = event.competitions?.[0];
-          if (competition) {
-            const homeTeam = competition.competitors?.find(c => c.homeAway === 'home')?.team;
-            const awayTeam = competition.competitors?.find(c => c.homeAway === 'away')?.team;
+        const espnData = espnMatches.value;
+        const events = espnData.events || [];
+        this.logger.log(`ESPN events found: ${events.length}`);
+        
+        for (const event of events) {
+          const homeTeam = event.competitions?.[0]?.competitors?.find(c => c.homeAway === 'home');
+          const awayTeam = event.competitions?.[0]?.competitors?.find(c => c.homeAway === 'away');
+          
+          if (homeTeam && awayTeam) {
+            const odds = event.competitions?.[0]?.odds?.[0];
             
-            if (homeTeam && awayTeam) {
-              matches.push({
-                id: `espn_${event.id}`,
-                homeTeam: homeTeam.displayName,
-                awayTeam: awayTeam.displayName,
-                homeScore: competition.competitors?.find(c => c.homeAway === 'home')?.score ? 
-                  parseInt(competition.competitors.find(c => c.homeAway === 'home')?.score || '0') : undefined,
-                awayScore: competition.competitors?.find(c => c.homeAway === 'away')?.score ? 
-                  parseInt(competition.competitors.find(c => c.homeAway === 'away')?.score || '0') : undefined,
-                status: event.status?.type?.description || 'unknown',
-                date: event.date,
-                league: competition.id,
-                source: 'espn',
-                confidence: 0.95, // ESPN has high confidence due to real-time data
-                odds: competition.odds?.map(odd => ({
-                  provider: odd.provider.name,
-                  details: odd.details,
-                  overUnder: odd.overUnder,
-                  spread: odd.spread,
-                  homeOdds: odd.homeOdds,
-                  awayOdds: odd.awayOdds,
-                  drawOdds: odd.drawOdds,
-                })),
-              });
-            }
+            matches.push({
+              id: `espn_${event.id}`,
+              homeTeam: homeTeam.team?.displayName || homeTeam.team?.name || 'Unknown',
+              awayTeam: awayTeam.team?.displayName || awayTeam.team?.name || 'Unknown',
+              homeScore: parseInt(homeTeam.score) || 0,
+              awayScore: parseInt(awayTeam.score) || 0,
+              status: event.status?.type?.state || 'scheduled',
+              date: event.date,
+              league: competition,
+              source: 'espn',
+              confidence: 0.85,
+              odds: odds ? [{
+                provider: odds.provider?.name || 'Unknown',
+                details: `${homeTeam.team?.abbreviation} ${homeTeam.score} - ${awayTeam.score} ${awayTeam.team?.abbreviation}`,
+                homeOdds: odds.homeOdds,
+                awayOdds: odds.awayOdds,
+                drawOdds: odds.drawOdds,
+                overUnder: odds.overUnder,
+              }] : undefined,
+            });
           }
         }
+      } else {
+        this.logger.error(`ESPN failed: ${espnMatches.reason}`);
       }
 
-      // Merge and deduplicate matches
+      // Log the results for debugging
+      this.logger.log(`Unified matches for ${competition}: ${matches.length} total matches`);
+      this.logger.log(`Sources: ${[...new Set(matches.map(m => m.source))].join(', ')}`);
+
+      // Merge and return matches
       return this.mergeMatches(matches);
     } catch (error) {
-      this.logger.error(`Error getting unified matches: ${error.message}`, error.stack);
-      throw error;
+      this.logger.error(`Error getting unified matches for ${competition}:`, error);
+      return [];
     }
   }
 
@@ -352,14 +346,28 @@ export class UnifiedFootballService {
       'FL1': 'fra.1', // Ligue 1
       'CL': 'uefa.champions', // Champions League
       'EL': 'uefa.europa', // Europa League
+      // Direct ESPN codes
+      'eng.1': 'eng.1', // Premier League
+      'esp.1': 'esp.1', // La Liga
+      'ita.1': 'ita.1', // Serie A
+      'ger.1': 'ger.1', // Bundesliga
+      'fra.1': 'fra.1', // Ligue 1
+      'uefa.champions': 'uefa.champions', // Champions League
+      'uefa.europa': 'uefa.europa', // Europa League
     };
 
     const leagueCode = leagueMapping[competition];
     if (!leagueCode) {
-      throw new Error(`Unsupported competition for ESPN: ${competition}`);
+      this.logger.warn(`Unsupported competition for ESPN: ${competition}`);
+      return { events: [] }; // Return empty result instead of throwing
     }
 
-    return this.espnFootballService.getScoreboard(leagueCode);
+    try {
+      return await this.espnFootballService.getScoreboard(leagueCode);
+    } catch (error) {
+      this.logger.error(`Error fetching ESPN data for ${leagueCode}:`, error);
+      return { events: [] }; // Return empty result on error
+    }
   }
 
   private async getESPNStandingsForCompetition(competition: string) {

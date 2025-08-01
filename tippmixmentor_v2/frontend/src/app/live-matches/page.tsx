@@ -8,12 +8,12 @@ import { Activity, Clock, TrendingUp } from 'lucide-react';
 import { useDashboardData } from '@/hooks/use-dashboard-data';
 
 export default function LiveMatchesPage() {
-  const { liveMatches, predictions, loading, error } = useDashboardData(30000);
+  const { data, loading, error } = useDashboardData();
 
   // Calculate real stats
-  const liveMatchesCount = liveMatches.filter(m => m.status === 'live').length;
-  const upcomingMatchesCount = liveMatches.filter(m => m.status === 'scheduled').length;
-  const predictionsCount = predictions.length;
+  const liveMatchesCount = data?.liveMatches?.filter(m => m.status === 'live').length || 0;
+  const upcomingMatchesCount = data?.liveMatches?.filter(m => m.status === 'scheduled').length || 0;
+  const predictionsCount = data?.predictions?.length || 0;
 
   return (
     <ProtectedRoute>

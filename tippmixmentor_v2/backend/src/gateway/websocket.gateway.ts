@@ -8,14 +8,13 @@ import {
   ConnectedSocket,
 } from '@nestjs/websockets';
 import { Server, Socket } from 'socket.io';
-import { Logger, OnModuleInit } from '@nestjs/common';
+import { Logger, OnModuleInit, UseGuards } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { OnEvent } from '@nestjs/event-emitter';
 import { AgentsService } from '../modules/agents/agents.service';
 import { AgentEventsService, EventSeverity } from '../modules/agents/agent-events.service';
 import { ApiFootballService } from '../modules/football-data/api-football.service';
 import { UnifiedFootballService } from '../modules/football-data/unified-football.service';
-
 
 @WebSocketGateway({
   cors: {
@@ -29,7 +28,9 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
   server: Server;
 
   private readonly logger = new Logger(WebsocketGateway.name);
-  private connectedUsers = new Map<string, Socket>();
+  // Fixed: Support multiple sockets per user
+  private connectedUsers = new Map<string, Set<Socket>>(); // userId -> Set of Sockets
+  private socketToUser = new Map<string, string>(); // socket.id -> userId
   private agentSubscriptions = new Map<string, Set<string>>(); // agentId -> Set of userIds
 
   constructor(
@@ -42,16 +43,47 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
 
   async handleConnection(client: Socket) {
     try {
-      const token = client.handshake.auth.token || client.handshake.headers.authorization;
+      // Standardize token retrieval - prefer Authorization header
+      let token = client.handshake.headers.authorization;
+      if (!token && client.handshake.auth.token) {
+        token = client.handshake.auth.token;
+      }
       
-      if (token) {
-        const decoded = this.jwtService.verify(token.replace('Bearer ', ''));
+      if (!token) {
+        this.logger.warn('Client connected without authentication token');
+        client.emit('error', { 
+          code: 'AUTH_REQUIRED',
+          message: 'Authentication token required',
+          timestamp: new Date().toISOString()
+        });
+        client.disconnect(true);
+        return;
+      }
+
+      // Remove Bearer prefix if present
+      const cleanToken = token.replace(/^Bearer\s+/i, '');
+      
+      try {
+        const decoded = this.jwtService.verify(cleanToken);
         const userId = decoded.sub;
         
-        this.connectedUsers.set(userId, client);
+        if (!userId) {
+          throw new Error('Invalid token: missing user ID');
+        }
+
+        // Add socket to user's socket set
+        if (!this.connectedUsers.has(userId)) {
+          this.connectedUsers.set(userId, new Set());
+        }
+        this.connectedUsers.get(userId)!.add(client);
+        
+        // Map socket to user
+        this.socketToUser.set(client.id, userId);
+        
+        // Set user data on socket
         client.data.userId = userId;
         
-        this.logger.log(`User ${userId} connected`);
+        this.logger.log(`User ${userId} connected (socket: ${client.id})`);
         
         // Join user to their personal room
         client.join(`user:${userId}`);
@@ -59,23 +91,45 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
         // Send connection confirmation
         client.emit('connected', {
           userId,
+          socketId: client.id,
           timestamp: new Date().toISOString(),
         });
-      } else {
-        this.logger.warn('Client connected without authentication');
-        client.emit('error', { message: 'Authentication required' });
+      } catch (jwtError) {
+        this.logger.error('JWT verification failed:', jwtError.message);
+        client.emit('error', { 
+          code: 'AUTH_FAILED',
+          message: 'Invalid authentication token',
+          timestamp: new Date().toISOString()
+        });
+        client.disconnect(true);
       }
     } catch (error) {
       this.logger.error('Connection error:', error.message);
-      client.emit('error', { message: 'Authentication failed' });
+      client.emit('error', { 
+        code: 'CONNECTION_ERROR',
+        message: 'Connection failed',
+        timestamp: new Date().toISOString()
+      });
+      client.disconnect(true);
     }
   }
 
   handleDisconnect(client: Socket) {
-    const userId = client.data.userId;
+    const userId = this.socketToUser.get(client.id);
     if (userId) {
-      this.connectedUsers.delete(userId);
-      this.logger.log(`User ${userId} disconnected`);
+      // Remove socket from user's socket set
+      const userSockets = this.connectedUsers.get(userId);
+      if (userSockets) {
+        userSockets.delete(client);
+        if (userSockets.size === 0) {
+          this.connectedUsers.delete(userId);
+        }
+      }
+      
+      // Remove socket to user mapping
+      this.socketToUser.delete(client.id);
+      
+      this.logger.log(`User ${userId} disconnected (socket: ${client.id})`);
     }
   }
 
@@ -189,6 +243,10 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
     });
   }
 
+  // =============================================================================
+  // MESSAGE HANDLERS - Handle client messages
+  // =============================================================================
+
   @SubscribeMessage('joinMatch')
   handleJoinMatch(
     @ConnectedSocket() client: Socket,
@@ -196,7 +254,11 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
   ) {
     const userId = client.data.userId;
     if (!userId) {
-      client.emit('error', { message: 'Authentication required' });
+      client.emit('error', { 
+        code: 'AUTH_REQUIRED',
+        message: 'Authentication required',
+        timestamp: new Date().toISOString()
+      });
       return;
     }
 
@@ -216,7 +278,11 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
   ) {
     const userId = client.data.userId;
     if (!userId) {
-      client.emit('error', { message: 'Authentication required' });
+      client.emit('error', { 
+        code: 'AUTH_REQUIRED',
+        message: 'Authentication required',
+        timestamp: new Date().toISOString()
+      });
       return;
     }
 
@@ -236,7 +302,11 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
   ) {
     const userId = client.data.userId;
     if (!userId) {
-      client.emit('error', { message: 'Authentication required' });
+      client.emit('error', { 
+        code: 'AUTH_REQUIRED',
+        message: 'Authentication required',
+        timestamp: new Date().toISOString()
+      });
       return;
     }
 
@@ -256,7 +326,11 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
   ) {
     const userId = client.data.userId;
     if (!userId) {
-      client.emit('error', { message: 'Authentication required' });
+      client.emit('error', { 
+        code: 'AUTH_REQUIRED',
+        message: 'Authentication required',
+        timestamp: new Date().toISOString()
+      });
       return;
     }
 
@@ -276,7 +350,10 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
     });
   }
 
-  // Server-side methods to emit events
+  // =============================================================================
+  // SERVER-SIDE EMISSION METHODS
+  // =============================================================================
+
   emitMatchUpdate(matchId: string, data: any) {
     this.server.to(`match:${matchId}`).emit('matchUpdate', {
       matchId,
@@ -308,16 +385,36 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
     });
   }
 
+  // =============================================================================
+  // UTILITY METHODS
+  // =============================================================================
+
   getConnectedUsersCount(): number {
     return this.connectedUsers.size;
   }
 
   isUserOnline(userId: string): boolean {
-    return this.connectedUsers.has(userId);
+    return this.connectedUsers.has(userId) && this.connectedUsers.get(userId)!.size > 0;
+  }
+
+  // Get all sockets for a user
+  getUserSockets(userId: string): Socket[] {
+    const userSockets = this.connectedUsers.get(userId);
+    return userSockets ? Array.from(userSockets) : [];
+  }
+
+  // Emit to all sockets of a specific user
+  emitToUser(userId: string, event: string, data: any) {
+    const userSockets = this.connectedUsers.get(userId);
+    if (userSockets) {
+      userSockets.forEach(socket => {
+        socket.emit(event, data);
+      });
+    }
   }
 
   // =============================================================================
-  // Agent Event Methods
+  // AGENT EVENT METHODS
   // =============================================================================
 
   @SubscribeMessage('joinAgent')
@@ -327,7 +424,11 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
   ) {
     const userId = client.data.userId;
     if (!userId) {
-      client.emit('error', { message: 'Authentication required' });
+      client.emit('error', { 
+        code: 'AUTH_REQUIRED',
+        message: 'Authentication required',
+        timestamp: new Date().toISOString()
+      });
       return;
     }
 
@@ -354,7 +455,11 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
   ) {
     const userId = client.data.userId;
     if (!userId) {
-      client.emit('error', { message: 'Authentication required' });
+      client.emit('error', { 
+        code: 'AUTH_REQUIRED',
+        message: 'Authentication required',
+        timestamp: new Date().toISOString()
+      });
       return;
     }
 
@@ -384,7 +489,11 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
   ) {
     const userId = client.data.userId;
     if (!userId) {
-      client.emit('error', { message: 'Authentication required' });
+      client.emit('error', { 
+        code: 'AUTH_REQUIRED',
+        message: 'Authentication required',
+        timestamp: new Date().toISOString()
+      });
       return;
     }
 
@@ -416,7 +525,11 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
           client.emit('agentHealth', { agentId, health });
           break;
         default:
-          client.emit('error', { message: `Unknown command: ${command}` });
+          client.emit('error', { 
+            code: 'UNKNOWN_COMMAND',
+            message: `Unknown command: ${command}`,
+            timestamp: new Date().toISOString()
+          });
           return;
       }
 
@@ -427,12 +540,16 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
       });
     } catch (error) {
       this.logger.error('Agent command error:', error);
-      client.emit('error', { message: 'Failed to execute agent command' });
+      client.emit('error', { 
+        code: 'COMMAND_ERROR',
+        message: 'Failed to execute agent command',
+        timestamp: new Date().toISOString()
+      });
     }
   }
 
   // =============================================================================
-  // Agent Event Broadcasting Methods
+  // AGENT EVENT BROADCASTING METHODS
   // =============================================================================
 
   emitAgentEvent(agentId: string, event: any) {
@@ -491,7 +608,11 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
   async handleSubscribeToLiveMatches(@ConnectedSocket() client: Socket) {
     const userId = client.data.userId;
     if (!userId) {
-      client.emit('error', { message: 'Authentication required' });
+      client.emit('error', { 
+        code: 'AUTH_REQUIRED',
+        message: 'Authentication required',
+        timestamp: new Date().toISOString()
+      });
       return;
     }
 
@@ -508,7 +629,11 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
   handleUnsubscribeFromLiveMatches(@ConnectedSocket() client: Socket) {
     const userId = client.data.userId;
     if (!userId) {
-      client.emit('error', { message: 'Authentication required' });
+      client.emit('error', { 
+        code: 'AUTH_REQUIRED',
+        message: 'Authentication required',
+        timestamp: new Date().toISOString()
+      });
       return;
     }
 
@@ -523,24 +648,28 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
   ) {
     const userId = client.data.userId;
     if (!userId) {
-      client.emit('error', { message: 'Authentication required' });
+      client.emit('error', { 
+        code: 'AUTH_REQUIRED',
+        message: 'Authentication required',
+        timestamp: new Date().toISOString()
+      });
       return;
     }
 
     client.join(`league:${leagueId}`);
     this.logger.log(`User ${userId} subscribed to league ${leagueId} updates`);
     
-          // Send current league data
-      try {
-        const leagueData = await this.unifiedFootballService.getUnifiedStandings(leagueId);
-        client.emit('leagueUpdate', {
-          leagueId,
-          data: leagueData,
-          timestamp: new Date().toISOString(),
-        });
-      } catch (error) {
-        this.logger.error(`Error fetching league ${leagueId} data:`, error.message);
-      }
+    // Send current league data
+    try {
+      const leagueData = await this.unifiedFootballService.getUnifiedStandings(leagueId);
+      client.emit('leagueUpdate', {
+        leagueId,
+        data: leagueData,
+        timestamp: new Date().toISOString(),
+      });
+    } catch (error) {
+      this.logger.error(`Error fetching league ${leagueId} data:`, error.message);
+    }
   }
 
   @SubscribeMessage('unsubscribeFromLeagueUpdates')
@@ -550,7 +679,11 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
   ) {
     const userId = client.data.userId;
     if (!userId) {
-      client.emit('error', { message: 'Authentication required' });
+      client.emit('error', { 
+        code: 'AUTH_REQUIRED',
+        message: 'Authentication required',
+        timestamp: new Date().toISOString()
+      });
       return;
     }
 
@@ -562,7 +695,11 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
   handleSubscribeToPredictionUpdates(@ConnectedSocket() client: Socket) {
     const userId = client.data.userId;
     if (!userId) {
-      client.emit('error', { message: 'Authentication required' });
+      client.emit('error', { 
+        code: 'AUTH_REQUIRED',
+        message: 'Authentication required',
+        timestamp: new Date().toISOString()
+      });
       return;
     }
 
@@ -574,7 +711,11 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
   handleUnsubscribeFromPredictionUpdates(@ConnectedSocket() client: Socket) {
     const userId = client.data.userId;
     if (!userId) {
-      client.emit('error', { message: 'Authentication required' });
+      client.emit('error', { 
+        code: 'AUTH_REQUIRED',
+        message: 'Authentication required',
+        timestamp: new Date().toISOString()
+      });
       return;
     }
 
@@ -638,11 +779,6 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
   // REAL-TIME DATA BROADCASTING METHODS
   // =============================================================================
 
-  // This method is no longer needed as live matches are handled via events
-  // async broadcastLiveMatchUpdates() {
-  //   // Live matches are now broadcast via events from RealtimeDataService
-  // }
-
   async broadcastLeagueUpdates(leagueId: string) {
     try {
       const standings = await this.unifiedFootballService.getUnifiedStandings(leagueId);
@@ -653,7 +789,7 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
   }
 
   // =============================================================================
-  // Agent Management Methods
+  // AGENT MANAGEMENT METHODS
   // =============================================================================
 
   getAgentSubscribers(agentId: string): string[] {

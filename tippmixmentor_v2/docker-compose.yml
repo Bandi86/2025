@@ -53,6 +53,16 @@ services:
       JWT_REFRESH_SECRET: your-super-secret-refresh-key-change-in-production
       PORT: 3001
       ML_SERVICE_URL: http://ml-service:8000
+      # Football Data API Keys
+      ESPN_API_KEY: your-espn-api-key
+      ESPN_API_BASE_URL: https://site.api.espn.com/apis/site/v2/sports/soccer
+      API_FOOTBALL_KEY: 9138333b123b3356f25c4e96f494c711
+      API_FOOTBALL_BASE_URL: https://v3.football.api-sports.io
+      FOOTBALL_DATA_API_KEY: your-football-data-api-key
+      FOOTBALL_DATA_API_BASE_URL: https://api.football-data.org/v4
+      # Additional required environment variables
+      SESSION_SECRET: your-session-secret-key-change-in-production
+      COOKIE_SECRET: your-cookie-secret-key-change-in-production
     ports:
       - "3001:3001"
     volumes:
@@ -65,6 +75,7 @@ services:
         condition: service_healthy
     networks:
       - tippmixmentor_network
+    command: ["npm", "run", "start:dev"]
 
 
   # ML Prediction Service

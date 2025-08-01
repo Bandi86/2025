@@ -39,7 +39,7 @@ function AgentsContent() {
     description: `${agent.type} agent for football predictions`,
     type: agent.type,
     status: agent.status === 'online' ? 'active' : agent.status === 'busy' ? 'active' : 'inactive',
-    health: agent.status === 'online' ? 'healthy' : agent.status === 'error' ? 'error' : 'warning',
+    health: agent.status === 'online' ? 'healthy' : agent.status === 'error' ? 'critical' : 'warning',
     performance: {
       accuracy: agent.accuracy,
       responseTime: agent.performance?.avgResponseTime || 0,
@@ -74,11 +74,13 @@ function AgentsContent() {
     const activeAgents = convertedAgents.filter(agent => agent.status === 'active').length;
     const totalAgents = convertedAgents.length;
     const healthyAgents = convertedAgents.filter(agent => agent.health === 'healthy').length;
+    const errorAgents = convertedAgents.filter(agent => agent.health === 'critical').length;
 
     return {
       active: activeAgents,
       total: totalAgents,
       healthy: healthyAgents,
+      errorAgents,
       connection: isConnected ? 'connected' : 'disconnected'
     };
   };

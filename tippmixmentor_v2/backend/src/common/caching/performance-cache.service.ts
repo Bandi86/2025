@@ -100,11 +100,18 @@ export class PerformanceCacheService {
     try {
       for (const tag of tags) {
         const tagKey = `tag:${tag}`;
-        const keys = await this.redisService.keys(tagKey);
         
-        if (keys.length > 0) {
-          await this.redisService.del(...keys);
-          this.logger.debug(`Invalidated ${keys.length} cache entries for tag: ${tag}`);
+        // Fixed: Use smembers to get cache keys from the tag set instead of keys()
+        const cacheKeys = await this.redisService.smembers(tagKey);
+        
+        if (cacheKeys.length > 0) {
+          // Delete all cache keys associated with this tag
+          await this.redisService.del(...cacheKeys);
+          
+          // Delete the tag set itself
+          await this.redisService.del(tagKey);
+          
+          this.logger.debug(`Invalidated ${cacheKeys.length} cache entries for tag: ${tag}`);
         }
       }
     } catch (error) {

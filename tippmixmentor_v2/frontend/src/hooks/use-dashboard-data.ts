@@ -1,146 +1,170 @@
-import { useState, useEffect } from 'react'
-import { DashboardDataService, LiveMatch, Prediction, StatData, AgentData } from '@/lib/api/dashboard-data'
+'use client';
 
-interface DashboardData {
-  liveMatches: LiveMatch[]
-  predictions: Prediction[]
-  stats: StatData[]
-  agents: AgentData[]
-  loading: boolean
-  error: string | null
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  DashboardDataService,
+  type LiveMatch,
+  type Prediction,
+  type StatData,
+  type AgentData,
+} from '@/lib/api/dashboard-data';
+
+export interface DashboardData {
+  liveMatches: LiveMatch[];
+  predictions: Prediction[];
+  stats: StatData[];
+  agents: AgentData[];
 }
 
-export function useDashboardData(refreshInterval = 30000) {
-  const [data, setData] = useState<DashboardData>({
-    liveMatches: [],
-    predictions: [],
-    stats: [],
-    agents: [],
-    loading: true,
-    error: null
-  })
+export interface UseDashboardDataResult {
+  data: DashboardData | null;
+  loading: boolean;
+  error: string | null;
+  refresh: () => Promise<void>;
+  lastUpdatedAt: number | null;
+}
 
-  const fetchData = async () => {
+function isLiveMatchArray(v: unknown): v is LiveMatch[] {
+  return Array.isArray(v) && v.every(m => typeof m?.homeTeam === 'string' && typeof m?.awayTeam === 'string');
+}
+function isPredictionArray(v: unknown): v is Prediction[] {
+  return Array.isArray(v) && v.every(p => typeof p?.prediction === 'string' && typeof p?.confidence === 'number');
+}
+function isStatArray(v: unknown): v is StatData[] {
+  return Array.isArray(v) && v.every(s => typeof s?.title === 'string' && typeof s?.value !== 'undefined');
+}
+function isAgentArray(v: unknown): v is AgentData[] {
+  return Array.isArray(v) && v.every(a => typeof a?.name === 'string' && typeof a?.type === 'string');
+}
+
+export function useDashboardData(): UseDashboardDataResult {
+  const [data, setData] = useState<DashboardData | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+  const [lastUpdatedAt, setLastUpdatedAt] = useState<number | null>(null);
+
+  const abortRef = useRef<AbortController | null>(null);
+  const inFlightRef = useRef(false);
+
+  const fetchAll = useCallback(async () => {
+    if (inFlightRef.current) return;
+    inFlightRef.current = true;
+    setLoading(true);
+    setError(null);
+
     try {
-      setData(prev => ({ ...prev, loading: true, error: null }))
-      
-      const result = await DashboardDataService.getAllDashboardData()
-      
-      setData({
-        ...result,
-        loading: false,
-        error: null
-      })
-    } catch (error) {
-      console.error('Error fetching dashboard data:', error)
-      setData(prev => ({
-        ...prev,
-        loading: false,
-        error: 'Failed to fetch dashboard data'
-      }))
+      // cancel any previous request
+      abortRef.current?.abort();
+    } catch {
+      // no-op
     }
-  }
+    abortRef.current = new AbortController();
 
-  const refreshData = () => {
-    fetchData()
-  }
+    try {
+      const result: any = await DashboardDataService.getAllDashboardData();
+
+      const shaped: DashboardData = {
+        liveMatches: isLiveMatchArray(result?.liveMatches) ? result.liveMatches : [],
+        predictions: isPredictionArray(result?.predictions) ? result.predictions : [],
+        stats: isStatArray(result?.stats) ? result.stats : [],
+        agents: isAgentArray(result?.agents) ? result.agents : [],
+      };
+
+      setData(shaped);
+      setLastUpdatedAt(Date.now());
+    } catch (e: unknown) {
+      const msg = e instanceof Error ? e.message : 'Failed to load dashboard data';
+      setError(msg);
+    } finally {
+      setLoading(false);
+      inFlightRef.current = false;
+    }
+  }, []);
+
+  const refresh = useCallback(async () => {
+    await fetchAll();
+  }, [fetchAll]);
 
   useEffect(() => {
-    fetchData()
+    fetchAll();
+    return () => {
+      try {
+        abortRef.current?.abort();
+      } catch {
+        // no-op
+      }
+    };
+  }, [fetchAll]);
 
-    // Set up auto-refresh
-    const interval = setInterval(fetchData, refreshInterval)
-
-    return () => clearInterval(interval)
-  }, [refreshInterval])
-
-  return {
-    ...data,
-    refreshData
-  }
+  return useMemo(
+    () => ({
+      data,
+      loading,
+      error,
+      refresh,
+      lastUpdatedAt,
+    }),
+    [data, loading, error, refresh, lastUpdatedAt]
+  );
 }
 
 // Individual hooks for specific data types
-export function useLiveMatches(refreshInterval = 30000) {
-  const [matches, setMatches] = useState<LiveMatch[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-
-  const fetchMatches = async () => {
-    try {
-      setLoading(true)
-      setError(null)
-      const data = await DashboardDataService.getLiveMatches()
-      setMatches(data)
-    } catch (error) {
-      console.error('Error fetching live matches:', error)
-      setError('Failed to fetch live matches')
-    } finally {
-      setLoading(false)
-    }
-  }
-
+export function useLiveMatches(refreshInterval?: number) {
+  const { data, loading, error, refresh, lastUpdatedAt } = useDashboardData();
+  
+  // Set up auto-refresh if interval is provided
   useEffect(() => {
-    fetchMatches()
-    const interval = setInterval(fetchMatches, refreshInterval)
-    return () => clearInterval(interval)
-  }, [refreshInterval])
-
-  return { matches, loading, error, refreshMatches: fetchMatches }
+    if (refreshInterval && refreshInterval > 0) {
+      const interval = setInterval(refresh, refreshInterval);
+      return () => clearInterval(interval);
+    }
+  }, [refreshInterval, refresh]);
+  
+  return {
+    matches: data?.liveMatches || [],
+    loading,
+    error,
+    refresh,
+    lastUpdatedAt,
+  };
 }
 
-export function usePredictions(refreshInterval = 60000) {
-  const [predictions, setPredictions] = useState<Prediction[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-
-  const fetchPredictions = async () => {
-    try {
-      setLoading(true)
-      setError(null)
-      const data = await DashboardDataService.getRecentPredictions()
-      setPredictions(data)
-    } catch (error) {
-      console.error('Error fetching predictions:', error)
-      setError('Failed to fetch predictions')
-    } finally {
-      setLoading(false)
-    }
-  }
-
+export function usePredictions(refreshInterval?: number) {
+  const { data, loading, error, refresh, lastUpdatedAt } = useDashboardData();
+  
+  // Set up auto-refresh if interval is provided
   useEffect(() => {
-    fetchPredictions()
-    const interval = setInterval(fetchPredictions, refreshInterval)
-    return () => clearInterval(interval)
-  }, [refreshInterval])
-
-  return { predictions, loading, error, refreshPredictions: fetchPredictions }
+    if (refreshInterval && refreshInterval > 0) {
+      const interval = setInterval(refresh, refreshInterval);
+      return () => clearInterval(interval);
+    }
+  }, [refreshInterval, refresh]);
+  
+  return {
+    predictions: data?.predictions || [],
+    loading,
+    error,
+    refresh,
+    lastUpdatedAt,
+  };
 }
 
-export function useAgentStatus(refreshInterval = 60000) {
-  const [agents, setAgents] = useState<AgentData[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-
-  const fetchAgents = async () => {
-    try {
-      setLoading(true)
-      setError(null)
-      const data = await DashboardDataService.getAgentStatus()
-      setAgents(data)
-    } catch (error) {
-      console.error('Error fetching agent status:', error)
-      setError('Failed to fetch agent status')
-    } finally {
-      setLoading(false)
-    }
-  }
-
+export function useAgentStatus(refreshInterval?: number) {
+  const { data, loading, error, refresh, lastUpdatedAt } = useDashboardData();
+  
+  // Set up auto-refresh if interval is provided
   useEffect(() => {
-    fetchAgents()
-    const interval = setInterval(fetchAgents, refreshInterval)
-    return () => clearInterval(interval)
-  }, [refreshInterval])
-
-  return { agents, loading, error, refreshAgents: fetchAgents }
-} 
+    if (refreshInterval && refreshInterval > 0) {
+      const interval = setInterval(refresh, refreshInterval);
+      return () => clearInterval(interval);
+    }
+  }, [refreshInterval, refresh]);
+  
+  return {
+    agents: data?.agents || [],
+    loading,
+    error,
+    refresh,
+    lastUpdatedAt,
+  };
+}

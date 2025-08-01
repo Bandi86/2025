@@ -8,14 +8,16 @@ import { RefreshCw, AlertCircle, Loader2 } from 'lucide-react'
 
 export function LiveDashboard() {
   const { 
-    liveMatches, 
-    predictions, 
-    stats, 
-    agents, 
+    data, 
     loading, 
     error, 
-    refreshData 
-  } = useDashboardData(30000) // Refresh every 30 seconds
+    refresh 
+  } = useDashboardData() // Refresh every 30 seconds
+
+  const liveMatches = data?.liveMatches || [];
+  const predictions = data?.predictions || [];
+  const stats = data?.stats || [];
+  const agents = data?.agents || [];
 
   if (loading) {
     return (
@@ -34,7 +36,7 @@ export function LiveDashboard() {
         <div className="text-center">
           <AlertCircle className="w-8 h-8 mx-auto mb-4 text-red-600" />
           <p className="text-red-600 mb-4">{error}</p>
-          <Button onClick={refreshData} variant="outline">
+          <Button onClick={refresh} variant="outline">
             <RefreshCw className="w-4 h-4 mr-2" />
             Retry
           </Button>
@@ -51,7 +53,7 @@ export function LiveDashboard() {
           <h2 className="text-2xl font-bold text-gray-900">Live Dashboard</h2>
           <p className="text-gray-600">Real-time data updates every 30 seconds</p>
         </div>
-        <Button onClick={refreshData} variant="outline" size="sm">
+        <Button onClick={refresh} variant="outline" size="sm">
           <RefreshCw className="w-4 h-4 mr-2" />
           Refresh
         </Button>

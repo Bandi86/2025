@@ -5,6 +5,7 @@ import {
   Param,
   UseGuards,
   ParseIntPipe,
+  Logger,
 } from '@nestjs/common';
 import {
   ApiTags,
@@ -20,7 +21,23 @@ import { UnifiedFootballService } from './unified-football.service';
 @ApiTags('unified-football')
 @Controller('unified-football')
 export class UnifiedFootballController {
+  private readonly logger = new Logger(UnifiedFootballController.name);
+
   constructor(private readonly unifiedFootballService: UnifiedFootballService) {}
+
+  @Get('test')
+  @ApiOperation({ summary: 'Test endpoint for unified football controller' })
+  @ApiResponse({
+    status: 200,
+    description: 'Test response',
+  })
+  async test() {
+    this.logger.log('Unified football test endpoint called');
+    return {
+      message: 'Unified football controller is working',
+      timestamp: new Date().toISOString(),
+    };
+  }
 
   @Get('matches')
   @ApiOperation({ summary: 'Get unified matches from both APIs' })
@@ -34,13 +51,22 @@ export class UnifiedFootballController {
     @Query('competition') competition: string,
     @Query('limit') limit?: number,
   ) {
-    const matches = await this.unifiedFootballService.getUnifiedMatches(competition, limit);
-    return {
-      matches,
-      count: matches.length,
-      competition,
-      sources: [...new Set(matches.map(m => m.source))],
-    };
+    this.logger.log(`Unified matches request received for competition: ${competition}, limit: ${limit}`);
+    
+    try {
+      const matches = await this.unifiedFootballService.getUnifiedMatches(competition, limit);
+      this.logger.log(`Unified matches service returned ${matches.length} matches`);
+      
+      return {
+        matches,
+        count: matches.length,
+        competition,
+        sources: [...new Set(matches.map(m => m.source))],
+      };
+    } catch (error) {
+      this.logger.error(`Error in unified matches controller: ${error.message}`, error.stack);
+      throw error;
+    }
   }
 
   @Get('standings')

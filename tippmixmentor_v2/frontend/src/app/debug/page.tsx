@@ -11,9 +11,9 @@ export default function DebugPage() {
     try {
       const response = await fetch(`/api/v1${endpoint}`);
       const data = await response.json();
-      setResults(prev => ({ ...prev, [endpoint]: { success: true, data, status: response.status } }));
+      setResults((prev: any) => ({ ...prev, [endpoint]: { success: true, data, status: response.status } }));
     } catch (error) {
-      setResults(prev => ({ ...prev, [endpoint]: { success: false, error: error instanceof Error ? error.message : 'Unknown error' } }));
+      setResults((prev: any) => ({ ...prev, [endpoint]: { success: false, error: error instanceof Error ? error.message : 'Unknown error' } }));
     } finally {
       setLoading(false);
     }

@@ -135,15 +135,15 @@ export class DashboardDataService {
           id: pred.matchId,
           homeTeam: pred.homeTeam,
           awayTeam: pred.awayTeam,
-          prediction: pred.prediction === 'home' ? 'HOME_WIN' : 
-                     pred.prediction === 'away' ? 'AWAY_WIN' : 'DRAW',
+          prediction: (pred.prediction === 'home' ? 'HOME_WIN' : 
+                     pred.prediction === 'away' ? 'AWAY_WIN' : 'DRAW') as 'HOME_WIN' | 'AWAY_WIN' | 'DRAW',
           confidence: pred.confidence * 100,
           odds: pred.odds,
           stake: pred.stake,
           potentialWin: pred.return,
           matchTime: pred.date,
           league: pred.league,
-          status: pred.isCorrect ? 'won' : 'lost'
+          status: (pred.isCorrect ? 'won' : 'lost') as 'pending' | 'live' | 'won' | 'lost'
         }));
         console.log('[DashboardDataService] Processed analytics predictions:', predictions);
         return predictions;
@@ -163,7 +163,7 @@ export class DashboardDataService {
         potentialWin: 15 + (index * 2),
         matchTime: match.matchTime,
         league: match.league,
-        status: 'pending'
+        status: 'pending' as 'pending' | 'live' | 'won' | 'lost'
       }));
       console.log('[DashboardDataService] Generated mock predictions:', predictions);
       return predictions;
@@ -191,37 +191,37 @@ export class DashboardDataService {
           title: "Live Matches",
           value: liveCount,
           change: 2,
-          changeType: "increase",
-          icon: "activity",
-          color: "blue",
-          format: "number"
+          changeType: "increase" as "increase" | "decrease" | "neutral",
+          icon: "activity" as "trending" | "target" | "dollar" | "users" | "activity",
+          color: "blue" as "blue" | "green" | "orange" | "purple" | "red",
+          format: "number" as "percentage" | "currency" | "number" | "text"
         },
         {
           title: "Upcoming Matches",
           value: upcomingCount,
           change: 5,
-          changeType: "increase",
-          icon: "target",
-          color: "green",
-          format: "number"
+          changeType: "increase" as "increase" | "decrease" | "neutral",
+          icon: "target" as "trending" | "target" | "dollar" | "users" | "activity",
+          color: "green" as "blue" | "green" | "orange" | "purple" | "red",
+          format: "number" as "percentage" | "currency" | "number" | "text"
         },
         {
           title: "Active Predictions",
           value: predictions.length,
           change: 3,
-          changeType: "increase",
-          icon: "trending",
-          color: "orange",
-          format: "number"
+          changeType: "increase" as "increase" | "decrease" | "neutral",
+          icon: "trending" as "trending" | "target" | "dollar" | "users" | "activity",
+          color: "orange" as "blue" | "green" | "orange" | "purple" | "red",
+          format: "number" as "percentage" | "currency" | "number" | "text"
         },
         {
           title: "Success Rate",
           value: 78.5,
           change: 2.3,
-          changeType: "increase",
-          icon: "trending",
-          color: "purple",
-          format: "percentage"
+          changeType: "increase" as "increase" | "decrease" | "neutral",
+          icon: "trending" as "trending" | "target" | "dollar" | "users" | "activity",
+          color: "purple" as "blue" | "green" | "orange" | "purple" | "red",
+          format: "percentage" as "percentage" | "currency" | "number" | "text"
         }
       ];
       
@@ -268,8 +268,8 @@ export class DashboardDataService {
         {
           id: 'agent-1',
           name: 'Prediction Agent',
-          type: 'prediction',
-          status: 'online',
+          type: 'prediction' as 'prediction',
+          status: 'online' as 'online',
           accuracy: 78.5,
           predictionsMade: 1247,
           lastActivity: new Date().toISOString(),
@@ -283,47 +283,17 @@ export class DashboardDataService {
         {
           id: 'agent-2',
           name: 'Analysis Agent',
-          type: 'analysis',
-          status: 'online',
+          type: 'analysis' as 'analysis',
+          status: 'online' as 'online',
           accuracy: 82.1,
           predictionsMade: 892,
           lastActivity: new Date().toISOString(),
           performance: {
             successRate: 82.1,
-            avgResponseTime: 1.8,
-            uptime: 99.9
+            avgResponseTime: 2.1,
+            uptime: 99.5
           },
-          currentTask: 'Processing team statistics'
-        },
-        {
-          id: 'agent-3',
-          name: 'Monitoring Agent',
-          type: 'monitoring',
-          status: 'busy',
-          accuracy: 75.3,
-          predictionsMade: 1563,
-          lastActivity: new Date().toISOString(),
-          performance: {
-            successRate: 75.3,
-            avgResponseTime: 0.5,
-            uptime: 99.7
-          },
-          currentTask: 'Tracking live match events'
-        },
-        {
-          id: 'agent-4',
-          name: 'Insight Agent',
-          type: 'insight',
-          status: 'online',
-          accuracy: 85.2,
-          predictionsMade: 734,
-          lastActivity: new Date().toISOString(),
-          performance: {
-            successRate: 85.2,
-            avgResponseTime: 3.1,
-            uptime: 99.6
-          },
-          currentTask: 'Generating betting insights'
+          currentTask: 'Reviewing match statistics'
         }
       ];
       console.log('[DashboardDataService] Generated mock agents:', agents);
