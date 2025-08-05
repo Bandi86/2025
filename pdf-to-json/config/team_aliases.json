@@ -1,0 +1,71 @@
+{
+  "aliases": {
+    "Kongói Közársság": "Kongói Köztársaság",
+    "Hunik Krkkó": "Hutnik Krakkó",
+    "FTC": "Ferencváros",
+    "MTK": "MTK Budapest",
+    "Újpest FC": "Újpest",
+    "Debreceni VSC": "Debrecen",
+    "Paks": "Paksi FC",
+    "Zalaegerszegi TE": "Zalaegerszeg",
+    "Kecskeméti TE": "Kecskemét",
+    "Fehérvár FC": "Fehérvár",
+    "Real Madrid CF": "Real Madrid",
+    "FC Barcelona": "Barcelona",
+    "Manchester United FC": "Manchester United",
+    "Manchester City FC": "Manchester City",
+    "Liverpool FC": "Liverpool",
+    "Arsenal FC": "Arsenal",
+    "Chelsea FC": "Chelsea",
+    "Tottenham Hotspur FC": "Tottenham",
+    "Bayern München": "Bayern Munich",
+    "Borussia Dortmund": "Dortmund",
+    "Paris Saint-Germain": "PSG",
+    "Juventus FC": "Juventus",
+    "AC Milan": "Milan",
+    "Inter Milan": "Inter",
+    "AS Roma": "Roma",
+    "SSC Napoli": "Napoli"
+  },
+  "heuristics": {
+    "remove_patterns": ["\\s+$", "^\\s+", "\\.$", "\\s{2,}"],
+    "replace_patterns": {
+      "Közársság": "Köztársaság",
+      "Krkkó": "Krakkó",
+      "FC$": "",
+      "CF$": "",
+      "\\bFC\\b": "",
+      "\\bCF\\b": "",
+      "\\s+": " "
+    },
+    "case_normalization": {
+      "enabled": true,
+      "preserve_known_abbreviations": [
+        "FC",
+        "CF",
+        "AC",
+        "SC",
+        "PSG",
+        "MTK",
+        "FTC",
+        "VSC",
+        "TE"
+      ]
+    },
+    "common_ocr_errors": {
+      "0": "O",
+      "1": "I",
+      "5": "S",
+      "8": "B",
+      "rn": "m",
+      "cl": "d",
+      "ii": "n"
+    }
+  },
+  "settings": {
+    "max_edit_distance": 2,
+    "min_confidence_threshold": 0.8,
+    "enable_fuzzy_matching": true,
+    "log_unmatched_teams": true
+  }
+}

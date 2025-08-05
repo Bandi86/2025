@@ -1,0 +1,123 @@
+# TippmixMentor Project Rules
+
+This file defines the core rules and guidelines for contributing to the TippmixMentor project. All contributors must follow these rules to ensure code quality, maintainability, and smooth collaboration.
+
+## 1. Code Style & Linting
+- **TypeScript/JavaScript:**
+  - Use Prettier and ESLint for formatting and linting.
+  - Follow the Airbnb or recommended style guide for both backend and frontend.
+  - No unused variables, functions, or imports.
+  - Use explicit types where possible.
+  - Prefer `const` and `let` over `var`.
+  - Use async/await for asynchronous code.
+- **Python:**
+  - Use Black for formatting and Flake8 for linting.
+  - Follow PEP8 style guide.
+  - Type annotations are encouraged.
+  - Avoid wildcard imports (`from module import *`).
+
+## 2. Testing Requirements
+- **Backend (NestJS):**
+  - All new features and bug fixes must include unit or integration tests.
+  - Use Jest for testing.
+  - Maintain at least 80% code coverage.
+  - Place tests in the `test/` or alongside source files as appropriate.
+- **Python Modules:**
+  - Use `pytest` for testing.
+  - All new scripts and modules must have corresponding tests in `tests/` or `test_*.py` files.
+  - Mock external dependencies in tests.
+- **Frontend:**
+  - Use React Testing Library and/or Jest for component and integration tests.
+  - Test critical UI flows and state management.
+
+## 3. Documentation Standards
+- **README Files:**
+  - Each major directory (backend, frontend, betmentors, etc.) must have an up-to-date `README.md`.
+  - Document setup, usage, and key scripts or commands.
+- **Code Documentation:**
+  - Use JSDoc (TypeScript/JavaScript) and docstrings (Python) for public functions, classes, and modules.
+  - Document all API endpoints and data models.
+- **Changelogs:**
+  - Major changes should be recorded in a `CHANGELOG.md` or in the main `README.md` under a 'Changelog' section.
+
+## 4. Deployment & Docker Usage
+- **Docker:**
+  - All services must have a `Dockerfile` for local development and production.
+  - Use `docker-compose.yml` for multi-service orchestration.
+  - Keep images small and use `.dockerignore` to exclude unnecessary files.
+- **Environment Variables:**
+  - Store secrets and configuration in environment variables.
+  - Never commit secrets or sensitive data to the repository.
+  - Document required environment variables in the relevant `README.md`.
+- **Database:**
+  - All schema changes must be accompanied by a migration file (e.g., Prisma migrations).
+  - Test migrations locally before pushing.
+
+## 5. Pull Request & Review Process
+- **Branching:**
+  - Use feature branches (`feature/xyz`), bugfix branches (`bugfix/xyz`), or hotfix branches (`hotfix/xyz`).
+  - Keep branches up to date with `main` or `develop` before merging.
+- **Pull Requests:**
+  - PRs must reference relevant issues, docs, or roadmap items.
+  - Include a clear description of changes, testing steps, and any breaking changes.
+  - Assign at least one reviewer.
+  - All checks (CI, lint, tests) must pass before merging.
+- **Code Review:**
+  - Reviewers should check for code quality, adherence to style, test coverage, and documentation.
+  - Request changes if any rule is not followed.
+
+## 6. General Best Practices
+- **Commit Messages:**
+  - Use clear, descriptive commit messages (e.g., `feat: add user login`, `fix: correct odds calculation`).
+- **Dependencies:**
+  - Keep dependencies up to date.
+  - Remove unused dependencies regularly.
+- **Error Handling:**
+  - Handle errors gracefully and log them appropriately.
+  - Avoid exposing sensitive information in logs or error messages.
+- **Security:**
+  - Sanitize all user inputs.
+  - Use HTTPS for all network communication.
+  - Regularly audit for vulnerabilities.
+
+## 7. Directory Structure & Naming
+- **Consistent Naming:**
+  - Use kebab-case or snake_case for files and directories.
+  - Use PascalCase for classes and camelCase for variables/functions.
+- **Organization:**
+  - Group related modules and services together.
+  - Place scripts in a `scripts/` directory.
+  - Place tests in a `test/` or `tests/` directory.
+
+## 8. Automation & CI/CD
+- **Continuous Integration:**
+  - Use GitHub Actions or similar for automated linting, testing, and builds.
+  - Run all checks on PRs and main branches.
+- **Continuous Deployment:**
+  - Automate deployments to staging/production where possible.
+  - Tag releases and maintain release notes.
+
+## 9. Data & Privacy
+- **Data Handling:**
+  - Respect user privacy and comply with relevant data protection laws.
+  - Anonymize or pseudonymize sensitive data in logs and reports.
+- **Backups:**
+  - Regularly back up critical data and document backup procedures.
+
+## 10. Communication & Collaboration
+- **Issue Tracking:**
+  - Use GitHub Issues or an equivalent tracker for bugs, features, and tasks.
+  - Keep issues up to date and well described.
+- **Meetings & Updates:**
+  - Document key decisions and action items in the `docs/` directory.
+
+---
+
+# Enforcement
+- PRs that do not comply with these rules may be rejected or require changes.
+- Exceptions must be discussed and approved by project maintainers.
+
+# Acknowledgements
+- Inspired by best practices from open source and enterprise projects.
+alwaysApply: false
+---

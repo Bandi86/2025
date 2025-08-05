@@ -1,0 +1,40 @@
+{
+  "text": {
+    "type": "text",
+    "include_full_text": true,
+    "include_pages": true,
+    "include_page_summaries": true
+  },
+  "tables": {
+    "type": "tables",
+    "include_table_summaries": true
+  },
+  "headers": {
+    "type": "headers",
+    "header_patterns": [
+      "^[A-Z][A-Z\\s]+$",
+      "^\\d+\\.\\s+[A-Z][a-z]+",
+      "^[A-Z][a-z]+(?:\\s+[A-Z][a-z]+)*$"
+    ]
+  },
+  "custom_extraction": {
+    "type": "custom",
+    "extraction_rules": [
+      {
+        "name": "email_addresses",
+        "pattern": "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b",
+        "target": "full_text"
+      },
+      {
+        "name": "phone_numbers",
+        "pattern": "[\\+]?[0-9\\s\\-\\(\\)]{7,}",
+        "target": "full_text"
+      },
+      {
+        "name": "urls",
+        "pattern": "https?://(?:[-\\w.])+(?:[:\\d]+)?(?:/(?:[\\w/_.])*(?:\\?(?:[\\w&=%.])*)?(?:#(?:[\\w.])*)?)?",
+        "target": "full_text"
+      }
+    ]
+  }
+} 

@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "puppeteer": "^24.11.2"
-  },
-  "devDependencies": {
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
-  }
-}
