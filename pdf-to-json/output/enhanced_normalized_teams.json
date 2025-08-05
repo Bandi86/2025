@@ -1,0 +1,49 @@
+{
+  "results": {
+    "FTC": "Ferencváros",
+    "Fradi": "Ferencváros",
+    "MTK": "MTK Budapest",
+    "Újpest FC": "Újpest",
+    "Debreceni VSC": "Debrecen",
+    "DVSC": "Debrecen",
+    "Real Madrid CF": "Real Madrid",
+    "FC Barcelona": "Barcelona",
+    "Barca": "Barcelona",
+    "Manchester United FC": "Manchester United",
+    "Man Utd": "Manchester United",
+    "Man City": "Manchester City",
+    "Arsenal FC": "Arsenal",
+    "Chelsea FC": "Chelsea",
+    "Tottenham Hotspur FC": "Tottenham",
+    "Spurs": "Tottenham",
+    "Bayern München": "Bayern Munich",
+    "Borussia Dortmund": "Dortmund",
+    "BVB": "Dortmund",
+    "Paris Saint-Germain": "PSG",
+    "Juventus FC": "Juventus",
+    "AC Milan": "Milan",
+    "Inter Milan": "Inter",
+    "AS Roma": "Roma",
+    "SSC Napoli": "Napoli",
+    "Manchester United": "Manchester United",
+    "Paris SG": "PSG",
+    "Kongói Közársság": "Kongói Köztársaság",
+    "Hunik Krkkó": "Hutnik Krakkó",
+    "Arse0al": "Arsenal",
+    "Manchestr United": "Manchester United",
+    "Liverpol": "Liverpol",
+    "UNKNOWN TEAM FC": "Unknown Team"
+  },
+  "stats": {
+    "total_normalizations": 33,
+    "direct_alias_matches": 28,
+    "heuristic_normalizations": 3,
+    "ocr_corrections": 0,
+    "fuzzy_matches": 3,
+    "unmatched": 2,
+    "unmatched_teams": [
+      "Liverpol",
+      "UNKNOWN TEAM FC"
+    ]
+  }
+}
