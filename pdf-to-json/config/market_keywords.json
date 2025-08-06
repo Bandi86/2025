@@ -1,0 +1,44 @@
+{
+  "double_chance": [
+    "Kétesély",
+    "1X|12|X2",
+    "Két.*esély"
+  ],
+  "handicap": [
+    "Hendikep",
+    "Handicap",
+    "Hcp",
+    "[+-]\d+[,.]\d*"
+  ],
+  "total_goals": [
+    "Gólszám",
+    "Összesen.*gól",
+    "Több.*mint.*\d+[,.]\d*",
+    "Kevesebb.*mint.*\d+[,.]\d*",
+    "Over.*\d+[,.]\d*",
+    "Under.*\d+[,.]\d*"
+  ],
+  "both_teams_score": [
+    "Mindkét.*csapat.*gól",
+    "BTTS",
+    "Both.*teams.*score",
+    "Igen.*Nem"
+  ],
+  "half_time": [
+    "[Ff]élidő",
+    "HT.*FT",
+    "Half.*time",
+    "Melyik.*félidő"
+  ],
+  "first_last_goal": [
+    "első.*gól",
+    "utolsó.*gól",
+    "First.*goal",
+    "Last.*goal"
+  ],
+  "draw_no_bet": [
+    "Döntetlennél.*visszajár",
+    "Draw.*no.*bet",
+    "DNB"
+  ]
+}

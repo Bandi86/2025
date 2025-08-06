@@ -61,6 +61,12 @@ Examples:
 
   # Extract and merge games with additional markets
   python main.py --extract-football output.json --football-output merged_games.json --merge-games
+
+  # Run complete football conversion pipeline
+  python main.py --convert-football output.json --output jsons/
+
+  # Run football conversion with custom configuration
+  python main.py --convert-football output.json --output jsons/ --config-dir config/ --max-markets 15
         """
     )
     
@@ -161,6 +167,25 @@ Examples:
         help='Merge matches that belong to the same game and create additional_markets structure'
     )
     
+    # Football conversion workflow options
+    parser.add_argument(
+        '--convert-football',
+        type=str,
+        help='Run complete football conversion pipeline on existing JSON file'
+    )
+    parser.add_argument(
+        '--config-dir',
+        type=str,
+        default='config',
+        help='Directory containing configuration files (default: config)'
+    )
+    parser.add_argument(
+        '--max-markets',
+        type=int,
+        default=10,
+        help='Maximum number of additional markets per game (default: 10)'
+    )
+    
     args = parser.parse_args()
     
     # Setup logging
@@ -224,6 +249,68 @@ Examples:
         if args.football_output:
             extractor.save_football_data(matches, args.football_output)
             print(f"\n✅ Football data saved to: {args.football_output}")
+        
+        return
+    
+    # Football conversion workflow mode
+    if args.convert_football:
+        logger.info(f"Running football conversion pipeline on: {args.convert_football}")
+        
+        # Validate input file exists
+        if not Path(args.convert_football).exists():
+            logger.error(f"Input JSON file not found: {args.convert_football}")
+            sys.exit(1)
+        
+        # Run the complete football conversion pipeline
+        result = converter.convert_football(
+            json_file_path=args.convert_football,
+            output_dir=args.output or "jsons",
+            config_dir=args.config_dir,
+            max_markets=args.max_markets
+        )
+        
+        # Display results
+        if result['success']:
+            print(f"\n✅ Football conversion pipeline completed successfully!")
+            print(f"  Input: {result['input_file']}")
+            print(f"  Output directory: {result['output_directory']}")
+            print(f"  Total games processed: {result['processing_summary']['total_games']}")
+            print(f"  Processing time: {result['total_processing_time']:.2f} seconds")
+            print(f"  Stages completed: {', '.join(result['processing_summary']['stages_completed'])}")
+            
+            # Show files created
+            files_created = result['files_created']
+            if files_created['merged_file']:
+                print(f"  Merged file: {files_created['merged_file']}")
+            if files_created['daily_files']:
+                print(f"  Daily files: {len(files_created['daily_files'])} files created")
+            if files_created['report_files']:
+                print(f"  Reports: {len(files_created['report_files'])} reports generated")
+            
+            # Show statistics if available
+            if 'statistics' in result:
+                stats = result['statistics']
+                print(f"  Total markets: {stats.get('total_markets', 'N/A')}")
+                print(f"  Leagues: {stats.get('leagues_count', 'N/A')}")
+                print(f"  Dates: {stats.get('dates_count', 'N/A')}")
+        else:
+            print(f"\n❌ Football conversion pipeline failed!")
+            print(f"  Input: {result['input_file']}")
+            print(f"  Error: {result.get('error', 'Unknown error')}")
+            print(f"  Processing time: {result['total_processing_time']:.2f} seconds")
+            if result.get('processing_summary', {}).get('stages_completed'):
+                print(f"  Stages completed: {', '.join(result['processing_summary']['stages_completed'])}")
+            if result.get('processing_summary', {}).get('stages_failed'):
+                print(f"  Stages failed: {', '.join(result['processing_summary']['stages_failed'])}")
+            sys.exit(1)
+        
+        # Show warnings if any
+        if result.get('warnings'):
+            print(f"\n⚠️  Warnings:")
+            for warning in result['warnings'][:5]:  # Show first 5 warnings
+                print(f"  - {warning}")
+            if len(result['warnings']) > 5:
+                print(f"  ... and {len(result['warnings']) - 5} more warnings")
         
         return
     

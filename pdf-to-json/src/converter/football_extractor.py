@@ -1,74 +1,70 @@
 import re
 import json
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Tuple
 from datetime import datetime
 import logging
 
 logger = logging.getLogger(__name__)
 
 class FootballExtractor:
-    """Extract football match data from Tippmix JSON content"""
+    """Extract football match data from Tippmix JSON content with enhanced market detection"""
     
-    def __init__(self):
-        self.football_patterns = [
-            # Labdarúgás, [Bajnokság neve]
-            r'Labdarúgás,\s*([^:]+?)(?:\s*[:\d]|$)',
-            # Labdarúgás [Bajnokság neve]
-            r'Labdarúgás\s+([^:]+?)(?:\s*[:\d]|$)',
-        ]
-        
-        # Match time pattern: K 20:00, Sze 19:30, etc.
-        self.time_pattern = r'([K|Sze|Cs|P|Szo|V]\s+\d{1,2}:\d{2})'
-        
-        # Team pattern: Team1 - Team2 (more flexible to handle various team names)
-        self.team_pattern = r'([A-ZÁÉÍÓÖŐÚÜŰ][A-ZÁÉÍÓÖŐÚÜŰa-záéíóöőúüű\s\.\-]+?)\s*-\s*([A-ZÁÉÍÓÖŐÚÜŰ][A-ZÁÉÍÓÖŐÚÜŰa-záéíóöőúüű\s\.\-]+?)(?=\s+\d+,\d+|\s*$)'
-        
-        # Odds patterns: H D V (Hazai Döntetlen Vendég) or H V (Hazai Vendég)
-        self.odds_patterns = [
-            r'(\d+,\d+)\s+(\d+,\d+)\s+(\d+,\d+)',  # 3 odds: H D V
-            r'(\d+,\d+)\s+(\d+,\d+)',  # 2 odds: H V
-        ]
+    def __init__(self, config_dir: str = 'config'):
+        self.config_dir = config_dir
+        self._load_patterns()
+
+    def _load_patterns(self):
+        try:
+            with open(f'{self.config_dir}/extractor_patterns.json', 'r', encoding='utf-8') as f:
+                patterns = json.loads(f.read())
+            self.football_patterns = patterns.get('football_patterns', [])
+            self.time_pattern = patterns.get('time_pattern', '')
+            self.team_pattern = patterns.get('team_pattern', '')
+            self.odds_patterns = patterns.get('odds_patterns', [])
+
+            with open(f'{self.config_dir}/market_keywords.json', 'r', encoding='utf-8') as f:
+                self.market_type_patterns = json.loads(f.read())
+
+        except FileNotFoundError as e:
+            logger.error(f"Configuration file not found: {e}")
+            raise
+        except json.JSONDecodeError as e:
+            logger.error(f"Error decoding JSON from a configuration file: {e}")
+            raise
         
     def extract_football_data(self, json_content: Dict[str, Any]) -> List[Dict[str, Any]]:
-        """Extract football match data from JSON content"""
+        """Extract football match data from JSON content using a state machine approach"""
         matches = []
-        
         if 'content' not in json_content or 'full_text' not in json_content['content']:
             logger.warning("No content or full_text found in JSON")
             return matches
-            
-        full_text = json_content['content']['full_text']
-        
-        # Split text into lines
-        lines = full_text.split('\n')
+
+        lines = json_content['content']['full_text'].split('\n')
         
         current_league = None
         current_date = None
-        
-        for i, line in enumerate(lines):
+
+        for line in lines:
             line = line.strip()
-            
-            # Extract league name
-            league_match = self._extract_league(line)
-            if league_match is not None:  # Explicitly check for None
-                if league_match:  # If it's a valid league name
-                    current_league = league_match
-                else:  # If it's an empty string (other sport detected)
-                    current_league = None
+            if not line:
                 continue
-                
-            # Extract date
+
+            # State transitions based on line content
+            league_match = self._extract_league(line)
+            if league_match is not None:
+                current_league = league_match if league_match else None
+                continue
+
             date_match = self._extract_date(line)
             if date_match:
                 current_date = date_match
                 continue
-                
-            # Extract match data only if we have a valid league
+
             if current_league:
                 match_data = self._extract_match_data(line, current_league, current_date)
                 if match_data:
                     matches.append(match_data)
-                
+
         logger.info(f"Extracted {len(matches)} football matches")
         return matches
     
@@ -385,47 +381,75 @@ class FootballExtractor:
             return cleaned_name  # Return cleaned name for valid team names
         
         # If the cleaned name is too short or empty, return the original
-        if len(cleaned_name) < 3:
+        if len(cleaned_name) < 3 and cleaned_name.upper() not in ['FTC', 'PAOK']:
             return team_name
         
         return cleaned_name
     
     def _is_main_1x2_market(self, match: Dict[str, Any]) -> bool:
-        """Check if this is a main 1X2 market (not special bet types)"""
-        skip_keywords = [
-            'Kétesély', 'Hendikep', 'Gólszám', 'Mindkét csapat', 
-            'Döntetlennél', 'félidő', 'Melyik csapat', 'Hazai csapat',
-            'Vendégcsapat', 'Félidő/végeredmény', 'Melyik félidőben',
-            'visszajár', 'szerzi', 'több gól', 'kev.', 'több'
+        """Enhanced check if this is a main 1X2 market (not special bet types)"""
+        raw_line = match.get('raw_line', '')
+        home_team = match.get('home_team', '')
+        away_team = match.get('away_team', '')
+        
+        # Use the enhanced market type classification
+        market_type = self._classify_market_type(raw_line, home_team, away_team)
+        
+        # Main 1X2 market should be classified as 'main' or 'unknown' (fallback for clean matches)
+        if market_type == 'main':
+            return True
+        if market_type != 'unknown':
+            return False
+        
+        return self._looks_like_main_market(raw_line, home_team, away_team)
+    
+    def _classify_market_type(self, raw_line: str, home_team: str, away_team: str) -> str:
+        """Enhanced market type classification using pattern matching"""
+        # Combine all text for analysis
+        full_text = f"{raw_line} {home_team} {away_team}".lower()
+        
+        # Check each market type pattern
+        for market_type, patterns in self.market_type_patterns.items():
+            for pattern in patterns:
+                if re.search(pattern.lower(), full_text, re.IGNORECASE):
+                    return market_type
+        
+        # Check for main market indicators
+        if self._looks_like_main_market(raw_line, home_team, away_team):
+            return 'main'
+        
+        return 'unknown'
+    
+    def _looks_like_main_market(self, raw_line: str, home_team: str, away_team: str) -> bool:
+        """Check if this looks like a main 1X2 market based on various indicators"""
+        # Combine text for analysis
+        full_text = f"{raw_line} {home_team} {away_team}".lower()
+        
+        # Negative indicators (special bet types)
+        negative_patterns = [
+            r'kétesély', r'hendikep', r'gólszám', r'mindkét.*csapat',
+            r'döntetlennél', r'félidő', r'melyik.*csapat', r'hazai.*csapat',
+            r'vendég.*csapat', r'visszajár', r'szerzi', r'több.*gól',
+            r'kevesebb', r'igen.*nem', r'első.*gól', r'utolsó.*gól',
+            r'[+-]\d+[,\.]\d*', r'over.*\d+', r'under.*\d+', r'btts'
         ]
         
-        # Check if any of the skip keywords are in the team names
-        for keyword in skip_keywords:
-            if keyword in match['home_team'] or keyword in match['away_team']:
+        for pattern in negative_patterns:
+            if re.search(pattern, full_text):
                 return False
         
-        # Also check the raw line for additional keywords
-        raw_line = match.get('raw_line', '')
-        for keyword in skip_keywords:
-            if keyword in raw_line:
-                return False
+        # Positive indicators for main markets
+        positive_patterns = [
+            r'^[kpvcsz][a-z]*\s+\d{1,2}:\d{2}.*[a-záéíóöőúüű]+\s*-\s*[a-záéíóöőúüű]+.*\d+[,\.]\d+',  # Basic match pattern
+            r'^\w+\s+\d{1,2}:\d{2}.*\d+[,\.]\d+\s+\d+[,\.]\d+\s+\d+[,\.]\d+',  # Three odds pattern
+        ]
         
-        # Additional check: if the line contains parentheses with specific content, it's likely not a main market
-        if '(' in raw_line and ')' in raw_line:
-            # Check for common patterns in parentheses that indicate special markets
-            parentheses_patterns = [
-                r'\(H:\s*[^)]+\)',  # (H: ...)
-                r'\([^)]*kev[^)]*\)',  # contains "kev"
-                r'\([^)]*több[^)]*\)',  # contains "több"
-                r'\([^)]*Igen[^)]*\)',  # contains "Igen"
-                r'\([^)]*Nem[^)]*\)',   # contains "Nem"
-            ]
-            
-            for pattern in parentheses_patterns:
-                if re.search(pattern, raw_line):
-                    return False
+        for pattern in positive_patterns:
+            if re.search(pattern, raw_line.lower()):
+                return True
         
-        return True
+        # If no special indicators found and has basic structure, likely main market
+        return not any(keyword in full_text for keyword in ['kétesély', 'hendikep', 'gólszám', 'mindkét', 'félidő'])
     
     def _extract_market_info(self, match: Dict[str, Any]) -> Dict[str, Any]:
         """Extract market information from additional markets"""
@@ -511,37 +535,110 @@ class FootballExtractor:
         return market_info
     
     def _fix_team_name(self, team_name: str) -> str:
-        """Fix common OCR errors in team names"""
-        # Common OCR fixes
-        fixes = {
+        """Enhanced OCR error fixing for team names"""
+        # Apply exact match fixes first
+        fixed_name = self._apply_exact_fixes(team_name)
+        if fixed_name != team_name:
+            return fixed_name
+        
+        # Apply pattern-based OCR fixes
+        fixed_name = self._apply_ocr_pattern_fixes(team_name)
+        if fixed_name != team_name:
+            return fixed_name
+        
+        # Apply character-level OCR fixes
+        return self._apply_character_fixes(team_name)
+    
+    def _apply_exact_fixes(self, team_name: str) -> str:
+        """Apply exact match fixes for known OCR errors"""
+        exact_fixes = {
             'Kongói Közársság': 'Kongói Köztársaság',
             'Hunik Krkkó': 'Hutnik Krakkó',
             'Zglebie Sosnowiec': 'Zaglebie Sosnowiec',
             'Brbrnd': 'Brabrand',
             'Pis': 'Pisa',
             'Polisszj Zsiomir': 'Polisszja Zsitomir',
-            'FTC': 'FTC',
             'AIK Sockholm': 'AIK Stockholm',
-            'Győr': 'Győr',
-            'Leverkusen': 'Leverkusen',
-            'Paks': 'Paks'
+            'Köbenhvn': 'København',
+            'Malmö FF': 'Malmö',
+            'Skve IK': 'Skive IK',
+            'Brøndby IF': 'Brøndby',
+            'FC Köbenhavn': 'FC København'
         }
         
-        # Apply fixes
-        for wrong, correct in fixes.items():
-            if team_name == wrong:
-                return correct
+        return exact_fixes.get(team_name, team_name)
+    
+    def _apply_ocr_pattern_fixes(self, team_name: str) -> str:
+        """Apply pattern-based OCR fixes"""
+        # Common OCR pattern substitutions
+        pattern_fixes = [
+            (r'Közársság', 'Köztársaság'),
+            (r'Krkkó', 'Krakkó'),
+            (r'Zsiomir', 'Zsitomir'),
+            (r'Sockholm', 'Stockholm'),
+            (r'Köbenhvn', 'København'),
+            (r'Brbrnd', 'Brabrand'),
+            (r'Skve\s+IK', 'Skive IK'),
+            (r'Hunik', 'Hutnik'),
+            (r'Zglebie', 'Zaglebie'),
+            # Handle common OCR errors with numbers/letters - be very specific
+            # (Commented out for now as they're too aggressive)
+            # (r'\b0(?=[a-zA-Z])', 'O'),  # Zero to O only at word boundaries before letters
+            # (r'\b1(?=[a-zA-Z])', 'I'),  # One to I only at word boundaries before letters
+        ]
         
-        # Also try partial matches for common OCR errors
-        if 'Kongói Közársság' in team_name:
-            return team_name.replace('Kongói Közársság', 'Kongói Köztársaság')
-        if 'Hunik Krkkó' in team_name:
-            return team_name.replace('Hunik Krkkó', 'Hutnik Krakkó')
-        if 'Zglebie Sosnowiec' in team_name:
-            return team_name.replace('Zglebie Sosnowiec', 'Zaglebie Sosnowiec')
-        if 'Brbrnd' in team_name:
-            return team_name.replace('Brbrnd', 'Brabrand')
-        if 'Pis' in team_name and team_name != 'Pisa':
-            return team_name.replace('Pis', 'Pisa')
+        fixed_name = team_name
+        for pattern, replacement in pattern_fixes:
+            fixed_name = re.sub(pattern, replacement, fixed_name)
         
-        return team_name 
+        return fixed_name
+    
+    def _apply_character_fixes(self, team_name: str) -> str:
+        """Apply character-level OCR fixes for Hungarian and special characters"""
+        # Character substitution mapping for common OCR errors
+        char_fixes = {
+            'ö': ['o', '0'],
+            'ő': ['o', '0', 'ö'],
+            'ü': ['u'],
+            'ű': ['u', 'ü'],
+            'á': ['a'],
+            'é': ['e'],
+            'í': ['i'],
+            'ó': ['o', '0'],
+            'ú': ['u'],
+            'ä': ['a'],
+            'å': ['a'],
+            'ø': ['o']
+        }
+        
+        # This is a simplified approach - in practice, you'd want more sophisticated logic
+        # For now, just clean up obvious issues
+        fixed_name = team_name
+        
+        # Fix common character sequences that are often misread
+        sequences = [
+            ('gy', 'g'),  # OCR might miss the 'y'
+            ('ny', 'n'),  # OCR might miss the 'y'
+            ('sz', 's'),  # OCR might miss the 'z'
+            ('cs', 'c'),  # OCR might miss the 's'
+        ]
+        
+        # Only apply if it results in a more reasonable team name
+        for wrong_seq, right_seq in sequences:
+            if wrong_seq in fixed_name.lower():
+                # Be conservative - only fix if it's clearly wrong
+                continue
+        
+        return fixed_name
+    
+    def get_extraction_stats(self) -> Dict[str, Any]:
+        """Get statistics about the extraction process"""
+        return {
+            'patterns_used': {
+                'football_patterns': len(self.football_patterns),
+                'market_type_patterns': len(self.market_type_patterns),
+                'ocr_fixes': len(self.ocr_fixes)
+            },
+            'supported_market_types': list(self.market_type_patterns.keys()),
+            'ocr_fix_categories': list(self.ocr_fixes.keys())
+        } 

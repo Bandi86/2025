@@ -14,6 +14,7 @@ from tqdm import tqdm
 from .pdf_parser import PDFParser
 from .json_generator import JSONGenerator
 from .schema_validator import SchemaValidator
+from .football_converter import FootballConverter
 
 logger = logging.getLogger(__name__)
 
@@ -302,4 +303,78 @@ class PDFToJSONConverter:
                 'is_valid': False,
                 'errors': [str(e)],
                 'file_size': 0
+            }
+    
+    def convert_football(self, json_file_path: str, output_dir: str = "jsons", 
+                        config_dir: str = "config", max_markets: int = 10) -> Dict[str, Any]:
+        """
+        Run the complete football data conversion pipeline on an existing JSON file.
+        
+        This method orchestrates the entire football processing pipeline:
+        1. Load and validate input JSON
+        2. Extract football matches
+        3. Normalize team names
+        4. Merge and classify markets
+        5. Deduplicate and cap markets
+        6. Split by date
+        7. Generate reports
+        
+        Args:
+            json_file_path: Path to input JSON file (from PDF conversion)
+            output_dir: Output directory for processed files
+            config_dir: Directory containing configuration files
+            max_markets: Maximum number of additional markets per game
+            
+        Returns:
+            Dictionary containing comprehensive processing results
+        """
+        start_time = time.time()
+        
+        try:
+            logger.info(f"Starting football conversion workflow for {json_file_path}")
+            
+            # Initialize football converter
+            football_converter = FootballConverter(config_dir=config_dir, max_markets=max_markets)
+            
+            # Run the complete football processing pipeline
+            result = football_converter.convert_football(json_file_path, output_dir)
+            
+            # Add timing information
+            processing_time = time.time() - start_time
+            result['total_processing_time'] = processing_time
+            
+            if result['success']:
+                logger.info(f"Football conversion completed successfully in {processing_time:.2f} seconds")
+                logger.info(f"Processed {result['processing_summary']['total_games']} games")
+                logger.info(f"Created files: merged={bool(result['files_created']['merged_file'])}, "
+                           f"daily={len(result['files_created']['daily_files'])}, "
+                           f"reports={len(result['files_created']['report_files'])}")
+            else:
+                logger.error(f"Football conversion failed: {result.get('error', 'Unknown error')}")
+            
+            return result
+            
+        except Exception as e:
+            processing_time = time.time() - start_time
+            error_msg = f"Football conversion workflow failed: {str(e)}"
+            logger.error(error_msg)
+            
+            return {
+                'success': False,
+                'input_file': json_file_path,
+                'error': error_msg,
+                'total_processing_time': processing_time,
+                'processing_summary': {
+                    'total_games': 0,
+                    'total_processing_time': processing_time,
+                    'stages_completed': [],
+                    'stages_failed': ['workflow_initialization']
+                },
+                'files_created': {
+                    'merged_file': '',
+                    'daily_files': {},
+                    'report_files': {}
+                },
+                'errors': [error_msg],
+                'warnings': []
             } 

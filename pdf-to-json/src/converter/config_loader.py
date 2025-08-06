@@ -11,10 +11,7 @@ import re
 from typing import Dict, Any, List, Optional, Tuple
 from pathlib import Path
 
-
-class ConfigurationError(Exception):
-    """Exception raised for configuration-related errors."""
-    pass
+from .exceptions import ConfigurationError
 
 
 class ConfigLoader:
@@ -298,3 +295,85 @@ def create_default_team_aliases_config(config_dir: str = "config", filename: str
     """
     loader = ConfigLoader(config_dir)
     return loader.create_default_config(filename)
+
+
+def create_default_market_priorities_config(config_dir: str = "config", filename: str = "market_priorities.json") -> Dict[str, Any]:
+    """
+    Create a default market priorities configuration file.
+    
+    Args:
+        config_dir: Directory to create configuration in
+        filename: Name of the configuration file to create
+        
+    Returns:
+        Dictionary containing the default configuration
+        
+    Raises:
+        ConfigurationError: If unable to create the configuration file
+    """
+    default_config = {
+        "market_priorities": {
+            "1x2": 1,
+            "main_1x2": 1,
+            "double_chance": 2,
+            "handicap": 3,
+            "asian_handicap": 3,
+            "total_goals": 4,
+            "over_under": 4,
+            "both_teams_score": 5,
+            "btts": 5,
+            "half_time": 6,
+            "half_time_full_time": 6,
+            "first_last_goal": 7,
+            "correct_score": 8,
+            "first_goalscorer": 9,
+            "anytime_goalscorer": 10,
+            "corners": 11,
+            "cards": 12,
+            "penalty": 13,
+            "substitutions": 14,
+            "throw_ins": 15,
+            "offsides": 16,
+            "fouls": 17,
+            "possession": 18,
+            "shots": 19,
+            "shots_on_target": 20,
+            "unknown": 99,
+            "other": 100
+        },
+        "settings": {
+            "max_additional_markets": 10,
+            "default_priority": 50,
+            "enable_priority_sorting": True,
+            "preserve_main_markets": True,
+            "log_capped_markets": True
+        },
+        "market_type_patterns": {
+            "1x2": ["1x2", "match_result", "full_time_result", "winner"],
+            "double_chance": ["double_chance", "dc", "1x", "x2", "12"],
+            "handicap": ["handicap", "hcp", "asian_handicap", "ah"],
+            "total_goals": ["total", "over_under", "ou", "goals_total"],
+            "both_teams_score": ["btts", "both_teams_score", "gg", "ng"],
+            "half_time": ["ht", "half_time", "first_half"],
+            "correct_score": ["correct_score", "exact_score", "cs"],
+            "first_goalscorer": ["first_goal", "first_scorer", "fg"],
+            "anytime_goalscorer": ["anytime", "goalscorer", "ag"],
+            "corners": ["corner", "corners", "corner_total"],
+            "cards": ["card", "cards", "yellow", "red", "booking"],
+            "penalty": ["penalty", "pen", "spot_kick"]
+        },
+        "description": "Market priority configuration for football data processing. Lower numbers indicate higher priority. Markets with higher priority are preserved when capping is applied."
+    }
+    
+    config_path = Path(config_dir) / filename
+    
+    try:
+        # Create config directory if it doesn't exist
+        config_path.parent.mkdir(parents=True, exist_ok=True)
+        
+        with open(config_path, 'w', encoding='utf-8') as f:
+            json.dump(default_config, f, indent=2, ensure_ascii=False)
+    except Exception as e:
+        raise ConfigurationError(f"Error creating default market priorities configuration file '{config_path}': {e}")
+    
+    return default_config
