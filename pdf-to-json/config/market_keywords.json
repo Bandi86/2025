@@ -8,15 +8,15 @@
     "Hendikep",
     "Handicap",
     "Hcp",
-    "[+-]\d+[,.]\d*"
+    "[+-]\\d+[,.]\\d*"
   ],
   "total_goals": [
     "Gólszám",
     "Összesen.*gól",
-    "Több.*mint.*\d+[,.]\d*",
-    "Kevesebb.*mint.*\d+[,.]\d*",
-    "Over.*\d+[,.]\d*",
-    "Under.*\d+[,.]\d*"
+    "Több.*mint.*\\d+[,.]\\d*",
+    "Kevesebb.*mint.*\\d+[,.]\\d*",
+    "Over.*\\d+[,.]\\d*",
+    "Under.*\\d+[,.]\\d*"
   ],
   "both_teams_score": [
     "Mindkét.*csapat.*gól",

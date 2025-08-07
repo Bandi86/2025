@@ -1,0 +1,118 @@
+{
+  "web_downloader": {
+    "url": "https://example.com/football-data",
+    "check_interval": 3600,
+    "download_path": "source/",
+    "max_retries": 3,
+    "timeout": 30,
+    "headers": {},
+    "verify_ssl": true,
+    "user_agent": "Football-Data-Processor/1.0",
+    "enable_conditional_requests": true,
+    "enable_resume": true,
+    "rate_limit_delay": 1.0
+  },
+  "file_watcher": {
+    "watch_path": "source/",
+    "file_patterns": [
+      "*.pdf"
+    ],
+    "debounce_time": 5.0,
+    "recursive": false,
+    "ignore_patterns": [
+      ".*",
+      "*~",
+      "*.tmp"
+    ],
+    "enable_lock_detection": true,
+    "lock_check_interval": 1.0
+  },
+  "processing": {
+    "max_concurrent_jobs": 2,
+    "retry_attempts": 3,
+    "timeout": 300,
+    "queue_max_size": 100,
+    "job_persistence_enabled": true,
+    "job_persistence_path": "data/jobs.db",
+    "enable_progress_tracking": true,
+    "cleanup_completed_jobs_after": 86400,
+    "priority_levels": 5
+  },
+  "caching": {
+    "enabled": false,
+    "redis_url": "redis://localhost:6379/0",
+    "default_ttl": 3600,
+    "max_memory_cache_size": 1000,
+    "cache_strategies": {
+      "team_normalization": 86400,
+      "market_classification": 43200,
+      "processing_results": 3600,
+      "configuration": 1800
+    },
+    "enable_compression": true,
+    "connection_pool_size": 10
+  },
+  "notifications": {
+    "enabled": true,
+    "types": [
+      "webhook"
+    ],
+    "email_config": {},
+    "webhook_config": {},
+    "slack_config": {},
+    "notification_levels": [
+      "ERROR",
+      "CRITICAL"
+    ],
+    "rate_limit": 10
+  },
+  "monitoring": {
+    "enabled": true,
+    "health_check_interval": 30,
+    "metrics_collection_interval": 60,
+    "log_level": "DEBUG",
+    "log_format": "json",
+    "log_file": "logs/automation.log",
+    "enable_structured_logging": true,
+    "metrics_retention_days": 30,
+    "alert_thresholds": {
+      "queue_length": 10,
+      "error_rate_percent": 5.0,
+      "memory_usage_percent": 80.0,
+      "processing_time_multiplier": 2.0,
+      "failed_downloads": 3
+    }
+  },
+  "security": {
+    "enable_api_authentication": false,
+    "jwt_secret_key": "default-dev-secret-change-in-production",
+    "jwt_expiration_hours": 24,
+    "api_rate_limit_per_minute": 100,
+    "allowed_file_types": [
+      ".pdf"
+    ],
+    "max_file_size_mb": 100,
+    "enable_ip_whitelisting": false,
+    "allowed_ips": [],
+    "enable_cors": true,
+    "cors_origins": [
+      "*"
+    ]
+  },
+  "database": {
+    "url": "sqlite:///data/automation.db",
+    "pool_size": 5,
+    "max_overflow": 10,
+    "pool_timeout": 30,
+    "pool_recycle": 3600,
+    "enable_migrations": true,
+    "backup_enabled": true,
+    "backup_interval_hours": 24,
+    "retention_days": 30
+  },
+  "environment": "development",
+  "debug": true,
+  "config_hot_reload": true,
+  "data_directory": "data/",
+  "temp_directory": "temp/"
+}
