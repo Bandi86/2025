@@ -703,10 +703,12 @@ async def get_config(user: User = Depends(require_role("admin"))):
 
 @app.put("/api/v1/config")
 async def update_config(
-    request: ConfigUpdateRequest,
+    new_config: Dict[str, Any],
     user: User = Depends(require_role("admin"))
 ):
     """Update system configuration."""
+    global config, automation_manager
+    
     if not automation_manager:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
@@ -714,11 +716,26 @@ async def update_config(
         )
     
     try:
-        # In a real implementation, this would update the configuration
-        # and reload the automation manager
+        # Validate the new configuration
+        from automation.config import AutomationConfig
+        validated_config = AutomationConfig.from_dict(new_config)
+        
+        # Update the global config
+        config = validated_config
+        
+        # Save to file
+        config_file = Path("config/automation/automation.json")
+        config_file.parent.mkdir(parents=True, exist_ok=True)
+        config.save_to_file(str(config_file))
+        
+        # If hot reload is enabled, apply changes without restart
+        if config.config_hot_reload:
+            await automation_manager.reload_config(config)
+        
         return {
+            "success": True,
             "message": "Configuration updated successfully",
-            "section": request.config_section,
+            "hot_reload_applied": config.config_hot_reload,
             "timestamp": datetime.now(timezone.utc).isoformat()
         }
         
@@ -732,9 +749,19 @@ async def update_config(
 @app.post("/api/v1/config/reload")
 async def reload_config(user: User = Depends(require_role("admin"))):
     """Reload system configuration."""
+    global config, automation_manager
+    
     try:
-        # In a real implementation, this would reload the configuration
+        # Reload configuration from file
+        from automation.config import load_config
+        config = load_config()
+        
+        # Reload automation manager if available
+        if automation_manager:
+            await automation_manager.reload_config(config)
+        
         return {
+            "success": True,
             "message": "Configuration reloaded successfully",
             "timestamp": datetime.now(timezone.utc).isoformat()
         }
@@ -744,6 +771,295 @@ async def reload_config(user: User = Depends(require_role("admin"))):
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Failed to reload configuration: {str(e)}"
+        )
+
+@app.post("/api/v1/config/validate")
+async def validate_config(
+    config_data: Dict[str, Any],
+    user: User = Depends(require_role("admin"))
+):
+    """Validate configuration data."""
+    try:
+        from automation.config import AutomationConfig
+        
+        # Try to create config object to validate
+        validated_config = AutomationConfig.from_dict(config_data)
+        
+        return {
+            "valid": True,
+            "errors": [],
+            "message": "Configuration is valid"
+        }
+        
+    except Exception as e:
+        return {
+            "valid": False,
+            "errors": [{"field": "general", "message": str(e), "severity": "error"}],
+            "message": "Configuration validation failed"
+        }
+
+@app.post("/api/v1/config/preview")
+async def preview_config(
+    config_data: Dict[str, Any],
+    user: User = Depends(require_role("admin"))
+):
+    """Preview configuration changes."""
+    try:
+        current_config = config.to_dict() if config else {}
+        
+        # Calculate differences
+        changes = []
+        
+        def find_changes(current, new, path=""):
+            for key, value in new.items():
+                current_path = f"{path}.{key}" if path else key
+                
+                if key not in current:
+                    changes.append({
+                        "type": "added",
+                        "path": current_path,
+                        "new_value": value
+                    })
+                elif isinstance(value, dict) and isinstance(current[key], dict):
+                    find_changes(current[key], value, current_path)
+                elif current[key] != value:
+                    changes.append({
+                        "type": "modified",
+                        "path": current_path,
+                        "old_value": current[key],
+                        "new_value": value
+                    })
+            
+            for key in current:
+                if key not in new:
+                    current_path = f"{path}.{key}" if path else key
+                    changes.append({
+                        "type": "removed",
+                        "path": current_path,
+                        "old_value": current[key]
+                    })
+        
+        find_changes(current_config, config_data)
+        
+        return {
+            "preview": config_data,
+            "changes": changes,
+            "change_count": len(changes)
+        }
+        
+    except Exception as e:
+        logger.error(f"Failed to preview configuration: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to preview configuration: {str(e)}"
+        )
+
+# Configuration backup endpoints
+config_backups: List[Dict[str, Any]] = []
+
+@app.get("/api/v1/config/backups")
+async def get_config_backups(user: User = Depends(require_role("admin"))):
+    """Get list of configuration backups."""
+    return {
+        "backups": config_backups,
+        "total": len(config_backups)
+    }
+
+@app.post("/api/v1/config/backups")
+async def create_config_backup(
+    backup_request: Dict[str, str],
+    user: User = Depends(require_role("admin"))
+):
+    """Create a configuration backup."""
+    if not config:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="No configuration available to backup"
+        )
+    
+    try:
+        backup_id = str(uuid.uuid4())
+        backup = {
+            "id": backup_id,
+            "name": backup_request.get("name", f"Backup {len(config_backups) + 1}"),
+            "description": backup_request.get("description"),
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "config": config.to_dict(),
+            "created_by": user.username
+        }
+        
+        config_backups.insert(0, backup)  # Add to beginning
+        
+        # Keep only last 10 backups
+        if len(config_backups) > 10:
+            config_backups = config_backups[:10]
+        
+        return {
+            "success": True,
+            "backup_id": backup_id,
+            "message": f"Backup '{backup['name']}' created successfully"
+        }
+        
+    except Exception as e:
+        logger.error(f"Failed to create backup: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to create backup: {str(e)}"
+        )
+
+@app.post("/api/v1/config/backups/{backup_id}/restore")
+async def restore_config_backup(
+    backup_id: str,
+    user: User = Depends(require_role("admin"))
+):
+    """Restore configuration from backup."""
+    global config, automation_manager
+    
+    try:
+        # Find the backup
+        backup = next((b for b in config_backups if b["id"] == backup_id), None)
+        if not backup:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Backup not found"
+            )
+        
+        # Restore configuration
+        from automation.config import AutomationConfig
+        config = AutomationConfig.from_dict(backup["config"])
+        
+        # Save to file
+        config_file = Path("config/automation/automation.json")
+        config_file.parent.mkdir(parents=True, exist_ok=True)
+        config.save_to_file(str(config_file))
+        
+        # Reload automation manager if available
+        if automation_manager:
+            await automation_manager.reload_config(config)
+        
+        return {
+            "success": True,
+            "message": f"Configuration restored from backup '{backup['name']}'"
+        }
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Failed to restore backup: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to restore backup: {str(e)}"
+        )
+
+@app.delete("/api/v1/config/backups/{backup_id}")
+async def delete_config_backup(
+    backup_id: str,
+    user: User = Depends(require_role("admin"))
+):
+    """Delete a configuration backup."""
+    global config_backups
+    
+    try:
+        # Find and remove the backup
+        backup = next((b for b in config_backups if b["id"] == backup_id), None)
+        if not backup:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Backup not found"
+            )
+        
+        config_backups = [b for b in config_backups if b["id"] != backup_id]
+        
+        return {
+            "success": True,
+            "message": f"Backup '{backup['name']}' deleted successfully"
+        }
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Failed to delete backup: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to delete backup: {str(e)}"
+        )
+
+@app.get("/api/v1/config/export")
+async def export_config(user: User = Depends(require_role("admin"))):
+    """Export current configuration as JSON file."""
+    if not config:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="No configuration available to export"
+        )
+    
+    try:
+        import tempfile
+        import json
+        
+        # Create temporary file
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+            json.dump(config.to_dict(), f, indent=2)
+            temp_file = f.name
+        
+        # Return file
+        return FileResponse(
+            temp_file,
+            media_type='application/json',
+            filename=f"config-export-{datetime.now().strftime('%Y%m%d-%H%M%S')}.json"
+        )
+        
+    except Exception as e:
+        logger.error(f"Failed to export configuration: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to export configuration: {str(e)}"
+        )
+
+@app.post("/api/v1/config/import")
+async def import_config(
+    config_file: UploadFile = File(...),
+    user: User = Depends(require_role("admin"))
+):
+    """Import configuration from JSON file."""
+    global config, automation_manager
+    
+    try:
+        # Read and parse the uploaded file
+        content = await config_file.read()
+        config_data = json.loads(content.decode('utf-8'))
+        
+        # Validate the configuration
+        from automation.config import AutomationConfig
+        imported_config = AutomationConfig.from_dict(config_data)
+        
+        # Update global config
+        config = imported_config
+        
+        # Save to file
+        config_file_path = Path("config/automation/automation.json")
+        config_file_path.parent.mkdir(parents=True, exist_ok=True)
+        config.save_to_file(str(config_file_path))
+        
+        # Reload automation manager if available
+        if automation_manager:
+            await automation_manager.reload_config(config)
+        
+        return {
+            "success": True,
+            "message": "Configuration imported successfully"
+        }
+        
+    except json.JSONDecodeError:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Invalid JSON file"
+        )
+    except Exception as e:
+        logger.error(f"Failed to import configuration: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to import configuration: {str(e)}"
         )
 
 # Webhook management endpoints

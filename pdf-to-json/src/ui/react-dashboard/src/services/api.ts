@@ -135,6 +135,68 @@ class ApiService {
       method: 'POST',
     });
   }
+
+  async validateConfig(config: any): Promise<{ valid: boolean; errors: any[] }> {
+    return this.request<{ valid: boolean; errors: any[] }>('/config/validate', {
+      method: 'POST',
+      body: JSON.stringify(config),
+    });
+  }
+
+  async previewConfig(config: any): Promise<{ preview: any; changes: any[] }> {
+    return this.request<{ preview: any; changes: any[] }>('/config/preview', {
+      method: 'POST',
+      body: JSON.stringify(config),
+    });
+  }
+
+  // Configuration backup endpoints
+  async getConfigBackups(): Promise<any[]> {
+    return this.request<any[]>('/config/backups');
+  }
+
+  async createConfigBackup(name: string, description?: string): Promise<{ success: boolean; backup_id: string }> {
+    return this.request<{ success: boolean; backup_id: string }>('/config/backups', {
+      method: 'POST',
+      body: JSON.stringify({ name, description }),
+    });
+  }
+
+  async restoreConfigBackup(backupId: string): Promise<{ success: boolean }> {
+    return this.request<{ success: boolean }>(`/config/backups/${backupId}/restore`, {
+      method: 'POST',
+    });
+  }
+
+  async deleteConfigBackup(backupId: string): Promise<{ success: boolean }> {
+    return this.request<{ success: boolean }>(`/config/backups/${backupId}`, {
+      method: 'DELETE',
+    });
+  }
+
+  async exportConfig(): Promise<Blob> {
+    const response = await fetch(`${this.baseUrl}/config/export`);
+    if (!response.ok) {
+      throw new Error(`Export failed: ${response.status} ${response.statusText}`);
+    }
+    return response.blob();
+  }
+
+  async importConfig(file: File): Promise<{ success: boolean; message: string }> {
+    const formData = new FormData();
+    formData.append('config_file', file);
+
+    const response = await fetch(`${this.baseUrl}/config/import`, {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (!response.ok) {
+      throw new Error(`Import failed: ${response.status} ${response.statusText}`);
+    }
+
+    return response.json();
+  }
 }
 
 export const apiService = new ApiService();
