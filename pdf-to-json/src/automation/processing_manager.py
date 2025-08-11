@@ -31,8 +31,12 @@ from .models import (
     get_session_factory, create_tables
 )
 from .exceptions import ProcessingManagerError
-from src.converter.football_converter import FootballConverter
-from src.converter.exceptions import FootballProcessingError
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from converter.football_converter import FootballConverter
+from converter.exceptions import FootballProcessingError
 
 
 @dataclass

@@ -1,0 +1,19 @@
+{
+  "enable_input_validation": true,
+  "enable_file_scanning": true,
+  "enable_rate_limiting": true,
+  "enable_ip_whitelisting": false,
+  "max_file_size_mb": 100,
+  "allowed_file_types": [".pdf", ".json", ".csv", ".txt"],
+  "rate_limit_requests_per_minute": 100,
+  "rate_limit_burst_size": 20,
+  "allowed_ips": [],
+  "blocked_ips": [],
+  "jwt_secret_key": "change-this-in-production-use-strong-random-key",
+  "jwt_expiration_hours": 24,
+  "password_min_length": 8,
+  "password_require_special": true,
+  "enable_malware_scanning": false,
+  "clamav_socket_path": "/var/run/clamav/clamd.ctl",
+  "upload_quarantine_dir": "quarantine"
+}

@@ -15,3 +15,9 @@ htmlcov/
 .coverage
 .coverage.*
 .cache
+.github
+data
+tests
+backups
+output
+test.db

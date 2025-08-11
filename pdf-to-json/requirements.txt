@@ -44,6 +44,22 @@ psutil==5.9.6
 # Task Scheduling
 apscheduler==3.10.4
 
+# Structured Logging and Monitoring
+structlog==23.2.0
+prometheus-client==0.19.0
+
+# Email and Notifications
+smtplib-ssl==1.0.4
+requests==2.31.0
+
+# Security
+python-magic==0.4.27
+cryptography==41.0.7
+bcrypt==4.1.2
+PyJWT==2.8.0
+passlib[bcrypt]==1.7.4
+python-jose[cryptography]==3.3.0
+
 # Development
 pytest==7.4.3
 pytest-asyncio==0.21.1

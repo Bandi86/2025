@@ -1,0 +1,259 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "football-automation-system"
+version = "1.0.0"
+description = "Automated football data processing and analysis system"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "Football Automation Team", email = "team@example.com"},
+]
+keywords = ["football", "automation", "data-processing", "pdf", "json"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+
+dependencies = [
+    "PyPDF2>=3.0.1",
+    "pdfplumber>=0.10.3",
+    "fastapi>=0.104.1",
+    "uvicorn>=0.24.0",
+    "streamlit>=1.28.1",
+    "pandas>=2.1.3",
+    "numpy>=1.24.0",
+    "scipy>=1.11.4",
+    "scikit-learn>=1.3.2",
+    "matplotlib>=3.8.2",
+    "seaborn>=0.13.0",
+    "reportlab>=4.0.7",
+    "openpyxl>=3.1.2",
+    "pydantic>=2.5.0",
+    "jsonschema>=4.20.0",
+    "ijson>=3.2.3",
+    "python-multipart>=0.0.6",
+    "aiofiles>=23.2.1",
+    "aiohttp>=3.9.1",
+    "tqdm>=4.66.1",
+    "watchdog>=3.0.0",
+    "sqlalchemy>=2.0.23",
+    "alembic>=1.13.1",
+    "redis>=5.0.1",
+    "psutil>=5.9.6",
+    "apscheduler>=3.10.4",
+    "structlog>=23.2.0",
+    "prometheus-client>=0.19.0",
+    "requests>=2.31.0",
+    "python-magic>=0.4.27",
+    "cryptography>=41.0.7",
+    "bcrypt>=4.1.2",
+    "PyJWT>=2.8.0",
+    "passlib[bcrypt]>=1.7.4",
+    "python-jose[cryptography]>=3.3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.3",
+    "pytest-asyncio>=0.21.1",
+    "pytest-cov>=4.1.0",
+    "pytest-mock>=3.12.0",
+    "pytest-xdist>=3.5.0",
+    "pytest-benchmark>=4.0.0",
+    "pytest-timeout>=2.2.0",
+    "pytest-html>=4.1.1",
+    "black>=23.11.0",
+    "flake8>=6.1.0",
+    "mypy>=1.7.0",
+    "isort>=5.12.0",
+    "bandit>=1.7.5",
+    "safety>=2.3.5",
+    "pre-commit>=3.6.0",
+    "coverage[toml]>=7.3.2",
+]
+test = [
+    "pytest>=7.4.3",
+    "pytest-asyncio>=0.21.1",
+    "pytest-cov>=4.1.0",
+    "pytest-mock>=3.12.0",
+    "pytest-xdist>=3.5.0",
+    "pytest-benchmark>=4.0.0",
+    "pytest-timeout>=2.2.0",
+    "pytest-html>=4.1.1",
+    "httpx>=0.25.2",
+    "factory-boy>=3.3.0",
+    "faker>=20.1.0",
+]
+docs = [
+    "sphinx>=7.2.6",
+    "sphinx-rtd-theme>=1.3.0",
+    "sphinx-autodoc-typehints>=1.25.2",
+]
+
+[project.urls]
+Homepage = "https://github.com/example/football-automation"
+Documentation = "https://football-automation.readthedocs.io/"
+Repository = "https://github.com/example/football-automation.git"
+"Bug Tracker" = "https://github.com/example/football-automation/issues"
+
+[project.scripts]
+football-automation = "src.automation.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+exclude = ["tests*"]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = [
+    "-ra",
+    "-q",
+    "--strict-markers",
+    "--strict-config",
+    "--cov=src",
+    "--cov-report=term-missing",
+    "--cov-report=html:htmlcov",
+    "--cov-report=xml:coverage.xml",
+    "--cov-fail-under=90",
+    "--tb=short",
+    "--maxfail=5",
+]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+markers = [
+    "unit: Unit tests",
+    "integration: Integration tests", 
+    "e2e: End-to-end tests",
+    "performance: Performance tests",
+    "slow: Slow running tests",
+    "security: Security tests",
+    "regression: Regression tests",
+]
+asyncio_mode = "auto"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::PendingDeprecationWarning",
+    "ignore::UserWarning:watchdog.*",
+]
+
+[tool.coverage.run]
+source = ["src"]
+omit = [
+    "*/tests/*",
+    "*/test_*",
+    "*/__pycache__/*",
+    "*/migrations/*",
+    "*/venv/*",
+    "*/.venv/*",
+]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
+show_missing = true
+skip_covered = false
+precision = 2
+
+[tool.coverage.html]
+directory = "htmlcov"
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+  | migrations
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+known_first_party = ["src"]
+known_third_party = ["pytest", "fastapi", "pydantic", "sqlalchemy"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+show_error_codes = true
+
+[[tool.mypy.overrides]]
+module = [
+    "PyPDF2.*",
+    "pdfplumber.*",
+    "watchdog.*",
+    "redis.*",
+    "psutil.*",
+    "reportlab.*",
+    "matplotlib.*",
+    "seaborn.*",
+    "ijson.*",
+]
+ignore_missing_imports = true
+
+[tool.bandit]
+exclude_dirs = ["tests", "migrations"]
+skips = ["B101", "B601"]
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203", "W503", "E501"]
+exclude = [
+    ".git",
+    "__pycache__",
+    "build",
+    "dist",
+    ".venv",
+    "venv",
+    "migrations",
+]
+per-file-ignores = [
+    "__init__.py:F401",
+    "tests/*:S101,S106",
+]

@@ -1,0 +1,322 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: football-postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-football_automation}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --lc-collate=C --lc-ctype=C"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    networks:
+      - football-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-football_automation}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: football-redis
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-redis123}
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-redis123}
+    volumes:
+      - redis_data:/data
+      - ./docker/redis.conf:/usr/local/etc/redis/redis.conf:ro
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    networks:
+      - football-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  # Main Application API
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    container_name: football-app
+    environment:
+      # Database configuration
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-football_automation}
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      
+      # Redis configuration
+      REDIS_URL: redis://:${REDIS_PASSWORD:-redis123}@redis:6379/0
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-redis123}
+      
+      # API configuration
+      API_WORKERS: ${API_WORKERS:-2}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:-your-secret-key-change-in-production}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      
+      # Application configuration
+      ENVIRONMENT: ${ENVIRONMENT:-production}
+      DEBUG: ${DEBUG:-false}
+      
+      # Web downloader configuration
+      SOURCE_URL: ${SOURCE_URL:-https://example.com/football-data}
+      DOWNLOAD_INTERVAL: ${DOWNLOAD_INTERVAL:-3600}
+      
+      # Processing configuration
+      MAX_CONCURRENT_JOBS: ${MAX_CONCURRENT_JOBS:-2}
+      PROCESSING_TIMEOUT: ${PROCESSING_TIMEOUT:-300}
+      
+      # Monitoring configuration
+      ENABLE_METRICS: ${ENABLE_METRICS:-true}
+      WEBHOOK_URLS: ${WEBHOOK_URLS:-}
+      
+      # Email configuration (optional)
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      SMTP_FROM: ${SMTP_FROM:-}
+    volumes:
+      - ./source:/app/source
+      - ./jsons:/app/jsons
+      - ./logs:/app/logs
+      - ./config:/app/config
+      - app_data:/app/data
+      - app_temp:/app/temp
+    ports:
+      - "${API_PORT:-8000}:8000"
+    networks:
+      - football-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+    command: ["api"]
+
+  # Automation Manager (separate service for better scaling)
+  automation:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    container_name: football-automation
+    environment:
+      # Database configuration
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-football_automation}
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      
+      # Redis configuration
+      REDIS_URL: redis://:${REDIS_PASSWORD:-redis123}@redis:6379/0
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-redis123}
+      
+      # Application configuration
+      ENVIRONMENT: ${ENVIRONMENT:-production}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      
+      # Web downloader configuration
+      SOURCE_URL: ${SOURCE_URL:-https://example.com/football-data}
+      DOWNLOAD_INTERVAL: ${DOWNLOAD_INTERVAL:-3600}
+      
+      # Processing configuration
+      MAX_CONCURRENT_JOBS: ${MAX_CONCURRENT_JOBS:-2}
+      PROCESSING_TIMEOUT: ${PROCESSING_TIMEOUT:-300}
+    volumes:
+      - ./source:/app/source
+      - ./jsons:/app/jsons
+      - ./logs:/app/logs
+      - ./config:/app/config
+      - app_data:/app/data
+      - app_temp:/app/temp
+    networks:
+      - football-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    command: ["automation"]
+
+  # Processing Worker (can be scaled)
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    environment:
+      # Database configuration
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-football_automation}
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      
+      # Redis configuration
+      REDIS_URL: redis://:${REDIS_PASSWORD:-redis123}@redis:6379/0
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-redis123}
+      
+      # Application configuration
+      ENVIRONMENT: ${ENVIRONMENT:-production}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      
+      # Processing configuration
+      MAX_CONCURRENT_JOBS: ${MAX_CONCURRENT_JOBS:-2}
+      PROCESSING_TIMEOUT: ${PROCESSING_TIMEOUT:-300}
+    volumes:
+      - ./source:/app/source
+      - ./jsons:/app/jsons
+      - ./logs:/app/logs
+      - ./config:/app/config
+      - app_data:/app/data
+      - app_temp:/app/temp
+    networks:
+      - football-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    command: ["worker"]
+    deploy:
+      replicas: ${WORKER_REPLICAS:-1}
+
+  # Streamlit Dashboard (optional)
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    container_name: football-dashboard
+    environment:
+      # API configuration
+      API_BASE_URL: http://app:8000
+      
+      # Database configuration (for direct access if needed)
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-football_automation}
+      
+      # Application configuration
+      ENVIRONMENT: ${ENVIRONMENT:-production}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+    volumes:
+      - ./jsons:/app/jsons:ro
+      - ./logs:/app/logs:ro
+    ports:
+      - "${DASHBOARD_PORT:-8501}:8501"
+    networks:
+      - football-network
+    depends_on:
+      - app
+    restart: unless-stopped
+    command: ["streamlit"]
+    profiles:
+      - dashboard
+
+  # Nginx Reverse Proxy (optional)
+  nginx:
+    image: nginx:alpine
+    container_name: football-nginx
+    volumes:
+      - ./docker/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./docker/ssl:/etc/nginx/ssl:ro
+    ports:
+      - "${HTTP_PORT:-80}:80"
+      - "${HTTPS_PORT:-443}:443"
+    networks:
+      - football-network
+    depends_on:
+      - app
+      - dashboard
+    restart: unless-stopped
+    profiles:
+      - nginx
+
+  # Monitoring with Prometheus (optional)
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: football-prometheus
+    volumes:
+      - ./docker/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    ports:
+      - "${PROMETHEUS_PORT:-9090}:9090"
+    networks:
+      - football-network
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    restart: unless-stopped
+    profiles:
+      - monitoring
+
+  # Grafana Dashboard (optional)
+  grafana:
+    image: grafana/grafana:latest
+    container_name: football-grafana
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:-admin}
+      GF_USERS_ALLOW_SIGN_UP: false
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./docker/grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./docker/grafana/datasources:/etc/grafana/provisioning/datasources:ro
+    ports:
+      - "${GRAFANA_PORT:-3000}:3000"
+    networks:
+      - football-network
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+    profiles:
+      - monitoring
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  app_data:
+    driver: local
+  app_temp:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+
+networks:
+  football-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

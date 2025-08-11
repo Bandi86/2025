@@ -36,3 +36,10 @@ class CacheManagerError(AutomationError):
 class AutomationManagerError(AutomationError):
     """Raised when automation manager operations fail."""
     pass
+class MonitoringError(AutomationError):
+    """Raised when monitoring system operations fail."""
+    pass
+
+class PerformanceError(AutomationError):
+    """Raised when performance monitoring operations fail."""
+    pass

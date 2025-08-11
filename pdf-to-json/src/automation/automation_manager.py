@@ -29,6 +29,8 @@ from .web_downloader import WebDownloader, DownloadResult, FileInfo
 from .file_watcher import FileWatcher, FileEvent, FileEventType
 from .processing_manager import ProcessingManager, ProcessingResult
 from .cache_manager import CacheManager
+from .monitoring import MonitoringManager
+from .logging_config import configure_structured_logging, setup_log_aggregation
 from .exceptions import AutomationManagerError
 from .models import get_session_factory, create_tables
 
@@ -89,6 +91,7 @@ class AutomationManager:
         self.file_watcher: Optional[FileWatcher] = None
         self.processing_manager: Optional[ProcessingManager] = None
         self.cache_manager: Optional[CacheManager] = None
+        self.monitoring_manager: Optional[MonitoringManager] = None
         
         # Scheduler for periodic tasks
         self.scheduler: Optional[AsyncIOScheduler] = None
@@ -413,6 +416,28 @@ class AutomationManager:
             await self.processing_manager.start()
             self.logger.info("Processing manager initialized")
             
+            # Initialize monitoring system
+            if self.config.monitoring.enabled:
+                # Configure structured logging
+                configure_structured_logging(self.config.monitoring)
+                
+                # Initialize monitoring manager
+                self.monitoring_manager = MonitoringManager(
+                    self.config.monitoring,
+                    self.config.notifications
+                )
+                
+                # Set component references for monitoring
+                self.monitoring_manager.set_component_references(
+                    automation_manager=self,
+                    processing_manager=self.processing_manager,
+                    cache_manager=self.cache_manager
+                )
+                
+                # Start monitoring
+                await self.monitoring_manager.start()
+                self.logger.info("Monitoring system initialized")
+            
         except Exception as e:
             await self._stop_components()
             raise AutomationManagerError(f"Failed to initialize components: {e}")
@@ -442,6 +467,14 @@ class AutomationManager:
                 self.logger.info("Web downloader stopped")
             except Exception as e:
                 self.logger.error(f"Error stopping web downloader: {e}")
+        
+        # Stop monitoring system
+        if self.monitoring_manager:
+            try:
+                await self.monitoring_manager.stop()
+                self.logger.info("Monitoring system stopped")
+            except Exception as e:
+                self.logger.error(f"Error stopping monitoring system: {e}")
         
         # Stop cache manager
         if self.cache_manager:

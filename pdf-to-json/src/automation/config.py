@@ -130,13 +130,33 @@ class CacheConfig:
 
 
 @dataclass
+class EmailConfig:
+    """Email notification configuration."""
+    enabled: bool = False
+    smtp_server: str = "localhost"
+    smtp_port: int = 587
+    use_tls: bool = True
+    username: str = ""
+    password: str = ""
+    from_address: str = "automation@example.com"
+    to_addresses: List[str] = field(default_factory=list)
+
+
+@dataclass
+class WebhookConfig:
+    """Webhook notification configuration."""
+    enabled: bool = False
+    url: str = ""
+    headers: Dict[str, str] = field(default_factory=dict)
+    timeout: int = 30
+
+
+@dataclass
 class NotificationConfig:
     """Configuration for notification system."""
     enabled: bool = True
-    types: List[NotificationType] = field(default_factory=lambda: [NotificationType.WEBHOOK])
-    email_config: Dict[str, Any] = field(default_factory=dict)
-    webhook_config: Dict[str, Any] = field(default_factory=dict)
-    slack_config: Dict[str, Any] = field(default_factory=dict)
+    email: EmailConfig = field(default_factory=EmailConfig)
+    webhook: WebhookConfig = field(default_factory=WebhookConfig)
     notification_levels: List[LogLevel] = field(default_factory=lambda: [LogLevel.ERROR, LogLevel.CRITICAL])
     rate_limit: int = 10  # notifications per minute
     
@@ -151,7 +171,8 @@ class MonitoringConfig:
     """Configuration for monitoring and health checks."""
     enabled: bool = True
     health_check_interval: int = 30  # seconds
-    metrics_collection_interval: int = 60  # seconds
+    collection_interval: int = 60  # seconds - for metrics collection
+    metrics_collection_interval: int = 60  # seconds - alias for collection_interval
     log_level: LogLevel = LogLevel.INFO
     log_format: str = "json"
     log_file: Optional[str] = "logs/automation.log"
@@ -161,6 +182,8 @@ class MonitoringConfig:
         "queue_length": 10,
         "error_rate_percent": 5.0,
         "memory_usage_percent": 80.0,
+        "cpu_usage_percent": 80.0,
+        "disk_usage_percent": 85.0,
         "processing_time_multiplier": 2.0,
         "failed_downloads": 3
     })
@@ -169,8 +192,10 @@ class MonitoringConfig:
         """Validate configuration after initialization."""
         if self.health_check_interval <= 0:
             raise AutomationConfigError("Health check interval must be positive")
-        if self.metrics_collection_interval <= 0:
-            raise AutomationConfigError("Metrics collection interval must be positive")
+        if self.collection_interval <= 0:
+            raise AutomationConfigError("Collection interval must be positive")
+        # Sync the two interval properties
+        self.metrics_collection_interval = self.collection_interval
 
 
 @dataclass
@@ -223,6 +248,55 @@ class DatabaseConfig:
 
 
 @dataclass
+class PerformanceConfig:
+    """Configuration for performance monitoring and optimization."""
+    enabled: bool = True
+    collection_interval: int = 60  # seconds
+    enable_profiling: bool = True
+    enable_memory_tracking: bool = True
+    enable_database_monitoring: bool = True
+    
+    # Profiling settings
+    max_profile_results: int = 50
+    profile_slow_functions: bool = True
+    slow_function_threshold: float = 1.0  # seconds
+    
+    # Memory monitoring settings
+    max_memory_snapshots: int = 1000
+    memory_leak_threshold: int = 10 * 1024 * 1024  # 10MB
+    enable_gc_monitoring: bool = True
+    
+    # Database monitoring settings
+    slow_query_threshold: float = 1.0  # seconds
+    max_slow_queries: int = 100
+    max_db_metrics: int = 1000
+    
+    # APM settings
+    max_metrics_history: int = 10000
+    max_timer_values: int = 1000
+    enable_system_metrics: bool = True
+    enable_application_metrics: bool = True
+    
+    # Performance optimization settings
+    enable_query_optimization: bool = True
+    enable_connection_pooling: bool = True
+    enable_caching_optimization: bool = True
+    
+    def __post_init__(self):
+        """Validate configuration after initialization."""
+        if self.collection_interval <= 0:
+            raise AutomationConfigError("Collection interval must be positive")
+        if self.max_profile_results <= 0:
+            raise AutomationConfigError("Max profile results must be positive")
+        if self.slow_function_threshold <= 0:
+            raise AutomationConfigError("Slow function threshold must be positive")
+        if self.memory_leak_threshold <= 0:
+            raise AutomationConfigError("Memory leak threshold must be positive")
+        if self.slow_query_threshold <= 0:
+            raise AutomationConfigError("Slow query threshold must be positive")
+
+
+@dataclass
 class AutomationConfig:
     """Main configuration class for the automation system."""
     web_downloader: WebDownloaderConfig = field(default_factory=WebDownloaderConfig)
@@ -233,6 +307,7 @@ class AutomationConfig:
     monitoring: MonitoringConfig = field(default_factory=MonitoringConfig)
     security: SecurityConfig = field(default_factory=SecurityConfig)
     database: DatabaseConfig = field(default_factory=DatabaseConfig)
+    performance: PerformanceConfig = field(default_factory=PerformanceConfig)
     
     # Global settings
     environment: str = "development"
@@ -303,12 +378,13 @@ class AutomationConfig:
             if 'caching' in config_dict:
                 config_dict['caching'] = CacheConfig(**config_dict['caching'])
             if 'notifications' in config_dict:
-                # Convert notification types from strings to enums
-                if 'types' in config_dict['notifications']:
-                    config_dict['notifications']['types'] = [
-                        NotificationType(t) if isinstance(t, str) else t 
-                        for t in config_dict['notifications']['types']
-                    ]
+                # Handle nested email and webhook configs
+                if 'email' in config_dict['notifications']:
+                    config_dict['notifications']['email'] = EmailConfig(**config_dict['notifications']['email'])
+                if 'webhook' in config_dict['notifications']:
+                    config_dict['notifications']['webhook'] = WebhookConfig(**config_dict['notifications']['webhook'])
+                
+                # Convert notification levels from strings to enums
                 if 'notification_levels' in config_dict['notifications']:
                     config_dict['notifications']['notification_levels'] = [
                         LogLevel(l) if isinstance(l, str) else l 
@@ -325,6 +401,8 @@ class AutomationConfig:
                 config_dict['security'] = SecurityConfig(**config_dict['security'])
             if 'database' in config_dict:
                 config_dict['database'] = DatabaseConfig(**config_dict['database'])
+            if 'performance' in config_dict:
+                config_dict['performance'] = PerformanceConfig(**config_dict['performance'])
             
             return cls(**config_dict)
         except Exception as e:

@@ -39,6 +39,8 @@ from automation.processing_manager import ProcessingManager, ProcessingResult, Q
 from automation.config import AutomationConfig, load_config
 from automation.models import Job, JobStatus, JobPriority
 from automation.exceptions import AutomationManagerError, ProcessingManagerError
+from automation.security import SecurityManager, SecurityConfig
+from automation.security_middleware import create_security_middleware_stack
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -74,6 +76,7 @@ app.add_middleware(
 # Global variables for components
 automation_manager: Optional[AutomationManager] = None
 config: Optional[AutomationConfig] = None
+security_manager: Optional[SecurityManager] = None
 websocket_connections: List[WebSocket] = []
 webhook_urls: List[str] = []
 
@@ -509,28 +512,120 @@ async def retry_job(
 
 @app.post("/api/v1/upload", response_model=FileUploadResponse)
 async def upload_file(
+    request: Request,
     file: UploadFile = File(...),
     priority: int = 2,
     auto_process: bool = True,
     user: User = Depends(verify_token)
 ):
-    """Upload a file and optionally queue it for processing."""
-    # Validate file type
-    if not file.filename.lower().endswith('.pdf'):
+    """Upload a file and optionally queue it for processing with comprehensive security validation."""
+    if not security_manager:
         raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Only PDF files are supported"
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="Security manager not initialized"
         )
     
     try:
-        # Save uploaded file
+        # Comprehensive file validation using security manager
+        validation_result = await security_manager.validate_file_upload(file)
+        
+        if not validation_result.is_valid:
+            # Log security event
+            await security_manager.log_security_event(
+                "file_upload_rejected",
+                {
+                    "filename": file.filename,
+                    "errors": validation_result.errors,
+                    "warnings": validation_result.warnings
+                },
+                request
+            )
+            
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail={
+                    "message": "File validation failed",
+                    "errors": validation_result.errors,
+                    "warnings": validation_result.warnings
+                }
+            )
+        
+        # Check if file was quarantined
+        if validation_result.quarantined:
+            await security_manager.log_security_event(
+                "file_quarantined",
+                {
+                    "filename": file.filename,
+                    "reason": "Malware detected",
+                    "scan_results": validation_result.scan_results
+                },
+                request
+            )
+            
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="File has been quarantined due to security concerns"
+            )
+        
+        # Validate and sanitize filename
+        filename_validation = security_manager.input_validator.validate_filename(file.filename or "")
+        if not filename_validation.is_valid:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail={
+                    "message": "Invalid filename",
+                    "errors": filename_validation.errors
+                }
+            )
+        
+        # Use sanitized filename
+        safe_filename = filename_validation.sanitized_value
+        
+        # Validate upload path
         upload_dir = Path("source")
         upload_dir.mkdir(exist_ok=True)
         
-        file_path = upload_dir / file.filename
+        path_validation = security_manager.input_validator.validate_path(
+            safe_filename, str(upload_dir)
+        )
+        if not path_validation.is_valid:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail={
+                    "message": "Invalid file path",
+                    "errors": path_validation.errors
+                }
+            )
+        
+        # Save uploaded file securely
+        file_path = upload_dir / safe_filename
+        
+        # Ensure file doesn't already exist or create unique name
+        counter = 1
+        original_path = file_path
+        while file_path.exists():
+            stem = original_path.stem
+            suffix = original_path.suffix
+            file_path = upload_dir / f"{stem}_{counter}{suffix}"
+            counter += 1
+        
+        # Write file content
         with open(file_path, "wb") as buffer:
             content = await file.read()
             buffer.write(content)
+        
+        # Log successful upload
+        await security_manager.log_security_event(
+            "file_uploaded",
+            {
+                "original_filename": file.filename,
+                "saved_filename": safe_filename,
+                "file_size": validation_result.file_size,
+                "checksum": validation_result.checksum,
+                "user": user.username
+            },
+            request
+        )
         
         job_id = None
         if auto_process and automation_manager:
@@ -539,12 +634,21 @@ async def upload_file(
         
         return FileUploadResponse(
             success=True,
-            message="File uploaded successfully",
+            message="File uploaded and validated successfully",
             file_path=str(file_path),
             job_id=job_id
         )
         
+    except HTTPException:
+        raise
     except Exception as e:
+        # Log unexpected errors
+        await security_manager.log_security_event(
+            "file_upload_error",
+            {"error": str(e), "filename": file.filename},
+            request
+        )
+        
         logger.error(f"File upload failed: {e}")
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
@@ -1293,6 +1397,451 @@ async def general_exception_handler(request: Request, exc: Exception):
             }
         }
     )
+
+if __name__ == "__main__":
+    uvicorn.run(
+        "enhanced_main:app",
+        host="0.0.0.0",
+        port=8000,
+        reload=True,
+        log_level="info"
+    )# 
+Comprehensive monitoring and health check endpoints
+
+@app.get("/api/v1/health/detailed", response_model=Dict[str, Any])
+async def detailed_health_check(user: User = Depends(verify_token)):
+    """Detailed health check with comprehensive system information."""
+    if not automation_manager or not hasattr(automation_manager, 'monitoring_manager'):
+        return {
+            "status": "error",
+            "message": "Monitoring system not available",
+            "timestamp": datetime.now(timezone.utc).isoformat()
+        }
+    
+    try:
+        health_status = await automation_manager.monitoring_manager.get_health_status()
+        return health_status
+    except Exception as e:
+        logger.error(f"Detailed health check failed: {e}")
+        return {
+            "status": "error",
+            "message": f"Health check failed: {str(e)}",
+            "timestamp": datetime.now(timezone.utc).isoformat()
+        }
+
+@app.get("/api/v1/health/readiness")
+async def readiness_check():
+    """Kubernetes readiness probe endpoint."""
+    if not automation_manager or not hasattr(automation_manager, 'monitoring_manager'):
+        return JSONResponse(
+            status_code=503,
+            content={"ready": False, "message": "Monitoring system not available"}
+        )
+    
+    try:
+        readiness_status = await automation_manager.monitoring_manager.get_readiness_status()
+        status_code = 200 if readiness_status.get("ready", False) else 503
+        return JSONResponse(status_code=status_code, content=readiness_status)
+    except Exception as e:
+        logger.error(f"Readiness check failed: {e}")
+        return JSONResponse(
+            status_code=503,
+            content={"ready": False, "message": f"Readiness check failed: {str(e)}"}
+        )
+
+@app.get("/api/v1/health/liveness")
+async def liveness_check():
+    """Kubernetes liveness probe endpoint."""
+    if not automation_manager or not hasattr(automation_manager, 'monitoring_manager'):
+        return JSONResponse(
+            status_code=503,
+            content={"alive": False, "message": "Monitoring system not available"}
+        )
+    
+    try:
+        liveness_status = await automation_manager.monitoring_manager.get_liveness_status()
+        status_code = 200 if liveness_status.get("alive", False) else 503
+        return JSONResponse(status_code=status_code, content=liveness_status)
+    except Exception as e:
+        logger.error(f"Liveness check failed: {e}")
+        return JSONResponse(
+            status_code=503,
+            content={"alive": False, "message": f"Liveness check failed: {str(e)}"}
+        )
+
+@app.get("/api/v1/metrics/prometheus")
+async def prometheus_metrics():
+    """Prometheus metrics endpoint."""
+    if not automation_manager or not hasattr(automation_manager, 'monitoring_manager'):
+        return JSONResponse(
+            status_code=503,
+            content="# Monitoring system not available\n"
+        )
+    
+    try:
+        metrics_export = automation_manager.monitoring_manager.get_metrics_export()
+        return JSONResponse(
+            content=metrics_export,
+            media_type="text/plain"
+        )
+    except Exception as e:
+        logger.error(f"Prometheus metrics export failed: {e}")
+        return JSONResponse(
+            status_code=500,
+            content=f"# Metrics export failed: {str(e)}\n"
+        )
+
+@app.get("/api/v1/alerts", response_model=Dict[str, Any])
+async def get_alerts(
+    active_only: bool = True,
+    hours: int = 24,
+    user: User = Depends(verify_token)
+):
+    """Get system alerts."""
+    if not automation_manager or not hasattr(automation_manager, 'monitoring_manager'):
+        return {"active_alerts": [], "alert_history": []}
+    
+    try:
+        active_alerts = automation_manager.monitoring_manager.get_active_alerts()
+        alert_history = automation_manager.monitoring_manager.get_alert_history(hours) if not active_only else []
+        
+        return {
+            "active_alerts": [alert.to_dict() for alert in active_alerts],
+            "alert_history": [alert.to_dict() for alert in alert_history],
+            "total_active": len(active_alerts),
+            "total_history": len(alert_history)
+        }
+    except Exception as e:
+        logger.error(f"Failed to get alerts: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to get alerts: {str(e)}"
+        )
+
+@app.get("/api/v1/metrics/recent", response_model=Dict[str, Any])
+async def get_recent_metrics(
+    minutes: int = 60,
+    user: User = Depends(verify_token)
+):
+    """Get recent system metrics."""
+    if not automation_manager or not hasattr(automation_manager, 'monitoring_manager'):
+        return {"metrics": [], "count": 0}
+    
+    try:
+        recent_metrics = automation_manager.monitoring_manager.get_recent_metrics(minutes)
+        return {
+            "metrics": [metric.to_dict() for metric in recent_metrics],
+            "count": len(recent_metrics),
+            "period_minutes": minutes
+        }
+    except Exception as e:
+        logger.error(f"Failed to get recent metrics: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to get recent metrics: {str(e)}"
+        )
+
+# Webhook registration for alerts
+@app.post("/api/v1/webhooks/register")
+async def register_webhook(
+    webhook: WebhookRegistration,
+    user: User = Depends(require_role("admin"))
+):
+    """Register a webhook URL for notifications."""
+    try:
+        if webhook.url not in webhook_urls:
+            webhook_urls.append(webhook.url)
+            
+            # If monitoring manager is available, add alert handler
+            if automation_manager and hasattr(automation_manager, 'monitoring_manager'):
+                async def webhook_alert_handler(alert):
+                    await send_webhook_notification("alert", alert.to_dict())
+                
+                automation_manager.monitoring_manager.add_alert_handler(webhook_alert_handler)
+        
+        return {
+            "success": True,
+            "message": f"Webhook registered: {webhook.url}",
+            "total_webhooks": len(webhook_urls)
+        }
+    except Exception as e:
+        logger.error(f"Failed to register webhook: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to register webhook: {str(e)}"
+        )
+
+@app.delete("/api/v1/webhooks/{webhook_url:path}")
+async def unregister_webhook(
+    webhook_url: str,
+    user: User = Depends(require_role("admin"))
+):
+    """Unregister a webhook URL."""
+    try:
+        if webhook_url in webhook_urls:
+            webhook_urls.remove(webhook_url)
+            return {
+                "success": True,
+                "message": f"Webhook unregistered: {webhook_url}",
+                "total_webhooks": len(webhook_urls)
+            }
+        else:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Webhook URL not found"
+            )
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Failed to unregister webhook: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to unregister webhook: {str(e)}"
+        )
+
+@app.get("/api/v1/webhooks")
+async def list_webhooks(user: User = Depends(require_role("admin"))):
+    """List registered webhook URLs."""
+    return {
+        "webhooks": webhook_urls,
+        "total": len(webhook_urls)
+    }
+
+# Application startup and shutdown events
+
+@app.on_event("startup")
+async def startup_event():
+    """Initialize application components on startup."""
+    global automation_manager, config, websocket_manager, security_manager
+    
+    try:
+        logger.info("Starting Football Automation API...")
+        
+        # Load configuration
+        config = load_config()
+        logger.info(f"Configuration loaded for environment: {config.environment}")
+        
+        # Initialize security manager and middleware
+        security_manager = create_security_middleware_stack(app, config.security)
+        logger.info("Security manager and middleware initialized")
+        
+        # Initialize WebSocket manager
+        websocket_manager = WebSocketManager()
+        
+        # Initialize automation manager
+        automation_manager = AutomationManager(config)
+        
+        # Add event handlers
+        automation_manager.add_event_handler("processing_progress", handle_processing_progress)
+        automation_manager.add_event_handler("processing_completed", handle_processing_completed)
+        automation_manager.add_event_handler("system_error", handle_system_error)
+        automation_manager.add_event_handler("file_detected", handle_file_detected)
+        automation_manager.add_event_handler("download_completed", handle_download_completed)
+        automation_manager.add_event_handler("file_queued", handle_job_queued)
+        
+        # Start automation manager
+        await automation_manager.start()
+        
+        logger.info("Football Automation API started successfully")
+        
+    except Exception as e:
+        logger.error(f"Failed to start application: {e}")
+        raise
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    """Clean up resources on shutdown."""
+    global automation_manager, websocket_manager
+    
+    try:
+        logger.info("Shutting down Football Automation API...")
+        
+        # Stop automation manager
+        if automation_manager:
+            await automation_manager.stop()
+        
+        # Close WebSocket connections
+        if websocket_manager:
+            await websocket_manager.disconnect_all()
+        
+        logger.info("Football Automation API shut down successfully")
+        
+    except Exception as e:
+        logger.error(f"Error during shutdown: {e}")
+
+# Security endpoints
+
+@app.get("/api/v1/security/status")
+async def get_security_status(user: User = Depends(require_role("admin"))):
+    """Get security system status."""
+    if not security_manager:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="Security manager not available"
+        )
+    
+    return {
+        "security_enabled": True,
+        "features": {
+            "input_validation": security_manager.config.enable_input_validation,
+            "file_scanning": security_manager.config.enable_file_scanning,
+            "rate_limiting": security_manager.config.enable_rate_limiting,
+            "ip_whitelisting": security_manager.config.enable_ip_whitelisting,
+            "malware_scanning": security_manager.config.enable_malware_scanning
+        },
+        "limits": {
+            "max_file_size_mb": security_manager.config.max_file_size_mb,
+            "rate_limit_per_minute": security_manager.config.rate_limit_requests_per_minute,
+            "allowed_file_types": security_manager.config.allowed_file_types
+        },
+        "quarantine_dir": security_manager.config.upload_quarantine_dir
+    }
+
+@app.post("/api/v1/security/validate-input")
+async def validate_input(
+    request: Dict[str, Any],
+    user: User = Depends(verify_token)
+):
+    """Validate input data using security manager."""
+    if not security_manager:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="Security manager not available"
+        )
+    
+    input_value = request.get("value", "")
+    pattern_name = request.get("pattern", "safe_string")
+    max_length = request.get("max_length", 1000)
+    
+    result = security_manager.input_validator.validate_string(
+        input_value, pattern_name, max_length
+    )
+    
+    return {
+        "is_valid": result.is_valid,
+        "errors": result.errors,
+        "warnings": result.warnings,
+        "sanitized_value": result.sanitized_value
+    }
+
+@app.get("/api/v1/security/quarantine")
+async def list_quarantined_files(user: User = Depends(require_role("admin"))):
+    """List files in quarantine."""
+    if not security_manager:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="Security manager not available"
+        )
+    
+    quarantine_dir = Path(security_manager.config.upload_quarantine_dir)
+    if not quarantine_dir.exists():
+        return {"files": [], "total": 0}
+    
+    files = []
+    for file_path in quarantine_dir.iterdir():
+        if file_path.is_file():
+            stat = file_path.stat()
+            files.append({
+                "filename": file_path.name,
+                "size": stat.st_size,
+                "quarantined_at": datetime.fromtimestamp(stat.st_ctime).isoformat(),
+                "path": str(file_path)
+            })
+    
+    return {
+        "files": sorted(files, key=lambda x: x["quarantined_at"], reverse=True),
+        "total": len(files)
+    }
+
+@app.delete("/api/v1/security/quarantine/{filename}")
+async def delete_quarantined_file(
+    filename: str,
+    user: User = Depends(require_role("admin"))
+):
+    """Delete a quarantined file."""
+    if not security_manager:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="Security manager not available"
+        )
+    
+    # Validate filename
+    filename_validation = security_manager.input_validator.validate_filename(filename)
+    if not filename_validation.is_valid:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Invalid filename"
+        )
+    
+    quarantine_dir = Path(security_manager.config.upload_quarantine_dir)
+    file_path = quarantine_dir / filename
+    
+    if not file_path.exists():
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Quarantined file not found"
+        )
+    
+    try:
+        file_path.unlink()
+        return {"message": f"Quarantined file {filename} deleted successfully"}
+    except Exception as e:
+        logger.error(f"Failed to delete quarantined file: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Failed to delete quarantined file"
+        )
+
+# WebSocket endpoint for real-time updates
+
+@app.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
+    """WebSocket endpoint for real-time updates."""
+    if not websocket_manager:
+        await websocket.close(code=1011, reason="WebSocket manager not available")
+        return
+    
+    try:
+        await websocket_manager.connect(websocket)
+        
+        # Send initial status
+        if automation_manager:
+            status = automation_manager.get_status()
+            await websocket_manager.send_to_connection(
+                websocket,
+                WebSocketEventType.SYSTEM_STATUS.value,
+                status.to_dict()
+            )
+        
+        # Keep connection alive
+        while True:
+            try:
+                # Wait for messages from client (ping/pong, etc.)
+                data = await websocket.receive_text()
+                
+                # Handle client messages if needed
+                try:
+                    message = json.loads(data)
+                    if message.get("type") == "ping":
+                        await websocket_manager.send_to_connection(
+                            websocket,
+                            "pong",
+                            {"timestamp": datetime.now(timezone.utc).isoformat()}
+                        )
+                except json.JSONDecodeError:
+                    pass  # Ignore invalid JSON
+                    
+            except WebSocketDisconnect:
+                break
+            except Exception as e:
+                logger.error(f"WebSocket error: {e}")
+                break
+                
+    except Exception as e:
+        logger.error(f"WebSocket connection error: {e}")
+    finally:
+        if websocket_manager:
+            await websocket_manager.disconnect(websocket)
 
 if __name__ == "__main__":
     uvicorn.run(
