@@ -21,3 +21,8 @@ tests
 backups
 output
 test.db
+docker-compose.yml
+docker-compose.override.yml
+Dockerfile
+docker-compose.dev.yml
+docker-compose.production.yml
