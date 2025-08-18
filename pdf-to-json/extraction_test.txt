@@ -1,0 +1,5 @@
+2025-08-12 14:26:29,355 - converter.pdf_parser - INFO - Available PDF libraries: ['pdfplumber', 'pypdf2']
+2025-08-12 14:26:29,355 - converter.converter - INFO - PDF to JSON Converter initialized
+2025-08-12 14:26:29,355 - __main__ - INFO - Extracting football data from: test_football.json
+2025-08-12 14:26:29,358 - converter.football_extractor - INFO - Extracted 0 football matches
+❌ No football matches found in the JSON file

@@ -1,0 +1,43 @@
+INFO:     Will watch for changes in these directories: ['/home/bandi/Documents/code/2025/pdf-to-json']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [48877] using StatReload
+INFO:converter.pdf_parser:Available PDF libraries: ['pdfplumber', 'pypdf2']
+INFO:converter.converter:PDF to JSON Converter initialized
+INFO:     Started server process [48893]
+INFO:     Waiting for application startup.
+INFO:src.api.main:PDF to JSON Converter API starting up
+INFO:     Application startup complete.
+INFO:     127.0.0.1:55622 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48108 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48108 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58324 - "GET /health HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'debug_extraction.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:src.api.main:PDF to JSON Converter API shutting down
+INFO:     Application shutdown complete.
+INFO:     Finished server process [48893]
+INFO:converter.pdf_parser:Available PDF libraries: ['pdfplumber', 'pypdf2']
+INFO:converter.converter:PDF to JSON Converter initialized
+INFO:     Started server process [67566]
+INFO:     Waiting for application startup.
+INFO:src.api.main:PDF to JSON Converter API starting up
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'debug_patterns.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:src.api.main:PDF to JSON Converter API shutting down
+INFO:     Application shutdown complete.
+INFO:     Finished server process [67566]
+INFO:converter.pdf_parser:Available PDF libraries: ['pdfplumber', 'pypdf2']
+INFO:converter.converter:PDF to JSON Converter initialized
+INFO:     Started server process [70251]
+INFO:     Waiting for application startup.
+INFO:src.api.main:PDF to JSON Converter API starting up
+INFO:     Application startup complete.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:src.api.main:PDF to JSON Converter API shutting down
+INFO:     Application shutdown complete.
+INFO:     Finished server process [70251]
+INFO:     Stopping reloader process [48877]

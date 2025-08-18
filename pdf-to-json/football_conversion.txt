@@ -1,0 +1,32 @@
+2025-08-12 14:17:23,168 - converter.pdf_parser - INFO - Available PDF libraries: ['pdfplumber', 'pypdf2']
+2025-08-12 14:17:23,168 - converter.converter - INFO - PDF to JSON Converter initialized
+2025-08-12 14:17:23,168 - __main__ - INFO - Running football conversion pipeline on: test_football.json
+2025-08-12 14:17:23,168 - converter.converter - INFO - Starting football conversion workflow for test_football.json
+14:17:23 - converter.data_processor - INFO - Updated max_markets from config: 25
+14:17:23 - converter.data_processor - INFO - Loaded 27 market priorities from configuration
+14:17:23 - converter.data_processor - INFO - DataProcessor initialized with max_markets=25, loaded 27 market priorities
+14:17:23 - football_processing.football_converter - INFO - FootballConverter initialized successfully
+14:17:23 - football_processing.football_converter - INFO - Starting football conversion pipeline
+14:17:23 - football_processing.football_converter - INFO - Loading input data from test_football.json
+14:17:23 - football_processing.football_converter - ERROR - Football conversion pipeline failed: [PROCESSING_ERROR] Error loading input data: [PROCESSING_ERROR] Input JSON missing 'content' section
+Traceback (most recent call last):
+  File "/home/bandi/Documents/code/2025/pdf-to-json/src/converter/football_converter.py", line 441, in _load_input_data
+    raise ProcessingError("Input JSON missing 'content' section")
+converter.exceptions.ProcessingError: [PROCESSING_ERROR] Input JSON missing 'content' section
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bandi/Documents/code/2025/pdf-to-json/src/converter/football_converter.py", line 170, in convert_football
+    json_content = self._load_input_data(json_file_path)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bandi/Documents/code/2025/pdf-to-json/src/converter/football_converter.py", line 462, in _load_input_data
+    raise ProcessingError(error_msg)
+converter.exceptions.ProcessingError: [PROCESSING_ERROR] Error loading input data: [PROCESSING_ERROR] Input JSON missing 'content' section
+14:17:23 - converter.converter - ERROR - Football conversion failed: [PROCESSING_ERROR] Error loading input data: [PROCESSING_ERROR] Input JSON missing 'content' section
+
+❌ Football conversion pipeline failed!
+  Input: test_football.json
+  Error: [PROCESSING_ERROR] Error loading input data: [PROCESSING_ERROR] Input JSON missing 'content' section
+  Processing time: 0.00 seconds
+  Stages failed: data_loading

@@ -1,0 +1,6 @@
+2025-08-12 14:08:39,252 - converter.pdf_parser - INFO - Available PDF libraries: ['pdfplumber', 'pypdf2']
+2025-08-12 14:08:39,252 - converter.converter - INFO - PDF to JSON Converter initialized
+Available conversion options:
+  JSON types: basic, detailed, minimal, structured
+  Available schemas: basic, detailed, minimal, structured
+  Available parsers: pdfplumber, pypdf2

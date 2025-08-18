@@ -1,0 +1,4 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   146  100   146    0     0  51736      0 --:--:-- --:--:-- --:--:-- 73000
+{"status":"healthy","version":"1.0.0","available_parsers":["pdfplumber","pypdf2"],"available_schemas":["basic","detailed","minimal","structured"]}

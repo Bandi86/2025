@@ -1,0 +1,18 @@
+2025-08-12 14:33:30,106 - converter.pdf_parser - INFO - Available PDF libraries: ['pdfplumber', 'pypdf2']
+2025-08-12 14:33:30,108 - converter.converter - INFO - PDF to JSON Converter initialized
+2025-08-12 14:33:30,108 - __main__ - INFO - Extracting football data from: test_football.json
+2025-08-12 14:33:30,124 - converter.football_extractor - INFO - Extracted 2 football matches
+
+=== LABDARÚGÁS MÉRKŐZÉSEK (2 db) ===
+
+
+--- Premier League ---
+Kedd 20:00 | Real Madrid - Barcelona
+Odds: 2.5 | 3.2 | 2.8
+--------------------------------------------------
+Szerda 21:00 | Manchester United - Liverpool
+Odds: 1.95 | 3.4 | 4.2
+--------------------------------------------------
+2025-08-12 14:33:30,125 - converter.football_extractor - INFO - Saved 2 matches to test_output.json
+
+✅ Football data saved to: test_output.json
