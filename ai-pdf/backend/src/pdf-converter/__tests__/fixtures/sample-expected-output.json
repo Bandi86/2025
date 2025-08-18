@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "originalFile": "sample.pdf",
+    "processedAt": "2025-01-15T10:30:00.000Z",
+    "textLength": 1250,
+    "processingTimeMs": 750
+  },
+  "content": {
+    "originalText": "Football Match Information\n\nMatch 1: Manchester United vs Liverpool\nDate: 2025-01-20\nTime: 15:00\nLeague: Premier League\nCountry: England\nOdds: Home Win 2.5, Draw 3.2, Away Win 2.8\n\nMatch 2: Barcelona vs Real Madrid\nDate: 2025-01-21\nTime: 20:00\nLeague: La Liga\nCountry: Spain\nOdds: Home Win 2.1, Draw 3.5, Away Win 3.0",
+    "analysis": {
+      "matches": [
+        {
+          "matchId": "match-001",
+          "homeTeam": "Manchester United",
+          "awayTeam": "Liverpool",
+          "date": "2025-01-20",
+          "time": "15:00",
+          "country": "England",
+          "league": "Premier League",
+          "round": 1,
+          "odds": [
+            {
+              "id": "odds-001",
+              "homeWin": 2.5,
+              "draw": 3.2,
+              "awayWin": 2.8
+            }
+          ],
+          "markets": [
+            {
+              "id": "market-001",
+              "name": "Match Winner",
+              "odds": [2.5, 3.2, 2.8]
+            }
+          ]
+        },
+        {
+          "matchId": "match-002",
+          "homeTeam": "Barcelona",
+          "awayTeam": "Real Madrid",
+          "date": "2025-01-21",
+          "time": "20:00",
+          "country": "Spain",
+          "league": "La Liga",
+          "round": 1,
+          "odds": [
+            {
+              "id": "odds-002",
+              "homeWin": 2.1,
+              "draw": 3.5,
+              "awayWin": 3.0
+            }
+          ],
+          "markets": [
+            {
+              "id": "market-002",
+              "name": "Match Winner",
+              "odds": [2.1, 3.5, 3.0]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "status": "success"
+}

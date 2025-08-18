@@ -1,0 +1,39 @@
+Football Match Information
+
+Match 1: Manchester United vs Liverpool
+Date: 2025-01-20
+Time: 15:00
+League: Premier League
+Country: England
+Odds: Home Win 2.5, Draw 3.2, Away Win 2.8
+
+Match 2: Barcelona vs Real Madrid
+Date: 2025-01-21
+Time: 20:00
+League: La Liga
+Country: Spain
+Odds: Home Win 2.1, Draw 3.5, Away Win 3.0
+
+Additional Information:
+- Stadium capacity: 75,000
+- Weather conditions: Clear
+- Referee: John Smith
+- Assistant referees: Mike Johnson, Sarah Wilson
+
+Betting Markets:
+1. Match Winner
+2. Over/Under 2.5 Goals
+3. Both Teams to Score
+4. Correct Score
+5. First Goal Scorer
+
+Historical Data:
+- Last 5 meetings: 2-2-1 (Home-Draw-Away)
+- Average goals per game: 2.8
+- Most common result: 2-1
+
+Tournament Information:
+- Round: Quarter Finals
+- Prize money: $1,000,000
+- TV audience: 500 million viewers
+- Kick-off time: 15:00 GMT
