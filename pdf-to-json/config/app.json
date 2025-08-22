@@ -1,0 +1,55 @@
+{
+  "app": {
+    "name": "PDF to JSON Converter",
+    "version": "1.0.0",
+    "description": "Robust PDF to JSON converter with football data extraction"
+  },
+  "paths": {
+    "input_dir": "data/input",
+    "output_dir": "data/output",
+    "processed_dir": "data/processed",
+    "temp_dir": "data/temp",
+    "logs_dir": "logs",
+    "config_dir": "config"
+  },
+  "processing": {
+    "default_json_type": "basic",
+    "max_file_size_mb": 100,
+    "supported_extensions": [".pdf"],
+    "default_encoding": "utf-8",
+    "max_pages_preview": 3
+  },
+  "football": {
+    "max_markets_per_game": 25,
+    "default_league_priority": 10,
+    "extraction_timeout_seconds": 300,
+    "merge_games": true,
+    "split_by_date": true
+  },
+  "api": {
+    "host": "0.0.0.0",
+    "port": 8000,
+    "debug": false,
+    "workers": 1,
+    "max_upload_size_mb": 50
+  },
+  "security": {
+    "max_filename_length": 255,
+    "allowed_extensions": [".pdf", ".json"],
+    "scan_files": true,
+    "rate_limit_per_minute": 10
+  },
+  "logging": {
+    "config_file": "config/logging.json",
+    "log_level": "INFO",
+    "enable_rotation": true,
+    "max_log_size_mb": 10,
+    "backup_count": 5
+  },
+  "docker": {
+    "image_name": "pdf-to-json",
+    "container_name": "pdf-to-json-app",
+    "ports": ["8000:8000"],
+    "volumes": ["./data:/app/data"]
+  }
+}
